@@ -12,13 +12,7 @@ export default function Navbar() {
           <div className="navbar-wrapper">
             <Link href="/" className="navbar-brand">
               <div className="homepage-loader">
-                <Image
-                  src="/images/flat18_256x256.avif"
-                  alt="Flat 18 Logo"
-                  width={256}
-                  height={256}
-                  className="image-11"
-                />
+                <div className="navbar-logo">F18</div>
               </div>
               <div className="words-laft-eitheeen">Flat 18</div>
             </Link>
@@ -50,4 +44,4 @@ export default function Navbar() {
       </div>
     </div>
   )
-} 
+}

@@ -7,20 +7,17 @@ export default function Testimonials() {
     {
       quote: "Flat 18 transformed our online presence. Their attention to detail and technical expertise exceeded our expectations.",
       author: "Sarah Johnson",
-      role: "CEO, TechStart",
-      avatar: "/images/testimonials/avatar1.avif"
+      role: "CEO, TechStart"
     },
     {
       quote: "Working with Flat 18 was a game-changer for our business. They delivered a beautiful, high-performing website on time and on budget.",
       author: "Michael Chen",
-      role: "Founder, InnovateCo",
-      avatar: "/images/testimonials/avatar2.avif"
+      role: "Founder, InnovateCo"
     },
     {
       quote: "The team's expertise in modern web technologies helped us create an exceptional user experience for our customers.",
       author: "Emma Williams",
-      role: "Product Manager, DigitalFlow",
-      avatar: "/images/testimonials/avatar3.avif"
+      role: "Product Manager, DigitalFlow"
     }
   ]
 
@@ -159,4 +156,4 @@ export default function Testimonials() {
       `}</style>
     </div>
   )
-} 
+}
