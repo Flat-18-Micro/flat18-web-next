@@ -1,18 +1,32 @@
 'use client'
 
+import Image from 'next/image'
+
 export default function Portfolio() {
   const projects = [
     {
       title: 'WalletScrutiny',
-      description: 'WalletScrutiny helps everyday bitcoin users verify the legitimacy and security of their wallet by ensuring it is truly open-source.',
-      image: '/images/wallet-scrutiny-logo.webp',
+      description: 'Collaborative project with the Bitcoin Design Community to redesign the WalletScrutiny brand and website.',
+      image: '/images/wallet-scrut.webp',
       link: 'https://walletscrutiny.com',
       technologies: [
-        { name: 'JavaScript', percentage: '40%', colorClass: 'js-key-colour' },
-        { name: 'HTML5', percentage: '30%', colorClass: 'html5-tech-used' },
-        { name: 'SCSS', percentage: '30%', colorClass: 'scss-key-colour' }
+        { name: 'JavaScript', percentage: '90%', colorClass: 'js-key-colour', cssClass: 'ws' },
+        { name: 'HTML5', percentage: '5%', colorClass: 'html5-tech-used', cssClass: 'ws' },
+        { name: 'SCSS', percentage: '5%', colorClass: 'scss-key-colour', cssClass: 'ws' }
       ],
       status: 'Current version'
+    },
+    {
+      title: 'BTCPay Server',
+      description: 'Clean, modern design for the BTCPay Server Main Landing page and Foundation Website.',
+      image: '/images/btcpay.webp',
+      link: 'https://btcpayserver.org',
+      technologies: [
+        { name: 'HTML5', percentage: '40%', colorClass: 'html5-tech-used' },
+        { name: 'CSS', percentage: '30%', colorClass: 'css-key-colour' },
+        { name: 'JavaScript', percentage: '30%', colorClass: 'js-key-colour', cssClass: 'btc' }
+      ],
+      status: 'Live'
     },
     {
       title: 'F18 Pay',
@@ -20,7 +34,18 @@ export default function Portfolio() {
       image: '/images/f18-pay-224.webp',
       link: 'https://pay.flat18.co.uk',
       technologies: [
-        { name: 'JavaScript', percentage: '100%', colorClass: 'js-key-colour' }
+        { name: 'JavaScript', percentage: '100%', colorClass: 'js-key-colour', cssClass: 'f18-pay' }
+      ],
+      status: 'Live'
+    },
+    {
+      title: '# Hashboard',
+      description: 'Web3 application enabling transparent operation and governance of the Zettahash DAO project.',
+      image: '/images/creative-studies23.webp',
+      link: 'https://hashboard.zettahash.org',
+      technologies: [
+        { name: 'Vue.js', percentage: '60%', colorClass: 'vue-key-colour', cssClass: 'f18' },
+        { name: 'JavaScript', percentage: '40%', colorClass: 'js-key-colour' }
       ],
       status: 'Live'
     },
@@ -30,56 +55,182 @@ export default function Portfolio() {
       image: '/images/zettahash-2024.webp',
       link: 'https://zettahash-static.webflow.io',
       technologies: [
-        { name: 'Webflow', percentage: '100%', colorClass: 'webflow-key-colour' }
+        { name: 'Webflow', percentage: '100%', colorClass: 'webflow-key-colour', cssClass: '_100' }
       ],
       status: 'Live',
       framework: {
         name: 'Webflow',
         logo: '/images/webflow-icon-4095338614.png'
       }
+    },
+    {
+      title: 'BeraVote NFT Family',
+      description: 'A concept sample for a BeraVote NFT project built in Webflow for maximum content manageability. We coupled this with extensive custom JS to enable serverless database management of NFT assets for the site gallery.',
+      image: '/images/creative-studies2.webp',
+      link: 'https://beravote-nft.pages.dev/',
+      technologies: [
+        { name: 'Webflow SiteBuilder', percentage: '50%', colorClass: 'webflow-key-colour', cssClass: '_50' },
+        { name: 'JavaScript', percentage: '50%', colorClass: 'js-key-colour', cssClass: 'bv' }
+      ],
+      status: 'demo'
+    },
+    {
+      title: 'Keevo Wallet',
+      description: 'Redesign of Keevo Wallet website to achieve a look which can be described as "glossy", "high-quality" but also clean, modern and balancing "sophisticated" with "trendy".',
+      image: '/images/keevo-tile.webp',
+      technologies: [
+        { name: 'HTML5', percentage: '30%', colorClass: 'html5-tech-used', cssClass: 'keevo' },
+        { name: 'CSS', percentage: '40%', colorClass: 'css-key-colour' },
+        { name: 'SCSS', percentage: '60%', colorClass: 'scss-key-colour', cssClass: 'keevo' }
+      ],
+      status: 'demo'
+    },
+    {
+      title: 'Incognet',
+      description: 'Refreshing the Incognet website with improved UX and a cleaner, more-appealing UI and graphics.',
+      image: '/images/incognetio-tile.webp',
+      technologies: [
+        { name: 'PHP', percentage: '80%', colorClass: 'php-key-colour', cssClass: 'incognet' },
+        { name: 'SCSS', percentage: '10%', colorClass: 'scss-key-colour', cssClass: 'incognet' }
+      ],
+      status: 'demo',
+      framework: {
+        name: 'PHP',
+        logo: '/images/php-logo.png'
+      }
+    },
+    {
+      title: 'Zismo.io',
+      description: 'A Peer-to-Peer bitcoin trading platform which also encourages face-to-face trading',
+      image: '/images/zismo-tile.webp',
+      technologies: [
+        { name: 'PHP', percentage: '65%', colorClass: 'php-key-colour', cssClass: 'zismo' },
+        { name: 'SCSS', percentage: '15%', colorClass: 'scss-key-colour', cssClass: 'zismo' },
+        { name: 'JavaScript', percentage: '20%', colorClass: 'js-key-colour', cssClass: 'zismo' }
+      ],
+      status: 'demo'
+    },
+    {
+      title: 'Naira Ex',
+      description: 'Landing-page for a crypto debit card aimed at the Canadian and Nigerian market.',
+      image: '/images/nairaex-tile.webp',
+      technologies: [
+        { name: 'HTML5', percentage: '30%', colorClass: 'html5-tech-used' },
+        { name: 'CSS', percentage: '30%', colorClass: 'css-key-colour', cssClass: 'naira' },
+        { name: 'JavaScript', percentage: '40%', colorClass: 'js-key-colour', cssClass: 'naira' }
+      ],
+      status: 'demo'
+    },
+    {
+      title: 'P2P NFT',
+      description: 'Peer-to-peer NFT trading platform',
+      image: '/images/p2pnft-tile.webp',
+      technologies: [
+        { name: 'Vue.js', percentage: '80%', colorClass: 'vue-key-colour', cssClass: 'p2p' },
+        { name: 'SCSS', percentage: '10%', colorClass: 'scss-key-colour', cssClass: 'p2p' },
+        { name: 'JavaScript', percentage: '10%', colorClass: 'js-key-colour', cssClass: 'btc' }
+      ],
+      status: 'demo'
+    },
+    {
+      title: 'WalletScrutiny (Early)',
+      description: 'Earlier iterations of WalletScrutiny and experimental layouts, graphics, UX.',
+      image: '/images/walletscrutiny-tile.webp',
+      technologies: [
+        { name: 'JavaScript', percentage: '90%', colorClass: 'js-key-colour', cssClass: 'ws' },
+        { name: 'HTML5', percentage: '5%', colorClass: 'html5-tech-used', cssClass: 'ws' },
+        { name: 'SCSS', percentage: '5%', colorClass: 'scss-key-colour', cssClass: 'ws' }
+      ],
+      status: 'archive'
     }
   ]
 
   return (
-    <div className="content portfolio-wrapper" id="work">
-      <div className="text-org">
-        <h2 className="gradient-text blue">Our Recent Work</h2>
-        <p className="subtitle">Projects we've delivered for our clients</p>
-      </div>
-      <div className="portfolio-grid">
+    <section className="section" id="work">
+      <div className="container">
+        <div className="text-org">
+          <h2 className="gradient-text ready">Work & Samples</h2>
+          <p className="subtitle">Check out a few projects we've worked on.</p>
+        </div>
+        <div className="portfolio-grid">
         {projects.map((project, index) => (
           <div key={index} className="work-tile compact">
-            <div className="work-tile-image compact">
-              <div className="project-logo-placeholder">{project.title[0]}</div>
-            </div>
+            {project.image && (
+              <Image
+                src={project.image}
+                alt={`${project.title} website graphic`}
+                width={224}
+                height={224}
+                className="work-tile-image compact"
+              />
+            )}
             <div className="work-tile-text">
               <h3 className="work-ile-title compact">{project.title}</h3>
               <div className="work-tile-text">{project.description}</div>
-              <a href={project.link} target="_blank" rel="noopener noreferrer" className="link">
-                <div>Visit Website</div>
-                <div className="icon small">&#xF1C5;</div>
-              </a>
+              {project.link && (
+                <a href={project.link} target="_blank" rel="noopener noreferrer" className="link">
+                  <div>Visit Website</div>
+                  <i className="bi bi-box-arrow-up-right icon small"></i>
+                </a>
+              )}
               <div className="technology-wrapper">
                 <div className="technologies-used">
-                  {project.technologies.map((tech, techIndex) => (
-                    <div
-                      key={techIndex}
-                      className={`technology ${tech.colorClass} ${tech.percentage === '100%' ? '_100' : tech.percentage === '50%' ? '_50' : ''}`}
-                    ></div>
-                  ))}
+                  {project.technologies.map((tech, techIndex) => {
+                    const techClasses = [
+                      'technology',
+                      tech.colorClass
+                    ];
+
+                    // Add cssClass from the technology object if available
+                    if (tech.cssClass) {
+                      techClasses.push(tech.cssClass);
+                    }
+
+                    return (
+                      <div
+                        key={techIndex}
+                        className={techClasses.join(' ')}
+                        style={{ width: tech.percentage }}
+                      ></div>
+                    );
+                  })}
                 </div>
-                <ul className="work-list">
-                  {project.technologies.map((tech, techIndex) => (
-                    <li key={techIndex} className="list-item">
-                      <div className={`technology-colour-key ${tech.colorClass}`}></div>
-                      <div className="technology-name">{tech.name}</div>
-                      <div className="technology-pc">{tech.percentage}</div>
-                    </li>
-                  ))}
+                <ul className="work-list w-list-unstyled">
+                  {project.technologies.map((tech, techIndex) => {
+                    // Convert colorClass to colour-key class
+                    let colorKeyClass = tech.colorClass;
+                    if (colorKeyClass === 'js-key-colour') colorKeyClass = 'js-colour-key';
+                    if (colorKeyClass === 'html5-tech-used') colorKeyClass = 'html5-colour-key';
+                    if (colorKeyClass === 'scss-key-colour') colorKeyClass = 'scss-colour-key';
+                    if (colorKeyClass === 'css-key-colour') colorKeyClass = 'css-colour-key';
+                    if (colorKeyClass === 'php-key-colour') colorKeyClass = 'php-colour-key';
+                    if (colorKeyClass === 'vue-key-colour') colorKeyClass = 'vue-colour-key';
+                    if (colorKeyClass === 'webflow-key-colour') colorKeyClass = 'webflow-colour-key';
+
+                    return (
+                      <li key={techIndex} className="list-item">
+                        <div className={`technology-colour-key ${colorKeyClass}`}></div>
+                        <div className="technology-name">{tech.name}</div>
+                        <div className="technology-pc">{tech.percentage}</div>
+                      </li>
+                    );
+                  })}
                 </ul>
                 {project.framework && (
                   <div className="framework-credit-wrapper">
-                    <div className="framework-logo">{project.framework.name[0]}</div>
+                    {project.framework.logo ? (
+                      <Image
+                        src={project.framework.logo}
+                        alt={`${project.framework.name} logo`}
+                        width={24}
+                        height={24}
+                        className="framework-logo"
+                      />
+                    ) : (
+                      <div className="framework-logo-placeholder">
+                        {project.framework.name[0]}
+                      </div>
+                    )}
                   </div>
                 )}
               </div>
@@ -87,6 +238,7 @@ export default function Portfolio() {
             <div className="badge subtle">{project.status}</div>
           </div>
         ))}
+      </div>
       </div>
       <style jsx>{`
         .portfolio-wrapper {
@@ -103,9 +255,9 @@ export default function Portfolio() {
         }
         .portfolio-grid {
           display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+          grid-template-columns: repeat(3, 1fr);
           gap: 2rem;
-          padding: 0 2rem;
+          width: 100%;
         }
         .work-tile {
           background: rgba(255, 255, 255, 0.05);
@@ -202,8 +354,54 @@ export default function Portfolio() {
         .scss-key-colour {
           background-color: #c69;
         }
+        .css-key-colour {
+          background-color: #264de4;
+        }
+        .php-key-colour {
+          background-color: #777bb3;
+        }
+        .vue-key-colour {
+          background-color: #42b883;
+        }
         .webflow-key-colour {
           background-color: #4353ff;
+        }
+
+        /* Color key classes */
+        .js-colour-key {
+          background-color: #f7df1e;
+        }
+        .html5-colour-key {
+          background-color: #e34f26;
+        }
+        .scss-colour-key {
+          background-color: #c69;
+        }
+        .css-colour-key {
+          background-color: #264de4;
+        }
+        .php-colour-key {
+          background-color: #777bb3;
+        }
+        .vue-colour-key {
+          background-color: #42b883;
+        }
+        .webflow-colour-key {
+          background-color: #4353ff;
+        }
+
+        /* Project-specific classes */
+        .ws {
+          opacity: 0.8;
+        }
+        .btc {
+          opacity: 0.9;
+        }
+        .bv {
+          opacity: 0.85;
+        }
+        .incognet {
+          opacity: 0.75;
         }
         .work-list {
           list-style: none;
@@ -238,6 +436,11 @@ export default function Portfolio() {
         }
         .framework-logo {
           height: 24px;
+          width: auto;
+        }
+
+        .framework-logo-placeholder {
+          height: 24px;
           width: 24px;
           border-radius: 4px;
           background-color: var(--blue-2);
@@ -261,12 +464,60 @@ export default function Portfolio() {
         .badge.subtle {
           background-color: rgba(255, 255, 255, 0.05);
         }
+        @media (max-width: 1200px) {
+          .portfolio-grid {
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+          }
+        }
+
+        @media (max-width: 1024px) {
+          .portfolio-grid {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+          }
+
+          .work-tile {
+            padding: 1.5rem;
+          }
+        }
+
         @media (max-width: 768px) {
           .portfolio-grid {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+          }
+
+          .work-tile {
+            padding: 1.25rem;
+          }
+
+          .work-tile-image.compact {
+            max-width: 70px;
+          }
+
+          .work-tile-text {
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+          }
+
+          .work-ile-title.compact {
+            font-size: 1.1rem;
+            margin-bottom: 0.75rem;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .portfolio-grid {
             grid-template-columns: 1fr;
+            gap: 1.5rem;
+          }
+
+          .work-tile {
+            padding: 1.5rem;
           }
         }
       `}</style>
-    </div>
+    </section>
   )
 }

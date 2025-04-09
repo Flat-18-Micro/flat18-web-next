@@ -8,13 +8,13 @@ export default function Button({ children, variant = 'default', className = '', 
     hero: 'hero',
     'link-light': 'link inline on-light-bg'
   }
-  
+
   const classes = `${baseClasses} ${variantClasses[variant]} ${className}`
   const content = (
     <>
       <div className={`button-background ${variant}`}></div>
       <div className={`button-text ${variant}`}>{children}</div>
-      <div className="icon right">&#xF135;</div>
+      <i className="bi bi-arrow-right icon right"></i>
     </>
   )
 
@@ -31,4 +31,4 @@ export default function Button({ children, variant = 'default', className = '', 
       {content}
     </div>
   )
-} 
+}

@@ -3,32 +3,32 @@
 export default function Features() {
   const features = [
     {
-      icon: '&#xF44E;',
+      icon: 'bi-globe',
       title: 'Web Development',
       description: 'Custom websites built with modern frameworks like Next.js, optimized for performance and SEO.'
     },
     {
-      icon: '&#xF441;',
+      icon: 'bi-phone',
       title: 'App Development',
       description: 'Native and cross-platform mobile applications that deliver exceptional user experiences.'
     },
     {
-      icon: '&#xF6C3;',
+      icon: 'bi-palette',
       title: 'UI/UX Design',
       description: 'Beautiful, intuitive interfaces designed with your users in mind.'
     },
     {
-      icon: '&#xF425;',
+      icon: 'bi-cart',
       title: 'E-commerce Solutions',
       description: 'Scalable online stores with secure payment processing and inventory management.'
     },
     {
-      icon: '&#xF465;',
+      icon: 'bi-code-slash',
       title: 'API Integration',
       description: 'Seamless integration with third-party services and custom API development.'
     },
     {
-      icon: '&#xF6B8;',
+      icon: 'bi-gear',
       title: 'Maintenance & Support',
       description: '24/7 technical support and regular updates to keep your digital assets running smoothly.'
     }
@@ -44,7 +44,7 @@ export default function Features() {
         {features.map((feature, index) => (
           <div key={index} className="feature-card">
             <div className="feature-icon">
-              <span className="icon" dangerouslySetInnerHTML={{ __html: feature.icon }}></span>
+              <i className={`bi ${feature.icon}`}></i>
             </div>
             <h3 className="feature-title">{feature.title}</h3>
             <p className="feature-description">{feature.description}</p>
@@ -54,6 +54,7 @@ export default function Features() {
       <style jsx>{`
         .features-wrapper {
           padding: 6rem 0;
+          width: 100%;
         }
         .text-org {
           text-align: center;
@@ -96,4 +97,4 @@ export default function Features() {
       `}</style>
     </div>
   )
-} 
+}

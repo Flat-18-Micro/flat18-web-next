@@ -63,10 +63,10 @@ export default function Stats() {
   }, [])
 
   const stats = [
-    { value: 50, label: 'Projects Completed' },
-    { value: 98, label: 'Client Satisfaction' },
-    { value: 5, label: 'Years Experience' },
-    { value: 24, label: 'Team Members' }
+    { value: 20, label: 'Projects Completed' },
+    { value: 100, label: 'Client Satisfaction' },
+    { value: 12, label: 'Years Experience' },
+    { value: 2, label: 'Team Members (Yes, really)' }
   ]
 
   return (
@@ -89,6 +89,7 @@ export default function Stats() {
         .stats-wrapper {
           padding: 5rem 0;
           background: linear-gradient(to right, var(--bg-modern-dark), var(--bg-modern), var(--bg-modern-dark));
+          margin-top: 50px;
         }
         .stats-grid {
           display: grid;

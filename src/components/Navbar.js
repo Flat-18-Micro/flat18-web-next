@@ -1,47 +1,91 @@
 'use client'
 
-import Image from 'next/image'
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import Button from './Button'
+import styles from './Navbar.module.css'
 
 export default function Navbar() {
+  const [isScrolled, setIsScrolled] = useState(false)
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20)
+    }
+
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen)
+  }
+
   return (
-    <div className="navbar-no-shadow">
-      <div className="navbar-no-shadow-container">
-        <div className="container-regular">
-          <div className="navbar-wrapper">
-            <Link href="/" className="navbar-brand">
-              <div className="homepage-loader">
-                <div className="navbar-logo">F18</div>
-              </div>
-              <div className="words-laft-eitheeen">Flat 18</div>
-            </Link>
-            <nav className="nav-menu-wrapper">
-              <div className="div-block">
-                <ul className="nav-menu">
-                  <li>
-                    <a href="#chat" className="nav-link">Chat</a>
-                  </li>
-                  <li>
-                    <a href="/#pricing" className="nav-link">Pricing</a>
-                  </li>
-                  <li>
-                    <a href="https://accounts.flat18.co.uk/client/login" className="nav-link">Login</a>
-                  </li>
-                  <li>
-                    <a href="/#wordsExperimentsSliderContainerWrapper" className="nav-link">Work</a>
-                  </li>
-                  <li className="mobile-margin-top-10">
-                    <div className="nav-button-wrapper">
-                      <Button variant="menu">Get started</Button>
-                    </div>
-                  </li>
-                </ul>
-              </div>
-            </nav>
+    <header className={`${styles.navbar} ${isScrolled ? styles.scrolled : ''}`}>
+      <div className={`container ${styles.container}`}>
+        <Link href="/" className={styles.brand}>
+          <div className={styles.logo}>
+            <Image 
+              src="/images/flat18_256x256.avif" 
+              alt="Flat 18 Logo" 
+              width={24} 
+              height={24}
+            />
           </div>
-        </div>
+          <div className={styles.brandName}>Flat 18</div>
+        </Link>
+
+        <button 
+          className={styles.menuToggle} 
+          onClick={toggleMobileMenu} 
+          aria-label="Toggle menu"
+          aria-expanded={isMobileMenuOpen}
+        >
+          <span className={`${styles.hamburger} ${isMobileMenuOpen ? styles.hamburgerOpen : ''}`}></span>
+        </button>
+
+        <nav 
+          className={`${styles.menuWrapper} ${isMobileMenuOpen ? styles.menuWrapperOpen : ''}`} 
+          aria-label="Main navigation"
+        >
+          <ul className={styles.menu}>
+            <li>
+              <Link href="/#work" className={styles.link} onClick={() => setIsMobileMenuOpen(false)}>
+                <span>Work</span>
+              </Link>
+            </li>
+            <li>
+              <Link href="/#pricing" className={styles.link} onClick={() => setIsMobileMenuOpen(false)}>
+                <span>Pricing</span>
+              </Link>
+            </li>
+            <li>
+              <Link href="/about" className={styles.link} onClick={() => setIsMobileMenuOpen(false)}>
+                <span>About</span>
+              </Link>
+            </li>
+            <li>
+              <a 
+                href="https://accounts.flat18.co.uk/client/login" 
+                className={styles.link} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                <span>Client Portal</span>
+              </a>
+            </li>
+            <li className={styles.cta}>
+              <Button href="#chat" variant="hero" onClick={() => setIsMobileMenuOpen(false)}>
+                <span>Start a Project</span>
+              </Button>
+            </li>
+          </ul>
+        </nav>
       </div>
-    </div>
+    </header>
   )
 }

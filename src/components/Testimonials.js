@@ -39,7 +39,7 @@ export default function Testimonials() {
         <div className="testimonials-track" style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
           {testimonials.map((testimonial, index) => (
             <div key={index} className="testimonial-card">
-              <div className="quote-icon">&#xF756;</div>
+              <div className="quote-icon"><i className="bi bi-quote"></i></div>
               <p className="testimonial-quote">{testimonial.quote}</p>
               <div className="testimonial-author">
                 <div className="author-avatar">

@@ -1,0 +1,261 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  padding: 1.5rem 0;
+  background-color: rgba(10, 12, 16, 0.2);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.scrolled {
+  padding: 1rem 0;
+  background-color: rgba(10, 12, 16, 0.95);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.brand {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-decoration: none;
+  color: var(--white);
+  transition: transform 0.3s ease;
+}
+
+.brand:hover {
+  transform: translateY(-2px);
+}
+
+.brand:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(25, 253, 178, 0.3);
+  border-radius: 4px;
+}
+
+.logo {
+  width: 42px;
+  height: 42px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, var(--primary), var(--blue-2));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 1rem;
+  box-shadow: 0 4px 20px rgba(25, 253, 178, 0.3);
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.logo::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.brand:hover .logo::after {
+  opacity: 1;
+}
+
+.logoText {
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: var(--black);
+}
+
+.brandName {
+  font-size: 1.5rem;
+  font-weight: 700;
+  background: linear-gradient(to right, var(--white), var(--cw-2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.menuToggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  z-index: 1001;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.menuToggle:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(25, 253, 178, 0.3);
+}
+
+.menuToggle:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.hamburger {
+  display: block;
+  position: relative;
+  width: 24px;
+  height: 2px;
+  background-color: var(--white);
+  transition: all 0.3s ease;
+}
+
+.hamburger::before,
+.hamburger::after {
+  content: '';
+  position: absolute;
+  width: 24px;
+  height: 2px;
+  background-color: var(--white);
+  transition: all 0.3s ease;
+}
+
+.hamburger::before {
+  top: -8px;
+}
+
+.hamburger::after {
+  bottom: -8px;
+}
+
+.hamburgerOpen {
+  background-color: transparent;
+}
+
+.hamburgerOpen::before {
+  transform: rotate(45deg);
+  top: 0;
+}
+
+.hamburgerOpen::after {
+  transform: rotate(-45deg);
+  bottom: 0;
+}
+
+.menuWrapper {
+  display: flex;
+  align-items: center;
+}
+
+.menu {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+.link {
+  color: var(--cw-2);
+  text-decoration: none;
+  font-size: 1.05rem;
+  font-weight: 500;
+  position: relative;
+  padding: 0.5rem 0;
+  transition: color 0.3s ease;
+  display: flex;
+  align-items: center;
+}
+
+.link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--primary);
+  transition: width 0.3s ease;
+}
+
+.link:hover {
+  color: var(--white);
+}
+
+.link:hover::after {
+  width: 100%;
+}
+
+.link:focus {
+  outline: none;
+  color: var(--white);
+}
+
+.link:focus::after {
+  width: 100%;
+}
+
+.cta {
+  margin-left: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .menuToggle {
+    display: block;
+  }
+
+  .menuWrapper {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 80%;
+    max-width: 400px;
+    height: 100vh;
+    background-color: var(--bg-modern-dark);
+    padding: 6rem 2rem 2rem;
+    transition: right 0.3s ease;
+    box-shadow: -5px 0 30px rgba(0, 0, 0, 0.2);
+    overflow-y: auto;
+    z-index: 1000;
+  }
+
+  .menuWrapperOpen {
+    right: 0;
+  }
+
+  .menu {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+  }
+
+  .link {
+    font-size: 1.2rem;
+    width: 100%;
+    padding: 0.75rem 0;
+  }
+
+  .link::after {
+    bottom: 0.5rem;
+  }
+
+  .cta {
+    margin-left: 0;
+    margin-top: 1.5rem;
+    width: 100%;
+  }
+
+  .cta a {
+    width: 100%;
+    text-align: center;
+  }
+}

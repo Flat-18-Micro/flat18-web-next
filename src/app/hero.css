@@ -1,0 +1,43 @@
+<file name=0 path=/Users/edsin/Workspace/APP/Flat18/Flat18.co.uk/src/app/hero.css>:root {
+  --hero-speed1:30s;
+}
+.hero-background-video{
+  transform-style: preserve-3d;
+  transform: translate(-50%,-50%) perspective(.75cm);
+}
+.hero-animation-wrapper{
+  animation: rotate-bg 100s linear infinite;
+}
+.animation-segment.left,.animation-segment.right {
+  animation: warps var(--hero-speed1) linear infinite;
+}
+.animation-segment.top {
+  animation: warp-covers var(--hero-speed1) linear infinite;
+}
+.animation-segment.bottom {
+  animation: warp-covers var(--hero-speed1) linear reverse infinite;
+}
+@keyframes warps {
+  0% {
+    background-position-x:0px;
+  }
+  100% {
+    background-position-x: -400px;
+  }
+}
+@keyframes warp-covers {
+  0% {
+    background-position-y:0;
+  }
+  100% {
+    background-position-y: 225px;
+  }
+}
+@keyframes rotate-bg {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

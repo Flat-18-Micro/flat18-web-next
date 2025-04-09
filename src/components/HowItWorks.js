@@ -1,157 +1,179 @@
 'use client'
 
-import Button from './Button'
-
 export default function HowItWorks() {
   return (
-    <div className="content primere-btf-content content-build-in-target">
-      <div className="text-org how-it-works">
-        <h2 className="gradient-text yellow">The Flat 18 Way:</h2>
-      </div>
-      <div className="content sliding-work-showcase highlight-subtle-block how-it-works">
-        {/* Step 1: Discover */}
-        <div className="work-tile wide-work-tile transparent">
-          <div className="work-tile-text">
-            <div className="flex-header-tile">
-              <h3 className="work-ile-title numbering-title">
-                01 <span className="subtlise">Discover</span>
-              </h3>
-            </div>
-            <div className="animation-wrapper framed">
-              <div className="how-it-works-video step1-animation-container">
-                {/* SVG animation content */}
-                <svg width="100%" height="100%" viewBox="0 0 1121 1121" version="1.1" xmlns="http://www.w3.org/2000/svg">
-                  {/* Add the SVG content here */}
-                </svg>
-                <style jsx>{`
-                  :root {
-                    --step-1-animation-timing: 10s;
-                  }
-                  #initial-message-group, #response-group {
-                    font-family: Arial, sans-serif;
-                    font-weight: 400;
-                  }
-                  #initial-message-group {
-                    opacity: 0;
-                    transform: translate(-40px, 80px);
-                    animation: initial-message-group var(--step-1-animation-timing) ease-in-out forwards infinite;
-                  }
-                  #user-blur {
-                    transform: translate(40px, 0px);
-                    animation: initial-message-group-blur var(--step-1-animation-timing) ease-in-out forwards infinite;
-                  }
-                  #initial-message-group > #read-status {
-                    opacity: 0;
-                    transform: translate(0px, 10px);
-                    animation: initial-message-group-read-status var(--step-1-animation-timing) ease-in-out forwards infinite;
-                  }
-                  @keyframes initial-message-group {
-                    0%, 5% {
-                      opacity: 0;
-                      transform: translate(-40px, 100px);
-                    }
-                    10%, 100% {
-                      opacity: 1;
-                      transform: translate(0px, 0px);
-                    }
-                  }
-                  @keyframes initial-message-group-blur {
-                    0%, 5% {
-                      transform: translate(40px, 0px);
-                    }
-                    10%, 100% {
-                      transform: translate(0px, 0px);
-                    }
-                  }
-                  @keyframes initial-message-group-read-status {
-                    0%, 15% {
-                      opacity: 0;
-                      transform: translate(0px, 10px);
-                    }
-                    20%, 100% {
-                      opacity: 1;
-                      transform: translate(0px, 0px);
-                    }
-                  }
-                  #typing-indicator {
-                    opacity: 0;
-                    transform: translate(0px, 10px);
-                    animation: typing-indicator var(--step-1-animation-timing) ease-in-out forwards infinite;
-                  }
-                  #typing-indicator circle:nth-child(1) {
-                    animation: typing 1.5s infinite ease-in-out;
-                    animation-delay: 0s;
-                  }
-                  #typing-indicator circle:nth-child(2) {
-                    animation: typing 1.5s infinite ease-in-out;
-                    animation-delay: 0.2s;
-                  }
-                  #typing-indicator circle:nth-child(3) {
-                    animation: typing 1.5s infinite ease-in-out;
-                    animation-delay: 0.4s;
-                  }
-                  @keyframes typing {
-                    0% { opacity: 0.2; }
-                    20% { opacity: 1; }
-                    100% { opacity: 0.2; }
-                  }
-                `}</style>
-              </div>
-            </div>
-            <div className="work-tile-text shrinkable">
-              Chat with us about your project.<br />
-              This Discovery session will help us understand exactly what you need.<br />
-            </div>
-            <Button href="#chat" variant="link-light">
-              Start a Discovery session
-            </Button>
-          </div>
+    <section className="how-it-works-section" id="how-it-works">
+      <div className="container">
+        <div className="text-org">
+          <h2 className="gradient-text yellow">The Flat 18 Way</h2>
+          <p className="subtitle">Our simple 3-step process</p>
         </div>
-
-        {/* Step 2: Develop */}
-        <div className="work-tile wide-work-tile transparent">
-          <div className="work-tile-text">
-            <div className="flex-header-tile">
-              <h3 className="work-ile-title numbering-title">
-                02 <span className="subtlise">Develop</span>
-              </h3>
-            </div>
-            <div className="animation-wrapper framed">
-              <div className="how-it-works-video step2-animation-container">
-                {/* SVG animation content */}
+        
+        <div className="process-steps">
+          <div className="process-step">
+            <div className="step-number">01</div>
+            <div className="step-content">
+              <h3 className="step-title">Discover</h3>
+              <div className="step-icon">
+                <i className="bi bi-chat-dots"></i>
               </div>
+              <p className="step-description">
+                Chat with us about your project. This Discovery session will help us understand exactly what you need.
+              </p>
+              <a href="#chat" className="step-link">
+                Start a Discovery session <i className="bi bi-arrow-right ms-2"></i>
+              </a>
             </div>
-            <div className="work-tile-text shrinkable">
-              We'll work closely with you to bring your vision to life, using the latest technologies and best practices.
-            </div>
-            <Button href="#pricing" variant="link-light">
-              View our development process
-            </Button>
           </div>
-        </div>
-
-        {/* Step 3: Deploy */}
-        <div className="work-tile wide-work-tile transparent">
-          <div className="work-tile-text">
-            <div className="flex-header-tile">
-              <h3 className="work-ile-title numbering-title">
-                03 <span className="subtlise">Deploy</span>
-              </h3>
-            </div>
-            <div className="animation-wrapper framed">
-              <div className="how-it-works-video step3-animation-container">
-                {/* SVG animation content */}
+          
+          <div className="process-step">
+            <div className="step-number">02</div>
+            <div className="step-content">
+              <h3 className="step-title">Develop</h3>
+              <div className="step-icon">
+                <i className="bi bi-code-slash"></i>
               </div>
+              <p className="step-description">
+                Choose a subscription and we'll take care of everything else. You'll get text updates as frequently as you or your team require.
+              </p>
+              <a href="#pricing" className="step-link">
+                Subscriptions <i className="bi bi-tag ms-2"></i>
+              </a>
             </div>
-            <div className="work-tile-text shrinkable">
-              Launch your project with confidence, knowing it's been thoroughly tested and optimized for performance.
+          </div>
+          
+          <div className="process-step">
+            <div className="step-number">03</div>
+            <div className="step-content">
+              <h3 className="step-title">Deliver</h3>
+              <div className="step-icon">
+                <i className="bi bi-rocket-takeoff"></i>
+              </div>
+              <p className="step-description">
+                Receive initial samples in 2-3 days, with subsequent requests queued on your project board and delivered within 48 hours.
+              </p>
+              <a href="#work" className="step-link">
+                See our past work <i className="bi bi-grid-3x3-gap ms-2"></i>
+              </a>
             </div>
-            <Button href="#work" variant="link-light">
-              See our past deployments
-            </Button>
           </div>
         </div>
       </div>
-    </div>
+      
+      <style jsx>{`
+        .how-it-works-section {
+          padding: 6rem 0;
+          background: linear-gradient(to bottom, var(--blue-0), var(--bg-modern));
+          position: relative;
+        }
+        
+        .process-steps {
+          display: flex;
+          flex-direction: column;
+          gap: 4rem;
+          margin-top: 4rem;
+          position: relative;
+        }
+        
+        .process-steps::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 2.5rem;
+          width: 1px;
+          height: 100%;
+          background: linear-gradient(to bottom, 
+            rgba(255, 255, 255, 0.1), 
+            rgba(25, 253, 178, 0.3), 
+            rgba(255, 255, 255, 0.1)
+          );
+          z-index: 0;
+        }
+        
+        .process-step {
+          display: flex;
+          position: relative;
+          z-index: 1;
+        }
+        
+        .step-number {
+          font-size: 2rem;
+          font-weight: 700;
+          color: var(--primary);
+          width: 5rem;
+          flex-shrink: 0;
+        }
+        
+        .step-content {
+          flex-grow: 1;
+        }
+        
+        .step-title {
+          font-size: 1.8rem;
+          font-weight: 600;
+          color: var(--white);
+          margin-bottom: 1.5rem;
+        }
+        
+        .step-icon {
+          width: 80px;
+          height: 80px;
+          border-radius: 50%;
+          background: rgba(255, 255, 255, 0.05);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 2rem;
+          color: var(--primary);
+          margin-bottom: 1.5rem;
+          transition: all 0.3s ease;
+        }
+        
+        .process-step:hover .step-icon {
+          transform: scale(1.1);
+          background: rgba(25, 253, 178, 0.1);
+        }
+        
+        .step-description {
+          color: var(--cw-3);
+          margin-bottom: 1.5rem;
+          max-width: 600px;
+          line-height: 1.6;
+        }
+        
+        .step-link {
+          color: var(--cw-1);
+          display: inline-flex;
+          align-items: center;
+          text-decoration: none;
+          font-weight: 500;
+          transition: color 0.3s ease;
+        }
+        
+        .step-link:hover {
+          color: var(--primary);
+        }
+        
+        @media (max-width: 768px) {
+          .process-steps::before {
+            left: 1.5rem;
+          }
+          
+          .step-number {
+            width: 3rem;
+          }
+          
+          .step-title {
+            font-size: 1.5rem;
+          }
+          
+          .step-icon {
+            width: 60px;
+            height: 60px;
+            font-size: 1.5rem;
+          }
+        }
+      `}</style>
+    </section>
   )
-} 
+}
