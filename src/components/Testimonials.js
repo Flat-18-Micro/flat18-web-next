@@ -1,23 +1,35 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import { motion } from 'framer-motion'
+import styles from '../styles/component-css/Testimonials.module.css'
 
 export default function Testimonials() {
   const testimonials = [
     {
-      quote: "Flat 18 transformed our online presence. Their attention to detail and technical expertise exceeded our expectations.",
-      author: "Sarah Johnson",
-      role: "CEO, TechStart"
+      quote: "Flat 18 reimagined our digital identity with pixel-perfect design and cutting-edge engineering.",
+      author: "Anonymous",
+      role: "Private Project"
     },
     {
-      quote: "Working with Flat 18 was a game-changer for our business. They delivered a beautiful, high-performing website on time and on budget.",
-      author: "Michael Chen",
-      role: "Founder, InnovateCo"
+      quote: "We needed a high-performance site with complex functionality. Flat 18 delivered flawlessly — every interaction feels effortless.",
+      author: "Anonymous",
+      role: "Private Project"
     },
     {
-      quote: "The team's expertise in modern web technologies helped us create an exceptional user experience for our customers.",
-      author: "Emma Williams",
-      role: "Product Manager, DigitalFlow"
+      quote: "Their frontend expertise and attention to UX helped us delight users across multiple platforms.",
+      author: "Anonymous",
+      role: "Private Project"
+    },
+    {
+      quote: "Flat 18 brought our Web3 dashboard to life — sleek, secure, and perfectly integrated with our ecosystem.",
+      author: "Anonymous",
+      role: "Private Project"
+    },
+    {
+      quote: "The DeFi app Flat 18 built combined rock-solid backend logic with a clean, intuitive interface. They're true pros.",
+      author: "Anonymous",
+      role: "Private Project"
     }
   ]
 
@@ -28,132 +40,71 @@ export default function Testimonials() {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonials.length)
     }, 5000)
     return () => clearInterval(interval)
-  }, [])
+  }, [testimonials.length])
+
+  // Animation variants
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        duration: 0.6,
+        ease: 'easeOut'
+      }
+    }
+  }
 
   return (
-    <div className="content testimonials-wrapper" id="testimonials">
-      <div className="text-org">
-        <h2 className="gradient-text purple">What Our Clients Say</h2>
-      </div>
-      <div className="testimonials-slider">
-        <div className="testimonials-track" style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
-          {testimonials.map((testimonial, index) => (
-            <div key={index} className="testimonial-card">
-              <div className="quote-icon"><i className="bi bi-quote"></i></div>
-              <p className="testimonial-quote">{testimonial.quote}</p>
-              <div className="testimonial-author">
-                <div className="author-avatar">
-                  <div className="avatar-placeholder">{testimonial.author[0]}</div>
+    <section className={styles.testimonialsWrapper} id="testimonials">
+      <div className={styles.backgroundGradient}></div>
+
+      <motion.div
+        className="container"
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.1 }}
+      >
+        <div className={styles.textOrg}>
+          <h2 className={styles.gradientText}>What Our Clients Say</h2>
+        </div>
+
+        <div className={styles.testimonialsSlider}>
+          <div
+            className={styles.testimonialsTrack}
+            style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+          >
+            {testimonials.map((testimonial, index) => (
+              <div key={index} className={styles.testimonialCard}>
+                <div className={styles.quoteIcon}>
+                  <i className="bi bi-quote"></i>
                 </div>
-                <div className="author-info">
-                  <h4 className="author-name">{testimonial.author}</h4>
-                  <p className="author-role">{testimonial.role}</p>
+                <p className={styles.testimonialQuote}>{testimonial.quote}</p>
+                <div className={styles.testimonialAuthor}>
+                  <div className={styles.authorAvatar}>
+                    <div className={styles.avatarPlaceholder}>{testimonial.author[0]}</div>
+                  </div>
+                  <div className={styles.authorInfo}>
+                    <h4 className={styles.authorName}>{testimonial.author}</h4>
+                    <p className={styles.authorRole}>{testimonial.role}</p>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
+
+          <div className={styles.testimonialDots}>
+            {testimonials.map((_, index) => (
+              <button
+                key={index}
+                className={`${styles.dot} ${index === currentIndex ? styles.dotActive : ''}`}
+                onClick={() => setCurrentIndex(index)}
+                aria-label={`View testimonial ${index + 1}`}
+              />
+            ))}
+          </div>
         </div>
-        <div className="testimonial-dots">
-          {testimonials.map((_, index) => (
-            <button
-              key={index}
-              className={`dot ${index === currentIndex ? 'active' : ''}`}
-              onClick={() => setCurrentIndex(index)}
-            />
-          ))}
-        </div>
-      </div>
-      <style jsx>{`
-        .testimonials-wrapper {
-          padding: 6rem 0;
-          overflow: hidden;
-        }
-        .text-org {
-          text-align: center;
-          margin-bottom: 4rem;
-        }
-        .testimonials-slider {
-          position: relative;
-          width: 100%;
-          max-width: 800px;
-          margin: 0 auto;
-          overflow: hidden;
-        }
-        .testimonials-track {
-          display: flex;
-          transition: transform 0.5s ease;
-        }
-        .testimonial-card {
-          flex: 0 0 100%;
-          padding: 2rem;
-          text-align: center;
-        }
-        .quote-icon {
-          font-size: 2rem;
-          color: var(--accent-color);
-          margin-bottom: 1.5rem;
-        }
-        .testimonial-quote {
-          font-size: 1.25rem;
-          line-height: 1.6;
-          color: var(--text-primary);
-          margin-bottom: 2rem;
-        }
-        .testimonial-author {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          gap: 1rem;
-        }
-        .author-avatar {
-          width: 50px;
-          height: 50px;
-          border-radius: 50%;
-          overflow: hidden;
-          background: var(--accent-color);
-        }
-        .avatar-placeholder {
-          width: 100%;
-          height: 100%;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          font-size: 1.5rem;
-          color: white;
-        }
-        .author-info {
-          text-align: left;
-        }
-        .author-name {
-          font-size: 1.1rem;
-          color: var(--text-primary);
-          margin: 0;
-        }
-        .author-role {
-          font-size: 0.9rem;
-          color: var(--text-secondary);
-          margin: 0;
-        }
-        .testimonial-dots {
-          display: flex;
-          justify-content: center;
-          gap: 0.5rem;
-          margin-top: 2rem;
-        }
-        .dot {
-          width: 10px;
-          height: 10px;
-          border-radius: 50%;
-          border: none;
-          background: var(--text-secondary);
-          opacity: 0.3;
-          cursor: pointer;
-          transition: opacity 0.3s ease;
-        }
-        .dot.active {
-          opacity: 1;
-        }
-      `}</style>
-    </div>
+      </motion.div>
+    </section>
   )
 }

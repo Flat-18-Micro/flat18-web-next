@@ -16,7 +16,7 @@ export default function Footer() {
             </Link>
             <p className={styles.footerTagline}>Modern web development for crypto & blockchain projects</p>
           </div>
-          
+
           <div className={styles.footerContent}>
             <div className={styles.footerBlock}>
               <h3 className={styles.footerBlockTitle}>Contact</h3>
@@ -38,7 +38,7 @@ export default function Footer() {
                 </li>
               </ul>
             </div>
-            
+
             <div className={styles.footerBlock}>
               <h3 className={styles.footerBlockTitle}>Quick Links</h3>
               <ul className={styles.footerLinksList}>
@@ -59,7 +59,7 @@ export default function Footer() {
                 </li>
               </ul>
             </div>
-            
+
             <div className={styles.footerBlock}>
               <h3 className={styles.footerBlockTitle}>Company</h3>
               <ul className={styles.footerLinksList}>
@@ -69,21 +69,10 @@ export default function Footer() {
                   </Link>
                 </li>
                 <li>
-                  <Link href="/blog" className={styles.footerLink}>
-                    <span>Blog</span>
+                  <Link href="/ease-of-communication-standard" className={styles.footerLink}>
+                    <span>Communication Standard</span>
                   </Link>
                 </li>
-                <li>
-                  <Link href="/careers" className={styles.footerLink}>
-                    <span>Careers</span>
-                  </Link>
-                </li>
-              </ul>
-            </div>
-            
-            <div className={styles.footerBlock}>
-              <h3 className={styles.footerBlockTitle}>Legal</h3>
-              <ul className={styles.footerLinksList}>
                 <li>
                   <Link href="/privacy" className={styles.footerLink}>
                     <span>Privacy Policy</span>
@@ -94,27 +83,19 @@ export default function Footer() {
                     <span>Terms of Service</span>
                   </Link>
                 </li>
-                <li>
-                  <Link href="/cookies" className={styles.footerLink}>
-                    <span>Cookies</span>
-                  </Link>
-                </li>
               </ul>
             </div>
           </div>
         </div>
-        
+
         <div className={styles.footerBottom}>
           <div className={styles.footerCopyright}>© {new Date().getFullYear()} Flat 18. All rights reserved.</div>
           <div className={styles.footerSocial}>
-            <a href="https://twitter.com/flat18dev" className={styles.footerSocialLink} target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+            <a href="https://x.com/f18_dev" className={styles.footerSocialLink} target="_blank" rel="noopener noreferrer" aria-label="Twitter">
               <i className="bi bi-twitter" aria-hidden="true"></i>
             </a>
-            <a href="https://github.com/flat18" className={styles.footerSocialLink} target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+            <a href="https://github.com/vswee" className={styles.footerSocialLink} target="_blank" rel="noopener noreferrer" aria-label="GitHub">
               <i className="bi bi-github" aria-hidden="true"></i>
-            </a>
-            <a href="https://www.linkedin.com/company/flat18" className={styles.footerSocialLink} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-              <i className="bi bi-linkedin" aria-hidden="true"></i>
             </a>
           </div>
         </div>

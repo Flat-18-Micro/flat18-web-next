@@ -21,11 +21,7 @@ export default function HowItWorks() {
       title: 'Develop',
       icon: 'bi-code-slash',
       description: 'Our team of experts begins building your project with regular updates and transparent communication. We use modern technologies and best practices to ensure high-quality results.',
-      link: {
-        text: 'View our process',
-        href: '#pricing',
-        icon: 'bi-arrow-right'
-      }
+
     },
     {
       number: '03',
@@ -100,10 +96,12 @@ export default function HowItWorks() {
                 </div>
                 <h3 className={styles.cardTitle}>{step.title}</h3>
                 <p className={styles.cardDescription}>{step.description}</p>
-                <a href={step.link.href} className={styles.cardLink}>
-                  {step.link.text}
-                  <i className={`bi ${step.link.icon}`}></i>
-                </a>
+                {step.link && (
+                  <a href={step.link.href} className={styles.cardLink}>
+                    {step.link.text}
+                    <i className={`bi ${step.link.icon}`}></i>
+                  </a>
+                )}
               </div>
             </motion.div>
           ))}

@@ -12,7 +12,7 @@ export default function Features() {
     {
       icon: 'bi-phone',
       title: 'App Development',
-      description: 'Native and cross-platform mobile applications that deliver exceptional user experiences.'
+      description: 'Scalable apps built with Node.js, reactive frameworks, and serverless backends.'
     },
     {
       icon: 'bi-palette',
@@ -20,9 +20,9 @@ export default function Features() {
       description: 'Beautiful, intuitive interfaces designed with your users in mind.'
     },
     {
-      icon: 'bi-cart',
-      title: 'E-commerce Solutions',
-      description: 'Scalable online stores with secure payment processing and inventory management.'
+      icon: 'bi-shield-lock',
+      title: 'Web3 & Blockchain',
+      description: 'Smart contract development, wallet integration, and decentralised apps tailored for the blockchain ecosystem.'
     },
     {
       icon: 'bi-code-slash',

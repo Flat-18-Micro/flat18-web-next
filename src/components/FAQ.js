@@ -1,6 +1,8 @@
 'use client'
 
 import { useState } from 'react'
+import { motion } from 'framer-motion'
+import styles from '../styles/component-css/FAQ.module.css'
 
 export default function FAQ() {
   const faqs = [
@@ -36,93 +38,84 @@ export default function FAQ() {
     setOpenIndex(openIndex === index ? null : index)
   }
 
+  // Animation variants
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        duration: 0.6,
+        ease: 'easeOut'
+      }
+    }
+  }
+
+  const listVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.2
+      }
+    }
+  }
+
+  const itemVariants = {
+    hidden: {
+      opacity: 0,
+      y: 20
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5,
+        ease: 'easeOut'
+      }
+    }
+  }
+
   return (
-    <div className="content faq-wrapper" id="faq">
-      <div className="text-org">
-        <h2 className="gradient-text orange">Commonly Asked Questions</h2>
-        <p className="subtitle">Find answers to common questions about our services</p>
-      </div>
-      <div className="faq-list">
-        {faqs.map((faq, index) => (
-          <div
-            key={index}
-            className={`faq-item ${openIndex === index ? 'open' : ''}`}
-            onClick={() => toggleFAQ(index)}
-          >
-            <div className="faq-question">
-              <h3>{faq.question}</h3>
-              <div className="faq-icon">
-                <i className={`bi ${openIndex === index ? 'bi-dash' : 'bi-plus'}`}></i>
+    <section className={styles.faqWrapper} id="faq">
+      <div className={styles.backgroundGradient}></div>
+
+      <motion.div
+        className="container"
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.1 }}
+      >
+        <div className={styles.textOrg}>
+          <h2 className={styles.gradientText}>Commonly Asked Questions</h2>
+          <p className={styles.subtitle}>Find answers to common questions about our services</p>
+        </div>
+
+        <motion.div
+          className={styles.faqList}
+          variants={listVariants}
+        >
+          {faqs.map((faq, index) => (
+            <motion.div
+              key={index}
+              className={`${styles.faqItem} ${openIndex === index ? styles.open : ''}`}
+              onClick={() => toggleFAQ(index)}
+              variants={itemVariants}
+            >
+              <div className={styles.faqQuestion}>
+                <h3 className={styles.questionText}>{faq.question}</h3>
+                <div className={styles.faqIcon}>
+                  <i className={`bi ${openIndex === index ? 'bi-dash' : 'bi-plus'}`}></i>
+                </div>
               </div>
-            </div>
-            <div className="faq-answer">
-              <p>{faq.answer}</p>
-            </div>
-          </div>
-        ))}
-      </div>
-      <style jsx>{`
-        .faq-wrapper {
-          padding: 6rem 0;
-        }
-        .text-org {
-          text-align: center;
-          margin-bottom: 4rem;
-        }
-        .subtitle {
-          font-size: 1.2rem;
-          color: var(--text-secondary);
-          margin-top: 1rem;
-        }
-        .faq-list {
-          max-width: 800px;
-          margin: 0 auto;
-          padding: 0 2rem;
-        }
-        .faq-item {
-          background: rgba(255, 255, 255, 0.05);
-          border-radius: 12px;
-          margin-bottom: 1rem;
-          overflow: hidden;
-          cursor: pointer;
-          transition: all 0.3s ease;
-        }
-        .faq-item:hover {
-          background: rgba(255, 255, 255, 0.08);
-        }
-        .faq-question {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          padding: 1.5rem;
-        }
-        .faq-question h3 {
-          margin: 0;
-          font-size: 1.1rem;
-          color: var(--text-primary);
-        }
-        .faq-icon {
-          font-size: 1.5rem;
-          color: var(--accent-color);
-          transition: transform 0.3s ease;
-        }
-        .faq-answer {
-          max-height: 0;
-          opacity: 0;
-          transition: all 0.3s ease;
-          padding: 0 1.5rem;
-        }
-        .faq-item.open .faq-answer {
-          max-height: 500px;
-          opacity: 1;
-          padding: 0 1.5rem 1.5rem;
-        }
-        .faq-answer p {
-          margin: 0;
-          color: var(--text-secondary);
-          line-height: 1.6;
-        }
-      `}</style>
-    </div>
+              <div className={styles.faqAnswer}>
+                <p className={styles.answerText}>{faq.answer}</p>
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
+      </motion.div>
+    </section>
   )
-} 
+}

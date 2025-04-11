@@ -12,7 +12,7 @@
 }
 
 .scrolled {
-  padding: 1rem 0;
+  padding: .4rem 0;
   background-color: rgba(10, 12, 16, 0.95);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
 }
@@ -43,9 +43,9 @@
 }
 
 .logo {
-  width: 42px;
-  height: 42px;
-  border-radius: 10px;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
   background: linear-gradient(135deg, var(--primary), var(--blue-2));
   display: flex;
   align-items: center;
@@ -73,15 +73,11 @@
   opacity: 1;
 }
 
-.logoText {
-  font-weight: 700;
-  font-size: 1.2rem;
-  color: var(--black);
-}
+
 
 .brandName {
-  font-size: 1.5rem;
-  font-weight: 900;
+  font-size: 1.8rem;
+  font-weight: 800;
   background: linear-gradient(to right, var(--secondary), var(--primary));
 
   -webkit-background-clip: text;
@@ -207,6 +203,10 @@
 
 .cta {
   margin-left: 1.5rem;
+}
+
+.cta a{
+  padding: .75rem 1.5rem;
 }
 
 @media (max-width: 768px) {

@@ -24,19 +24,22 @@
   position: relative;
   background-color: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.05);
+  background-image: url(/images/gradients/g7.png);
+  background-size: cover;
+  background-repeat: no-repeat;
   border-radius: var(--radius-xl);
   padding: var(--space-8);
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  justify-content: center;
+  justify-content: end;
   transition: transform var(--transition-normal), box-shadow var(--transition-normal);
 }
 
-.leftPanel:hover {
+/* .leftPanel:hover {
   transform: translateY(-4px);
   box-shadow: var(--shadow-lg);
-}
+} */
 
 .rightPanel {
   background-color: rgba(255, 255, 255, 0.02);
@@ -90,7 +93,7 @@
   position: absolute;
   top: 100%;
   left: 0;
-  width: 100%;
+  width: max-content;
   background: var(--bg-dark-accent);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: var(--radius-md);
@@ -131,7 +134,7 @@
 }
 
 .priceAmount {
-  font-size: var(--text-5xl);
+  font-size: var(--text-6xl);
   font-weight: var(--font-bold);
   background: linear-gradient(to right, var(--text-primary), var(--text-secondary));
   -webkit-background-clip: text;
