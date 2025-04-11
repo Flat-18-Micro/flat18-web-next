@@ -1,7 +1,8 @@
 'use client'
 
+import { useState, useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
-import styles from '../styles/component-css/HowItWorks.module.css'
+import styles from '@/styles/component-css/HowItWorks.module.css'
 
 export default function HowItWorks() {
   const steps = [
@@ -36,34 +37,37 @@ export default function HowItWorks() {
     }
   ]
 
-  // Animation variants
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2
-      }
-    }
-  }
+  // We'll use useEffect and useState instead of Framer Motion's whileInView
+  // to have more control over the animation and prevent flickering
+  const [isVisible, setIsVisible] = useState(false)
+  const sectionRef = useRef(null)
 
-  const cardVariants = {
-    hidden: {
-      opacity: 0,
-      y: 30
-    },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-        ease: 'easeOut'
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        // Only trigger once when the section comes into view
+        if (entry.isIntersecting && !isVisible) {
+          setIsVisible(true)
+          // Once we've seen it, we can disconnect the observer
+          observer.disconnect()
+        }
+      },
+      { threshold: 0.1 }
+    )
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current)
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current)
       }
     }
-  }
+  }, [isVisible])
 
   return (
-    <section className={styles.howItWorksSection} id="how-it-works">
+    <section className={styles.howItWorksSection} id="how-it-works" ref={sectionRef}>
       <div className={styles.sectionBackground}>
         <div className={styles.backgroundGradient}></div>
       </div>
@@ -76,18 +80,18 @@ export default function HowItWorks() {
           </p>
         </div>
 
-        <motion.div
-          className={styles.cardsContainer}
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.1 }}
-        >
+        <div className={styles.cardsContainer}>
           {steps.map((step, index) => (
             <motion.div
               key={index}
               className={styles.card}
-              variants={cardVariants}
+              initial={{ opacity: 0 }}
+              animate={isVisible ? { opacity: 1 } : { opacity: 0 }}
+              transition={{
+                duration: 0.6,
+                ease: 'easeIn',
+                delay: index * 0.2 // Stagger the animations
+              }}
             >
               <div className={styles.cardNumber}>{step.number}</div>
               <div className={styles.cardContent}>
@@ -105,7 +109,7 @@ export default function HowItWorks() {
               </div>
             </motion.div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   )
