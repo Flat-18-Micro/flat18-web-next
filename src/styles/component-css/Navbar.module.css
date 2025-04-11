@@ -28,7 +28,7 @@
   flex-direction: row;
   align-items: center;
   text-decoration: none;
-  color: var(--white);
+  /* color: var(--white); */
   transition: transform 0.3s ease;
 }
 
@@ -45,7 +45,7 @@
 .logo {
   width: 42px;
   height: 42px;
-  border-radius: 8px;
+  border-radius: 10px;
   background: linear-gradient(135deg, var(--primary), var(--blue-2));
   display: flex;
   align-items: center;
@@ -81,8 +81,9 @@
 
 .brandName {
   font-size: 1.5rem;
-  font-weight: 700;
-  background: linear-gradient(to right, var(--white), var(--cw-2));
+  font-weight: 900;
+  background: linear-gradient(to right, var(--secondary), var(--primary));
+
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;

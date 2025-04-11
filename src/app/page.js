@@ -13,6 +13,7 @@ import Pricing from '@/components/Pricing'
 import FAQ from '@/components/FAQ'
 import Contact from '@/components/Contact'
 import Footer from '@/components/Footer'
+import PageTransition from '@/components/PageTransition'
 
 export default function Home() {
   useEffect(() => {
@@ -37,9 +38,9 @@ export default function Home() {
   }, [])
 
   return (
-    <main>
-      <Navbar />
-      <div className="body-contents-wrapper">
+    <PageTransition>
+      <main>
+        <Navbar />
         <Hero />
         <Features />
         <Tools />
@@ -50,8 +51,8 @@ export default function Home() {
         <Pricing />
         <FAQ />
         <Contact />
-      </div>
-      <Footer />
-    </main>
+        <Footer />
+      </main>
+    </PageTransition>
   )
 }

@@ -1,0 +1,111 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-3) var(--space-6);
+  border-radius: var(--radius-full);
+  font-weight: var(--font-medium);
+  font-size: var(--text-base);
+  transition: all var(--transition-normal);
+  cursor: pointer;
+  border: none;
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+}
+
+.button::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.6s ease, height 0.6s ease;
+  z-index: 0;
+}
+
+.button:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+.button > * {
+  position: relative;
+  z-index: 1;
+}
+
+.primary {
+  background-color: var(--primary);
+  color: var(--bg-dark);
+  box-shadow: var(--shadow-primary);
+}
+
+.primary:hover {
+  background-color: var(--primary-light);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(25, 253, 178, 0.3);
+}
+
+.secondary {
+  background-color: transparent;
+  color: var(--text-primary);
+  border: 1px solid var(--border-light);
+}
+
+.secondary:hover {
+  background-color: var(--bg-surface-hover);
+  border-color: var(--border-medium);
+  transform: translateY(-2px);
+}
+
+.hero {
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: var(--bg-dark);
+  font-weight: var(--font-semibold);
+  padding: var(--space-4) var(--space-8);
+  box-shadow: var(--shadow-primary);
+}
+
+.hero:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 15px 30px rgba(25, 253, 178, 0.4);
+}
+
+.text {
+  background: none;
+  color: var(--text-secondary);
+  padding: var(--space-2);
+}
+
+.text:hover {
+  color: var(--primary);
+  transform: translateY(-1px);
+}
+
+.large {
+  padding: var(--space-4) var(--space-8);
+  font-size: var(--text-lg);
+}
+
+.small {
+  padding: var(--space-2) var(--space-4);
+  font-size: var(--text-sm);
+}
+
+.fullWidth {
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .button {
+    padding: var(--space-3) var(--space-5);
+  }
+  
+  .large {
+    padding: var(--space-3) var(--space-6);
+  }
+}

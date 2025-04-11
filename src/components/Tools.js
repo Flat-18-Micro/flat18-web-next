@@ -1,129 +1,59 @@
 'use client'
 
+import styles from '../styles/component-css/Tools.module.css'
+import { motion } from 'framer-motion';
+
 export default function Tools() {
   const tools = [
-    { name: 'Infura', logo: '/images/tools/infura.svg' },
-    { name: 'Vue.js', logo: '/images/tools/vuejs.svg' },
-    { name: 'Cloudflare', logo: '/images/tools/cloudflare.svg' },
-    { name: 'Webflow', logo: '/images/tools/webflow.svg' },
-    { name: 'WalletConnect', logo: '/images/tools/walletconnect.svg' },
-    { name: 'Node.js', logo: '/images/tools/nodejs.svg' },
-    { name: 'Neon', logo: '/images/tools/neon.svg' },
-    { name: 'GitHub', logo: '/images/tools/github.svg' },
-    { name: 'BTCPay', logo: '/images/tools/btcpay.svg' },
-    { name: 'Vercel', logo: '/images/tools/vercel.svg' },
-    { name: 'Stacks', logo: '/images/tools/stacks.svg' },
-    { name: 'Affinity', logo: '/images/tools/affinity.svg' },
-    { name: 'ChatGPT', logo: '/images/tools/chatgpt.svg' },
-    { name: 'DeepSeek', logo: '/images/tools/deepseek.svg' },
-    { name: 'Le Chat', logo: '/images/tools/lechat.svg' }
+    { name: 'Infura', logo: '/images/tools/infura_wordmark_red.svg', bgColor: 'rgba(255, 74, 0, 0.3)' },
+    { name: 'Vue.js', logo: '/images/tools/vuejs.svg', bgColor: 'rgba(65, 184, 131, 0.3)' },
+    { name: 'Cloudflare', logo: '/images/tools/cloudflare.svg', bgColor: 'rgba(255, 128, 0, 0.3)' },
+    { name: 'Webflow', logo: '/images/tools/Webflow_logo_2023.svg', bgColor: 'rgba(0, 0, 255, 0.3)' },
+    { name: 'WalletConnect', logo: '/images/tools/Logo.svg', bgColor: 'rgba(0, 122, 255, 0.3)' },
+    { name: 'Node.js', logo: '/images/tools/Node.js_logo.svg', bgColor: 'rgba(88, 101, 242, 0.3)' },
+    { name: 'Neon', logo: '/images/tools/iddKu5-cyx_logos.png', bgColor: 'rgba(0, 255, 255, 0.3)' },
+    { name: 'GitHub', logo: '/images/tools/github.png', bgColor: 'rgba(36, 41, 46, 0.3)' },
+    { name: 'BTCPay', logo: '/images/tools/btcpay-logo-white-txt.svg', bgColor: 'rgba(0, 255, 0, 0.3)' },
+    { name: 'Vercel', logo: '/images/tools/vercel.png', bgColor: 'rgba(0, 0, 0, 0.3)' },
+    { name: 'Stripe', logo: '/images/tools/Stripe_Logo,_revised_2016.svg', bgColor: 'rgba(0, 0, 255, 0.3)' },
+    { name: 'Affinity', logo: '/images/tools/Affinity_Designer_2-logo.svg', bgColor: 'rgba(0, 0, 255, 0.3)' },
+    { name: 'ChatGPT', logo: '/images/tools/chatgpt.svg', bgColor: 'rgba(0, 255, 0, 0.3)' },
+    { name: 'DeepSeek', logo: '/images/tools/DeepSeek_logo.svg', bgColor: 'rgba(0, 0, 255, 0.3)' },
+    { name: 'Le Chat', logo: '/images/tools/Mistral_AI_logo_(2025–).svg', bgColor: 'rgba(255, 0, 255, 0.3)' }
   ]
 
   return (
-    <section className="tools-section">
+    <section className={styles.toolsSection}>
       <div className="container">
-        <div className="tools-header">
-          <h3 className="tools-title">Technologies We Use</h3>
+        <div className={styles.toolsHeader}>
+          <h2 className={styles.toolsTitle}>Technologies We Use</h2>
+          <p className={styles.toolsSubtitle}>Modern tools for modern solutions</p>
         </div>
-        <div className="tools-container">
-          <div className="tools-list">
-            {tools.map((tool, index) => (
-              <div key={index} className="tool-item">
-                <div className="tool-logo-placeholder">
-                  {tool.name[0]}
+        
+        <div className={styles.toolsContainer}>
+          <div className={styles.marqueeTrack}>
+            <motion.div
+              className={`${styles.toolsList} ${styles.scrollRow}`}
+              initial={{ x: 0 }}
+              animate={{ x: '-50%' }}
+              transition={{ repeat: Infinity, duration: 30, ease: 'linear' }}
+            >
+              {[...tools, ...tools].map((tool, index) => (
+                <div key={index} className={`${styles.toolItem} ${styles.scrollItem}`}>
+                  <div
+                    className={styles.toolLogoContainer}
+                  >
+                    <img src={tool.logo} alt={`${tool.name} logo`} className={styles.toolLogo} />
+                  </div>
+                  {<div className={styles.toolName}>{tool.name}</div>}
                 </div>
-                <div className="tool-name">{tool.name}</div>
-              </div>
-            ))}
+              ))}
+            </motion.div>
           </div>
+          
+          <div className={styles.toolsGradient}></div>
         </div>
       </div>
-      <style jsx>{`
-        .tools-section {
-          padding: 3rem 0;
-          background-color: rgba(255, 255, 255, 0.02);
-          border-top: 1px solid rgba(255, 255, 255, 0.05);
-          border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        }
-        
-        .tools-header {
-          text-align: center;
-          margin-bottom: 2rem;
-        }
-        
-        .tools-title {
-          font-size: 1.5rem;
-          font-weight: 500;
-          color: var(--white);
-          margin: 0;
-        }
-        
-        .tools-container {
-          width: 100%;
-          overflow: hidden;
-        }
-        
-        .tools-list {
-          display: flex;
-          flex-wrap: wrap;
-          justify-content: center;
-          gap: 1.5rem;
-          padding: 1rem 0;
-        }
-        
-        .tool-item {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          width: 100px;
-          transition: transform 0.3s ease;
-        }
-        
-        .tool-item:hover {
-          transform: translateY(-5px);
-        }
-        
-        .tool-logo-placeholder {
-          width: 60px;
-          height: 60px;
-          border-radius: 8px;
-          background: linear-gradient(135deg, rgba(25, 253, 178, 0.1), rgba(68, 163, 219, 0.1));
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          font-size: 1.5rem;
-          font-weight: bold;
-          color: var(--primary);
-          margin-bottom: 0.75rem;
-          border: 1px solid rgba(255, 255, 255, 0.05);
-        }
-        
-        .tool-name {
-          font-size: 0.85rem;
-          color: var(--cw-2);
-          text-align: center;
-        }
-        
-        @media (max-width: 768px) {
-          .tools-list {
-            gap: 1rem;
-          }
-          
-          .tool-item {
-            width: 80px;
-          }
-          
-          .tool-logo-placeholder {
-            width: 50px;
-            height: 50px;
-            font-size: 1.25rem;
-          }
-          
-          .tool-name {
-            font-size: 0.75rem;
-          }
-        }
-      `}</style>
     </section>
   )
 }

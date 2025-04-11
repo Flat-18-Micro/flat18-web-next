@@ -1,6 +1,8 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import Link from 'next/link'
+import styles from '../styles/component-css/Pricing.module.css'
 
 export default function Pricing() {
   const [billingPeriod, setBillingPeriod] = useState('monthly')
@@ -25,6 +27,12 @@ export default function Pricing() {
       USD: '$1,900',
       EUR: '€1,750',
       BTC: '₿0.03750'
+    },
+    quarterlyMonthly: {
+      GBP: '£2,495',
+      USD: '$3,167',
+      EUR: '€2,917',
+      BTC: '₿0.06250'
     }
   })
   
@@ -122,437 +130,141 @@ export default function Pricing() {
   }
 
   return (
-    <section className="section" id="pricing">
+    <section className={styles.pricingSection} id="pricing">
       <div className="container">
-        <div className="text-org">
-          <h2 className="gradient-text yellow">Pricing. Simple.</h2>
+        <div className={styles.pricingHeading}>
+          <h2 className="gradient-text">Pricing. Simple.</h2>
+          <p>Transparent, value-based pricing for your digital projects</p>
         </div>
         
-        <div className="pricing-details-wrapper">
-          <div className="pricing-head">
-            <div className="pricing-controls-container">
-              <div className="currency-dropdown">
-                <button className="currency-dropdown-trigger" onClick={toggleCurrencyMenu}>
-                  <span>{selectedCurrency}</span>
-                  <i className="bi bi-chevron-down"></i>
+        <div className={styles.currencyDropdown}>
+          <button className={styles.dropdownTrigger} onClick={toggleCurrencyMenu}>
+            <span>{selectedCurrency}</span>
+            <i className="bi bi-chevron-down"></i>
+          </button>
+          {showCurrencyMenu && (
+            <div className={styles.currencyMenu}>
+              {currencies.map((currency) => (
+                <button 
+                  key={currency.name} 
+                  className={`${styles.currencyOption} ${selectedCurrency === currency.name ? styles.active : ''}`}
+                  onClick={() => selectCurrency(currency.name)}
+                >
+                  {currency.name}
                 </button>
-                {showCurrencyMenu && (
-                  <div className="currency-menu">
-                    {currencies.map((currency) => (
-                      <button 
-                        key={currency.name} 
-                        className={`currency-option ${selectedCurrency === currency.name ? 'active' : ''}`}
-                        onClick={() => selectCurrency(currency.name)}
-                      >
-                        {currency.name}
-                      </button>
-                    ))}
-                    <button 
-                      className={`currency-option ${selectedCurrency === 'BTC' ? 'active' : ''}`}
-                      onClick={() => selectCurrency('BTC')}
-                    >
-                      BTC
-                    </button>
-                  </div>
-                )}
+              ))}
+              <button 
+                className={`${styles.currencyOption} ${selectedCurrency === 'BTC' ? styles.active : ''}`}
+                onClick={() => selectCurrency('BTC')}
+              >
+                BTC
+              </button>
+            </div>
+          )}
+        </div>
+        
+        <div className={styles.pricingGrid}>
+          <div className={styles.leftPanel}>
+            <div className={styles.priceDisplayBox}>
+              <div className={styles.priceAmount}>
+                {billingPeriod === 'monthly' 
+                  ? prices.monthly[selectedCurrency] || prices.monthly.GBP
+                  : prices.quarterlyMonthly[selectedCurrency] || prices.quarterlyMonthly.GBP
+                }
               </div>
-              
-              <div className="price-wrapper">
-                {billingPeriod === 'monthly' ? (
-                  <div className="pricing-price">
-                    <div className="price-display">
-                      <div className="price-amount">{prices.monthly[selectedCurrency] || prices.monthly.GBP}</div>
-                      <div className="price-period">/month</div>
-                    </div>
-                  </div>
-                ) : (
-                  <div className="pricing-price">
-                    <div className="price-display">
-                      <div className="price-amount">{prices.quarterlyMonthly[selectedCurrency] || prices.quarterlyMonthly.GBP}</div>
-                      <div className="price-period">/month</div>
-                    </div>
-                  </div>
-                )}
-              </div>
-              
-              <div className="switch-wrapper">
-                <div className={`switch-body ${billingPeriod === 'quarterly' ? 'on' : ''}`} onClick={toggleBillingPeriod}>
-                  <div className="switch-indicator"></div>
-                </div>
-                {billingPeriod === 'quarterly' ? (
-                  <div className="switch-label-wrapper">
-                    <div className="switch-label">
-                      You're saving {prices.monthlySavings[selectedCurrency] || prices.monthlySavings.GBP} with quarterly billing
-                    </div>
-                  </div>
-                ) : (
-                  <div className="switch-label-wrapper">
-                    <div className="switch-label">
-                      Billed Monthly<br />
-                      Activate savings with quarterly billing
-                    </div>
-                  </div>
-                )}
-              </div>
+              <div className={styles.pricePeriod}>/month</div>
             </div>
             
-            <div className="pricing-features-wrapper">
-              <div className="pricing-features-section">
-                <div className="features-badge">What's included</div>
-                <ul className="pricing-features-list">
-                  <li className="pricing-feature-item">
-                    <i className="bi bi-check-circle-fill feature-icon"></i>
-                    <span className="feature-text">Queued Tasks delivered in as little as 48hrs</span>
-                  </li>
-                  <li className="pricing-feature-item">
-                    <i className="bi bi-check-circle-fill feature-icon"></i>
-                    <span className="feature-text">Unlimited Development Scopes</span>
-                  </li>
-                  <li className="pricing-feature-item">
-                    <i className="bi bi-check-circle-fill feature-icon"></i>
-                    <span className="feature-text">Application staging</span>
-                  </li>
-                  <li className="pricing-feature-item">
-                    <i className="bi bi-check-circle-fill feature-icon"></i>
-                    <span className="feature-text">Unlimited Revisions queue</span>
-                  </li>
-                  <li className="pricing-feature-item">
-                    <i className="bi bi-check-circle-fill feature-icon"></i>
-                    <span className="feature-text">AI & Custom Graphics</span>
-                  </li>
-                  <li className="pricing-feature-item">
-                    <i className="bi bi-check-circle-fill feature-icon"></i>
-                    <span className="feature-text">Complete Service Management</span>
-                  </li>
-                  <li className="pricing-feature-item">
-                    <i className="bi bi-check-circle-fill feature-icon"></i>
-                    <span className="feature-text">Support directly from your developer</span>
-                  </li>
-                  <li className="pricing-feature-item">
-                    <i className="bi bi-check-circle-fill feature-icon"></i>
-                    <span className="feature-text">Pause and resume week-by-week. Bank all your unused time</span>
-                  </li>
-                </ul>
+            <div className={styles.switchWrapper}>
+              <div 
+                className={`${styles.switchBody} ${billingPeriod === 'quarterly' ? styles.on : ''}`} 
+                onClick={toggleBillingPeriod}
+              >
+                <div className={styles.switchIndicator}></div>
               </div>
-              
-              <div className="pricing-features-section billing-details">
-                <div className="features-badge green">Billing</div>
-                <ul className="pricing-features-list">
-                  {billingPeriod === 'monthly' ? (
-                    <>
-                      <li className="pricing-feature-item">
-                        <i className="bi bi-calendar-month feature-icon"></i>
-                        <span className="feature-text">Monthly billing</span>
-                      </li>
-                      <li className="pricing-feature-item">
-                        <i className="bi bi-credit-card feature-icon"></i>
-                        <span className="feature-text">
-                          Pre-pay {prices.monthly[selectedCurrency] || prices.monthly.GBP} every month
-                        </span>
-                      </li>
-                    </>
-                  ) : (
-                    <>
-                      <li className="pricing-feature-item">
-                        <i className="bi bi-calendar3 feature-icon"></i>
-                        <span className="feature-text">Quarterly billing</span>
-                      </li>
-                      <li className="pricing-feature-item">
-                        <i className="bi bi-piggy-bank feature-icon"></i>
-                        <span className="feature-text">
-                          Save {prices.monthlySavings[selectedCurrency] || prices.monthlySavings.GBP} vs monthly
-                        </span>
-                      </li>
-                      <li className="pricing-feature-item">
-                        <i className="bi bi-credit-card feature-icon"></i>
-                        <span className="feature-text">
-                          Pre-pay {prices.quarterly[selectedCurrency] || prices.quarterly.GBP} every 3 months
-                        </span>
-                      </li>
-                    </>
-                  )}
-                </ul>
+              <div className={styles.switchLabel}>
+                {billingPeriod === 'quarterly' 
+                  ? `You're saving ${prices.monthlySavings[selectedCurrency] || prices.monthlySavings.GBP} with quarterly billing`
+                  : `Billed Monthly. Activate savings with quarterly billing`
+                }
               </div>
             </div>
           </div>
           
-          <div className="pricing-actions">
-            <a href="/pricing#more-info" className="btn link-light">
-              <span>Learn more</span>
-              <i className="bi bi-arrow-right ms-2"></i>
-            </a>
-            <a href="#chat" className="btn hero">
-              <span>Let's talk about pricing</span>
-            </a>
+          <div className={styles.rightPanel}>
+            <div className={styles.featureSection}>
+              <div className={styles.featureBadge}>What's included</div>
+              <ul className={styles.featuresList}>
+                <li className={styles.featureItem}>
+                  <i className={`bi bi-check-circle-fill ${styles.featureIcon}`}></i>
+                  <span className={styles.featureText}>Queued Tasks delivered in as little as 48hrs</span>
+                </li>
+                <li className={styles.featureItem}>
+                  <i className={`bi bi-check-circle-fill ${styles.featureIcon}`}></i>
+                  <span className={styles.featureText}>Unlimited Development Scopes</span>
+                </li>
+                <li className={styles.featureItem}>
+                  <i className={`bi bi-check-circle-fill ${styles.featureIcon}`}></i>
+                  <span className={styles.featureText}>Application staging</span>
+                </li>
+                <li className={styles.featureItem}>
+                  <i className={`bi bi-check-circle-fill ${styles.featureIcon}`}></i>
+                  <span className={styles.featureText}>Unlimited Revisions queue</span>
+                </li>
+              </ul>
+            </div>
+            
+            <div className={styles.featureSection}>
+              <div className={`${styles.featureBadge} ${styles.green}`}>Billing</div>
+              <ul className={styles.featuresList}>
+                {billingPeriod === 'monthly' ? (
+                  <>
+                    <li className={styles.featureItem}>
+                      <i className={`bi bi-calendar-month ${styles.featureIcon}`}></i>
+                      <span className={styles.featureText}>Monthly billing</span>
+                    </li>
+                    <li className={styles.featureItem}>
+                      <i className={`bi bi-credit-card ${styles.featureIcon}`}></i>
+                      <span className={styles.featureText}>
+                        Pre-pay {prices.monthly[selectedCurrency] || prices.monthly.GBP} every month
+                      </span>
+                    </li>
+                  </>
+                ) : (
+                  <>
+                    <li className={styles.featureItem}>
+                      <i className={`bi bi-calendar3 ${styles.featureIcon}`}></i>
+                      <span className={styles.featureText}>Quarterly billing</span>
+                    </li>
+                    <li className={styles.featureItem}>
+                      <i className={`bi bi-piggy-bank ${styles.featureIcon}`}></i>
+                      <span className={styles.featureText}>
+                        Save {prices.monthlySavings[selectedCurrency] || prices.monthlySavings.GBP} vs monthly
+                      </span>
+                    </li>
+                    <li className={styles.featureItem}>
+                      <i className={`bi bi-credit-card ${styles.featureIcon}`}></i>
+                      <span className={styles.featureText}>
+                        Pre-pay {prices.quarterly[selectedCurrency] || prices.quarterly.GBP} every 3 months
+                      </span>
+                    </li>
+                  </>
+                )}
+              </ul>
+            </div>
           </div>
         </div>
+        
+        <div className={styles.pricingActions}>
+          <Link href="/pricing#more-info" className={styles.linkLight}>
+            <span>Learn more</span>
+            <i className="bi bi-arrow-right ms-2"></i>
+          </Link>
+          <Link href="#chat" className="btn btn-primary">
+            <span>Let's talk about pricing</span>
+          </Link>
+        </div>
       </div>
-      
-      <style jsx>{`
-        .pricing-details-wrapper {
-          position: relative;
-          width: 100%;
-          max-width: 900px;
-          margin: 0 auto;
-          background-color: rgba(255, 255, 255, 0.03);
-          border-radius: 16px;
-          border: 1px solid rgba(255, 255, 255, 0.05);
-          padding: 2.5rem;
-          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        }
-        
-        .pricing-head {
-          margin-bottom: 2rem;
-        }
-        
-        .pricing-controls-container {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          margin-bottom: 2.5rem;
-          gap: 1.5rem;
-        }
-        
-        .currency-dropdown {
-          position: relative;
-          z-index: 10;
-        }
-        
-        .currency-dropdown-trigger {
-          background: rgba(255, 255, 255, 0.05);
-          border: 1px solid rgba(255, 255, 255, 0.1);
-          border-radius: 8px;
-          padding: 0.5rem 1rem;
-          color: var(--cw-2);
-          font-size: 0.9rem;
-          display: flex;
-          align-items: center;
-          gap: 0.5rem;
-          cursor: pointer;
-          transition: all 0.3s ease;
-        }
-        
-        .currency-dropdown-trigger:hover {
-          background: rgba(255, 255, 255, 0.1);
-        }
-        
-        .currency-menu {
-          position: absolute;
-          top: 100%;
-          left: 0;
-          width: 100%;
-          background: var(--bg-modern-dark);
-          border: 1px solid rgba(255, 255, 255, 0.1);
-          border-radius: 8px;
-          margin-top: 0.5rem;
-          max-height: 200px;
-          overflow-y: auto;
-          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-          z-index: 20;
-        }
-        
-        .currency-option {
-          padding: 0.5rem 1rem;
-          color: var(--cw-2);
-          background: none;
-          border: none;
-          width: 100%;
-          text-align: left;
-          cursor: pointer;
-          transition: all 0.2s ease;
-        }
-        
-        .currency-option:hover {
-          background: rgba(255, 255, 255, 0.05);
-          color: var(--white);
-        }
-        
-        .currency-option.active {
-          background: rgba(25, 253, 178, 0.1);
-          color: var(--primary);
-        }
-        
-        .price-wrapper {
-          text-align: center;
-        }
-        
-        .pricing-price {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-        }
-        
-        .price-display {
-          display: flex;
-          align-items: baseline;
-          gap: 0.5rem;
-        }
-        
-        .price-amount {
-          font-size: 3rem;
-          font-weight: 700;
-          color: var(--white);
-          background: linear-gradient(to right, var(--white), var(--cw-2));
-          -webkit-background-clip: text;
-          background-clip: text;
-          color: transparent;
-        }
-        
-        .price-period {
-          font-size: 1.2rem;
-          color: var(--cw-3);
-        }
-        
-        .switch-wrapper {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          gap: 0.75rem;
-        }
-        
-        .switch-body {
-          width: 60px;
-          height: 30px;
-          background-color: rgba(255, 255, 255, 0.1);
-          border-radius: 15px;
-          position: relative;
-          cursor: pointer;
-          transition: background-color 0.3s ease;
-        }
-        
-        .switch-body.on {
-          background-color: rgba(25, 253, 178, 0.2);
-        }
-        
-        .switch-indicator {
-          width: 24px;
-          height: 24px;
-          background-color: var(--white);
-          border-radius: 50%;
-          position: absolute;
-          top: 3px;
-          left: 3px;
-          transition: transform 0.3s ease;
-        }
-        
-        .switch-body.on .switch-indicator {
-          transform: translateX(30px);
-          background-color: var(--primary);
-        }
-        
-        .switch-label-wrapper {
-          text-align: center;
-        }
-        
-        .switch-label {
-          font-size: 0.9rem;
-          color: var(--cw-2);
-          line-height: 1.5;
-        }
-        
-        .pricing-features-wrapper {
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          gap: 2rem;
-        }
-        
-        .pricing-features-section {
-          background-color: rgba(255, 255, 255, 0.02);
-          border-radius: 12px;
-          padding: 1.5rem;
-        }
-        
-        .pricing-features-section.billing-details {
-          background-color: rgba(0, 0, 0, 0.2);
-        }
-        
-        .features-badge {
-          display: inline-block;
-          padding: 0.4rem 1rem;
-          background-color: rgba(255, 255, 255, 0.05);
-          border-radius: 20px;
-          font-size: 0.9rem;
-          font-weight: 500;
-          color: var(--white);
-          margin-bottom: 1.5rem;
-        }
-        
-        .features-badge.green {
-          background-color: rgba(25, 253, 178, 0.1);
-          color: var(--primary);
-        }
-        
-        .pricing-features-list {
-          list-style: none;
-          padding: 0;
-          margin: 0;
-        }
-        
-        .pricing-feature-item {
-          display: flex;
-          align-items: flex-start;
-          gap: 0.75rem;
-          margin-bottom: 1rem;
-          color: var(--cw-3);
-        }
-        
-        .feature-icon {
-          color: var(--primary);
-          font-size: 1rem;
-          flex-shrink: 0;
-          margin-top: 0.2rem;
-        }
-        
-        .feature-text {
-          font-size: 0.95rem;
-          line-height: 1.5;
-        }
-        
-        .pricing-actions {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          gap: 1rem;
-          margin-top: 2rem;
-        }
-        
-        .btn.link-light {
-          color: var(--cw-1);
-          display: inline-flex;
-          align-items: center;
-          text-decoration: none;
-          font-weight: 500;
-          transition: color 0.3s ease;
-          background: none;
-          padding: 0;
-          border: none;
-        }
-        
-        .btn.link-light:hover {
-          color: var(--primary);
-        }
-        
-        @media (max-width: 768px) {
-          .pricing-details-wrapper {
-            padding: 1.5rem;
-          }
-          
-          .pricing-features-wrapper {
-            grid-template-columns: 1fr;
-            gap: 1.5rem;
-          }
-          
-          .pricing-actions {
-            flex-direction: column;
-            gap: 1.5rem;
-          }
-          
-          .btn.hero {
-            width: 100%;
-            justify-content: center;
-          }
-        }
-      `}</style>
     </section>
   )
 }

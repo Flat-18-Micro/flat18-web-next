@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import Button from './Button'
-import styles from './Navbar.module.css'
+import styles from '../styles/component-css/Navbar.module.css'
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -31,8 +31,8 @@ export default function Navbar() {
             <Image 
               src="/images/flat18_256x256.avif" 
               alt="Flat 18 Logo" 
-              width={24} 
-              height={24}
+              width={42} 
+              height={42}
             />
           </div>
           <div className={styles.brandName}>Flat 18</div>

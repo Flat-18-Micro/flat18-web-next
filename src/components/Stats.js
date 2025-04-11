@@ -1,5 +1,6 @@
 'use client'
 
+import styles from '../styles/component-css/Stats.module.css'
 import { useEffect, useRef } from 'react'
 
 export default function Stats() {
@@ -70,66 +71,24 @@ export default function Stats() {
   ]
 
   return (
-    <div className="content stats-wrapper">
-      <div className="stats-grid">
+    <div className={styles['content']}>
+      <div className='container'>
+
+      <div className={styles['stats-grid']}>
         {stats.map((stat, index) => (
-          <div key={index} className="stat-card">
+          <div key={index} className={styles['stat-card']}>
             <div 
               ref={el => countersRef.current[index] = el} 
-              className="animated-counter" 
+              className={styles['animated-counter']} 
               data-target={stat.value}
             >
               0
             </div>
-            <div className="stat-label">{stat.label}</div>
+            <div className={styles['stat-label']}>{stat.label}</div>
           </div>
         ))}
       </div>
-      <style jsx>{`
-        .stats-wrapper {
-          padding: 5rem 0;
-          background: linear-gradient(to right, var(--bg-modern-dark), var(--bg-modern), var(--bg-modern-dark));
-          margin-top: 50px;
-        }
-        .stats-grid {
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-          gap: 3rem;
-          max-width: var(--content-inner);
-          margin: 0 auto;
-          padding: 0 2rem;
-        }
-        .stat-card {
-          text-align: center;
-        }
-        .animated-counter {
-          font-size: 3.5rem;
-          font-weight: 700;
-          color: var(--white);
-          margin-bottom: 1rem;
-          position: relative;
-        }
-        .animated-counter::after {
-          content: '+';
-          position: absolute;
-          font-size: 2.5rem;
-          margin-left: 0.2rem;
-        }
-        .stat-label {
-          font-size: 1.2rem;
-          color: var(--cw-3);
-        }
-        @media (max-width: 768px) {
-          .stats-grid {
-            grid-template-columns: repeat(2, 1fr);
-          }
-        }
-        @media (max-width: 480px) {
-          .stats-grid {
-            grid-template-columns: 1fr;
-          }
-        }
-      `}</style>
+      </div>
     </div>
   )
 }

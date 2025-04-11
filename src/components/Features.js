@@ -1,5 +1,7 @@
 'use client'
 
+import styles from '../styles/component-css/Features.module.css'
+
 export default function Features() {
   const features = [
     {
@@ -35,66 +37,23 @@ export default function Features() {
   ]
 
   return (
-    <div className="content features-wrapper" id="features">
-      <div className="text-org">
-        <h2 className="gradient-text blue">Our Services</h2>
-        <p className="subtitle">Comprehensive solutions for your digital needs</p>
+    <div className={styles['features-wrapper']} id="features">
+      <div className='container'>
+      <div className={styles['text-org']}>
+        <h2 className={styles['gradient-text']}>Our Services</h2>
+        <p className={styles['subtitle']}>Comprehensive solutions for your digital needs</p>
       </div>
-      <div className="features-grid">
+      <div className={styles['features-grid']}>
         {features.map((feature, index) => (
-          <div key={index} className="feature-card">
-            <div className="feature-icon">
+          <div key={index} className={styles['feature-card']}>
+            <div className={styles['feature-icon']}>
               <i className={`bi ${feature.icon}`}></i>
             </div>
-            <h3 className="feature-title">{feature.title}</h3>
-            <p className="feature-description">{feature.description}</p>
+            <h3 className={styles['feature-title']}>{feature.title}</h3>
+            <p className={styles['feature-description']}>{feature.description}</p>
           </div>
         ))}
-      </div>
-      <style jsx>{`
-        .features-wrapper {
-          padding: 6rem 0;
-          width: 100%;
-        }
-        .text-org {
-          text-align: center;
-          margin-bottom: 4rem;
-        }
-        .subtitle {
-          font-size: 1.2rem;
-          color: var(--text-secondary);
-          margin-top: 1rem;
-        }
-        .features-grid {
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-          gap: 2rem;
-          padding: 0 2rem;
-        }
-        .feature-card {
-          background: rgba(255, 255, 255, 0.05);
-          border-radius: 12px;
-          padding: 2rem;
-          transition: transform 0.3s ease;
-        }
-        .feature-card:hover {
-          transform: translateY(-5px);
-        }
-        .feature-icon {
-          font-size: 2.5rem;
-          margin-bottom: 1.5rem;
-          color: var(--accent-color);
-        }
-        .feature-title {
-          font-size: 1.5rem;
-          margin-bottom: 1rem;
-          color: var(--text-primary);
-        }
-        .feature-description {
-          color: var(--text-secondary);
-          line-height: 1.6;
-        }
-      `}</style>
+      </div></div>
     </div>
   )
 }
