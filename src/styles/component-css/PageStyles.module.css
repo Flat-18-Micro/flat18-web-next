@@ -32,7 +32,7 @@
   padding: var(--space-8);
   margin-bottom: var(--space-16);
   box-shadow: var(--shadow-sm);
-  transition: all var(--transition-normal);
+  transition: transform var(--transition-normal);
 }
 
 .pageContent:hover {
