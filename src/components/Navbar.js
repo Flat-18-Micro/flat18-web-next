@@ -3,8 +3,7 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import Button from './Button'
-import styles from '../styles/component-css/Navbar.module.css'
+import styles from '@/styles/component-css/Navbar.module.css'
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -28,27 +27,27 @@ export default function Navbar() {
       <div className={`container ${styles.container}`}>
         <Link href="/" className={styles.brand}>
           <div className={styles.logo}>
-            <Image 
-              src="/images/flat18_256x256.avif" 
-              alt="Flat 18 Logo" 
-              width={42} 
+            <Image
+              src="/images/flat18_256x256.avif"
+              alt="Flat 18 Logo"
+              width={42}
               height={42}
             />
           </div>
           <div className={styles.brandName}>Flat 18</div>
         </Link>
 
-        <button 
-          className={styles.menuToggle} 
-          onClick={toggleMobileMenu} 
+        <button
+          className={styles.menuToggle}
+          onClick={toggleMobileMenu}
           aria-label="Toggle menu"
           aria-expanded={isMobileMenuOpen}
         >
           <span className={`${styles.hamburger} ${isMobileMenuOpen ? styles.hamburgerOpen : ''}`}></span>
         </button>
 
-        <nav 
-          className={`${styles.menuWrapper} ${isMobileMenuOpen ? styles.menuWrapperOpen : ''}`} 
+        <nav
+          className={`${styles.menuWrapper} ${isMobileMenuOpen ? styles.menuWrapperOpen : ''}`}
           aria-label="Main navigation"
         >
           <ul className={styles.menu}>
@@ -68,10 +67,10 @@ export default function Navbar() {
               </Link>
             </li>
             <li>
-              <a 
-                href="https://accounts.flat18.co.uk/client/login" 
-                className={styles.link} 
-                target="_blank" 
+              <a
+                href="https://accounts.flat18.co.uk/client/login"
+                className={styles.link}
+                target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
@@ -79,9 +78,9 @@ export default function Navbar() {
               </a>
             </li>
             <li className={styles.cta}>
-              <Button href="#chat" variant="hero" onClick={() => setIsMobileMenuOpen(false)}>
-                <span>Start a Project</span>
-              </Button>
+              <a href="#chat" className="btn btn-primary btn-lg" onClick={() => setIsMobileMenuOpen(false)}>
+                <span className="btn-text">Start a Project</span>
+              </a>
             </li>
           </ul>
         </nav>

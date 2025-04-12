@@ -24,11 +24,10 @@ export default function Button({
 
   const content = (
     <>
-      <span className="btn-text">
+      <span className={styles.buttonContent}>
         {children}
         {icon && <i className={`bi ${icon}`}></i>}
       </span>
-      <span className="btn-shine"></span>
     </>
   )
 

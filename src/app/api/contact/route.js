@@ -14,8 +14,8 @@ export async function POST(req) {
     const domain = process.env.MAILGUN_DOMAIN;
 
     await mg.messages.create(domain, {
-      from: `Flat18 Contact Form <hello@flat18.co.uk>`,
-      to: ['web-contact-form@flat18.co.uk'],
+      from: `Flat18 Contact Form <web-contact-form@flat18.co.uk>`,
+      to: ['hello.flat18.co.uk@sinaswee.com'],
       subject: `New contact form submission from ${name}`,
       text: `
 Name: ${name}
