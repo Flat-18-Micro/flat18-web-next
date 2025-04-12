@@ -47,22 +47,49 @@ flat18/
 
 - Next.js 14
 - React
-- Tailwind CSS
+- CSS Modules
+- Framer Motion
 - JavaScript
+- GitHub Actions (for deployment)
 
 ## Development
 
 The project uses the following tools and configurations:
 
 - ESLint for code linting
-- Tailwind CSS for styling
+- CSS Modules for styling
 - Next.js Image component for optimized images
-- Client-side analytics tracking
+- Client-side analytics tracking (Umami and Ackee)
+- GitHub Actions for CI/CD
 
 ## Deployment
 
-The site can be deployed to any platform that supports Next.js, such as Vercel, Netlify, or AWS Amplify.
+### GitHub Pages Deployment
+
+This website is configured to be deployed to GitHub Pages using GitHub Actions.
+
+#### Automatic Deployment
+
+When you push changes to the `main` branch, the site will be automatically built and deployed to GitHub Pages using the GitHub Actions workflow defined in `.github/workflows/deploy.yml`.
+
+#### Manual Deployment
+
+If you need to deploy manually, you can run:
+
+```bash
+npm run deploy
+```
+
+This will build the site and create the necessary files for GitHub Pages deployment.
+
+### Custom Domain
+
+The site is configured to use the custom domain `flat18.co.uk`. This is set in the `public/CNAME` file.
+
+### Other Platforms
+
+The site can also be deployed to any platform that supports Next.js, such as Vercel, Netlify, or AWS Amplify.
 
 ## License
 
-All rights reserved. This project is proprietary and confidential. 
+All rights reserved. This project is proprietary and confidential.
