@@ -1,17 +1,18 @@
 'use client'
 
 import Link from 'next/link'
-import styles from '../styles/component-css/Button.module.css'
+import styles from '@/styles/component-css/Button.module.css'
 
-export default function Button({ 
-  children, 
-  variant = 'primary', 
-  size, 
-  fullWidth, 
-  href, 
+export default function Button({
+  children,
+  variant = 'primary',
+  size,
+  fullWidth,
+  href,
   onClick,
   className = '',
-  ...props 
+  icon,
+  ...props
 }) {
   const buttonClasses = [
     styles.button,
@@ -20,45 +21,55 @@ export default function Button({
     fullWidth && styles.fullWidth,
     className
   ].filter(Boolean).join(' ')
-  
+
+  const content = (
+    <>
+      <span className="btn-text">
+        {children}
+        {icon && <i className={`bi ${icon}`}></i>}
+      </span>
+      <span className="btn-shine"></span>
+    </>
+  )
+
   if (href) {
     // If href starts with http or https, use a regular anchor tag
     if (href.startsWith('http')) {
       return (
-        <a 
-          href={href} 
-          className={buttonClasses} 
+        <a
+          href={href}
+          className={buttonClasses}
           onClick={onClick}
           target="_blank"
           rel="noopener noreferrer"
           {...props}
         >
-          {children}
+          {content}
         </a>
       )
     }
-    
+
     // Otherwise use Next.js Link component
     return (
-      <Link 
-        href={href} 
-        className={buttonClasses} 
+      <Link
+        href={href}
+        className={buttonClasses}
         onClick={onClick}
         {...props}
       >
-        {children}
+        {content}
       </Link>
     )
   }
-  
+
   return (
-    <button 
-      className={buttonClasses} 
+    <button
+      className={buttonClasses}
       onClick={onClick}
       type="button"
       {...props}
     >
-      {children}
+      {content}
     </button>
   )
 }

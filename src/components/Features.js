@@ -1,6 +1,7 @@
 'use client'
 
-import styles from '../styles/component-css/Features.module.css'
+import { motion } from 'framer-motion'
+import styles from '@/styles/component-css/Features.module.css'
 
 export default function Features() {
   const features = [
@@ -22,7 +23,7 @@ export default function Features() {
     {
       icon: 'bi-shield-lock',
       title: 'Web3 & Blockchain',
-      description: 'Smart contract development, wallet integration, and decentralised apps tailored for the blockchain ecosystem.'
+      description: 'Smart contract development, wallet integration, and decentralized apps tailored for the blockchain ecosystem.'
     },
     {
       icon: 'bi-code-slash',
@@ -36,24 +37,99 @@ export default function Features() {
     }
   ]
 
+  // Animation variants
+  const sectionVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        duration: 0.6,
+        ease: 'easeOut'
+      }
+    }
+  }
+
+  const headingVariants = {
+    hidden: {
+      opacity: 0,
+      y: -20
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: 'easeOut',
+        delay: 0.2
+      }
+    }
+  }
+
+  const gridVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.4
+      }
+    }
+  }
+
+  const cardVariants = {
+    hidden: {
+      opacity: 0,
+      y: 30
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5,
+        ease: 'easeOut'
+      }
+    }
+  }
+
   return (
-    <div className={styles['features-wrapper']} id="features">
-      <div className='container'>
-      <div className={styles['text-org']}>
-        <h2 className={styles['gradient-text']}>Our Services</h2>
-        <p className={styles['subtitle']}>Comprehensive solutions for your digital needs</p>
+    <motion.section
+      className={styles.featuresSection}
+      id="features"
+      variants={sectionVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.1 }}
+    >
+      <div className={styles.backgroundGradient}></div>
+
+      <div className="container">
+        <motion.div
+          className={styles.sectionHeading}
+          variants={headingVariants}
+        >
+          <h2 className={styles.gradientText}>Our Services</h2>
+          <p className={styles.subtitle}>Comprehensive solutions tailored for your digital needs</p>
+        </motion.div>
+
+        <motion.div
+          className={styles.featuresGrid}
+          variants={gridVariants}
+        >
+          {features.map((feature, index) => (
+            <motion.div
+              key={index}
+              className={styles.featureCard}
+              variants={cardVariants}
+            >
+              <div className={styles.iconWrapper}>
+                <i className={`bi ${feature.icon} ${styles.featureIcon}`}></i>
+              </div>
+              <h3 className={styles.featureTitle}>{feature.title}</h3>
+              <p className={styles.featureDescription}>{feature.description}</p>
+            </motion.div>
+          ))}
+        </motion.div>
       </div>
-      <div className={styles['features-grid']}>
-        {features.map((feature, index) => (
-          <div key={index} className={styles['feature-card']}>
-            <div className={styles['feature-icon']}>
-              <i className={`bi ${feature.icon}`}></i>
-            </div>
-            <h3 className={styles['feature-title']}>{feature.title}</h3>
-            <p className={styles['feature-description']}>{feature.description}</p>
-          </div>
-        ))}
-      </div></div>
-    </div>
+    </motion.section>
   )
 }

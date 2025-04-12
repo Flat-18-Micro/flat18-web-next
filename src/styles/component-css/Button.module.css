@@ -6,79 +6,176 @@
   border-radius: 12px;
   font-weight: var(--font-medium);
   font-size: var(--text-base);
-  transition: all var(--transition-normal);
+  transition: all 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   cursor: pointer;
   border: none;
   position: relative;
   overflow: hidden;
   text-decoration: none;
+  letter-spacing: 0.02em;
+  backdrop-filter: blur(5px);
+  z-index: 1;
 }
 
+/* Button shine effect */
+.button::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.05) 25%,
+    rgba(255, 255, 255, 0.2) 50%,
+    rgba(255, 255, 255, 0.05) 75%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  z-index: 1;
+  transition: left 0.7s ease;
+  pointer-events: none;
+}
+
+.button:hover::after {
+  left: 100%;
+}
+
+/* Button background transition */
 .button::before {
   content: '';
   position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 0;
-  height: 0;
-  background-color: rgba(255, 255, 255, 0.1);
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-  transition: width 0.6s ease, height 0.6s ease;
-  z-index: 0;
-}
-
-.button:hover::before {
-  width: 300px;
-  height: 300px;
+  inset: 0;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: inherit;
 }
 
 .button > * {
   position: relative;
-  z-index: 1;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
+/* Primary button */
 .primary {
-  background-color: var(--primary);
+  background: linear-gradient(92deg, var(--primary) 0%, var(--primary-light) 100%);
   color: var(--bg-dark);
-  box-shadow: var(--shadow-primary);
+  box-shadow:
+    0 4px 15px rgba(25, 253, 178, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.primary::before {
+  background: linear-gradient(92deg, var(--primary-light) 0%, var(--primary) 100%);
+  box-shadow: 0 8px 25px rgba(25, 253, 178, 0.4);
 }
 
 .primary:hover {
-  background-color: var(--primary-light);
-  transform: translateY(-2px);
-  box-shadow: 0 10px 30px rgba(25, 253, 178, 0.3);
+  transform: translateY(-3px);
+  box-shadow:
+    0 10px 25px rgba(25, 253, 178, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
 }
 
+.primary:hover::before {
+  opacity: 1;
+}
+
+.primary:active {
+  transform: translateY(0);
+  box-shadow:
+    0 5px 15px rgba(25, 253, 178, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  transition: all 0.1s ease;
+}
+
+/* Secondary button */
 .secondary {
-  background-color: transparent;
+  background: rgba(30, 30, 35, 0.2);
   color: var(--text-primary);
-  border: 1px solid var(--border-light);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+}
+
+.secondary::before {
+  background: rgba(40, 40, 45, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
 .secondary:hover {
-  background-color: var(--bg-surface-hover);
-  border-color: var(--border-medium);
-  transform: translateY(-2px);
+  transform: translateY(-3px);
+  border-color: rgba(25, 253, 178, 0.2);
+  box-shadow:
+    0 8px 20px rgba(0, 0, 0, 0.15),
+    0 0 15px rgba(25, 253, 178, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
+.secondary:hover::before {
+  opacity: 1;
+}
+
+.secondary:active {
+  transform: translateY(0);
+  box-shadow:
+    0 4px 10px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  transition: all 0.1s ease;
+}
+
+/* Hero button */
 .hero {
   background: linear-gradient(135deg, var(--primary), var(--secondary));
   color: var(--bg-dark);
   font-weight: var(--font-semibold);
   padding: var(--space-4) var(--space-8);
-  box-shadow: var(--shadow-primary);
+  box-shadow:
+    0 8px 25px rgba(25, 253, 178, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  border-radius: 14px;
+  letter-spacing: 0.03em;
+}
+
+.hero::before {
+  background: linear-gradient(135deg, var(--secondary), var(--primary));
+  box-shadow: 0 12px 30px rgba(25, 253, 178, 0.4);
 }
 
 .hero:hover {
-  transform: translateY(-3px) scale(1.02);
-  box-shadow: 0 15px 30px rgba(25, 253, 178, 0.4);
+  transform: translateY(-4px);
+  box-shadow:
+    0 15px 35px rgba(25, 253, 178, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
 }
 
+.hero:hover::before {
+  opacity: 1;
+}
+
+.hero:active {
+  transform: translateY(-1px);
+  box-shadow:
+    0 8px 20px rgba(25, 253, 178, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  transition: all 0.1s ease;
+}
+
+/* Text button */
 .text {
   background: none;
   color: var(--text-secondary);
   padding: var(--space-2);
+  backdrop-filter: none;
 }
 
 .text:hover {
@@ -86,26 +183,56 @@
   transform: translateY(-1px);
 }
 
+.text:active {
+  transform: translateY(0);
+}
+
+/* Button sizes */
 .large {
   padding: var(--space-4) var(--space-8);
   font-size: var(--text-lg);
+  border-radius: 14px;
 }
 
 .small {
   padding: var(--space-2) var(--space-4);
   font-size: var(--text-sm);
+  border-radius: 10px;
 }
 
 .fullWidth {
   width: 100%;
 }
 
+/* Button with icon */
+.button i {
+  font-size: 1.2em;
+  transition: transform 0.2s ease;
+}
+
+.button:hover i {
+  transform: translateX(3px);
+}
+
+/* Responsive styles */
 @media (max-width: 768px) {
   .button {
     padding: var(--space-3) var(--space-5);
   }
-  
+
   .large {
     padding: var(--space-3) var(--space-6);
+  }
+}
+
+@media (max-width: 480px) {
+  .button {
+    padding: var(--space-2) var(--space-4);
+    font-size: var(--text-sm);
+  }
+
+  .large {
+    padding: var(--space-3) var(--space-5);
+    font-size: var(--text-base);
   }
 }

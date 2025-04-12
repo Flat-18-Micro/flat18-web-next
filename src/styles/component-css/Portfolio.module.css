@@ -237,11 +237,19 @@
     grid-template-columns: repeat(3, 1fr);
     gap: var(--space-4);
   }
+  .projectCard{
+    width: calc(33.33% - (var(--space-24) * .2));
+  
+    }
 }
 
 @media (max-width: 1024px) {
   .portfolioGrid {
     grid-template-columns: repeat(2, 1fr);
+  }
+  .projectCard{
+  width: calc(50% - (var(--space-24) * 0.1));
+
   }
 }
 
@@ -266,10 +274,15 @@
   .projectTitle {
     font-size: var(--text-lg);
   }
+
 }
 
 @media (max-width: 480px) {
   .portfolioGrid {
     grid-template-columns: 1fr;
   }
+  .projectCard{
+    width: calc(100% - (var(--space-24) * 0));
+  
+    }
 }
