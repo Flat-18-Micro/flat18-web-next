@@ -19,6 +19,7 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata = {
   title: 'Flat 18 - Web Development & Design Agency',
   description: 'Full-service web development and design agency specializing in modern, high-performance websites and applications.',
+  metadataBase: new URL('https://flat18.co.uk'),
   openGraph: {
     title: 'Flat 18 — Bespoke Design & Development for Landing Pages, Websites, and Webflow Sites',
     description: 'Flat 18 offers expert design and development services for landing pages, websites, and Webflow sites, tailored for startups, small businesses, and entrepreneurs. Our subscription model provides consistent, high-quality support to create standout digital experiences that drive growth and engagement.',

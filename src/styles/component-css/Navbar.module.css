@@ -214,6 +214,11 @@
     display: block;
   }
 
+  .navbar{
+  padding: .5rem 0;
+
+  }
+
   .menuWrapper {
     position: fixed;
     top: 0;

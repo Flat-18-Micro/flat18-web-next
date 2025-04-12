@@ -68,6 +68,14 @@ The project uses the following tools and configurations:
 
 This website is configured to be deployed to GitHub Pages using GitHub Actions.
 
+#### Environment Variables
+
+The website uses environment variables for the contact form functionality. These need to be set up as GitHub Secrets to be available during the build process. See [GitHub Pages Deployment Guide](docs/github-pages-deployment.md) for detailed instructions.
+
+**Required GitHub Secrets:**
+- `MAILGUN_API_KEY`: Your Mailgun API key
+- `MAILGUN_DOMAIN`: Your Mailgun domain
+
 #### Automatic Deployment
 
 When you push changes to the `main` branch, the site will be automatically built and deployed to GitHub Pages using the GitHub Actions workflow defined in `.github/workflows/deploy.yml`.
