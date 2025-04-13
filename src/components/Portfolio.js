@@ -38,7 +38,7 @@ export default function Portfolio() {
     {
       title: 'F18 Pay',
       description: 'Bitcoin, ETH and ERC-20 token payments processor built to run in serverless environments.',
-      image: '/images/portfolio-graphics/f18-pay.png',
+      image: '/images/portfolio-graphics/f18-pay.webp',
       link: 'https://pay.flat18.co.uk',
       technologies: [
         { name: 'JavaScript', percentage: '100%', colorClass: styles.jsColor }
@@ -70,7 +70,7 @@ export default function Portfolio() {
       category: 'web',
       framework: {
         name: 'Webflow',
-        logo: '/images/webflow-icon-4095338614.png'
+        logo: '/images/all/webflow-icon-4095338614.png'
       }
     },
     {
