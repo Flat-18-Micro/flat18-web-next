@@ -12,7 +12,7 @@ export default function Portfolio() {
     {
       title: 'WalletScrutiny',
       description: 'Collaborative project with the Bitcoin Design Community to redesign the WalletScrutiny brand and website.',
-      image: '/images/portfolio-graphics/wallet-scrutiny.png',
+      image: '/images/portfolio-graphics/wallet-scrutiny.webp',
       link: 'https://walletscrutiny.com',
       technologies: [
         { name: 'JavaScript', percentage: '90%', colorClass: styles.jsColor },
@@ -25,7 +25,7 @@ export default function Portfolio() {
     {
       title: 'BTCPay Server',
       description: 'Clean, modern design for the BTCPay Server Main Landing page and Foundation Website.',
-      image: '/images/portfolio-graphics/btcpayserver.png',
+      image: '/images/portfolio-graphics/btcpayserver.webp',
       link: 'https://btcpayserver.org',
       technologies: [
         { name: 'HTML5', percentage: '40%', colorClass: styles.htmlColor },
@@ -49,7 +49,7 @@ export default function Portfolio() {
     {
       title: '# Hashboard',
       description: 'Web3 application enabling transparent operation and governance of the Zettahash DAO project.',
-      image: '/images/portfolio-graphics/hashboard.png',
+      image: '/images/portfolio-graphics/hashboard.webp',
       link: 'https://hashboard.zettahash.org',
       technologies: [
         { name: 'Vue.js', percentage: '60%', colorClass: styles.vueColor },
@@ -61,7 +61,7 @@ export default function Portfolio() {
     {
       title: 'Zettahash DAO',
       description: 'Zettahash website built in Webflow and designed to be processed in Node within a GitHub Pages environment.',
-      image: '/images/portfolio-graphics/zettahash.png',
+      image: '/images/portfolio-graphics/zettahash.webp',
       link: 'https://zettahash-static.webflow.io',
       technologies: [
         { name: 'Webflow', percentage: '100%', colorClass: styles.webflowColor }
@@ -76,7 +76,7 @@ export default function Portfolio() {
     {
       title: 'dVote EVM',
       description: 'dVote\'s EVM Networks dashboard offers a comprehensive suite of tools designed to streamline and enhance decentralised governance for blockchain ecosystem',
-      image: '/images/portfolio-graphics/dvote.png',
+      image: '/images/portfolio-graphics/dvote.webp',
       link: 'https://evm.dvote.ai/networks',
       technologies: [
         { name: 'Next.js', percentage: '100%', colorClass: styles.nextJSColor },

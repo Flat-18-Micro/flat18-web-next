@@ -68,13 +68,14 @@ The project uses the following tools and configurations:
 
 This website is configured to be deployed to GitHub Pages using GitHub Actions.
 
-#### Environment Variables
+#### Contact Form
 
-The website uses environment variables for the contact form functionality. These need to be set up as GitHub Secrets to be available during the build process. See [GitHub Pages Deployment Guide](docs/github-pages-deployment.md) for detailed instructions.
+The website uses a Cloudflare Workers serverless function to handle contact form submissions. This approach works seamlessly with GitHub Pages since the form submission is handled by an external service. See [GitHub Pages Deployment Guide](docs/github-pages-deployment.md) for detailed information.
 
-**Required GitHub Secrets:**
-- `MAILGUN_API_KEY`: Your Mailgun API key
-- `MAILGUN_DOMAIN`: Your Mailgun domain
+**Benefits:**
+- No environment variables needed in GitHub Pages
+- Improved security with API keys stored in Cloudflare
+- Works with static hosting
 
 #### Automatic Deployment
 

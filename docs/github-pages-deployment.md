@@ -7,27 +7,7 @@ This guide explains how to deploy the Flat 18 website to GitHub Pages.
 Before deploying to GitHub Pages, you need to set up the following:
 
 1. A GitHub repository for the project
-2. GitHub Secrets for environment variables
-3. GitHub Pages enabled for the repository
-
-## Setting Up GitHub Secrets
-
-The website uses environment variables for the contact form functionality. These need to be set up as GitHub Secrets to be available during the build process.
-
-1. Go to your GitHub repository
-2. Click on "Settings"
-3. Click on "Secrets and variables" in the left sidebar
-4. Click on "Actions"
-5. Click on "New repository secret"
-6. Add the following secrets:
-
-   - Name: `MAILGUN_API_KEY`
-     - Value: Your Mailgun API key (e.g., `xxx`)
-
-   - Name: `MAILGUN_DOMAIN`
-     - Value: Your Mailgun domain (e.g., `xxx`)
-
-7. Click "Add secret" for each one
+2. GitHub Pages enabled for the repository
 
 ## Enabling GitHub Pages
 
@@ -92,31 +72,27 @@ If you encounter issues with the deployment:
 
 ## Contact Form Functionality
 
-Note that the contact form uses Mailgun for sending emails. The API endpoint is a serverless function that requires the Mailgun API key and domain to be set as environment variables.
+The contact form uses a Cloudflare Workers serverless function to handle form submissions. This approach works seamlessly with GitHub Pages since the form submission is handled by an external service.
 
-Since GitHub Pages is a static hosting service, the contact form API endpoint will not work. The website includes a fallback mechanism that detects when it's deployed on GitHub Pages and automatically switches to a static contact form that opens the user's email client with a pre-filled message.
+### How the Contact Form Works
 
-### How the Fallback Works
+1. When a user submits the contact form, the data is sent to the Cloudflare Workers endpoint at `https://mailgun-contact.cloudflare-7fd.workers.dev`
+2. The Cloudflare Workers function processes the form data and sends an email using Mailgun
+3. The user receives a confirmation message on the website
 
-1. The `ContactWrapper` component attempts to make a request to the API endpoint
-2. If the request fails (which it will on GitHub Pages), it displays the static contact form
-3. When the user submits the static form, it opens their default email client with a pre-filled message
+### Benefits of Using Cloudflare Workers
 
-### Alternative Solutions
+- **Works with Static Hosting**: Since the form processing happens on Cloudflare's infrastructure, it works perfectly with GitHub Pages static hosting
+- **No Environment Variables Needed**: The API keys and credentials are stored securely in the Cloudflare Workers environment
+- **Improved Security**: Sensitive information like API keys are not exposed in the client-side code
+- **Scalability**: Cloudflare's global network ensures reliable form processing even under high load
+- **Low Latency**: Cloudflare's edge network provides fast response times worldwide
 
-If you want a more seamless contact form experience on GitHub Pages, consider one of these options:
+### Maintenance and Updates
 
-1. **Use a form submission service**:
-   - [Formspree](https://formspree.io/)
-   - [Netlify Forms](https://www.netlify.com/products/forms/)
-   - [Getform](https://getform.io/)
-   - [FormSubmit](https://formsubmit.co/)
+If you need to update the Cloudflare Workers function:
 
-2. **Create a serverless function**:
-   - Deploy the API endpoint to a serverless platform like [Vercel](https://vercel.com/), [Netlify](https://www.netlify.com/), or [AWS Lambda](https://aws.amazon.com/lambda/)
-   - Update the form to submit to the serverless function URL
-
-3. **Use a third-party service**:
-   - [Tally](https://tally.so/)
-   - [Typeform](https://www.typeform.com/)
-   - [JotForm](https://www.jotform.com/)
+1. Access the Cloudflare Workers dashboard at [workers.cloudflare.com](https://workers.cloudflare.com)
+2. Locate the `mailgun-contact` worker
+3. Make the necessary changes to the worker code
+4. Deploy the updated worker

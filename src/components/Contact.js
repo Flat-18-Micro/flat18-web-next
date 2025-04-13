@@ -20,13 +20,17 @@ export default function Contact() {
     setIsSubmitting(true)
 
     try {
-      await fetch('/api/contact', {
+      const response = await fetch('https://mailgun-contact.cloudflare-7fd.workers.dev', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify(formData)
       })
+
+      if (!response.ok) {
+        throw new Error('Failed to send message')
+      }
 
       setIsSubmitted(true)
       setTimeout(() => {
@@ -40,6 +44,7 @@ export default function Contact() {
       }, 5000)
     } catch (error) {
       console.error('Error submitting form:', error)
+      alert('There was an error sending your message. Please try again or email us directly at hello@flat18.co.uk')
     } finally {
       setIsSubmitting(false)
     }

@@ -26,9 +26,6 @@ jobs:
 
       - name: Build 🔧
         run: npm run build:gh-pages
-        env:
-          MAILGUN_API_KEY: ${{ secrets.MAILGUN_API_KEY }}
-          MAILGUN_DOMAIN: ${{ secrets.MAILGUN_DOMAIN }}
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
