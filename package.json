@@ -3,13 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "build:gh-pages": "NEXT_DISABLE_ESLINT=1 next build",
+    "dev": "node scripts/copy-bootstrap-icons.js && next dev",
+    "build": "node scripts/copy-bootstrap-icons.js && next build",
+    "build:gh-pages": "node scripts/copy-bootstrap-icons.js && NEXT_DISABLE_ESLINT=1 next build",
     "start": "next start",
     "lint": "next lint",
-    "export": "next build",
-    "deploy": "NEXT_DISABLE_ESLINT=1 next build && touch out/.nojekyll"
+    "export": "node scripts/copy-bootstrap-icons.js && next build",
+    "deploy": "node scripts/copy-bootstrap-icons.js && NEXT_DISABLE_ESLINT=1 next build && touch out/.nojekyll",
+    "copy-icons": "node scripts/copy-bootstrap-icons.js"
   },
   "dependencies": {
     "bootstrap-icons": "^1.11.3",

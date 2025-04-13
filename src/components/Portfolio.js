@@ -7,7 +7,7 @@ import styles from '../styles/component-css/Portfolio.module.css'
 
 export default function Portfolio() {
   const [filter, setFilter] = useState('all')
-  
+
   const projects = [
     {
       title: 'WalletScrutiny',
@@ -85,36 +85,45 @@ export default function Portfolio() {
       category: 'web'
     },
   ]
-  
-  const filteredProjects = filter === 'all' 
-    ? projects 
+
+  const filteredProjects = filter === 'all'
+    ? projects
     : projects.filter(project => project.category === filter)
-  
-  // Animation variants
+
+  // Animation variants - optimized for performance
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1
+        staggerChildren: 0.1,
+        delayChildren: 0.1
       }
     }
   }
-  
+
   const itemVariants = {
-    hidden: { 
+    hidden: {
       opacity: 0,
-      y: 20
+      y: 20,
+      scale: 0.98
     },
-    visible: { 
+    visible: {
       opacity: 1,
       y: 0,
+      scale: 1,
       transition: {
         duration: 0.5,
-        ease: 'easeOut'
+        ease: [0.25, 0.1, 0.25, 1.0], // Optimized cubic-bezier
+        opacity: { duration: 0.3 }, // Faster opacity transition
+        scale: { duration: 0.4 }
       }
     }
   }
+
+  // Check if user prefers reduced motion
+  const prefersReducedMotion = typeof window !== 'undefined' ?
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches : false;
 
   return (
     <section className={styles.portfolioSection} id="work">
@@ -124,21 +133,21 @@ export default function Portfolio() {
           <p className={styles.portfolioSubtitle}>
             Check out some of our projects across web and app development
           </p>
-          
+
           <div className="flex justify-center gap-4 mt-6 mb-10">
-            <button 
+            <button
               className={`btn ${filter === 'all' ? 'btn-primary' : 'btn-secondary'}`}
               onClick={() => setFilter('all')}
             >
               All Projects
             </button>
-            <button 
+            <button
               className={`btn ${filter === 'web' ? 'btn-primary' : 'btn-secondary'}`}
               onClick={() => setFilter('web')}
             >
               Web
             </button>
-            <button 
+            <button
               className={`btn ${filter === 'app' ? 'btn-primary' : 'btn-secondary'}`}
               onClick={() => setFilter('app')}
             >
@@ -146,33 +155,38 @@ export default function Portfolio() {
             </button>
           </div>
         </div>
-        
-        <motion.div 
+
+        <motion.div
           className={styles.portfolioGrid}
           variants={containerVariants}
           initial="hidden"
           animate="visible"
+          transition={{ type: prefersReducedMotion ? 'tween' : 'spring' }}
         >
           {filteredProjects.map((project, index) => (
-            <motion.div 
-              key={index} 
+            <motion.div
+              key={index}
               className={styles.projectCard}
               variants={itemVariants}
             >
               <div className={styles.projectImageContainer}>
-                <Image 
-                  src={project.image} 
+                <Image
+                  src={project.image}
                   alt={project.title}
                   fill
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   className={styles.projectImage}
+                  loading={index < 3 ? "eager" : "lazy"} /* Load first 3 images eagerly */
+                  fetchPriority={index < 3 ? "high" : "auto"} /* High priority for first 3 */
+                  // width={400} /* Explicit width */
+                  // height={300} /* Explicit height */
                 />
               </div>
-              
+
               <div className={styles.projectContent}>
                 <h3 className={styles.projectTitle}>{project.title}</h3>
                 <p className={styles.projectDescription}>{project.description}</p>
-                
+
                 <div className={styles.projectTechStack}>
                   <div className={styles.techBar}>
                     {project.technologies.map((tech, i) => (
@@ -194,13 +208,13 @@ export default function Portfolio() {
                     ))}
                   </ul>
                 </div>
-                
+
                 <div className={styles.projectFooter}>
                   {project.link ? (
-                    <a 
-                      href={project.link} 
-                      target="_blank" 
-                      rel="noopener noreferrer" 
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className={styles.projectLink}
                     >
                       Visit Website
@@ -209,7 +223,7 @@ export default function Portfolio() {
                   ) : (
                     <span></span>
                   )}
-                  
+
                   <div className={`${styles.projectStatus} ${project.status === 'Live' ? styles.live : ''}`}>
                     {project.status}
                   </div>

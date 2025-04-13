@@ -1,0 +1,21 @@
+{
+  "name": "Flat 18 - Web Development & Design Agency",
+  "short_name": "Flat 18",
+  "description": "Full-service web development and design agency specializing in modern, high-performance websites and applications.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0c10",
+  "theme_color": "#19fdb2",
+  "icons": [
+    {
+      "src": "/images/favicon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/images/webclip.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

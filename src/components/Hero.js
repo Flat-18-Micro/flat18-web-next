@@ -1,16 +1,39 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import Link from 'next/link'
 import styles from '@/styles/component-css/Hero.module.css'
 
 export default function Hero() {
   const [typedText, setTypedText] = useState('')
   const [showCursor, setShowCursor] = useState(true)
+  const [isTypingComplete, setIsTypingComplete] = useState(false)
   const fullText = 'Tailored Design and Development. All under one roof.'
   const typingSpeed = 50 // milliseconds per character
+  const heroRef = useRef(null)
+
+  // Pre-calculate the height to prevent layout shifts
+  useEffect(() => {
+    if (heroRef.current) {
+      const height = heroRef.current.offsetHeight;
+      heroRef.current.style.minHeight = `${height}px`;
+    }
+  }, []);
 
   useEffect(() => {
+    // Immediately set the full text for SEO and performance
+    // The animation will overlay this text
+    setIsTypingComplete(true);
+
+    // Only run the typing animation if the user prefers reduced motion is not enabled
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (prefersReducedMotion) {
+      setTypedText(fullText);
+      setShowCursor(false);
+      return;
+    }
+
     let currentIndex = 0
     let typingInterval
 
@@ -38,14 +61,20 @@ export default function Hero() {
   }, [])
 
   return (
-    <section className={styles.heroSection}>
+    <section className={styles.heroSection} ref={heroRef}>
       <div className={styles.heroBackground}>
         <div className={styles.heroGradient}></div>
         <div className={styles.heroGrid}></div>
       </div>
 
       <div className={styles.heroContent}>
-        <h1 className={styles.heroHeading} data-text={typedText}>
+        {/* Hidden heading for SEO and initial render */}
+        <h1 className={styles.seoHeading} aria-hidden="true">
+          {fullText}
+        </h1>
+
+        {/* Animated heading that overlays the SEO heading */}
+        <h1 className={styles.heroHeading} data-text={typedText} aria-hidden="true">
           {typedText}
           {showCursor && <span className={styles.cursor}></span>}
         </h1>
@@ -57,11 +86,9 @@ export default function Hero() {
         <div className={styles.heroActions}>
           <Link href="#chat" className="btn btn-primary btn-lg btn-icon">
             <span className="btn-text">Start Your Project <i className="bi bi-arrow-right"></i></span>
-            <span className="btn-shine"></span>
           </Link>
           <Link href="#work" className="btn btn-secondary btn-lg">
             <span className="btn-text">View Our Work</span>
-            <span className="btn-shine"></span>
           </Link>
         </div>
 

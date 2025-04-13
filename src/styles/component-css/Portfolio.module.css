@@ -57,10 +57,11 @@
 .projectImageContainer {
   position: relative;
   width: 100%;
-  height:auto;
-  padding-bottom: 60%;
+  height: 0;
+  padding-bottom: 75%; /* 4:3 aspect ratio */
   overflow: hidden;
-  aspect-ratio: 1/1;
+  background-color: rgba(255, 255, 255, 0.05); /* Placeholder color */
+  contain: strict; /* Improve performance */
 }
 
 .projectImage {
@@ -71,6 +72,9 @@
   height: 100%;
   object-fit: cover;
   transition: transform var(--transition-normal);
+  will-change: transform; /* Optimize animations */
+  transform: translateZ(0); /* Force GPU acceleration */
+  backface-visibility: hidden; /* Prevent flickering */
 }
 
 .projectCard:hover .projectImage {
@@ -239,7 +243,7 @@
   }
   .projectCard{
     width: calc(33.33% - (var(--space-24) * .2));
-  
+
     }
 }
 
@@ -257,20 +261,20 @@
   .portfolioTitle {
     font-size: var(--text-3xl);
   }
-  
+
   .portfolioSubtitle {
     font-size: var(--text-base);
   }
-  
+
   .portfolioGrid {
     grid-template-columns: repeat(2, 1fr);
     gap: var(--space-4);
   }
-  
+
   .projectContent {
     padding: var(--space-4);
   }
-  
+
   .projectTitle {
     font-size: var(--text-lg);
   }
@@ -283,6 +287,6 @@
   }
   .projectCard{
     width: calc(100% - (var(--space-24) * 0));
-  
+
     }
 }
