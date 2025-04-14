@@ -181,7 +181,7 @@
   margin: -1px;
   overflow: hidden;
   clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
+  white-space: pre-line;
   border-width: 0;
 }
 
@@ -195,11 +195,12 @@
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  max-width: 900px;
+  /* max-width: 900px; */
   position: relative;
   letter-spacing: -0.01em; /* Slightly tighter for Sora */
   will-change: transform, opacity; /* Optimize animations */
   transform: translateZ(0); /* Force GPU acceleration */
+  white-space: pre-line; /* Preserve line breaks */
 }
 
 /* Enhanced 3D text effect with multiple layers - web3/crypto style */
@@ -215,6 +216,7 @@
   color: transparent;
   opacity: 0.3;
   animation: textShift 4s ease-in-out infinite alternate;
+  white-space: pre-line; /* Preserve line breaks */
 }
 
 .heroHeading::after {
@@ -230,6 +232,7 @@
   filter: blur(18px);
   opacity: 0.6;
   animation: textGlow 4s ease-in-out infinite alternate;
+  white-space: pre-line; /* Preserve line breaks */
 }
 
 @keyframes textShift {
@@ -475,7 +478,7 @@
 
 @media (max-width: 768px) {
   .heroSection {
-    padding: var(--space-32) 0 var(--space-12);
+    padding: calc(var(--space-32) * 1.5) 0 var(--space-12);
   }
 
   .heroHeading {

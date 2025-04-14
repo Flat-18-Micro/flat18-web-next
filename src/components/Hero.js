@@ -8,7 +8,7 @@ export default function Hero() {
   const [typedText, setTypedText] = useState('')
   const [showCursor, setShowCursor] = useState(true)
   const [isTypingComplete, setIsTypingComplete] = useState(false)
-  const fullText = 'Tailored Design and Development. All under one roof.'
+  const fullText = 'Tailored Design and Development.\nAll under one roof.'
   const typingSpeed = 50 // milliseconds per character
   const heroRef = useRef(null)
 
