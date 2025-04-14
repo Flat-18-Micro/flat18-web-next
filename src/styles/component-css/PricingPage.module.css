@@ -74,7 +74,7 @@
   border: 1px solid rgba(255, 255, 255, 0.05);
   border-radius: var(--radius-lg);
   padding: var(--space-6);
-  transition: all var(--transition-normal);
+  transition: box-shadow var(--transition-normal);
 }
 
 .detailCard:hover {

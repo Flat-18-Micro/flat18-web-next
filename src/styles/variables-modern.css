@@ -77,14 +77,6 @@
   --text-6xl: 4rem;     /* 64px */
   --text-7xl: 5rem;     /* 80px */
 
-  /* Letter Spacing */
-  --tracking-tighter: -0.05em;
-  --tracking-tight: -0.025em;
-  --tracking-normal: 0;
-  --tracking-wide: 0.025em;
-  --tracking-wider: 0.05em;
-  --tracking-widest: 0.1em;
-
   /* Font Weights */
   --font-thin: 100;
   --font-extralight: 200;
@@ -98,11 +90,19 @@
 
   /* Line Heights */
   --leading-none: 1;
-  --leading-tight: 1.25;
-  --leading-snug: 1.375;
+  --leading-tight: 1.2;
+  --leading-snug: 1.35;
   --leading-normal: 1.5;
   --leading-relaxed: 1.625;
   --leading-loose: 2;
+
+  /* Letter Spacing */
+  --tracking-tighter: -0.05em;
+  --tracking-tight: -0.025em;
+  --tracking-normal: 0;
+  --tracking-wide: 0.025em;
+  --tracking-wider: 0.05em;
+  --tracking-widest: 0.1em;
 
   /* Spacing System */
   --space-1: 0.25rem;  /* 4px */
@@ -118,6 +118,8 @@
   --space-20: 5rem;    /* 80px */
   --space-24: 6rem;    /* 96px */
   --space-32: 8rem;    /* 128px */
+  --space-40: 10rem;   /* 160px */
+  --space-48: 12rem;   /* 192px */
 
   /* Border Radius */
   --radius-sm: 0.25rem;  /* 4px */
@@ -125,6 +127,7 @@
   --radius-lg: 0.75rem;  /* 12px */
   --radius-xl: 1rem;     /* 16px */
   --radius-2xl: 1.5rem;  /* 24px */
+  --radius-3xl: 2rem;    /* 32px */
   --radius-full: 9999px;
 
   /* Transitions */

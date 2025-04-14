@@ -1,5 +1,12 @@
 @import './variables.css';
 
+/* Define font variables - Modern Fintech 2025 */
+:root {
+  --font-sans: var(--font-manrope), var(--font-outfit), system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  --font-display: var(--font-sora), var(--font-outfit), system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  --font-mono: var(--font-mono), 'JetBrains Mono', 'SF Mono', 'Roboto Mono', Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+}
+
 /* Base Reset */
 *, *::before, *::after {
   box-sizing: border-box;
@@ -46,7 +53,7 @@ body {
 
 /* Selection styling */
 ::selection {
-  background-color: rgba(25, 253, 178, 0.3);
+  background-color: rgba(0, 240, 181, 0.3);
   color: var(--text-primary);
 }
 
@@ -55,6 +62,7 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0;
   line-height: var(--leading-tight);
   font-weight: var(--font-bold);
+  font-family: var(--font-display);
 }
 
 h1 {
@@ -91,11 +99,12 @@ p {
 a {
   color: var(--primary);
   text-decoration: none;
-  transition: color var(--transition-fast);
+  transition: color var(--transition-fast), text-shadow var(--transition-fast);
 }
 
 a:hover {
   /* color: var(--primary-light); */
+  text-shadow: 0 0 8px var(--glow-primary);
 }
 
 /* Container */
@@ -198,24 +207,25 @@ a:hover {
   background-color: var(--bg-surface);
 }
 
-/* Modern Buttons */
+/* Modern Web3/Crypto Buttons */
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   padding: var(--space-3) var(--space-6);
-  border-radius: 12px;
+  border-radius: var(--radius-lg);
   font-weight: var(--font-medium);
   font-size: var(--text-base);
-  transition: all 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: box-shadow 0.3s var(--transition-bounce), transform 0.3s ease, color 0.3s ease;
   cursor: pointer;
   border: none;
   position: relative;
   overflow: hidden;
   text-decoration: none;
   z-index: 1;
-  letter-spacing: 0.02em;
+  letter-spacing: var(--tracking-wide);
   backdrop-filter: blur(5px);
+  font-family: var(--font-display);
 }
 
 /* Button text with proper positioning */
@@ -262,25 +272,27 @@ a:hover {
   left: 100%;
 }
 
-/* Primary button - Gradient style */
+/* Primary button - Modern Web3/Crypto style */
 .btn-primary {
-  background: linear-gradient(92deg, var(--primary) 0%, var(--primary-light) 100%);
+  background: linear-gradient(92deg, var(--primary) 0%, var(--secondary) 100%);
   color: var(--bg-dark);
   box-shadow:
-    0 4px 15px rgba(25, 253, 178, 0.2),
+    0 4px 15px rgba(0, 240, 181, 0.25),
     inset 0 1px 0 rgba(255, 255, 255, 0.2);
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .btn-primary::before {
-  background: linear-gradient(92deg, var(--primary-light) 0%, var(--primary) 100%);
-  box-shadow: 0 8px 25px rgba(25, 253, 178, 0.4);
+  background: linear-gradient(92deg, var(--secondary) 0%, var(--primary) 100%);
+  box-shadow: 0 8px 25px rgba(0, 240, 181, 0.4);
 }
 
 .btn-primary:hover {
-  transform: translateY(-3px);
+  transform: translateY(-3px) scale(1.02);
   box-shadow:
-    0 10px 25px rgba(25, 253, 178, 0.3),
+    0 10px 25px rgba(0, 240, 181, 0.35),
+    0 0 15px rgba(0, 240, 181, 0.2),
     inset 0 1px 0 rgba(255, 255, 255, 0.3);
 }
 
@@ -320,6 +332,8 @@ a:hover {
     0 8px 20px rgba(0, 0, 0, 0.15),
     0 0 15px rgba(25, 253, 178, 0.1),
     inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  color: var(--primary-light);
+
 }
 
 .btn-secondary:hover::before {

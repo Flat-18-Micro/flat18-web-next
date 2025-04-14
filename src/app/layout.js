@@ -1,15 +1,31 @@
 import '../styles/globals.css'
 import 'bootstrap-icons/font/bootstrap-icons.css'
-import { Inter } from 'next/font/google'
+import { Outfit, Sora, Manrope } from 'next/font/google'
 import { JetBrains_Mono } from 'next/font/google'
 import ChatwootWidget from '@/components/ChatwootWidget'
 import ServiceWorkerRegistration from '@/components/ServiceWorkerRegistration'
 
 // Optimize font loading
-const inter = Inter({
+const outfit = Outfit({
   subsets: ['latin'],
   display: 'swap',
-  variable: '--font-inter',
+  variable: '--font-outfit',
+  preload: true,
+  fallback: ['system-ui', 'Arial', 'sans-serif'],
+})
+
+const sora = Sora({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-sora',
+  preload: true,
+  fallback: ['system-ui', 'Arial', 'sans-serif'],
+})
+
+const manrope = Manrope({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-manrope',
   preload: true,
   fallback: ['system-ui', 'Arial', 'sans-serif'],
 })
@@ -42,7 +58,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable}`}>
+    <html lang="en" className={`${outfit.variable} ${sora.variable} ${manrope.variable} ${jetbrainsMono.variable}`}>
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
