@@ -1,6 +1,6 @@
 import '../styles/globals.css'
 import 'bootstrap-icons/font/bootstrap-icons.css'
-import { Outfit, Manrope, Inter } from 'next/font/google'
+import { Outfit, Sora, Inter } from 'next/font/google'
 import { JetBrains_Mono } from 'next/font/google'
 import ChatwootWidget from '@/components/ChatwootWidget'
 import ServiceWorkerRegistration from '@/components/ServiceWorkerRegistration'
@@ -14,10 +14,10 @@ const outfit = Outfit({
   fallback: ['system-ui', 'Arial', 'sans-serif'],
 })
 
-const manrope = Manrope({
+const sora = Sora({
   subsets: ['latin'],
   display: 'swap',
-  variable: '--font-manrope',
+  variable: '--font-sora',
   preload: true,
   fallback: ['system-ui', 'Arial', 'sans-serif'],
 })
@@ -39,26 +39,29 @@ const jetbrainsMono = JetBrains_Mono({
 })
 
 export const metadata = {
-  title: 'Flat 18 - Web Development & Design Agency',
-  description: 'Full-service web development and design agency specializing in modern, high-performance websites and applications.',
+  title: 'Flat 18 - Premium Web3 & DeFi Development Agency',
+  description: 'Premium design and development agency specializing in Web3, DeFi, BTCPayServer, crypto security, and full-stack development for blockchain entrepreneurs and startups.',
   metadataBase: new URL('https://flat18.co.uk'),
+  keywords: 'web3 development, defi design, crypto security, btcpayserver, blockchain apps, wallet scrutiny, full-stack development, premium design agency',
   openGraph: {
-    title: 'Flat 18 — Bespoke Design & Development for Landing Pages, Websites, and Webflow Sites',
-    description: 'Flat 18 offers expert design and development services for landing pages, websites, and Webflow sites, tailored for startups, small businesses, and entrepreneurs. Our subscription model provides consistent, high-quality support to create standout digital experiences that drive growth and engagement.',
+    title: 'Flat 18 — Premium Web3 & DeFi Design and Development Agency',
+    description: 'Specialized in Web3, DeFi, and crypto security solutions. We deliver cost-effective, high-performance applications and websites for blockchain entrepreneurs and startups with modern UI/UX and secure architecture.',
     images: ['/static/advert-flat-18-f18-og_1-p-2000.webp'],
     type: 'website',
+    site_name: 'Flat 18',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Flat 18 — Bespoke Design & Development for Landing Pages, Websites, and Webflow Sites',
-    description: 'Flat 18 offers expert design and development services for landing pages, websites, and Webflow sites, tailored for startups, small businesses, and entrepreneurs. Our subscription model provides consistent, high-quality support to create standout digital experiences that drive growth and engagement.',
+    title: 'Flat 18 — Premium Web3 & DeFi Design and Development Agency',
+    description: 'Specialized in Web3, DeFi, and crypto security solutions. We deliver cost-effective, high-performance applications and websites for blockchain entrepreneurs and startups with modern UI/UX and secure architecture.',
     images: ['/static/advert-flat-18-f18-og_1-p-2000.webp'],
+    creator: '@f18_dev',
   },
 }
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${outfit.variable} ${manrope.variable} ${inter.variable} ${jetbrainsMono.variable}`}>
+    <html lang="en" className={`${outfit.variable} ${sora.variable} ${inter.variable} ${jetbrainsMono.variable}`}>
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
