@@ -201,6 +201,7 @@
   will-change: transform, opacity; /* Optimize animations */
   transform: translateZ(0); /* Force GPU acceleration */
   white-space: pre-line; /* Preserve line breaks */
+  min-height: 8rem;
 }
 
 /* Enhanced 3D text effect with multiple layers - web3/crypto style */
@@ -479,18 +480,14 @@
 @media (max-width: 768px) {
   .heroSection {
     padding: calc(var(--space-20) + 5vh) 0 var(--space-16);
-    min-height: 100vh;
+    padding-bottom: var(--space-32);
+    min-height: calc(100vh + var(--space-20)); /* Use dynamic viewport height for iOS compatibility */
     justify-content: flex-start;
   }
 
   .heroContent {
-    padding: 0 var(--space-5);
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: var(--space-6);
+    padding-bottom: var(--space-16); /* updated internal spacing */
+    margin-top: 5vh;
   }
 
   .heroHeading {
@@ -526,6 +523,7 @@
     width: 100%;
     max-width: 320px;
     margin-top: var(--space-6);
+    margin-bottom: var(--space-10);
   }
 
   .statItem {

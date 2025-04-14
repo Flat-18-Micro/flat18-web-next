@@ -128,11 +128,12 @@
   }
   
   .toolItem {
-    width: 80px;
+    /* width: 80px; */
   }
   
   .toolLogoContainer {
     /* width: 50px; */
+    width: 100%;
     height: 50px;
   }
   
@@ -143,11 +144,11 @@
 
 @media (max-width: 480px) {
   .scrollRow {
-    gap: var(--space-3);
+    gap: var(--space-12);
   }
   
   .toolItem {
-    width: 70px;
+    /* width: 70px; */
   }
   
   .toolLogoContainer {
