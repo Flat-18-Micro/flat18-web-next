@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<base href="./">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Animation Test</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #111;
+      color: #fff;
+      margin: 0;
+      padding: 20px;
+      text-align: center;
+    }
+    
+    .test-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #222;
+      border-radius: 8px;
+    }
+    
+    .test-element {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.5s ease;
+      padding: 20px;
+      margin: 20px 0;
+      background-color: #333;
+      border-radius: 8px;
+    }
+    
+    .visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    button {
+      background-color: #19fdb2;
+      color: #000;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+      margin: 10px;
+    }
+    
+    button:hover {
+      background-color: #0dd89e;
+    }
+  </style>
+</head>
+<body>
+  <div class="test-container">
+    <h1>Animation Test Page</h1>
+    <p>This page tests if animations are working correctly on GitHub Pages.</p>
+    
+    <button id="animate-btn">Animate Elements</button>
+    <button id="reset-btn">Reset Elements</button>
+    
+    <div class="test-element">Test Element 1</div>
+    <div class="test-element">Test Element 2</div>
+    <div class="test-element">Test Element 3</div>
+    
+    <p>If you can see this page and the animations work when clicking the button, then the website should be loading correctly.</p>
+    <p>Go back to the <a href="./index.html">main page</a> to see if it's working.</p>
+  </div>
+  
+  <script>
+    document.getElementById('animate-btn').addEventListener('click', function() {
+      const elements = document.querySelectorAll('.test-element');
+      elements.forEach(function(el, index) {
+        setTimeout(function() {
+          el.classList.add('visible');
+        }, index * 200);
+      });
+    });
+    
+    document.getElementById('reset-btn').addEventListener('click', function() {
+      const elements = document.querySelectorAll('.test-element');
+      elements.forEach(function(el) {
+        el.classList.remove('visible');
+      });
+    });
+    
+    // Auto-animate after 1 second
+    setTimeout(function() {
+      document.getElementById('animate-btn').click();
+    }, 1000);
+  </script>
+</body>
+</html>
