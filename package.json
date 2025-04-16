@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "node scripts/copy-bootstrap-icons.js && next dev",
     "build": "node scripts/copy-bootstrap-icons.js && next build",
-    "build:gh-pages": "node scripts/copy-bootstrap-icons.js && NEXT_DISABLE_ESLINT=1 next build",
+    "build:gh-pages": "node scripts/copy-bootstrap-icons.js && npm run optimize-images && NEXT_DISABLE_ESLINT=1 next build",
     "start": "next start",
     "lint": "next lint",
     "export": "node scripts/copy-bootstrap-icons.js && next build",
@@ -13,7 +13,8 @@
     "copy-icons": "node scripts/copy-bootstrap-icons.js",
     "purge-css": "node scripts/purge-css.js",
     "optimize-images": "node scripts/optimize-images.js",
-    "optimize": "npm run optimize-images && npm run purge-css"
+    "optimize-css": "node scripts/optimize-css.js",
+    "optimize": "npm run optimize-images && npm run optimize-css"
   },
   "dependencies": {
     "bootstrap-icons": "^1.11.3",
@@ -27,8 +28,10 @@
   "devDependencies": {
     "autoprefixer": "^10.4.21",
     "critters": "^0.0.25",
+    "csso": "^5.0.5",
     "eslint": "^8.57.1",
     "eslint-config-next": "^15.2.4",
+    "glob": "^11.0.1",
     "postcss": "^8.5.3",
     "purgecss": "^7.0.2",
     "sharp": "^0.34.1",

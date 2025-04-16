@@ -1,6 +1,4 @@
 /** @type {import('next').NextConfig} */
-const CrittersPlugin = require('critters');
-
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
@@ -20,30 +18,6 @@ const nextConfig = {
     // Enable if you need to use rewrites or redirects
     // skipTrailingSlashRedirect: true,
     optimizeCss: true, // Uses Critters to inline critical CSS
-    // Reduce CSS size by removing unused rules
-    cssMinifier: 'cssnano',
-  },
-
-  // Add webpack configuration for CSS optimization
-  webpack: (config, { dev, isServer }) => {
-    // Only run in production build on the client
-    if (!dev && !isServer) {
-      // Add the Critters plugin to inline critical CSS
-      config.plugins.push(
-        new CrittersPlugin({
-          // Inline all styles without any size threshold
-          preload: 'media',
-          // Don't inline anything that would just be wasted bytes
-          pruneSource: true,
-          // Reduce size by removing unused rules
-          reduceInlineStyles: true,
-          // Don't inline external stylesheets
-          inlineThreshold: 0,
-        })
-      );
-    }
-
-    return config;
   },
 }
 
