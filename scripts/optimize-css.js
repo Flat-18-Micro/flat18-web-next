@@ -26,9 +26,31 @@ async function optimizeCSS() {
 
       if (isProduction) {
         // Optimize the CSS in production mode
-        const optimized = csso.minify(content, {
-          restructure: true,
-          comments: false
+
+        // Pre-process content to protect background-clip properties
+        let processedContent = content;
+
+        // Find and protect background-clip properties by adding a special comment
+        processedContent = processedContent.replace(
+          /(-webkit-background-clip:\s*text;?\s*background-clip:\s*text;?)/g,
+          '/* @preserve */ $1 /* @endpreserve */'
+        );
+
+        // Also protect standalone background-clip properties
+        processedContent = processedContent.replace(
+          /(-webkit-background-clip:\s*text;?)/g,
+          '/* @preserve */ $1 /* @endpreserve */'
+        );
+
+        processedContent = processedContent.replace(
+          /(background-clip:\s*text;?)/g,
+          '/* @preserve */ $1 /* @endpreserve */'
+        );
+
+        // Optimize the CSS
+        const optimized = csso.minify(processedContent, {
+          restructure: false, // Disable restructuring to preserve property order
+          comments: 'exclamation' // Preserve important comments
         });
 
         // Write the optimized CSS back to the file
