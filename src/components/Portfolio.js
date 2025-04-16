@@ -173,13 +173,13 @@ export default function Portfolio() {
                 <Image
                   src={project.image}
                   alt={project.title}
-                  fill
+                  width={400}
+                  height={400}
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   className={styles.projectImage}
                   loading={index < 3 ? "eager" : "lazy"} /* Load first 3 images eagerly */
                   fetchPriority={index < 3 ? "high" : "auto"} /* High priority for first 3 */
-                  // width={400} /* Explicit width */
-                  // height={300} /* Explicit height */
+                  quality={75} /* Reduce quality slightly for better performance */
                 />
               </div>
 

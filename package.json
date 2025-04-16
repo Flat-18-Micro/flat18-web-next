@@ -10,7 +10,10 @@
     "lint": "next lint",
     "export": "node scripts/copy-bootstrap-icons.js && next build",
     "deploy": "node scripts/copy-bootstrap-icons.js && NEXT_DISABLE_ESLINT=1 next build && touch out/.nojekyll",
-    "copy-icons": "node scripts/copy-bootstrap-icons.js"
+    "copy-icons": "node scripts/copy-bootstrap-icons.js",
+    "purge-css": "node scripts/purge-css.js",
+    "optimize-images": "node scripts/optimize-images.js",
+    "optimize": "npm run optimize-images && npm run purge-css"
   },
   "dependencies": {
     "bootstrap-icons": "^1.11.3",
@@ -27,6 +30,8 @@
     "eslint": "^8.57.1",
     "eslint-config-next": "^15.2.4",
     "postcss": "^8.5.3",
+    "purgecss": "^7.0.2",
+    "sharp": "^0.34.1",
     "tailwindcss": "^3.4.17"
   }
 }

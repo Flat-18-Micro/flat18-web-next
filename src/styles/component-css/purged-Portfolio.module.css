@@ -140,10 +140,6 @@
   background-color: #42b883;
 }
 
-.phpColor {
-  background-color: #8892be;
-}
-
 .webflowColor {
   background-color: #4263eb;
 }
@@ -212,26 +208,6 @@
 .projectStatus.live {
   color: var(--primary);
   background-color: rgba(25, 253, 178, 0.1);
-}
-
-.projectFramework {
-  display: flex;
-  align-items: center;
-  gap: var(--space-2);
-  font-size: var(--text-xs);
-  color: var(--text-tertiary);
-}
-
-.frameworkLogo {
-  width: 16px;
-  height: 16px;
-  border-radius: var(--radius-sm);
-  background-color: var(--bg-surface-hover);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: var(--text-xs);
-  color: var(--primary);
 }
 
 /* Technology colors */

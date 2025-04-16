@@ -2,6 +2,7 @@
 
 import styles from '../styles/component-css/Tools.module.css'
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 export default function Tools() {
   const tools = [
@@ -11,10 +12,10 @@ export default function Tools() {
     { name: 'Webflow', logo: '/images/tools/Webflow_logo_2023.svg', bgColor: 'rgba(0, 0, 255, 0.3)' },
     { name: 'WalletConnect', logo: '/images/tools/Logo.svg', bgColor: 'rgba(0, 122, 255, 0.3)' },
     { name: 'Node.js', logo: '/images/tools/Node.js_logo.svg', bgColor: 'rgba(88, 101, 242, 0.3)' },
-    { name: 'Neon', logo: '/images/tools/iddKu5-cyx_logos.png', bgColor: 'rgba(0, 255, 255, 0.3)' },
-    { name: 'GitHub', logo: '/images/tools/github.png', bgColor: 'rgba(36, 41, 46, 0.3)' },
+    { name: 'Neon', logo: '/images/tools/iddKu5-cyx_logos.webp', bgColor: 'rgba(0, 255, 255, 0.3)' },
+    { name: 'GitHub', logo: '/images/tools/github.webp', bgColor: 'rgba(36, 41, 46, 0.3)' },
     { name: 'BTCPay', logo: '/images/tools/btcpay-logo-white-txt.svg', bgColor: 'rgba(0, 255, 0, 0.3)' },
-    { name: 'Vercel', logo: '/images/tools/vercel.png', bgColor: 'rgba(0, 0, 0, 0.3)' },
+    { name: 'Vercel', logo: '/images/tools/vercel.webp', bgColor: 'rgba(0, 0, 0, 0.3)' },
     { name: 'Stripe', logo: '/images/tools/Stripe_Logo,_revised_2016.svg', bgColor: 'rgba(0, 0, 255, 0.3)' },
     { name: 'Affinity', logo: '/images/tools/Affinity_Designer_2-logo.svg', bgColor: 'rgba(0, 0, 255, 0.3)' },
     { name: 'ChatGPT', logo: '/images/tools/chatgpt.svg', bgColor: 'rgba(0, 255, 0, 0.3)' },
@@ -29,7 +30,7 @@ export default function Tools() {
           <h2 className={styles.toolsTitle}>Technologies We Use</h2>
           <p className={styles.toolsSubtitle}>Modern tools for modern solutions</p>
         </div>
-        
+
         <div className={styles.toolsContainer}>
           <div className={styles.marqueeTrack}>
             <motion.div
@@ -43,14 +44,32 @@ export default function Tools() {
                   <div
                     className={styles.toolLogoContainer}
                   >
-                    <img src={tool.logo} alt={`${tool.name} logo`} className={styles.toolLogo} />
+                    {tool.logo.endsWith('.svg') ? (
+                      <img
+                        src={tool.logo}
+                        alt={`${tool.name} logo`}
+                        className={styles.toolLogo}
+                        width="50"
+                        height="50"
+                        loading="lazy"
+                      />
+                    ) : (
+                      <Image
+                        src={tool.logo}
+                        alt={`${tool.name} logo`}
+                        className={styles.toolLogo}
+                        width={50}
+                        height={50}
+                        quality={70}
+                      />
+                    )}
                   </div>
                   {<div className={styles.toolName}>{tool.name}</div>}
                 </div>
               ))}
             </motion.div>
           </div>
-          
+
           <div className={styles.toolsGradient}></div>
         </div>
       </div>

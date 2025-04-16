@@ -7,7 +7,6 @@ import styles from '@/styles/component-css/Hero.module.css'
 export default function Hero() {
   const [typedText, setTypedText] = useState('')
   const [showCursor, setShowCursor] = useState(true)
-  const [isTypingComplete, setIsTypingComplete] = useState(false)
   const fullText = 'Tailored Design and Development.\nAll under one roof.'
   const typingSpeed = 50 // milliseconds per character
   const heroRef = useRef(null)
@@ -17,19 +16,26 @@ export default function Hero() {
     if (heroRef.current) {
       const height = heroRef.current.offsetHeight;
       heroRef.current.style.minHeight = `${height}px`;
+
+      // Set fixed dimensions for the heading container to prevent layout shifts
+      const headingElement = heroRef.current.querySelector(`.${styles.heroHeading}`);
+      if (headingElement) {
+        const headingHeight = headingElement.offsetHeight;
+        headingElement.style.minHeight = `${headingHeight}px`;
+      }
     }
   }, []);
 
   useEffect(() => {
     // Immediately set the full text for SEO and performance
     // The animation will overlay this text
-    setIsTypingComplete(true);
+    // Set the full text immediately to prevent layout shifts
+    setTypedText(fullText);
 
     // Only run the typing animation if the user prefers reduced motion is not enabled
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     if (prefersReducedMotion) {
-      setTypedText(fullText);
       setShowCursor(false);
       return;
     }
@@ -39,6 +45,9 @@ export default function Hero() {
 
     // Start typing animation after a short delay
     const startTypingTimeout = setTimeout(() => {
+      // Reset to empty string to start the animation
+      setTypedText('');
+
       typingInterval = setInterval(() => {
         if (currentIndex < fullText.length) {
           setTypedText(fullText.substring(0, currentIndex + 1))
