@@ -61,37 +61,39 @@ export default function Pricing() {
         // Calculate prices in different currencies
           const gbp = data.result.find(currency => currency.name === 'GBP')
           if (gbp) {
-            // Auto-detect currency from browser locale
-            const browserLocale = navigator.language || navigator.userLanguage
-            let defaultCurrency = 'GBP'
-            if (browserLocale.startsWith('en-US')) {
-              defaultCurrency = 'USD'
-            } else if (browserLocale.startsWith('en-GB')) {
-              defaultCurrency = 'GBP'
-            } else if (
-              browserLocale.startsWith('de') || 
-              browserLocale.startsWith('fr') || 
-              browserLocale.startsWith('es') || 
-              browserLocale.startsWith('it') || 
-              browserLocale.startsWith('nl') || 
-              browserLocale.startsWith('pt') ||
-              browserLocale.startsWith('fi') ||
-              browserLocale.startsWith('sv') ||
-              browserLocale.startsWith('da')
-            ) {
-              defaultCurrency = 'EUR'
+            if (typeof window !== 'undefined' && typeof navigator !== 'undefined') {
+              // Auto-detect currency from browser locale
+              const browserLocale = navigator.language || navigator.userLanguage
+              let defaultCurrency = 'GBP'
+              if (browserLocale.startsWith('en-US')) {
+                defaultCurrency = 'USD'
+              } else if (browserLocale.startsWith('en-GB')) {
+                defaultCurrency = 'GBP'
+              } else if (
+                browserLocale.startsWith('de') || 
+                browserLocale.startsWith('fr') || 
+                browserLocale.startsWith('es') || 
+                browserLocale.startsWith('it') || 
+                browserLocale.startsWith('nl') || 
+                browserLocale.startsWith('pt') ||
+                browserLocale.startsWith('fi') ||
+                browserLocale.startsWith('sv') ||
+                browserLocale.startsWith('da')
+              ) {
+                defaultCurrency = 'EUR'
+              }
+              
+              if (data.result.some(currency => currency.name === defaultCurrency)) {
+                setSelectedCurrency(defaultCurrency)
+              }
             }
-            
-            if (data.result.some(currency => currency.name === defaultCurrency)) {
-              setSelectedCurrency(defaultCurrency)
-            }
-
+          
             const updatedPrices = {
-            monthly: { GBP: formatCurrency(basePrices.monthly, 'GBP') },
-            quarterly: { GBP: formatCurrency(basePrices.quarterly, 'GBP') },
-            monthlySavings: { GBP: formatCurrency(basePrices.monthlySavings, 'GBP') },
-            quarterlyMonthly: { GBP: formatCurrency(basePrices.quarterlyMonthly, 'GBP') }
-          }
+              monthly: { GBP: formatCurrency(basePrices.monthly, 'GBP') },
+              quarterly: { GBP: formatCurrency(basePrices.quarterly, 'GBP') },
+              monthlySavings: { GBP: formatCurrency(basePrices.monthlySavings, 'GBP') },
+              quarterlyMonthly: { GBP: formatCurrency(basePrices.quarterlyMonthly, 'GBP') }
+            }
           
           // Calculate prices for each currency
           data.result.forEach(currency => {
@@ -169,7 +171,7 @@ export default function Pricing() {
           </button>
           <span
             className={styles.currencyInfoIcon}
-            title={`${selectedCurrency} automatically selected based on your browser language (${navigator.language}). Final invoice may vary slightly due to exchange rates.`}
+          title={`${selectedCurrency} automatically selected based on your browser language (${typeof navigator !== 'undefined' ? navigator.language : 'unknown'}). Final invoice may vary slightly due to exchange rates.`}
           >
             <i className="bi bi-info-circle"></i>
           </span>
