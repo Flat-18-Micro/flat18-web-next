@@ -82,6 +82,11 @@ export default function Hero() {
           {fullText}
         </h1>
 
+        <div className={styles.availableIndicatorWrapper}>
+          <span className={styles.availableDot}></span>
+          Available for work
+        </div>
+
         {/* Animated heading that overlays the SEO heading */}
         <h1 className={styles.heroHeading} data-text={typedText} aria-hidden="true">
           {typedText}
