@@ -89,7 +89,7 @@ export default function Hero() {
         </h1>
 
         <p className={styles.heroSubheading}>
-          We build modern, high-performance Web3 & DeFi solutions for entrepreneurs and startups in the crypto space. Specializing in secure, cost-effective development with premium design.
+          We build modern, high-performance Web3 & DeFi solutions for entrepreneurs and startups in the crypto space. Specialising in secure, cost-effective development and design.
         </p>
 
         <div className={styles.heroActions}>

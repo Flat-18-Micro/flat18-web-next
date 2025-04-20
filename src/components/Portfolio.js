@@ -160,7 +160,8 @@ export default function Portfolio() {
           className={styles.portfolioGrid}
           variants={containerVariants}
           initial="hidden"
-          animate="visible"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
           transition={{ type: prefersReducedMotion ? 'tween' : 'spring' }}
         >
           {filteredProjects.map((project, index) => (
