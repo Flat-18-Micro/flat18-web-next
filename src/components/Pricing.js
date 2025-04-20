@@ -59,9 +59,34 @@ export default function Pricing() {
         setCurrencies(data.result)
         
         // Calculate prices in different currencies
-        const gbp = data.result.find(currency => currency.name === 'GBP')
-        if (gbp) {
-          const updatedPrices = {
+          const gbp = data.result.find(currency => currency.name === 'GBP')
+          if (gbp) {
+            // Auto-detect currency from browser locale
+            const browserLocale = navigator.language || navigator.userLanguage
+            let defaultCurrency = 'GBP'
+            if (browserLocale.startsWith('en-US')) {
+              defaultCurrency = 'USD'
+            } else if (browserLocale.startsWith('en-GB')) {
+              defaultCurrency = 'GBP'
+            } else if (
+              browserLocale.startsWith('de') || 
+              browserLocale.startsWith('fr') || 
+              browserLocale.startsWith('es') || 
+              browserLocale.startsWith('it') || 
+              browserLocale.startsWith('nl') || 
+              browserLocale.startsWith('pt') ||
+              browserLocale.startsWith('fi') ||
+              browserLocale.startsWith('sv') ||
+              browserLocale.startsWith('da')
+            ) {
+              defaultCurrency = 'EUR'
+            }
+            
+            if (data.result.some(currency => currency.name === defaultCurrency)) {
+              setSelectedCurrency(defaultCurrency)
+            }
+
+            const updatedPrices = {
             monthly: { GBP: formatCurrency(basePrices.monthly, 'GBP') },
             quarterly: { GBP: formatCurrency(basePrices.quarterly, 'GBP') },
             monthlySavings: { GBP: formatCurrency(basePrices.monthlySavings, 'GBP') },
@@ -142,6 +167,12 @@ export default function Pricing() {
             <span>{selectedCurrency}</span>
             <i className="bi bi-chevron-down"></i>
           </button>
+          <span
+            className={styles.currencyInfoIcon}
+            title={`${selectedCurrency} automatically selected based on your browser language (${navigator.language}). Final invoice may vary slightly due to exchange rates.`}
+          >
+            <i className="bi bi-info-circle"></i>
+          </span>
           {showCurrencyMenu && (
             <div className={styles.currencyMenu}>
               {currencies.map((currency) => (
