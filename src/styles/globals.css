@@ -972,3 +972,5 @@ a:hover {
     width: 100%
   }
 }
+
+.async-hide {opacity: 0 !important; background: white !important;}

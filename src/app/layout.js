@@ -82,6 +82,22 @@ export default function RootLayout({ children }) {
         {/* Analytics scripts with optimized loading */}
         <script defer src="https://eu.umami.is/script.js" data-website-id="54c1aa36-ac18-426d-ba14-3d5827cfa465"></script>
         <script defer src="https://master--melodic-taffy-1a4c18.netlify.app/tracker.js" data-ackee-server="https://master--melodic-taffy-1a4c18.netlify.app" data-ackee-domain-id="b28e2698-bf04-4e23-9075-a5f7110affe0"></script>
+        <script id="keak-script" src="https://keak-prod-d7a7awfeabbvb6hq.z01.azurefd.net/scripts/e4dc74f0-33a0-4f2a-91a7-949fed677732-5121.js" type="text/javascript"></script>
+        <script dangerouslySetInnerHTML={{
+          __html: `(function(KEAK, K, E, A, K_, H, I, D, E_) {
+            K.className += ' ' + E;
+            H.start = 1 * new Date;
+            H.end = I = function() {
+              K.className = K.className.replace(RegExp(' ?' + E), '');
+            };
+            (KEAK[A] = KEAK[A] || []).hide = H;
+            setTimeout(function() {
+              I();
+              H.end = null;
+            }, K_);
+            H.timeout = K_;
+          })(window, document.documentElement, 'async-hide', 'dataLayer', 800, {'CONTAINER_ID': true });`
+        }} />
       </head>
       <body>
         {children}
