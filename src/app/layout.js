@@ -4,6 +4,7 @@ import { Outfit, Sora, Inter } from 'next/font/google'
 import { JetBrains_Mono } from 'next/font/google'
 import ChatwootWidget from '@/components/ChatwootWidget'
 import ServiceWorkerRegistration from '@/components/ServiceWorkerRegistration'
+import Script from 'next/script'
 
 // Optimize font loading
 const outfit = Outfit({
@@ -82,7 +83,7 @@ export default function RootLayout({ children }) {
         {/* Analytics scripts with optimized loading */}
         <script defer src="https://eu.umami.is/script.js" data-website-id="54c1aa36-ac18-426d-ba14-3d5827cfa465"></script>
         <script defer src="https://master--melodic-taffy-1a4c18.netlify.app/tracker.js" data-ackee-server="https://master--melodic-taffy-1a4c18.netlify.app" data-ackee-domain-id="b28e2698-bf04-4e23-9075-a5f7110affe0"></script>
-        <script id="keak-script" src="https://keak-prod-d7a7awfeabbvb6hq.z01.azurefd.net/scripts/e4dc74f0-33a0-4f2a-91a7-949fed677732-5121.js" type="text/javascript"></script>
+        <Script id="keak-script" src="https://keak-prod-d7a7awfeabbvb6hq.z01.azurefd.net/scripts/e4dc74f0-33a0-4f2a-91a7-949fed677732-5121.js" strategy="lazyOnload" />
       </head>
       <body>
         {children}
