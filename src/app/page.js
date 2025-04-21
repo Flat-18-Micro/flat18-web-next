@@ -35,6 +35,30 @@ export default function Home() {
         localStorage.setItem("webM", persist)
       })
       .catch(error => console.log('Metrics fetch error:', error))
+
+    // Apply async-hide logic
+    const asyncHide = () => {
+      document.documentElement.classList.add('async-hide');
+      const start = Date.now();
+      const hide = {
+        start,
+        end: null,
+        timeout: 800
+      };
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.hide = hide;
+
+      hide.end = () => {
+        document.documentElement.classList.remove('async-hide');
+      };
+
+      setTimeout(() => {
+        hide.end();
+        hide.end = null;
+      }, hide.timeout);
+    };
+
+    asyncHide();
   }, [])
 
   return (
