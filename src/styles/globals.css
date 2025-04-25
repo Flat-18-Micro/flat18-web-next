@@ -370,6 +370,7 @@ a:hover {
 
 .gradient-text {
   background: var(--primary-gradient);
+  -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
   display: inline-block

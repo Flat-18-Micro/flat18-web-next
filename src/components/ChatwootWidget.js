@@ -16,21 +16,37 @@ export default function ChatwootWidget() {
       }
     })
 
-    const q = localStorage?.getItem('webM') ? `&webM=${localStorage.getItem('webM')}` : ''
-    fetch('https://api.flat18.co.uk/metrics/webm/index.php?geo=1' + q)
-      .then(response => response.json())
-      .then(data => {
-        window.webM = data.webM
-        window.geoCityCountry = data.geo
-        const persist = localStorage?.getItem('webM') || data.webM
-        localStorage.setItem('webM', persist)
+    try {
+      const q = localStorage?.getItem('webM') ? `&webM=${localStorage.getItem('webM')}` : ''
+      fetch('https://api.flat18.co.uk/metrics/webm/index.php?geo=1' + q)
+        .then(response => {
+          if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+          }
+          return response.json();
+        })
+        .then(data => {
+          if (data && data.webM) {
+            window.webM = data.webM
+            window.geoCityCountry = data.geo || 'Unknown'
+            const persist = localStorage?.getItem('webM') || data.webM
+            localStorage.setItem('webM', persist)
 
-        if (window.$chatwoot) {
-          window.$chatwoot.setUser(persist, {
-            name: `${window.geoCityCountry} - ${persist}`
-          })
-        }
-      })
+            if (window.$chatwoot) {
+              try {
+                window.$chatwoot.setUser(persist, {
+                  name: `${window.geoCityCountry} - ${persist}`
+                })
+              } catch (chatwootError) {
+                console.log('Chatwoot setUser error:', chatwootError)
+              }
+            }
+          }
+        })
+        .catch(error => console.log('Metrics fetch error in ChatwootWidget:', error))
+    } catch (error) {
+      console.log('Metrics fetch try/catch error in ChatwootWidget:', error)
+    }
 
     const handlePrepareMessage = (event) => {
       if (window.$chatwoot && event.detail?.message) {

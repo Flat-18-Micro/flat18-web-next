@@ -254,7 +254,8 @@
   letter-spacing: -.01em;
   will-change: transform, opacity;
   min-height: 8rem;
-  background-clip: text
+  -webkit-background-clip: text;
+  background-clip: text;
 }
 
 .heroHeading::after, .heroHeading::before {
@@ -269,6 +270,7 @@
   background: linear-gradient(to right, rgba(0, 240, 181, .4), rgba(61, 158, 238, .4));
   opacity: .3;
   animation: textShift 4s ease-in-out infinite alternate;
+  -webkit-background-clip: text;
   background-clip: text;
   filter: blur(15px)
 }
@@ -281,7 +283,8 @@
   filter: blur(18px);
   opacity: .6;
   animation: textGlow 4s ease-in-out infinite alternate;
-  background-clip: text
+  -webkit-background-clip: text;
+  background-clip: text;
 }
 
 .heroSubheading {
@@ -390,6 +393,7 @@
   font-weight: var(--font-bold);
   font-family: var(--font-display);
   background: linear-gradient(to right, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
   margin-bottom: var(--space-2);

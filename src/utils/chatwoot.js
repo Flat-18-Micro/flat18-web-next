@@ -29,16 +29,31 @@ export const initChatwoot = (options = {}) => {
     script.src = `${baseUrl}/packs/js/sdk.js`
     script.defer = true
     script.async = true
-    
+
     // Initialize Chatwoot when script loads
     script.onload = function() {
-      window.chatwootSDK.run({
-        websiteToken: websiteToken,
-        baseUrl: baseUrl
-      })
+      try {
+        if (window.chatwootSDK && typeof window.chatwootSDK.run === 'function') {
+          window.chatwootSDK.run({
+            websiteToken: websiteToken,
+            baseUrl: baseUrl
+          })
 
-      // Add click listeners to chat links after Chatwoot is loaded
-      addChatLinkListeners()
+          // Add click listeners to chat links after Chatwoot is loaded
+          setTimeout(() => {
+            addChatLinkListeners()
+          }, 1000)
+        } else {
+          console.log('Chatwoot SDK not available or run method not found')
+        }
+      } catch (error) {
+        console.log('Error initializing Chatwoot:', error)
+      }
+    }
+
+    // Handle script load errors
+    script.onerror = function() {
+      console.log('Failed to load Chatwoot script')
     }
 
     // Append the script to the document
@@ -60,22 +75,22 @@ export const addChatLinkListeners = () => {
   setTimeout(() => {
     // Find all links with href ending in #chat
     const chatLinks = document.querySelectorAll('a[href$="#chat"]')
-    
+
     // Add click event listeners to each link
     chatLinks.forEach(link => {
       link.addEventListener('click', (e) => {
         e.preventDefault()
-        
+
         // Toggle Chatwoot widget
         if (window.$chatwoot && typeof window.$chatwoot.toggle === 'function') {
           window.$chatwoot.toggle()
         }
-        
+
         // Optionally scroll to the link's location
         const href = link.getAttribute('href')
         const targetId = href.replace(/.*#/, '')
         const targetElement = document.getElementById(targetId)
-        
+
         if (targetElement) {
           targetElement.scrollIntoView({ behavior: 'smooth' })
         }

@@ -25,16 +25,27 @@ export default function Home() {
     }
 
     // Fetch metrics data if needed
-    const q = localStorage && localStorage.getItem("webM") ? `&webM=${localStorage.getItem("webM")}` : ""
-    fetch('https://api.flat18.co.uk/metrics/webm/index.php?geo=1' + q)
-      .then(response => response.json())
-      .then(data => {
-        window.webM = data.webM
-        window.geoCityCountry = data.geo
-        let persist = localStorage && localStorage.getItem("webM") ? localStorage.getItem("webM") : data.webM
-        localStorage.setItem("webM", persist)
-      })
-      .catch(error => console.log('Metrics fetch error:', error))
+    try {
+      const q = localStorage && localStorage.getItem("webM") ? `&webM=${localStorage.getItem("webM")}` : ""
+      fetch('https://api.flat18.co.uk/metrics/webm/index.php?geo=1' + q)
+        .then(response => {
+          if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+          }
+          return response.json();
+        })
+        .then(data => {
+          if (data && data.webM) {
+            window.webM = data.webM;
+            window.geoCityCountry = data.geo || 'Unknown';
+            let persist = localStorage && localStorage.getItem("webM") ? localStorage.getItem("webM") : data.webM;
+            localStorage.setItem("webM", persist);
+          }
+        })
+        .catch(error => console.log('Metrics fetch error:', error));
+    } catch (error) {
+      console.log('Metrics fetch try/catch error:', error);
+    }
 
     // Apply async-hide logic
     const asyncHide = () => {
