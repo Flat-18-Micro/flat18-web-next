@@ -5,11 +5,11 @@
   "scripts": {
     "dev": "node scripts/copy-bootstrap-icons.js && next dev",
     "build": "node scripts/copy-bootstrap-icons.js && npm run optimize-images && NODE_ENV=production npm run optimize-css && next build",
-    "build:gh-pages": "node scripts/copy-bootstrap-icons.js && npm run optimize-images && NODE_ENV=production npm run optimize-css && NEXT_DISABLE_ESLINT=1 next build",
+    "build:gh-pages": "node scripts/copy-bootstrap-icons.js && npm run optimize-images && NODE_ENV=production NEXT_DISABLE_ESLINT=1 next build",
     "start": "next start",
     "lint": "next lint",
     "export": "node scripts/copy-bootstrap-icons.js && npm run optimize-images && NODE_ENV=production npm run optimize-css && next build",
-    "deploy": "node scripts/copy-bootstrap-icons.js && npm run optimize-images && NODE_ENV=production npm run optimize-css && NEXT_DISABLE_ESLINT=1 next build && touch out/.nojekyll",
+    "deploy": "node scripts/copy-bootstrap-icons.js && npm run optimize-images && NODE_ENV=production NEXT_DISABLE_ESLINT=1 next build && touch out/.nojekyll",
     "copy-icons": "node scripts/copy-bootstrap-icons.js",
     "purge-css": "node scripts/purge-css.js",
     "optimize-images": "node scripts/optimize-images.js",

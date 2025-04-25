@@ -33,6 +33,9 @@ export default function Hero() {
     setTypedText(fullText);
 
     // Only run the typing animation if the user prefers reduced motion is not enabled
+    // Check if window is defined (for SSR compatibility)
+    if (typeof window === 'undefined') return;
+
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     if (prefersReducedMotion) {
@@ -45,27 +48,35 @@ export default function Hero() {
 
     // Start typing animation after a short delay
     const startTypingTimeout = setTimeout(() => {
-      // Reset to empty string to start the animation
-      setTypedText('');
+      try {
+        // Reset to empty string to start the animation
+        setTypedText('');
 
-      typingInterval = setInterval(() => {
-        if (currentIndex < fullText.length) {
-          setTypedText(fullText.substring(0, currentIndex + 1))
-          currentIndex++
-        } else {
-          clearInterval(typingInterval)
+        typingInterval = setInterval(() => {
+          if (currentIndex < fullText.length) {
+            setTypedText(fullText.substring(0, currentIndex + 1))
+            currentIndex++
+          } else {
+            if (typingInterval) {
+              clearInterval(typingInterval)
+            }
 
-          // Blink cursor for a while, then stop
-          setTimeout(() => {
-            setShowCursor(false)
-          }, 3000)
-        }
-      }, typingSpeed)
+            // Blink cursor for a while, then stop
+            setTimeout(() => {
+              setShowCursor(false)
+            }, 3000)
+          }
+        }, typingSpeed)
+      } catch (error) {
+        console.error('Error in typing animation:', error);
+        // Fallback to showing the full text
+        setTypedText(fullText);
+      }
     }, 500)
 
     return () => {
-      clearTimeout(startTypingTimeout)
-      clearInterval(typingInterval)
+      if (startTypingTimeout) clearTimeout(startTypingTimeout)
+      if (typingInterval) clearInterval(typingInterval)
     }
   }, [])
 
@@ -88,8 +99,19 @@ export default function Hero() {
         </div>
 
         {/* Animated heading that overlays the SEO heading */}
-        <h1 className={styles.heroHeading} data-text={typedText} aria-hidden="true">
-          {typedText}
+        <h1
+          className={styles.heroHeading}
+          data-text={typedText || fullText}
+          aria-hidden="true"
+          style={{
+            // Inline fallback styles to ensure text is visible even if CSS modules fail
+            color: typedText ? 'transparent' : '#00f0b5',
+            backgroundImage: 'linear-gradient(to right, #00f0b5, #3d9eee)',
+            WebkitBackgroundClip: 'text',
+            backgroundClip: 'text'
+          }}
+        >
+          {typedText || fullText}
           {showCursor && <span className={styles.cursor}></span>}
         </h1>
 

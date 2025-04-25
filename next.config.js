@@ -19,7 +19,8 @@ const nextConfig = {
   experimental: {
     // Enable if you need to use rewrites or redirects
     // skipTrailingSlashRedirect: true,
-    optimizeCss: true, // Uses Critters to inline critical CSS
+    // Temporarily disable CSS optimization to fix background-clip issues
+    optimizeCss: false, // Disabling to fix client-side exception
   },
 }
 
