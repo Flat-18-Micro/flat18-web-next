@@ -6,13 +6,15 @@ import ChatwootWidget from '@/components/ChatwootWidget'
 import ServiceWorkerRegistration from '@/components/ServiceWorkerRegistration'
 import Script from 'next/script'
 
-// Optimize font loading
+// Optimize font loading with better performance settings
 const outfit = Outfit({
   subsets: ['latin'],
-  display: 'swap',
+  display: 'swap', // Use swap to prevent FOUT (Flash of Unstyled Text)
   variable: '--font-outfit',
   preload: true,
   fallback: ['system-ui', 'Arial', 'sans-serif'],
+  adjustFontFallback: true, // Adjust metrics to reduce layout shift
+  weight: ['400', '500', '600', '700'], // Only load needed weights
 })
 
 const sora = Sora({
@@ -21,6 +23,8 @@ const sora = Sora({
   variable: '--font-sora',
   preload: true,
   fallback: ['system-ui', 'Arial', 'sans-serif'],
+  adjustFontFallback: true,
+  weight: ['400', '500', '700'], // Only load needed weights
 })
 
 const inter = Inter({
@@ -29,6 +33,8 @@ const inter = Inter({
   variable: '--font-inter',
   preload: true,
   fallback: ['system-ui', 'Arial', 'sans-serif'],
+  adjustFontFallback: true,
+  weight: ['400', '500', '600', '700'], // Only load needed weights
 })
 
 const jetbrainsMono = JetBrains_Mono({
@@ -37,6 +43,8 @@ const jetbrainsMono = JetBrains_Mono({
   variable: '--font-mono',
   preload: true,
   fallback: ['monospace'],
+  adjustFontFallback: true,
+  weight: ['400', '500'], // Only load needed weights
 })
 
 export const metadata = {
@@ -70,20 +78,48 @@ export default function RootLayout({ children }) {
         <link rel="apple-touch-icon" href="/images/webclip.png" />
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#19fdb2" />
+        {/* Resource hints for faster loading */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://eu.umami.is" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://master--melodic-taffy-1a4c18.netlify.app" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://keak-prod-d7a7awfeabbvb6hq.z01.azurefd.net" crossOrigin="anonymous" />
+
+        {/* DNS prefetch as fallback for older browsers */}
+        <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+        <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+        <link rel="dns-prefetch" href="https://eu.umami.is" />
+        <link rel="dns-prefetch" href="https://master--melodic-taffy-1a4c18.netlify.app" />
+        <link rel="dns-prefetch" href="https://keak-prod-d7a7awfeabbvb6hq.z01.azurefd.net" />
 
         {/* Bootstrap Icons are imported directly in the layout.js file */}
 
-        {/* Preload critical images */}
+        {/* Preload critical resources */}
         <link rel="preload" href="/images/portfolio-graphics/wallet-scrutiny.webp" as="image" type="image/webp" />
+        <link rel="preload" href="/images/flat18_256x256.avif" as="image" type="image/avif" />
+        <link rel="preload" href="/bootstrap-icons/font/bootstrap-icons.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
 
-        {/* Analytics scripts with optimized loading */}
-        <script defer src="https://eu.umami.is/script.js" data-website-id="54c1aa36-ac18-426d-ba14-3d5827cfa465"></script>
-        <script defer src="https://master--melodic-taffy-1a4c18.netlify.app/tracker.js" data-ackee-server="https://master--melodic-taffy-1a4c18.netlify.app" data-ackee-domain-id="b28e2698-bf04-4e23-9075-a5f7110affe0"></script>
-        <Script id="keak-script" src="https://keak-prod-d7a7awfeabbvb6hq.z01.azurefd.net/scripts/e4dc74f0-33a0-4f2a-91a7-949fed677732-5121.js" strategy="lazyOnload" />
+        {/* Analytics scripts with optimized loading using Next.js Script component */}
+        <Script
+          id="umami-analytics"
+          src="https://eu.umami.is/script.js"
+          data-website-id="54c1aa36-ac18-426d-ba14-3d5827cfa465"
+          strategy="afterInteractive"
+          async
+        />
+        <Script
+          id="ackee-analytics"
+          src="https://master--melodic-taffy-1a4c18.netlify.app/tracker.js"
+          data-ackee-server="https://master--melodic-taffy-1a4c18.netlify.app"
+          data-ackee-domain-id="b28e2698-bf04-4e23-9075-a5f7110affe0"
+          strategy="afterInteractive"
+          async
+        />
+        <Script
+          id="keak-script"
+          src="https://keak-prod-d7a7awfeabbvb6hq.z01.azurefd.net/scripts/e4dc74f0-33a0-4f2a-91a7-949fed677732-5121.js"
+          strategy="lazyOnload"
+        />
       </head>
       <body>
         {children}
