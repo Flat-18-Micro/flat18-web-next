@@ -10,6 +10,8 @@ const nextConfig = {
     formats: ['image/webp'],
   },
   // Set the base path if your site is not hosted at the root of the domain
+  // Uncomment and set this to your repository name if deploying to GitHub Pages
+  // Example: basePath: '/Flat18.co.uk',
   // basePath: '/repo-name',
   // Disable trailing slashes in URLs
   trailingSlash: false,

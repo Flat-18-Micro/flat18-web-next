@@ -26,6 +26,7 @@ export const initChatwoot = (options = {}) => {
   if (!window.chatwootSDK) {
     // Create and load the script
     const script = document.createElement('script')
+    // Use the full URL to ensure it works on GitHub Pages
     script.src = `${baseUrl}/packs/js/sdk.js`
     script.defer = true
     script.async = true

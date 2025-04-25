@@ -27,7 +27,13 @@ export default function Home() {
     // Fetch metrics data if needed
     try {
       const q = localStorage && localStorage.getItem("webM") ? `&webM=${localStorage.getItem("webM")}` : ""
-      fetch('https://api.flat18.co.uk/metrics/webm/index.php?geo=1' + q)
+      // Add cache-busting parameter and mode: 'cors' for better GitHub Pages compatibility
+      fetch('https://api.flat18.co.uk/metrics/webm/index.php?geo=1' + q + '&t=' + new Date().getTime(), {
+        mode: 'cors',
+        headers: {
+          'Accept': 'application/json'
+        }
+      })
         .then(response => {
           if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);
