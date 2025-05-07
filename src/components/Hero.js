@@ -15,7 +15,7 @@ export default function Hero() {
   useEffect(() => {
     if (heroRef.current) {
       const height = heroRef.current.offsetHeight;
-      heroRef.current.style.minHeight = `${height}px`;
+      heroRef.current.style.minHeight = height<800?'800px':`calc(${height}px + 6rem)`;
 
       // Set fixed dimensions for the heading container to prevent layout shifts
       const headingElement = heroRef.current.querySelector(`.${styles.heroHeading}`);
