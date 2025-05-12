@@ -201,16 +201,19 @@
   left: -10%;
   width: 120%;
   height: 120%;
-  background:
+  /* background:
     radial-gradient(circle at 70% 30%, rgba(0, 240, 181, .25), transparent 60%),
     radial-gradient(circle at 30% 70%, rgba(61, 158, 238, .25), transparent 60%),
     radial-gradient(circle at 50% 50%, rgba(157, 78, 255, .1), transparent 75%),
-    radial-gradient(circle at 20% 20%, rgba(255, 78, 189, .1), transparent 65%);
+    radial-gradient(circle at 20% 20%, rgba(255, 78, 189, .1), transparent 65%); */
   filter: blur(80px);
   opacity: .85;
   z-index: -1;
   animation: gradientShift 15s ease-in-out infinite;
   transform-style: preserve-3d;
+  background-image: url(/images/gradients/g9.webp);
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .particlesContainer {

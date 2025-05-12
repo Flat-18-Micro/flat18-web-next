@@ -267,19 +267,19 @@ a:hover {
 .btn-primary {
   background: linear-gradient(92deg, var(--primary) 0%, var(--secondary) 100%);
   color: var(--bg-dark);
-  box-shadow: 0 4px 15px rgba(0, 240, 181, .25), inset 0 1px 0 rgba(255, 255, 255, .2);
+  box-shadow: 0 4px 15px rgba(0, 228, 240, 0.25), inset 0 1px 0 rgba(255, 255, 255, .2);
   text-shadow: 0 1px 1px rgba(0, 0, 0, .1);
   border: 1px solid rgba(255, 255, 255, .1)
 }
 
 .btn-primary::before {
   background: linear-gradient(92deg, var(--secondary) 0%, var(--primary) 100%);
-  box-shadow: 0 8px 25px rgba(0, 240, 181, .4)
+  box-shadow: 0 8px 25px rgba(0, 232, 240, 0.4)
 }
 
 .btn-primary:hover {
   transform: translateY(-3px) scale(1.02);
-  box-shadow: 0 10px 25px rgba(0, 240, 181, .35), 0 0 15px rgba(0, 240, 181, .2), inset 0 1px 0 rgba(255, 255, 255, .3)
+  box-shadow: 0 10px 25px rgba(0, 216, 240, 0.35), 0 0 15px rgba(0, 232, 240, 0.2), inset 0 1px 0 rgba(255, 255, 255, .3)
 }
 
 .btn-primary:hover::before, .btn-secondary:hover::before {
@@ -288,7 +288,7 @@ a:hover {
 
 .btn-primary:active {
   transform: translateY(0);
-  box-shadow: 0 5px 15px rgba(25, 253, 178, .2), inset 0 1px 0 rgba(255, 255, 255, .2);
+  box-shadow: 0 5px 15px rgba(25, 230, 253, 0.2), inset 0 1px 0 rgba(255, 255, 255, .2);
   transition: all .1s ease
 }
 
@@ -308,8 +308,8 @@ a:hover {
 
 .btn-secondary:hover {
   transform: translateY(-3px);
-  border-color: rgba(25, 253, 178, .2);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, .15), 0 0 15px rgba(25, 253, 178, .1), inset 0 1px 0 rgba(255, 255, 255, .1);
+  border-color: rgba(25, 253, 249, 0.2);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, .15), 0 0 15px rgba(25, 253, 249, 0.1), inset 0 1px 0 rgba(255, 255, 255, .1);
   color: var(--primary-light)
 }
 

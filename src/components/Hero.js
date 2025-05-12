@@ -101,9 +101,6 @@ export default function Hero() {
       <div className={styles.heroBackground}>
         <div className={styles.heroGradient}></div>
         <div className={styles.heroGrid}></div>
-        <div className={styles.particlesContainer}>
-          {/* Particles will be added via CSS */}
-        </div>
       </div>
 
       <motion.div
