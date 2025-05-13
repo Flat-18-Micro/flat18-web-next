@@ -1,7 +1,7 @@
 'use client'
 
-import { useState, useEffect } from 'react'
-import { motion } from 'framer-motion'
+import { useState, useEffect, useRef } from 'react'
+import { motion, AnimatePresence, useInView } from 'framer-motion'
 import styles from '../styles/component-css/Testimonials.module.css'
 
 export default function Testimonials() {
@@ -9,101 +9,252 @@ export default function Testimonials() {
     {
       quote: "Flat 18 reimagined our digital identity with pixel-perfect design and cutting-edge engineering.",
       author: "Anonymous",
-      role: "Private Project"
+      role: "Private Project",
+      rating: 5,
+      color: "primary"
     },
     {
       quote: "We needed a high-performance site with complex functionality. Flat 18 delivered flawlessly — every interaction feels effortless.",
       author: "Anonymous",
-      role: "Private Project"
+      role: "Private Project",
+      rating: 5,
+      color: "secondary"
     },
     {
       quote: "Their frontend expertise and attention to UX helped us delight users across multiple platforms.",
       author: "Anonymous",
-      role: "Private Project"
+      role: "Private Project",
+      rating: 5,
+      color: "accent-purple"
     },
     {
       quote: "Flat 18 brought our Web3 dashboard to life — sleek, secure, and perfectly integrated with our ecosystem.",
       author: "Anonymous",
-      role: "Private Project"
+      role: "Private Project",
+      rating: 5,
+      color: "accent-teal"
     },
     {
-      quote: "The DeFi app Flat 18 built combined rock-solid backend logic with a clean, intuitive interface. They're true pros.",
+      quote: "The DeFi app Flat 18 built combined rock-solid backend logic with a clean, intuitive interface. They are true professionals.",
       author: "Anonymous",
-      role: "Private Project"
+      role: "Private Project",
+      rating: 5,
+      color: "accent-pink"
     }
   ]
 
   const [currentIndex, setCurrentIndex] = useState(0)
+  const [direction, setDirection] = useState(1) // 1 for right, -1 for left
+  const sectionRef = useRef(null)
+  const isInView = useInView(sectionRef, { once: true, amount: 0.1 })
+  const autoplayRef = useRef(null)
+
+  const startAutoplay = () => {
+    stopAutoplay()
+    autoplayRef.current = setInterval(() => {
+      setDirection(1)
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonials.length)
+    }, 6000)
+  }
+
+  const stopAutoplay = () => {
+    if (autoplayRef.current) {
+      clearInterval(autoplayRef.current)
+    }
+  }
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonials.length)
-    }, 5000)
-    return () => clearInterval(interval)
+    startAutoplay()
+    return () => stopAutoplay()
   }, [testimonials.length])
 
+  const handlePrev = () => {
+    stopAutoplay()
+    setDirection(-1)
+    setCurrentIndex((prevIndex) =>
+      prevIndex === 0 ? testimonials.length - 1 : prevIndex - 1
+    )
+    startAutoplay()
+  }
+
+  const handleNext = () => {
+    stopAutoplay()
+    setDirection(1)
+    setCurrentIndex((prevIndex) =>
+      (prevIndex + 1) % testimonials.length
+    )
+    startAutoplay()
+  }
+
+  const handleDotClick = (index) => {
+    stopAutoplay()
+    setDirection(index > currentIndex ? 1 : -1)
+    setCurrentIndex(index)
+    startAutoplay()
+  }
+
   // Animation variants
-  const containerVariants = {
+  const sectionVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        duration: 0.6,
-        ease: 'easeOut'
+        duration: 0.8,
+        ease: [0.22, 1, 0.36, 1]
       }
     }
   }
 
+  const headingVariants = {
+    hidden: {
+      opacity: 0,
+      y: -20
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.7,
+        ease: [0.22, 1, 0.36, 1],
+        delay: 0.2
+      }
+    }
+  }
+
+  const cardVariants = {
+    enter: (direction) => ({
+      x: direction > 0 ? 300 : -300,
+      opacity: 0,
+      scale: 0.9
+    }),
+    center: {
+      x: 0,
+      opacity: 1,
+      scale: 1,
+      transition: {
+        duration: 0.5,
+        ease: [0.22, 1, 0.36, 1]
+      }
+    },
+    exit: (direction) => ({
+      x: direction > 0 ? -300 : 300,
+      opacity: 0,
+      scale: 0.9,
+      transition: {
+        duration: 0.5,
+        ease: [0.22, 1, 0.36, 1]
+      }
+    })
+  }
+
+  const renderStars = (rating) => {
+    return Array.from({ length: 5 }, (_, i) => (
+      <span key={i} className={i < rating ? styles.starFilled : styles.starEmpty}>
+        <i className={i < rating ? "bi bi-star-fill" : "bi bi-star"}></i>
+      </span>
+    ))
+  }
+
   return (
-    <section className={styles.testimonialsWrapper} id="testimonials">
-      <div className={styles.backgroundGradient}></div>
+    <section className={styles.testimonialsWrapper} id="testimonials" ref={sectionRef}>
+      <div className={styles.backgroundElements}>
+        <div className={styles.backgroundGradient}></div>
+        <div className={styles.backgroundGrid}></div>
+        <div className={styles.backgroundDots}></div>
+      </div>
 
       <motion.div
         className="container"
-        variants={containerVariants}
+        variants={sectionVariants}
         initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.1 }}
+        animate={isInView ? "visible" : "hidden"}
       >
-        <div className={styles.textOrg}>
+        <motion.div
+          className={styles.sectionHeading}
+          variants={headingVariants}
+        >
+          <span className={styles.sectionLabel}>Testimonials</span>
           <h2 className={styles.gradientText}>What Our Clients Say</h2>
-        </div>
+          <p className={styles.subtitle}>
+            Hear from the entrepreneurs and founders who have entrusted us with their digital vision
+          </p>
+        </motion.div>
 
-        <div className={styles.testimonialsSlider}>
-          <div
-            className={styles.testimonialsTrack}
-            style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+        <div className={styles.testimonialsContainer}>
+          <button
+            className={styles.navButton}
+            onClick={handlePrev}
+            aria-label="Previous testimonial"
           >
-            {testimonials.map((testimonial, index) => (
-              <div key={index} className={styles.testimonialCard}>
-                <div className={styles.quoteIcon}>
-                  <i className="bi bi-quote"></i>
-                </div>
-                <p className={styles.testimonialQuote}>{testimonial.quote}</p>
-                <div className={styles.testimonialAuthor}>
-                  <div className={styles.authorAvatar}>
-                    <div className={styles.avatarPlaceholder}>{testimonial.author[0]}</div>
+            <i className="bi bi-chevron-left"></i>
+          </button>
+
+          <div className={styles.testimonialsSlider}>
+            <AnimatePresence initial={false} custom={direction} mode="wait">
+              <motion.div
+                key={currentIndex}
+                custom={direction}
+                variants={cardVariants}
+                initial="enter"
+                animate="center"
+                exit="exit"
+                className={`${styles.testimonialCard} ${styles[testimonials[currentIndex].color]}`}
+              >
+                <div className={styles.cardContent}>
+                  <div className={styles.quoteIcon}>
+                    <i className="bi bi-quote"></i>
                   </div>
-                  <div className={styles.authorInfo}>
-                    <h4 className={styles.authorName}>{testimonial.author}</h4>
-                    <p className={styles.authorRole}>{testimonial.role}</p>
+
+                  <div className={styles.ratingContainer}>
+                    {renderStars(testimonials[currentIndex].rating)}
+                  </div>
+
+                  <p className={styles.testimonialQuote}>"{testimonials[currentIndex].quote}"</p>
+
+                  <div className={styles.testimonialAuthor}>
+                    <div className={styles.authorAvatar}>
+                      <div className={styles.avatarPlaceholder}>{testimonials[currentIndex].author[0]}</div>
+                    </div>
+                    <div className={styles.authorInfo}>
+                      <h4 className={styles.authorName}>{testimonials[currentIndex].author}</h4>
+                      <p className={styles.authorRole}>{testimonials[currentIndex].role}</p>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+                <div className={styles.cardGlow}></div>
+              </motion.div>
+            </AnimatePresence>
           </div>
 
-          <div className={styles.testimonialDots}>
-            {testimonials.map((_, index) => (
-              <button
-                key={index}
-                className={`${styles.dot} ${index === currentIndex ? styles.dotActive : ''}`}
-                onClick={() => setCurrentIndex(index)}
-                aria-label={`View testimonial ${index + 1}`}
-              />
-            ))}
-          </div>
+          <button
+            className={styles.navButton}
+            onClick={handleNext}
+            aria-label="Next testimonial"
+          >
+            <i className="bi bi-chevron-right"></i>
+          </button>
         </div>
+
+        <div className={styles.testimonialDots}>
+          {testimonials.map((_, index) => (
+            <button
+              key={index}
+              className={`${styles.dot} ${index === currentIndex ? styles.dotActive : ''}`}
+              onClick={() => handleDotClick(index)}
+              aria-label={`View testimonial ${index + 1}`}
+            />
+          ))}
+        </div>
+
+        <motion.div
+          className={styles.ctaContainer}
+          variants={headingVariants}
+        >
+          <a href="#chat" className={styles.ctaButton}>
+            <span>Become Our Next Success Story</span>
+            <i className="bi bi-arrow-right"></i>
+          </a>
+        </motion.div>
       </motion.div>
     </section>
   )

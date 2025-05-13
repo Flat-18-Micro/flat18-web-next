@@ -135,7 +135,7 @@ export default function Hero() {
           className={styles.heroSubheading}
           variants={fadeInUp}
         >
-          We craft exceptional Web3 & DeFi solutions for visionary entrepreneurs and startups in the crypto space.
+          We craft exceptional Web3 & DeFi solutions for visionary entrepreneurs and start-ups in the crypto space.
           Our full-stack approach delivers secure, high-performance applications with stunning design.
         </motion.p>
 

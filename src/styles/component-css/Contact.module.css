@@ -33,8 +33,7 @@
   font-size: var(--text-4xl);
   font-weight: var(--font-bold);
   margin-bottom: var(--space-4);
-  background: linear-gradient(to right, var(--accent-pink), var(--accent-purple));
-  background-clip: text;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));  background-clip: text;
   color: transparent
 }
 

@@ -975,3 +975,16 @@ a:hover {
 }
 
 .async-hide {opacity: 0 !important; background: white !important;}
+
+h2.gradient-text{
+  font-size: var(--text-5xl);
+  font-weight: var(--font-bold);
+}
+
+[class*="Heading"] > p{
+  font-size: var(--text-xl);
+  color: var(--text-secondary);
+  max-width: 700px;
+  margin: 0 auto var(--space-10);
+  line-height: var(--leading-relaxed);
+}

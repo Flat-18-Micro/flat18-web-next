@@ -601,7 +601,7 @@
   font-size: 0.95rem;
   font-weight: var(--font-semibold);
   color: var(--primary);
-  background-color: rgba(var(--color-green), var(--alpha-08));
+  background-color: rgba(var(--color-green), var(--alpha-80));
   border: 1px solid rgba(var(--color-green), var(--alpha-15));
   border-radius: var(--radius-full);
   backdrop-filter: var(--blur-md);

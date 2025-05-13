@@ -10,7 +10,7 @@ export default function HowItWorks() {
       number: '01',
       title: 'Discover',
       icon: 'bi-chat-dots',
-      description: 'We start with a discovery session to understand your project needs, goals, and timeline. This helps us create a tailored development plan that aligns with your vision.',
+      description: 'We begin with a discovery session to understand your project needs, goals, and timeline. This enables us to create a tailored development plan that aligns with your vision.',
       link: {
         text: 'Start a Discovery session',
         href: '#chat',
@@ -21,14 +21,14 @@ export default function HowItWorks() {
       number: '02',
       title: 'Develop',
       icon: 'bi-code-slash',
-      description: 'Our team of experts begins building your project with regular updates and transparent communication. We use modern technologies and best practices to ensure high-quality results.',
+      description: 'Our team of experts builds your project with regular updates and transparent communication. We use modern technologies and best practices to ensure high-quality results.',
 
     },
     {
       number: '03',
       title: 'Deliver',
       icon: 'bi-rocket-takeoff',
-      description: 'We deliver initial samples within 2-3 days, with subsequent requests completed within 48 hours. Our iterative approach ensures you are satisfied with the final product.',
+      description: 'We deliver initial samples within 2–3 days, with subsequent requests completed within 48 hours. Our iterative approach ensures you are satisfied with the final product.',
       link: {
         text: 'See our past work',
         href: '#work',

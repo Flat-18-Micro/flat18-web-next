@@ -1,12 +1,14 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import Image from 'next/image'
-import { motion } from 'framer-motion'
+import { motion, useInView } from 'framer-motion'
 import styles from '../styles/component-css/Portfolio.module.css'
 
 export default function Portfolio() {
   const [filter, setFilter] = useState('all')
+  const sectionRef = useRef(null)
+  const isInView = useInView(sectionRef, { once: true, amount: 0.1 })
 
   const projects = [
     {
@@ -24,7 +26,7 @@ export default function Portfolio() {
     },
     {
       title: 'BTCPay Server',
-      description: 'Clean, modern design for the BTCPay Server Main Landing page and Foundation Website.',
+      description: 'Clean, modern design for the BTCPay Server main landing page and Foundation website.',
       image: '/images/portfolio-graphics/btcpayserver.webp',
       link: 'https://btcpayserver.org',
       technologies: [
@@ -75,7 +77,7 @@ export default function Portfolio() {
     },
     {
       title: 'dVote EVM',
-      description: 'dVote\'s EVM Networks dashboard offers a comprehensive suite of tools designed to streamline and enhance decentralised governance for blockchain ecosystem',
+      description: "dVote's EVM Networks dashboard offers a comprehensive suite of tools designed to streamline and enhance decentralised governance for the blockchain ecosystem.",
       image: '/images/portfolio-graphics/dvote.webp',
       link: 'https://evm.dvote.ai/networks',
       technologies: [
@@ -90,14 +92,41 @@ export default function Portfolio() {
     ? projects
     : projects.filter(project => project.category === filter)
 
-  // Animation variants - optimized for performance
+  // Animation variants
+  const sectionVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        duration: 0.8,
+        ease: [0.22, 1, 0.36, 1]
+      }
+    }
+  }
+
+  const headingVariants = {
+    hidden: {
+      opacity: 0,
+      y: -20
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.7,
+        ease: [0.22, 1, 0.36, 1],
+        delay: 0.2
+      }
+    }
+  }
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.1
+        staggerChildren: 0.15,
+        delayChildren: 0.3
       }
     }
   }
@@ -105,83 +134,135 @@ export default function Portfolio() {
   const itemVariants = {
     hidden: {
       opacity: 0,
-      y: 20,
-      scale: 0.98
+      y: 40,
+      scale: 0.95
     },
     visible: {
       opacity: 1,
       y: 0,
       scale: 1,
       transition: {
-        duration: 0.5,
-        ease: [0.25, 0.1, 0.25, 1.0], // Optimized cubic-bezier
-        opacity: { duration: 0.3 }, // Faster opacity transition
-        scale: { duration: 0.4 }
+        duration: 0.7,
+        ease: [0.22, 1, 0.36, 1]
       }
     }
   }
 
-  // Check if user prefers reduced motion
-  const prefersReducedMotion = typeof window !== 'undefined' ?
-    window.matchMedia('(prefers-reduced-motion: reduce)').matches : false;
+  const filterButtonVariants = {
+    inactive: {
+      backgroundColor: "rgba(255, 255, 255, 0.05)",
+      color: "var(--text-secondary)",
+      border: "1px solid rgba(255, 255, 255, 0.1)",
+      scale: 1
+    },
+    active: {
+      backgroundColor: "rgba(0, 240, 181, 0.1)",
+      color: "var(--primary)",
+      border: "1px solid rgba(0, 240, 181, 0.2)",
+      scale: 1.05
+    }
+  }
 
   return (
-    <section className={styles.portfolioSection} id="work">
-      <div className="container">
-        <div className={styles.portfolioHeading}>
-          <h2 className={styles.portfolioTitle}>Our Public Work</h2>
+    <section className={styles.portfolioSection} id="work" ref={sectionRef}>
+      <div className={styles.backgroundElements}>
+        <div className={styles.backgroundGradient}></div>
+        <div className={styles.backgroundGrid}></div>
+      </div>
+
+      <motion.div
+        className="container"
+        variants={sectionVariants}
+        initial="hidden"
+        animate={isInView ? "visible" : "hidden"}
+      >
+        <motion.div
+          className={styles.portfolioHeading}
+          variants={headingVariants}
+        >
+          <span className={styles.sectionLabel}>Portfolio</span>
+          <h2 className={styles.portfolioTitle}>Our Work</h2>
           <p className={styles.portfolioSubtitle}>
-            Check out some of our projects across web and app development
+            Explore our portfolio of successful projects across web and blockchain applications.
           </p>
 
-          <div className="flex justify-center gap-4 mt-6 mb-10">
-            <button
-              className={`btn ${filter === 'all' ? 'btn-primary' : 'btn-secondary'}`}
+          <div className={styles.filterContainer}>
+            <motion.button
+              className={styles.filterButton}
               onClick={() => setFilter('all')}
+              animate={filter === 'all' ? 'active' : 'inactive'}
+              variants={filterButtonVariants}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.98 }}
             >
               All Projects
-            </button>
-            <button
-              className={`btn ${filter === 'web' ? 'btn-primary' : 'btn-secondary'}`}
+            </motion.button>
+            <motion.button
+              className={styles.filterButton}
               onClick={() => setFilter('web')}
+              animate={filter === 'web' ? 'active' : 'inactive'}
+              variants={filterButtonVariants}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.98 }}
             >
               Web
-            </button>
-            <button
-              className={`btn ${filter === 'app' ? 'btn-primary' : 'btn-secondary'}`}
+            </motion.button>
+            <motion.button
+              className={styles.filterButton}
               onClick={() => setFilter('app')}
+              animate={filter === 'app' ? 'active' : 'inactive'}
+              variants={filterButtonVariants}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.98 }}
             >
               Apps
-            </button>
+            </motion.button>
           </div>
-        </div>
+        </motion.div>
 
         <motion.div
           className={styles.portfolioGrid}
           variants={containerVariants}
           initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ type: prefersReducedMotion ? 'tween' : 'spring' }}
+          animate={isInView ? "visible" : "hidden"}
         >
           {filteredProjects.map((project, index) => (
             <motion.div
               key={index}
               className={styles.projectCard}
               variants={itemVariants}
+              whileHover={{
+                y: -10,
+                transition: { duration: 0.3, ease: "easeOut" }
+              }}
             >
-              <div className={styles.projectImageContainer}>
-                <Image
-                  src={project.image}
-                  alt={project.title}
-                  width={400}
-                  height={400}
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  className={styles.projectImage}
-                  loading={index < 3 ? "eager" : "lazy"} /* Load first 3 images eagerly */
-                  fetchPriority={index < 3 ? "high" : "auto"} /* High priority for first 3 */
-                  quality={75} /* Reduce quality slightly for better performance */
-                />
+              <div className={styles.projectImageWrapper}>
+                <div className={styles.projectImageContainer}>
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    width={400}
+                    height={400}
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    className={styles.projectImage}
+                    loading={index < 3 ? "eager" : "lazy"}
+                    fetchPriority={index < 3 ? "high" : "auto"}
+                    quality={85}
+                  />
+                  <div className={styles.imageOverlay}>
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={styles.viewProjectButton}
+                    >
+                      View Project
+                    </a>
+                  </div>
+                </div>
+                <div className={`${styles.projectStatus} ${project.status === 'Live' ? styles.live : ''}`}>
+                  {project.status}
+                </div>
               </div>
 
               <div className={styles.projectContent}>
@@ -209,31 +290,21 @@ export default function Portfolio() {
                     ))}
                   </ul>
                 </div>
-
-                <div className={styles.projectFooter}>
-                  {project.link ? (
-                    <a
-                      href={project.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={styles.projectLink}
-                    >
-                      Visit Website
-                      <i className="bi bi-arrow-up-right"></i>
-                    </a>
-                  ) : (
-                    <span></span>
-                  )}
-
-                  <div className={`${styles.projectStatus} ${project.status === 'Live' ? styles.live : ''}`}>
-                    {project.status}
-                  </div>
-                </div>
               </div>
             </motion.div>
           ))}
         </motion.div>
-      </div>
+
+        <motion.div
+          className={styles.ctaContainer}
+          variants={headingVariants}
+        >
+          <a href="#chat" className={styles.ctaButton}>
+            <span>Start Your Project</span>
+            <i className="bi bi-arrow-right"></i>
+          </a>
+        </motion.div>
+      </motion.div>
     </section>
   )
 }

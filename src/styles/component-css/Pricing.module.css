@@ -1,24 +1,24 @@
 @keyframes fadeIn {
   0% {
     opacity: 0;
-    transform: translateY(10px)
+    transform: translateY(10px);
   }
-
-  to {
+  100% {
     opacity: 1;
-    transform: translateY(0)
+    transform: translateY(0);
   }
 }
 
 .pricingSection {
-  padding: var(--space-16)0;
+  padding: var(--space-16) 0;
   position: relative;
-  overflow: hidden
+  overflow: hidden;
 }
 
 .pricingHeading {
   text-align: center;
-  margin-bottom: var(--space-10)
+  margin-bottom: var(--space-10);
+  
 }
 
 .pricingGrid {
@@ -29,7 +29,7 @@
   width: 100%;
   max-width: var(--container-xl);
   margin-left: auto;
-  margin-right: auto
+  margin-right: auto;
 }
 
 .leftPanel, .rightPanel {
@@ -38,27 +38,27 @@
   padding: var(--space-8);
   display: flex;
   flex-direction: column;
-  transition: transform var(--transition-normal), box-shadow var(--transition-normal)
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
 }
 
 .leftPanel {
   position: relative;
   background-color: rgba(255, 255, 255, .03);
-  background-image: url(/images/gradients/g7.webp);
+  background-image: url(/images/gradients/g9.webp);
   background-size: cover;
   background-repeat: no-repeat;
   align-items: flex-start;
-  justify-content: end
+  justify-content: end;
 }
 
 .rightPanel {
   background-color: rgba(255, 255, 255, .02);
-  gap: var(--space-8)
+  gap: var(--space-8);
 }
 
 .rightPanel:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-lg)
+  /* transform: translateY(-4px); */
+  box-shadow: var(--shadow-lg);
 }
 
 .pricingActions {
@@ -67,17 +67,17 @@
   align-items: center;
   gap: var(--space-4);
   margin: var(--space-8) auto 0 auto;
-  max-width: var(--container-xl)
+  max-width: var(--container-xl);
 }
 
 .currencyDropdown {
   position: relative;
-  z-index: 10
+  z-index: 10;
 }
 
 .currencyMenu, .dropdownTrigger {
   border: 1px solid rgba(255, 255, 255, .1);
-  border-radius: var(--radius-md)
+  border-radius: var(--radius-md);
 }
 
 .dropdownTrigger {
@@ -89,11 +89,11 @@
   align-items: center;
   gap: var(--space-2);
   cursor: pointer;
-  transition: all var(--transition-normal)
+  transition: all var(--transition-normal);
 }
 
 .dropdownTrigger:hover {
-  background: rgba(255, 255, 255, .1)
+  background: rgba(255, 255, 255, .1);
 }
 
 .currencyMenu {
@@ -107,35 +107,35 @@
   overflow-y: auto;
   box-shadow: var(--shadow-md);
   z-index: 20;
-  animation: fadeIn .2s ease-out
+  animation: fadeIn .2s ease-out;
 }
 
 .currencyOption {
   padding: var(--space-2) var(--space-4);
   color: var(--text-secondary);
-  background: 0 0;
+  background: transparent;
   border: 0;
   width: 100%;
   text-align: left;
   cursor: pointer;
-  transition: all var(--transition-fast)
+  transition: all var(--transition-fast);
 }
 
 .currencyOption:hover {
   background: rgba(255, 255, 255, .05);
-  color: var(--text-primary)
+  color: var(--text-primary);
 }
 
 .currencyOption.active {
   background: rgba(25, 253, 178, .1);
-  color: var(--primary)
+  color: var(--primary);
 }
 
 .priceDisplayBox {
   display: flex;
   align-items: baseline;
   gap: var(--space-2);
-  margin: var(--space-8)0
+  margin: var(--space-8) 0;
 }
 
 .priceAmount {
@@ -143,19 +143,19 @@
   font-weight: var(--font-bold);
   background: linear-gradient(to right, var(--text-primary), var(--text-secondary));
   background-clip: text;
-  color: transparent
+  color: transparent;
 }
 
 .pricePeriod {
   font-size: var(--text-xl);
-  color: var(--text-tertiary)
+  color: var(--text-tertiary);
 }
 
 .switchWrapper {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  margin-top: var(--space-4)
+  margin-top: var(--space-4);
 }
 
 .switchBody {
@@ -166,11 +166,11 @@
   position: relative;
   cursor: pointer;
   transition: background-color var(--transition-normal);
-  margin-bottom: var(--space-2)
+  margin-bottom: var(--space-2);
 }
 
 .switchBody.on {
-  background-color: rgba(25, 253, 178, .2)
+  background-color: rgba(25, 253, 178, .2);
 }
 
 .switchIndicator {
@@ -181,29 +181,29 @@
   position: absolute;
   top: 3px;
   left: 3px;
-  transition: transform var(--transition-normal), background-color var(--transition-normal)
+  transition: transform var(--transition-normal), background-color var(--transition-normal);
 }
 
 .switchBody.on .switchIndicator {
   transform: translateX(30px);
-  background-color: var(--primary)
+  background-color: var(--primary);
 }
 
 .switchLabel {
   font-size: var(--text-sm);
   color: var(--text-secondary);
-  line-height: var(--leading-relaxed)
+  line-height: var(--leading-relaxed);
 }
 
 .featureSection {
   background-color: rgba(0, 0, 0, .2);
   border-radius: var(--radius-lg);
   padding: var(--space-6);
-  transition: transform var(--transition-normal)
+  transition: transform var(--transition-normal);
 }
 
 .featureSection:hover {
-  transform: translateY(-2px)
+  transform: translateY(-2px);
 }
 
 .featureBadge {
@@ -214,12 +214,12 @@
   font-size: var(--text-sm);
   font-weight: var(--font-medium);
   color: var(--text-primary);
-  margin-bottom: var(--space-4)
+  margin-bottom: var(--space-4);
 }
 
 .featureBadge.green {
   background-color: rgba(25, 253, 178, .1);
-  color: var(--primary)
+  color: var(--primary);
 }
 
 .featuresList {
@@ -228,7 +228,7 @@
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: var(--space-4)
+  gap: var(--space-4);
 }
 
 .featureItem {
@@ -236,23 +236,23 @@
   align-items: flex-start;
   gap: var(--space-3);
   color: var(--text-tertiary);
-  transition: color var(--transition-fast)
+  transition: color var(--transition-fast);
 }
 
 .featureItem:hover {
-  color: var(--text-secondary)
+  color: var(--text-secondary);
 }
 
 .featureIcon {
   color: var(--primary);
   font-size: var(--text-base);
   flex-shrink: 0;
-  margin-top: .2rem
+  margin-top: .2rem;
 }
 
 .featureText {
   font-size: var(--text-sm);
-  line-height: var(--leading-relaxed)
+  line-height: var(--leading-relaxed);
 }
 
 .linkLight {
@@ -262,59 +262,59 @@
   text-decoration: none;
   font-weight: var(--font-medium);
   transition: color var(--transition-fast);
-  background: 0 0;
+  background: transparent;
   padding: 0;
-  border: 0
+  border: 0;
 }
 
 .linkLight:hover {
-  color: var(--primary)
+  color: var(--primary);
 }
 
-@media (max-width:1024px) {
+.currencyInfoIcon {
+  margin-left: 1em;
+}
+
+@media (max-width: 1024px) {
   .pricingGrid {
-    gap: var(--space-6)
+    gap: var(--space-6);
   }
 
   .leftPanel, .rightPanel {
-    padding: var(--space-6)
+    padding: var(--space-6);
   }
 
   .priceAmount {
-    font-size: var(--text-4xl)
+    font-size: var(--text-4xl);
   }
 }
 
-@media (max-width:768px) {
+@media (max-width: 768px) {
   .pricingGrid {
-    grid-template-columns: 1fr
+    grid-template-columns: 1fr;
   }
 
   .leftPanel, .rightPanel {
-    padding: var(--space-4)
+    padding: var(--space-4);
   }
 
   .pricingActions {
     flex-direction: column;
-    gap: var(--space-6)
+    gap: var(--space-6);
   }
 }
 
-@media (max-width:480px) {
+@media (max-width: 480px) {
   .priceAmount {
-    font-size: var(--text-3xl)
+    font-size: var(--text-3xl);
   }
 
   .pricePeriod {
-    font-size: var(--text-base)
+    font-size: var(--text-base);
   }
 
   .featureSection {
-    padding: var(--space-4)
+    padding: var(--space-4);
   }
-}
-
-.currencyInfoIcon{
-  margin-left: 1em;
 }
 
