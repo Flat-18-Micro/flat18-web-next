@@ -5,17 +5,17 @@
   width: 100%;
   z-index: 1000;
   padding: 1.5rem 0;
-  background-color: rgba(10, 12, 16, .2);
+  /* background-color: rgba(10, 12, 16, .2); */
   backdrop-filter: blur(10px);
   transition: all .3s ease;
-  box-shadow: 0 0 20px rgba(0, 0, 0, .1)
+  /* box-shadow: 0 0 20px rgba(0, 0, 0, .1) */
 }
 
 .scrolled {
   padding: .4rem 0;
-  background-color: rgba(10, 12, 16, .95);
+  /* background-color: rgba(10, 12, 16, .95); */
   box-shadow: 0 4px 30px rgba(0, 0, 0, .2);
-  
+
 }
 
 .brand, .container {
@@ -202,7 +202,14 @@
 }
 
 .cta a {
-  padding: .75rem 1.5rem
+  padding: .75rem 1.5rem;
+  transition: .5s ease;
+}
+
+.scrolled .cta a{
+  font-size: unset;
+  padding: .25rem 1.25rem;
+  border-radius: 8px;
 }
 
 @media (max-width:768px) {
@@ -261,4 +268,3 @@
   }
 }
 
-[class*="scrolled"] .btn-lg{font-size: unset !important;}

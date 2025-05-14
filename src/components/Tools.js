@@ -49,8 +49,6 @@ export default function Tools() {
                         src={tool.logo}
                         alt={`${tool.name} logo`}
                         className={styles.toolLogo}
-                        width="50"
-                        height="50"
                         loading="lazy"
                       />
                     ) : (
@@ -58,8 +56,9 @@ export default function Tools() {
                         src={tool.logo}
                         alt={`${tool.name} logo`}
                         className={styles.toolLogo}
-                        width={50}
+                        width={100}
                         height={50}
+                        style={{ height: '100%', width: 'auto' }}
                         quality={70}
                       />
                     )}

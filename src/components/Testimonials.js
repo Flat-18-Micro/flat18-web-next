@@ -7,37 +7,37 @@ import styles from '../styles/component-css/Testimonials.module.css'
 export default function Testimonials() {
   const testimonials = [
     {
-      quote: "Flat 18 reimagined our digital identity with pixel-perfect design and cutting-edge engineering.",
-      author: "Anonymous",
-      role: "Private Project",
+      quote: "Working with Flat 18 felt like having an in-house team. They were responsive, strategic, and nailed the design on the first try.",
+      author: "Co-founder",
+      role: "Fintech startup",
       rating: 5,
       color: "primary"
     },
     {
-      quote: "We needed a high-performance site with complex functionality. Flat 18 delivered flawlessly — every interaction feels effortless.",
-      author: "Anonymous",
-      role: "Private Project",
+      quote: "Flat 18 rebuilt our web app from scratch and the performance boost was immediate. Page loads are faster, UX is cleaner, and our team can finally move fast again.",
+      author: "Founder",
+      role: "Payments processor platform",
       rating: 5,
       color: "secondary"
     },
     {
-      quote: "Their frontend expertise and attention to UX helped us delight users across multiple platforms.",
-      author: "Anonymous",
-      role: "Private Project",
+      quote: "They took our outdated site and gave it a clean, modern look without losing what made our brand special. The new site is performing better across every metric.",
+      author: "Solopreneur",
+      role: "Education website",
       rating: 5,
       color: "accent-purple"
     },
     {
-      quote: "Flat 18 brought our Web3 dashboard to life — sleek, secure, and perfectly integrated with our ecosystem.",
-      author: "Anonymous",
-      role: "Private Project",
+      quote: "Flat 18 guided us through the Web3 space like pros. Their dashboard design is sharp, intuitive, and fully integrated with our smart contracts.",
+      author: "CEO",
+      role: "Ethereum investment project",
       rating: 5,
       color: "accent-teal"
     },
     {
-      quote: "The DeFi app Flat 18 built combined rock-solid backend logic with a clean, intuitive interface. They are true professionals.",
-      author: "Anonymous",
-      role: "Private Project",
+      quote: "We’ve worked with bigger agencies that didn’t deliver half as much value. Flat 18 was fast, focused, and genuinely cared about the outcome.",
+      author: "Founder",
+      role: "DeFi dashboard",
       rating: 5,
       color: "accent-pink"
     }
@@ -54,7 +54,7 @@ export default function Testimonials() {
     autoplayRef.current = setInterval(() => {
       setDirection(1)
       setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonials.length)
-    }, 6000)
+    }, 8000)
   }
 
   const stopAutoplay = () => {
@@ -198,7 +198,7 @@ export default function Testimonials() {
                 initial="enter"
                 animate="center"
                 exit="exit"
-                className={`${styles.testimonialCard} ${styles[testimonials[currentIndex].color]}`}
+                className={`${styles.testimonialCard} ${styles[testimonials[2].color]}`}
               >
                 <div className={styles.cardContent}>
                   <div className={styles.quoteIcon}>

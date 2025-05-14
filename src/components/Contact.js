@@ -88,7 +88,7 @@ export default function Contact() {
   return (
     <section className={styles.contactSection} id="chat">
       <motion.div
-        className="container"
+        className={styles.container}
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
@@ -101,10 +101,12 @@ export default function Contact() {
           </p>
         </div>
 
-        <motion.div
-          className={styles.formCard}
-          variants={formVariants}
-        >
+        <div className={styles.contentGrid}>
+          <div>
+            <motion.div
+              className={styles.formCard}
+              variants={formVariants}
+            >
           {isSubmitted ? (
             <div className="text-center py-8">
               <div className="text-5xl mb-4">🎉</div>
@@ -214,6 +216,26 @@ export default function Contact() {
             <i className={`bi bi-clock ${styles.infoIcon}`}></i>
             <span className={styles.infoText}>Mon-Fri: 12:00 - 20:00 UTC</span>
           </div>
+        </div>
+        </div>
+
+        <motion.div
+          className={styles.visualElement}
+          initial={{ opacity: 0, x: 50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          viewport={{ once: true }}
+        >
+          <div className={styles.visualElementInner}></div>
+          <div className={styles.visualElementGrid}></div>
+          <div className={styles.visualElementContent}>
+            <i className="bi bi-chat-square-text" style={{ fontSize: '3rem', marginBottom: '1rem', color: 'var(--secondary)' }}></i>
+            <h3 style={{ fontSize: '1.5rem', marginBottom: '1rem' }}>Let's Discuss Your Project</h3>
+            <p style={{ opacity: 0.8, maxWidth: '80%', margin: '0 auto' }}>
+              We're here to help turn your ideas into reality with our expertise in design and development.
+            </p>
+          </div>
+        </motion.div>
         </div>
       </motion.div>
     </section>

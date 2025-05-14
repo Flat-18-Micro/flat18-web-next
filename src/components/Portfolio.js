@@ -14,7 +14,7 @@ export default function Portfolio() {
     {
       title: 'WalletScrutiny',
       description: 'Collaborative project with the Bitcoin Design Community to redesign the WalletScrutiny brand and website.',
-      image: '/images/portfolio-graphics/wallet-scrutiny.webp',
+      image: '/images/portfolio-graphics/walletscrutiny.webp',
       link: 'https://walletscrutiny.com',
       technologies: [
         { name: 'JavaScript', percentage: '90%', colorClass: styles.jsColor },
@@ -40,7 +40,7 @@ export default function Portfolio() {
     {
       title: 'F18 Pay',
       description: 'Bitcoin, ETH and ERC-20 token payments processor built to run in serverless environments.',
-      image: '/images/portfolio-graphics/f18-pay.webp',
+      image: '/images/portfolio-graphics/f18pay.webp',
       link: 'https://pay.flat18.co.uk',
       technologies: [
         { name: 'JavaScript', percentage: '100%', colorClass: styles.jsColor }
@@ -63,7 +63,7 @@ export default function Portfolio() {
     {
       title: 'Zettahash DAO',
       description: 'Zettahash website built in Webflow and designed to be processed in Node within a GitHub Pages environment.',
-      image: '/images/portfolio-graphics/zettahash.webp',
+      image: '/images/portfolio-graphics/zettahashdao.webp',
       link: 'https://zettahash-static.webflow.io',
       technologies: [
         { name: 'Webflow', percentage: '100%', colorClass: styles.webflowColor }
@@ -78,7 +78,7 @@ export default function Portfolio() {
     {
       title: 'dVote EVM',
       description: "dVote's EVM Networks dashboard offers a comprehensive suite of tools designed to streamline and enhance decentralised governance for the blockchain ecosystem.",
-      image: '/images/portfolio-graphics/dvote.webp',
+      image: '/images/portfolio-graphics/dvoteevm.webp',
       link: 'https://evm.dvote.ai/networks',
       technologies: [
         { name: 'Next.js', percentage: '100%', colorClass: styles.nextJSColor },

@@ -22,6 +22,44 @@ export default function Navbar() {
     setIsMobileMenuOpen(!isMobileMenuOpen)
   }
 
+  const testimonials = [
+    {
+      quote: "Working with Flat 18 felt like having an in-house team. They were responsive, strategic, and nailed the design on the first try.",
+      author: "Co-founder",
+      role: "Fintech startup",
+      rating: 5,
+      color: "primary"
+    },
+    {
+      quote: "Flat 18 rebuilt our web app from scratch and the performance boost was immediate. Page loads are faster, UX is cleaner, and our team can finally move fast again.",
+      author: "Founder",
+      role: "Payments processor platform",
+      rating: 5,
+      color: "secondary"
+    },
+    {
+      quote: "They took our outdated site and gave it a clean, modern look without losing what made our brand special. The new site is performing better across every metric.",
+      author: "Solopreneur",
+      role: "Education website",
+      rating: 5,
+      color: "accent-purple"
+    },
+    {
+      quote: "Flat 18 guided us through the Web3 space like pros. Their dashboard design is sharp, intuitive, and fully integrated with our smart contracts.",
+      author: "CEO",
+      role: "Ethereum investment project",
+      rating: 5,
+      color: "accent-teal"
+    },
+    {
+      quote: "We’ve worked with bigger agencies that didn’t deliver half as much value. Flat 18 was fast, focused, and genuinely cared about the outcome.",
+      author: "Founder",
+      role: "DeFi dashboard",
+      rating: 5,
+      color: "accent-pink"
+    }
+  ]
+
   return (
     <header className={`${styles.navbar} ${isScrolled ? styles.scrolled : ''}`}>
       <div className={`container ${styles.container}`}>

@@ -81,7 +81,7 @@ export default function FAQ() {
       <div className={styles.backgroundGradient}></div>
 
       <motion.div
-        className="container"
+        className={styles.container}
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
@@ -92,10 +92,53 @@ export default function FAQ() {
           <p className={styles.subtitle}>Find answers to common questions about our services</p>
         </div>
 
-        <motion.div
-          className={styles.faqList}
-          variants={listVariants}
-        >
+        <div className={styles.contentGrid}>
+          <motion.div
+            className={styles.visualElement}
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            viewport={{ once: true }}
+          >
+            <div className={styles.visualElementInner}></div>
+            <div className={styles.visualElementGrid}></div>
+            <div className={styles.visualElementContent}>
+              <i className="bi bi-question-circle" style={{ fontSize: '3rem', marginBottom: '1rem', color: 'var(--accent-yellow)' }}></i>
+              <h3 style={{ fontSize: '1.5rem', marginBottom: '1rem' }}>Still Have Questions?</h3>
+              <p style={{ opacity: 0.8, maxWidth: '80%', margin: '0 auto 1.5rem' }}>
+                We're here to help with any additional questions about your specific project needs.
+              </p>
+              <a href="#chat" style={{
+                display: 'inline-block',
+                padding: '0.75rem 1.5rem',
+                background: 'linear-gradient(to right, var(--accent-orange), var(--accent-yellow))',
+                color: 'var(--bg-dark)',
+                borderRadius: '0.5rem',
+                fontWeight: '600',
+                textDecoration: 'none',
+                transition: 'transform 0.3s ease, box-shadow 0.3s ease'
+              }}
+              onMouseOver={(e) => {
+                e.currentTarget.style.transform = 'translateY(-3px)';
+                e.currentTarget.style.boxShadow = '0 10px 25px rgba(255, 203, 69, 0.3)';
+              }}
+              onMouseOut={(e) => {
+                e.currentTarget.style.transform = 'translateY(0)';
+                e.currentTarget.style.boxShadow = 'none';
+              }}
+              >
+                <i className="bi bi-chat-text" style={{ marginRight: '0.5rem' }}></i>
+                Chat With Us
+              </a>
+            </div>
+          </motion.div>
+
+          <div>
+
+          <motion.div
+            className={styles.faqList}
+            variants={listVariants}
+          >
           {faqs.map((faq, index) => (
             <motion.div
               key={index}
@@ -115,6 +158,8 @@ export default function FAQ() {
             </motion.div>
           ))}
         </motion.div>
+        </div>
+        </div>
       </motion.div>
     </section>
   )
