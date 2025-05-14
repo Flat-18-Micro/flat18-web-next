@@ -57,8 +57,8 @@ export default function Tools() {
                         alt={`${tool.name} logo`}
                         className={styles.toolLogo}
                         width={100}
-                        height={50}
-                        style={{ height: '100%', width: 'auto' }}
+                        height={40}
+                        style={{ objectFit: 'contain' }}
                         quality={70}
                       />
                     )}
