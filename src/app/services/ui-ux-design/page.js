@@ -61,7 +61,7 @@ export default function UiUxDesignPage() {
             <div className={styles.badge}>Beautiful, Usable Interfaces</div>
             <div className={styles.textContent}>
               <p>
-                Flat 18 creates elegant, intuitive digital interfaces that delight users and drive engagement. Our UI/UX design is led by senior designers and informed by user research—perfect for startups and scale-ups seeking a premium digital presence.
+                Flat 18 creates elegant, intuitive digital interfaces that delight users and drive engagement. Our UI/UX design is led by senior designers and informed by user research—perfect for startups and scale-ups seeking a digital presence.
               </p>
 
               <h2>Why Flat 18 for UI/UX?</h2>

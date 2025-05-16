@@ -100,7 +100,7 @@ export default function WebDevelopmentPage() {
             variants={contentVariants}
           >
             <h1 className={styles.pageHeading}>Web Development Services</h1>
-            <div className={styles.badge}>Premium Digital Solutions</div>
+            <div className={styles.badge}>Digital Solutions</div>
             <div className={styles.textContent}>
               <p>
                 Flat 18 delivers expert-led web development for ambitious startups and scale-ups. We craft bespoke websites and digital platforms using the latest frameworks, optimised for speed, SEO, and measurable business results.

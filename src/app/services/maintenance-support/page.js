@@ -60,7 +60,7 @@ export default function MaintenanceSupportPage() {
             <div className={styles.badge}>Reliable, Proactive Care</div>
             <div className={styles.textContent}>
               <p>
-                Flat 18 provides premium maintenance and support for your websites and digital products. Our expert team ensures your assets remain secure, up-to-date, and performing at their best—so you can focus on scaling your business.
+                Flat 18 provides maintenance and support for your websites and digital products. Our expert team ensures your assets remain secure, up-to-date, and performing at their best—so you can focus on scaling your business.
               </p>
 
               <h2>Why Flat 18 for Support?</h2>
@@ -115,7 +115,7 @@ export default function MaintenanceSupportPage() {
                 Regular updates, security patches, and email support during business hours—ideal for smaller sites and apps.
               </p>
 
-              <h3>Premium Support</h3>
+              <h3>Support</h3>
               <p>
                 All Essential features plus priority response, phone support, and monthly performance reports—perfect for business-critical platforms.
               </p>

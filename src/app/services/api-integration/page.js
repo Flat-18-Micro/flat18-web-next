@@ -61,7 +61,7 @@ export default function ApiIntegrationPage() {
             <div className={styles.badge}>Seamless System Connectivity</div>
             <div className={styles.textContent}>
               <p>
-                Flat 18 offers premium API integration and bespoke API development for startups and scale-ups. We connect your digital products, automate workflows, and unlock new value by integrating with third-party platforms and services.
+                Flat 18 offers API integration and bespoke API development for startups and scale-ups. We connect your digital products, automate workflows, and unlock new value by integrating with third-party platforms and services.
               </p>
 
               <h2>Why Trust Flat 18 for API Integration?</h2>
