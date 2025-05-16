@@ -31,6 +31,27 @@ export default function Features() {
       learnMore: '/services/ui-ux-design'
     },
     {
+      icon: 'bi-lightbulb',
+      title: 'AI Prompt Engineering',
+      description: 'Expertly crafted prompts to guide LLMs for consistent, high-quality outputs across content, code, and automation tasks.',
+      color: 'secondary',
+      learnMore: '/services/ai-prompt-engineering'
+    },
+    {
+      icon: 'bi-cpu',
+      title: 'AI-Augmented Development',
+      description: 'Accelerate your software delivery using AI-assisted code generation, validation, and refactoring workflows.',
+      color: 'accent-teal',
+      learnMore: '/services/ai-augmented-development'
+    },
+    {
+      icon: 'bi-brush',
+      title: 'AI-Seeded Design & Graphics',
+      description: 'Visual design powered by generative AI—creative concepts, layout proposals, and high-resolution assets informed by your brand.',
+      color: 'accent-purple',
+      learnMore: '/services/ai-seeded-design'
+    },
+    {
       icon: 'bi-shield-lock',
       title: 'Web3 & Blockchain',
       description: 'Smart contract development, wallet integration, and decentralised apps tailored for the blockchain ecosystem.',

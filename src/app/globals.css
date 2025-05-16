@@ -33,6 +33,12 @@ body {
   overflow-x: hidden;
   scroll-behavior: smooth;
   letter-spacing: 0.01em; /* Slight letter spacing for better readability */
+  transition: background-color 0.3s ease;
+}
+
+/* Class applied when page is scrolled more than 20px */
+body.is-scrolled {
+  /* Add any styles you want to apply when the page is scrolled */
 }
 
 .body-wrapper {

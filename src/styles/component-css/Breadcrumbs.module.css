@@ -1,0 +1,60 @@
+.breadcrumbs {
+  padding: 1rem 0;
+  background-color: var(--bg-dark-2);
+  border-bottom: 1px solid var(--border-color);
+  margin-bottom: 2rem;
+  /* Removed margin-top since it will be inside pageWrapper */
+}
+
+/* This class is no longer needed since breadcrumbs will be inside pageWrapper */
+/* .is-scrolled .breadcrumbs{
+  padding-top: var(--space-16);
+} */
+
+.breadcrumbsList {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 0.875rem;
+}
+
+.breadcrumbItem {
+  display: flex;
+  align-items: center;
+  color: var(--text-cw-3);
+}
+
+.breadcrumbLink {
+  color: var(--text-cw-3);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.breadcrumbLink:hover {
+  color: var(--text-primary);
+  text-decoration: underline;
+}
+
+.currentPage {
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.separator {
+  margin: 0 0.5rem;
+  color: var(--text-cw-4);
+  font-size: 0.75rem;
+}
+
+@media (max-width: 768px) {
+  .breadcrumbs {
+    padding: 0.75rem 0;
+    margin-bottom: 1.5rem;
+  }
+
+  .breadcrumbsList {
+    font-size: 0.75rem;
+  }
+}

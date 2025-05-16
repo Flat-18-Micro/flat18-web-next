@@ -2,7 +2,6 @@
 
 import { useEffect } from 'react'
 import { motion } from 'framer-motion'
-import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import Contact from '@/components/Contact'
 import styles from '@/styles/component-css/PageStyles.module.css'
@@ -43,7 +42,7 @@ export default function MaintenanceSupportPage() {
 
   return (
     <main>
-      <Navbar />
+      
       <section className={styles.pageWrapper}>
         <div className={styles.backgroundGradient}></div>
         

@@ -2,9 +2,9 @@
 
 import { useEffect } from 'react'
 import { motion } from 'framer-motion'
-import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import Contact from '@/components/Contact'
+import Breadcrumbs from '@/components/Breadcrumbs'
 import styles from '@/styles/component-css/PageStyles.module.css'
 
 export default function AppDevelopmentPage() {
@@ -24,13 +24,13 @@ export default function AppDevelopmentPage() {
       }
     }
   }
-  
+
   const contentVariants = {
-    hidden: { 
+    hidden: {
       opacity: 0,
       y: 30
     },
-    visible: { 
+    visible: {
       opacity: 1,
       y: 0,
       transition: {
@@ -43,17 +43,17 @@ export default function AppDevelopmentPage() {
 
   return (
     <main>
-      <Navbar />
       <section className={styles.pageWrapper}>
+        <Breadcrumbs />
         <div className={styles.backgroundGradient}></div>
-        
-        <motion.div 
+
+        <motion.div
           className={styles.container}
           variants={containerVariants}
           initial="hidden"
           animate="visible"
         >
-          <motion.div 
+          <motion.div
             className={styles.pageContent}
             variants={contentVariants}
           >
@@ -130,7 +130,7 @@ export default function AppDevelopmentPage() {
           </motion.div>
         </motion.div>
       </section>
-      
+
       <Contact />
       <Footer />
     </main>

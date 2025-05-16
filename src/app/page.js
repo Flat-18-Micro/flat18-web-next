@@ -1,7 +1,6 @@
 'use client'
 
 import { useEffect } from 'react'
-import Navbar from '@/components/Navbar'
 import Hero from '@/components/Hero'
 import Tools from '@/components/Tools'
 import Features from '@/components/Features'
@@ -14,6 +13,7 @@ import FAQ from '@/components/FAQ'
 import Contact from '@/components/Contact'
 import Footer from '@/components/Footer'
 import PageTransition from '@/components/PageTransition'
+import HomePageSchema from '@/components/HomePageSchema'
 
 export default function Home() {
   useEffect(() => {
@@ -81,7 +81,6 @@ export default function Home() {
   return (
     <PageTransition>
       <main>
-        <Navbar />
         <Hero />
         <Features />
         <Tools />
@@ -93,6 +92,7 @@ export default function Home() {
         <FAQ />
         <Contact />
         <Footer />
+        <HomePageSchema />
       </main>
     </PageTransition>
   )

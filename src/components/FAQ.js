@@ -1,10 +1,68 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import styles from '../styles/component-css/FAQ.module.css'
 
 export default function FAQ() {
+  useEffect(() => {
+    // Add FAQ structured data
+    const faqSchema = {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is Availability?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We operate with limited active spaces per month, usually no more than 2 active clients per developer. This ensures you and your project get the attention required for success."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How much does it cost?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Our pricing starts at £37.50 per hour. For a typical project with around 80 development hours per month, this comes to approximately £3,000 per month. We offer discounts for longer commitments, with quarterly billing offering around 15% savings."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What technologies do you use?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We specialize in modern web technologies including Next.js, React, Vue.js, Node.js, and various blockchain technologies. We're also experienced with headless CMS solutions and modern deployment platforms like Vercel, Netlify, and AWS."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How long does a typical project take?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Project timelines vary based on complexity and scope. A typical website redesign might take 4-6 weeks, while more complex applications can take 2-3 months or more. We'll provide a detailed timeline during our initial consultation."
+          }
+        }
+      ]
+    }
+
+    // Add the schema to the page
+    const script = document.createElement('script')
+    script.type = 'application/ld+json'
+    script.text = JSON.stringify(faqSchema)
+    document.head.appendChild(script)
+
+    // Clean up on unmount
+    return () => {
+      const scripts = document.querySelectorAll('script[type="application/ld+json"]')
+      scripts.forEach(s => {
+        if (s.text.includes('"@type":"FAQPage"')) {
+          document.head.removeChild(s)
+        }
+      })
+    }
+  }, [])
+
   const faqs = [
     {
       question: "What is Availability?",

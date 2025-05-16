@@ -2,8 +2,8 @@
 
 import { useEffect } from 'react'
 import { motion } from 'framer-motion'
-import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
+import Breadcrumbs from '@/components/Breadcrumbs'
 import styles from '@/styles/component-css/PageStyles.module.css'
 
 export default function TermsPage() {
@@ -23,13 +23,13 @@ export default function TermsPage() {
       }
     }
   }
-  
+
   const contentVariants = {
-    hidden: { 
+    hidden: {
       opacity: 0,
       y: 30
     },
-    visible: { 
+    visible: {
       opacity: 1,
       y: 0,
       transition: {
@@ -42,24 +42,24 @@ export default function TermsPage() {
 
   return (
     <main>
-      <Navbar />
       <section className={styles.pageWrapper}>
+        <Breadcrumbs />
         <div className={styles.backgroundGradient}></div>
-        
-        <motion.div 
+
+        <motion.div
           className={styles.container}
           variants={containerVariants}
           initial="hidden"
           animate="visible"
         >
-          <motion.div 
+          <motion.div
             className={styles.pageContent}
             variants={contentVariants}
           >
             <h1 className={styles.pageHeading}>FLAT18 Terms of Service and General Procedural Guidelines</h1>
             <div className={styles.badge}>Partially Updated: JUNE 2024</div>
             <p className={styles.textContent}>This document is compatible with Flat18 Ease of Communication Standard (F18 EoCS) as of January 2024.</p>
-            
+
             <div className={`${styles.textContent} ${styles.legalContent}`}>
               <p>Our limited liability company, FLAT 18 MICROSYSTEMS DEVELOPMENT LLC, is sometimes called: @f18micro, F18, Flat 18, FLAT18.CO.UK on different social and internet platforms. Flat 18 and any project under a flat18.co.uk subdomain are also covered by this document. We'll call you, the customer, "you" or "your". Flat 18, the service provider, will be referred to as "us", "we", or "our".</p>
               <p>Our interactions with you and the work we do for you are governed by the terms and guidelines below.</p>

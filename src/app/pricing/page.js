@@ -2,15 +2,15 @@
 
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
-import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import Pricing from '@/components/Pricing'
 import Contact from '@/components/Contact'
+import Breadcrumbs from '@/components/Breadcrumbs'
 import styles from '@/styles/component-css/PricingPage.module.css'
 
 export default function PricingPage() {
   const [openFaqIndex, setOpenFaqIndex] = useState(null)
-  
+
   const faqs = [
     {
       question: "How does your subscription model work?",
@@ -41,7 +41,7 @@ export default function PricingPage() {
   useEffect(() => {
     // Set page title
     document.title = 'Flat18 — Pricing'
-    
+
     // Initialize any necessary scripts or analytics
     if (window.location.protocol !== 'https:' && window.location.hostname !== 'localhost') {
       if (location.href.indexOf("300") < 0) {
@@ -61,7 +61,7 @@ export default function PricingPage() {
       })
       .catch(error => console.log('Metrics fetch error:', error))
   }, [])
-  
+
   // Animation variants
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -73,13 +73,13 @@ export default function PricingPage() {
       }
     }
   }
-  
+
   const contentVariants = {
-    hidden: { 
+    hidden: {
       opacity: 0,
       y: 30
     },
-    visible: { 
+    visible: {
       opacity: 1,
       y: 0,
       transition: {
@@ -89,7 +89,7 @@ export default function PricingPage() {
       }
     }
   }
-  
+
   const staggerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -100,13 +100,13 @@ export default function PricingPage() {
       }
     }
   }
-  
+
   const itemVariants = {
-    hidden: { 
+    hidden: {
       opacity: 0,
       y: 20
     },
-    visible: { 
+    visible: {
       opacity: 1,
       y: 0,
       transition: {
@@ -118,11 +118,11 @@ export default function PricingPage() {
 
   return (
     <main>
-      <Navbar />
       <section className={styles.pricingPageWrapper}>
+        <Breadcrumbs />
         <div className={styles.backgroundGradient}></div>
-        
-        <motion.div 
+
+        <motion.div
           className={styles.container}
           variants={containerVariants}
           initial="hidden"
@@ -132,18 +132,18 @@ export default function PricingPage() {
             <h1 className={styles.pageHeading}>Our Pricing</h1>
             <div className={styles.pricingIntro}>
               <p className={styles.pricingIntroText}>
-                At Flat 18, we believe in transparent, value-based pricing that aligns with your business goals. 
+                At Flat 18, we believe in transparent, value-based pricing that aligns with your business goals.
                 Our subscription model ensures you receive consistent, high-quality support for your digital presence.
               </p>
             </div>
           </motion.div>
-          
+
           <Pricing />
-          
+
           <div id="more-info" className={styles.pricingDetailsSection}>
             <h2 className={styles.sectionHeading}>What's Included</h2>
-            
-            <motion.div 
+
+            <motion.div
               className={styles.detailsGrid}
               variants={staggerVariants}
               initial="hidden"
@@ -157,7 +157,7 @@ export default function PricingPage() {
                 <h3 className={styles.detailTitle}>Full-Stack Development</h3>
                 <p className={styles.detailText}>Our team handles both frontend and backend development, ensuring a seamless, integrated solution for your digital needs.</p>
               </motion.div>
-              
+
               <motion.div className={styles.detailCard} variants={itemVariants}>
                 <div className={styles.detailIcon}>
                   <i className="bi bi-palette"></i>
@@ -165,7 +165,7 @@ export default function PricingPage() {
                 <h3 className={styles.detailTitle}>UI/UX Design</h3>
                 <p className={styles.detailText}>We create intuitive, engaging user interfaces and experiences that align with your brand and business goals.</p>
               </motion.div>
-              
+
               <motion.div className={styles.detailCard} variants={itemVariants}>
                 <div className={styles.detailIcon}>
                   <i className="bi bi-headset"></i>
@@ -173,7 +173,7 @@ export default function PricingPage() {
                 <h3 className={styles.detailTitle}>Technical Support</h3>
                 <p className={styles.detailText}>Ongoing support to address any technical issues or questions that arise during and after development.</p>
               </motion.div>
-              
+
               <motion.div className={styles.detailCard} variants={itemVariants}>
                 <div className={styles.detailIcon}>
                   <i className="bi bi-kanban"></i>
@@ -181,7 +181,7 @@ export default function PricingPage() {
                 <h3 className={styles.detailTitle}>Project Management</h3>
                 <p className={styles.detailText}>Dedicated project management to ensure your project stays on track, on budget, and meets all requirements.</p>
               </motion.div>
-              
+
               <motion.div className={styles.detailCard} variants={itemVariants}>
                 <div className={styles.detailIcon}>
                   <i className="bi bi-phone"></i>
@@ -189,7 +189,7 @@ export default function PricingPage() {
                 <h3 className={styles.detailTitle}>Responsive Design</h3>
                 <p className={styles.detailText}>All our websites and applications are built to work flawlessly across all devices and screen sizes.</p>
               </motion.div>
-              
+
               <motion.div className={styles.detailCard} variants={itemVariants}>
                 <div className={styles.detailIcon}>
                   <i className="bi bi-search"></i>
@@ -199,9 +199,9 @@ export default function PricingPage() {
               </motion.div>
             </motion.div>
           </div>
-          
+
         </motion.div>
-        
+
         <div className={styles.container}>
           <Contact />
         </div>

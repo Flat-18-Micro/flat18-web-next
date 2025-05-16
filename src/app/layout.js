@@ -5,6 +5,8 @@ import { JetBrains_Mono } from 'next/font/google'
 import ChatwootWidget from '@/components/ChatwootWidget'
 import ServiceWorkerRegistration from '@/components/ServiceWorkerRegistration'
 import Script from 'next/script'
+import AnalyticsScripts from '@/components/AnalyticsScripts'
+import ClientLayout from '@/components/ClientLayout'
 
 // Optimize font loading with better performance settings
 const outfit = Outfit({
@@ -51,11 +53,24 @@ export const metadata = {
   title: 'Flat 18 - Premium Web3 & DeFi Development Agency',
   description: 'Premium design and development agency specializing in Web3, DeFi, BTCPayServer, crypto security, and full-stack development for blockchain entrepreneurs and startups.',
   metadataBase: new URL('https://flat18.co.uk'),
-  keywords: 'web3 development, defi design, crypto security, btcpayserver, blockchain apps, wallet scrutiny, full-stack development, premium design agency',
+  keywords: 'web3 development, defi design, crypto security, btcpayserver, blockchain apps, wallet scrutiny, full-stack development, premium design agency, next.js development, react development, crypto website, blockchain development, web3 design, defi dashboard, bitcoin payment integration',
+  alternates: {
+    canonical: 'https://flat18.co.uk',
+  },
+  authors: [{ name: 'Flat 18', url: 'https://flat18.co.uk' }],
+  category: 'Web Development',
   openGraph: {
     title: 'Flat 18 — Premium Web3 & DeFi Design and Development Agency',
     description: 'Specialized in Web3, DeFi, and crypto security solutions. We deliver cost-effective, high-performance applications and websites for blockchain entrepreneurs and startups with modern UI/UX and secure architecture.',
-    images: ['/static/advert-flat-18-f18-og_1-p-2000.webp'],
+    images: [
+      {
+        url: '/static/advert-flat-18-f18-og_1-p-2000.webp',
+        width: 1200,
+        height: 630,
+        alt: 'Flat 18 - Premium Web3 & DeFi Development Agency',
+      }
+    ],
+    locale: 'en_GB',
     type: 'website',
     site_name: 'Flat 18',
   },
@@ -65,6 +80,21 @@ export const metadata = {
     description: 'Specialized in Web3, DeFi, and crypto security solutions. We deliver cost-effective, high-performance applications and websites for blockchain entrepreneurs and startups with modern UI/UX and secure architecture.',
     images: ['/static/advert-flat-18-f18-og_1-p-2000.webp'],
     creator: '@f18_dev',
+    site: '@f18_dev',
+  },
+  verification: {
+    google: 'google-site-verification-code', // Replace with actual verification code if available
+  },
+  robots: {
+    index: true,
+    follow: true,
+    nocache: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
   },
 }
 
@@ -72,59 +102,60 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${outfit.variable} ${sora.variable} ${inter.variable} ${jetbrainsMono.variable}`}>
       <head>
-        <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
-        <link rel="apple-touch-icon" href="/images/webclip.png" />
-        <link rel="manifest" href="/manifest.json" />
-        <meta name="theme-color" content="#19fdb2" />
-        {/* Resource hints for faster loading */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link rel="preconnect" href="https://eu.umami.is" crossOrigin="anonymous" />
-        <link rel="preconnect" href="https://master--melodic-taffy-1a4c18.netlify.app" crossOrigin="anonymous" />
-        <link rel="preconnect" href="https://keak-prod-d7a7awfeabbvb6hq.z01.azurefd.net" crossOrigin="anonymous" />
-
-        {/* DNS prefetch as fallback for older browsers */}
-        <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
-        <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
-        <link rel="dns-prefetch" href="https://eu.umami.is" />
-        <link rel="dns-prefetch" href="https://master--melodic-taffy-1a4c18.netlify.app" />
-        <link rel="dns-prefetch" href="https://keak-prod-d7a7awfeabbvb6hq.z01.azurefd.net" />
-
-        {/* Bootstrap Icons are imported directly in the layout.js file */}
-
-        {/* Preload critical resources */}
-        <link rel="preload" href="/images/portfolio-graphics/wallet-scrutiny.webp" as="image" type="image/webp" />
-        <link rel="preload" href="/images/flat18_256x256.avif" as="image" type="image/avif" />
-        <link rel="preload" href="/bootstrap-icons/font/bootstrap-icons.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
-
-        {/* Analytics scripts with optimized loading using Next.js Script component */}
-        <Script
-          id="umami-analytics"
-          src="https://eu.umami.is/script.js"
-          data-website-id="54c1aa36-ac18-426d-ba14-3d5827cfa465"
-          strategy="afterInteractive"
-          async
+        {/* JSON-LD structured data for organization */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              "name": "Flat 18",
+              "url": "https://flat18.co.uk",
+              "logo": "https://flat18.co.uk/images/flat18_256x256.avif",
+              "sameAs": [
+                "https://x.com/f18_dev",
+                "https://github.com/vswee"
+              ],
+              "description": "Premium design and development agency specializing in Web3, DeFi, BTCPayServer, crypto security, and full-stack development for blockchain entrepreneurs and startups.",
+              "address": {
+                "@type": "PostalAddress",
+                "addressCountry": "United Kingdom"
+              },
+              "contactPoint": {
+                "@type": "ContactPoint",
+                "contactType": "customer service",
+                "url": "https://flat18.co.uk/#chat"
+              }
+            })
+          }}
         />
-        <Script
-          id="ackee-analytics"
-          src="https://master--melodic-taffy-1a4c18.netlify.app/tracker.js"
-          data-ackee-server="https://master--melodic-taffy-1a4c18.netlify.app"
-          data-ackee-domain-id="b28e2698-bf04-4e23-9075-a5f7110affe0"
-          strategy="afterInteractive"
-          async
-        />
-        <Script
-          id="keak-script"
-          src="https://keak-prod-d7a7awfeabbvb6hq.z01.azurefd.net/scripts/e4dc74f0-33a0-4f2a-91a7-949fed677732-5121.js"
-          strategy="lazyOnload"
+
+        {/* JSON-LD structured data for website */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              "url": "https://flat18.co.uk",
+              "name": "Flat 18 - Premium Web3 & DeFi Development Agency",
+              "description": "Premium design and development agency specializing in Web3, DeFi, BTCPayServer, crypto security, and full-stack development for blockchain entrepreneurs and startups.",
+              "potentialAction": {
+                "@type": "SearchAction",
+                "target": "https://flat18.co.uk/search?q={search_term_string}",
+                "query-input": "required name=search_term_string"
+              }
+            })
+          }}
         />
       </head>
       <body>
-        {children}
+        <ClientLayout>
+          {children}
+        </ClientLayout>
         <ChatwootWidget />
         <ServiceWorkerRegistration />
+        <AnalyticsScripts />
       </body>
     </html>
   )
