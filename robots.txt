@@ -1,0 +1,23 @@
+User-Agent: *
+Allow: /
+Disallow: /api/
+Disallow: /_next/
+Disallow: /static/downloads/
+Disallow: /bootstrap-icons/
+
+User-Agent: Googlebot
+Allow: /
+Disallow: /api/
+Disallow: /_next/
+Disallow: /static/downloads/
+Disallow: /bootstrap-icons/
+
+User-Agent: Bingbot
+Allow: /
+Disallow: /api/
+Disallow: /_next/
+Disallow: /static/downloads/
+Disallow: /bootstrap-icons/
+
+Host: https://flat18.co.uk
+Sitemap: https://flat18.co.uk/sitemap.xml
