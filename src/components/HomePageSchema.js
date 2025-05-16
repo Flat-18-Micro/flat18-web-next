@@ -4,6 +4,9 @@ import { useEffect } from 'react'
 
 export default function HomePageSchema() {
   useEffect(() => {
+    // Only run on client side
+    if (typeof window === 'undefined' || !document) return
+
     // Add structured data for the homepage
     const homePageSchema = {
       "@context": "https://schema.org",
@@ -102,23 +105,57 @@ export default function HomePageSchema() {
         }
       }
     }
-    
-    // Add the schema to the page
-    const script = document.createElement('script')
-    script.type = 'application/ld+json'
-    script.text = JSON.stringify(homePageSchema)
-    document.head.appendChild(script)
-    
-    // Clean up on unmount
-    return () => {
-      const scripts = document.querySelectorAll('script[type="application/ld+json"]')
-      scripts.forEach(s => {
-        if (s.text.includes('"@type":"WebPage"')) {
-          document.head.removeChild(s)
+
+    try {
+      // Check if a schema already exists to avoid duplicates
+      const existingSchemas = document.querySelectorAll('script[type="application/ld+json"]')
+      let schemaExists = false
+
+      existingSchemas.forEach(s => {
+        try {
+          if (s.text && s.text.includes('"@type":"WebPage"')) {
+            schemaExists = true
+          }
+        } catch (err) {
+          console.error('Error checking existing schema:', err)
         }
       })
+
+      // Only add if no schema exists
+      if (!schemaExists) {
+        const script = document.createElement('script')
+        script.type = 'application/ld+json'
+        script.text = JSON.stringify(homePageSchema)
+        script.id = 'homepage-schema'
+        document.head.appendChild(script)
+      }
+    } catch (error) {
+      console.error('Error adding schema to page:', error)
+    }
+
+    // Clean up on unmount
+    return () => {
+      try {
+        const script = document.getElementById('homepage-schema')
+        if (script) {
+          document.head.removeChild(script)
+        } else {
+          const scripts = document.querySelectorAll('script[type="application/ld+json"]')
+          scripts.forEach(s => {
+            try {
+              if (s.text && s.text.includes('"@type":"WebPage"')) {
+                document.head.removeChild(s)
+              }
+            } catch (err) {
+              console.error('Error removing schema:', err)
+            }
+          })
+        }
+      } catch (error) {
+        console.error('Error cleaning up schema:', error)
+      }
     }
   }, [])
-  
+
   return null
 }

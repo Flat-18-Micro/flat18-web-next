@@ -15,21 +15,31 @@ export default function NotFound() {
       }
 
       // Ackee tracking
-      if (typeof window.ackeeTracker !== 'undefined') {
-        // Get the server URL from the script tag
-        const serverUrl = document.querySelector('[data-ackee-server]')?.getAttribute('data-ackee-server')
-        const domainId = document.querySelector('[data-ackee-domain-id]')?.getAttribute('data-ackee-domain-id')
+      try {
+        if (typeof window.ackeeTracker !== 'undefined') {
+          // Get the server URL from the script tag
+          const serverUrl = document.querySelector('[data-ackee-server]')?.getAttribute('data-ackee-server')
+          const domainId = document.querySelector('[data-ackee-domain-id]')?.getAttribute('data-ackee-domain-id')
 
-        if (serverUrl && domainId) {
-          // Create an instance and record the visit with custom attributes
-          // This uses the proper record method for page visits
-          window.ackeeTracker.create(serverUrl).record(domainId, {
-            siteLocation: window.location.href,
-            siteReferrer: document.referrer,
-            siteTitle: '404 - Page Not Found',
-            is404: true
-          })
+          if (serverUrl && domainId && typeof window.ackeeTracker.create === 'function') {
+            // Create an instance and record the visit with custom attributes
+            const instance = window.ackeeTracker.create(serverUrl)
+
+            // Check if record method exists before calling it
+            if (instance && typeof instance.record === 'function') {
+              instance.record(domainId, {
+                siteLocation: window.location.href,
+                siteReferrer: document.referrer,
+                siteTitle: '404 - Page Not Found',
+                is404: true
+              })
+            } else {
+              console.log('Ackee record method not available')
+            }
+          }
         }
+      } catch (error) {
+        console.error('Error with Ackee tracking:', error)
       }
     }
   }, [])
