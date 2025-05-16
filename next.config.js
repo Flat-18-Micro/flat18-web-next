@@ -24,17 +24,6 @@ const nextConfig = {
     // skipTrailingSlashRedirect: true,
     // Enable CSS optimization with safeguards
     optimizeCss: true,
-    // Configure Critters to properly handle background-clip
-    critters: {
-      preload: 'media',
-      pruneSource: true,
-      reduceInlineStyles: false,
-      mergeStylesheets: true,
-      additionalStylesheets: ['**/*.css'],
-      // Preserve important CSS properties
-      keyframes: true,
-      fonts: true,
-    },
   },
 }
 

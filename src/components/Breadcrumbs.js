@@ -1,21 +1,18 @@
 'use client'
 
-import { useEffect } from 'react'
+import { useEffect, useMemo } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import styles from '@/styles/component-css/Breadcrumbs.module.css'
 
 export default function Breadcrumbs() {
   const pathname = usePathname()
-  
-  // Skip rendering breadcrumbs on homepage
-  if (pathname === '/') return null
-  
+
   // Create breadcrumb items from pathname
   const pathSegments = pathname.split('/').filter(segment => segment)
-  
-  // Generate breadcrumb items
-  const breadcrumbItems = [
+
+  // Generate breadcrumb items using useMemo to prevent recreation on every render
+  const breadcrumbItems = useMemo(() => [
     { label: 'Home', path: '/' },
     ...pathSegments.map((segment, index) => {
       const path = `/${pathSegments.slice(0, index + 1).join('/')}`
@@ -24,11 +21,11 @@ export default function Breadcrumbs() {
         .split('-')
         .map(word => word.charAt(0).toUpperCase() + word.slice(1))
         .join(' ')
-      
+
       return { label, path }
     })
-  ]
-  
+  ], [pathSegments])
+
   useEffect(() => {
     // Add breadcrumb structured data
     const breadcrumbSchema = {
@@ -41,13 +38,13 @@ export default function Breadcrumbs() {
         "item": `https://flat18.co.uk${item.path}`
       }))
     }
-    
+
     // Add the schema to the page
     const script = document.createElement('script')
     script.type = 'application/ld+json'
     script.text = JSON.stringify(breadcrumbSchema)
     document.head.appendChild(script)
-    
+
     // Clean up on unmount
     return () => {
       const scripts = document.querySelectorAll('script[type="application/ld+json"]')
@@ -58,14 +55,17 @@ export default function Breadcrumbs() {
       })
     }
   }, [breadcrumbItems])
-  
+
+  // Skip rendering breadcrumbs on homepage
+  if (pathname === '/') return null
+
   return (
     <nav aria-label="Breadcrumb" className={styles.breadcrumbs}>
       <div className="container">
         <ol className={styles.breadcrumbsList}>
           {breadcrumbItems.map((item, index) => {
             const isLast = index === breadcrumbItems.length - 1
-            
+
             return (
               <li key={item.path} className={styles.breadcrumbItem}>
                 {isLast ? (
@@ -77,7 +77,7 @@ export default function Breadcrumbs() {
                     {item.label}
                   </Link>
                 )}
-                
+
                 {!isLast && (
                   <span className={styles.separator} aria-hidden="true">
                     <i className="bi bi-chevron-right"></i>
