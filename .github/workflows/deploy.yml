@@ -26,9 +26,20 @@ jobs:
 
       - name: Build 🔧
         run: npm run build:gh-pages
+        env:
+          NODE_ENV: production
+          # Set any other environment variables needed for the build
+
+      - name: Prepare for deployment 🔍
+        run: |
+          touch out/.nojekyll
+          cp public/_headers out/
+          # Create a CNAME file if you're using a custom domain
+          echo "flat18.co.uk" > out/CNAME
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           folder: out  # The folder the action should deploy
           branch: gh-pages  # The branch the action should deploy to
+          clean: true  # Automatically remove deleted files from the deploy branch

@@ -3,6 +3,8 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   output: 'export',
+  // Set assetPrefix to ensure assets are loaded from the correct path
+  assetPrefix: process.env.NODE_ENV === 'production' ? 'https://flat18.co.uk' : '',
   images: {
     unoptimized: true, // Required for static export
     deviceSizes: [640, 750, 828, 1080, 1200, 1920],
@@ -12,10 +14,6 @@ const nextConfig = {
     dangerouslyAllowSVG: true, // Allow SVG for icons
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
-  // Set the base path if your site is not hosted at the root of the domain
-  // Uncomment and set this to your repository name if deploying to GitHub Pages
-  // Example: basePath: '/Flat18.co.uk',
-  // basePath: '/repo-name',
   // Disable trailing slashes in URLs
   trailingSlash: false,
   // Disable the automatic static optimization

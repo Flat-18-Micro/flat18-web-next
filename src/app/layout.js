@@ -7,6 +7,7 @@ import ServiceWorkerRegistration from '@/components/ServiceWorkerRegistration'
 import Script from 'next/script'
 import AnalyticsScripts from '@/components/AnalyticsScripts'
 import ClientLayout from '@/components/ClientLayout'
+import AssetPrefixScript from '@/components/AssetPrefixScript'
 
 // Optimize font loading with better performance settings
 const outfit = Outfit({
@@ -102,6 +103,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${outfit.variable} ${sora.variable} ${inter.variable} ${jetbrainsMono.variable}`}>
       <head>
+        {/* Asset Prefix Script to fix 404 errors */}
+        <AssetPrefixScript />
+
         {/* JSON-LD structured data for organization */}
         <script
           type="application/ld+json"
