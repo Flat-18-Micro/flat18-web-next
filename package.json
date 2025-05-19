@@ -4,19 +4,20 @@
   "private": true,
   "scripts": {
     "dev": "node scripts/copy-bootstrap-icons.js && next dev",
-    "build": "node scripts/copy-bootstrap-icons.js && npm run optimize-images && NODE_ENV=production npm run optimize-css && next build",
-    "build:gh-pages": "node scripts/copy-bootstrap-icons.js && npm run optimize-images && NODE_ENV=production npm run optimize-css && NEXT_DISABLE_ESLINT=1 next build",
+    "build": "node scripts/copy-bootstrap-icons.js && npm run optimize-images && NODE_ENV=production npm run optimize-css && next build && node scripts/fix-asset-paths.js",
+    "build:gh-pages": "node scripts/copy-bootstrap-icons.js && npm run optimize-images && NODE_ENV=production npm run optimize-css && NEXT_DISABLE_ESLINT=1 next build && node scripts/fix-asset-paths.js",
     "start": "next start",
     "lint": "next lint",
-    "export": "node scripts/copy-bootstrap-icons.js && npm run optimize-images && NODE_ENV=production npm run optimize-css && next build",
-    "deploy": "node scripts/copy-bootstrap-icons.js && npm run optimize-images && NODE_ENV=production NEXT_DISABLE_ESLINT=1 next build && touch out/.nojekyll && cp public/_headers out/ && echo 'flat18.co.uk' > out/CNAME",
-    "deploy:perf": "node scripts/copy-bootstrap-icons.js && npm run optimize-images && NODE_ENV=production npm run optimize-css && NEXT_DISABLE_ESLINT=1 next build && touch out/.nojekyll && cp public/_headers out/ && echo 'flat18.co.uk' > out/CNAME",
+    "export": "node scripts/copy-bootstrap-icons.js && npm run optimize-images && NODE_ENV=production npm run optimize-css && next build && node scripts/fix-asset-paths.js",
+    "deploy": "node scripts/copy-bootstrap-icons.js && npm run optimize-images && NODE_ENV=production NEXT_DISABLE_ESLINT=1 next build && node scripts/fix-asset-paths.js && touch out/.nojekyll && cp public/_headers out/ && echo 'flat18.co.uk' > out/CNAME",
+    "deploy:perf": "node scripts/copy-bootstrap-icons.js && npm run optimize-images && NODE_ENV=production npm run optimize-css && NEXT_DISABLE_ESLINT=1 next build && node scripts/fix-asset-paths.js && touch out/.nojekyll && cp public/_headers out/ && echo 'flat18.co.uk' > out/CNAME",
     "copy-icons": "node scripts/copy-bootstrap-icons.js",
     "purge-css": "node scripts/purge-css.js",
     "optimize-images": "node scripts/optimize-images.js",
     "optimize-css": "node scripts/optimize-css.js",
     "optimize-css:prod": "NODE_ENV=production node scripts/optimize-css.js",
-    "optimize": "npm run optimize-images && npm run optimize-css:prod"
+    "optimize": "npm run optimize-images && npm run optimize-css:prod",
+    "fix-assets": "node scripts/fix-asset-paths.js"
   },
   "dependencies": {
     "bootstrap-icons": "^1.11.3",

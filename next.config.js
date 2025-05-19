@@ -3,8 +3,14 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   output: 'export',
-  // Set assetPrefix to ensure assets are loaded from the correct path
-  assetPrefix: process.env.NODE_ENV === 'production' ? 'https://flat18.co.uk' : '',
+  // Disable asset prefixing in Next.js - we'll handle this with a custom script
+  // This prevents double-prefixing issues
+  assetPrefix: '',
+  // Ensure consistent file hashing across builds
+  generateBuildId: async () => {
+    // Use a fixed build ID for consistent file names
+    return 'stable-build'
+  },
   images: {
     unoptimized: true, // Required for static export
     deviceSizes: [640, 750, 828, 1080, 1200, 1920],
@@ -22,6 +28,14 @@ const nextConfig = {
     // skipTrailingSlashRedirect: true,
     // Enable CSS optimization with safeguards
     optimizeCss: true,
+  },
+  // Ensure consistent output
+  webpack: (config, { isServer }) => {
+    // Use deterministic chunk and module ids for consistent file names
+    config.optimization.moduleIds = 'deterministic';
+    config.optimization.chunkIds = 'deterministic';
+
+    return config;
   },
 }
 

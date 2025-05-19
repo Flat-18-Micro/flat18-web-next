@@ -25,17 +25,35 @@ jobs:
         run: npm ci
 
       - name: Build 🔧
-        run: npm run build:gh-pages
+        run: npm run deploy
         env:
           NODE_ENV: production
-          # Set any other environment variables needed for the build
+          # Ensure consistent build ID for stable file names
+          NEXT_PUBLIC_BUILD_ID: stable-build
 
-      - name: Prepare for deployment 🔍
+      - name: Verify asset paths 🔍
         run: |
-          touch out/.nojekyll
-          cp public/_headers out/
-          # Create a CNAME file if you're using a custom domain
-          echo "flat18.co.uk" > out/CNAME
+          # Verify asset paths have been fixed
+          echo "Verifying asset paths in HTML files..."
+          grep -r "https://flat18.co.uk/_next" out/ --include="*.html" || echo "No asset paths found, running fix script again"
+
+          # Run the fix script again to ensure all paths are fixed
+          node scripts/fix-asset-paths.js
+
+          # Check if CNAME file exists
+          if [ ! -f out/CNAME ]; then
+            echo "flat18.co.uk" > out/CNAME
+          fi
+
+          # Check if .nojekyll file exists
+          if [ ! -f out/.nojekyll ]; then
+            touch out/.nojekyll
+          fi
+
+          # Check if _headers file exists
+          if [ ! -f out/_headers ]; then
+            cp public/_headers out/
+          fi
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
