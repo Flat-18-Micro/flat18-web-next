@@ -83,7 +83,7 @@ export const metadata = {
     site: '@f18_dev',
   },
   verification: {
-    google: 'google-site-verification-code', // Replace with actual verification code if available
+    // Remove placeholder verification code - add a real one when available
   },
   robots: {
     index: true,

@@ -50,6 +50,9 @@ export default function Tools() {
                         alt={`${tool.name} logo`}
                         className={styles.toolLogo}
                         loading="lazy"
+                        width={100}
+                        height={40}
+                        style={{ objectFit: 'contain' }}
                       />
                     ) : (
                       <Image

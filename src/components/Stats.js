@@ -5,7 +5,7 @@ import { useEffect, useRef } from 'react'
 
 export default function Stats() {
   const countersRef = useRef([])
-  
+
   useEffect(() => {
     const options = {
       root: null,
@@ -17,23 +17,23 @@ export default function Stats() {
       const duration = 2000
       const startTime = performance.now()
       const startValue = 0
-      
+
       const updateCounter = (currentTime) => {
         const elapsedTime = currentTime - startTime
         const progress = Math.min(elapsedTime / duration, 1)
         // Easing function for smoother animation
         const easeOutQuad = progress * (2 - progress)
         const currentValue = Math.floor(easeOutQuad * (target - startValue) + startValue)
-        
+
         counter.textContent = currentValue
-        
+
         if (progress < 1) {
           requestAnimationFrame(updateCounter)
         } else {
           counter.textContent = target
         }
       }
-      
+
       requestAnimationFrame(updateCounter)
     }
 
@@ -71,24 +71,23 @@ export default function Stats() {
   ]
 
   return (
-    <div className={styles['content']}>
+    <section className={`${styles['stats-wrapper']} statsSection`}>
       <div className='container'>
-
-      <div className={styles['stats-grid']}>
-        {stats.map((stat, index) => (
-          <div key={index} className={styles['stat-card']}>
-            <div 
-              ref={el => countersRef.current[index] = el} 
-              className={styles['animated-counter']} 
-              data-target={stat.value}
-            >
-              0
+        <div className={styles['stats-grid']}>
+          {stats.map((stat, index) => (
+            <div key={index} className={styles['stat-card']}>
+              <div
+                ref={el => countersRef.current[index] = el}
+                className={styles['animated-counter']}
+                data-target={stat.value}
+              >
+                0
+              </div>
+              <div className={styles['stat-label']}>{stat.label}</div>
             </div>
-            <div className={styles['stat-label']}>{stat.label}</div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
-      </div>
-    </div>
+    </section>
   )
 }

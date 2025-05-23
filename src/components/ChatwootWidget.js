@@ -16,43 +16,73 @@ export default function ChatwootWidget() {
       }
     })
 
-    try {
-      const q = localStorage?.getItem('webM') ? `&webM=${localStorage.getItem('webM')}` : ''
-      // Add cache-busting parameter and mode: 'cors' for better GitHub Pages compatibility
-      fetch('https://api.flat18.co.uk/metrics/webm/index.php?geo=1' + q + '&t=' + new Date().getTime(), {
-        mode: 'cors',
-        headers: {
-          'Accept': 'application/json'
+    // Fetch metrics data with improved error handling
+    const fetchMetricsData = async () => {
+      try {
+        // Safely get webM from localStorage
+        let webMValue = '';
+        try {
+          webMValue = localStorage?.getItem('webM') || '';
+        } catch (storageError) {
+          console.warn('LocalStorage access error:', storageError);
+          // Continue without localStorage data
         }
-      })
-        .then(response => {
-          if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
-          }
-          return response.json();
-        })
-        .then(data => {
-          if (data && data.webM) {
-            window.webM = data.webM
-            window.geoCityCountry = data.geo || 'Unknown'
-            const persist = localStorage?.getItem('webM') || data.webM
-            localStorage.setItem('webM', persist)
 
+        const q = webMValue ? `&webM=${webMValue}` : '';
+        const cacheBuster = `&t=${new Date().getTime()}`;
+        const url = `https://api.flat18.co.uk/metrics/webm/index.php?geo=1${q}${cacheBuster}`;
+
+        // Set timeout for the fetch request
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 5000); // 5 second timeout
+
+        const response = await fetch(url, {
+          mode: 'cors',
+          headers: {
+            'Accept': 'application/json'
+          },
+          signal: controller.signal
+        });
+
+        clearTimeout(timeoutId);
+
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+
+        const data = await response.json();
+
+        if (data && data.webM) {
+          window.webM = data.webM;
+          window.geoCityCountry = data.geo || 'Unknown';
+
+          // Safely store in localStorage
+          try {
+            const persist = localStorage?.getItem('webM') || data.webM;
+            localStorage.setItem('webM', persist);
+
+            // Update Chatwoot user if available
             if (window.$chatwoot) {
-              try {
-                window.$chatwoot.setUser(persist, {
-                  name: `${window.geoCityCountry} - ${persist}`
-                })
-              } catch (chatwootError) {
-                console.log('Chatwoot setUser error:', chatwootError)
-              }
+              window.$chatwoot.setUser(persist, {
+                name: `${window.geoCityCountry} - ${persist}`
+              });
             }
+          } catch (storageError) {
+            console.warn('LocalStorage write error:', storageError);
           }
-        })
-        .catch(error => console.log('Metrics fetch error in ChatwootWidget:', error))
-    } catch (error) {
-      console.log('Metrics fetch try/catch error in ChatwootWidget:', error)
-    }
+        }
+      } catch (error) {
+        if (error.name === 'AbortError') {
+          console.warn('Metrics fetch request timed out');
+        } else {
+          console.error('Metrics fetch error:', error);
+        }
+        // Continue execution - this is non-critical functionality
+      }
+    };
+
+    // Execute the fetch
+    fetchMetricsData();
 
     const handlePrepareMessage = (event) => {
       if (window.$chatwoot && event.detail?.message) {

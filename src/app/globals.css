@@ -6,6 +6,9 @@
   /* Import variables from the main variables file */
   @import "../styles/variables.css";
 
+  /* Import standardized section spacing */
+  @import "../styles/section-spacing.css";
+
   /* Layout - Standardized container widths */
   --container-max: 1200px;     /* Main container max width - standardized to 1200px */
   --container-narrow: 960px;   /* Narrower container for text-heavy sections */
@@ -98,22 +101,31 @@ body.is-scrolled {
 
 /* Section spacing - standardized vertical rhythm */
 .section {
-  padding: 6rem 0;
+  padding: var(--section-spacing-y) 0;
   position: relative;
+  margin: 0; /* Reset margins to ensure consistent spacing */
 }
 
 .section-sm {
-  padding: 4rem 0;
+  padding: var(--section-spacing-y-sm) 0;
   position: relative;
+  margin: 0;
 }
 
 .section-lg {
-  padding: 8rem 0;
+  padding: var(--section-spacing-y-lg) 0;
   position: relative;
+  margin: 0;
 }
 
+/* Add a class for sections that need additional spacing */
+.section-gap {
+  margin-top: var(--section-spacing-gap);
+}
+
+/* Section heading organization */
 .text-org {
-  margin-bottom: 4rem; /* Increased spacing */
+  margin-bottom: var(--section-heading-spacing);
   text-align: center;
   max-width: 800px;
   margin-left: auto;
@@ -121,8 +133,8 @@ body.is-scrolled {
 }
 
 .text-org .subtitle {
-  font-size: 1.25rem; /* Larger subtitle */
-  color: var(--cw-2); /* Improved contrast */
+  font-size: 1.25rem;
+  color: var(--cw-2);
   margin-top: 1rem;
   line-height: 1.6;
   max-width: 650px;
@@ -460,8 +472,20 @@ body.is-scrolled {
   }
 
   .content {
-    padding-top: 5rem;
-    padding-bottom: 5rem;
+    padding-top: var(--section-spacing-y-tablet);
+    padding-bottom: var(--section-spacing-y-tablet);
+  }
+
+  .section {
+    padding: var(--section-spacing-y-tablet) 0;
+  }
+
+  .section-sm {
+    padding: var(--section-spacing-y-mobile) 0;
+  }
+
+  .section-lg {
+    padding: calc(var(--section-spacing-y-tablet) + 1rem) 0;
   }
 
   .gradient-text {
@@ -475,7 +499,7 @@ body.is-scrolled {
 
   /* Adjust spacing between sections */
   .text-org {
-    margin-bottom: 3.5rem;
+    margin-bottom: var(--section-heading-spacing-mobile);
   }
 
   /* Adjust portfolio grid */
@@ -495,8 +519,25 @@ body.is-scrolled {
   }
 
   .content {
-    padding-top: 4rem;
-    padding-bottom: 4rem;
+    padding-top: var(--section-spacing-y-mobile);
+    padding-bottom: var(--section-spacing-y-mobile);
+  }
+
+  .section {
+    padding: var(--section-spacing-y-mobile) 0;
+  }
+
+  .section-sm {
+    padding: var(--section-spacing-y-mobile-sm) 0;
+  }
+
+  .section-lg {
+    padding: var(--section-spacing-y-mobile) 0;
+  }
+
+  /* Adjust section gap for mobile */
+  .section-gap {
+    margin-top: calc(var(--section-spacing-gap) * 0.75);
   }
 
   .gradient-text {
@@ -513,6 +554,10 @@ body.is-scrolled {
   }
 
   /* Improve text readability on mobile */
+  .text-org {
+    margin-bottom: var(--section-heading-spacing-mobile);
+  }
+
   .text-org .subtitle {
     font-size: 1.15rem;
     line-height: 1.7;
@@ -557,8 +602,25 @@ body.is-scrolled {
   }
 
   .content {
-    padding-top: 3rem;
-    padding-bottom: 3rem;
+    padding-top: var(--section-spacing-y-mobile-sm);
+    padding-bottom: var(--section-spacing-y-mobile-sm);
+  }
+
+  .section {
+    padding: var(--section-spacing-y-mobile-sm) 0;
+  }
+
+  .section-sm {
+    padding: calc(var(--section-spacing-y-mobile-sm) - 0.5rem) 0;
+  }
+
+  .section-lg {
+    padding: var(--section-spacing-y-mobile-sm) 0;
+  }
+
+  /* Further reduce section gap for small mobile */
+  .section-gap {
+    margin-top: calc(var(--section-spacing-gap) * 0.5);
   }
 
   .gradient-text {
@@ -577,7 +639,7 @@ body.is-scrolled {
   }
 
   .text-org {
-    margin-bottom: 2rem;
+    margin-bottom: calc(var(--section-heading-spacing-mobile) * 0.75);
   }
 
   /* Improve card readability on small screens */

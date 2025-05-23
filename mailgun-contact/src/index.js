@@ -1,15 +1,36 @@
 export default {
   async fetch(request, env, ctx) {
+    // Get the origin from the request
+    const origin = request.headers.get('Origin') || '';
+    
+    // List of allowed origins
+    const allowedOrigins = [
+      'https://flat18.co.uk',
+      'https://www.flat18.co.uk',
+      'http://localhost:3000'
+    ];
+    
+    // Check if the origin is allowed
+    const isAllowedOrigin = allowedOrigins.includes(origin);
+    
+    // Set CORS headers based on origin validation
     const headers = {
-      'Access-Control-Allow-Origin': '*',
       'Access-Control-Allow-Methods': 'POST',
       'Access-Control-Allow-Headers': 'Content-Type',
       'Content-Type': 'application/json'
-		};
+    };
+    
+    // Only set Access-Control-Allow-Origin if the origin is allowed
+    if (isAllowedOrigin) {
+      headers['Access-Control-Allow-Origin'] = origin;
+    } else {
+      // Fallback for development or testing
+      headers['Access-Control-Allow-Origin'] = '*';
+    }
 
-		if (request.method === 'OPTIONS') {
-			return new Response(null, { status: 204, headers });
-		}
+    if (request.method === 'OPTIONS') {
+      return new Response(null, { status: 204, headers });
+    }
     if (request.method !== 'POST') {
       return new Response(JSON.stringify({ error: 'Method not allowed' }), { status: 405, headers });
     }
@@ -49,7 +70,7 @@ ${message}
 
     } catch (err) {
       console.error('Error:', err);
-    return new Response(JSON.stringify({ error: 'Server error' }), { status: 500, headers });
+      return new Response(JSON.stringify({ error: 'Server error' }), { status: 500, headers });
     }
   }
 };
