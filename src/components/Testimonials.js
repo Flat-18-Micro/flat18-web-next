@@ -444,7 +444,7 @@ export default function Testimonials() {
 
           <div className={styles.carouselControls}>
             <button
-              className={`${styles.carouselArrow} ${styles.prevArrow} ${activeIndex === 0 ? styles.arrowDisabled : ''}`}
+              className={`${styles.carouselArrow} ${styles.prevArrow}`}
               onClick={() => {
                 const prevIndex = activeIndex > 0 ? activeIndex - 1 : testimonials.length - 1;
                 scrollToCard(prevIndex);
@@ -481,9 +481,9 @@ export default function Testimonials() {
             </div>
 
             <button
-              className={`${styles.carouselArrow} ${styles.nextArrow} ${activeIndex === testimonials.length - 1 ? styles.arrowDisabled : ''}`}
+              className={`${styles.carouselArrow} ${styles.nextArrow}`}
               onClick={() => {
-                const nextIndex = activeIndex < testimonials.length - 1 ? activeIndex + 1 : 0;
+                const nextIndex = (activeIndex + 1) % testimonials.length;
                 scrollToCard(nextIndex);
                 // Add visual feedback for the button press
                 const button = document.querySelector(`.${styles.nextArrow}`);

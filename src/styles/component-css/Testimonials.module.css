@@ -150,7 +150,7 @@
 }
 
 .testimonialCard:hover .cardInner {
-  transform: translateY(-4px);
+  /* transform: translateY(-4px); */
   box-shadow: var(--shadow-lg);
   border-color: var(--border-medium);
 }
