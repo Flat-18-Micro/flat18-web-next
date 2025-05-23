@@ -5,7 +5,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import styles from '@/styles/component-css/Navbar.module.css'
 
-export default function Navbar({ isScrolled }) {
+export default function Navbar({ isScrolled, isVisible = true }) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
   const toggleMobileMenu = () => {
@@ -51,7 +51,7 @@ export default function Navbar({ isScrolled }) {
   ]
 
   return (
-    <header className={`${styles.navbar} ${isScrolled ? styles.scrolled : ''}`}>
+    <header className={`${styles.navbar} ${isScrolled ? styles.scrolled : ''} ${!isVisible ? styles.hidden : ''}`}>
       <div className={`container ${styles.container}`}>
         <Link href="/" className={styles.brand}>
           <div className={styles.logo}>

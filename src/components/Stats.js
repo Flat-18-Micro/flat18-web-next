@@ -25,12 +25,13 @@ export default function Stats() {
         const easeOutQuad = progress * (2 - progress)
         const currentValue = Math.floor(easeOutQuad * (target - startValue) + startValue)
 
-        counter.textContent = currentValue
+        const symbol = counter.dataset.symbol || (counter.dataset.noPlus === 'true' ? '' : '+')
+        counter.textContent = `${currentValue}${symbol}`
 
         if (progress < 1) {
           requestAnimationFrame(updateCounter)
         } else {
-          counter.textContent = target
+          counter.textContent = `${target}${symbol}`
         }
       }
 
@@ -65,9 +66,9 @@ export default function Stats() {
 
   const stats = [
     { value: 20, label: 'Projects Completed' },
-    { value: 100, label: 'Client Satisfaction' },
+    { value: 100, label: 'Client Satisfaction', symbol:'%' },
     { value: 12, label: 'Years Experience' },
-    { value: 2, label: 'Team Members (Yes, really)' }
+    { value: '2', label: 'Team Members\n(Yes, really)', noPlus: true }
   ]
 
   return (
@@ -80,10 +81,15 @@ export default function Stats() {
                 ref={el => countersRef.current[index] = el}
                 className={styles['animated-counter']}
                 data-target={stat.value}
+                data-no-plus={stat.noPlus}
+                data-symbol={stat.symbol}
               >
                 0
               </div>
-              <div className={styles['stat-label']}>{stat.label}</div>
+              <div
+                className={styles['stat-label']}
+                dangerouslySetInnerHTML={{ __html: stat.label.replace('\n', '<br />') }}
+              />
             </div>
           ))}
         </div>
