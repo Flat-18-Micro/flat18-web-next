@@ -370,7 +370,7 @@ export default function Testimonials() {
   return (
     <section className={styles.testimonialsSection} id="testimonials" ref={sectionRef}>
       <div className={styles.backgroundElements}>
-        <div className={styles.backgroundGlow}></div>
+        <div></div>
         <div className={styles.backgroundGrid}></div>
       </div>
 
@@ -389,6 +389,7 @@ export default function Testimonials() {
         </motion.div>
 
         <div className={styles.carouselContainer}>
+          <div className={styles.carouselOverlay}></div>
           <div
             className={styles.carouselTrack}
             ref={carouselRef}
