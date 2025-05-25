@@ -12,6 +12,30 @@ export default function Portfolio() {
 
   const projects = [
     {
+      title: 'Archimedes Finance',
+      description: 'Secure Asset Tokenization Platform. Transform real-world assets into digital tokens with our secure, transparent blockchain infrastructure. Designed for institutional investors and financial professionals. ',
+      image: '/images/portfolio-graphics/archimedesfinance.webp',
+      link: 'https://archimedes-finance.pages.dev',
+      technologies: [
+        { name: 'Vue JS', percentage: '45%', colorClass: styles.vueColor },
+        { name: 'Node.js', percentage: '50%', colorClass: styles.nodeColor },
+        { name: 'PostgreSQL', percentage: '5%', colorClass: styles.postgresColor },
+      ],
+      status: 'Demo version',
+      category: 'app'
+    },
+        {
+      title: 'Honey Pay',
+      description: 'Instant settlement, near-zero fees. ✓Free to use payment framework ✓Non-Custodial ✓Built on Berachain',
+      image: '/images/portfolio-graphics/honeypay.webp',
+      link: 'https://honeypay.pages.dev',
+      technologies: [
+        { name: 'Next.js', percentage: '100%', colorClass: styles.nextJSColor },
+      ],
+      status: 'Demo version',
+      category: 'web'
+    },
+    {
       title: 'WalletScrutiny',
       description: 'Collaborative project with the Bitcoin Design Community to redesign the WalletScrutiny brand and website.',
       image: '/images/portfolio-graphics/walletscrutiny.webp',
@@ -63,7 +87,7 @@ export default function Portfolio() {
     {
       title: 'Zettahash DAO',
       description: 'Zettahash website built in Webflow and designed to be processed in Node within a GitHub Pages environment.',
-      image: '/images/portfolio-graphics/zettahashdao.webp',
+      image: '/images/portfolio-graphics/zettahash.webp',
       link: 'https://zettahash-static.webflow.io',
       technologies: [
         { name: 'Webflow', percentage: '100%', colorClass: styles.webflowColor }
@@ -78,7 +102,7 @@ export default function Portfolio() {
     {
       title: 'dVote EVM',
       description: "dVote's EVM Networks dashboard offers a comprehensive suite of tools designed to streamline and enhance decentralised governance for the blockchain ecosystem.",
-      image: '/images/portfolio-graphics/dvoteevm.webp',
+      image: '/images/portfolio-graphics/dvote.webp',
       link: 'https://evm.dvote.ai/networks',
       technologies: [
         { name: 'Next.js', percentage: '100%', colorClass: styles.nextJSColor },
@@ -249,26 +273,26 @@ export default function Portfolio() {
                     fetchPriority={index < 3 ? "high" : "auto"}
                     quality={85}
                   />
-                  <div className={styles.imageOverlay}>
-                    <a
+
+                </div>
+                
+              </div>
+
+              <div className={styles.projectContent}>
+                <h3 className={styles.projectTitle}><span>{project.title}</span><div className={`${styles.projectStatus} ${project.status === 'Live' ? styles.live : ''}`}>
+                  {project.status}
+                </div></h3>
+                
+                <p className={styles.projectDescription}>{project.description}
+                  <a
                       href={project.link}
                       target="_blank"
                       rel="noopener noreferrer"
                       className={styles.viewProjectButton}
                     >
-                      View Project
-                    </a>
-                  </div>
-                </div>
-                <div className={`${styles.projectStatus} ${project.status === 'Live' ? styles.live : ''}`}>
-                  {project.status}
-                </div>
-              </div>
-
-              <div className={styles.projectContent}>
-                <h3 className={styles.projectTitle}>{project.title}</h3>
-                <p className={styles.projectDescription}>{project.description}</p>
-
+                      View Project  <i className="bi bi-arrow-right"></i>
+                    </a></p>
+                    
                 <div className={styles.projectTechStack}>
                   <div className={styles.techBar}>
                     {project.technologies.map((tech, i) => (

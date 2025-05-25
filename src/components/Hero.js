@@ -50,7 +50,7 @@ export default function Hero() {
     },
     hover: {
       scale: 1.05,
-      boxShadow: "0 10px 25px rgba(0, 240, 181, 0.3)",
+      boxShadow: "0 10px 25px rgba(0, 105, 240, 0.3)",
       transition: {
         duration: 0.3,
         ease: "easeOut"
@@ -58,7 +58,7 @@ export default function Hero() {
     },
     tap: {
       scale: 0.98,
-      boxShadow: "0 5px 15px rgba(0, 240, 181, 0.2)",
+      boxShadow: "0 5px 15px rgba(0, 105, 240, 0.2)",
     }
   };
 
@@ -86,8 +86,8 @@ export default function Hero() {
     },
     hover: {
       y: -8,
-      boxShadow: "0 15px 30px rgba(0, 0, 0, 0.2), 0 0 15px rgba(0, 240, 181, 0.2)",
-      borderColor: "rgba(0, 240, 181, 0.3)",
+      boxShadow: "0 15px 30px rgba(0, 0, 0, 0.2), 0 0 15px rgba(0, 105, 240, 0.2)",
+      borderColor: "rgba(0, 105, 240, 0.3)",
       transition: {
         duration: 0.3,
         ease: "easeOut"
