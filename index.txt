@@ -1,5 +1,5 @@
 2:I[9107,[],"ClientPageRoot"]
-3:I[4709,["648","static/chunks/648-72a559f8085f5372.js","769","static/chunks/769-f5078e95b5e70879.js","145","static/chunks/145-cefd3c535590b2e2.js","932","static/chunks/932-0b74fb7b2d4b9f87.js","766","static/chunks/766-77a7a39dcb03e16c.js","931","static/chunks/app/page-ea36a319c5900e45.js"],"default",1]
+3:I[4709,["648","static/chunks/648-72a559f8085f5372.js","769","static/chunks/769-f5078e95b5e70879.js","145","static/chunks/145-cefd3c535590b2e2.js","932","static/chunks/932-0b74fb7b2d4b9f87.js","766","static/chunks/766-77a7a39dcb03e16c.js","931","static/chunks/app/page-fcd6325dc2090c65.js"],"default",1]
 4:I[2785,["648","static/chunks/648-72a559f8085f5372.js","145","static/chunks/145-cefd3c535590b2e2.js","27","static/chunks/27-f4aadfefc56293be.js","185","static/chunks/app/layout-025a691169701963.js"],"default"]
 5:I[4707,[],""]
 6:I[6423,[],""]
