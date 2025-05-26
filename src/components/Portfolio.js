@@ -14,7 +14,7 @@ export default function Portfolio() {
     {
       title: 'Archimedes Finance',
       description: 'Secure Asset Tokenization Platform. Transform real-world assets into digital tokens with our secure, transparent blockchain infrastructure. Designed for institutional investors and financial professionals. ',
-      image: '/images/portfolio-graphics/archimedesfinance.webp',
+      image: '/images/portfolio-graphics/archimedesfinance-clay-2.webp',
       link: 'https://archimedes-finance.pages.dev',
       technologies: [
         { name: 'Vue JS', percentage: '45%', colorClass: styles.vueColor },
@@ -27,7 +27,7 @@ export default function Portfolio() {
         {
       title: 'Honey Pay',
       description: 'Instant settlement, near-zero fees. ✓Free to use payment framework ✓Non-Custodial ✓Built on Berachain',
-      image: '/images/portfolio-graphics/honeypay.webp',
+      image: '/images/portfolio-graphics/honeypay-clay-2.webp',
       link: 'https://honeypay.pages.dev',
       technologies: [
         { name: 'Next.js', percentage: '100%', colorClass: styles.nextJSColor },
@@ -38,7 +38,7 @@ export default function Portfolio() {
     {
       title: 'WalletScrutiny',
       description: 'Collaborative project with the Bitcoin Design Community to redesign the WalletScrutiny brand and website.',
-      image: '/images/portfolio-graphics/walletscrutiny.webp',
+      image: '/images/portfolio-graphics/walletscrutiny-clay-2.webp',
       link: 'https://walletscrutiny.com',
       technologies: [
         { name: 'JavaScript', percentage: '90%', colorClass: styles.jsColor },
@@ -51,7 +51,7 @@ export default function Portfolio() {
     {
       title: 'BTCPay Server',
       description: 'Clean, modern design for the BTCPay Server main landing page and Foundation website.',
-      image: '/images/portfolio-graphics/btcpayserver.webp',
+      image: '/images/portfolio-graphics/btcpayserver-clay-2.webp',
       link: 'https://btcpayserver.org',
       technologies: [
         { name: 'HTML5', percentage: '40%', colorClass: styles.htmlColor },
@@ -64,7 +64,7 @@ export default function Portfolio() {
     {
       title: 'F18 Pay',
       description: 'Bitcoin, ETH and ERC-20 token payments processor built to run in serverless environments.',
-      image: '/images/portfolio-graphics/f18pay.webp',
+      image: '/images/portfolio-graphics/f18pay-clay-2.webp',
       link: 'https://pay.flat18.co.uk',
       technologies: [
         { name: 'JavaScript', percentage: '100%', colorClass: styles.jsColor }
@@ -75,7 +75,7 @@ export default function Portfolio() {
     {
       title: '# Hashboard',
       description: 'Web3 application enabling transparent operation and governance of the Zettahash DAO project.',
-      image: '/images/portfolio-graphics/hashboard.webp',
+      image: '/images/portfolio-graphics/hashboard-clay-2.webp',
       link: 'https://hashboard.zettahash.org',
       technologies: [
         { name: 'Vue.js', percentage: '60%', colorClass: styles.vueColor },
@@ -87,7 +87,7 @@ export default function Portfolio() {
     {
       title: 'Zettahash DAO',
       description: 'Zettahash website built in Webflow and designed to be processed in Node within a GitHub Pages environment.',
-      image: '/images/portfolio-graphics/zettahash.webp',
+      image: '/images/portfolio-graphics/zettahash-clay-2.webp',
       link: 'https://zettahash-static.webflow.io',
       technologies: [
         { name: 'Webflow', percentage: '100%', colorClass: styles.webflowColor }
@@ -102,7 +102,7 @@ export default function Portfolio() {
     {
       title: 'dVote EVM',
       description: "dVote's EVM Networks dashboard offers a comprehensive suite of tools designed to streamline and enhance decentralised governance for the blockchain ecosystem.",
-      image: '/images/portfolio-graphics/dvote.webp',
+      image: '/images/portfolio-graphics/dvote-clay-2.webp',
       link: 'https://evm.dvote.ai/networks',
       technologies: [
         { name: 'Next.js', percentage: '100%', colorClass: styles.nextJSColor },
