@@ -1,6 +1,6 @@
 import '../styles/globals.css'
 import 'bootstrap-icons/font/bootstrap-icons.css'
-import { Outfit, Sora, Inter } from 'next/font/google'
+import { Outfit, Sora, Inter, Playfair_Display } from 'next/font/google'
 import { JetBrains_Mono } from 'next/font/google'
 import ChatwootWidget from '@/components/ChatwootWidget'
 import ServiceWorkerRegistration from '@/components/ServiceWorkerRegistration'
@@ -47,6 +47,16 @@ const jetbrainsMono = JetBrains_Mono({
   fallback: ['monospace'],
   adjustFontFallback: true,
   weight: ['400', '500'], // Only load needed weights
+})
+
+const playfairDisplay = Playfair_Display({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-playfair',
+  preload: true,
+  fallback: ['Georgia', 'Times New Roman', 'serif'],
+  adjustFontFallback: true,
+  weight: ['400', '500', '600', '700'], // Only load needed weights
 })
 
 export const metadata = {
@@ -100,7 +110,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${outfit.variable} ${sora.variable} ${inter.variable} ${jetbrainsMono.variable}`}>
+    <html lang="en" className={`${outfit.variable} ${sora.variable} ${inter.variable} ${jetbrainsMono.variable} ${playfairDisplay.variable}`}>
       <head>
         {/* JSON-LD structured data for organization */}
         <script

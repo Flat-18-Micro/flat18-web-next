@@ -170,7 +170,7 @@
   justify-content: center;
   min-height: 100vh;
   height: 100vh;
-  padding: var(--space-24)0 var(--space-16);
+  padding: var(--space-38)0 var(--space-16);
   overflow: hidden;
   background-color: var(--bg-dark);
   contain: layout size paint;
@@ -335,27 +335,38 @@
 }
 
 .heroHeading, .heroHeading::after, .heroHeading::before {
-  color: transparent;
+  /* color: transparent; */
   white-space: pre-line
 }
 
 .heroHeading {
-  font-size: var(--text-6xl);
-  font-weight: var(--font-bold);
+  font-size: var(--text-7xl);
   font-family: var(--font-display);
   line-height: 1.1;
   margin-bottom: var(--space-6);
-  background: var(--primary-gradient);
+  /* background: var(--primary-gradient); */
   letter-spacing: -.01em;
   will-change: transform, opacity;
   min-height: 8rem;
-  background-clip: text;
-  color: transparent;
+  /* background-clip: text; */
+  /* color: transparent; */
   position: relative;
   z-index: 1
 }
-
-.heroHeading::after, .heroHeading::before {
+.headingOrdinary{
+  font-family: var(--font-display);
+  font-weight: var(--font-medium);
+}
+.headingDeFocus{
+  /* font-weight: var(--font-light); */
+  opacity: .66;
+}
+.headingFancy{
+  font-family: var(--font-playfair);
+  font-style: italic;
+  font-weight: var(--font-medium);
+}
+/* .heroHeading::after, .heroHeading::before {
   content: attr(data-text);
   position: absolute;
   left: 0;
@@ -371,7 +382,7 @@
   animation: textShift 6s ease-in-out infinite;
   background-clip: text;
   filter: var(--blur-md)
-}
+} */
 
 .heroHeading::after {
   z-index: -1;

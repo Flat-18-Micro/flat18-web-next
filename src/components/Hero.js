@@ -6,7 +6,7 @@ import Link from 'next/link'
 import styles from '@/styles/component-css/Hero.module.css'
 
 export default function Hero() {
-  const fullText = 'Tailored Design and Development.\nAll under one roof.'
+  const fullText = 'Your\nDesign and Development\nPartner'
   const heroRef = useRef(null)
 
   // Pre-calculate the height to prevent layout shifts
@@ -128,14 +128,18 @@ export default function Hero() {
           data-text={fullText}
           variants={fadeInUp}
         >
-          {fullText}
+          <span className={`${styles.headingOrdinary} ${styles.headingDeFocus}`}>Your</span><br></br>
+          <span className={styles.headingFancy}>Design</span>
+          <span className={styles.headingOrdinary}> & </span>
+          <span className={styles.headingOrdinary}>Development</span><br></br>
+          <span className={`${styles.headingOrdinary} ${styles.headingDeFocus}`}> Partner</span>
         </motion.h1>
 
         <motion.p
           className={styles.heroSubheading}
           variants={fadeInUp}
         >
-          We craft exceptional Web3 & DeFi solutions for visionary entrepreneurs and start-ups in the crypto space.
+          We craft Web3 & DeFi solutions for entrepreneurs and start-ups in the crypto space.
           Our full-stack approach delivers secure, high-performance applications with stunning design.
         </motion.p>
 
