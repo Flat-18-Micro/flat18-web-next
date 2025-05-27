@@ -15,6 +15,7 @@ export default function Portfolio() {
       title: 'Archimedes Finance',
       description: 'Secure Asset Tokenization Platform. Transform real-world assets into digital tokens with our secure, transparent blockchain infrastructure. Designed for institutional investors and financial professionals. ',
       image: '/images/portfolio-graphics/archimedesfinance-clay-2.webp',
+      projectLogo: '/images/portfolio-graphics/logos/archimedes-finance.webp',
       link: 'https://archimedes-finance.pages.dev',
       technologies: [
         { name: 'Vue JS', percentage: '45%', colorClass: styles.vueColor },
@@ -28,6 +29,7 @@ export default function Portfolio() {
       title: 'Honey Pay',
       description: 'Instant settlement, near-zero fees. ✓Free to use payment framework ✓Non-Custodial ✓Built on Berachain',
       image: '/images/portfolio-graphics/honeypay-clay-2.webp',
+      projectLogo: '/images/portfolio-graphics/logos/honeypay.webp',
       link: 'https://honeypay.pages.dev',
       technologies: [
         { name: 'Next.js', percentage: '100%', colorClass: styles.nextJSColor },
@@ -39,6 +41,7 @@ export default function Portfolio() {
       title: 'WalletScrutiny',
       description: 'Collaborative project with the Bitcoin Design Community to redesign the WalletScrutiny brand and website.',
       image: '/images/portfolio-graphics/walletscrutiny-clay-2.webp',
+      projectLogo: '/images/portfolio-graphics/logos/wallet-scrutiny.webp',
       link: 'https://walletscrutiny.com',
       technologies: [
         { name: 'JavaScript', percentage: '90%', colorClass: styles.jsColor },
@@ -52,6 +55,7 @@ export default function Portfolio() {
       title: 'BTCPay Server',
       description: 'Clean, modern design for the BTCPay Server main landing page and Foundation website.',
       image: '/images/portfolio-graphics/btcpayserver-clay-2.webp',
+      projectLogo: '/images/portfolio-graphics/logos/btcpayserver.webp',
       link: 'https://btcpayserver.org',
       technologies: [
         { name: 'HTML5', percentage: '40%', colorClass: styles.htmlColor },
@@ -65,6 +69,7 @@ export default function Portfolio() {
       title: 'F18 Pay',
       description: 'Bitcoin, ETH and ERC-20 token payments processor built to run in serverless environments.',
       image: '/images/portfolio-graphics/f18pay-clay-2.webp',
+      projectLogo: '/images/portfolio-graphics/logos/f18pay.webp',
       link: 'https://pay.flat18.co.uk',
       technologies: [
         { name: 'JavaScript', percentage: '100%', colorClass: styles.jsColor }
@@ -76,6 +81,7 @@ export default function Portfolio() {
       title: '# Hashboard',
       description: 'Web3 application enabling transparent operation and governance of the Zettahash DAO project.',
       image: '/images/portfolio-graphics/hashboard-clay-2.webp',
+      projectLogo: '/images/portfolio-graphics/logos/zettahash.webp',
       link: 'https://hashboard.zettahash.org',
       technologies: [
         { name: 'Vue.js', percentage: '60%', colorClass: styles.vueColor },
@@ -88,6 +94,7 @@ export default function Portfolio() {
       title: 'Zettahash DAO',
       description: 'Zettahash website built in Webflow and designed to be processed in Node within a GitHub Pages environment.',
       image: '/images/portfolio-graphics/zettahash-clay-2.webp',
+      projectLogo: '/images/portfolio-graphics/logos/zettahash-dao.webp',
       link: 'https://zettahash-static.webflow.io',
       technologies: [
         { name: 'Webflow', percentage: '100%', colorClass: styles.webflowColor }
@@ -103,6 +110,7 @@ export default function Portfolio() {
       title: 'dVote EVM',
       description: "dVote's EVM Networks dashboard offers a comprehensive suite of tools designed to streamline and enhance decentralised governance for the blockchain ecosystem.",
       image: '/images/portfolio-graphics/dvote-clay-2.webp',
+      projectLogo: '/images/portfolio-graphics/logos/dvote.webp',
       link: 'https://evm.dvote.ai/networks',
       technologies: [
         { name: 'Next.js', percentage: '100%', colorClass: styles.nextJSColor },
@@ -279,6 +287,17 @@ export default function Portfolio() {
               </div>
 
               <div className={styles.projectContent}>
+                {project.projectLogo && (
+                  <div className={styles.projectLogo}>
+                    <Image
+                      src={project.projectLogo}
+                      alt={`${project.title} logo`}
+                      width={48}
+                      height={48}
+                      className={styles.logoImage}
+                    />
+                  </div>
+                )}
                 <h3 className={styles.projectTitle}><span>{project.title}</span><div className={`${styles.projectStatus} ${project.status === 'Live' ? styles.live : ''}`}>
                   {project.status}
                 </div></h3>

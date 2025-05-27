@@ -213,6 +213,19 @@
   background: rgba(15, 17, 24, .8);
 }
 
+.projectLogo {
+  margin-top: var(--space-4);
+  margin-bottom: var(--space-8);
+  display: inline-block;
+}
+
+.logoImage {
+  max-height: 38px;
+  width: auto;
+  max-width: 100%;
+  display: block;
+}
+
 .projectTitle {
   font-size: var(--text-xl);
   font-weight: var(--font-semibold);
