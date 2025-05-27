@@ -5,6 +5,316 @@ import Image from 'next/image'
 import { motion, useInView } from 'framer-motion'
 import styles from '../styles/component-css/Portfolio.module.css'
 
+// Individual Project Card Component for proper hook usage
+function ProjectCard({ project, index }) {
+  const cardRef = useRef(null)
+  const cardInView = useInView(cardRef, {
+    once: true,
+    amount: 0.3,
+    margin: "-100px 0px -100px 0px"
+  })
+
+  // Dramatic card reveal animation
+  const cardVariants = {
+    hidden: {
+      opacity: 0,
+      y: 60,
+      scale: 0.9,
+      rotateX: 15,
+      filter: "blur(10px)"
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      rotateX: 0,
+      filter: "blur(0px)",
+      transition: {
+        duration: 1.2,
+        ease: [0.22, 1, 0.36, 1],
+        staggerChildren: 0.15,
+        delayChildren: 0.2
+      }
+    }
+  }
+
+  // Individual child element animations
+  const imageVariants = {
+    hidden: {
+      opacity: 0,
+      scale: 1.1,
+      y: 30
+    },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      y: 0,
+      transition: {
+        duration: 0.8,
+        ease: [0.22, 1, 0.36, 1]
+      }
+    }
+  }
+
+  const logoVariants = {
+    hidden: {
+      opacity: 0,
+      scale: 0.5,
+      rotate: -10
+    },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      rotate: 0,
+      transition: {
+        duration: 0.6,
+        ease: [0.34, 1.56, 0.64, 1],
+        delay: 0.1
+      }
+    }
+  }
+
+  const titleVariants = {
+    hidden: {
+      opacity: 0,
+      x: -30,
+      filter: "blur(5px)"
+    },
+    visible: {
+      opacity: 1,
+      x: 0,
+      filter: "blur(0px)",
+      transition: {
+        duration: 0.7,
+        ease: [0.22, 1, 0.36, 1],
+        delay: 0.2
+      }
+    }
+  }
+
+  const descriptionVariants = {
+    hidden: {
+      opacity: 0,
+      y: 20
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: [0.22, 1, 0.36, 1],
+        delay: 0.3
+      }
+    }
+  }
+
+  const techStackVariants = {
+    hidden: {
+      opacity: 0,
+      y: 20,
+      scale: 0.95
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: {
+        duration: 0.6,
+        ease: [0.22, 1, 0.36, 1],
+        delay: 0.4,
+        staggerChildren: 0.1
+      }
+    }
+  }
+
+  const techBarVariants = {
+    hidden: {
+      scaleX: 0,
+      opacity: 0
+    },
+    visible: {
+      scaleX: 1,
+      opacity: 1,
+      transition: {
+        duration: 0.8,
+        ease: [0.22, 1, 0.36, 1],
+        delay: 0.1
+      }
+    }
+  }
+
+  const techItemVariants = {
+    hidden: {
+      opacity: 0,
+      scale: 0.8,
+      y: 10
+    },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      y: 0,
+      transition: {
+        duration: 0.4,
+        ease: [0.22, 1, 0.36, 1]
+      }
+    }
+  }
+
+  return (
+    <motion.div
+      ref={cardRef}
+      className={styles.projectCard}
+      variants={cardVariants}
+      initial="hidden"
+      animate={cardInView ? "visible" : "hidden"}
+      whileHover={{
+        y: -10,
+        scale: 1.02,
+        transition: { duration: 0.4, ease: [0.22, 1, 0.36, 1] }
+      }}
+      style={{
+        transformStyle: "preserve-3d",
+        perspective: "1000px"
+      }}
+    >
+      <motion.div
+        className={styles.projectImageWrapper}
+        variants={imageVariants}
+      >
+        <div className={styles.projectImageContainer}>
+          <motion.div
+            initial={{ scale: 1.1, opacity: 0 }}
+            animate={cardInView ? { scale: 1, opacity: 1 } : { scale: 1.1, opacity: 0 }}
+            transition={{ duration: 1, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
+          >
+            <Image
+              src={project.image}
+              alt={project.title}
+              width={400}
+              height={400}
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              className={styles.projectImage}
+              loading={index < 3 ? "eager" : "lazy"}
+              fetchPriority={index < 3 ? "high" : "auto"}
+              quality={85}
+            />
+          </motion.div>
+        </div>
+      </motion.div>
+
+      <motion.div
+        className={styles.projectContent}
+        variants={descriptionVariants}
+      >
+        {project.projectLogo && (
+          <motion.div
+            className={styles.projectLogo}
+            variants={logoVariants}
+          >
+            <Image
+              src={project.projectLogo}
+              alt={`${project.title} logo`}
+              width={48}
+              height={48}
+              className={styles.logoImage}
+            />
+          </motion.div>
+        )}
+
+        <motion.h3
+          className={styles.projectTitle}
+          variants={titleVariants}
+        >
+          <span>{project.title}</span>
+          <motion.div
+            className={`${styles.projectStatus} ${project.status === 'Live' ? styles.live : ''}`}
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={cardInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
+            transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1], delay: 0.5 }}
+          >
+            {project.status}
+          </motion.div>
+        </motion.h3>
+
+        <motion.p
+          className={styles.projectDescription}
+          variants={descriptionVariants}
+        >
+          {project.description}
+          <motion.a
+            href={project.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.viewProjectButton}
+            initial={{ opacity: 0, x: -20 }}
+            animate={cardInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: 0.6 }}
+            whileHover={{
+              x: 5,
+              transition: { duration: 0.2 }
+            }}
+          >
+            View Project  <i className="bi bi-arrow-right"></i>
+          </motion.a>
+        </motion.p>
+
+        <motion.div
+          className={styles.projectTechStack}
+          variants={techStackVariants}
+        >
+          <motion.div
+            className={styles.techBar}
+            variants={techBarVariants}
+            style={{ transformOrigin: "left center" }}
+          >
+            {project.technologies.map((tech, i) => (
+              <motion.div
+                key={i}
+                className={`${styles.techBarSegment} ${tech.colorClass || ''}`}
+                initial={{ scaleX: 0, opacity: 0 }}
+                animate={cardInView ? { scaleX: 1, opacity: 1 } : { scaleX: 0, opacity: 0 }}
+                transition={{
+                  duration: 0.8,
+                  ease: [0.22, 1, 0.36, 1],
+                  delay: 0.7 + (i * 0.1)
+                }}
+                style={{
+                  width: tech.percentage,
+                  transformOrigin: "left center"
+                }}
+              />
+            ))}
+          </motion.div>
+          <motion.ul
+            className={styles.techList}
+            variants={techStackVariants}
+          >
+            {project.technologies.map((tech, techIndex) => (
+              <motion.li
+                key={techIndex}
+                className={styles.techItem}
+                variants={techItemVariants}
+                initial={{ opacity: 0, scale: 0.8, y: 10 }}
+                animate={cardInView ? { opacity: 1, scale: 1, y: 0 } : { opacity: 0, scale: 0.8, y: 10 }}
+                transition={{
+                  duration: 0.4,
+                  ease: [0.22, 1, 0.36, 1],
+                  delay: 0.8 + (techIndex * 0.1)
+                }}
+              >
+                <span
+                  className={`${styles.techColor} ${tech.colorClass || ''}`}
+                ></span>
+                {tech.name}
+              </motion.li>
+            ))}
+          </motion.ul>
+        </motion.div>
+      </motion.div>
+    </motion.div>
+  )
+}
+
 export default function Portfolio() {
   const [filter, setFilter] = useState('all')
   const sectionRef = useRef(null)
@@ -124,7 +434,7 @@ export default function Portfolio() {
     ? projects
     : projects.filter(project => project.category === filter)
 
-  // Animation variants
+  // Enhanced Animation variants for dramatic reveal
   const sectionVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -157,25 +467,8 @@ export default function Portfolio() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.15,
+        staggerChildren: 0.2,
         delayChildren: 0.3
-      }
-    }
-  }
-
-  const itemVariants = {
-    hidden: {
-      opacity: 0,
-      y: 40,
-      scale: 0.95
-    },
-    visible: {
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      transition: {
-        duration: 0.7,
-        ease: [0.22, 1, 0.36, 1]
       }
     }
   }
@@ -259,82 +552,11 @@ export default function Portfolio() {
           animate={isInView ? "visible" : "hidden"}
         >
           {filteredProjects.map((project, index) => (
-            <motion.div
+            <ProjectCard
               key={index}
-              className={styles.projectCard}
-              variants={itemVariants}
-              whileHover={{
-                y: -10,
-                transition: { duration: 0.3, ease: "easeOut" }
-              }}
-            >
-              <div className={styles.projectImageWrapper}>
-                <div className={styles.projectImageContainer}>
-                  <Image
-                    src={project.image}
-                    alt={project.title}
-                    width={400}
-                    height={400}
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    className={styles.projectImage}
-                    loading={index < 3 ? "eager" : "lazy"}
-                    fetchPriority={index < 3 ? "high" : "auto"}
-                    quality={85}
-                  />
-
-                </div>
-                
-              </div>
-
-              <div className={styles.projectContent}>
-                {project.projectLogo && (
-                  <div className={styles.projectLogo}>
-                    <Image
-                      src={project.projectLogo}
-                      alt={`${project.title} logo`}
-                      width={48}
-                      height={48}
-                      className={styles.logoImage}
-                    />
-                  </div>
-                )}
-                <h3 className={styles.projectTitle}><span>{project.title}</span><div className={`${styles.projectStatus} ${project.status === 'Live' ? styles.live : ''}`}>
-                  {project.status}
-                </div></h3>
-                
-                <p className={styles.projectDescription}>{project.description}
-                  <a
-                      href={project.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={styles.viewProjectButton}
-                    >
-                      View Project  <i className="bi bi-arrow-right"></i>
-                    </a></p>
-                    
-                <div className={styles.projectTechStack}>
-                  <div className={styles.techBar}>
-                    {project.technologies.map((tech, i) => (
-                      <div
-                        key={i}
-                        className={`${styles.techBarSegment} ${tech.colorClass || ''}`}
-                        style={{ width: tech.percentage }}
-                      />
-                    ))}
-                  </div>
-                  <ul className={styles.techList}>
-                    {project.technologies.map((tech, techIndex) => (
-                      <li key={techIndex} className={styles.techItem}>
-                        <span
-                          className={`${styles.techColor} ${tech.colorClass || ''}`}
-                        ></span>
-                        {tech.name}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            </motion.div>
+              project={project}
+              index={index}
+            />
           ))}
         </motion.div>
 
