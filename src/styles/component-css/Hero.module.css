@@ -218,12 +218,14 @@
   left: -10%;
   width: 120%;
   height: 120%;
-  filter: blur(80px);
+filter: blur(80px) brightness(.8);
   opacity: .85;
   z-index: -1;
-  animation: gradientShift 15s ease-in-out infinite;
+  /* animation: Hero_gradientShift__gOhan 15s ease-in-out infinite; */
+  /* animation: gradientShift 15s ease-in-out infinite; */
+
   transform-style: preserve-3d;
-  background-image: url(/images/gradients/g9.webp);
+  background-image: url(/images/gradients/g16.webp);
   background-size: cover;
   background-repeat: no-repeat
 }
