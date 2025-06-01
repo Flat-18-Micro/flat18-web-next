@@ -90,9 +90,7 @@ self.addEventListener('fetch', event => {
   // Skip analytics and external resources
   if (
     url.hostname.includes('umami.is') ||
-    url.hostname.includes('melodic-taffy') ||
-    url.hostname.includes('chatwoot') ||
-    url.hostname.includes('keak-prod')
+    url.hostname.includes('chatwoot')
   ) {
     return;
   }
