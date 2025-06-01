@@ -1,6 +1,6 @@
 import '../styles/globals.css'
 import 'bootstrap-icons/font/bootstrap-icons.css'
-import { Outfit, Sora, Inter, Playfair_Display } from 'next/font/google'
+import { Sora, Inter, Playfair_Display } from 'next/font/google'
 import { JetBrains_Mono } from 'next/font/google'
 import ChatwootWidget from '@/components/ChatwootWidget'
 import ServiceWorkerRegistration from '@/components/ServiceWorkerRegistration'
@@ -9,16 +9,6 @@ import AnalyticsScripts from '@/components/AnalyticsScripts'
 import ClientLayout from '@/components/ClientLayout'
 
 // Optimize font loading with better performance settings
-const outfit = Outfit({
-  subsets: ['latin'],
-  display: 'swap', // Use swap to prevent FOUT (Flash of Unstyled Text)
-  variable: '--font-outfit',
-  preload: true,
-  fallback: ['system-ui', 'Arial', 'sans-serif'],
-  adjustFontFallback: true, // Adjust metrics to reduce layout shift
-  weight: ['400', '500', '600', '700'], // Only load needed weights
-})
-
 const sora = Sora({
   subsets: ['latin'],
   display: 'swap',
@@ -110,7 +100,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${outfit.variable} ${sora.variable} ${inter.variable} ${jetbrainsMono.variable} ${playfairDisplay.variable}`}>
+    <html lang="en" className={`${sora.variable} ${inter.variable} ${jetbrainsMono.variable} ${playfairDisplay.variable}`}>
       <head>
         {/* JSON-LD structured data for organization */}
         <script
