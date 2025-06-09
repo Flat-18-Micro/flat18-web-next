@@ -32,7 +32,7 @@ const inter = Inter({
 const jetbrainsMono = JetBrains_Mono({
   subsets: ['latin'],
   display: 'swap',
-  variable: '--font-mono',
+  variable: '--font-jetbrains-mono',
   preload: true,
   fallback: ['monospace'],
   adjustFontFallback: true,
@@ -42,7 +42,7 @@ const jetbrainsMono = JetBrains_Mono({
 const playfairDisplay = Playfair_Display({
   subsets: ['latin'],
   display: 'swap',
-  variable: '--font-playfair',
+  variable: '--font-playfair-display',
   preload: true,
   fallback: ['Georgia', 'Times New Roman', 'serif'],
   adjustFontFallback: true,
