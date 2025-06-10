@@ -21,7 +21,7 @@
   width: 120%;
   height: 140%;
   background: radial-gradient(circle at center, rgba(104, 48, 22, .42), transparent 70%);
-  filter: blur(0);
+  /* filter: blur(0); */
   z-index: 0
 }
 

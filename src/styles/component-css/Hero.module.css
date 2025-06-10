@@ -214,18 +214,18 @@
 
 .heroGradient {
   position: absolute;
-  top: -30%;
+  top: -20%;
   left: -10%;
   width: 120%;
   height: 120%;
-filter: blur(80px) brightness(.8);
+/* filter: blur(80px) brightness(.8); */
   opacity: .85;
   z-index: -1;
   /* animation: Hero_gradientShift__gOhan 15s ease-in-out infinite; */
   /* animation: gradientShift 15s ease-in-out infinite; */
 
   transform-style: preserve-3d;
-  background-image: url(/images/gradients/g16.webp);
+  background-image: url(/images/gradients/g18.webp);
   background-size: cover;
   background-repeat: no-repeat
 }
@@ -270,7 +270,7 @@ filter: blur(80px) brightness(.8);
   opacity: var(--alpha-60);
   transform-style: preserve-3d;
   transform: translateZ(10px);
-  animation: floatingParticle 15s ease-in-out infinite
+  /* animation: floatingParticle 15s ease-in-out infinite */
 }
 
 .heroContent::after, .heroGrid {
@@ -289,7 +289,7 @@ filter: blur(80px) brightness(.8);
   opacity: var(--alpha-50);
   transform-style: preserve-3d;
   transform: translateZ(-10px);
-  animation: gridPulse 12s ease-in-out infinite
+  /* animation: gridPulse 12s ease-in-out infinite */
 }
 
 .heroContent {
@@ -316,7 +316,7 @@ filter: blur(80px) brightness(.8);
   background: radial-gradient(circle at center, rgba(var(--color-green), var(--alpha-10)), transparent 65%), radial-gradient(ellipse at center, rgba(var(--color-purple), var(--alpha-08)), transparent 75%);
   filter: var(--blur-lg);
   opacity: var(--alpha-70);
-  animation: contentGlow 12s ease-in-out infinite
+  /* animation: contentGlow 12s ease-in-out infinite */
 }
 
 .seoHeading {
@@ -391,7 +391,7 @@ filter: blur(80px) brightness(.8);
   background: var(--primary-gradient);
   filter: var(--blur-lg);
   opacity: var(--alpha-60);
-  animation: textGlow 6s ease-in-out infinite;
+  /* animation: textGlow 6s ease-in-out infinite; */
   background-clip: text
 }
 
@@ -626,7 +626,7 @@ filter: blur(80px) brightness(.8);
 }
 
 .heroContent {
-  animation: float 6s ease-in-out infinite;
+  /* animation: float 6s ease-in-out infinite; */
   animation-play-state: paused;
   animation-delay: -.5s
 }
@@ -734,7 +734,7 @@ filter: blur(80px) brightness(.8);
   }
 
   .heroContent {
-    animation: float 8s ease-in-out infinite
+    /* animation: float 8s ease-in-out infinite */
   }
 
   @keyframes float {
