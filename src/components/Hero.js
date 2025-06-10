@@ -115,7 +115,7 @@ export default function Hero() {
         </h1>
 
         <motion.div
-          className={styles.availableIndicatorWrapper}
+          className={`${styles.availableIndicatorWrapper} liquid-glass`}
           variants={fadeInUp}
         >
           <span className={styles.availableDot}></span>
@@ -171,7 +171,7 @@ export default function Hero() {
           transition={{ delayChildren: 0.6, staggerChildren: 0.2 }}
         >
           <motion.div
-            className={styles.statItem}
+            className={`${styles.statItem} liquid-glass`}
             variants={statVariants}
             whileHover="hover"
           >
@@ -181,7 +181,7 @@ export default function Hero() {
           </motion.div>
 
           <motion.div
-            className={styles.statItem}
+            className={`${styles.statItem} liquid-glass`}
             variants={statVariants}
             whileHover="hover"
           >
@@ -191,7 +191,7 @@ export default function Hero() {
           </motion.div>
 
           <motion.div
-            className={styles.statItem}
+            className={`${styles.statItem} liquid-glass`}
             variants={statVariants}
             whileHover="hover"
           >

@@ -1,0 +1,15 @@
+/* Liquid glass effect inspired by iOS */
+.liquid-glass {
+  @apply glass-lg relative overflow-hidden;
+}
+
+.liquid-glass::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.05));
+  opacity: 0.6;
+  pointer-events: none;
+  mix-blend-mode: overlay;
+}

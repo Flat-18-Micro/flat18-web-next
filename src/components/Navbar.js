@@ -51,7 +51,7 @@ export default function Navbar({ isScrolled }) {
   ]
 
   return (
-    <header className={`${styles.navbar} ${isScrolled ? styles.scrolled : ''}`}>
+    <header className={`${styles.navbar} liquid-glass ${isScrolled ? styles.scrolled : ''}`}>
       <div className={`container ${styles.container}`}>
         <Link href="/" className={styles.brand}>
           <div className={styles.logo}>

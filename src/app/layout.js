@@ -1,4 +1,5 @@
 import '../styles/globals.css'
+import '../styles/liquid-glass.css'
 import 'bootstrap-icons/font/bootstrap-icons.css'
 import { Sora, Inter, Playfair_Display } from 'next/font/google'
 import { JetBrains_Mono } from 'next/font/google'

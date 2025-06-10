@@ -4,6 +4,7 @@
 }
 
 .button {
+  @apply glass-md;
   display: inline-flex;
   justify-content: center;
   padding: var(--space-3) var(--space-6);
