@@ -376,6 +376,14 @@ a:hover {
   box-shadow: var(--shadow-sm)
 }
 
+.glassPanel {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+}
+
 .gradient-text {
   background: var(--primary-gradient);
   background-clip: text;

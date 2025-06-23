@@ -26,7 +26,7 @@ const inter = Inter({
   preload: true,
   fallback: ['system-ui', 'Arial', 'sans-serif'],
   adjustFontFallback: true,
-  weight: ['400', '500', '600', '700'], // Only load needed weights
+  weight: ['100', '200', '300', '400', '500', '600', '700'],
 })
 
 const jetbrainsMono = JetBrains_Mono({

@@ -44,27 +44,16 @@ export default function Tools() {
                   <div
                     className={styles.toolLogoContainer}
                   >
-                    {tool.logo.endsWith('.svg') ? (
-                      <img
-                        src={tool.logo}
-                        alt={`${tool.name} logo`}
-                        className={styles.toolLogo}
-                        loading="lazy"
-                        width={100}
-                        height={40}
-                        style={{ objectFit: 'contain' }}
-                      />
-                    ) : (
-                      <Image
-                        src={tool.logo}
-                        alt={`${tool.name} logo`}
-                        className={styles.toolLogo}
-                        width={100}
-                        height={40}
-                        style={{ objectFit: 'contain' }}
-                        quality={70}
-                      />
-                    )}
+                    <Image
+                      src={tool.logo}
+                      alt={`${tool.name} logo`}
+                      className={styles.toolLogo}
+                      width={100}
+                      height={40}
+                      style={{ objectFit: 'contain' }}
+                      quality={70}
+                      unoptimized={tool.logo.endsWith('.svg')}
+                    />
                   </div>
                   {<div className={styles.toolName}>{tool.name}</div>}
                 </div>

@@ -227,7 +227,8 @@
   transform-style: preserve-3d;
   background-image: url(/images/gradients/g18.webp);
   background-size: cover;
-  background-repeat: no-repeat
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 .particlesContainer {

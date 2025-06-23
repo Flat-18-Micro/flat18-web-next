@@ -155,7 +155,7 @@ export default function Features() {
           <span className={styles.sectionLabel}>What We Do</span>
           <h2 className={styles.gradientText}>Our Services</h2>
           <p className={styles.subtitle}>
-            Comprehensive solutions tailored to your digital needs in the crypto and blockchain space
+            A full‑stack arsenal for founders who actually ship
           </p>
         </motion.div>
 
