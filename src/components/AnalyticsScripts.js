@@ -15,7 +15,15 @@ export default function AnalyticsScripts() {
         onError={(e) => console.error('Umami script failed to load:', e)}
       />
 
-
+      {/* Ackee Analytics */}
+      <Script
+        src="https://master--melodic-taffy-1a4c18.netlify.app/tracker.js"
+        data-ackee-server="https://master--melodic-taffy-1a4c18.netlify.app"
+        data-ackee-domain-id="b28e2698-bf04-4e23-9075-a5f7110affe0"
+        strategy="afterInteractive"
+        async
+        onError={(e) => console.error('Ackee script failed to load:', e)}
+      />
 
       {/* Twitter conversion tracking */}
       <Script

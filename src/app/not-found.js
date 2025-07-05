@@ -13,7 +13,13 @@ export default function NotFound() {
         window.umami.track('404_error', { path: window.location.pathname })
       }
 
-
+      // Ackee tracking
+      if (typeof window.ackeeTracker !== 'undefined' && typeof window.ackeeTracker.record === 'function') {
+        window.ackeeTracker.record('b28e2698-bf04-4e23-9075-a5f7110affe0', {
+          siteLocation: window.location.href,
+          siteReferrer: document.referrer
+        })
+      }
     }
   }, [])
 
