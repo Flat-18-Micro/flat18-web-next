@@ -95,7 +95,7 @@ export default function Contact() {
         viewport={{ once: true, amount: 0.1 }}
       >
         <div className={styles.heading}>
-          <h2 className={styles.title}>Let's Start Your Project</h2>
+          <h2 className={styles.title}>Book a Build Session</h2>
           <p className={styles.subtitle}>
             Tell us about your project and we'll get back to you within 24 hours
           </p>
@@ -189,7 +189,7 @@ export default function Contact() {
                     <span className="animate-pulse">Sending...</span>
                   ) : (
                     <>
-                      <span>Start Your Project</span>
+                      <span>Book a Build Session</span>
                       <i className="bi bi-arrow-right"></i>
                     </>
                   )}
