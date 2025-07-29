@@ -3,6 +3,7 @@ import 'bootstrap-icons/font/bootstrap-icons.css'
 import { Sora, Inter, Playfair_Display } from 'next/font/google'
 import { JetBrains_Mono } from 'next/font/google'
 import ChatwootWidget from '@/components/ChatwootWidget'
+import FloatingChatButton from '@/components/FloatingChatButton'
 import ServiceWorkerRegistration from '@/components/ServiceWorkerRegistration'
 import Script from 'next/script'
 import AnalyticsScripts from '@/components/AnalyticsScripts'
@@ -154,6 +155,7 @@ export default function RootLayout({ children }) {
           {children}
         </ClientLayout>
         <ChatwootWidget />
+        <FloatingChatButton />
         <ServiceWorkerRegistration />
         <AnalyticsScripts />
       </body>

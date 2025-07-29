@@ -95,9 +95,9 @@ export default function Contact() {
         viewport={{ once: true, amount: 0.1 }}
       >
         <div className={styles.heading}>
-          <h2 className={styles.title}>Let's Start Your Project</h2>
+          <h2 className={styles.title}>Let's Talk About Your Project</h2>
           <p className={styles.subtitle}>
-            Tell us about your project and we'll get back to you within 24 hours
+            Chat with us live or fill out the form—we'll reply within a day.
           </p>
         </div>
 
