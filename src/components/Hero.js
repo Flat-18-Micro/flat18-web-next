@@ -6,7 +6,7 @@ import Link from 'next/link'
 import styles from '@/styles/component-css/Hero.module.css'
 
 export default function Hero() {
-  const fullText = 'Your\nDesign and Development\nPartner'
+  const fullText = 'From Idea to Launch\nFull‑Stack Teams\nfor Web3 and Beyond';
   const heroRef = useRef(null)
 
   // Pre-calculate the height to prevent layout shifts
@@ -128,19 +128,17 @@ export default function Hero() {
           data-text={fullText}
           variants={fadeInUp}
         >
-          <span className={`${styles.headingOrdinary} ${styles.headingDeFocus}`}>Your</span><br></br>
-          <span className={styles.headingFancy}>Design</span>
-          <span className={styles.headingOrdinary}> & </span>
-          <span className={styles.headingOrdinary}>Development</span><br></br>
-          <span className={`${styles.headingOrdinary} ${styles.headingDeFocus}`}> Partner</span>
+          <span className={`${styles.headingOrdinary} ${styles.headingDeFocus}`}>From&nbsp;Idea&nbsp;to&nbsp;Launch</span><br />
+          <span className={styles.headingFancy}>Full‑Stack&nbsp;Teams</span><br />
+          <span className={`${styles.headingOrdinary} ${styles.headingDeFocus}`}>for&nbsp;Web3&nbsp;and&nbsp;Beyond</span>
         </motion.h1>
 
         <motion.p
           className={styles.heroSubheading}
           variants={fadeInUp}
         >
-          We help crypto founders launch secure, high-performance apps with modern design.
-          Start a live chat or fill out our quick form to get your project moving.
+          We help founders build digital products — from crypto apps and DeFi platforms to SaaS tools and advanced dashboards. Secure, scalable, and beautifully designed.
+          Let’s talk through your vision — free of charge.
         </motion.p>
 
         <motion.div
@@ -148,8 +146,8 @@ export default function Hero() {
           variants={staggerContainer}
         >
           <motion.div variants={buttonVariants} whileHover="hover" whileTap="tap">
-            <Link href="#chat" className={`${styles.primaryButton} btn-icon`}>
-              <span className={styles.btnText}>Start Your Project</span>
+            <Link href="#contact" className={`${styles.primaryButton} btn-icon`}>
+              <span className={styles.btnText}>Plan Your Build</span>
               <span className={styles.btnIcon}><i className="bi bi-arrow-right"></i></span>
               <span className={styles.btnGlow}></span>
             </Link>
@@ -157,7 +155,7 @@ export default function Hero() {
 
           <motion.div variants={secondaryButtonVariants} whileHover="hover" whileTap="tap">
             <Link href="#work" className={styles.secondaryButton}>
-              <span className={styles.btnText}>View Our Work</span>
+              <span className={styles.btnText}>See What We’ve Built</span>
               <span className={styles.btnGlow}></span>
             </Link>
           </motion.div>
@@ -176,7 +174,7 @@ export default function Hero() {
             whileHover="hover"
           >
             <div className={styles.statNumber}>12+</div>
-            <div className={styles.statLabel}>Years Experience</div>
+            <div className={styles.statLabel}>Years in Product Development</div>
             <div className={styles.statGlow}></div>
           </motion.div>
 
@@ -186,7 +184,7 @@ export default function Hero() {
             whileHover="hover"
           >
             <div className={styles.statNumber}>20+</div>
-            <div className={styles.statLabel}>Projects Delivered</div>
+            <div className={styles.statLabel}>Projects Launched</div>
             <div className={styles.statGlow}></div>
           </motion.div>
 
