@@ -118,26 +118,18 @@ export default function Hero() {
           ⬤ Currently Taking Projects – Book Your Slot Now
         </div>
 
-        {/* Main heading with modern gradient effect */}
-        <motion.h1
-          className={styles.heroHeading}
-          data-text={fullText}
-          variants={fadeInUp}
-        >
-          <span className={`${styles.headingOrdinary} ${styles.headingDeFocus}`}>From&nbsp;Idea&nbsp;to&nbsp;Launch&nbsp;—</span><br />
-          <span className={styles.headingFancy}>Full‑Stack&nbsp;Teams&nbsp;for</span><br />
-          <span className={`${styles.headingOrdinary} ${styles.headingDeFocus}`}>Web3&nbsp;and&nbsp;Beyond</span>
+        {/* Main heading with updated content */}
+        <motion.h1 className={styles.heroHeading} variants={fadeInUp}>
+          <span className={`${styles.headingFancy}`}>Beautiful Products.</span><br />
+          <span className={`${styles.headingOrdinary} ${styles.headingDeFocus}`}>Bulletproof Builds.</span>
         </motion.h1>
 
         <motion.p
           className={styles.heroSubheading}
           variants={fadeInUp}
         >
-          <>
-            We help founders build digital products — from crypto apps and DeFi platforms<br />
-            to SaaS tools and advanced dashboards. Secure, scalable, and beautifully designed.<br />
-            Let’s talk through your vision — free of charge.
-          </>
+          We help founders launch real products — from MVPs to scalable platforms — quickly and without compromise.<br />
+          Secure. Performant. Beautiful. Let’s bring your vision to life.
         </motion.p>
 
         <motion.div
