@@ -1,3 +1,14 @@
+.badgeBanner {
+  margin: 0 auto 1.5rem auto;
+  display: inline-block;
+  padding: 0.35rem 0.75rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 999px;
+  font-size: 0.875rem;
+  color: #9ae6b4;
+  font-weight: 500;
+}
 @keyframes subtleNoise {
   0%, to {
     transform: translate(0, 0)

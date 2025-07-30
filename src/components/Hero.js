@@ -114,13 +114,9 @@ export default function Hero() {
           {fullText}
         </h1>
 
-        <motion.div
-          className={styles.availableIndicatorWrapper}
-          variants={fadeInUp}
-        >
-          <span className={styles.availableDot}></span>
-          Available for new projects
-        </motion.div>
+        <div className={styles.badgeBanner}>
+          ⬤ Currently Taking Projects – Book Your Slot Now
+        </div>
 
         {/* Main heading with modern gradient effect */}
         <motion.h1
@@ -128,17 +124,20 @@ export default function Hero() {
           data-text={fullText}
           variants={fadeInUp}
         >
-          <span className={`${styles.headingOrdinary} ${styles.headingDeFocus}`}>From&nbsp;Idea&nbsp;to&nbsp;Launch</span><br />
-          <span className={styles.headingFancy}>Full‑Stack&nbsp;Teams</span><br />
-          <span className={`${styles.headingOrdinary} ${styles.headingDeFocus}`}>for&nbsp;Web3&nbsp;and&nbsp;Beyond</span>
+          <span className={`${styles.headingOrdinary} ${styles.headingDeFocus}`}>From&nbsp;Idea&nbsp;to&nbsp;Launch&nbsp;—</span><br />
+          <span className={styles.headingFancy}>Full‑Stack&nbsp;Teams&nbsp;for</span><br />
+          <span className={`${styles.headingOrdinary} ${styles.headingDeFocus}`}>Web3&nbsp;and&nbsp;Beyond</span>
         </motion.h1>
 
         <motion.p
           className={styles.heroSubheading}
           variants={fadeInUp}
         >
-          We help founders build digital products — from crypto apps and DeFi platforms to SaaS tools and advanced dashboards. Secure, scalable, and beautifully designed.
-          Let’s talk through your vision — free of charge.
+          <>
+            We help founders build digital products — from crypto apps and DeFi platforms<br />
+            to SaaS tools and advanced dashboards. Secure, scalable, and beautifully designed.<br />
+            Let’s talk through your vision — free of charge.
+          </>
         </motion.p>
 
         <motion.div
