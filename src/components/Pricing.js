@@ -161,7 +161,7 @@ export default function Pricing() {
       <div className="container">
         <div className={styles.pricingHeading}>
           <h2 className="gradient-text">Pricing. Simple.</h2>
-          <p>Transparent, value-based pricing for your digital projects</p>
+          <p>Straightforward pricing built for growing ideas</p>
         </div>
         
         <div className={styles.currencyDropdown}>
@@ -216,9 +216,9 @@ export default function Pricing() {
                 <div className={styles.switchIndicator}></div>
               </div>
               <div className={styles.switchLabel}>
-                {billingPeriod === 'quarterly' 
-                  ? `You're saving ${prices.monthlySavings[selectedCurrency] || prices.monthlySavings.GBP} with quarterly billing`
-                  : `Billed Monthly. Activate savings with quarterly billing`
+                {billingPeriod === 'quarterly'
+                  ? `You're saving ${prices.monthlySavings[selectedCurrency] || prices.monthlySavings.GBP} on the quarterly plan`
+                  : `Billed monthly. Switch to quarterly and save`
                 }
               </div>
             </div>
@@ -230,19 +230,19 @@ export default function Pricing() {
               <ul className={styles.featuresList}>
                 <li className={styles.featureItem}>
                   <i className={`bi bi-check-circle-fill ${styles.featureIcon}`}></i>
-                  <span className={styles.featureText}>Queued Tasks delivered in as little as 48hrs</span>
+                  <span className={styles.featureText}>Queued tasks turned around in as little as 48 hours</span>
                 </li>
                 <li className={styles.featureItem}>
                   <i className={`bi bi-check-circle-fill ${styles.featureIcon}`}></i>
-                  <span className={styles.featureText}>Unlimited Development Scopes</span>
+                  <span className={styles.featureText}>Unlimited development scopes</span>
                 </li>
                 <li className={styles.featureItem}>
                   <i className={`bi bi-check-circle-fill ${styles.featureIcon}`}></i>
-                  <span className={styles.featureText}>Application staging</span>
+                  <span className={styles.featureText}>Application staging included</span>
                 </li>
                 <li className={styles.featureItem}>
                   <i className={`bi bi-check-circle-fill ${styles.featureIcon}`}></i>
-                  <span className={styles.featureText}>Unlimited Revisions queue</span>
+                  <span className={styles.featureText}>Unlimited revision queue</span>
                 </li>
               </ul>
             </div>
@@ -259,7 +259,7 @@ export default function Pricing() {
                     <li className={styles.featureItem}>
                       <i className={`bi bi-credit-card ${styles.featureIcon}`}></i>
                       <span className={styles.featureText}>
-                        Pre-pay {prices.monthly[selectedCurrency] || prices.monthly.GBP} every month
+                        Pre-pay {prices.monthly[selectedCurrency] || prices.monthly.GBP} each month
                       </span>
                     </li>
                   </>
@@ -272,7 +272,7 @@ export default function Pricing() {
                     <li className={styles.featureItem}>
                       <i className={`bi bi-piggy-bank ${styles.featureIcon}`}></i>
                       <span className={styles.featureText}>
-                        Save {prices.monthlySavings[selectedCurrency] || prices.monthlySavings.GBP} vs monthly
+                        Save {prices.monthlySavings[selectedCurrency] || prices.monthlySavings.GBP} compared with monthly
                       </span>
                     </li>
                     <li className={styles.featureItem}>
@@ -290,11 +290,11 @@ export default function Pricing() {
         
         <div className={styles.pricingActions}>
           <Link href="/pricing#more-info" className={styles.linkLight}>
-            <span>Learn more</span>
+            <span>Find out more</span>
             <i className="bi bi-arrow-right ms-2"></i>
           </Link>
           <Link href="#chat" className="btn btn-primary">
-            <span>Let's talk about pricing</span>
+            <span>Let's chat about pricing</span>
           </Link>
         </div>
       </div>

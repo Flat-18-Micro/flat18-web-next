@@ -27,8 +27,8 @@ export default function Tools() {
     <section className={styles.toolsSection}>
       <div className="container">
         <div className={styles.toolsHeader}>
-          <h2 className={styles.toolsTitle}>Technologies We Use</h2>
-          <p className={styles.toolsSubtitle}>Modern tools for modern solutions</p>
+          <h2 className={styles.toolsTitle}>Tools We Trust</h2>
+          <p className={styles.toolsSubtitle}>Best-in-class tech for every build</p>
         </div>
 
         <div className={styles.toolsContainer}>

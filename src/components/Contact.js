@@ -95,9 +95,9 @@ export default function Contact() {
         viewport={{ once: true, amount: 0.1 }}
       >
         <div className={styles.heading}>
-          <h2 className={styles.title}>Let's Talk About Your Project</h2>
+          <h2 className={styles.title}>Tell Us About Your Project</h2>
           <p className={styles.subtitle}>
-            Chat with us live or fill out the form—we'll reply within a day.
+            Jump on live chat or fill in the form — we'll get back within a day.
           </p>
         </div>
 
@@ -230,9 +230,9 @@ export default function Contact() {
           <div className={styles.visualElementGrid}></div>
           <div className={styles.visualElementContent}>
             <i className="bi bi-chat-square-text" style={{ fontSize: '3rem', marginBottom: '1rem', color: 'var(--secondary)' }}></i>
-            <h3 style={{ fontSize: '1.5rem', marginBottom: '1rem' }}>Let's Discuss Your Project</h3>
+            <h3 style={{ fontSize: '1.5rem', marginBottom: '1rem' }}>Let's chat about your project</h3>
             <p style={{ opacity: 0.8, maxWidth: '80%', margin: '0 auto' }}>
-              We're here to help turn your ideas into reality with our expertise in design and development.
+              We're here to turn your ideas into reality with our design and development know-how.
             </p>
           </div>
         </motion.div>

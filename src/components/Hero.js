@@ -115,7 +115,7 @@ export default function Hero() {
         </h1>
 
         <div className={styles.badgeBanner}>
-          ⬤ Currently Taking Projects – Book Your Slot Now
+          ⬤ Now taking on new projects – claim your spot today
         </div>
 
         {/* Main heading with updated content */}
@@ -129,8 +129,8 @@ export default function Hero() {
           className={styles.heroSubheading}
           variants={fadeInUp}
         >
-          We help founders launch real products — from MVPs to scalable platforms — quickly and without compromise.<br />
-          Secure. Performant. Beautiful. Let’s bring your vision to life.
+          We help founders launch proper products – from MVPs to full platforms – fast and without the faff.<br />
+          Secure, speedy and stunning. Let’s bring your idea to life.
         </motion.p>
 
         <motion.div
@@ -139,7 +139,7 @@ export default function Hero() {
         >
           <motion.div variants={buttonVariants} whileHover="hover" whileTap="tap">
             <Link href="#contact" className={`${styles.primaryButton} btn-icon`}>
-              <span className={styles.btnText}>Plan Your Build</span>
+              <span className={styles.btnText}>Start Your Build</span>
               <span className={styles.btnIcon}><i className="bi bi-arrow-right"></i></span>
               <span className={styles.btnGlow}></span>
             </Link>
@@ -147,7 +147,7 @@ export default function Hero() {
 
           <motion.div variants={secondaryButtonVariants} whileHover="hover" whileTap="tap">
             <Link href="#work" className={styles.secondaryButton}>
-              <span className={styles.btnText}>See What We’ve Built</span>
+              <span className={styles.btnText}>See Our Work</span>
               <span className={styles.btnGlow}></span>
             </Link>
           </motion.div>
@@ -166,7 +166,7 @@ export default function Hero() {
             whileHover="hover"
           >
             <div className={styles.statNumber}>12+</div>
-            <div className={styles.statLabel}>Years in Product Development</div>
+            <div className={styles.statLabel}>Years in product development</div>
             <div className={styles.statGlow}></div>
           </motion.div>
 
@@ -176,7 +176,7 @@ export default function Hero() {
             whileHover="hover"
           >
             <div className={styles.statNumber}>20+</div>
-            <div className={styles.statLabel}>Projects Launched</div>
+            <div className={styles.statLabel}>Projects shipped</div>
             <div className={styles.statGlow}></div>
           </motion.div>
 
@@ -186,7 +186,7 @@ export default function Hero() {
             whileHover="hover"
           >
             <div className={styles.statNumber}>100%</div>
-            <div className={styles.statLabel}>Client Satisfaction</div>
+            <div className={styles.statLabel}>Happy clients</div>
             <div className={styles.statGlow}></div>
           </motion.div>
         </motion.div>

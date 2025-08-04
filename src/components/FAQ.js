@@ -146,8 +146,8 @@ export default function FAQ() {
         viewport={{ once: true, amount: 0.1 }}
       >
         <div className={styles.textOrg}>
-          <h2 className={styles.gradientText}>Commonly Asked Questions</h2>
-          <p className={styles.subtitle}>Find answers to common questions about our services</p>
+          <h2 className={styles.gradientText}>Frequently Asked Questions</h2>
+          <p className={styles.subtitle}>Answers to the bits we get asked the most</p>
         </div>
 
         <div className={styles.contentGrid}>
@@ -162,9 +162,9 @@ export default function FAQ() {
             <div className={styles.visualElementGrid}></div>
             <div className={styles.visualElementContent}>
               <i className="bi bi-question-circle" style={{ fontSize: '3rem', marginBottom: '1rem', color: 'var(--accent-yellow)' }}></i>
-              <h3 style={{ fontSize: '1.5rem', marginBottom: '1rem' }}>Still Have Questions?</h3>
+              <h3 style={{ fontSize: '1.5rem', marginBottom: '1rem' }}>Still have questions?</h3>
               <p style={{ opacity: 0.8, maxWidth: '80%', margin: '0 auto 1.5rem' }}>
-                We're here to help with any additional questions about your specific project needs.
+                We're here to help with anything else you'd like to know about your project.
               </p>
               <a href="#chat" style={{
                 display: 'inline-block',
@@ -186,7 +186,7 @@ export default function FAQ() {
               }}
               >
                 <i className="bi bi-chat-text" style={{ marginRight: '0.5rem' }}></i>
-                Chat With Us
+                Chat with us
               </a>
             </div>
           </motion.div>

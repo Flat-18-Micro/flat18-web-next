@@ -10,9 +10,9 @@ export default function HowItWorks() {
       number: '01',
       title: 'Discover',
       icon: 'bi-chat-dots',
-      description: 'We begin with a discovery session to understand your project needs, goals, and timeline. This enables us to create a tailored development plan that aligns with your vision.',
+      description: 'Kick off with a quick discovery chat to map out your goals and timeline. We’ll craft a plan that fits your vision.',
       link: {
-        text: 'Start a Discovery session',
+        text: 'Book a discovery chat',
         href: '#chat',
         icon: 'bi-arrow-right'
       }
@@ -21,14 +21,14 @@ export default function HowItWorks() {
       number: '02',
       title: 'Develop',
       icon: 'bi-code-slash',
-      description: 'Our team of experts builds your project with regular updates and transparent communication. We use modern technologies and best practices to ensure high-quality results.',
+      description: 'We build in the open with regular updates and clear comms, using modern tech and best practice to keep quality high.',
 
     },
     {
       number: '03',
       title: 'Deliver',
       icon: 'bi-rocket-takeoff',
-      description: 'We deliver initial samples within 2–3 days, with subsequent requests completed within 48 hours. Our iterative approach ensures you are satisfied with the final product.',
+      description: 'Expect first samples in 2–3 days and follow-ups inside 48 hours. Iteration keeps things on track until you’re thrilled with the result.',
       link: {
         text: 'See our past work',
         href: '#work',
@@ -76,7 +76,7 @@ export default function HowItWorks() {
         <div className={styles.sectionHeading}>
           <h2 className={styles.sectionTitle}>How We Work</h2>
           <p className={styles.sectionSubtitle}>
-            Our streamlined process delivers exceptional results with maximum efficiency
+            Our no-fuss process keeps quality high and momentum strong
           </p>
         </div>
 
