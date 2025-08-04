@@ -120,8 +120,9 @@ export default function Hero() {
 
         {/* Main heading with updated content */}
         <motion.h1 className={styles.heroHeading} variants={fadeInUp}>
-          <span className={`${styles.headingFancy}`}>Beautiful Products.</span><br />
-          <span className={`${styles.headingOrdinary} ${styles.headingDeFocus}`}>Bulletproof Builds.</span>
+          <span className={`${styles.headingOrdinary}`}>Beautiful Products.</span><br />
+          <span className={`${styles.headingFancy} ${styles.headingDeFocus}`}>Bulletproof</span><span className={`${styles.headingInlineSpace}`}></span>
+          <span className={`${styles.headingOrdinary} ${styles.headingDeFocus}`}>Builds.</span>
         </motion.h1>
 
         <motion.p

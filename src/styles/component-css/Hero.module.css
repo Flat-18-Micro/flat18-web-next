@@ -2,11 +2,11 @@
   margin: 0 auto 1.5rem auto;
   display: inline-block;
   padding: 0.35rem 0.75rem;
-  background-color: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  background-color: rgba(0, 33, 79, 0.237);
+  /* border: 1px solid rgba(255, 255, 255, 0.15); */
   border-radius: 999px;
   font-size: 0.875rem;
-  color: #9ae6b4;
+  color: #71cdff;
   font-weight: 500;
 }
 @keyframes subtleNoise {
@@ -367,17 +367,22 @@
   z-index: 1
 }
 .headingOrdinary{
-  font-family: var(--font-display);
+  /* font-family: var(--font-display); */
+  font-family: var(--font-playfair);
   font-weight: var(--font-medium);
 }
 .headingDeFocus{
   /* font-weight: var(--font-light); */
-  opacity: .66;
+  /* opacity: .66; */
 }
 .headingFancy{
   font-family: var(--font-playfair);
   font-style: italic;
   font-weight: var(--font-medium);
+}
+.headingInlineSpace{
+  display:inline-block;
+  width: 2rem;
 }
 /* .heroHeading::after, .heroHeading::before {
   content: attr(data-text);
