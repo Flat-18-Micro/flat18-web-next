@@ -12,63 +12,63 @@ export default function Features() {
     {
       icon: 'bi-globe',
       title: 'Web Development',
-      description: 'Custom websites built with modern frameworks like Next.js, optimised for performance and SEO.',
+      description: 'Bespoke sites built with modern frameworks like Next.js, tuned for speed and search.',
       color: 'primary',
       learnMore: '/services/web-development'
     },
     {
       icon: 'bi-phone',
       title: 'App Development',
-      description: 'Scalable apps built with Node.js, reactive frameworks, and serverless backends.',
+      description: 'Scalable apps crafted with Node.js, reactive frameworks and serverless back-ends.',
       color: 'secondary',
       learnMore: '/services/app-development'
     },
     {
       icon: 'bi-palette',
       title: 'UI/UX Design',
-      description: 'Beautiful, intuitive interfaces designed with your users in mind.',
+      description: 'Clean, intuitive interfaces shaped around your users.',
       color: 'accent-purple',
       learnMore: '/services/ui-ux-design'
     },
     {
       icon: 'bi-lightbulb',
       title: 'AI Prompt Engineering',
-      description: 'Expertly crafted prompts to guide LLMs for consistent, high-quality outputs across content, code, and automation tasks.',
+      description: 'Expert prompts for LLMs to deliver consistent, high-quality content, code and automations.',
       color: 'secondary',
       learnMore: '/services/ai-prompt-engineering'
     },
     {
       icon: 'bi-cpu',
       title: 'AI-Augmented Development',
-      description: 'Accelerate your software delivery using AI-assisted code generation, validation, and refactoring workflows.',
+      description: 'Speed up delivery with AI-assisted code generation, reviews and refactors.',
       color: 'accent-teal',
       learnMore: '/services/ai-augmented-development'
     },
     {
       icon: 'bi-brush',
       title: 'AI-Seeded Design & Graphics',
-      description: 'Visual design powered by generative AI—creative concepts, layout proposals, and high-resolution assets informed by your brand.',
+      description: 'Generative AI to spark visuals, layouts and high-res assets guided by your brand.',
       color: 'accent-purple',
       learnMore: '/services/ai-seeded-design'
     },
     {
       icon: 'bi-shield-lock',
       title: 'Web3 & Blockchain',
-      description: 'Smart contract development, wallet integration, and decentralised apps tailored for the blockchain ecosystem.',
+      description: 'Smart contracts, wallet integrations and decentralised apps built for the blockchain world.',
       color: 'accent-teal',
       learnMore: '/services/web3-blockchain'
     },
     {
       icon: 'bi-code-slash',
       title: 'API Integration',
-      description: 'Seamless integration with third-party services and bespoke API development.',
+      description: 'Seamless integrations with third‑party services and custom APIs.',
       color: 'accent-pink',
       learnMore: '/services/api-integration'
     },
     {
       icon: 'bi-gear',
       title: 'Maintenance & Support',
-      description: '24/7 technical support and regular updates to keep your digital assets running smoothly.',
+      description: 'Ongoing support and updates so your digital assets keep ticking over.',
       color: 'accent-yellow',
       learnMore: '/services/maintenance-support'
     }
@@ -155,7 +155,7 @@ export default function Features() {
           <span className={styles.sectionLabel}>What We Do</span>
           <h2 className={styles.gradientText}>Our Services</h2>
           <p className={styles.subtitle}>
-            Comprehensive solutions tailored to your digital needs in the crypto and blockchain space
+            Everything you need to build and scale web, app and blockchain projects
           </p>
         </motion.div>
 
@@ -198,7 +198,7 @@ export default function Features() {
           variants={headingVariants}
         >
           <a href="#chat" className={styles.ctaButton}>
-            <span>Discuss Your Project</span>
+            <span>Tell Us About Your Project</span>
             <i className="bi bi-arrow-right"></i>
           </a>
         </motion.div>

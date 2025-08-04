@@ -384,7 +384,7 @@ export default function Testimonials() {
           <span className={styles.sectionTag}>Testimonials</span>
           <h2 className={styles.sectionTitle}>What Our Clients Say</h2>
           <p className={styles.sectionSubtitle}>
-            Hear from the entrepreneurs and founders who have trusted us with their digital vision
+            Hear from founders who’ve trusted us with their digital vision
           </p>
         </motion.div>
 

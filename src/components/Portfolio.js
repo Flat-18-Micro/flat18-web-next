@@ -508,7 +508,7 @@ export default function Portfolio() {
           <span className={styles.sectionLabel}>Portfolio</span>
           <h2 className={styles.portfolioTitle}>Our Work</h2>
           <p className={styles.portfolioSubtitle}>
-            Explore our portfolio of successful projects across web and blockchain applications.
+            Take a peek at some of the sites and apps we've shipped across web and blockchain.
           </p>
 
           <div className={styles.filterContainer}>

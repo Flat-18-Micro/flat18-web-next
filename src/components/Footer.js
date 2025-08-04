@@ -14,7 +14,7 @@ export default function Footer() {
             <Link href="/" className={styles.footerBrand} aria-label="Flat 18 Home">
               <div className={styles.footerLogo}>F18</div>
             </Link>
-            <p className={styles.footerTagline}>Modern web development for crypto & blockchain projects</p>
+            <p className={styles.footerTagline}>High-impact web and app builds for crypto and beyond</p>
           </div>
 
           <div className={styles.footerContent}>
