@@ -38,7 +38,7 @@ export default function HomePageSchema() {
           "addressCountry": "United Kingdom"
         },
         "priceRange": "££",
-        "openingHours": "Mo,Tu,We,Th,Fr 09:00-17:00",
+        "openingHours": "Mo,Tu,We,Th,Fr 12:00-20:00",
         "sameAs": [
           "https://x.com/f18_dev",
           "https://github.com/vswee"

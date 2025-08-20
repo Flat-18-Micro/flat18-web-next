@@ -209,7 +209,7 @@ export default function Contact() {
 
           <div className={styles.infoItem}>
             <i className={`bi bi-geo-alt ${styles.infoIcon}`}></i>
-            <span className={styles.infoText}>127.0.0.1, ::1</span>
+            <span className={styles.infoText}>Remote-first team</span>
           </div>
 
           <div className={styles.infoItem}>

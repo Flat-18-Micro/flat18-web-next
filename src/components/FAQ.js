@@ -24,7 +24,7 @@ export default function FAQ() {
           "name": "How much does it cost?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Our pricing starts at £37.50 per hour. For a typical project with around 80 development hours per month, this comes to approximately £3,000 per month. We offer discounts for longer commitments, with quarterly billing offering around 15% savings."
+            "text": "From £2,995/month. Quarterly −15%. Pause/cancel anytime. This covers dedicated development time and ensures consistent progress on your project."
           }
         },
         {
@@ -70,7 +70,7 @@ export default function FAQ() {
     },
     {
       question: "How much does it cost?",
-      answer: "Our pricing starts at £37.50 per hour. For a typical project with around 80 development hours per month, this comes to approximately £3,000 per month. We offer discounts for longer commitments, with quarterly billing offering around 15% savings."
+      answer: "From £2,995/month. Quarterly −15%. Pause/cancel anytime. This covers dedicated development time and ensures consistent progress on your project."
     },
     {
       question: "Why the subscription model?",

@@ -88,9 +88,9 @@ export default function TermsPage() {
                   </div>
                   <div className={styles.textContent}>
                     {visibleVersions['hours'] ? (
-                      <>We're here for you Monday to Friday, 9am–5pm UTC—though we work flexibly and sometimes outside those hours too. Message us anytime; we'll reply as soon as we can!</>
+                      <>We're here for you Monday to Friday, 12pm–8pm UTC—though we work flexibly and sometimes outside those hours too. Message us anytime; we'll reply as soon as we can!</>
                     ) : (
-                      <>Our standard business hours are 09:00–17:00 UTC (or GMT), Monday to Friday, though our team may operate flexibly across time zones. Communications received outside these hours will be addressed promptly during our next available window.</>
+                      <>Our standard business hours are 12:00–20:00 UTC (or GMT), Monday to Friday, though our team may operate flexibly across time zones. Communications received outside these hours will be addressed promptly during our next available window.</>
                     )}
                   </div>
                 </li>

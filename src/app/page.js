@@ -2,16 +2,17 @@
 
 import { useEffect } from 'react'
 import Hero from '@/components/Hero'
-import Tools from '@/components/Tools'
-import Features from '@/components/Features'
-import HowItWorks from '@/components/HowItWorks'
-import Portfolio from '@/components/Portfolio'
 import Stats from '@/components/Stats'
-import Testimonials from '@/components/Testimonials'
+import Features from '@/components/Features'
+import FeaturedWork from '@/components/FeaturedWork'
+import HowItWorks from '@/components/HowItWorks'
 import Pricing from '@/components/Pricing'
 import FAQ from '@/components/FAQ'
 import Contact from '@/components/Contact'
 import Footer from '@/components/Footer'
+import Portfolio from '@/components/Portfolio'
+import Tools from '@/components/Tools'
+import Testimonials from '@/components/Testimonials'
 import PageTransition from '@/components/PageTransition'
 import HomePageSchema from '@/components/HomePageSchema'
 
@@ -114,15 +115,16 @@ export default function Home() {
     <PageTransition>
       <main>
         <Hero />
-        <Features />
-        <Tools />
-        <HowItWorks />
-        <Portfolio />
         <Stats />
-        <Testimonials />
+        <Features />
+        <FeaturedWork />
+        <HowItWorks />
         <Pricing />
         <FAQ />
         <Contact />
+        <Portfolio />
+        <Tools />
+        <Testimonials />
         <Footer />
         <HomePageSchema />
       </main>

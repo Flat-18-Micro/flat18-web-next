@@ -6,7 +6,7 @@ import Link from 'next/link'
 import styles from '@/styles/component-css/Hero.module.css'
 
 export default function Hero() {
-  const fullText = 'From Idea to Launch\nFull‑Stack Teams\nfor Web3 and Beyond';
+  const fullText = 'Websites & Apps\nBuilt Fast — Designed to Last.';
   const heroRef = useRef(null)
 
   // Pre-calculate the height to prevent layout shifts
@@ -120,18 +120,26 @@ export default function Hero() {
 
         {/* Main heading with updated content */}
         <motion.h1 className={styles.heroHeading} variants={fadeInUp}>
-          <span className={`${styles.headingOrdinary}`}>Beautiful Products.</span><br />
-          <span className={`${styles.headingFancy} ${styles.headingDeFocus}`}>Bulletproof</span><span className={`${styles.headingInlineSpace}`}></span>
-          <span className={`${styles.headingOrdinary} ${styles.headingDeFocus}`}>Builds.</span>
+          Websites & Apps<br></br>Built Fast — Designed to Last.
         </motion.h1>
 
         <motion.p
           className={styles.heroSubheading}
           variants={fadeInUp}
         >
-          We help founders launch proper products – from MVPs to full platforms – fast and without the faff.<br />
-          Secure, speedy and stunning. Let’s bring your idea to life.
+          Design-led UX. Security-first engineering. AI-assisted velocity.
         </motion.p>
+
+        {/* Badge pillars */}
+        <motion.div
+          className={styles.heroPillars}
+          variants={fadeInUp}
+        >
+          <span className={styles.pillar}>DeFi</span>
+          <span className={styles.pillar}>Web3</span>
+          <span className={styles.pillar}>Full-Stack Apps</span>
+          <span className={styles.pillar}>Websites & Design</span>
+        </motion.div>
 
         <motion.div
           className={styles.heroActions}
@@ -139,7 +147,7 @@ export default function Hero() {
         >
           <motion.div variants={buttonVariants} whileHover="hover" whileTap="tap">
             <Link href="#contact" className={`${styles.primaryButton} btn-icon`}>
-              <span className={styles.btnText}>Start Your Build</span>
+              <span className={styles.btnText}>Start your build</span>
               <span className={styles.btnIcon}><i className="bi bi-arrow-right"></i></span>
               <span className={styles.btnGlow}></span>
             </Link>
@@ -147,7 +155,7 @@ export default function Hero() {
 
           <motion.div variants={secondaryButtonVariants} whileHover="hover" whileTap="tap">
             <Link href="#work" className={styles.secondaryButton}>
-              <span className={styles.btnText}>See Our Work</span>
+              <span className={styles.btnText}>See our work</span>
               <span className={styles.btnGlow}></span>
             </Link>
           </motion.div>
