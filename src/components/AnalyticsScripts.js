@@ -38,6 +38,18 @@ export default function AnalyticsScripts() {
           twq('config','oopi3');
         `}
       </Script>
+
+      {/* Twitter conversion tracking event */}
+      <Script
+        id="twitter-conversion-tw-oopi3-qh11e"
+        strategy="afterInteractive"
+        onError={(e) => console.error('Twitter conversion event failed:', e)}
+      >
+        {`
+          // Fire conversion event once after initial load
+          try { twq('event','tw-oopi3-qh11e',{}); } catch (e) { console.error('twq event error', e); }
+        `}
+      </Script>
     </>
   )
 }
