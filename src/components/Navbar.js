@@ -100,11 +100,9 @@ export default function Navbar({ isScrolled }) {
         </Link>
 
         {/* AI-led badge - visible on desktop when not scrolled */}
-        {!isScrolled && (
-          <div className={`${styles.aiBadge} hidden lg:flex`}>
-            <span className="label-uppercase">AI-led. Senior-built.</span>
-          </div>
-        )}
+        {/* {!isScrolled && (
+
+        )} */}
 
         {/* Desktop Navigation */}
         <nav className={`${styles.desktopNav} hidden lg:flex`}>

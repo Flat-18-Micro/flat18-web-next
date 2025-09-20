@@ -124,7 +124,7 @@ export default function Hero() {
           {/* Main heading with Finch-style large typography */}
           <motion.h1 className={styles.heroHeading} variants={fadeInUp}>
             Websites & Apps<br />
-            Built Fast — Designed to Last.
+            <span className={styles.heroHeadingThin}>AI-Led Design + Development</span>
           </motion.h1>
 
           {/* Supporting line */}
@@ -132,7 +132,7 @@ export default function Hero() {
             className={styles.heroSubheading}
             variants={fadeInUp}
           >
-            Design-led UX. Security-first engineering. AI-assisted velocity.
+            UI/UX Development. Security-first engineering. Robust code designed to last..
           </motion.p>
 
           {/* CTA cluster - Finch style */}

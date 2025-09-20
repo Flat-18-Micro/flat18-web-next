@@ -19,10 +19,14 @@
 }
 
 .scrolled .container{
-  padding: .75rem 2rem;
+  padding: .75rem 1rem .75rem 2rem;
   border-radius: 100px;
     background: rgba(11, 13, 18, .85);
   box-shadow: 0 4px 30px rgba(0, 0, 0, .2)
+}
+
+.scrolled :global(.btn-primary) {
+  border-radius: 100px;
 }
 
 
@@ -31,8 +35,10 @@
   align-items: center;
   justify-content: space-between;
   position: relative;
-  transition: ease;
+  transition: all 0.3s ease;
   width: 100%;
+  max-width: 1200px; /* Default max-width for scrolled state */
+  margin: 0 auto;
 }
 
 header:not(.scrolled) .container{
