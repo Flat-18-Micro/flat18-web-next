@@ -4,6 +4,7 @@ import { useState, useRef } from 'react'
 import Image from 'next/image'
 import { motion, useInView } from 'framer-motion'
 import styles from '../styles/component-css/Portfolio.module.css'
+import { getSectionBackground } from '@/hooks/useScrollBackground'
 
 // Individual Project Card Component for proper hook usage
 function ProjectCard({ project, index }) {
@@ -168,15 +169,12 @@ function ProjectCard({ project, index }) {
       initial="hidden"
       animate={cardInView ? "visible" : "hidden"}
       whileHover={{
-        y: -10,
+        y: -8,
         scale: 1.02,
-        transition: { duration: 0.4, ease: [0.22, 1, 0.36, 1] }
-      }}
-      style={{
-        transformStyle: "preserve-3d",
-        perspective: "1000px"
+        transition: { duration: 0.3, ease: [0.22, 1, 0.36, 1] }
       }}
     >
+      {/* Finch-style large imagery */}
       <motion.div
         className={styles.projectImageWrapper}
         variants={imageVariants}
@@ -190,18 +188,47 @@ function ProjectCard({ project, index }) {
             <Image
               src={project.image}
               alt={project.title}
-              width={400}
+              width={600}
               height={400}
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               className={styles.projectImage}
-              loading={index < 3 ? "eager" : "lazy"}
-              fetchPriority={index < 3 ? "high" : "auto"}
-              quality={85}
+              loading={index < 2 ? "eager" : "lazy"}
+              fetchPriority={index < 2 ? "high" : "auto"}
+              quality={90}
             />
+          </motion.div>
+
+          {/* Overlay labels */}
+          <motion.div
+            className={styles.imageOverlay}
+            initial={{ opacity: 0 }}
+            whileHover={{ opacity: 1 }}
+            transition={{ duration: 0.3 }}
+          >
+            <motion.div
+              className={styles.overlayContent}
+              initial={{ y: 20, opacity: 0 }}
+              whileHover={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.3, delay: 0.1 }}
+            >
+              <span className={styles.overlayLabel}>View Project</span>
+              <i className="bi bi-arrow-right"></i>
+            </motion.div>
+          </motion.div>
+
+          {/* Status pill */}
+          <motion.div
+            className={`${styles.statusPill} ${project.status === 'Live' ? styles.live : ''}`}
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={cardInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
+            transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1], delay: 0.5 }}
+          >
+            {project.status}
           </motion.div>
         </div>
       </motion.div>
 
+      {/* Project content */}
       <motion.div
         className={styles.projectContent}
         variants={descriptionVariants}
@@ -214,8 +241,8 @@ function ProjectCard({ project, index }) {
             <Image
               src={project.projectLogo}
               alt={`${project.title} logo`}
-              width={48}
-              height={48}
+              width={40}
+              height={40}
               className={styles.logoImage}
             />
           </motion.div>
@@ -225,15 +252,7 @@ function ProjectCard({ project, index }) {
           className={styles.projectTitle}
           variants={titleVariants}
         >
-          <span>{project.title}</span>
-          <motion.div
-            className={`${styles.projectStatus} ${project.status === 'Live' ? styles.live : ''}`}
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={cardInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
-            transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1], delay: 0.5 }}
-          >
-            {project.status}
-          </motion.div>
+          {project.title}
         </motion.h3>
 
         <motion.p
@@ -241,75 +260,49 @@ function ProjectCard({ project, index }) {
           variants={descriptionVariants}
         >
           {project.description}
-          <motion.a
-            href={project.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.viewProjectButton}
-            initial={{ opacity: 0, x: -20 }}
-            animate={cardInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
-            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: 0.6 }}
-            whileHover={{
-              x: 5,
-              transition: { duration: 0.2 }
-            }}
-          >
-            View Project  <i className="bi bi-arrow-right"></i>
-          </motion.a>
         </motion.p>
 
+        {/* Finch-style stat pills */}
         <motion.div
-          className={styles.projectTechStack}
+          className={styles.projectStats}
           variants={techStackVariants}
         >
-          <motion.div
-            className={styles.techBar}
-            variants={techBarVariants}
-            style={{ transformOrigin: "left center" }}
-          >
-            {project.technologies.map((tech, i) => (
-              <motion.div
-                key={i}
-                className={`${styles.techBarSegment} ${tech.colorClass || ''}`}
-                initial={{ scaleX: 0, opacity: 0 }}
-                animate={cardInView ? { scaleX: 1, opacity: 1 } : { scaleX: 0, opacity: 0 }}
-                transition={{
-                  duration: 0.8,
-                  ease: [0.22, 1, 0.36, 1],
-                  delay: 0.7 + (i * 0.1)
-                }}
-                style={{
-                  width: tech.percentage,
-                  transformOrigin: "left center"
-                }}
-              />
-            ))}
-          </motion.div>
-          <motion.ul
-            className={styles.techList}
-            variants={techStackVariants}
-          >
-            {project.technologies.map((tech, techIndex) => (
-              <motion.li
-                key={techIndex}
-                className={styles.techItem}
-                variants={techItemVariants}
-                initial={{ opacity: 0, scale: 0.8, y: 10 }}
-                animate={cardInView ? { opacity: 1, scale: 1, y: 0 } : { opacity: 0, scale: 0.8, y: 10 }}
-                transition={{
-                  duration: 0.4,
-                  ease: [0.22, 1, 0.36, 1],
-                  delay: 0.8 + (techIndex * 0.1)
-                }}
-              >
-                <span
-                  className={`${styles.techColor} ${tech.colorClass || ''}`}
-                ></span>
-                {tech.name}
-              </motion.li>
-            ))}
-          </motion.ul>
+          {project.stats.map((stat, statIndex) => (
+            <motion.div
+              key={statIndex}
+              className={styles.statPill}
+              variants={techItemVariants}
+              initial={{ opacity: 0, scale: 0.8, y: 10 }}
+              animate={cardInView ? { opacity: 1, scale: 1, y: 0 } : { opacity: 0, scale: 0.8, y: 10 }}
+              transition={{
+                duration: 0.4,
+                ease: [0.22, 1, 0.36, 1],
+                delay: 0.6 + (statIndex * 0.1)
+              }}
+            >
+              <span className={styles.statLabel}>{stat.label}</span>
+              <span className={styles.statValue}>{stat.value}</span>
+            </motion.div>
+          ))}
         </motion.div>
+
+        {/* CTA */}
+        <motion.a
+          href={project.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={styles.projectCTA}
+          initial={{ opacity: 0, x: -20 }}
+          animate={cardInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: 0.8 }}
+          whileHover={{
+            x: 5,
+            transition: { duration: 0.2 }
+          }}
+        >
+          View Project
+          <i className="bi bi-arrow-right"></i>
+        </motion.a>
       </motion.div>
     </motion.div>
   )
@@ -320,114 +313,64 @@ export default function Portfolio() {
   const sectionRef = useRef(null)
   const isInView = useInView(sectionRef, { once: true, amount: 0.1 })
 
+  // Finch-style featured work projects
   const projects = [
     {
       title: 'Archimedes Finance',
-      description: 'Secure Asset Tokenization Platform. Transform real-world assets into digital tokens with our secure, transparent blockchain infrastructure. Designed for institutional investors and financial professionals. ',
+      description: 'Secure Asset Tokenization Platform for institutional investors',
       image: '/images/portfolio-graphics/archimedesfinance-clay-2.webp',
       projectLogo: '/images/portfolio-graphics/logos/archimedes-finance.webp',
       link: 'https://archimedes-finance.pages.dev',
-      technologies: [
-        { name: 'Vue JS', percentage: '45%', colorClass: styles.vueColor },
-        { name: 'Node.js', percentage: '50%', colorClass: styles.nodeColor },
-        { name: 'PostgreSQL', percentage: '5%', colorClass: styles.postgresColor },
+      stats: [
+        { label: 'Timeline', value: '8 weeks' },
+        { label: 'Platform', value: 'Web App' },
+        { label: 'Industry', value: 'FinTech' }
       ],
-      status: 'Demo version',
+      status: 'Live',
       category: 'app'
     },
-        {
+    {
       title: 'Honey Pay',
-      description: 'Instant settlement, near-zero fees. ✓Free to use payment framework ✓Non-Custodial ✓Built on Berachain',
+      description: 'Instant settlement payment framework built on Berachain',
       image: '/images/portfolio-graphics/honeypay-clay-2.webp',
       projectLogo: '/images/portfolio-graphics/logos/honeypay.webp',
       link: 'https://honeypay.pages.dev',
-      technologies: [
-        { name: 'Next.js', percentage: '100%', colorClass: styles.nextJSColor },
-      ],
-      status: 'Demo version',
-      category: 'web'
-    },
-    {
-      title: 'WalletScrutiny',
-      description: 'Collaborative project with the Bitcoin Design Community to redesign the WalletScrutiny brand and website.',
-      image: '/images/portfolio-graphics/walletscrutiny-clay-2.webp',
-      projectLogo: '/images/portfolio-graphics/logos/wallet-scrutiny.webp',
-      link: 'https://walletscrutiny.com',
-      technologies: [
-        { name: 'JavaScript', percentage: '90%', colorClass: styles.jsColor },
-        { name: 'HTML5', percentage: '5%', colorClass: styles.htmlColor },
-        { name: 'SCSS', percentage: '5%', colorClass: styles.scssColor }
-      ],
-      status: 'Current version',
-      category: 'web'
-    },
-    {
-      title: 'BTCPay Server',
-      description: 'Clean, modern design for the BTCPay Server main landing page and Foundation website.',
-      image: '/images/portfolio-graphics/btcpayserver-clay-2.webp',
-      projectLogo: '/images/portfolio-graphics/logos/btcpayserver.webp',
-      link: 'https://btcpayserver.org',
-      technologies: [
-        { name: 'HTML5', percentage: '40%', colorClass: styles.htmlColor },
-        { name: 'CSS', percentage: '30%', colorClass: styles.cssColor },
-        { name: 'JavaScript', percentage: '30%', colorClass: styles.jsColor }
-      ],
-      status: 'Live',
-      category: 'web'
-    },
-    {
-      title: 'F18 Pay',
-      description: 'Bitcoin, ETH and ERC-20 token payments processor built to run in serverless environments.',
-      image: '/images/portfolio-graphics/f18pay-clay-2.webp',
-      projectLogo: '/images/portfolio-graphics/logos/f18pay.webp',
-      link: 'https://pay.flat18.co.uk',
-      technologies: [
-        { name: 'JavaScript', percentage: '100%', colorClass: styles.jsColor }
-      ],
-      status: 'Live',
-      category: 'app'
-    },
-    {
-      title: '# Hashboard',
-      description: 'Web3 application enabling transparent operation and governance of the Zettahash DAO project.',
-      image: '/images/portfolio-graphics/hashboard-clay-2.webp',
-      projectLogo: '/images/portfolio-graphics/logos/zettahash.webp',
-      link: 'https://hashboard.zettahash.org',
-      technologies: [
-        { name: 'Vue.js', percentage: '60%', colorClass: styles.vueColor },
-        { name: 'JavaScript', percentage: '40%', colorClass: styles.jsColor }
-      ],
-      status: 'Live',
-      category: 'app'
-    },
-    {
-      title: 'Zettahash DAO',
-      description: 'Zettahash website built in Webflow and designed to be processed in Node within a GitHub Pages environment.',
-      image: '/images/portfolio-graphics/zettahash-clay-2.webp',
-      projectLogo: '/images/portfolio-graphics/logos/zettahash-dao.webp',
-      link: 'https://zettahash-static.webflow.io',
-      technologies: [
-        { name: 'Webflow', percentage: '100%', colorClass: styles.webflowColor }
-      ],
-      status: 'Live',
-      category: 'web',
-      framework: {
-        name: 'Webflow',
-        logo: '/images/all/webflow-icon-4095338614.png'
-      }
-    },
-    {
-      title: 'dVote EVM',
-      description: "dVote's EVM Networks dashboard offers a comprehensive suite of tools designed to streamline and enhance decentralised governance for the blockchain ecosystem.",
-      image: '/images/portfolio-graphics/dvote-clay-2.webp',
-      projectLogo: '/images/portfolio-graphics/logos/dvote.webp',
-      link: 'https://evm.dvote.ai/networks',
-      technologies: [
-        { name: 'Next.js', percentage: '100%', colorClass: styles.nextJSColor },
+      stats: [
+        { label: 'Timeline', value: '6 weeks' },
+        { label: 'Platform', value: 'Web3' },
+        { label: 'Industry', value: 'Crypto' }
       ],
       status: 'Demo',
       category: 'web'
     },
+    {
+      title: 'WalletScrutiny',
+      description: 'Bitcoin wallet security analysis platform redesign',
+      image: '/images/portfolio-graphics/walletscrutiny-clay-2.webp',
+      projectLogo: '/images/portfolio-graphics/logos/wallet-scrutiny.webp',
+      link: 'https://walletscrutiny.com',
+      stats: [
+        { label: 'Timeline', value: '12 weeks' },
+        { label: 'Platform', value: 'Website' },
+        { label: 'Industry', value: 'Security' }
+      ],
+      status: 'Live',
+      category: 'web'
+    },
+    {
+      title: 'BTCPay Server',
+      description: 'Open-source Bitcoin payment processor platform',
+      image: '/images/portfolio-graphics/btcpayserver-clay-2.webp',
+      projectLogo: '/images/portfolio-graphics/logos/btcpayserver.webp',
+      link: 'https://btcpayserver.org',
+      stats: [
+        { label: 'Timeline', value: '10 weeks' },
+        { label: 'Platform', value: 'Website' },
+        { label: 'Industry', value: 'Bitcoin' }
+      ],
+      status: 'Live',
+      category: 'web'
+    }
   ]
 
   const filteredProjects = filter === 'all'
@@ -489,69 +432,34 @@ export default function Portfolio() {
   }
 
   return (
-    <section className={styles.portfolioSection} id="work" ref={sectionRef}>
-      <div className={styles.backgroundElements}>
-        <div className={styles.backgroundGradient}></div>
-        <div className={styles.backgroundGrid}></div>
-      </div>
-
-      <motion.div
-        className="container"
-        variants={sectionVariants}
-        initial="hidden"
-        animate={isInView ? "visible" : "hidden"}
-      >
+    <section
+      className={styles.workSection}
+      id="work"
+      ref={sectionRef}
+      data-bg-color={getSectionBackground('portfolio')}
+    >
+      <div className={`${styles.container} max-w-content mx-auto px-6 sm:px-8`}>
         <motion.div
-          className={styles.portfolioHeading}
-          variants={headingVariants}
+          className={styles.sectionHeading}
+          variants={sectionVariants}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
         >
-          <span className={styles.sectionLabel}>Portfolio</span>
-          <h2 className={styles.portfolioTitle}>Our Work</h2>
-          <p className={styles.portfolioSubtitle}>
-            Take a peek at some of the sites and apps we've shipped across web and blockchain.
+          <span className="label-uppercase">Featured Work</span>
+          <h2 className={styles.sectionTitle}>Recent projects</h2>
+          <p className={styles.sectionDescription}>
+            A selection of our latest work across web3, fintech, and digital platforms
           </p>
-
-          <div className={styles.filterContainer}>
-            <motion.button
-              className={styles.filterButton}
-              onClick={() => setFilter('all')}
-              animate={filter === 'all' ? 'active' : 'inactive'}
-              variants={filterButtonVariants}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              All Projects
-            </motion.button>
-            <motion.button
-              className={styles.filterButton}
-              onClick={() => setFilter('web')}
-              animate={filter === 'web' ? 'active' : 'inactive'}
-              variants={filterButtonVariants}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              Web
-            </motion.button>
-            <motion.button
-              className={styles.filterButton}
-              onClick={() => setFilter('app')}
-              animate={filter === 'app' ? 'active' : 'inactive'}
-              variants={filterButtonVariants}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              Apps
-            </motion.button>
-          </div>
         </motion.div>
 
+        {/* Finch-style project grid */}
         <motion.div
-          className={styles.portfolioGrid}
+          className={styles.projectGrid}
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
         >
-          {filteredProjects.map((project, index) => (
+          {projects.map((project, index) => (
             <ProjectCard
               key={index}
               project={project}
@@ -560,16 +468,22 @@ export default function Portfolio() {
           ))}
         </motion.div>
 
+        {/* Bottom CTA */}
         <motion.div
-          className={styles.ctaContainer}
+          className={styles.bottomCTA}
           variants={headingVariants}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
         >
-          <a href="#chat" className={styles.ctaButton}>
-            <span>Start Your Project</span>
-            <i className="bi bi-arrow-right"></i>
+          <div className={styles.ctaContent}>
+            <h3>Ready to start your project?</h3>
+            <p>Let's discuss your vision and bring it to life</p>
+          </div>
+          <a href="#chat" className="btn btn-primary">
+            Start your project
           </a>
         </motion.div>
-      </motion.div>
+      </div>
     </section>
   )
 }

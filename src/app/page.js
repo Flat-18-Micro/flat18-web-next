@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect } from 'react'
+import { useScrollBackground } from '@/hooks/useScrollBackground'
 import Hero from '@/components/Hero'
 import Stats from '@/components/Stats'
 import Features from '@/components/Features'
@@ -17,6 +18,9 @@ import PageTransition from '@/components/PageTransition'
 import HomePageSchema from '@/components/HomePageSchema'
 
 export default function Home() {
+  // Initialize scroll background system
+  useScrollBackground()
+
   useEffect(() => {
     // Initialize any necessary scripts or analytics
     if (window.location.protocol !== 'https:' && window.location.hostname !== 'localhost') {

@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import styles from '../styles/component-css/Contact.module.css'
+import { getSectionBackground } from '@/hooks/useScrollBackground'
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -86,7 +87,11 @@ export default function Contact() {
   }
 
   return (
-    <section className={styles.contactSection} id="chat">
+    <section
+      className={styles.contactSection}
+      id="chat"
+      data-bg-color={getSectionBackground('contact')}
+    >
       <motion.div
         className={styles.container}
         variants={containerVariants}

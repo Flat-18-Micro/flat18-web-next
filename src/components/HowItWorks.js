@@ -3,52 +3,45 @@
 import { useState, useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
 import styles from '@/styles/component-css/HowItWorks.module.css'
+import { getSectionBackground } from '@/hooks/useScrollBackground'
 
 export default function HowItWorks() {
+  // Finch-style four-step process
   const steps = [
     {
       number: '01',
-      title: 'Discover',
-      icon: 'bi-chat-dots',
-      description: 'Kick off with a quick discovery chat to map out your goals and timeline. We’ll craft a plan that fits your vision.',
-      link: {
-        text: 'Book a discovery chat',
-        href: '#chat',
-        icon: 'bi-arrow-right'
-      }
+      title: 'Discovery',
+      description: 'We start with a deep dive into your goals, audience, and technical requirements.',
+      details: 'Strategy session, requirements gathering, project scoping'
     },
     {
       number: '02',
-      title: 'Develop',
-      icon: 'bi-code-slash',
-      description: 'We build in the open with regular updates and clear comms, using modern tech and best practice to keep quality high.',
-
+      title: 'Design',
+      description: 'User-centered design that balances aesthetics with functionality and performance.',
+      details: 'Wireframes, prototypes, visual design, user testing'
     },
     {
       number: '03',
-      title: 'Deliver',
-      icon: 'bi-rocket-takeoff',
-      description: 'Expect first samples in 2–3 days and follow-ups inside 48 hours. Iteration keeps things on track until you’re thrilled with the result.',
-      link: {
-        text: 'See our past work',
-        href: '#work',
-        icon: 'bi-arrow-right'
-      }
+      title: 'Development',
+      description: 'Modern, scalable code built with best practices and continuous integration.',
+      details: 'Frontend & backend development, testing, optimization'
+    },
+    {
+      number: '04',
+      title: 'Launch',
+      description: 'Seamless deployment with ongoing support to ensure your success.',
+      details: 'Deployment, monitoring, training, maintenance'
     }
   ]
 
-  // We'll use useEffect and useState instead of Framer Motion's whileInView
-  // to have more control over the animation and prevent flickering
   const [isVisible, setIsVisible] = useState(false)
   const sectionRef = useRef(null)
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        // Only trigger once when the section comes into view
         if (entry.isIntersecting && !isVisible) {
           setIsVisible(true)
-          // Once we've seen it, we can disconnect the observer
           observer.disconnect()
         }
       },
@@ -67,49 +60,76 @@ export default function HowItWorks() {
   }, [isVisible])
 
   return (
-    <section className={styles.howItWorksSection} id="how-it-works" ref={sectionRef}>
-      <div className={styles.sectionBackground}>
-        <div className={styles.backgroundGradient}></div>
-      </div>
-
-      <div className="container">
+    <section
+      className={styles.processSection}
+      id="process"
+      ref={sectionRef}
+      data-bg-color={getSectionBackground('howItWorks')}
+    >
+      <div className={`${styles.container} max-w-content mx-auto px-6 sm:px-8`}>
         <div className={styles.sectionHeading}>
-          <h2 className={styles.sectionTitle}>How We Work</h2>
-          <p className={styles.sectionSubtitle}>
-            Our no-fuss process keeps quality high and momentum strong
+          <span className="label-uppercase">Process</span>
+          <h2 className={styles.sectionTitle}>How we work</h2>
+          <p className={styles.sectionDescription}>
+            Our proven process delivers results on time and on budget
           </p>
         </div>
 
-        <div className={styles.cardsContainer}>
+        {/* Finch-style horizontal timeline */}
+        <div className={styles.timeline}>
+          <div className={styles.timelineTrack}></div>
+          
           {steps.map((step, index) => (
             <motion.div
               key={index}
-              className={styles.card}
-              initial={{ opacity: 0 }}
-              animate={isVisible ? { opacity: 1 } : { opacity: 0 }}
+              className={styles.timelineStep}
+              initial={{ opacity: 0, y: 20 }}
+              animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{
                 duration: 0.6,
-                ease: 'easeIn',
-                delay: index * 0.2 // Stagger the animations
+                ease: 'easeOut',
+                delay: index * 0.15
               }}
             >
-              <div className={styles.cardNumber}>{step.number}</div>
-              <div className={styles.cardContent}>
-                <div className={styles.cardIcon}>
-                  <i className={`bi ${step.icon}`}></i>
-                </div>
-                <h3 className={styles.cardTitle}>{step.title}</h3>
-                <p className={styles.cardDescription}>{step.description}</p>
-                {step.link && (
-                  <a href={step.link.href} className={styles.cardLink}>
-                    {step.link.text}
-                    <i className={`bi ${step.link.icon}`}></i>
-                  </a>
-                )}
+              {/* Numbered badge with violet accent */}
+              <div className={styles.stepBadge}>
+                <span className={styles.stepNumber}>{step.number}</span>
               </div>
+              
+              {/* Step content */}
+              <div className={styles.stepContent}>
+                <h3 className={styles.stepTitle}>{step.title}</h3>
+                <p className={styles.stepDescription}>{step.description}</p>
+                <p className={styles.stepDetails}>{step.details}</p>
+              </div>
+              
+              {/* Connector line (except for last step) */}
+              {index < steps.length - 1 && (
+                <div className={styles.stepConnector}></div>
+              )}
             </motion.div>
           ))}
         </div>
+
+        {/* Bottom CTA */}
+        <motion.div
+          className={styles.processBottom}
+          initial={{ opacity: 0, y: 20 }}
+          animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          transition={{
+            duration: 0.6,
+            ease: 'easeOut',
+            delay: 0.8
+          }}
+        >
+          <div className={styles.ctaContent}>
+            <h3>Ready to get started?</h3>
+            <p>Let's discuss your project and timeline</p>
+          </div>
+          <a href="#chat" className="btn btn-primary">
+            Start your project
+          </a>
+        </motion.div>
       </div>
     </section>
   )

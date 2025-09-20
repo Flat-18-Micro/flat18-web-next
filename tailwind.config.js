@@ -3,57 +3,61 @@ module.exports = {
   content: [
     './src/**/*.{js,jsx}',
   ],
+  darkMode: 'class',
   theme: {
     extend: {
+      fontFamily: {
+        'sans': ['var(--font-sans)'],
+        'display': ['var(--font-display)'],
+        'mono': ['var(--font-mono)'],
+        'playfair': ['var(--font-playfair)'],
+        'bwgradual': ['var(--font-bwgradual)'],
+      },
       colors: {
-        'bg-modern': 'var(--bg-modern)',
-        'cw-2': 'var(--cw-2)',
-        'blue-2': 'var(--blue-2)',
-        'cw-1': 'var(--cw-1)',
-        'primary': 'var(--primary)',
-        'bg': 'var(--bg)',
-        'azure-blue': 'var(--azure-blue)',
-        'bg-modern-dark': 'var(--bg-modern-dark)',
-        'yellow': 'var(--yellow)',
-        'azure-blue-bg': 'var(--azure-blue-bg)',
-        'blue-2-bg': 'var(--blue-2-bg)',
-        'cw-3': 'var(--cw-3)',
-        'secondary': 'var(--secondary)',
-        'white': 'var(--white)',
+        // Finch-inspired Flat 18 palette
         'cobalt': 'var(--cobalt)',
-        'secondary-dark': 'var(--secondary-dark)',
-        'cw-0': 'var(--cw-0)',
-        'blue-1-5': 'var(--blue-1-5)',
-        'bg-modern-dark-2': 'var(--bg-modern-dark-2)',
-        'cw-6': 'var(--cw-6)',
-        'rust': 'var(--rust)',
-        'pink': 'var(--pink)',
-        'rose': 'var(--rose)',
-        'green': 'var(--green)',
-        'purple': 'var(--purple)',
-        'dark-teal': 'var(--dark-teal)',
-        'elephant-grey': 'var(--elephant-grey)',
-        'orange': 'var(--orange)',
-        'process-blue': 'var(--process-blue)',
-        'blue-0': 'var(--blue-0)',
-        'cobalt-2': 'var(--cobalt-2)',
-        'blue-1': 'var(--blue-1)',
-        'black': 'var(--black)',
-        'accent': 'var(--accent)',
-        'bg-gauze': 'var(--bg-gauze)',
-        'cw-4': 'var(--cw-4)',
-        'cw-5': 'var(--cw-5)',
-        'primary-backup': 'var(--primary-backup)',
-        'bg-gauze-heavy': 'var(--bg-gauze-heavy)',
-        'blue-3': 'var(--blue-3)',
-        'blue-4': 'var(--blue-4)',
+        'violet': 'var(--violet)',
+        'aqua': 'var(--aqua)',
+        'bg': 'var(--bg)',
+        'fg': 'var(--fg)',
+
+        // Surface colors
+        'surface-dim': 'var(--surface-dim)',
+        'surface-glass': 'var(--surface-glass)',
+        'border-soft': 'var(--border-soft)',
+        'border-strong': 'var(--border-strong)',
+
+        // Legacy colors for compatibility
+        'bg-modern': 'var(--bg-modern)',
+        'primary': 'var(--primary)',
+        'secondary': 'var(--secondary)',
+        'white': 'var(--color-white)',
+        'black': 'var(--color-black)',
+
+        // Text colors
+        'text-primary': 'var(--text-primary)',
+        'text-secondary': 'var(--text-secondary)',
+        'text-tertiary': 'var(--text-tertiary)',
       },
       maxWidth: {
-        'content': 'var(--content)',
-        'content-inner': 'var(--content-inner)',
-        'text-content': 'var(--text-content)',
+        'content': '1280px', // Finch-style max container width
+        'content-inner': '960px',
+        'text-content': '720px',
+      },
+      fontSize: {
+        'display': 'var(--text-display)',
+        'section-heading': 'var(--text-section-heading)',
+      },
+      letterSpacing: {
+        'label': '0.08em',
+      },
+      borderRadius: {
+        '3xl': '1.5rem',
+      },
+      backdropBlur: {
+        'xs': '2px',
       },
     },
   },
   plugins: [],
-} 
+}

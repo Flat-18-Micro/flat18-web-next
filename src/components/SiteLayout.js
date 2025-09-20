@@ -35,8 +35,14 @@ export default function SiteLayout({ children }) {
 
   return (
     <>
+      {/* Skip to content link for accessibility */}
+      <a href="#main-content" className="skip-to-content">
+        Skip to main content
+      </a>
       <Navbar isScrolled={isScrolled} />
-      {children}
+      <main id="main-content">
+        {children}
+      </main>
     </>
   )
 }

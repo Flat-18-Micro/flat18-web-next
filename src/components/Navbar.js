@@ -1,45 +1,78 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import styles from '@/styles/component-css/Navbar.module.css'
+import { ThemeSwitcher } from '../app/providers'
+import { analytics } from '@/lib/analytics'
 
 export default function Navbar({ isScrolled }) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [isServicesMenuOpen, setIsServicesMenuOpen] = useState(false)
+  const servicesMenuRef = useRef(null)
+  const servicesButtonRef = useRef(null)
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen)
   }
 
-  const testimonials = [
+  const toggleServicesMenu = () => {
+    setIsServicesMenuOpen(!isServicesMenuOpen)
+    if (!isServicesMenuOpen) {
+      analytics.nav.megaMenuOpen()
+    }
+  }
+
+  // Close services menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        servicesMenuRef.current &&
+        !servicesMenuRef.current.contains(event.target) &&
+        !servicesButtonRef.current.contains(event.target)
+      ) {
+        setIsServicesMenuOpen(false)
+      }
+    }
+
+    document.addEventListener('mousedown', handleClickOutside)
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside)
+    }
+  }, [])
+
+  // Close menu on escape key
+  useEffect(() => {
+    const handleEscape = (event) => {
+      if (event.key === 'Escape') {
+        setIsServicesMenuOpen(false)
+        setIsMobileMenuOpen(false)
+      }
+    }
+
+    document.addEventListener('keydown', handleEscape)
+    return () => {
+      document.removeEventListener('keydown', handleEscape)
+    }
+  }, [])
+
+  // Services data for mega menu
+  const services = [
     {
-      quote: "Working with Flat 18 felt like having an in-house team. They were responsive, strategic, and nailed the design on the first try.",
-      author: "Co-founder",
-      role: "Fintech startup",
-      rating: 5,
-      color: "primary"
+      title: "Product & UX",
+      description: "User-centered design that drives outcomes and engagement.",
+      href: "/services/ui-ux-design"
     },
     {
-      quote: "Flat 18 rebuilt our web app from scratch and the performance boost was immediate. Page loads are faster, UX is cleaner, and our team can finally move fast again.",
-      author: "Founder",
-      role: "Payments processor platform",
-      rating: 5,
-      color: "secondary"
+      title: "Web Engineering",
+      description: "Fast, scalable development with quality assurance.",
+      href: "/services/web-development"
     },
     {
-      quote: "They took our outdated site and gave it a clean, modern look without losing what made our brand special. The new site is performing better across every metric.",
-      author: "Solopreneur",
-      role: "Education website",
-      rating: 5,
-      color: "accent-purple"
-    },
-    {
-      quote: "Flat 18 guided us through the Web3 space like pros. Their dashboard design is sharp, intuitive, and fully integrated with our smart contracts.",
-      author: "CEO",
-      role: "Ethereum investment project",
-      rating: 5,
-      color: "accent-teal"
+      title: "Web3 & Emerging",
+      description: "Blockchain integration and decentralized applications.",
+      href: "/services/web3-blockchain"
     },
     {
       quote: "We’ve worked with bigger agencies that didn’t deliver half as much value. Flat 18 was fast, focused, and genuinely cared about the outcome.",
@@ -52,7 +85,8 @@ export default function Navbar({ isScrolled }) {
 
   return (
     <header className={`${styles.navbar} ${isScrolled ? styles.scrolled : ''}`}>
-      <div className={`container ${styles.container}`}>
+      <div className={`${styles.container} max-w-content mx-auto px-6 sm:px-8`}>
+        {/* Brand */}
         <Link href="/" className={styles.brand}>
           <div className={styles.logo}>
             <Image
@@ -62,11 +96,116 @@ export default function Navbar({ isScrolled }) {
               height={42}
             />
           </div>
-          <div className={styles.brandName}>Flat 18</div>
+          <div className={styles.brandName}>flat 18</div>
         </Link>
 
+        {/* AI-led badge - visible on desktop when not scrolled */}
+        {!isScrolled && (
+          <div className={`${styles.aiBadge} hidden lg:flex`}>
+            <span className="label-uppercase">AI-led. Senior-built.</span>
+          </div>
+        )}
+
+        {/* Desktop Navigation */}
+        <nav className={`${styles.desktopNav} hidden lg:flex`}>
+          <ul className={styles.menu}>
+            <li>
+              <Link href="/#work" className={styles.link}>
+                <span>Work</span>
+              </Link>
+            </li>
+            <li className={styles.servicesDropdown}>
+              <button
+                ref={servicesButtonRef}
+                className={`${styles.link} ${styles.servicesButton}`}
+                onClick={toggleServicesMenu}
+                aria-expanded={isServicesMenuOpen}
+                aria-controls="services-menu"
+              >
+                <span>Services</span>
+                <i className={`bi bi-chevron-down ${styles.chevron} ${isServicesMenuOpen ? styles.chevronOpen : ''}`}></i>
+              </button>
+
+              {/* Mega Menu */}
+              {isServicesMenuOpen && (
+                <div
+                  ref={servicesMenuRef}
+                  id="services-menu"
+                  className={styles.megaMenu}
+                >
+                  <div className={styles.megaMenuContent}>
+                    <div className={styles.servicesGrid}>
+                      {services.map((service, index) => (
+                        <Link
+                          key={index}
+                          href={service.href}
+                          className={styles.serviceCard}
+                          onClick={() => setIsServicesMenuOpen(false)}
+                        >
+                          <h3 className={styles.serviceTitle}>{service.title}</h3>
+                          <p className={styles.serviceDescription}>{service.description}</p>
+                        </Link>
+                      ))}
+                    </div>
+                    <div className={styles.megaMenuFooter}>
+                      <Link href="/services" className={styles.allServicesLink}>
+                        See all services
+                      </Link>
+                      <a
+                        href="#chat"
+                        className="btn btn-primary btn-sm"
+                        onClick={() => analytics.nav.bookCall()}
+                      >
+                        Book a discovery call
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              )}
+            </li>
+            <li>
+              <Link href="/process" className={styles.link}>
+                <span>Process</span>
+              </Link>
+            </li>
+            <li>
+              <Link href="/#pricing" className={styles.link}>
+                <span>Pricing</span>
+              </Link>
+            </li>
+            <li>
+              <Link href="/about" className={styles.link}>
+                <span>About</span>
+              </Link>
+            </li>
+            <li>
+              <Link href="/blog" className={styles.link}>
+                <span>Blog</span>
+              </Link>
+            </li>
+          </ul>
+
+          {/* Theme Switcher */}
+          <div className={styles.themeSwitcher}>
+            <ThemeSwitcher className={styles.themeButton} />
+          </div>
+
+          {/* CTA Button */}
+          <div className={styles.cta}>
+            <a
+              href="#chat"
+              className="btn btn-primary btn-icon"
+              onClick={() => analytics.nav.bookCall()}
+            >
+              <span className="btn-text">Book a call</span>
+              <i className="bi bi-arrow-right"></i>
+            </a>
+          </div>
+        </nav>
+
+        {/* Mobile Menu Toggle */}
         <button
-          className={styles.menuToggle}
+          className={`${styles.menuToggle} lg:hidden`}
           onClick={toggleMobileMenu}
           aria-label="Toggle menu"
           aria-expanded={isMobileMenuOpen}
@@ -74,43 +213,68 @@ export default function Navbar({ isScrolled }) {
           <span className={`${styles.hamburger} ${isMobileMenuOpen ? styles.hamburgerOpen : ''}`}></span>
         </button>
 
+        {/* Mobile Menu */}
         <nav
-          className={`${styles.menuWrapper} ${isMobileMenuOpen ? styles.menuWrapperOpen : ''}`}
-          aria-label="Main navigation"
+          className={`${styles.mobileMenu} ${isMobileMenuOpen ? styles.mobileMenuOpen : ''} lg:hidden`}
+          aria-label="Mobile navigation"
         >
-          <ul className={styles.menu}>
-            <li>
-              <Link href="/#work" className={styles.link} onClick={() => setIsMobileMenuOpen(false)}>
-                <span>Work</span>
-              </Link>
-            </li>
-            <li>
-              <Link href="/#pricing" className={styles.link} onClick={() => setIsMobileMenuOpen(false)}>
-                <span>Pricing</span>
-              </Link>
-            </li>
-            <li>
-              <Link href="/about" className={styles.link} onClick={() => setIsMobileMenuOpen(false)}>
-                <span>About</span>
-              </Link>
-            </li>
-            <li>
+          <div className={styles.mobileMenuContent}>
+            <ul className={styles.mobileMenuList}>
+              <li>
+                <Link href="/#work" className={styles.mobileLink} onClick={() => setIsMobileMenuOpen(false)}>
+                  <span className={styles.mobileLinkLabel}>Work</span>
+                  <span className={styles.mobileLinkDescription}>Our latest projects</span>
+                </Link>
+              </li>
+              <li>
+                <Link href="/services" className={styles.mobileLink} onClick={() => setIsMobileMenuOpen(false)}>
+                  <span className={styles.mobileLinkLabel}>Services</span>
+                  <span className={styles.mobileLinkDescription}>What we offer</span>
+                </Link>
+              </li>
+              <li>
+                <Link href="/process" className={styles.mobileLink} onClick={() => setIsMobileMenuOpen(false)}>
+                  <span className={styles.mobileLinkLabel}>Process</span>
+                  <span className={styles.mobileLinkDescription}>How we work</span>
+                </Link>
+              </li>
+              <li>
+                <Link href="/#pricing" className={styles.mobileLink} onClick={() => setIsMobileMenuOpen(false)}>
+                  <span className={styles.mobileLinkLabel}>Pricing</span>
+                  <span className={styles.mobileLinkDescription}>Transparent rates</span>
+                </Link>
+              </li>
+              <li>
+                <Link href="/about" className={styles.mobileLink} onClick={() => setIsMobileMenuOpen(false)}>
+                  <span className={styles.mobileLinkLabel}>About</span>
+                  <span className={styles.mobileLinkDescription}>Our story</span>
+                </Link>
+              </li>
+              <li>
+                <Link href="/blog" className={styles.mobileLink} onClick={() => setIsMobileMenuOpen(false)}>
+                  <span className={styles.mobileLinkLabel}>Blog</span>
+                  <span className={styles.mobileLinkDescription}>Insights & updates</span>
+                </Link>
+              </li>
+            </ul>
+
+            {/* Mobile CTA Group */}
+            <div className={styles.mobileCTAGroup}>
               <a
-                href="https://accounts.flat18.co.uk/client/login"
-                className={styles.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => setIsMobileMenuOpen(false)}
+                href="#chat"
+                className="btn btn-primary w-full"
+                onClick={() => {
+                  setIsMobileMenuOpen(false)
+                  analytics.nav.bookCall()
+                }}
               >
-                <span>Client Portal</span>
+                <span className="btn-text">Book a call</span>
               </a>
-            </li>
-            <li className={styles.cta}>
-              <a href="#chat" className="btn btn-primary btn-lg" onClick={() => setIsMobileMenuOpen(false)}>
-                <span className="btn-text">Start a Project</span>
+              <a href="mailto:hello@flat18.co.uk" className={styles.emailLink}>
+                hello@flat18.co.uk
               </a>
-            </li>
-          </ul>
+            </div>
+          </div>
         </nav>
       </div>
     </header>

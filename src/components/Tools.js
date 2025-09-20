@@ -1,6 +1,7 @@
 'use client'
 
 import styles from '../styles/component-css/Tools.module.css'
+import { getSectionBackground } from '@/hooks/useScrollBackground'
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 
@@ -24,7 +25,10 @@ export default function Tools() {
   ]
 
   return (
-    <section className={styles.toolsSection}>
+    <section
+      className={styles.toolsSection}
+      data-bg-color={getSectionBackground('tools')}
+    >
       <div className="container">
         <div className={styles.toolsHeader}>
           <h2 className={styles.toolsTitle}>Tools We Trust</h2>

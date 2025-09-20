@@ -2,101 +2,139 @@
 
 import Link from 'next/link'
 import styles from '../styles/component-css/Footer.module.css'
+import { getSectionBackground } from '@/hooks/useScrollBackground'
 
 export default function Footer() {
   return (
-    <footer className={styles.footer} aria-labelledby="footer-heading">
-      <div className={styles.footerGradient}></div>
+    <footer
+      className={styles.footer}
+      aria-labelledby="footer-heading"
+      data-bg-color={getSectionBackground('footer')}
+    >
       <h2 id="footer-heading" className="sr-only">Footer</h2>
-      <div className="container">
-        <div className={styles.footerWrapper}>
-          <div className={styles.footerBrandContainer}>
+      <div className={`${styles.container} max-w-content mx-auto px-6 sm:px-8`}>
+        {/* Finch-style 4-column layout */}
+        <div className={styles.footerGrid}>
+          {/* Brand column */}
+          <div className={styles.brandColumn}>
             <Link href="/" className={styles.footerBrand} aria-label="Flat 18 Home">
-              <div className={styles.footerLogo}>F18</div>
+              <div className={styles.footerLogo}>
+                <span className={styles.logoText}>F18</span>
+              </div>
+              <span className={styles.brandName}>Flat 18</span>
             </Link>
-            <p className={styles.footerTagline}>High-impact web and app builds for crypto and beyond</p>
+            <p className={styles.footerTagline}>
+              Premium web development and design for crypto, fintech, and digital platforms
+            </p>
+
+            {/* Social icons */}
+            <div className={styles.socialIcons}>
+              <a href="https://x.com/f18_dev" className={styles.socialLink} target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+                <i className="bi bi-twitter-x" aria-hidden="true"></i>
+              </a>
+              <a href="https://github.com/vswee" className={styles.socialLink} target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                <i className="bi bi-github" aria-hidden="true"></i>
+              </a>
+              <a href="https://t.me/flat18_bot" className={styles.socialLink} target="_blank" rel="noopener noreferrer" aria-label="Telegram">
+                <i className="bi bi-telegram" aria-hidden="true"></i>
+              </a>
+            </div>
           </div>
 
-          <div className={styles.footerContent}>
-            <div className={styles.footerBlock}>
-              <h3 className={styles.footerBlockTitle}>Contact</h3>
-              <ul className={styles.footerLinksList}>
-                <li>
-                  <a href="#chat" className={styles.footerLink}>
-                    <span>Live Chat</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="https://t.me/flat18_bot" className={styles.footerLink} target="_blank" rel="noopener noreferrer">
-                    <span>Telegram</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="mailto:hello@flat18.co.uk" className={styles.footerLink}>
-                    <span>Email</span>
-                  </a>
-                </li>
-              </ul>
-            </div>
+          {/* Services column */}
+          <div className={styles.footerColumn}>
+            <h3 className={styles.columnTitle}>SERVICES</h3>
+            <ul className={styles.linksList}>
+              <li>
+                <Link href="/#services" className={styles.footerLink}>
+                  Web Development
+                </Link>
+              </li>
+              <li>
+                <Link href="/#services" className={styles.footerLink}>
+                  App Development
+                </Link>
+              </li>
+              <li>
+                <Link href="/#services" className={styles.footerLink}>
+                  UI/UX Design
+                </Link>
+              </li>
+              <li>
+                <Link href="/#services" className={styles.footerLink}>
+                  Blockchain Integration
+                </Link>
+              </li>
+            </ul>
+          </div>
 
-            <div className={styles.footerBlock}>
-              <h3 className={styles.footerBlockTitle}>Quick Links</h3>
-              <ul className={styles.footerLinksList}>
-                <li>
-                  <Link href="/#work" className={styles.footerLink}>
-                    <span>Our Work</span>
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/#pricing" className={styles.footerLink}>
-                    <span>Pricing</span>
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/#how-it-works" className={styles.footerLink}>
-                    <span>How It Works</span>
-                  </Link>
-                </li>
-              </ul>
-            </div>
+          {/* Company column */}
+          <div className={styles.footerColumn}>
+            <h3 className={styles.columnTitle}>COMPANY</h3>
+            <ul className={styles.linksList}>
+              <li>
+                <Link href="/#work" className={styles.footerLink}>
+                  Our Work
+                </Link>
+              </li>
+              <li>
+                <Link href="/#how-it-works" className={styles.footerLink}>
+                  Process
+                </Link>
+              </li>
+              <li>
+                <Link href="/about" className={styles.footerLink}>
+                  About
+                </Link>
+              </li>
+              <li>
+                <Link href="/ease-of-communication-standard" className={styles.footerLink}>
+                  Communication Standard
+                </Link>
+              </li>
+            </ul>
+          </div>
 
-            <div className={styles.footerBlock}>
-              <h3 className={styles.footerBlockTitle}>Company</h3>
-              <ul className={styles.footerLinksList}>
-                <li>
-                  <Link href="/about" className={styles.footerLink}>
-                    <span>About</span>
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/ease-of-communication-standard" className={styles.footerLink}>
-                    <span>Communication Standard</span>
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/privacy" className={styles.footerLink}>
-                    <span>Privacy Policy</span>
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/terms" className={styles.footerLink}>
-                    <span>Terms of Service</span>
-                  </Link>
-                </li>
-              </ul>
-            </div>
+          {/* Contact column */}
+          <div className={styles.footerColumn}>
+            <h3 className={styles.columnTitle}>CONTACT</h3>
+            <ul className={styles.linksList}>
+              <li>
+                <a href="#chat" className={styles.footerLink}>
+                  Live Chat
+                </a>
+              </li>
+              <li>
+                <a href="mailto:hello@flat18.co.uk" className={styles.footerLink}>
+                  hello@flat18.co.uk
+                </a>
+              </li>
+              <li>
+                <Link href="/#pricing" className={styles.footerLink}>
+                  Pricing
+                </Link>
+              </li>
+              <li>
+                <a href="https://t.me/flat18_bot" className={styles.footerLink} target="_blank" rel="noopener noreferrer">
+                  Telegram
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
 
+        {/* Footer bottom */}
         <div className={styles.footerBottom}>
-          <div className={styles.footerCopyright}>© {new Date().getFullYear()} Flat 18. All rights reserved.</div>
-          <div className={styles.footerSocial}>
-            <a href="https://x.com/f18_dev" className={styles.footerSocialLink} target="_blank" rel="noopener noreferrer" aria-label="Twitter">
-              <i className="bi bi-twitter" aria-hidden="true"></i>
-            </a>
-            <a href="https://github.com/vswee" className={styles.footerSocialLink} target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-              <i className="bi bi-github" aria-hidden="true"></i>
-            </a>
+          <div className={styles.footerCopyright}>
+            © {new Date().getFullYear()} Flat 18. All rights reserved.
+          </div>
+          <div className={styles.footerLegal}>
+            <Link href="/privacy" className={styles.legalLink}>
+              Privacy Policy
+            </Link>
+            <Link href="/terms" className={styles.legalLink}>
+              Terms of Service
+            </Link>
           </div>
         </div>
       </div>

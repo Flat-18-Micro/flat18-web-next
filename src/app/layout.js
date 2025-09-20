@@ -8,6 +8,7 @@ import ServiceWorkerRegistration from '@/components/ServiceWorkerRegistration'
 import Script from 'next/script'
 import AnalyticsScripts from '@/components/AnalyticsScripts'
 import ClientLayout from '@/components/ClientLayout'
+import { ThemeProvider } from './providers'
 
 // Optimize font loading with better performance settings
 const sora = Sora({
@@ -151,13 +152,15 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body>
-        <ClientLayout>
-          {children}
-        </ClientLayout>
-        <ChatwootWidget />
-        <FloatingChatButton />
-        <ServiceWorkerRegistration />
-        <AnalyticsScripts />
+        <ThemeProvider>
+          <ClientLayout>
+            {children}
+          </ClientLayout>
+          <ChatwootWidget />
+          <FloatingChatButton />
+          <ServiceWorkerRegistration />
+          <AnalyticsScripts />
+        </ThemeProvider>
       </body>
     </html>
   )

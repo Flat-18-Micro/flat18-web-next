@@ -2,6 +2,7 @@
 
 import styles from '../styles/component-css/Stats.module.css'
 import { useEffect, useRef } from 'react'
+import { getSectionBackground } from '@/hooks/useScrollBackground'
 
 export default function Stats() {
   const countersRef = useRef([])
@@ -66,13 +67,16 @@ export default function Stats() {
 
   const stats = [
     { value: 20, label: 'Projects shipped' },
-    { value: 100, label: 'Happy clients', symbol:'%' },
+    { value: 100, label: 'Client Satisfaction', symbol:'%' },
     { value: 12, label: 'Years in the game' },
     { value: '2', label: 'Team members\n(yes, really)', noPlus: true }
   ]
 
   return (
-    <section className={`${styles['stats-wrapper']} statsSection`}>
+    <section
+      className={`${styles['stats-wrapper']} statsSection`}
+      data-bg-color={getSectionBackground('stats')}
+    >
       <div className='container'>
         <div className={styles['stats-grid']}>
           {stats.map((stat, index) => (

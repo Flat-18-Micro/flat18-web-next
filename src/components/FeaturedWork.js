@@ -4,6 +4,7 @@ import { useState, useRef } from 'react'
 import Image from 'next/image'
 import { motion, useInView } from 'framer-motion'
 import styles from '../styles/component-css/FeaturedWork.module.css'
+import { getSectionBackground } from '@/hooks/useScrollBackground'
 
 export default function FeaturedWork() {
   const sectionRef = useRef(null)
@@ -80,7 +81,12 @@ export default function FeaturedWork() {
   }
 
   return (
-    <section className={styles.featuredSection} id="featured-work" ref={sectionRef}>
+    <section
+      className={styles.featuredSection}
+      id="featured-work"
+      ref={sectionRef}
+      data-bg-color={getSectionBackground('featuredWork')}
+    >
       <motion.div
         className="container"
         variants={containerVariants}

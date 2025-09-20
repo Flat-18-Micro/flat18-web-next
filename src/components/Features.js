@@ -3,74 +3,41 @@
 import { motion, useInView } from 'framer-motion'
 import { useRef } from 'react'
 import styles from '@/styles/component-css/Features.module.css'
+import { getSectionBackground } from '@/hooks/useScrollBackground'
 
 export default function Features() {
   const sectionRef = useRef(null)
   const isInView = useInView(sectionRef, { once: true, amount: 0.1 })
 
-  const features = [
-    {
-      icon: 'bi-globe',
-      title: 'Web Development',
-      description: 'Bespoke sites built with modern frameworks like Next.js, tuned for speed and search.',
-      color: 'primary',
-      learnMore: '/services/web-development'
-    },
-    {
-      icon: 'bi-phone',
-      title: 'App Development',
-      description: 'Scalable apps crafted with Node.js, reactive frameworks and serverless back-ends.',
-      color: 'secondary',
-      learnMore: '/services/app-development'
-    },
+  // Finch-style 2x2 services grid
+  const services = [
     {
       icon: 'bi-palette',
-      title: 'UI/UX Design',
-      description: 'Clean, intuitive interfaces shaped around your users.',
-      color: 'accent-purple',
-      learnMore: '/services/ui-ux-design'
-    },
-    {
-      icon: 'bi-lightbulb',
-      title: 'AI Prompt Engineering',
-      description: 'Expert prompts for LLMs to deliver consistent, high-quality content, code and automations.',
-      color: 'secondary',
-      learnMore: '/services/ai-prompt-engineering'
-    },
-    {
-      icon: 'bi-cpu',
-      title: 'AI-Augmented Development',
-      description: 'Speed up delivery with AI-assisted code generation, reviews and refactors.',
-      color: 'accent-teal',
-      learnMore: '/services/ai-augmented-development'
-    },
-    {
-      icon: 'bi-brush',
-      title: 'AI-Seeded Design & Graphics',
-      description: 'Generative AI to spark visuals, layouts and high-res assets guided by your brand.',
-      color: 'accent-purple',
-      learnMore: '/services/ai-seeded-design'
-    },
-    {
-      icon: 'bi-shield-lock',
-      title: 'Web3 & Blockchain',
-      description: 'Smart contracts, wallet integrations and decentralised apps built for the blockchain world.',
-      color: 'accent-teal',
-      learnMore: '/services/web3-blockchain'
+      title: 'Product & UX',
+      description: 'User-centered design that drives outcomes and engagement.',
+      bullets: ['User research & testing', 'Interface design'],
+      href: '/services/ui-ux-design'
     },
     {
       icon: 'bi-code-slash',
-      title: 'API Integration',
-      description: 'Seamless integrations with third‑party services and custom APIs.',
-      color: 'accent-pink',
-      learnMore: '/services/api-integration'
+      title: 'Web Engineering',
+      description: 'Fast, scalable development with quality assurance.',
+      bullets: ['Modern frameworks', 'Performance optimization'],
+      href: '/services/web-development'
+    },
+    {
+      icon: 'bi-shield-lock',
+      title: 'Web3 & Emerging',
+      description: 'Blockchain integration and decentralized applications.',
+      bullets: ['Smart contracts', 'Wallet integrations'],
+      href: '/services/web3-blockchain'
     },
     {
       icon: 'bi-gear',
-      title: 'Maintenance & Support',
-      description: 'Ongoing support and updates so your digital assets keep ticking over.',
-      color: 'accent-yellow',
-      learnMore: '/services/maintenance-support'
+      title: 'Retainers',
+      description: 'Ongoing support and continuous development.',
+      bullets: ['Monthly maintenance', 'Feature updates'],
+      href: '/services/maintenance-support'
     }
   ]
 
@@ -132,77 +99,84 @@ export default function Features() {
 
   return (
     <section
-      className={styles.featuresSection}
-      id="features"
+      className={styles.servicesSection}
+      id="services"
       ref={sectionRef}
+      data-bg-color={getSectionBackground('features')}
     >
-      <div className={styles.backgroundElements}>
-        <div className={styles.backgroundGradient}></div>
-        <div className={styles.backgroundGrid}></div>
-        <div className={styles.backgroundDots}></div>
-      </div>
-
-      <motion.div
-        className="container"
-        variants={sectionVariants}
-        initial="hidden"
-        animate={isInView ? "visible" : "hidden"}
-      >
+      <div className={`${styles.container} max-w-content mx-auto px-6 sm:px-8`}>
         <motion.div
           className={styles.sectionHeading}
-          variants={headingVariants}
+          variants={sectionVariants}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
         >
-          <span className={styles.sectionLabel}>What We Do</span>
-          <h2 className={styles.gradientText}>Our Services</h2>
-          <p className={styles.subtitle}>
-            Everything you need to build and scale web, app and blockchain projects
+          <span className="label-uppercase">Services</span>
+          <h2 className={styles.sectionTitle}>What we do</h2>
+          <p className={styles.sectionDescription}>
+            Full-stack design and development for crypto and web3 founders
           </p>
         </motion.div>
 
+        {/* Finch-style 2x2 grid */}
         <motion.div
-          className={styles.featuresGrid}
+          className={styles.servicesGrid}
           variants={gridVariants}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
         >
-          {features.map((feature, index) => (
+          {services.map((service, index) => (
             <motion.div
               key={index}
-              className={`${styles.featureCard} ${styles[feature.color]}`}
+              className={styles.serviceCard}
               variants={cardVariants}
               whileHover={{
-                y: -10,
+                y: -4,
                 transition: { duration: 0.3, ease: "easeOut" }
               }}
             >
-              <div className={styles.cardContent}>
+              <div className={styles.cardHeader}>
                 <div className={styles.iconWrapper}>
-                  <i className={`bi ${feature.icon} ${styles.featureIcon}`}></i>
+                  <i className={`bi ${service.icon}`}></i>
                 </div>
-                <h3 className={styles.featureTitle}>{feature.title}</h3>
-                <p className={styles.featureDescription}>{feature.description}</p>
-                {feature.learnMore && (
-                  <div className={styles.cardFooter}>
-                    <a className={styles.learnMore} href={feature.learnMore}>
-                      Learn more <i className="bi bi-arrow-right"></i>
-                    </a>
-                  </div>
-                )}
+                <h3 className={styles.serviceTitle}>{service.title}</h3>
               </div>
-              <div className={styles.cardGlow}></div>
-              <div className={styles.cardBorder}></div>
+
+              <p className={styles.serviceDescription}>{service.description}</p>
+
+              <ul className={styles.serviceBullets}>
+                {service.bullets.map((bullet, bulletIndex) => (
+                  <li key={bulletIndex}>{bullet}</li>
+                ))}
+              </ul>
+
+              {/* Micro-CTA */}
+              <div className={styles.cardFooter}>
+                <a href={service.href} className={styles.microCTA}>
+                  Learn more
+                  <i className="bi bi-arrow-right"></i>
+                </a>
+              </div>
             </motion.div>
           ))}
         </motion.div>
 
+        {/* Bottom CTA */}
         <motion.div
-          className={styles.ctaContainer}
+          className={styles.bottomCTA}
           variants={headingVariants}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
         >
-          <a href="#chat" className={styles.ctaButton}>
-            <span>Tell Us About Your Project</span>
-            <i className="bi bi-arrow-right"></i>
+          <div className={styles.ctaContent}>
+            <h3>Ready to start your project?</h3>
+            <p>Book a discovery call to discuss your needs</p>
+          </div>
+          <a href="#chat" className="btn btn-primary">
+            Book a call
           </a>
         </motion.div>
-      </motion.div>
+      </div>
     </section>
   )
 }

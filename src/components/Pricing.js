@@ -3,6 +3,8 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import styles from '../styles/component-css/Pricing.module.css'
+import { analytics } from '@/lib/analytics'
+import { getSectionBackground } from '@/hooks/useScrollBackground'
 
 export default function Pricing() {
   const [billingPeriod, setBillingPeriod] = useState('monthly')
@@ -47,6 +49,9 @@ export default function Pricing() {
   useEffect(() => {
     // Fetch exchange rates when component mounts
     fetchExchangeRates()
+
+    // Track pricing view
+    analytics.pricing.view()
   }, [])
 
   const fetchExchangeRates = async () => {
@@ -156,145 +161,195 @@ export default function Pricing() {
     setShowCurrencyMenu(false)
   }
 
+  // Example project costs data
+  const exampleProjects = [
+    {
+      title: 'Landing Page',
+      description: 'Marketing website with 5-8 pages',
+      timeframe: '2-3 weeks',
+      cost: billingPeriod === 'monthly' ? '1 month' : '0.8 months'
+    },
+    {
+      title: 'Web App MVP',
+      description: 'Full-stack application with auth & database',
+      timeframe: '6-8 weeks',
+      cost: billingPeriod === 'monthly' ? '2 months' : '1.6 months'
+    },
+    {
+      title: 'E-commerce Platform',
+      description: 'Complete online store with payments',
+      timeframe: '8-12 weeks',
+      cost: billingPeriod === 'monthly' ? '3 months' : '2.4 months'
+    }
+  ]
+
   return (
-    <section className={styles.pricingSection} id="pricing">
-      <div className="container">
-        <div className={styles.pricingHeading}>
-          <h2 className="gradient-text">Pricing. Simple.</h2>
-          <p>Straightforward pricing built for growing ideas</p>
+    <section
+      className={styles.pricingSection}
+      id="pricing"
+      data-bg-color={getSectionBackground('pricing')}
+    >
+      <div className={`${styles.container} max-w-content mx-auto px-6 sm:px-8`}>
+        {/* Finch-style section heading */}
+        <div className={styles.sectionHeading}>
+          <span className="label-uppercase">Pricing</span>
+          <h2 className={styles.sectionTitle}>Simple, transparent pricing</h2>
+          <p className={styles.sectionDescription}>
+            One subscription covers everything. No hidden fees, no surprises.
+          </p>
         </div>
-        
-        <div className={styles.currencyDropdown}>
-          <button className={styles.dropdownTrigger} onClick={toggleCurrencyMenu}>
-            <span>{selectedCurrency}</span>
-            <i className="bi bi-chevron-down"></i>
-          </button>
-          <span
-            className={styles.currencyInfoIcon}
-          title={`${selectedCurrency} automatically selected based on your browser language (${typeof navigator !== 'undefined' ? navigator.language : 'unknown'}). Final invoice may vary slightly due to exchange rates.`}
-          >
-            <i className="bi bi-info-circle"></i>
-          </span>
-          {showCurrencyMenu && (
-            <div className={styles.currencyMenu}>
-              {currencies.map((currency) => (
-                <button 
-                  key={currency.name} 
-                  className={`${styles.currencyOption} ${selectedCurrency === currency.name ? styles.active : ''}`}
-                  onClick={() => selectCurrency(currency.name)}
+
+        {/* Currency selector */}
+        <div className={styles.currencySelector}>
+          <div className={styles.currencyDropdown}>
+            <button className={styles.dropdownTrigger} onClick={toggleCurrencyMenu}>
+              <span>{selectedCurrency}</span>
+              <i className="bi bi-chevron-down"></i>
+            </button>
+            {showCurrencyMenu && (
+              <div className={styles.currencyMenu}>
+                {currencies.map((currency) => (
+                  <button
+                    key={currency.name}
+                    className={`${styles.currencyOption} ${selectedCurrency === currency.name ? styles.active : ''}`}
+                    onClick={() => selectCurrency(currency.name)}
+                  >
+                    {currency.name}
+                  </button>
+                ))}
+                <button
+                  className={`${styles.currencyOption} ${selectedCurrency === 'BTC' ? styles.active : ''}`}
+                  onClick={() => selectCurrency('BTC')}
                 >
-                  {currency.name}
+                  BTC
                 </button>
-              ))}
-              <button 
-                className={`${styles.currencyOption} ${selectedCurrency === 'BTC' ? styles.active : ''}`}
-                onClick={() => selectCurrency('BTC')}
-              >
-                BTC
-              </button>
-            </div>
-          )}
+              </div>
+            )}
+          </div>
         </div>
-        
-        <div className={styles.pricingGrid}>
-          <div className={styles.leftPanel}>
-            <div className={styles.priceDisplayBox}>
-              <div className={styles.priceAmount}>
-                {billingPeriod === 'monthly' 
+
+        {/* Main pricing card */}
+        <div className={styles.pricingCard}>
+          <div className={styles.pricingHeader}>
+            {/* Finch-style large typography */}
+            <div className={styles.priceDisplay}>
+              <span className={styles.priceAmount}>
+                {billingPeriod === 'monthly'
                   ? prices.monthly[selectedCurrency] || prices.monthly.GBP
                   : prices.quarterlyMonthly[selectedCurrency] || prices.quarterlyMonthly.GBP
                 }
-              </div>
-              <div className={styles.pricePeriod}>/month</div>
+              </span>
+              <span className={styles.pricePeriod}>/month</span>
             </div>
-            
-            <div className={styles.switchWrapper}>
-              <div 
-                className={`${styles.switchBody} ${billingPeriod === 'quarterly' ? styles.on : ''}`} 
-                onClick={toggleBillingPeriod}
-              >
-                <div className={styles.switchIndicator}></div>
+
+            {/* Monthly/quarterly toggle */}
+            <div className={styles.billingToggle}>
+              <div className={styles.toggleWrapper}>
+                <button
+                  className={`${styles.toggleOption} ${billingPeriod === 'monthly' ? styles.active : ''}`}
+                  onClick={() => setBillingPeriod('monthly')}
+                >
+                  Monthly
+                </button>
+                <button
+                  className={`${styles.toggleOption} ${billingPeriod === 'quarterly' ? styles.active : ''}`}
+                  onClick={() => setBillingPeriod('quarterly')}
+                >
+                  Quarterly
+                  <span className={styles.savingsBadge}>Save 20%</span>
+                </button>
               </div>
-              <div className={styles.switchLabel}>
-                {billingPeriod === 'quarterly'
-                  ? `You're saving ${prices.monthlySavings[selectedCurrency] || prices.monthlySavings.GBP} on the quarterly plan`
-                  : `Billed monthly. Switch to quarterly and save`
-                }
-              </div>
+              {billingPeriod === 'quarterly' && (
+                <p className={styles.savingsNote}>
+                  You're saving {prices.monthlySavings[selectedCurrency] || prices.monthlySavings.GBP} per month
+                </p>
+              )}
             </div>
           </div>
-          
-          <div className={styles.rightPanel}>
-            <div className={styles.featureSection}>
-              <div className={styles.featureBadge}>What's included</div>
+
+          <div className={styles.pricingContent}>
+            {/* What's included */}
+            <div className={styles.featuresSection}>
+              <h3 className={styles.featuresTitle}>What's included</h3>
               <ul className={styles.featuresList}>
                 <li className={styles.featureItem}>
-                  <i className={`bi bi-check-circle-fill ${styles.featureIcon}`}></i>
-                  <span className={styles.featureText}>Queued tasks turned around in as little as 48 hours</span>
+                  <i className="bi bi-check-circle-fill"></i>
+                  <span>Unlimited requests & revisions</span>
                 </li>
                 <li className={styles.featureItem}>
-                  <i className={`bi bi-check-circle-fill ${styles.featureIcon}`}></i>
-                  <span className={styles.featureText}>Unlimited development scopes</span>
+                  <i className="bi bi-check-circle-fill"></i>
+                  <span>48-hour turnaround on most tasks</span>
                 </li>
                 <li className={styles.featureItem}>
-                  <i className={`bi bi-check-circle-fill ${styles.featureIcon}`}></i>
-                  <span className={styles.featureText}>Application staging included</span>
+                  <i className="bi bi-check-circle-fill"></i>
+                  <span>Direct Slack/Discord communication</span>
                 </li>
                 <li className={styles.featureItem}>
-                  <i className={`bi bi-check-circle-fill ${styles.featureIcon}`}></i>
-                  <span className={styles.featureText}>Unlimited revision queue</span>
+                  <i className="bi bi-check-circle-fill"></i>
+                  <span>Staging environments included</span>
+                </li>
+                <li className={styles.featureItem}>
+                  <i className="bi bi-check-circle-fill"></i>
+                  <span>Pause or cancel anytime</span>
                 </li>
               </ul>
             </div>
-            
-            <div className={styles.featureSection}>
-              <div className={`${styles.featureBadge} ${styles.green}`}>Billing</div>
-              <ul className={styles.featuresList}>
-                {billingPeriod === 'monthly' ? (
-                  <>
-                    <li className={styles.featureItem}>
-                      <i className={`bi bi-calendar-month ${styles.featureIcon}`}></i>
-                      <span className={styles.featureText}>Monthly billing</span>
-                    </li>
-                    <li className={styles.featureItem}>
-                      <i className={`bi bi-credit-card ${styles.featureIcon}`}></i>
-                      <span className={styles.featureText}>
-                        Pre-pay {prices.monthly[selectedCurrency] || prices.monthly.GBP} each month
-                      </span>
-                    </li>
-                  </>
-                ) : (
-                  <>
-                    <li className={styles.featureItem}>
-                      <i className={`bi bi-calendar3 ${styles.featureIcon}`}></i>
-                      <span className={styles.featureText}>Quarterly billing</span>
-                    </li>
-                    <li className={styles.featureItem}>
-                      <i className={`bi bi-piggy-bank ${styles.featureIcon}`}></i>
-                      <span className={styles.featureText}>
-                        Save {prices.monthlySavings[selectedCurrency] || prices.monthlySavings.GBP} compared with monthly
-                      </span>
-                    </li>
-                    <li className={styles.featureItem}>
-                      <i className={`bi bi-credit-card ${styles.featureIcon}`}></i>
-                      <span className={styles.featureText}>
-                        Pre-pay {prices.quarterly[selectedCurrency] || prices.quarterly.GBP} every 3 months
-                      </span>
-                    </li>
-                  </>
-                )}
-              </ul>
+
+            {/* CTA */}
+            <div className={styles.pricingCTA}>
+              <Link
+                href="#chat"
+                className="btn btn-primary btn-large"
+                onClick={() => analytics.pricing.bookCall()}
+              >
+                Get started today
+              </Link>
+              <p className={styles.ctaNote}>
+                Book a call to discuss your project
+              </p>
             </div>
           </div>
         </div>
-        
-        <div className={styles.pricingActions}>
-          <Link href="/pricing#more-info" className={styles.linkLight}>
-            <span>Find out more</span>
-            <i className="bi bi-arrow-right ms-2"></i>
-          </Link>
-          <Link href="#chat" className="btn btn-primary">
-            <span>Let's chat about pricing</span>
+
+        {/* Example project costs */}
+        <div className={styles.examplesSection}>
+          <h3 className={styles.examplesTitle}>Example project costs</h3>
+          <p className={styles.examplesDescription}>
+            Here's how our subscription model works for different project types
+          </p>
+
+          <div className={styles.examplesGrid}>
+            {exampleProjects.map((project, index) => (
+              <div key={index} className={styles.exampleCard}>
+                <h4 className={styles.exampleTitle}>{project.title}</h4>
+                <p className={styles.exampleDescription}>{project.description}</p>
+                <div className={styles.exampleMeta}>
+                  <div className={styles.exampleTimeframe}>
+                    <i className="bi bi-clock"></i>
+                    <span>{project.timeframe}</span>
+                  </div>
+                  <div className={styles.exampleCost}>
+                    <span className={styles.costLabel}>Subscription cost:</span>
+                    <span className={styles.costValue}>{project.cost}</span>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Bottom CTA */}
+        <div className={styles.bottomCTA}>
+          <div className={styles.ctaContent}>
+            <h3>Ready to get started?</h3>
+            <p>Book a discovery call to discuss your project needs</p>
+          </div>
+          <Link
+            href="#chat"
+            className="btn btn-primary"
+            onClick={() => analytics.pricing.bookCall()}
+          >
+            Book a call
           </Link>
         </div>
       </div>
