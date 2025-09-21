@@ -4,6 +4,7 @@ import { useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import Image from 'next/image'
+import Lottie from "lottie-react";
 import styles from '@/styles/component-css/Hero.module.css'
 import { analytics } from '@/lib/analytics'
 import { getSectionBackground } from '@/hooks/useScrollBackground'
@@ -104,12 +105,8 @@ export default function Hero() {
       data-bg-color={getSectionBackground('hero')}
     >
       {/* Finch-style background elements */}
-      <div className={styles.heroBackground}>
-        <div className={styles.heroGradient}></div>
-        <div className={styles.heroGrid}></div>
-      </div>
 
-      <div className={`${styles.heroContainer} max-w-4xl mx-auto px-6 sm:px-8`}>
+      <div className={`${styles.heroContainer} max-w-7xl mx-auto px-6 sm:px-8`}>
         <motion.div
           className={styles.heroContent}
           initial="hidden"
@@ -118,7 +115,7 @@ export default function Hero() {
         >
           {/* AI-led Badge */}
           <motion.div className={styles.aiBadge} variants={fadeInUp}>
-            <span className="label-uppercase">AI-led. Senior-built.</span>
+            <span className="label-uppercase">Open for new projects</span>
           </motion.div>
 
           {/* Main heading with Finch-style large typography */}
@@ -170,52 +167,16 @@ export default function Hero() {
             <div className={styles.trustPill}>
               <span className={styles.trustText}>Trusted by founders at</span>
               <div className={styles.trustLogos}>
-                <Image src="/images/trust-logo-1.svg" alt="Client logo" width={72} height={32} className={styles.trustLogo} />
-                <Image src="/images/trust-logo-2.svg" alt="Client logo" width={72} height={32} className={styles.trustLogo} />
-                <Image src="/images/trust-logo-3.svg" alt="Client logo" width={72} height={32} className={styles.trustLogo} />
+                <Image src="/images/portfolio-graphics/logos/btcpayserver.webp" alt="Client logo" width={72} height={32} className={styles.trustLogo} />
+                <Image src="/images/portfolio-graphics/logos/wallet-scrutiny.webp" alt="Client logo" width={72} height={32} className={styles.trustLogo} />
+                <Image src="/images/portfolio-graphics/logos/dvote.webp" alt="Client logo" width={72} height={32} className={`${styles.trustLogo} ${styles.trustLogoDvote}`} />
+                <Image src="/images/portfolio-graphics/logos/zettahash.webp" alt="Client logo" width={72} height={32} className={`${styles.trustLogo} ${styles.trustLogoZetahash}`} />
               </div>
             </div>
           </motion.div>
         </motion.div>
 
-        {/* Finch-style stat cards - taller with vertical dividers */}
-        <motion.div
-          className={styles.heroStats}
-          variants={staggerContainer}
-          initial="hidden"
-          animate="visible"
-          transition={{ delayChildren: 0.6, staggerChildren: 0.2 }}
-        >
-          <motion.div
-            className={styles.statCard}
-            variants={statVariants}
-            whileHover="hover"
-          >
-            <div className={styles.statNumber}>12+</div>
-            <div className={styles.statDivider}></div>
-            <div className={styles.statLabel}>Years in product development</div>
-          </motion.div>
 
-          <motion.div
-            className={styles.statCard}
-            variants={statVariants}
-            whileHover="hover"
-          >
-            <div className={styles.statNumber}>20+</div>
-            <div className={styles.statDivider}></div>
-            <div className={styles.statLabel}>Projects shipped</div>
-          </motion.div>
-
-          <motion.div
-            className={styles.statCard}
-            variants={statVariants}
-            whileHover="hover"
-          >
-            <div className={styles.statNumber}>100%</div>
-            <div className={styles.statDivider}></div>
-            <div className={styles.statLabel}>Client Satisfaction</div>
-          </motion.div>
-        </motion.div>
       </div>
     </section>
   )
