@@ -4,7 +4,6 @@ import { useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import Image from 'next/image'
-import Lottie from "lottie-react";
 import styles from '@/styles/component-css/Hero.module.css'
 import { analytics } from '@/lib/analytics'
 import { getSectionBackground } from '@/hooks/useScrollBackground'
@@ -104,7 +103,6 @@ export default function Hero() {
       ref={heroRef}
       data-bg-color={getSectionBackground('hero')}
     >
-      {/* Finch-style background elements */}
 
       <div className={`${styles.heroContainer} max-w-7xl mx-auto px-6 sm:px-8`}>
         <motion.div
@@ -115,10 +113,13 @@ export default function Hero() {
         >
           {/* AI-led Badge */}
           <motion.div className={styles.aiBadge} variants={fadeInUp}>
-            <span className="label-uppercase">Open for new projects</span>
+            <span className={`${styles.aiBadgeLabel} label-uppercase`}>
+              <span className={styles.aiBadgeIndicator} aria-hidden="true"></span>
+              <span className={styles.aiBadgeCopy}>Open for new projects</span>
+            </span>
           </motion.div>
 
-          {/* Main heading with Finch-style large typography */}
+          {/* Main heading with F18-style large typography */}
           <motion.h1 className={styles.heroHeading} variants={fadeInUp}>
             Websites & Apps<br />
             <span className={styles.heroHeadingThin}>AI-Led Design + Development</span>
@@ -132,7 +133,7 @@ export default function Hero() {
             UI/UX Development. Security-first engineering. Robust code designed to last..
           </motion.p>
 
-          {/* CTA cluster - Finch style */}
+          {/* CTA cluster - F18 style */}
           <motion.div
             className={styles.heroActions}
             variants={staggerContainer}

@@ -13,7 +13,7 @@ export default function Footer() {
     >
       <h2 id="footer-heading" className="sr-only">Footer</h2>
       <div className={`${styles.container} max-w-content mx-auto px-6 sm:px-8`}>
-        {/* Finch-style 4-column layout */}
+        {/* F18-style 4-column layout */}
         <div className={styles.footerGrid}>
           {/* Brand column */}
           <div className={styles.brandColumn}>

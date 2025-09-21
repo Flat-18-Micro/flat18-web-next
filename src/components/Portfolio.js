@@ -174,7 +174,7 @@ function ProjectCard({ project, index }) {
         transition: { duration: 0.3, ease: [0.22, 1, 0.36, 1] }
       }}
     >
-      {/* Finch-style large imagery */}
+      {/* F18-style large imagery */}
       <motion.div
         className={styles.projectImageWrapper}
         variants={imageVariants}
@@ -262,7 +262,7 @@ function ProjectCard({ project, index }) {
           {project.description}
         </motion.p>
 
-        {/* Finch-style stat pills */}
+        {/* F18-style stat pills */}
         <motion.div
           className={styles.projectStats}
           variants={techStackVariants}
@@ -313,7 +313,7 @@ export default function Portfolio() {
   const sectionRef = useRef(null)
   const isInView = useInView(sectionRef, { once: true, amount: 0.1 })
 
-  // Finch-style featured work projects
+  // F18-style featured work projects
   const projects = [
     {
       title: 'Archimedes Finance',
@@ -452,7 +452,7 @@ export default function Portfolio() {
           </p>
         </motion.div>
 
-        {/* Finch-style project grid */}
+        {/* F18-style project grid */}
         <motion.div
           className={styles.projectGrid}
           variants={containerVariants}

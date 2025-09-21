@@ -190,7 +190,7 @@ export default function Pricing() {
       data-bg-color={getSectionBackground('pricing')}
     >
       <div className={`${styles.container} max-w-content mx-auto px-6 sm:px-8`}>
-        {/* Finch-style section heading */}
+        {/* F18-style section heading */}
         <div className={styles.sectionHeading}>
           <span className="label-uppercase">Pricing</span>
           <h2 className={styles.sectionTitle}>Simple, transparent pricing</h2>
@@ -231,7 +231,7 @@ export default function Pricing() {
         {/* Main pricing card */}
         <div className={styles.pricingCard}>
           <div className={styles.pricingHeader}>
-            {/* Finch-style large typography */}
+            {/* F18-style large typography */}
             <div className={styles.priceDisplay}>
               <span className={styles.priceAmount}>
                 {billingPeriod === 'monthly'

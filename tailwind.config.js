@@ -14,7 +14,7 @@ module.exports = {
         'bwgradual': ['var(--font-bwgradual)'],
       },
       colors: {
-        // Finch-inspired Flat 18 palette
+        // F18-inspired Flat 18 palette
         'cobalt': 'var(--cobalt)',
         'violet': 'var(--violet)',
         'aqua': 'var(--aqua)',
@@ -40,7 +40,7 @@ module.exports = {
         'text-tertiary': 'var(--text-tertiary)',
       },
       maxWidth: {
-        'content': '1280px', // Finch-style max container width
+        'content': '1280px', // F18-style max container width
         'content-inner': '960px',
         'text-content': '720px',
       },

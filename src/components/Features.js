@@ -9,7 +9,7 @@ export default function Features() {
   const sectionRef = useRef(null)
   const isInView = useInView(sectionRef, { once: true, amount: 0.1 })
 
-  // Finch-style 2x2 services grid
+  // F18-style 2x2 services grid
   const services = [
     {
       icon: 'bi-palette',
@@ -74,25 +74,45 @@ export default function Features() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.15,
+        staggerChildren: 0.2,
         delayChildren: 0.4
       }
     }
   }
 
-  const cardVariants = {
-    hidden: {
-      opacity: 0,
-      y: 40,
-      scale: 0.95
-    },
-    visible: {
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      transition: {
-        duration: 0.7,
-        ease: [0.22, 1, 0.36, 1]
+  // Create directional card variants based on index
+  const getCardVariants = (index) => {
+    // Determine direction based on index (cycling through 4 directions)
+    const directions = [
+      { x: -100, y: -100 }, // top-left
+      { x: 100, y: -100 },  // top-right
+      { x: -100, y: 100 },  // bottom-left
+      { x: 100, y: 100 }    // bottom-right
+    ]
+
+    const direction = directions[index % 4]
+
+    return {
+      hidden: {
+        opacity: 0,
+        x: direction.x,
+        y: direction.y,
+        scale: 0.6,
+        rotate: index % 2 === 0 ? -15 : 15, // Alternate rotation direction
+      },
+      visible: {
+        opacity: 1,
+        x: 0,
+        y: 0,
+        scale: 1,
+        rotate: 0,
+        transition: {
+          duration: 0.8,
+          ease: [0.22, 1, 0.36, 1],
+          type: "spring",
+          stiffness: 100,
+          damping: 15
+        }
       }
     }
   }
@@ -118,7 +138,7 @@ export default function Features() {
           </p>
         </motion.div>
 
-        {/* Finch-style 2x2 grid */}
+        {/* F18-style 2x2 grid */}
         <motion.div
           className={styles.servicesGrid}
           variants={gridVariants}
@@ -129,10 +149,18 @@ export default function Features() {
             <motion.div
               key={index}
               className={styles.serviceCard}
-              variants={cardVariants}
+              variants={getCardVariants(index)}
               whileHover={{
                 y: -4,
-                transition: { duration: 0.3, ease: "easeOut" }
+                scale: 1.02,
+                rotate: 0,
+                transition: {
+                  duration: 0.3,
+                  ease: "easeOut",
+                  type: "spring",
+                  stiffness: 300,
+                  damping: 20
+                }
               }}
             >
               <div className={styles.cardHeader}>

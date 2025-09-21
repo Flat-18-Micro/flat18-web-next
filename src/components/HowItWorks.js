@@ -6,7 +6,7 @@ import styles from '@/styles/component-css/HowItWorks.module.css'
 import { getSectionBackground } from '@/hooks/useScrollBackground'
 
 export default function HowItWorks() {
-  // Finch-style four-step process
+  // F18-style four-step process
   const steps = [
     {
       number: '01',
@@ -75,7 +75,7 @@ export default function HowItWorks() {
           </p>
         </div>
 
-        {/* Finch-style horizontal timeline */}
+        {/* F18-style horizontal timeline */}
         <div className={styles.timeline}>
           <div className={styles.timelineTrack}></div>
           
