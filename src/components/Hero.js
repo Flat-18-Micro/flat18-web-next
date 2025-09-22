@@ -196,7 +196,7 @@ export default function Hero() {
                   autoplay={true}
                   style={{
                     width: 'clamp(345.6px, 28.8vw, 460.8px)',
-                    height: 'clamp(108px, 8.64vw, 144px)',
+                    // height: 'clamp(108px, 8.64vw, 144px)',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',

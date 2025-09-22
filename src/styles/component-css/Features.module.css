@@ -50,6 +50,12 @@
   height: 100%
 }
 
+.serviceCard:hover {
+  transform: translateY(-4px) scale(1.02);
+  border-color: var(--border-strong);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
 
 .cardHeader {
   display: flex;

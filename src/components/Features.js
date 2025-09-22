@@ -166,17 +166,6 @@ export default function Features() {
                   rotate: transforms.rotate,
                   opacity: transforms.opacity
                 }}
-                whileHover={{
-                  y: -4,
-                  scale: 1.02,
-                  transition: {
-                    duration: 0.3,
-                    ease: "easeOut",
-                    type: "spring",
-                    stiffness: 300,
-                    damping: 20
-                  }
-                }}
               >
               <div className={styles.cardHeader}>
                 <div className={styles.iconWrapper}>
