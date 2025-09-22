@@ -42,17 +42,20 @@ export function ThemeProvider({ children }: ThemeProviderProps) {
     return 'dark' // Default fallback
   }
 
-  // Apply theme to HTML element
+  // Apply theme to HTML and body elements
   const applyTheme = (newTheme: 'light' | 'dark') => {
     if (typeof document !== 'undefined') {
       const root = document.documentElement
-      
-      // Remove existing theme classes
+      const body = document.body
+
+      // Remove existing theme classes from both html and body
       root.classList.remove('light', 'dark')
-      
-      // Add new theme class
+      body.classList.remove('light', 'dark')
+
+      // Add new theme class to both html and body
       root.classList.add(newTheme)
-      
+      body.classList.add(newTheme)
+
       // Update resolved theme
       setResolvedTheme(newTheme)
     }

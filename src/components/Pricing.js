@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import styles from '../styles/component-css/Pricing.module.css'
 import { analytics } from '@/lib/analytics'
-import { getSectionBackground } from '@/hooks/useScrollBackground'
+import { getSectionBackground, getSectionTextColor } from '@/hooks/useScrollBackground'
 
 export default function Pricing() {
   const [billingPeriod, setBillingPeriod] = useState('monthly')
@@ -188,6 +188,7 @@ export default function Pricing() {
       className={styles.pricingSection}
       id="pricing"
       data-bg-color={getSectionBackground('pricing')}
+      data-text-color={getSectionTextColor('pricing')}
     >
       <div className={`${styles.container} max-w-content mx-auto px-6 sm:px-8`}>
         {/* F18-style section heading */}

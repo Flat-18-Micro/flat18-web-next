@@ -2,7 +2,7 @@
 
 import styles from '../styles/component-css/Stats.module.css'
 import { useEffect, useRef } from 'react'
-import { getSectionBackground } from '@/hooks/useScrollBackground'
+import { getSectionBackground, getSectionTextColor } from '@/hooks/useScrollBackground'
 
 export default function Stats() {
   const countersRef = useRef([])
@@ -76,6 +76,7 @@ export default function Stats() {
     <section
       className={`${styles['stats-wrapper']} statsSection`}
       data-bg-color={getSectionBackground('stats')}
+      data-text-color={getSectionTextColor('stats')}
     >
       <div className='container'>
         <div className={styles['stats-grid']}>

@@ -4,7 +4,7 @@ import { useState, useRef } from 'react'
 import Image from 'next/image'
 import { motion, useInView } from 'framer-motion'
 import styles from '../styles/component-css/Portfolio.module.css'
-import { getSectionBackground } from '@/hooks/useScrollBackground'
+import { getSectionBackground, getSectionTextColor } from '@/hooks/useScrollBackground'
 
 // Individual Project Card Component for proper hook usage
 function ProjectCard({ project, index }) {
@@ -437,6 +437,7 @@ export default function Portfolio() {
       id="work"
       ref={sectionRef}
       data-bg-color={getSectionBackground('portfolio')}
+      data-text-color={getSectionTextColor('portfolio')}
     >
       <div className={`${styles.container} max-w-content mx-auto px-6 sm:px-8`}>
         <motion.div

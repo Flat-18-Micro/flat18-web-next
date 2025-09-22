@@ -4,12 +4,14 @@ import { useEffect, useState, useCallback } from 'react'
 
 export function useScrollBackground() {
   const [currentSectionBg, setCurrentSectionBg] = useState('var(--bg)')
+  const [currentSectionText, setCurrentSectionText] = useState('var(--text-primary)')
 
-  const updateMainBackground = useCallback((backgroundVariable) => {
+  const updateMainStyles = useCallback((backgroundVariable, textVariable) => {
     const mainElement = document.querySelector('main')
     if (mainElement) {
-      // Set the background using CSS variable for automatic theming
+      // Set the background and text color using CSS variables for automatic theming
       mainElement.style.backgroundColor = backgroundVariable
+      mainElement.style.color = textVariable
     }
   }, [])
 
@@ -44,15 +46,18 @@ export function useScrollBackground() {
 
     if (currentSection) {
       const backgroundColor = currentSection.getAttribute('data-bg-color')
+      const textColor = currentSection.getAttribute('data-text-color')
+
       if (backgroundColor && backgroundColor !== currentSectionBg) {
         setCurrentSectionBg(backgroundColor)
-        updateMainBackground(backgroundColor)
+        setCurrentSectionText(textColor || 'var(--text-primary)')
+        updateMainStyles(backgroundColor, textColor || 'var(--text-primary)')
       }
     }
-  }, [currentSectionBg, updateMainBackground])
+  }, [currentSectionBg, updateMainStyles])
 
   useEffect(() => {
-    // Set initial background
+    // Set initial background and text color
     handleScroll()
 
     // Add scroll listener with throttling
@@ -76,7 +81,7 @@ export function useScrollBackground() {
     }
   }, [handleScroll])
 
-  return currentSectionBg
+  return { currentSectionBg, currentSectionText }
 }
 
 // Helper function to get section background CSS variable for current section
@@ -84,4 +89,11 @@ export function getSectionBackground(sectionName) {
   // Convert camelCase to kebab-case for CSS variable names
   const kebabCase = sectionName.replace(/([A-Z])/g, '-$1').toLowerCase()
   return `var(--section-bg-${kebabCase})`
+}
+
+// Helper function to get section text color CSS variable for current section
+export function getSectionTextColor(sectionName) {
+  // Convert camelCase to kebab-case for CSS variable names
+  const kebabCase = sectionName.replace(/([A-Z])/g, '-$1').toLowerCase()
+  return `var(--section-text-${kebabCase})`
 }

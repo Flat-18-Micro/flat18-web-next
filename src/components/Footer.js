@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import styles from '../styles/component-css/Footer.module.css'
-import { getSectionBackground } from '@/hooks/useScrollBackground'
+import { getSectionBackground, getSectionTextColor } from '@/hooks/useScrollBackground'
 
 export default function Footer() {
   return (
@@ -10,6 +10,7 @@ export default function Footer() {
       className={styles.footer}
       aria-labelledby="footer-heading"
       data-bg-color={getSectionBackground('footer')}
+      data-text-color={getSectionTextColor('footer')}
     >
       <h2 id="footer-heading" className="sr-only">Footer</h2>
       <div className={`${styles.container} max-w-content mx-auto px-6 sm:px-8`}>

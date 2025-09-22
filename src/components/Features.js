@@ -1,13 +1,19 @@
 'use client'
 
-import { motion, useInView } from 'framer-motion'
+import { motion, useInView, useScroll, useTransform } from 'framer-motion'
 import { useRef } from 'react'
 import styles from '@/styles/component-css/Features.module.css'
-import { getSectionBackground } from '@/hooks/useScrollBackground'
+import { getSectionBackground, getSectionTextColor } from '@/hooks/useScrollBackground'
 
 export default function Features() {
   const sectionRef = useRef(null)
   const isInView = useInView(sectionRef, { once: true, amount: 0.1 })
+
+  // Scroll-based animations
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"]
+  })
 
   // F18-style 2x2 services grid
   const services = [
@@ -80,42 +86,42 @@ export default function Features() {
     }
   }
 
-  // Create directional card variants based on index
-  const getCardVariants = (index) => {
-    // Determine direction based on index (cycling through 4 directions)
-    const directions = [
-      { x: -100, y: -100 }, // top-left
-      { x: 100, y: -100 },  // top-right
-      { x: -100, y: 100 },  // bottom-left
-      { x: 100, y: 100 }    // bottom-right
-    ]
+  // Create scroll-based transforms for each card
+  // Card 1 transforms (top-left)
+  const card1X = useTransform(scrollYProgress, [0, 0.1, 0.35, 1], [-100, -100, 0, 0])
+  const card1Y = useTransform(scrollYProgress, [0, 0.1, 0.35, 1], [-100, -100, 0, 0])
+  const card1Scale = useTransform(scrollYProgress, [0, 0.1, 0.35, 1], [0.6, 0.6, 1, 1])
+  const card1Rotate = useTransform(scrollYProgress, [0, 0.1, 0.35, 1], [-15, -15, 0, 0])
+  const card1Opacity = useTransform(scrollYProgress, [0, 0.1, 0.35, 1], [0, 0, 1, 1])
 
-    const direction = directions[index % 4]
+  // Card 2 transforms (top-right)
+  const card2X = useTransform(scrollYProgress, [0, 0.15, 0.4, 1], [100, 100, 0, 0])
+  const card2Y = useTransform(scrollYProgress, [0, 0.15, 0.4, 1], [-100, -100, 0, 0])
+  const card2Scale = useTransform(scrollYProgress, [0, 0.15, 0.4, 1], [0.6, 0.6, 1, 1])
+  const card2Rotate = useTransform(scrollYProgress, [0, 0.15, 0.4, 1], [15, 15, 0, 0])
+  const card2Opacity = useTransform(scrollYProgress, [0, 0.15, 0.4, 1], [0, 0, 1, 1])
 
-    return {
-      hidden: {
-        opacity: 0,
-        x: direction.x,
-        y: direction.y,
-        scale: 0.6,
-        rotate: index % 2 === 0 ? -15 : 15, // Alternate rotation direction
-      },
-      visible: {
-        opacity: 1,
-        x: 0,
-        y: 0,
-        scale: 1,
-        rotate: 0,
-        transition: {
-          duration: 0.8,
-          ease: [0.22, 1, 0.36, 1],
-          type: "spring",
-          stiffness: 100,
-          damping: 15
-        }
-      }
-    }
-  }
+  // Card 3 transforms (bottom-left)
+  const card3X = useTransform(scrollYProgress, [0, 0.2, 0.45, 1], [-100, -100, 0, 0])
+  const card3Y = useTransform(scrollYProgress, [0, 0.2, 0.45, 1], [100, 100, 0, 0])
+  const card3Scale = useTransform(scrollYProgress, [0, 0.2, 0.45, 1], [0.6, 0.6, 1, 1])
+  const card3Rotate = useTransform(scrollYProgress, [0, 0.2, 0.45, 1], [-15, -15, 0, 0])
+  const card3Opacity = useTransform(scrollYProgress, [0, 0.2, 0.45, 1], [0, 0, 1, 1])
+
+  // Card 4 transforms (bottom-right)
+  const card4X = useTransform(scrollYProgress, [0, 0.25, 0.5, 1], [100, 100, 0, 0])
+  const card4Y = useTransform(scrollYProgress, [0, 0.25, 0.5, 1], [100, 100, 0, 0])
+  const card4Scale = useTransform(scrollYProgress, [0, 0.25, 0.5, 1], [0.6, 0.6, 1, 1])
+  const card4Rotate = useTransform(scrollYProgress, [0, 0.25, 0.5, 1], [15, 15, 0, 0])
+  const card4Opacity = useTransform(scrollYProgress, [0, 0.25, 0.5, 1], [0, 0, 1, 1])
+
+  // Array of card transforms for easy access
+  const cardTransforms = [
+    { x: card1X, y: card1Y, scale: card1Scale, rotate: card1Rotate, opacity: card1Opacity },
+    { x: card2X, y: card2Y, scale: card2Scale, rotate: card2Rotate, opacity: card2Opacity },
+    { x: card3X, y: card3Y, scale: card3Scale, rotate: card3Rotate, opacity: card3Opacity },
+    { x: card4X, y: card4Y, scale: card4Scale, rotate: card4Rotate, opacity: card4Opacity }
+  ]
 
   return (
     <section
@@ -123,6 +129,7 @@ export default function Features() {
       id="services"
       ref={sectionRef}
       data-bg-color={getSectionBackground('features')}
+      data-text-color={getSectionTextColor('features')}
     >
       <div className={`${styles.container} max-w-content mx-auto px-6 sm:px-8`}>
         <motion.div
@@ -145,24 +152,32 @@ export default function Features() {
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
         >
-          {services.map((service, index) => (
-            <motion.div
-              key={index}
-              className={styles.serviceCard}
-              variants={getCardVariants(index)}
-              whileHover={{
-                y: -4,
-                scale: 1.02,
-                rotate: 0,
-                transition: {
-                  duration: 0.3,
-                  ease: "easeOut",
-                  type: "spring",
-                  stiffness: 300,
-                  damping: 20
-                }
-              }}
-            >
+          {services.map((service, index) => {
+            const transforms = cardTransforms[index] || cardTransforms[0] // Fallback to first card transforms
+
+            return (
+              <motion.div
+                key={index}
+                className={styles.serviceCard}
+                style={{
+                  x: transforms.x,
+                  y: transforms.y,
+                  scale: transforms.scale,
+                  rotate: transforms.rotate,
+                  opacity: transforms.opacity
+                }}
+                whileHover={{
+                  y: -4,
+                  scale: 1.02,
+                  transition: {
+                    duration: 0.3,
+                    ease: "easeOut",
+                    type: "spring",
+                    stiffness: 300,
+                    damping: 20
+                  }
+                }}
+              >
               <div className={styles.cardHeader}>
                 <div className={styles.iconWrapper}>
                   <i className={`bi ${service.icon}`}></i>
@@ -186,7 +201,8 @@ export default function Features() {
                 </a>
               </div>
             </motion.div>
-          ))}
+            )
+          })}
         </motion.div>
 
         {/* Bottom CTA */}

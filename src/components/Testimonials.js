@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef, useCallback } from 'react'
 import { motion, useInView } from 'framer-motion'
 import styles from '../styles/component-css/Testimonials.module.css'
-import { getSectionBackground } from '@/hooks/useScrollBackground'
+import { getSectionBackground, getSectionTextColor } from '@/hooks/useScrollBackground'
 
 export default function Testimonials() {
   const testimonials = [
@@ -374,6 +374,7 @@ export default function Testimonials() {
       id="testimonials"
       ref={sectionRef}
       data-bg-color={getSectionBackground('testimonials')}
+      data-text-color={getSectionTextColor('testimonials')}
     >
       <div className={styles.backgroundElements}>
         <div></div>

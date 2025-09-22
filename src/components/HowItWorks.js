@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
 import styles from '@/styles/component-css/HowItWorks.module.css'
-import { getSectionBackground } from '@/hooks/useScrollBackground'
+import { getSectionBackground, getSectionTextColor } from '@/hooks/useScrollBackground'
 
 export default function HowItWorks() {
   // F18-style four-step process
@@ -65,6 +65,7 @@ export default function HowItWorks() {
       id="process"
       ref={sectionRef}
       data-bg-color={getSectionBackground('howItWorks')}
+      data-text-color={getSectionTextColor('howItWorks')}
     >
       <div className={`${styles.container} max-w-content mx-auto px-6 sm:px-8`}>
         <div className={styles.sectionHeading}>

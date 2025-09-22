@@ -12,7 +12,7 @@ The Flat 18 website features a dynamic scroll-based background color transition 
 ## Customizing Section Colors
 
 ### Easy Color Customization
-To change section background colors, edit the CSS variables in `/src/styles/variables.css`:
+To change section background and text colors, edit the CSS variables in `/src/styles/variables.css`:
 
 ```css
 :root, :root.dark {
@@ -29,6 +29,19 @@ To change section background colors, edit the CSS variables in `/src/styles/vari
   --section-bg-tools: var(--bg-dark-accent);
   --section-bg-testimonials: var(--bg-modern);
   --section-bg-footer: var(--bg-modern-dark);
+  /* Section text color variables for optimal contrast */
+  --section-text-hero: var(--text-primary);
+  --section-text-stats: var(--text-primary);
+  --section-text-features: var(--text-primary);
+  --section-text-featured-work: var(--text-primary);
+  --section-text-how-it-works: var(--text-primary);
+  --section-text-pricing: var(--text-primary);
+  --section-text-faq: var(--text-primary);
+  --section-text-contact: var(--text-primary);
+  --section-text-portfolio: var(--text-primary);
+  --section-text-tools: var(--text-primary);
+  --section-text-testimonials: var(--text-primary);
+  --section-text-footer: var(--text-primary);
 }
 
 :root.light {
@@ -45,6 +58,19 @@ To change section background colors, edit the CSS variables in `/src/styles/vari
   --section-bg-tools: var(--bg-dark-accent);
   --section-bg-testimonials: var(--bg-modern);
   --section-bg-footer: var(--bg-modern-dark);
+  /* Section text color variables for optimal contrast in light theme */
+  --section-text-hero: var(--text-primary);
+  --section-text-stats: var(--text-primary);
+  --section-text-features: var(--text-primary);
+  --section-text-featured-work: var(--text-primary);
+  --section-text-how-it-works: var(--text-primary);
+  --section-text-pricing: var(--text-primary);
+  --section-text-faq: var(--text-primary);
+  --section-text-contact: var(--text-primary);
+  --section-text-portfolio: var(--text-primary);
+  --section-text-tools: var(--text-primary);
+  --section-text-testimonials: var(--text-primary);
+  --section-text-footer: var(--text-primary);
 }
 ```
 
@@ -56,9 +82,9 @@ To change section background colors, edit the CSS variables in `/src/styles/vari
 
 ### Adding New Sections
 1. Add CSS variables for the new section in `/src/styles/variables.css`
-2. Define variables for both dark and light themes
-3. Add `data-bg-color={getSectionBackground('sectionName')}` to your section element
-4. Import `getSectionBackground` from `@/hooks/useScrollBackground`
+2. Define background and text color variables for both dark and light themes
+3. Add both `data-bg-color` and `data-text-color` attributes to your section element
+4. Import both `getSectionBackground` and `getSectionTextColor` from `@/hooks/useScrollBackground`
 
 ### Example: Adding a New Section
 ```css
@@ -66,21 +92,26 @@ To change section background colors, edit the CSS variables in `/src/styles/vari
 :root, :root.dark {
   /* ... existing variables */
   --section-bg-new-section: var(--bg-modern-dark);
+  --section-text-new-section: var(--text-primary);
 }
 
 :root.light {
   /* ... existing variables */
   --section-bg-new-section: var(--bg-modern-dark);
+  --section-text-new-section: var(--text-primary);
 }
 ```
 
 ```javascript
 // In your component
-import { getSectionBackground } from '@/hooks/useScrollBackground'
+import { getSectionBackground, getSectionTextColor } from '@/hooks/useScrollBackground'
 
 export default function NewSection() {
   return (
-    <section data-bg-color={getSectionBackground('newSection')}>
+    <section
+      data-bg-color={getSectionBackground('newSection')}
+      data-text-color={getSectionTextColor('newSection')}
+    >
       {/* Your content */}
     </section>
   )
@@ -95,14 +126,15 @@ export default function NewSection() {
 - Minimum 10% visibility threshold before triggering transitions
 
 ### CSS Transitions
-- 0.8s cubic-bezier transition for smooth color changes on `#main-content`
+- 0.8s cubic-bezier transition for smooth background and text color changes on `#main-content`
 - Section backgrounds are transparent with `!important` override
 - Content maintains proper z-index layering
+- Text color automatically inherits from main element unless overridden
 
 ### Theme Support
-- Automatically detects light/dark theme from document class
-- Falls back to dark theme if detection fails
-- Helper function `getCurrentTheme()` for theme detection
+- CSS variables automatically handle theme switching without JavaScript
+- Background and text colors update simultaneously for optimal contrast
+- No need for theme detection functions - CSS handles everything automatically
 
 ## Troubleshooting
 

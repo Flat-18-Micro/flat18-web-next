@@ -1,15 +1,18 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import Image from 'next/image'
+import Lottie from 'lottie-react'
 import styles from '@/styles/component-css/Hero.module.css'
 import { analytics } from '@/lib/analytics'
-import { getSectionBackground } from '@/hooks/useScrollBackground'
+import { getSectionBackground, getSectionTextColor } from '@/hooks/useScrollBackground'
+import notificationAnimation from '@/animations/Notification-[remix].json'
 
 export default function Hero() {
   const heroRef = useRef(null)
+  const [startAnimation, setStartAnimation] = useState(false)
 
   // Pre-calculate the height to prevent layout shifts
   useEffect(() => {
@@ -18,6 +21,43 @@ export default function Hero() {
       heroRef.current.style.minHeight = height < 900 ? '900px' : `calc(${height}px + 6rem)`;
     }
   }, []);
+
+  // Start Lottie animation after 2 seconds
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setStartAnimation(true)
+    }, 2000)
+
+    return () => clearTimeout(timer)
+  }, [])
+
+  // Apply theme colors to Lottie SVG after it renders
+  useEffect(() => {
+    if (startAnimation) {
+      const timer = setTimeout(() => {
+        const lottieContainer = document.querySelector('.themedLottie svg')
+        if (lottieContainer) {
+          // Target specific fill colors and replace them
+          const elementsToRecolor = lottieContainer.querySelectorAll('[fill="rgb(230,230,230)"], [style*="fill:rgb(230,230,230)"], [style*="fill: rgb(230,230,230)"]')
+
+          elementsToRecolor.forEach(element => {
+            // Get CSS custom property value
+            const primaryColor = getComputedStyle(document.documentElement).getPropertyValue('--primary').trim()
+            element.style.fill = primaryColor
+          })
+
+          // Also target any black or dark gray elements
+          const darkElements = lottieContainer.querySelectorAll('[fill="rgb(0,0,0)"], [fill="black"], [style*="fill:rgb(0,0,0)"], [style*="fill:black"]')
+          darkElements.forEach(element => {
+            const primaryColor = getComputedStyle(document.documentElement).getPropertyValue('--primary').trim()
+            element.style.fill = primaryColor
+          })
+        }
+      }, 100) // Small delay to ensure SVG is rendered
+
+      return () => clearTimeout(timer)
+    }
+  }, [startAnimation])
 
   // Animation variants
   const fadeInUp = {
@@ -102,6 +142,7 @@ export default function Hero() {
       className={styles.heroSection}
       ref={heroRef}
       data-bg-color={getSectionBackground('hero')}
+      data-text-color={getSectionTextColor('hero')}
     >
 
       <div className={`${styles.heroContainer} max-w-7xl mx-auto px-6 sm:px-8`}>
@@ -111,12 +152,59 @@ export default function Hero() {
           animate="visible"
           variants={staggerContainer}
         >
-          {/* AI-led Badge */}
-          <motion.div className={styles.aiBadge} variants={fadeInUp}>
-            <span className={`${styles.aiBadgeLabel} label-uppercase`}>
-              <span className={styles.aiBadgeIndicator} aria-hidden="true"></span>
-              <span className={styles.aiBadgeCopy}>Open for new projects</span>
-            </span>
+          {/* AI-led Badge / Notification Animation */}
+          <motion.div variants={fadeInUp}>
+            {!startAnimation ? (
+              <motion.div
+                className={styles.aiBadge}
+                initial={{ opacity: 1 }}
+                animate={{ opacity: startAnimation ? 0 : 1 }}
+                transition={{ duration: 0.3 }}
+              >
+                <span className={`${styles.aiBadgeLabel} label-uppercase`}>
+                  <span className={styles.aiBadgeIndicator} aria-hidden="true"></span>
+                  <span className={styles.aiBadgeCopy}>Open for new projects</span>
+                </span>
+              </motion.div>
+            ) : (
+              <motion.div
+                initial={{
+                  opacity: 0,
+                  rotate: -15,
+                  scale: 0.8
+                }}
+                animate={{
+                  opacity: 1,
+                  rotate: 0,
+                  scale: 1
+                }}
+                transition={{
+                  duration: 0.6,
+                  ease: [0.22, 1, 0.36, 1],
+                  type: "spring",
+                  stiffness: 100,
+                  damping: 15
+                }}
+                style={{
+                  transformOrigin: 'center center'
+                }}
+              >
+                  <Lottie
+                    className={styles.themedLottie}
+                  animationData={notificationAnimation}
+                  loop={false}
+                  autoplay={true}
+                  style={{
+                    width: 'clamp(345.6px, 28.8vw, 460.8px)',
+                    height: 'clamp(108px, 8.64vw, 144px)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    borderRadius: '20px'
+                  }}
+                />
+              </motion.div>
+            )}
           </motion.div>
 
           {/* Main heading with F18-style large typography */}

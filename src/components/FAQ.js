@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import styles from '../styles/component-css/FAQ.module.css'
-import { getSectionBackground } from '@/hooks/useScrollBackground'
+import { getSectionBackground, getSectionTextColor } from '@/hooks/useScrollBackground'
 
 export default function FAQ() {
   useEffect(() => {
@@ -140,6 +140,7 @@ export default function FAQ() {
       className={styles.faqWrapper}
       id="faq"
       data-bg-color={getSectionBackground('faq')}
+      data-text-color={getSectionTextColor('faq')}
     >
       <div className={styles.backgroundGradient}></div>
 

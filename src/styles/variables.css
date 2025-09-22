@@ -41,7 +41,6 @@
   --bg-surface-active: rgba(255, 255, 255, 0.08);
   --bg-gauze: rgba(21, 24, 30, 0.7);
   --bg-gauze-heavy: rgba(21, 24, 30, 0.95);
-  /* Section background variables for theming */
   --section-bg-hero: var(--bg-dark);
   --section-bg-stats: var(--bg-dark-accent);
   --section-bg-features: var(--bg-modern);
@@ -54,6 +53,18 @@
   --section-bg-tools: var(--bg-dark-accent);
   --section-bg-testimonials: var(--bg-modern);
   --section-bg-footer: var(--bg-modern-dark);
+  --section-text-hero: var(--text-primary);
+  --section-text-stats: var(--text-primary);
+  --section-text-features: var(--text-primary);
+  --section-text-featured-work: var(--text-primary);
+  --section-text-how-it-works: var(--text-primary);
+  --section-text-pricing: var(--text-primary);
+  --section-text-faq: var(--text-primary);
+  --section-text-contact: var(--text-primary);
+  --section-text-portfolio: var(--text-primary);
+  --section-text-tools: var(--text-primary);
+  --section-text-testimonials: var(--text-primary);
+  --section-text-footer: var(--text-primary);
   --primary: var(--color-teal);
   --primary-dark: var(--color-teal-dark);
   --primary-light: var(--color-teal-light);
@@ -213,10 +224,12 @@
   --glass-bg: rgba(15, 17, 24, 0.7);
   --glass-border: rgba(255, 255, 255, 0.08);
   --glass-highlight: rgba(255, 255, 255, 0.05);
-  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.2)
+  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  --grey:#eee;
 }
 
 :root.light {
+  --grey:#222;
   --bg: #ffffff;
   --fg: #1a1a1a;
   --surface-dim: rgba(0, 0, 0, 0.03);
@@ -236,7 +249,6 @@
   --bg-surface-active: rgba(0, 0, 0, 0.08);
   --bg-gauze: rgba(255, 255, 255, 0.7);
   --bg-gauze-heavy: rgba(255, 255, 255, 0.95);
-  /* Section background variables for light theme */
   --section-bg-hero: var(--bg-dark);
   --section-bg-stats: var(--bg-dark-accent);
   --section-bg-features: var(--bg-modern);
@@ -249,6 +261,18 @@
   --section-bg-tools: var(--bg-dark-accent);
   --section-bg-testimonials: var(--bg-modern);
   --section-bg-footer: var(--bg-modern-dark);
+  --section-text-hero: var(--text-primary);
+  --section-text-stats: var(--text-primary);
+  --section-text-features: var(--text-primary);
+  --section-text-featured-work: var(--text-primary);
+  --section-text-how-it-works: var(--text-primary);
+  --section-text-pricing: var(--text-primary);
+  --section-text-faq: var(--text-primary);
+  --section-text-contact: var(--text-primary);
+  --section-text-portfolio: var(--text-primary);
+  --section-text-tools: var(--text-primary);
+  --section-text-testimonials: var(--text-primary);
+  --section-text-footer: var(--text-primary);
   --text-primary: #1a1a1a;
   --text-secondary: rgba(0, 0, 0, 0.85);
   --text-tertiary: rgba(0, 0, 0, 0.65);
