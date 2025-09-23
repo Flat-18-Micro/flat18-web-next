@@ -78,7 +78,7 @@
 
 .iconWrapper i {
   font-size: 1.5rem;
-  color: var(--cobalt)
+  color: var(--secondary)
 }
 
 .serviceTitle {
@@ -113,7 +113,7 @@
 
 .serviceBullets li::before {
   content: "•";
-  color: var(--cobalt);
+  color: var(--secondary);
   position: absolute;
   left: 0;
   top: 0
@@ -127,7 +127,7 @@
   display: inline-flex;
   align-items: center;
   gap: .5rem;
-  color: var(--cobalt);
+  color: var(--secondary);
   text-decoration: none;
   font-size: .875rem;
   font-weight: 500;

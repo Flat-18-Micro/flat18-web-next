@@ -385,7 +385,8 @@ header:not(.scrolled) .container {
   border-left: 1px solid var(--border-soft);
   transition: right .3s ease;
   z-index: 1000;
-  overflow-y: auto
+  overflow-y: auto;
+  overflow-x: hidden
 }
 
 .mobileMenuOpen {
@@ -495,6 +496,7 @@ header:not(.scrolled) .container {
   }
 
   .mobileMenu {
-    width: 100%
+    width: 100vw;
+    right: -100vw
   }
 }
