@@ -7,11 +7,20 @@ export function useScrollBackground() {
   const [currentSectionText, setCurrentSectionText] = useState('var(--text-primary)')
 
   const updateMainStyles = useCallback((backgroundVariable, textVariable) => {
+    const resolvedBackground = backgroundVariable || 'var(--bg)'
+    const resolvedText = textVariable || 'var(--text-primary)'
+
     const mainElement = document.querySelector('main')
     if (mainElement) {
       // Set the background and text color using CSS variables for automatic theming
-      mainElement.style.backgroundColor = backgroundVariable
-      mainElement.style.color = textVariable
+      mainElement.style.backgroundColor = resolvedBackground
+      mainElement.style.color = resolvedText
+    }
+
+    const rootElement = document.documentElement
+    if (rootElement) {
+      rootElement.style.setProperty('--current-section-bg', resolvedBackground)
+      rootElement.style.setProperty('--current-section-text', resolvedText)
     }
   }, [])
 
@@ -47,14 +56,18 @@ export function useScrollBackground() {
     if (currentSection) {
       const backgroundColor = currentSection.getAttribute('data-bg-color')
       const textColor = currentSection.getAttribute('data-text-color')
+      const resolvedTextColor = textColor || 'var(--text-primary)'
 
-      if (backgroundColor && backgroundColor !== currentSectionBg) {
+      if (
+        backgroundColor &&
+        (backgroundColor !== currentSectionBg || resolvedTextColor !== currentSectionText)
+      ) {
         setCurrentSectionBg(backgroundColor)
-        setCurrentSectionText(textColor || 'var(--text-primary)')
-        updateMainStyles(backgroundColor, textColor || 'var(--text-primary)')
+        setCurrentSectionText(resolvedTextColor)
+        updateMainStyles(backgroundColor, resolvedTextColor)
       }
     }
-  }, [currentSectionBg, updateMainStyles])
+  }, [currentSectionBg, currentSectionText, updateMainStyles])
 
   useEffect(() => {
     // Set initial background and text color

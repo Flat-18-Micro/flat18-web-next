@@ -26,7 +26,7 @@ export default function Testimonials() {
       author: "Solopreneur",
       role: "Education website",
       rating: 5,
-      color: "accent-purple"
+      color: "accent-blue"
     },
     {
       quote: "Flat 18 guided us through the Web3 space like pros. Their dashboard design is sharp, intuitive, and fully integrated with our smart contracts.",

@@ -44,7 +44,7 @@
   padding: 2rem;
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
-  transition: all .3s ease;
+  /* transition: all .3s ease; */
   display: flex;
   flex-direction: column;
   height: 100%
@@ -78,7 +78,7 @@
 
 .iconWrapper i {
   font-size: 1.5rem;
-  color: var(--violet)
+  color: var(--cobalt)
 }
 
 .serviceTitle {
@@ -113,7 +113,7 @@
 
 .serviceBullets li::before {
   content: "•";
-  color: var(--violet);
+  color: var(--cobalt);
   position: absolute;
   left: 0;
   top: 0
@@ -127,11 +127,11 @@
   display: inline-flex;
   align-items: center;
   gap: .5rem;
-  color: var(--violet);
+  color: var(--cobalt);
   text-decoration: none;
   font-size: .875rem;
   font-weight: 500;
-  transition: all .3s ease
+  /* transition: all .3s ease */
 }
 
 .microCTA:hover {

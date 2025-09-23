@@ -8,7 +8,8 @@
   transition: all .3s ease;
   min-height: 88px;
   display: flex;
-  align-items: center
+  align-items: center;
+  color: var(--current-section-text, var(--text-primary));
 }
 
 .scrolled {
@@ -136,13 +137,14 @@ header:not(.scrolled) .container {
 }
 
 .link {
-  color: var(--text-secondary);
+  color: inherit;
+  opacity: .85;
   text-decoration: none;
   font-size: 1rem;
   font-weight: 500;
   position: relative;
   padding: .5rem 0;
-  transition: color .3s ease;
+  transition: opacity .3s ease;
   background: 0 0;
   border: 0;
   cursor: pointer;
@@ -163,7 +165,7 @@ header:not(.scrolled) .container {
 }
 
 .link:hover {
-  color: var(--text-primary)
+  opacity: 1
 }
 
 .link:hover::after {
@@ -172,7 +174,7 @@ header:not(.scrolled) .container {
 
 .link:focus {
   outline: 0;
-  color: var(--text-primary)
+  opacity: 1
 }
 
 .link:focus::after {
@@ -256,14 +258,15 @@ header:not(.scrolled) .container {
 .serviceTitle {
   font-size: 1.125rem;
   font-weight: 600;
-  color: var(--text-primary);
+  color: inherit;
   margin-bottom: .5rem;
   font-family: var(--font-bwgradual)
 }
 
 .serviceDescription {
   font-size: .875rem;
-  color: var(--text-secondary);
+  color: inherit;
+  opacity: .75;
   line-height: 1.5;
   margin: 0
 }
@@ -277,14 +280,16 @@ header:not(.scrolled) .container {
 }
 
 .allServicesLink {
-  color: var(--text-secondary);
+  color: inherit;
+  opacity: .85;
   text-decoration: none;
   font-size: .875rem;
-  transition: color .3s ease
+  transition: color .3s ease, opacity .3s ease
 }
 
 .allServicesLink:hover {
-  color: var(--primary)
+  color: var(--primary);
+  opacity: 1
 }
 
 .themeSwitcher {
@@ -316,7 +321,8 @@ header:not(.scrolled) .container {
   padding: .5rem;
   z-index: 1001;
   border-radius: 4px;
-  transition: background-color .3s ease
+  transition: background-color .3s ease;
+  color: inherit
 }
 
 .menuToggle:focus {
@@ -331,7 +337,7 @@ header:not(.scrolled) .container {
 .hamburger, .hamburger::before, .hamburger::after {
   width: 24px;
   height: 2px;
-  background-color: var(--text-primary);
+  background-color: currentColor;
   transition: all .3s ease
 }
 
@@ -425,7 +431,7 @@ header:not(.scrolled) .container {
 .mobileLinkLabel {
   font-size: 1.125rem;
   font-weight: 600;
-  color: var(--text-primary);
+  color: inherit;
   margin-bottom: .25rem;
   text-transform: uppercase;
   letter-spacing: .05em;
@@ -434,7 +440,8 @@ header:not(.scrolled) .container {
 
 .mobileLinkDescription {
   font-size: .875rem;
-  color: var(--text-tertiary)
+  color: inherit;
+  opacity: .75
 }
 
 .mobileCTAGroup {
@@ -447,14 +454,16 @@ header:not(.scrolled) .container {
   display: block;
   text-align: center;
   margin-top: 1rem;
-  color: var(--text-secondary);
+  color: inherit;
+  opacity: .85;
   text-decoration: none;
   font-size: .875rem;
-  transition: color .3s ease
+  transition: color .3s ease, opacity .3s ease
 }
 
 .emailLink:hover {
-  color: var(--primary)
+  color: var(--primary);
+  opacity: 1
 }
 
 @media (max-width:1023px) {
