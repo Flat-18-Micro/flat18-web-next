@@ -33,27 +33,16 @@ jobs:
 
       - name: Verify asset paths 🔍
         run: |
-          # Verify asset paths have been fixed
+          if [ ! -d out ]; then
+            echo '"out" directory not found. Skipping asset path verification.'
+            exit 0
+          fi
+
           echo "Verifying asset paths in HTML files..."
           grep -r "https://flat18.co.uk/_next" out/ --include="*.html" || echo "No asset paths found, running fix script again"
 
-          # Run the fix script again to ensure all paths are fixed
           node scripts/fix-asset-paths.js
-
-          # Check if CNAME file exists
-          if [ ! -f out/CNAME ]; then
-            echo "flat18.co.uk" > out/CNAME
-          fi
-
-          # Check if .nojekyll file exists
-          if [ ! -f out/.nojekyll ]; then
-            touch out/.nojekyll
-          fi
-
-          # Check if _headers file exists
-          if [ ! -f out/_headers ]; then
-            cp public/_headers out/
-          fi
+          node scripts/post-static-deploy.js
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
