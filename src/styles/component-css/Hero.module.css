@@ -4,8 +4,9 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 100vh;
-  padding: var(--section-spacing-y-lg)0;
+  min-height: calc(100vh - 88px);
+  margin-top: 88px;
+  padding: var(--section-spacing-y-lg) 0;
   background-color: var(--bg);
   contain: layout size paint
 }
@@ -156,6 +157,8 @@
 .trustLogos {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 1rem
 }
 
@@ -305,14 +308,14 @@
   }
 
   91% {
-    transform: rotate(0.5deg)
+    transform: rotate(.5deg)
   }
 
   93% {
-    transform: rotate(-0.5deg)
+    transform: rotate(-.5deg)
   }
 
-  95%, 100% {
+  95%, to {
     transform: rotate(0deg)
   }
 }
@@ -367,8 +370,9 @@
 
 @media (max-width:768px) {
   .heroSection {
-    padding: calc(var(--section-spacing-y) + 2rem)0 var(--section-spacing-y);
-    min-height: calc(100vh - 4rem)
+    padding: 0 0 var(--section-spacing-y);
+    min-height: calc(100vh - 72px);
+    margin-top: 72px
   }
 
   .heroContainer {
@@ -443,6 +447,11 @@
 }
 
 @media (max-width:480px) {
+  .heroSection {
+    min-height: calc(100vh - 64px);
+    margin-top: 64px
+  }
+
   .heroHeading {
     font-size: clamp(1.75rem, 8vw, 2.25rem)
   }

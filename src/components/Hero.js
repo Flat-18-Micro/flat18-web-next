@@ -14,11 +14,25 @@ export default function Hero() {
   const heroRef = useRef(null)
   const [startAnimation, setStartAnimation] = useState(false)
 
-  // Pre-calculate the height to prevent layout shifts
+  // Check if content height exceeds viewport and adjust accordingly
   useEffect(() => {
     if (heroRef.current) {
-      const height = heroRef.current.offsetHeight * 0.83;
-      heroRef.current.style.minHeight = height < 900 ? '900px' : `calc(${height}px + 6rem)`;
+      const checkHeight = () => {
+        const viewportHeight = window.innerHeight;
+        const navbarHeight = window.innerWidth <= 480 ? 64 : window.innerWidth <= 768 ? 72 : 88;
+        const availableHeight = viewportHeight - navbarHeight;
+        const contentHeight = heroRef.current.scrollHeight;
+
+        // If content is taller than available viewport, use content height
+        if (contentHeight > availableHeight) {
+          heroRef.current.style.minHeight = 'auto';
+        }
+      };
+
+      checkHeight();
+      window.addEventListener('resize', checkHeight);
+
+      return () => window.removeEventListener('resize', checkHeight);
     }
   }, []);
 
