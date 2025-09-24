@@ -14,25 +14,12 @@ export default function Hero() {
   const heroRef = useRef(null)
   const [startAnimation, setStartAnimation] = useState(false)
 
-  // Check if content height exceeds viewport and adjust accordingly
+  // Ensure hero section always uses natural content height
   useEffect(() => {
     if (heroRef.current) {
-      const checkHeight = () => {
-        const viewportHeight = window.innerHeight;
-        const navbarHeight = window.innerWidth <= 480 ? 64 : window.innerWidth <= 768 ? 72 : 88;
-        const availableHeight = viewportHeight - navbarHeight;
-        const contentHeight = heroRef.current.scrollHeight;
-
-        // If content is taller than available viewport, use content height
-        if (contentHeight > availableHeight) {
-          heroRef.current.style.minHeight = 'auto';
-        }
-      };
-
-      checkHeight();
-      window.addEventListener('resize', checkHeight);
-
-      return () => window.removeEventListener('resize', checkHeight);
+      // Always use auto height to prevent any clipping
+      heroRef.current.style.minHeight = 'auto';
+      heroRef.current.style.height = 'auto';
     }
   }, []);
 
@@ -159,7 +146,7 @@ export default function Hero() {
       data-text-color={getSectionTextColor('hero')}
     >
 
-      <div className={`${styles.heroContainer} max-w-7xl mx-auto px-6 sm:px-8`}>
+      <div className={`${styles.heroContainer} max-w-7xl mx-auto px-4 sm:px-6 lg:px-8`}>
         <motion.div
           className={styles.heroContent}
           initial="hidden"
@@ -209,8 +196,9 @@ export default function Hero() {
                   loop={false}
                   autoplay={true}
                   style={{
-                    width: 'clamp(345.6px, 28.8vw, 460.8px)',
-                    // height: 'clamp(108px, 8.64vw, 144px)',
+                    width: 'clamp(280px, 28.8vw, 460.8px)',
+                    maxWidth: '90vw',
+                    height: 'auto',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',

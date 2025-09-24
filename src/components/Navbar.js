@@ -112,60 +112,6 @@ export default function Navbar({ isScrolled }) {
                 <span>Work</span>
               </Link>
             </li>
-            <li className={styles.servicesDropdown}>
-              <button
-                ref={servicesButtonRef}
-                className={`${styles.link} ${styles.servicesButton}`}
-                onClick={toggleServicesMenu}
-                aria-expanded={isServicesMenuOpen}
-                aria-controls="services-menu"
-              >
-                <span>Services</span>
-                <i className={`bi bi-chevron-down ${styles.chevron} ${isServicesMenuOpen ? styles.chevronOpen : ''}`}></i>
-              </button>
-
-              {/* Mega Menu */}
-              {isServicesMenuOpen && (
-                <div
-                  ref={servicesMenuRef}
-                  id="services-menu"
-                  className={styles.megaMenu}
-                >
-                  <div className={styles.megaMenuContent}>
-                    <div className={styles.servicesGrid}>
-                      {services.map((service, index) => (
-                        <Link
-                          key={index}
-                          href={service.href}
-                          className={styles.serviceCard}
-                          onClick={() => setIsServicesMenuOpen(false)}
-                        >
-                          <h3 className={styles.serviceTitle}>{service.title}</h3>
-                          <p className={styles.serviceDescription}>{service.description}</p>
-                        </Link>
-                      ))}
-                    </div>
-                    <div className={styles.megaMenuFooter}>
-                      <Link href="/services" className={styles.allServicesLink}>
-                        See all services
-                      </Link>
-                      <a
-                        href="#chat"
-                        className="btn btn-primary btn-sm"
-                        onClick={() => analytics.nav.bookCall()}
-                      >
-                        Book a discovery call
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              )}
-            </li>
-            <li>
-              <Link href="/process" className={styles.link}>
-                <span>Process</span>
-              </Link>
-            </li>
             <li>
               <Link href="/#pricing" className={styles.link}>
                 <span>Pricing</span>
@@ -174,11 +120,6 @@ export default function Navbar({ isScrolled }) {
             <li>
               <Link href="/about" className={styles.link}>
                 <span>About</span>
-              </Link>
-            </li>
-            <li>
-              <Link href="/blog" className={styles.link}>
-                <span>Blog</span>
               </Link>
             </li>
           </ul>
