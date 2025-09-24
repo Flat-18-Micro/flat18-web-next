@@ -1,85 +1,101 @@
 'use client'
 
-import { useEffect } from 'react'
+import { useCallback, useEffect } from 'react'
+
+const MAX_ATTEMPTS = 20
+const RETRY_DELAY_MS = 200
 
 export default function useChatwoot() {
+  const requestWidgetLoad = useCallback(() => {
+    if (typeof window === 'undefined') {
+      return
+    }
+
+    window.dispatchEvent(new CustomEvent('chatwoot:load'))
+  }, [])
+
+  const withChatwoot = useCallback((handler, attempt = 0) => {
+    if (typeof window === 'undefined') {
+      return
+    }
+
+    requestWidgetLoad()
+
+    if (window.$chatwoot) {
+      handler(window.$chatwoot)
+      return
+    }
+
+    if (attempt >= MAX_ATTEMPTS) {
+      return
+    }
+
+    setTimeout(() => withChatwoot(handler, attempt + 1), RETRY_DELAY_MS)
+  }, [requestWidgetLoad])
+
+  const toggle = useCallback(() => {
+    withChatwoot((chatwoot) => chatwoot.toggle?.())
+  }, [withChatwoot])
+
+  const open = useCallback(() => {
+    withChatwoot((chatwoot) => {
+      if (!chatwoot.isOpen) {
+        chatwoot.toggle?.()
+      }
+    })
+  }, [withChatwoot])
+
+  const close = useCallback(() => {
+    withChatwoot((chatwoot) => {
+      if (chatwoot.isOpen) {
+        chatwoot.toggle?.()
+      }
+    })
+  }, [withChatwoot])
+
+  const setUser = useCallback((identifier, attributes = {}) => {
+    withChatwoot((chatwoot) => chatwoot.setUser?.(identifier, attributes))
+  }, [withChatwoot])
+
+  const setCustomAttributes = useCallback((attributes = {}) => {
+    withChatwoot((chatwoot) => chatwoot.setCustomAttributes?.(attributes))
+  }, [withChatwoot])
+
+  const prepareMessage = useCallback((message) => {
+    if (typeof window === 'undefined') {
+      return
+    }
+
+    requestWidgetLoad()
+
+    const event = new CustomEvent('chatwoot:prepareMessage', {
+      detail: { message },
+    })
+    window.dispatchEvent(event)
+  }, [requestWidgetLoad])
+
   useEffect(() => {
-    // Only run on client side
-    if (typeof window === 'undefined') return
-
-    // Function to toggle Chatwoot widget
-    const toggleChatwoot = () => {
-      if (window.$chatwoot && typeof window.$chatwoot.toggle === 'function') {
-        window.$chatwoot.toggle()
-      }
+    if (typeof window === 'undefined') {
+      return undefined
     }
 
-    // Function to open Chatwoot widget
-    const openChatwoot = () => {
-      if (window.$chatwoot && typeof window.$chatwoot.toggle === 'function') {
-        if (!window.$chatwoot.isOpen) {
-          window.$chatwoot.toggle()
-        }
-      }
-    }
+    window.toggleChatwoot = toggle
+    window.openChatwoot = open
+    window.closeChatwoot = close
 
-    // Function to close Chatwoot widget
-    const closeChatwoot = () => {
-      if (window.$chatwoot && typeof window.$chatwoot.toggle === 'function') {
-        if (window.$chatwoot.isOpen) {
-          window.$chatwoot.toggle()
-        }
-      }
-    }
-
-    // Expose methods to window for global access
-    window.toggleChatwoot = toggleChatwoot
-    window.openChatwoot = openChatwoot
-    window.closeChatwoot = closeChatwoot
-
-    // Return cleanup function
     return () => {
-      // Remove methods from window
       delete window.toggleChatwoot
       delete window.openChatwoot
       delete window.closeChatwoot
     }
-  }, [])
+  }, [toggle, open, close])
 
-  // Return methods for component use
   return {
-    toggle: () => {
-      if (typeof window !== 'undefined' && window.$chatwoot) {
-        window.$chatwoot.toggle()
-      }
-    },
-    open: () => {
-      if (typeof window !== 'undefined' && window.$chatwoot && !window.$chatwoot.isOpen) {
-        window.$chatwoot.toggle()
-      }
-    },
-    close: () => {
-      if (typeof window !== 'undefined' && window.$chatwoot && window.$chatwoot.isOpen) {
-        window.$chatwoot.toggle()
-      }
-    },
-    setUser: (identifier, attributes = {}) => {
-      if (typeof window !== 'undefined' && window.$chatwoot) {
-        window.$chatwoot.setUser(identifier, attributes)
-      }
-    },
-    setCustomAttributes: (attributes = {}) => {
-      if (typeof window !== 'undefined' && window.$chatwoot) {
-        window.$chatwoot.setCustomAttributes(attributes)
-      }
-    },
-    prepareMessage: (message) => {
-      if (typeof window !== 'undefined') {
-        const event = new CustomEvent('chatwoot:prepareMessage', {
-          detail: { message }
-        })
-        window.dispatchEvent(event)
-      }
-    }
+    toggle,
+    open,
+    close,
+    setUser,
+    setCustomAttributes,
+    prepareMessage,
   }
 }

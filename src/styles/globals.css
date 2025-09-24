@@ -1025,11 +1025,6 @@ a:hover {
   }
 }
 
-.async-hide {
-  opacity: 0 !important;
-  background: #fff !important
-}
-
 h2.gradient-text {
   font-size: var(--text-5xl);
   font-weight: var(--font-bold)
