@@ -1,18 +1,52 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import Image from 'next/image'
-import Lottie from 'lottie-react'
 import styles from '@/styles/component-css/Hero.module.css'
 import { analytics } from '@/lib/analytics'
 import { getSectionBackground, getSectionTextColor } from '@/hooks/useScrollBackground'
-import notificationAnimation from '@/animations/Notification-[remix].json'
+import LottiePlayer, { usePrefersReducedMotion } from '@/components/LottiePlayer'
+
+const loadNotificationAnimation = () => import('@/animations/Notification-[remix].json')
 
 export default function Hero() {
   const heroRef = useRef(null)
   const [startAnimation, setStartAnimation] = useState(false)
+  const lottieWrapperRef = useRef(null)
+  const prefersReducedMotion = usePrefersReducedMotion()
+
+  // Warm up the animation chunk once the browser is idle
+  useEffect(() => {
+    if (prefersReducedMotion) {
+      return
+    }
+
+    const prefetch = () => {
+      loadNotificationAnimation().catch(() => undefined)
+    }
+
+    if (typeof window === 'undefined') {
+      return
+    }
+
+    let idleId
+
+    if ('requestIdleCallback' in window) {
+      idleId = window.requestIdleCallback(prefetch)
+    } else {
+      idleId = window.setTimeout(prefetch, 1200)
+    }
+
+    return () => {
+      if ('cancelIdleCallback' in window && typeof idleId === 'number') {
+        window.cancelIdleCallback(idleId)
+      } else if (idleId) {
+        clearTimeout(idleId)
+      }
+    }
+  }, [prefersReducedMotion])
 
   // Ensure hero section always uses natural content height
   useEffect(() => {
@@ -32,33 +66,41 @@ export default function Hero() {
     return () => clearTimeout(timer)
   }, [])
 
-  // Apply theme colors to Lottie SVG after it renders
-  useEffect(() => {
-    if (startAnimation) {
-      const timer = setTimeout(() => {
-        const lottieContainer = document.querySelector('.themedLottie svg')
-        if (lottieContainer) {
-          // Target specific fill colors and replace them
-          const elementsToRecolor = lottieContainer.querySelectorAll('[fill="rgb(230,230,230)"], [style*="fill:rgb(230,230,230)"], [style*="fill: rgb(230,230,230)"]')
-
-          elementsToRecolor.forEach(element => {
-            // Get CSS custom property value
-            const primaryColor = getComputedStyle(document.documentElement).getPropertyValue('--primary').trim()
-            element.style.fill = primaryColor
-          })
-
-          // Also target any black or dark gray elements
-          const darkElements = lottieContainer.querySelectorAll('[fill="rgb(0,0,0)"], [fill="black"], [style*="fill:rgb(0,0,0)"], [style*="fill:black"]')
-          darkElements.forEach(element => {
-            const primaryColor = getComputedStyle(document.documentElement).getPropertyValue('--primary').trim()
-            element.style.fill = primaryColor
-          })
-        }
-      }, 100) // Small delay to ensure SVG is rendered
-
-      return () => clearTimeout(timer)
+  const applyThemeToLottie = useCallback(() => {
+    if (!lottieWrapperRef.current) {
+      return
     }
-  }, [startAnimation])
+
+    const lottieContainer = lottieWrapperRef.current.querySelector('svg')
+    if (!lottieContainer) {
+      return
+    }
+
+    const primaryColor = getComputedStyle(document.documentElement).getPropertyValue('--primary').trim()
+    const elementsToRecolor = lottieContainer.querySelectorAll('[fill="rgb(230,230,230)"], [style*="fill:rgb(230,230,230)"]')
+    const darkElements = lottieContainer.querySelectorAll('[fill="rgb(0,0,0)"], [fill="black"], [style*="fill:rgb(0,0,0)"]')
+
+    elementsToRecolor.forEach(element => {
+      element.style.fill = primaryColor
+    })
+
+    darkElements.forEach(element => {
+      element.style.fill = primaryColor
+    })
+  }, [])
+
+  // Re-apply theming if the animation changes after it has been shown
+  useEffect(() => {
+    if (!startAnimation || prefersReducedMotion) {
+      return
+    }
+
+    const timer = setTimeout(() => {
+      applyThemeToLottie()
+    }, 120)
+
+    return () => clearTimeout(timer)
+  }, [applyThemeToLottie, prefersReducedMotion, startAnimation])
 
   // Animation variants
   const fadeInUp = {
@@ -155,11 +197,11 @@ export default function Hero() {
         >
           {/* AI-led Badge / Notification Animation */}
           <motion.div variants={fadeInUp}>
-            {!startAnimation ? (
+            {!startAnimation || prefersReducedMotion ? (
               <motion.div
                 className={styles.aiBadge}
                 initial={{ opacity: 1 }}
-                animate={{ opacity: startAnimation ? 0 : 1 }}
+                animate={{ opacity: startAnimation && !prefersReducedMotion ? 0 : 1 }}
                 transition={{ duration: 0.3 }}
               >
                 <span className={`${styles.aiBadgeLabel} label-uppercase`}>
@@ -190,11 +232,8 @@ export default function Hero() {
                   transformOrigin: 'center center'
                 }}
               >
-                  <Lottie
-                    className={styles.themedLottie}
-                  animationData={notificationAnimation}
-                  loop={false}
-                  autoplay={true}
+                <div
+                  ref={lottieWrapperRef}
                   style={{
                     width: 'clamp(280px, 28.8vw, 460.8px)',
                     maxWidth: '90vw',
@@ -204,7 +243,17 @@ export default function Hero() {
                     justifyContent: 'center',
                     borderRadius: '20px'
                   }}
-                />
+                >
+                  <LottiePlayer
+                    animationDataSrc={loadNotificationAnimation}
+                    autoplay
+                    loop={false}
+                    loadOnVisible={false}
+                    playerClassName={styles.themedLottie}
+                    prefersReducedMotionFallback={null}
+                    onAnimationLoaded={applyThemeToLottie}
+                  />
+                </div>
               </motion.div>
             )}
           </motion.div>

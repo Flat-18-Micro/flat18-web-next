@@ -1,21 +1,23 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
-import Lottie from 'lottie-react'
+import { useEffect, useRef, useState } from 'react'
 import styles from '../styles/component-css/Stats.module.css'
-import animationData from '@/animations/Showreel_-Web-gallery-[remix] (2).json'
 import { getSectionBackground, getSectionTextColor } from '@/hooks/useScrollBackground'
+import LottiePlayer from '@/components/LottiePlayer'
+
+const loadStatsAnimation = () => import('@/animations/Showreel_-Web-gallery-[remix] (2).json')
 
 export default function Stats() {
   const countersRef = useRef([])
   const sectionRef = useRef(null)
   const animationRef = useRef(null)
+  const [isAnimationReady, setAnimationReady] = useState(false)
 
   useEffect(() => {
     const statsSection = sectionRef.current
     const lottieInstance = animationRef.current
 
-    if (!statsSection || !lottieInstance) {
+    if (!statsSection || !lottieInstance || !isAnimationReady) {
       return
     }
 
@@ -71,7 +73,7 @@ export default function Stats() {
         cancelAnimationFrame(frameRequest)
       }
     }
-  }, [])
+  }, [isAnimationReady])
 
   useEffect(() => {
     const options = {
@@ -148,12 +150,14 @@ export default function Stats() {
       <div className='container'>
       <div className={styles['animation-viewport']}>
         <div className={styles['stats-animation']}>
-          <Lottie
+          <LottiePlayer
+            animationDataSrc={loadStatsAnimation}
             lottieRef={animationRef}
-            animationData={animationData}
             autoplay={false}
             loop={false}
-            style={{ width: '100%', height: '100%' }}
+            playerStyle={{ width: '100%', height: '100%' }}
+            intersectionOptions={{ rootMargin: '0px 0px 300px 0px', threshold: 0 }}
+            onAnimationLoaded={() => setAnimationReady(true)}
           />
         </div>
       </div>

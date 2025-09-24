@@ -1,20 +1,25 @@
 'use client'
 
 import Link from 'next/link'
-import Lottie from 'lottie-react'
 import styles from '../styles/component-css/Footer.module.css'
 import { getSectionBackground, getSectionTextColor } from '@/hooks/useScrollBackground'
-import listAnimation from '@/animations/List-(4_3).json'
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
+import LottiePlayer from '@/components/LottiePlayer'
+
+const loadFooterAnimation = () => import('@/animations/List-(4_3).json')
 
 export default function Footer() {
   const lottieRef = useRef(null)
+  const [isAnimationReady, setAnimationReady] = useState(false)
 
   useEffect(() => {
-    if (!lottieRef.current) return
+    if (!isAnimationReady || !lottieRef.current) {
+      return
+    }
+
     // Slow the animation right down
     lottieRef.current.setSpeed(0.5)
-  }, [])
+  }, [isAnimationReady])
 
   return (
     <footer
@@ -29,12 +34,14 @@ export default function Footer() {
         <div className={styles.footerMainContent}>
           {/* Lottie Animation */}
           <div className={styles.footerAnimation}>
-            <Lottie
-              animationData={listAnimation}
-              loop={true}
-              autoplay={true}
+            <LottiePlayer
+              animationDataSrc={loadFooterAnimation}
+              loop
+              autoplay
               lottieRef={lottieRef}
               className={styles.lottieAnimation}
+              intersectionOptions={{ rootMargin: '0px 0px 200px 0px', threshold: 0.1 }}
+              onAnimationLoaded={() => setAnimationReady(true)}
             />
           </div>
 
