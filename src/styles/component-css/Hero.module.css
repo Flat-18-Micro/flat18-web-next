@@ -5,8 +5,8 @@
   align-items: center;
   justify-content: flex-start;
   min-height: auto;
-  margin-top: 88px;
-  padding: var(--section-spacing-y-lg) 0;
+  margin-top: 30px;
+  padding: 0 0 var(--section-spacing-y-lg) 0;
   background-color: var(--bg);
   overflow: visible;
 }
@@ -324,7 +324,7 @@
 
 @media (max-width:1024px) {
   .heroSection {
-    padding: var(--section-spacing-y) 0;
+    padding: 0 0 var(--section-spacing-y) 0;
   }
 
   .heroHeading {
@@ -376,9 +376,9 @@
 
 @media (max-width:768px) {
   .heroSection {
-    padding: var(--section-spacing-y-mobile) 0;
+    padding: 0 0 var(--section-spacing-y-mobile) 0;
     min-height: auto;
-    margin-top: 72px;
+    /* margin-top: 72px; */
     justify-content: flex-start;
   }
 
@@ -467,8 +467,8 @@
 @media (max-width:480px) {
   .heroSection {
     min-height: auto;
-    margin-top: 64px;
-    padding: var(--section-spacing-y-mobile-sm) 0;
+    /* margin-top: 64px; */
+    padding: 0 0 var(--section-spacing-y-mobile-sm) 0;
   }
 
   .heroContainer {
@@ -557,7 +557,7 @@
 /* Extra small screens */
 @media (max-width: 360px) {
   .heroSection {
-    padding: var(--section-spacing-y-mobile-sm) 0;
+    padding: 0 0 var(--section-spacing-y-mobile-sm) 0;
     min-height: auto;
   }
 
@@ -603,7 +603,7 @@
 @media (max-height: 600px) and (orientation: landscape) {
   .heroSection {
     min-height: auto !important;
-    padding: var(--space-6) 0;
+    padding: 0 0 var(--space-6) 0;
     justify-content: flex-start;
   }
 
@@ -647,7 +647,7 @@
 @media (max-height: 500px) {
   .heroSection {
     min-height: auto !important;
-    padding: var(--space-4) 0;
+    padding: 0 0 var(--space-4) 0;
   }
 
   .heroContainer {
