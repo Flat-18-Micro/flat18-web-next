@@ -1,23 +1,26 @@
 User-Agent: *
 Allow: /
 Disallow: /api/
+Disallow: /admin/
 Disallow: /_next/
-Disallow: /static/downloads/
-Disallow: /bootstrap-icons/
+Disallow: /static/
+Disallow: *.json
+Disallow: /search
 
-User-Agent: Googlebot
-Allow: /
-Disallow: /api/
-Disallow: /_next/
-Disallow: /static/downloads/
-Disallow: /bootstrap-icons/
+User-Agent: GPTBot
+Disallow: /
 
-User-Agent: Bingbot
-Allow: /
-Disallow: /api/
-Disallow: /_next/
-Disallow: /static/downloads/
-Disallow: /bootstrap-icons/
+User-Agent: ChatGPT-User
+Disallow: /
+
+User-Agent: CCBot
+Disallow: /
+
+User-Agent: anthropic-ai
+Disallow: /
+
+User-Agent: Claude-Web
+Disallow: /
 
 Host: https://flat18.co.uk
 Sitemap: https://flat18.co.uk/sitemap.xml
