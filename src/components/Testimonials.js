@@ -508,7 +508,7 @@ export default function Testimonials() {
         </div>
 
         <motion.div className={styles.ctaWrapper} variants={headingVariants}>
-          <a href="#chat" className={styles.ctaButton}>
+          <a href="#chat" className="btn btn-primary">
             <span>Become Our Next Success Story</span>
             <i className="bi bi-arrow-right"></i>
           </a>

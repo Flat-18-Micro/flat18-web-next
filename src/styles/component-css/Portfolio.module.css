@@ -127,13 +127,12 @@
   font-weight: 500;
   color: var(--text-tertiary);
   backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px)
+  -webkit-backdrop-filter: blur(4px);
+  color: inherit;
 }
 
 .statusPill.live {
-  background: rgba(0, 240, 181, .1);
-  border-color: var(--primary);
-  color: var(--primary)
+/* box-shadow: 0 0 0 1px; */
 }
 
 .projectContent {

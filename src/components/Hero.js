@@ -235,8 +235,8 @@ export default function Hero() {
                 <div
                   ref={lottieWrapperRef}
                   style={{
-                    width: 'clamp(280px, 28.8vw, 460.8px)',
-                    maxWidth: '90vw',
+                    width: 'clamp(450px, 30vw, 560px)',
+                    maxWidth: '95vw',
                     // height: 'auto',
                     display: 'flex',
                     alignItems: 'center',

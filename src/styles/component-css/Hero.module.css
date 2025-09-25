@@ -407,11 +407,12 @@
   }
 
   .heroActions {
-    flex-direction: column;
+    flex-wrap: wrap;
     width: 100%;
     max-width: 320px;
     gap: 1rem;
     margin: 0 auto;
+    justify-content: center;
   }
 
   .heroActions a {
