@@ -52,7 +52,7 @@ export default function Hero() {
   useEffect(() => {
     if (heroRef.current) {
       // Always use auto height to prevent any clipping
-      heroRef.current.style.minHeight = 'auto';
+      // heroRef.current.style.minHeight = 'auto';
       heroRef.current.style.height = 'auto';
     }
   }, []);
@@ -237,7 +237,7 @@ export default function Hero() {
                   style={{
                     width: 'clamp(280px, 28.8vw, 460.8px)',
                     maxWidth: '90vw',
-                    height: 'auto',
+                    // height: 'auto',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',

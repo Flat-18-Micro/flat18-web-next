@@ -67,9 +67,9 @@
   --section-text-footer: var(--section-text-stats);
   --current-section-bg: var(--bg);
   --current-section-text: var(--text-primary);
-  --primary: var(--color-teal);
-  --primary-dark: var(--color-teal-dark);
-  --primary-light: var(--color-teal-light);
+  --primary: #2340ff;
+  --primary-dark: #1a2ecc;
+  --primary-light: #4d62ff;
   --secondary: var(--color-blue);
   --secondary-dark: var(--color-blue-dark);
   --secondary-light: var(--color-blue-light);
@@ -230,7 +230,7 @@
   --grey: #eee
 }
 
-:root.light {
+ :root.light {
   --grey: #222;
   --bg: #ffffff;
   --fg: #1a1a1a;
@@ -252,7 +252,7 @@
   --bg-gauze: rgba(255, 255, 255, 0.7);
   --bg-gauze-heavy: rgba(255, 255, 255, 0.95);
   --section-bg-hero: var(--bg-dark);
-  --section-bg-stats: #2b5cfc;
+  --section-bg-stats: #2340ff;
   --section-bg-features: var(--bg-modern);
   --section-bg-featured-work: #0f1325;
   --section-bg-how-it-works: var(--bg-blue-0);
@@ -290,5 +290,8 @@
   --glass-bg: rgba(255, 255, 255, 0.7);
   --glass-border: rgba(0, 0, 0, 0.08);
   --glass-highlight: rgba(0, 0, 0, 0.05);
-  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.1)
+  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);  
+  --primary: #2340ff;
+  --primary-dark: #1a2ecc;
+  --primary-light: #4d62ff;
 }

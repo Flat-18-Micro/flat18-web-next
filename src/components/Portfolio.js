@@ -241,7 +241,7 @@ function ProjectCard({ project, index }) {
             <Image
               src={project.projectLogo}
               alt={`${project.title} logo`}
-              width={40}
+              width={400}
               height={40}
               className={styles.logoImage}
             />
