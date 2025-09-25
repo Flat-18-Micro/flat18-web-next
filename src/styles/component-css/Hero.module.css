@@ -5,7 +5,7 @@
   align-items: center;
   justify-content: flex-start;
   min-height: auto;
-  margin-top: 30px;
+  margin-top: 50px;
   padding: 0 0 var(--section-spacing-y-lg) 0;
   background-color: var(--bg);
   overflow: visible;
