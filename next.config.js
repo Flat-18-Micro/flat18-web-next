@@ -1,3 +1,5 @@
+const isStaticExport = process.env.STATIC_EXPORT === 'true'
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
@@ -9,6 +11,7 @@ const nextConfig = {
     formats: ['image/avif', 'image/webp'],
     minimumCacheTTL: 31536000,
     dangerouslyAllowSVG: true,
+    unoptimized: isStaticExport,
   },
   trailingSlash: false,
   experimental: {
@@ -52,6 +55,10 @@ const nextConfig = {
 
     return config;
   },
+}
+
+if (isStaticExport) {
+  nextConfig.output = 'export'
 }
 
 module.exports = nextConfig
