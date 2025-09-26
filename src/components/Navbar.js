@@ -118,8 +118,8 @@ export default function Navbar({ isScrolled }) {
               </Link>
             </li>
             <li>
-              <Link href="/about" className={styles.link}>
-                <span>About</span>
+              <Link href="https://accounts.flat18.co.uk/client/login" className={styles.link}>
+                <span>Client Portal</span>
               </Link>
             </li>
           </ul>

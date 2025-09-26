@@ -107,6 +107,11 @@ export default function Footer() {
                 <h3 className={styles.columnTitle}>COMPANY</h3>
                 <ul className={styles.linksList}>
                   <li>
+                    <Link href="https://accounts.flat18.co.uk/client/login" className={styles.footerLink}>
+                      <span>Client Portal</span>
+                    </Link>
+                  </li>
+                  <li>
                     <Link href="/#work" className={styles.footerLink}>
                       Our Work
                     </Link>

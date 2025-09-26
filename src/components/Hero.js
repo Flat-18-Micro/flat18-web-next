@@ -307,10 +307,10 @@ export default function Hero() {
             <div className={styles.trustPill}>
               <span className={styles.trustText}>Trusted by founders at</span>
               <div className={styles.trustLogos}>
-                <Image src="/images/portfolio-graphics/logos/btcpayserver.webp" alt="Client logo" width={72} height={32} className={styles.trustLogo} />
-                <Image src="/images/portfolio-graphics/logos/wallet-scrutiny.webp" alt="Client logo" width={72} height={32} className={styles.trustLogo} />
-                <Image src="/images/portfolio-graphics/logos/dvote.webp" alt="Client logo" width={72} height={32} className={`${styles.trustLogo} ${styles.trustLogoDvote}`} />
-                <Image src="/images/portfolio-graphics/logos/zettahash.webp" alt="Client logo" width={72} height={32} className={`${styles.trustLogo} ${styles.trustLogoZetahash}`} />
+                <Image src="/images/portfolio-graphics/logos/btcpayserver.webp" alt="Client logo" width={172} height={32} className={styles.trustLogo} />
+                <Image src="/images/portfolio-graphics/logos/wallet-scrutiny.webp" alt="Client logo" width={172} height={32} className={styles.trustLogo} />
+                <Image src="/images/portfolio-graphics/logos/dvote.webp" alt="Client logo" width={72} height={132} className={`${styles.trustLogo} ${styles.trustLogoDvote}`} />
+                <Image src="/images/portfolio-graphics/logos/zettahash.webp" alt="Client logo" width={172} height={32} className={`${styles.trustLogo} ${styles.trustLogoZetahash}`} />
               </div>
             </div>
           </motion.div>
