@@ -1,14 +1,20 @@
 'use client'
 
 import { useEffect, useState, useCallback } from 'react'
+import { usePathname } from 'next/navigation'
+
+const DEFAULT_BG = 'var(--bg)'
+const DEFAULT_TEXT = 'var(--text-primary)'
 
 export function useScrollBackground() {
-  const [currentSectionBg, setCurrentSectionBg] = useState('var(--bg)')
-  const [currentSectionText, setCurrentSectionText] = useState('var(--text-primary)')
+  const pathname = usePathname()
+
+  const [currentSectionBg, setCurrentSectionBg] = useState(DEFAULT_BG)
+  const [currentSectionText, setCurrentSectionText] = useState(DEFAULT_TEXT)
 
   const updateMainStyles = useCallback((backgroundVariable, textVariable) => {
-    const resolvedBackground = backgroundVariable || 'var(--bg)'
-    const resolvedText = textVariable || 'var(--text-primary)'
+    const resolvedBackground = backgroundVariable || DEFAULT_BG
+    const resolvedText = textVariable || DEFAULT_TEXT
 
     const mainElement = document.querySelector('main')
     if (mainElement) {
@@ -56,7 +62,7 @@ export function useScrollBackground() {
     if (currentSection) {
       const backgroundColor = currentSection.getAttribute('data-bg-color')
       const textColor = currentSection.getAttribute('data-text-color')
-      const resolvedTextColor = textColor || 'var(--text-primary)'
+      const resolvedTextColor = textColor || DEFAULT_TEXT
 
       if (
         backgroundColor &&
@@ -68,6 +74,12 @@ export function useScrollBackground() {
       }
     }
   }, [currentSectionBg, currentSectionText, updateMainStyles])
+
+  useEffect(() => {
+    if (pathname !== '/') {
+      updateMainStyles(DEFAULT_BG, DEFAULT_TEXT)
+    }
+  }, [pathname, updateMainStyles])
 
   useEffect(() => {
     // Set initial background and text color
@@ -93,6 +105,12 @@ export function useScrollBackground() {
       window.removeEventListener('resize', handleScroll)
     }
   }, [handleScroll])
+
+  useEffect(() => {
+    return () => {
+      updateMainStyles(DEFAULT_BG, DEFAULT_TEXT)
+    }
+  }, [updateMainStyles])
 
   return { currentSectionBg, currentSectionText }
 }
