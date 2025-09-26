@@ -29,7 +29,7 @@ const nextConfig = {
         ],
       },
       {
-        source: '/:path*\.(js|css|woff2|json)',
+        source: '/:path*\.(js|css|woff2|json|avif|webp|svg)',
         headers: [
           {
             key: 'Cache-Control',
@@ -46,12 +46,41 @@ const nextConfig = {
           },
         ],
       },
+      {
+        source: '/_next/static/(.*)',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
     ]
   },
   webpack: (config) => {
     // Use deterministic chunk and module ids for consistent file names
     config.optimization.moduleIds = 'deterministic';
     config.optimization.chunkIds = 'deterministic';
+
+    // Optimize chunk splitting for better caching
+    config.optimization.splitChunks = {
+      chunks: 'all',
+      cacheGroups: {
+        vendor: {
+          test: /[\\/]node_modules[\\/]/,
+          name: 'vendors',
+          chunks: 'all',
+          priority: 10,
+        },
+        common: {
+          name: 'common',
+          minChunks: 2,
+          chunks: 'all',
+          priority: 5,
+          reuseExistingChunk: true,
+        },
+      },
+    };
 
     return config;
   },
