@@ -10,6 +10,19 @@
   overflow: visible;
   min-height: calc(100vh - 180px);
 }
+.herobg{
+  position: absolute !important;
+  height: auto;
+  width: 100%;
+  margin: auto;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  opacity: .4;
+}
+:global(.light) .herobg {
+  filter: invert(1);
+}
 
 .heroContainer {
   width: 100%;

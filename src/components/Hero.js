@@ -10,6 +10,7 @@ import { getSectionBackground, getSectionTextColor } from '@/hooks/useScrollBack
 import LottiePlayer, { usePrefersReducedMotion } from '@/components/LottiePlayer'
 
 const loadNotificationAnimation = () => import('@/animations/Notification-[remix].json')
+const herobgAnimation = () => import('@/animations/paths.json')
 
 export default function Hero() {
   const heroRef = useRef(null)
@@ -25,6 +26,7 @@ export default function Hero() {
 
     const prefetch = () => {
       loadNotificationAnimation().catch(() => undefined)
+      herobgAnimation().catch(() => undefined)
     }
 
     if (typeof window === 'undefined') {
@@ -187,7 +189,14 @@ export default function Hero() {
       data-bg-color={getSectionBackground('hero')}
       data-text-color={getSectionTextColor('hero')}
     >
-
+      <div className={styles.herobg}>
+                          <LottiePlayer
+                    animationDataSrc={herobgAnimation}
+                    autoplay
+                    loop={true}
+                    speed={0.5}
+                  />
+</div>
       <div className={`${styles.heroContainer} max-w-7xl mx-auto px-4 sm:px-6 lg:px-8`}>
         <motion.div
           className={styles.heroContent}
