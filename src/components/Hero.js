@@ -16,6 +16,7 @@ export default function Hero() {
   const heroRef = useRef(null)
   const [startAnimation, setStartAnimation] = useState(false)
   const lottieWrapperRef = useRef(null)
+  const herobgLottieRef = useRef(null)
   const prefersReducedMotion = usePrefersReducedMotion()
 
   // Warm up the animation chunk once the browser is idle
@@ -58,6 +59,20 @@ export default function Hero() {
       heroRef.current.style.height = 'auto';
     }
   }, []);
+
+  // Callback to set animation speed when loaded
+  const handleHerobgLoaded = useCallback(() => {
+    // Small delay to ensure lottie instance is fully ready
+    setTimeout(() => {
+      if (herobgLottieRef.current) {
+        console.log('Setting herobg animation speed to 0.25x')
+        herobgLottieRef.current.setSpeed(0.25)
+        console.log('Current speed:', herobgLottieRef.current)
+      } else {
+        console.log('herobgLottieRef.current is not available')
+      }
+    }, 100)
+  }, [])
 
   // Start Lottie animation after 2 seconds
   useEffect(() => {
@@ -194,7 +209,8 @@ export default function Hero() {
                     animationDataSrc={herobgAnimation}
                     autoplay
                     loop={true}
-                    speed={0.5}
+                    lottieRef={herobgLottieRef}
+                    onDOMLoaded={handleHerobgLoaded}
                   />
 </div>
       <div className={`${styles.heroContainer} max-w-7xl mx-auto px-4 sm:px-6 lg:px-8`}>

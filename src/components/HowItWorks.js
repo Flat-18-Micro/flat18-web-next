@@ -153,7 +153,6 @@ export default function HowItWorks() {
                   rotate: transforms.rotate,
                   opacity: transforms.opacity
                 }}
-                whileHover={{ y: -12, scale: 1.02, transition: { type: 'spring', stiffness: 260, damping: 20, mass: 0.7 } }}
               >
                 <div className={styles.cardHeader}>
                   <span className={styles.stepNumber}>{step.number}</span>
