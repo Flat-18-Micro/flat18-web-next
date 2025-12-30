@@ -174,36 +174,13 @@ export default function ChatwootWidget() {
       }
     }
 
-    const handlePrepareMessage = (event) => {
-      if (!event.detail?.message) {
-        return
-      }
-
-      startLoading()
-
-      waitForChatwoot().then(() => {
-        setTimeout(() => {
-          const messageInput = document.querySelector('.DashboardApp .ChatInput__input')
-          if (messageInput) {
-            messageInput.value = event.detail.message
-            const inputEvent = new Event('input', { bubbles: true })
-            messageInput.dispatchEvent(inputEvent)
-            messageInput.focus()
-          }
-        }, 1000)
-      })
-    }
-
     const pointerListener = () => startLoading()
     const keyListener = () => startLoading()
     const focusListener = () => startLoading()
-    const loadListener = () => startLoading()
 
     window.addEventListener('pointerdown', pointerListener, { once: true, passive: true })
     window.addEventListener('keydown', keyListener, { once: true })
     window.addEventListener('focus', focusListener, { once: true })
-    window.addEventListener('chatwoot:load', loadListener)
-    window.addEventListener('chatwoot:prepareMessage', handlePrepareMessage)
 
     scheduleDeferredLoad()
 
@@ -215,8 +192,6 @@ export default function ChatwootWidget() {
       window.removeEventListener('pointerdown', pointerListener)
       window.removeEventListener('keydown', keyListener)
       window.removeEventListener('focus', focusListener)
-      window.removeEventListener('chatwoot:load', loadListener)
-      window.removeEventListener('chatwoot:prepareMessage', handlePrepareMessage)
     }
   }, [])
 
