@@ -72,6 +72,7 @@
 .sectionSubtitle {
   font-size: var(--text-lg);
   color: var(--text-secondary);
+  color: inherit;
   max-width: 600px;
   margin: 0 auto;
   line-height: var(--leading-relaxed)

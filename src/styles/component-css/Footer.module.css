@@ -149,11 +149,13 @@
   font-family: var(--font-bwgradual);
   font-size: 1.25rem;
   font-weight: 600;
-  color: var(--fg);
+  color: #fff; 
+/* var(--fg); */
 }
 
 .footerTagline {
-  color: var(--text-secondary);
+  color: #fff; 
+/* var(--text-secondary); */
   font-size: 0.875rem;
   line-height: var(--leading-relaxed);
   margin: 0;
@@ -176,7 +178,8 @@
   background: var(--surface-dim);
   border: 1px solid var(--border-soft);
   border-radius: 10px;
-  color: var(--text-secondary);
+  color: #fff; 
+/* var(--text-secondary); */
   text-decoration: none;
   /* transition: all 0.3s ease; */
   backdrop-filter: blur(4px);
@@ -208,7 +211,8 @@
   font-family: var(--font-bwgradual);
   font-size: 0.75rem;
   font-weight: 600;
-  color: var(--text-tertiary);
+  color: #fff; 
+/* var(--text-tertiary); */
   letter-spacing: 0.1em;
   text-transform: uppercase;
   margin: 0 0 0.5rem 0;
@@ -225,7 +229,8 @@
 }
 
 .footerLink {
-  color: var(--text-secondary);
+  color: #fff; 
+/* var(--text-secondary); */
   text-decoration: none;
   font-size: 0.875rem;
   line-height: var(--leading-relaxed);
@@ -270,7 +275,8 @@
 }
 
 .footerCopyright {
-  color: var(--text-tertiary);
+  color: #fff; 
+/* var(--text-tertiary); */
   font-size: 0.8rem;
   margin: 0;
 }
@@ -281,7 +287,8 @@
 }
 
 .legalLink {
-  color: var(--text-tertiary);
+  color: #fff; 
+/* var(--text-tertiary); */
   text-decoration: none;
   font-size: 0.8rem;
   transition: color 0.3s ease;

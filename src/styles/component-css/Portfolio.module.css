@@ -25,6 +25,7 @@
   font-size: var(--text-section-heading);
   font-weight: 600;
   color: var(--fg);
+  color: inherit;
   margin: 1rem 0;
   letter-spacing: -.01em
 }
