@@ -16,17 +16,76 @@ export default function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
 
+  const fetchGeoInsight = async () => {
+    try {
+      const response = await fetch('/api/geo-ip', { cache: 'no-store' })
+      if (!response.ok) {
+        console.warn('Geo lookup failed', response.status)
+        return null
+      }
+
+      const payload = await response.json()
+      return payload?.data || null
+    } catch (error) {
+      console.warn('Geo lookup error', error)
+      return null
+    }
+  }
+
+  const appendGeoMetadata = async (message) => {
+    try {
+      const geoData = await fetchGeoInsight()
+      const geoMetadata = buildGeoMetadata(geoData)
+      return `${message}\n\n---\nGeo Insight (auto-added)\n${geoMetadata}`
+    } catch (error) {
+      console.warn('Geo enrichment skipped', error)
+      return message
+    }
+  }
+
+  const buildGeoMetadata = (geoData) => {
+    if (!geoData) {
+      return 'Geo IP insight unavailable'
+    }
+
+    const locationParts = [geoData.city, geoData.country].filter(Boolean)
+    const location = locationParts.length ? locationParts.join(', ') : 'Unknown location'
+    const coordinates = (geoData.lat || geoData.lon)
+      ? `${geoData.lat ?? '?'} , ${geoData.lon ?? '?'}`
+      : 'Unknown coordinates'
+    const accuracy = geoData.radius_km ? `±${geoData.radius_km} km` : 'n/a'
+    const timezone = geoData.timezone || 'Unknown timezone'
+    const network = geoData.network ? `Network: ${geoData.network}` : null
+    const asn = geoData.asn || geoData.org
+      ? `ASN: ${geoData.asn ?? 'n/a'}${geoData.org ? ` (${geoData.org})` : ''}`
+      : null
+
+    return [
+      `IP: ${geoData.ip || 'Unknown IP'}`,
+      location,
+      `Timezone: ${timezone}`,
+      `Coordinates: ${coordinates} (${accuracy})`,
+      network,
+      asn
+    ].filter(Boolean).join('\n')
+  }
+
   const handleSubmit = async (e) => {
     e.preventDefault()
     setIsSubmitting(true)
 
     try {
+      const messageWithGeo = await appendGeoMetadata(formData.message)
+
       const response = await fetch('https://mailgun-contact.cloudflare-7fd.workers.dev', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify(formData)
+        body: JSON.stringify({
+          ...formData,
+          message: messageWithGeo
+        })
       })
 
       if (!response.ok) {
