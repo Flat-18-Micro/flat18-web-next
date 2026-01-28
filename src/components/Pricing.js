@@ -17,33 +17,20 @@ const SUBSCRIPTION_HIGHLIGHTS = [
   'Senior design + engineering in one squad'
 ]
 
-const BESPOKE_REASONS = [
-  'You only need a landing page or redesign sprint',
-  'The roadmap is fuzzy and needs discovery before build',
-  'You have a complex MVP, integration, or migration that warrants a defined scope'
-]
-
-const BESPOKE_EXAMPLES = [
+const BESPOKE_PACKAGES = [
   {
-    label: 'Small',
+    label: 'Small project',
     detail: 'Landing page / redesign sprint',
     min: 995,
     max: 3500,
-    timeline: '1–2 weeks'
+    timeline: 'Up to 2 weeks'
   },
   {
-    label: 'Core',
-    detail: 'Feature bundle / marketing site / light integrations',
-    min: 3500,
-    max: 12000,
-    timeline: '3–6 weeks'
-  },
-  {
-    label: 'Large',
-    detail: 'Complex build / migrations / MVP',
+    label: 'Large project',
+    detail: 'MVP / integrations / migrations',
     min: 12000,
     max: null,
-    timeline: '6–12+ weeks'
+    timeline: '2–12 weeks (up to 3 months)'
   }
 ]
 
@@ -278,28 +265,22 @@ export default function Pricing() {
             </div>
 
             <div className={styles.pricingContent}>
-              <h4 className={styles.featuresTitle}>Best when</h4>
-              <ul className={styles.featuresList}>
-                {BESPOKE_REASONS.map((reason) => (
-                  <li key={reason} className={styles.featureItem}>
-                    <i className="bi bi-arrow-right-circle"></i>
-                    <span>{reason}</span>
-                  </li>
-                ))}
-              </ul>
-
-              <div className={styles.bespokeRanges}>
-                {BESPOKE_EXAMPLES.map((example) => (
-                  <div key={example.label} className={styles.rangeRow}>
-                    <div className={styles.rangeMeta}>
-                      <p className={styles.exampleLabel}>{example.label}</p>
-                      <p className={styles.exampleDetail}>{example.detail}</p>
-                      <span className={styles.rangeTimeline}>{example.timeline}</span>
+              <div className={styles.bespokeSummary}>
+                <p className={styles.bespokeIntro}>
+                  Defined-scope projects delivered in as little as 2 weeks and no longer than 3 months.
+                </p>
+                <div className={styles.bespokePackages}>
+                  {BESPOKE_PACKAGES.map((pkg) => (
+                    <div key={pkg.label} className={styles.packageCard}>
+                      <div className={styles.packageHeader}>
+                        <p className={styles.packageLabel}>{pkg.label}</p>
+                        <span className={styles.packageTimeline}>{pkg.timeline}</span>
+                      </div>
+                      <p className={styles.packageDetail}>{pkg.detail}</p>
+                      <p className={styles.packagePrice}>{formatRange(pkg.min, pkg.max)}</p>
                     </div>
-                    <p className={styles.rangePrice}>{formatRange(example.min, example.max)}</p>
-                  </div>
-                ))}
-                <p className={styles.examplesFootnote}>Anchors adjust to your scope—every bespoke project gets a fixed proposal.</p>
+                  ))}
+                </div>
               </div>
 
               <div className={styles.pricingCTA}>
