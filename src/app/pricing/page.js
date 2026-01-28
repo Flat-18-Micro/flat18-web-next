@@ -14,7 +14,7 @@ export default function PricingPage() {
   const faqs = [
     {
       question: "How does your subscription model work?",
-      answer: "Our subscription model provides you with dedicated development time each month. You pay a fixed monthly or quarterly fee, and we allocate resources to your project. This ensures consistent progress and allows us to plan effectively, resulting in better rates for longer commitments."
+      answer: "Our subscription model provides you with dedicated development time each month. You pay a fixed monthly fee of £2,995 (auto-converted if you're outside the UK), queue as many requests as you need, and we work through them one at a time with typical 48-hour turnarounds on smaller tasks."
     },
     {
       question: "What if I need more development hours?",
@@ -30,7 +30,7 @@ export default function PricingPage() {
     },
     {
       question: "Is there a minimum commitment period?",
-      answer: "While we don't enforce a strict minimum commitment, our pricing structure is designed to reward longer commitments with better rates. Quarterly billing offers significant savings compared to monthly billing. Most projects typically require at least 3-6 months to complete, depending on complexity."
+      answer: "We don't enforce a minimum term. Most teams stay subscribed for 3-6 months to maximize momentum, but you can pause or cancel anytime. If a one-off engagement fits better, we can switch you over to a bespoke fixed-scope quote."
     }
   ]
 
