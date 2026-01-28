@@ -64,7 +64,7 @@ header:not(.scrolled) .container {
   width: 32px;
   height: 32px;
   border-radius: 100%;
-  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  /* background: linear-gradient(135deg, var(--primary), var(--secondary)); */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -88,7 +88,7 @@ header:not(.scrolled) .container {
   left: -50%;
   width: 200%;
   height: 200%;
-  background: radial-gradient(circle, rgba(255, 255, 255, .3)0, transparent 70%);
+  /* background: radial-gradient(circle, rgba(255, 255, 255, .3)0, transparent 70%); */
   opacity: 0;
   transition: opacity .3s ease
 }
@@ -101,11 +101,12 @@ header:not(.scrolled) .container {
   font-size: 1.8rem;
   font-weight: 800;
   font-family: var(--font-bwgradual);
-  background: linear-gradient(to right, var(--secondary), var(--primary));
-  background-clip: text;
-  color: transparent;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, .1);
-  line-height: 1.9
+  /* background: linear-gradient(to right, var(--secondary), var(--primary));
+  background-clip: text; */
+  /* color: transparent; */
+  /* text-shadow: 0 2px 10px rgba(0, 0, 0, .1); */
+  line-height: 1.9;
+  color: var(--fg);
 }
 
 .aiBadge {
@@ -151,7 +152,9 @@ header:not(.scrolled) .container {
   align-items: center;
   gap: .5rem
 }
-
+.link:active, .link:focus {
+  text-decoration: none;
+}
 .link::after {
   content: "";
   position: absolute;
@@ -159,7 +162,7 @@ header:not(.scrolled) .container {
   left: 0;
   width: 0;
   height: 2px;
-  background-color: var(--primary);
+  background-color: var(--fg);
   transition: width .3s ease
 }
 

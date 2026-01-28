@@ -12,6 +12,7 @@ export default function Stats() {
   const sectionRef = useRef(null)
   const animationRef = useRef(null)
   const [isAnimationReady, setAnimationReady] = useState(false)
+  const [areCountersReady, setCountersReady] = useState(false)
 
   useEffect(() => {
     const statsSection = sectionRef.current
@@ -82,6 +83,8 @@ export default function Stats() {
       threshold: 0.1
     }
 
+    const symbolForCounter = (counter) => counter.dataset.symbol || (counter.dataset.noPlus === 'true' ? '' : '+')
+
     const animateCounter = (counter, target) => {
       const duration = 2000
       const startTime = performance.now()
@@ -90,12 +93,15 @@ export default function Stats() {
       const updateCounter = (currentTime) => {
         const elapsedTime = currentTime - startTime
         const progress = Math.min(elapsedTime / duration, 1)
-        // Easing function for smoother animation
         const easeOutQuad = progress * (2 - progress)
         const currentValue = Math.floor(easeOutQuad * (target - startValue) + startValue)
+        const symbol = symbolForCounter(counter)
 
-        const symbol = counter.dataset.symbol || (counter.dataset.noPlus === 'true' ? '' : '+')
-        counter.textContent = `${currentValue}${symbol}`
+        if (currentValue === 0 && symbol === '+') {
+          counter.textContent = '0'
+        } else {
+          counter.textContent = `${currentValue}${symbol}`
+        }
 
         if (progress < 1) {
           requestAnimationFrame(updateCounter)
@@ -106,6 +112,17 @@ export default function Stats() {
 
       requestAnimationFrame(updateCounter)
     }
+
+    countersRef.current.forEach(counter => {
+      if (!counter) {
+        return
+      }
+
+      const symbol = symbolForCounter(counter)
+      counter.textContent = symbol === '+' ? '0' : `0${symbol}`
+    })
+
+    const revealFrame = requestAnimationFrame(() => setCountersReady(true))
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -130,6 +147,8 @@ export default function Stats() {
           observer.unobserve(counter)
         }
       })
+
+      cancelAnimationFrame(revealFrame)
     }
   }, [])
 
@@ -139,6 +158,11 @@ export default function Stats() {
     { value: 12, label: 'Years in the game' },
     { value: '2', label: 'Team members\n(yes, really)', noPlus: true }
   ]
+
+  const formatStatValue = (stat) => {
+    const suffix = stat.symbol ?? (stat.noPlus ? '' : '+')
+    return `${stat.value}${suffix}`
+  }
 
   return (
     <section
@@ -168,12 +192,12 @@ export default function Stats() {
             <div key={index} className={styles['stat-card']}>
               <div
                 ref={el => countersRef.current[index] = el}
-                className={styles['animated-counter']}
+                className={`${styles['animated-counter']} ${areCountersReady ? styles['counter-visible'] : styles['counter-hidden']}`}
                 data-target={stat.value}
                 data-no-plus={stat.noPlus}
                 data-symbol={stat.symbol}
               >
-                0
+                {formatStatValue(stat)}
               </div>
               <div
                 className={styles['stat-label']}
