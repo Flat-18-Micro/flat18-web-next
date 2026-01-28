@@ -8,6 +8,45 @@ import { getSectionBackground, getSectionTextColor } from '@/hooks/useScrollBack
 
 const BASE_PRICES = { monthly: 2995 }
 
+const SUBSCRIPTION_HIGHLIGHTS = [
+  'One active request at a time (unlimited queue)',
+  'Unlimited revisions inside scope',
+  'Typical turnaround: 48 hours for small tasks',
+  'Cancel or pause anytime',
+  'Direct Slack/Discord access',
+  'Senior design + engineering in one squad'
+]
+
+const BESPOKE_REASONS = [
+  'You only need a landing page or redesign sprint',
+  'The roadmap is fuzzy and needs discovery before build',
+  'You have a complex MVP, integration, or migration that warrants a defined scope'
+]
+
+const BESPOKE_EXAMPLES = [
+  {
+    label: 'Small',
+    detail: 'Landing page / redesign sprint',
+    min: 995,
+    max: 3500,
+    timeline: '1–2 weeks'
+  },
+  {
+    label: 'Core',
+    detail: 'Feature bundle / marketing site / light integrations',
+    min: 3500,
+    max: 12000,
+    timeline: '3–6 weeks'
+  },
+  {
+    label: 'Large',
+    detail: 'Complex build / migrations / MVP',
+    min: 12000,
+    max: null,
+    timeline: '6–12+ weeks'
+  }
+]
+
 const formatCurrency = (amount, currencyCode) => {
   try {
     const formatter = new Intl.NumberFormat('en-GB', {
@@ -28,6 +67,8 @@ export default function Pricing() {
   const [currencies, setCurrencies] = useState([])
   const [selectedCurrency, setSelectedCurrency] = useState('GBP')
   const [showCurrencyMenu, setShowCurrencyMenu] = useState(false)
+  const [currencyRates, setCurrencyRates] = useState({ GBP: 1 })
+  const [btcRate, setBtcRate] = useState(0)
   const [prices, setPrices] = useState({
     monthly: {
       GBP: '£2,995',
@@ -73,6 +114,8 @@ export default function Pricing() {
         }
       }
 
+      const rates = { GBP: 1 }
+
       const updatedPrices = {
         monthly: { GBP: formatCurrency(BASE_PRICES.monthly, 'GBP') }
       }
@@ -81,6 +124,7 @@ export default function Pricing() {
         if (currency.name !== 'GBP') {
           const exchangeRate = currency.value / gbp.value
           updatedPrices.monthly[currency.name] = formatCurrency(BASE_PRICES.monthly * exchangeRate, currency.name)
+          rates[currency.name] = exchangeRate
         }
       })
 
@@ -88,6 +132,8 @@ export default function Pricing() {
       updatedPrices.monthly.BTC = formatBTC(BASE_PRICES.monthly * btcValue)
 
       setPrices(updatedPrices)
+      setCurrencyRates(rates)
+      setBtcRate(btcValue)
     } catch (error) {
       console.error('Error fetching exchange rates:', error)
     }
@@ -108,41 +154,24 @@ export default function Pricing() {
     setShowCurrencyMenu(false)
   }
 
-  const subscriptionHighlights = [
-    'One active request at a time (unlimited queue)',
-    'Unlimited revisions inside scope',
-    'Typical turnaround: 48 hours for small tasks',
-    'Cancel or pause anytime',
-    'Direct Slack/Discord access',
-    'Senior design + engineering in one squad'
-  ]
+  const formatAmountForCurrency = (amount) => {
+    if (!amount) return ''
 
-  const bespokeReasons = [
-    'Just need a landing page or redesign sprint',
-    'Roadmap is fuzzy and needs discovery before build',
-    'Complex MVP, integration, or migration that warrants a defined scope'
-  ]
-
-  const bespokeExamples = [
-    {
-      label: 'Small',
-      detail: 'Landing page / redesign sprint',
-      price: 'From £995–£3,500',
-      timeline: '1–2 weeks'
-    },
-    {
-      label: 'Core',
-      detail: 'Feature bundle / marketing site / integrations light',
-      price: '£3,500–£12,000',
-      timeline: '3–6 weeks'
-    },
-    {
-      label: 'Large',
-      detail: 'Complex build / migrations / MVP',
-      price: '£12,000+',
-      timeline: '6–12+ weeks'
+    if (selectedCurrency === 'BTC') {
+      if (!btcRate) return '₿—'
+      return formatBTC(amount * btcRate)
     }
-  ]
+
+    const multiplier = currencyRates[selectedCurrency] ?? 1
+    return formatCurrency(amount * multiplier, selectedCurrency)
+  }
+
+  const formatRange = (min, max) => {
+    const minStr = formatAmountForCurrency(min)
+    if (!max) return `${minStr}+`
+    const maxStr = formatAmountForCurrency(max)
+    return `${minStr}–${maxStr}`
+  }
 
   return (
     <section
@@ -160,6 +189,43 @@ export default function Pricing() {
           </p>
         </div>
 
+        <div className={styles.currencyToolbar}>
+          <span className={styles.currencyLabel}>Show pricing in</span>
+          <div className={styles.currencyDropdown}>
+            <button className={styles.dropdownTrigger} onClick={toggleCurrencyMenu}>
+              <span>{selectedCurrency}</span>
+              <i className="bi bi-chevron-down"></i>
+            </button>
+            {showCurrencyMenu && (
+              <div className={styles.currencyMenu}>
+                <button
+                  className={`${styles.currencyOption} ${selectedCurrency === 'GBP' ? styles.active : ''}`}
+                  onClick={() => selectCurrency('GBP')}
+                >
+                  GBP
+                </button>
+                {currencies
+                  .filter((currency) => currency.name !== 'GBP')
+                  .map((currency) => (
+                    <button
+                      key={currency.name}
+                      className={`${styles.currencyOption} ${selectedCurrency === currency.name ? styles.active : ''}`}
+                      onClick={() => selectCurrency(currency.name)}
+                    >
+                      {currency.name}
+                    </button>
+                  ))}
+                <button
+                  className={`${styles.currencyOption} ${selectedCurrency === 'BTC' ? styles.active : ''}`}
+                  onClick={() => selectCurrency('BTC')}
+                >
+                  BTC
+                </button>
+              </div>
+            )}
+          </div>
+        </div>
+
         <div className={styles.pricingGrid}>
           <article className={`${styles.pricingCard} ${styles.subscriptionCard}`}>
             <div className={styles.pricingHeader}>
@@ -169,39 +235,9 @@ export default function Pricing() {
                 Ongoing senior design + build capacity for teams who want momentum and don’t want to manage freelancers.
               </p>
 
-              <div className={styles.priceRow}>
-                <div className={styles.priceDisplay}>
-                  <span className={styles.priceAmount}>{prices.monthly[selectedCurrency] || prices.monthly.GBP}</span>
-                  <span className={styles.pricePeriod}>/month</span>
-                </div>
-
-                <div className={`${styles.currencySelector} ${styles.currencyInline}`}>
-                  <div className={styles.currencyDropdown}>
-                    <button className={styles.dropdownTrigger} onClick={toggleCurrencyMenu}>
-                      <span>{selectedCurrency}</span>
-                      <i className="bi bi-chevron-down"></i>
-                    </button>
-                    {showCurrencyMenu && (
-                      <div className={styles.currencyMenu}>
-                        {currencies.map((currency) => (
-                          <button
-                            key={currency.name}
-                            className={`${styles.currencyOption} ${selectedCurrency === currency.name ? styles.active : ''}`}
-                            onClick={() => selectCurrency(currency.name)}
-                          >
-                            {currency.name}
-                          </button>
-                        ))}
-                        <button
-                          className={`${styles.currencyOption} ${selectedCurrency === 'BTC' ? styles.active : ''}`}
-                          onClick={() => selectCurrency('BTC')}
-                        >
-                          BTC
-                        </button>
-                      </div>
-                    )}
-                  </div>
-                </div>
+              <div className={styles.priceDisplay}>
+                <span className={styles.priceAmount}>{prices.monthly[selectedCurrency] || prices.monthly.GBP}</span>
+                <span className={styles.pricePeriod}>/month</span>
               </div>
 
               <p className={styles.planSupportText}>One subscription covers everything. Spin up requests anytime, pause when you’re done.</p>
@@ -210,7 +246,7 @@ export default function Pricing() {
             <div className={styles.pricingContent}>
               <h4 className={styles.featuresTitle}>Key clarifications</h4>
               <ul className={styles.featuresList}>
-                {subscriptionHighlights.map((highlight) => (
+                {SUBSCRIPTION_HIGHLIGHTS.map((highlight) => (
                   <li key={highlight} className={styles.featureItem}>
                     <i className="bi bi-check-circle-fill"></i>
                     <span>{highlight}</span>
@@ -244,7 +280,7 @@ export default function Pricing() {
             <div className={styles.pricingContent}>
               <h4 className={styles.featuresTitle}>Best when</h4>
               <ul className={styles.featuresList}>
-                {bespokeReasons.map((reason) => (
+                {BESPOKE_REASONS.map((reason) => (
                   <li key={reason} className={styles.featureItem}>
                     <i className="bi bi-arrow-right-circle"></i>
                     <span>{reason}</span>
@@ -252,20 +288,18 @@ export default function Pricing() {
                 ))}
               </ul>
 
-              <div className={styles.examplesMini}>
-                {bespokeExamples.map((example) => (
-                  <div key={example.label} className={styles.exampleRow}>
-                    <div>
+              <div className={styles.bespokeRanges}>
+                {BESPOKE_EXAMPLES.map((example) => (
+                  <div key={example.label} className={styles.rangeRow}>
+                    <div className={styles.rangeMeta}>
                       <p className={styles.exampleLabel}>{example.label}</p>
                       <p className={styles.exampleDetail}>{example.detail}</p>
+                      <span className={styles.rangeTimeline}>{example.timeline}</span>
                     </div>
-                    <div className={styles.exampleMetaCompact}>
-                      <span>{example.price}</span>
-                      <span>{example.timeline}</span>
-                    </div>
+                    <p className={styles.rangePrice}>{formatRange(example.min, example.max)}</p>
                   </div>
                 ))}
-                <p className={styles.examplesFootnote}>Use these as anchors—every bespoke project gets its own quote.</p>
+                <p className={styles.examplesFootnote}>Anchors adjust to your scope—every bespoke project gets a fixed proposal.</p>
               </div>
 
               <div className={styles.pricingCTA}>
