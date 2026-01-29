@@ -318,7 +318,7 @@ export default function Portfolio() {
     {
       title: 'Archimedes Finance',
       description: 'Secure Asset Tokenization Platform for institutional investors',
-      image: '/images/portfolio-graphics/archimedesfinance-clay-2.webp',
+      image: '/images/portfolio-graphics/archimedesfinance-bahaus.webp',
       projectLogo: '/images/portfolio-graphics/logos/archimedes-finance.webp',
       link: 'https://archimedes-finance.pages.dev',
       stats: [
@@ -332,7 +332,7 @@ export default function Portfolio() {
     {
       title: 'Honey Pay',
       description: 'Instant settlement payment framework built on Berachain',
-      image: '/images/portfolio-graphics/honeypay-clay-2.webp',
+      image: '/images/portfolio-graphics/honeypay-bahaus.webp',
       projectLogo: '/images/portfolio-graphics/logos/honeypay.webp',
       link: 'https://honeypay.pages.dev',
       stats: [
@@ -346,7 +346,7 @@ export default function Portfolio() {
     {
       title: 'WalletScrutiny',
       description: 'Bitcoin wallet security analysis platform redesign',
-      image: '/images/portfolio-graphics/walletscrutiny-clay-2.webp',
+      image: '/images/portfolio-graphics/walletscrutiny-bahaus.webp',
       projectLogo: '/images/portfolio-graphics/logos/wallet-scrutiny.webp',
       link: 'https://walletscrutiny.com',
       stats: [
@@ -360,7 +360,7 @@ export default function Portfolio() {
     {
       title: 'BTCPay Server',
       description: 'Open-source Bitcoin payment processor platform',
-      image: '/images/portfolio-graphics/btcpayserver-clay-2.webp',
+      image: '/images/portfolio-graphics/btcpayserver-bahaus.webp',
       projectLogo: '/images/portfolio-graphics/logos/btcpayserver.webp',
       link: 'https://btcpayserver.org',
       stats: [
