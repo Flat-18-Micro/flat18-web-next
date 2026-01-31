@@ -202,11 +202,11 @@ export default function Features() {
           animate={isInView ? "visible" : "hidden"}
         >
           <div className={styles.ctaContent}>
-            <h3>Ready to start your project?</h3>
-            <p>Book a discovery call to discuss your needs</p>
+            <h3>Ready to check fit?</h3>
+            <p>Short call to confirm scope and whether we're right.</p>
           </div>
           <a href="#chat" className="btn btn-primary">
-            Book a call
+            Book a fit check
           </a>
         </motion.div>
       </div>

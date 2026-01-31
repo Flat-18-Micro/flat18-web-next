@@ -481,7 +481,7 @@ export default function Portfolio() {
             <p>Let's discuss your vision and bring it to life</p>
           </div>
           <a href="#chat" className="btn btn-primary">
-            Start your project
+            Book a fit check
           </a>
         </motion.div>
       </div>

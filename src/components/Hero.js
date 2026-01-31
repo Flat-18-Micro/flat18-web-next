@@ -290,10 +290,10 @@ export default function Hero() {
             className={styles.heroPreheading}
             variants={fadeInUp}
           >
-            Senior design + engineering for founders
+            For founders carrying too much
           </span>
-            <span className={styles.heroHeadingThin}>Web products that convert</span><br />
-            Shipped in weeks, not months.
+            <span className={styles.heroHeadingThin}>Stop chasing progress</span><br />
+            Get your website shipped properly.
           </motion.h1>
 
           {/* Supporting line */}
@@ -301,23 +301,27 @@ export default function Hero() {
             className={styles.heroSubheading}
             variants={fadeInUp}
           >
-            From messaging and UX to production build, we ship high-performing sites and MVPs in 2-12 weeks.
+            You get one senior team that takes the design and build off your plate and ships a conversion-ready site or MVP in 2-12 weeks.
           </motion.p>
 
           <motion.ul className={styles.heroHighlights} variants={fadeInUp}>
             <li className={styles.heroHighlightItem}>
               <span className={styles.heroHighlightIcon}><i className="bi bi-lightning-charge-fill" aria-hidden="true"></i></span>
-              2-12 week delivery windows
+              Weekly progress you do not have to chase
             </li>
             <li className={styles.heroHighlightItem}>
               <span className={styles.heroHighlightIcon}><i className="bi bi-people-fill" aria-hidden="true"></i></span>
-              Senior-only team, direct with founders
+              One senior team, no handovers
             </li>
             <li className={styles.heroHighlightItem}>
               <span className={styles.heroHighlightIcon}><i className="bi bi-cash-stack" aria-hidden="true"></i></span>
-              Fixed monthly or fixed-scope pricing
+              Clear scope before we build
             </li>
           </motion.ul>
+
+          <motion.p className={styles.heroQualifier} variants={fadeInUp}>
+            For founders with a clear product and budget. Not for idea-stage work or large-agency procurement.
+          </motion.p>
 
           {/* CTA cluster - F18 style */}
           <motion.div
@@ -330,7 +334,7 @@ export default function Hero() {
                 className="btn btn-primary btn-icon"
                 onClick={() => analytics.hero.bookCall()}
               >
-                <span className="btn-text">Book a call</span>
+                <span className="btn-text">Book a fit check</span>
                 <i className="bi bi-arrow-right"></i>
               </a>
             </motion.div>
@@ -345,6 +349,10 @@ export default function Hero() {
               </Link>
             </motion.div>
           </motion.div>
+
+          <motion.p className={styles.heroCtaNote} variants={fadeInUp}>
+            15-20 minute call. We will tell you quickly if we are a fit.
+          </motion.p>
 
           {/* Trust strip - single-row pill with logos */}
           <motion.div

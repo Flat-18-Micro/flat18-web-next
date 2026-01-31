@@ -180,7 +180,7 @@ export default function HowItWorks() {
             <p>We'll map scope, timeline, and next steps fast.</p>
           </div>
           <a href="#chat" className="btn btn-primary">
-            Book a call
+            Book a fit check
           </a>
         </motion.div>
       </div>

@@ -12,7 +12,7 @@ export default function HomePageSchema() {
       "@context": "https://schema.org",
       "@type": "WebPage",
       "name": "Flat 18 - Design & Engineering Studio for Founders",
-      "description": "Flat 18 builds conversion-ready websites and MVPs for founders. Senior design and engineering, shipped in weeks.",
+      "description": "For founders tired of chasing progress. Flat 18 builds conversion-ready websites and MVPs, shipped in 2-12 weeks.",
       "url": "https://flat18.co.uk",
       "isPartOf": {
         "@type": "WebSite",
@@ -29,7 +29,7 @@ export default function HomePageSchema() {
         "@type": "ProfessionalService",
         "name": "Flat 18",
         "image": "https://flat18.co.uk/static/advert-flat-18-f18-og_1-p-2000.webp",
-        "description": "Flat 18 offers senior product design and engineering for the modern web. From high-conversion marketing sites to MVPs and fintech platforms, we serve founders who demand performance, polish, and dependability.",
+        "description": "Flat 18 offers senior product design and engineering for the modern web. From conversion-ready marketing sites to MVPs and fintech platforms, we serve founders who want steady progress and clean delivery.",
         "url": "https://flat18.co.uk",
         "telephone": "+44-0000-000000",
         "email": "studio@flat18.co.uk",

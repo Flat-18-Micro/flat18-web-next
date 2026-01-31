@@ -189,6 +189,18 @@
   font-size: .8rem
 }
 
+.heroQualifier {
+  font-size: .95rem;
+  color: var(--text-tertiary);
+  margin: 0
+}
+
+.heroCtaNote {
+  font-size: .85rem;
+  color: var(--text-tertiary);
+  margin: 0
+}
+
 .heroActions {
   display: flex;
   align-items: center;
@@ -479,6 +491,12 @@
     justify-content: center
   }
 
+  .heroQualifier,
+  .heroCtaNote {
+    text-align: center;
+    max-width: 320px
+  }
+
   .heroActions {
     flex-wrap: wrap;
     width: 100%;
@@ -566,6 +584,11 @@
 
   .heroHighlightItem {
     font-size: .85rem
+  }
+
+  .heroQualifier,
+  .heroCtaNote {
+    font-size: .8rem
   }
 
   .aiBadge, .trustPill {

@@ -51,7 +51,7 @@ const playfairDisplay = Playfair_Display({
 
 export const metadata = {
   title: 'Flat 18 - Senior Design + Engineering for Founders',
-  description: 'Senior design and engineering for conversion-ready websites, MVPs, and fintech products. Shipped in weeks by a senior-only team.',
+  description: 'For founders tired of chasing progress. Senior design and engineering to ship conversion-ready websites and MVPs in 2-12 weeks.',
   metadataBase: new URL('https://flat18.co.uk'),
   keywords: 'product design, UX design, web development, MVP build, conversion design, SaaS, fintech, web3, startup agency, next.js development, react development',
   alternates: {
@@ -61,7 +61,7 @@ export const metadata = {
   category: 'Web Development',
   openGraph: {
     title: 'Flat 18 — Design + Engineering for Founders',
-    description: 'Senior design and engineering for conversion-ready websites, MVPs, and fintech products. Shipped in weeks with a senior-only team.',
+    description: 'For founders tired of chasing progress. Senior design and engineering to ship conversion-ready websites and MVPs in 2-12 weeks.',
     images: [
       {
         url: '/static/advert-flat-18-f18-og_1-p-2000.webp',
@@ -77,7 +77,7 @@ export const metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Flat 18 — Design + Engineering for Founders',
-    description: 'Senior design and engineering for conversion-ready websites, MVPs, and fintech products. Shipped in weeks with a senior-only team.',
+    description: 'For founders tired of chasing progress. Senior design and engineering to ship conversion-ready websites and MVPs in 2-12 weeks.',
     images: ['/static/advert-flat-18-f18-og_1-p-2000.webp'],
     creator: '@f18_dev',
     site: '@f18_dev',
@@ -131,7 +131,7 @@ export default function RootLayout({ children }) {
                 "https://x.com/f18_dev",
                 "https://github.com/vswee"
               ],
-              "description": "Senior design and engineering for conversion-ready websites, MVPs, and fintech products. Shipped in weeks by a senior-only team.",
+              "description": "For founders tired of chasing progress. Senior design and engineering to ship conversion-ready websites and MVPs in 2-12 weeks.",
               "address": {
                 "@type": "PostalAddress",
                 "addressCountry": "United Kingdom"
@@ -154,7 +154,7 @@ export default function RootLayout({ children }) {
               "@type": "WebSite",
               "url": "https://flat18.co.uk",
               "name": "Flat 18 - Design + Engineering for Founders",
-              "description": "Senior design and engineering for conversion-ready websites, MVPs, and fintech products.",
+              "description": "For founders tired of chasing progress. Senior design and engineering to ship conversion-ready websites and MVPs in 2-12 weeks.",
               "potentialAction": {
                 "@type": "SearchAction",
                 "target": "https://flat18.co.uk/search?q={search_term_string}",

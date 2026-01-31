@@ -30,6 +30,13 @@
   line-height: var(--leading-relaxed)
 }
 
+.sectionQualifier {
+  margin: .75rem auto 0 auto;
+  max-width: 520px;
+  font-size: .9rem;
+  color: var(--text-tertiary)
+}
+
 .currencyToolbar {
   display: flex;
   justify-content: flex-end;

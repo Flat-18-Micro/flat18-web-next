@@ -172,7 +172,11 @@ export default function Pricing() {
           <span className="label-uppercase">Pricing</span>
           <h2 className={styles.sectionTitle}>Two ways to engage</h2>
           <p className={styles.sectionDescription}>
-            Keep momentum with a monthly subscription or run a fixed-scope project with a clear quote.
+            Pick the route that keeps delivery stable and avoids rebuilding the same work twice.
+            We keep the same senior team on your product so context never resets.
+          </p>
+          <p className={styles.sectionQualifier}>
+            Not for price shopping or large-agency procurement.
           </p>
         </div>
 
@@ -247,9 +251,9 @@ export default function Pricing() {
                   className="btn btn-primary btn-large"
                   onClick={() => analytics.pricing.bookCall()}
                 >
-                  Book a fit call
+                  Book a fit check
                 </Link>
-                <p className={styles.ctaNote}>We'll confirm fit, scope, and next steps.</p>
+                <p className={styles.ctaNote}>Fit check first, then we confirm scope and timing.</p>
               </div>
             </div>
           </article>
@@ -291,7 +295,7 @@ export default function Pricing() {
                 >
                   Request a bespoke quote
                 </Link>
-                <p className={styles.ctaNote}>Share scope, we'll return a fixed proposal.</p>
+                <p className={styles.ctaNote}>Share scope, we'll return a fixed proposal after the fit check.</p>
               </div>
             </div>
           </article>
@@ -307,7 +311,7 @@ export default function Pricing() {
             className="btn btn-primary"
             onClick={() => analytics.pricing.bookCall()}
           >
-            Book a call
+            Book a fit check
           </Link>
         </div>
       </div>

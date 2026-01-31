@@ -162,7 +162,7 @@ export default function Contact() {
         <div className={styles.heading}>
           <h2 className={styles.title}>Tell us what you're building</h2>
           <p className={styles.subtitle}>
-            Jump on live chat or send a brief - we'll get back within a day.
+            We take on a small number of projects at a time, and we'll tell you within a day if it's a fit.
           </p>
         </div>
 
@@ -253,7 +253,7 @@ export default function Contact() {
                     <span className="animate-pulse">Sending...</span>
                   ) : (
                     <>
-                      <span>Send brief</span>
+                      <span>Book a fit check</span>
                       <i className="bi bi-arrow-right"></i>
                     </>
                   )}
