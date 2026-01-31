@@ -102,14 +102,18 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${sora.variable} ${inter.variable} ${jetbrainsMono.variable} ${playfairDisplay.variable}`}>
       <head>
-        <link
-          rel="preload"
-          as="style"
-          href="/bootstrap-icons/font/bootstrap-icons.css"
-          onLoad={(event) => {
-            event.currentTarget.rel = 'stylesheet'
-          }}
-        />
+        <link rel="preload" as="style" href="/bootstrap-icons/font/bootstrap-icons.css" />
+        <link rel="stylesheet" href="/bootstrap-icons/font/bootstrap-icons.css" media="print" />
+        <Script id="bootstrap-icons-css" strategy="afterInteractive">
+          {`
+            (function() {
+              var link = document.querySelector('link[href="/bootstrap-icons/font/bootstrap-icons.css"][media="print"]');
+              if (link) {
+                link.media = 'all';
+              }
+            })();
+          `}
+        </Script>
         <noscript>
           <link rel="stylesheet" href="/bootstrap-icons/font/bootstrap-icons.css" />
         </noscript>
