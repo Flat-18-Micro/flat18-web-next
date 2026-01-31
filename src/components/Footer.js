@@ -5,6 +5,7 @@ import styles from '../styles/component-css/Footer.module.css'
 import { getSectionBackground, getSectionTextColor } from '@/hooks/useScrollBackground'
 import { useEffect, useRef, useState } from 'react'
 import LottiePlayer from '@/components/LottiePlayer'
+import { ThemeSwitcher } from '@/app/providers'
 
 const loadFooterAnimation = () => import('@/animations/List-(4_3).json')
 
@@ -167,13 +168,18 @@ export default function Footer() {
               <div className={styles.footerCopyright}>
                 © {new Date().getFullYear()} Flat 18. All rights reserved.
               </div>
-              <div className={styles.footerLegal}>
-                <Link href="/privacy" className={styles.legalLink}>
-                  Privacy Policy
-                </Link>
-                <Link href="/terms" className={styles.legalLink}>
-                  Terms of Service
-                </Link>
+              <div className={styles.footerMeta}>
+                <div className={styles.footerLegal}>
+                  <Link href="/privacy" className={styles.legalLink}>
+                    Privacy Policy
+                  </Link>
+                  <Link href="/terms" className={styles.legalLink}>
+                    Terms of Service
+                  </Link>
+                </div>
+                <div className={styles.footerThemeSwitcher}>
+                  <ThemeSwitcher className={styles.footerThemeButton} showLabel />
+                </div>
               </div>
             </div>
           </div>

@@ -4,7 +4,6 @@ import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import styles from '@/styles/component-css/Navbar.module.css'
-import { ThemeSwitcher } from '../app/providers'
 import { analytics } from '@/lib/analytics'
 
 export default function Navbar({ isScrolled }) {
@@ -123,11 +122,6 @@ export default function Navbar({ isScrolled }) {
               </Link>
             </li>
           </ul>
-
-          {/* Theme Switcher */}
-          <div className={styles.themeSwitcher}>
-            <ThemeSwitcher className={styles.themeButton} />
-          </div>
 
           {/* CTA Button */}
           <div className={styles.cta}>
