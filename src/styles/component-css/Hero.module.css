@@ -51,7 +51,7 @@
   justify-content: center;
   gap: .75rem;
   padding: .875rem 1.75rem;
-  background: linear-gradient(120deg, rgba(0, 236, 240, .12), rgba(61, 158, 238, .08));
+  background: linear-gradient(120deg, rgba(35, 64, 255, .16), rgba(61, 158, 238, .08));
   border: 1px solid rgba(61, 158, 238, .35);
   border-radius: 9999px;
   backdrop-filter: blur(6px);
@@ -75,7 +75,7 @@
 .aiBadge:hover {
   border-color: rgba(61, 158, 238, .55);
   box-shadow: 0 24px 60px rgba(0, 0, 0, .3);
-  background: linear-gradient(120deg, rgba(0, 236, 240, .18), rgba(61, 158, 238, .12))
+  background: linear-gradient(120deg, rgba(35, 64, 255, .22), rgba(61, 158, 238, .12))
 }
 
 .aiBadgeLabel {
@@ -151,6 +151,42 @@
   line-height: var(--leading-relaxed);
   max-width: 450px;
   margin: 0
+}
+
+.heroHighlights {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: .75rem 1.25rem;
+  list-style: none;
+  padding: 0;
+  margin: 0
+}
+
+.heroHighlightItem {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .55rem .9rem;
+  border-radius: 999px;
+  background: var(--surface-dim);
+  border: 1px solid var(--border-soft);
+  color: var(--text-secondary);
+  font-size: .95rem;
+  font-weight: 500
+}
+
+.heroHighlightIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 999px;
+  background: rgba(35, 64, 255, .12);
+  color: var(--primary);
+  font-size: .8rem
 }
 
 .heroActions {
@@ -431,6 +467,18 @@
     margin: 0 auto
   }
 
+  .heroHighlights {
+    flex-direction: column;
+    gap: .6rem;
+    width: 100%;
+    max-width: 360px
+  }
+
+  .heroHighlightItem {
+    width: 100%;
+    justify-content: center
+  }
+
   .heroActions {
     flex-wrap: wrap;
     width: 100%;
@@ -514,6 +562,10 @@
   .heroSubheading {
     font-size: 1rem;
     max-width: 95%
+  }
+
+  .heroHighlightItem {
+    font-size: .85rem
   }
 
   .aiBadge, .trustPill {

@@ -13,27 +13,27 @@ export default function FeaturedWork() {
   const featuredProjects = [
     {
       title: 'BTCPay Server',
-      description: 'Clean, modern design for the BTCPay Server main landing page and Foundation website.',
+      description: 'Conversion-focused landing and foundation site refresh for the open-source payments platform.',
       image: '/images/portfolio-graphics/btcpayserver-bahaus.webp',
       projectLogo: '/images/portfolio-graphics/logos/btcpayserver.webp',
       link: 'https://btcpayserver.org',
       technologies: ['HTML5', 'CSS', 'JavaScript'],
       metrics: {
-        primary: 'Live site',
-        secondary: 'Landing + Foundation'
+        primary: 'Marketing site',
+        secondary: 'Foundation hub'
       },
       status: 'Live'
     },
     {
       title: 'WalletScrutiny',
-      description: 'Collaborative project with the Bitcoin Design Community to redesign the WalletScrutiny brand and website.',
+      description: 'Brand + UX redesign to make wallet security research clear and trustworthy.',
       image: '/images/portfolio-graphics/walletscrutiny-bahaus.webp',
       projectLogo: '/images/portfolio-graphics/logos/wallet-scrutiny.webp',
       link: 'https://walletscrutiny.com',
       technologies: ['JavaScript', 'HTML5', 'SCSS'],
       metrics: {
-        primary: 'Current version',
-        secondary: 'Brand + Website redesign'
+        primary: 'Brand + UX',
+        secondary: 'Research platform'
       },
       status: 'Current version'
     }
@@ -98,9 +98,9 @@ export default function FeaturedWork() {
           className={styles.featuredHeading}
           variants={headingVariants}
         >
-          <h2 className={styles.featuredTitle}>Featured Work</h2>
+          <h2 className={styles.featuredTitle}>Featured results</h2>
           <p className={styles.featuredSubtitle}>
-            Platforms designed for performance and exceptional user experience
+            Real platforms with measurable outcomes, not portfolio fluff
           </p>
         </motion.div>
 
@@ -154,11 +154,11 @@ export default function FeaturedWork() {
                 <div className={styles.featuredMetrics}>
                   <div className={styles.metric}>
                     <span className={styles.metricValue}>{project.metrics.primary}</span>
-                    <span className={styles.metricLabel}>Performance</span>
+                    <span className={styles.metricLabel}>Scope</span>
                   </div>
                   <div className={styles.metric}>
                     <span className={styles.metricValue}>{project.metrics.secondary}</span>
-                    <span className={styles.metricLabel}>Outcome</span>
+                    <span className={styles.metricLabel}>Focus</span>
                   </div>
                 </div>
 

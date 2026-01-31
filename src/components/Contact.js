@@ -160,9 +160,9 @@ export default function Contact() {
         viewport={{ once: true, amount: 0.1 }}
       >
         <div className={styles.heading}>
-          <h2 className={styles.title}>Tell Us About Your Project</h2>
+          <h2 className={styles.title}>Tell us what you're building</h2>
           <p className={styles.subtitle}>
-            Jump on live chat or fill in the form — we'll get back within a day.
+            Jump on live chat or send a brief - we'll get back within a day.
           </p>
         </div>
 
@@ -218,13 +218,12 @@ export default function Contact() {
                     name="projectType"
                     value={formData.projectType}
                     onChange={handleChange}
-                    required
                     className={styles.select}
                   >
-                    <option value="">Select project type</option>
-                    <option value="website">Website</option>
-                    <option value="webapp">Web Application</option>
-                    <option value="crypto">Crypto/Web3</option>
+                    <option value="">Select project type (optional)</option>
+                    <option value="marketing-site">Marketing site</option>
+                    <option value="mvp">MVP / Web app</option>
+                    <option value="fintech-web3">Fintech / Web3</option>
                     <option value="other">Other</option>
                   </select>
                 </div>
@@ -237,7 +236,7 @@ export default function Contact() {
                     value={formData.message}
                     onChange={handleChange}
                     required
-                    placeholder="Tell us about your project goals"
+                    placeholder="Goals, scope, timeline, and anything we should know"
                     className={styles.textarea}
                     rows="3"
                   ></textarea>
@@ -254,7 +253,7 @@ export default function Contact() {
                     <span className="animate-pulse">Sending...</span>
                   ) : (
                     <>
-                      <span>Start Your Project</span>
+                      <span>Send brief</span>
                       <i className="bi bi-arrow-right"></i>
                     </>
                   )}

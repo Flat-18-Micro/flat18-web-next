@@ -59,7 +59,7 @@ export default function Footer() {
                   <span className={styles.brandName}>Flat 18</span>
                 </Link>
                 <p className={styles.footerTagline}>
-                  Premium web development and design for crypto, fintech, and digital platforms
+                  Premium design + engineering for founders shipping digital products
                 </p>
 
                 {/* Social icons */}
@@ -97,7 +97,7 @@ export default function Footer() {
                   </li>
                   <li>
                     <Link href="/#services" className={styles.footerLink}>
-                      Blockchain Integration
+                      Fintech & Web3
                     </Link>
                   </li>
                 </ul>
@@ -118,13 +118,18 @@ export default function Footer() {
                     </Link>
                   </li>
                   <li>
-                    <Link href="/#how-it-works" className={styles.footerLink}>
+                    <Link href="/#process" className={styles.footerLink}>
                       Process
                     </Link>
                   </li>
                   <li>
                     <Link href="/about" className={styles.footerLink}>
                       About
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/founder" className={styles.footerLink}>
+                      Founder Version
                     </Link>
                   </li>
                   <li>

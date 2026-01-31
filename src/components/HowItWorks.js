@@ -10,27 +10,27 @@ export default function HowItWorks() {
   const steps = [
     {
       number: '01',
-      title: 'Discovery',
-      description: 'We start with a deep dive into your goals, audience, and technical requirements.',
-      details: 'Strategy session, requirements gathering, project scoping'
+      title: 'Align',
+      description: 'We lock goals, users, and success metrics before we design a pixel.',
+      details: '45-min discovery, scope, timeline, success criteria'
     },
     {
       number: '02',
       title: 'Design',
-      description: 'User-centered design that balances aesthetics with functionality and performance.',
-      details: 'Wireframes, prototypes, visual design, user testing'
+      description: 'Messaging, flows, and UI that move people to act.',
+      details: 'Wireframes, prototypes, content direction'
     },
     {
       number: '03',
-      title: 'Development',
-      description: 'Modern, scalable code built with best practices and continuous integration.',
-      details: 'Frontend & backend development, testing, optimization'
+      title: 'Build',
+      description: 'Senior engineers build, test, and optimize the product.',
+      details: 'Frontend + backend, QA, performance passes'
     },
     {
       number: '04',
-      title: 'Launch',
-      description: 'Seamless deployment with ongoing support to ensure your success.',
-      details: 'Deployment, monitoring, training, maintenance'
+      title: 'Launch + Iterate',
+      description: 'We deploy, monitor, and keep improving with you.',
+      details: 'Release, analytics, handover, support'
     }
   ]
 
@@ -126,9 +126,9 @@ export default function HowItWorks() {
           animate={isInView ? 'visible' : 'hidden'}
         >
           <span className="label-uppercase">Process</span>
-          <h2 className={styles.sectionTitle}>How we work</h2>
+          <h2 className={styles.sectionTitle}>How we ship</h2>
           <p className={styles.sectionDescription}>
-            Our proven process delivers results on time and on budget
+            Clear milestones, weekly updates, and no surprises.
           </p>
         </motion.div>
 
@@ -176,11 +176,11 @@ export default function HowItWorks() {
           animate={isInView ? 'visible' : 'hidden'}
         >
           <div className={styles.ctaContent}>
-            <h3>Ready to get started?</h3>
-            <p>Let's discuss your project and timeline</p>
+            <h3>Ready to ship?</h3>
+            <p>We'll map scope, timeline, and next steps fast.</p>
           </div>
           <a href="#chat" className="btn btn-primary">
-            Start your project
+            Book a call
           </a>
         </motion.div>
       </div>

@@ -153,10 +153,10 @@ export default function Stats() {
   }, [])
 
   const stats = [
-    { value: 20, label: 'Projects shipped' },
-    { value: 100, label: 'Client Satisfaction', symbol:'%' },
-    { value: 12, label: 'Years in the game' },
-    { value: '2', label: 'Team members\n(yes, really)', noPlus: true }
+    { value: 20, label: 'Projects launched' },
+    { value: 12, label: 'Years shipping products' },
+    { value: 48, label: 'Hour turnaround for small tasks', symbol: 'h', noPlus: true },
+    { value: 2, label: 'Senior team size', noPlus: true }
   ]
 
   const formatStatValue = (stat) => {

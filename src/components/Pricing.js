@@ -30,7 +30,7 @@ const BESPOKE_PACKAGES = [
     detail: 'MVP / integrations / migrations',
     min: 12000,
     max: null,
-    timeline: '2–12 weeks (up to 3 months)'
+    timeline: '2-12 weeks (up to 3 months)'
   }
 ]
 
@@ -157,7 +157,7 @@ export default function Pricing() {
     const minStr = formatAmountForCurrency(min)
     if (!max) return `${minStr}+`
     const maxStr = formatAmountForCurrency(max)
-    return `${minStr}–${maxStr}`
+    return `${minStr}-${maxStr}`
   }
 
   return (
@@ -170,9 +170,9 @@ export default function Pricing() {
       <div className={`${styles.container} max-w-content mx-auto px-6 sm:px-8`}>
         <div className={styles.sectionHeading}>
           <span className="label-uppercase">Pricing</span>
-          <h2 className={styles.sectionTitle}>Pick the route that matches your project</h2>
+          <h2 className={styles.sectionTitle}>Two ways to engage</h2>
           <p className={styles.sectionDescription}>
-            Keep a monthly subscription running for ongoing momentum or spin up a fixed bespoke quote when you just need a scoped delivery.
+            Keep momentum with a monthly subscription or run a fixed-scope project with a clear quote.
           </p>
         </div>
 
@@ -219,7 +219,7 @@ export default function Pricing() {
               <p className={styles.planBadge}>Route A · Subscription</p>
               <h3 className={styles.planTitle}>Monthly subscription</h3>
               <p className={styles.planSubtitle}>
-                Ongoing senior design + build capacity for teams who want momentum and don’t want to manage freelancers.
+                Ongoing senior design + build capacity for teams who want momentum without hiring.
               </p>
 
               <div className={styles.priceDisplay}>
@@ -227,7 +227,7 @@ export default function Pricing() {
                 <span className={styles.pricePeriod}>/month</span>
               </div>
 
-              <p className={styles.planSupportText}>One subscription covers everything. Spin up requests anytime, pause when you’re done.</p>
+              <p className={styles.planSupportText}>One subscription covers everything. Queue requests anytime, pause when you're done.</p>
             </div>
 
             <div className={styles.pricingContent}>
@@ -247,9 +247,9 @@ export default function Pricing() {
                   className="btn btn-primary btn-large"
                   onClick={() => analytics.pricing.bookCall()}
                 >
-                  Get started today
+                  Book a fit call
                 </Link>
-                <p className={styles.ctaNote}>Book a call to walkthrough onboarding and tooling.</p>
+                <p className={styles.ctaNote}>We'll confirm fit, scope, and next steps.</p>
               </div>
             </div>
           </article>
@@ -259,9 +259,9 @@ export default function Pricing() {
               <p className={styles.planBadge}>Route B · Bespoke</p>
               <h3 className={styles.planTitle}>One-off project</h3>
               <p className={styles.planSubtitle}>
-                Fixed scope, fixed timeline, fixed price. Ideal when you just need a defined project delivered end-to-end.
+                Fixed scope, fixed timeline, fixed price. Ideal when you need a defined delivery end-to-end.
               </p>
-              <p className={styles.planSupportText}>We’ll scope fast, quote clearly, then build to the approved plan.</p>
+              <p className={styles.planSupportText}>We'll scope fast, quote clearly, then build to the approved plan.</p>
             </div>
 
             <div className={styles.pricingContent}>
@@ -291,7 +291,7 @@ export default function Pricing() {
                 >
                   Request a bespoke quote
                 </Link>
-                <p className={styles.ctaNote}>Share scope, we’ll return a fixed proposal.</p>
+                <p className={styles.ctaNote}>Share scope, we'll return a fixed proposal.</p>
               </div>
             </div>
           </article>
@@ -299,8 +299,8 @@ export default function Pricing() {
 
         <div className={styles.bottomCTA}>
           <div className={styles.ctaContent}>
-            <h3>Ready to get started?</h3>
-            <p>Book a discovery call to discuss your project needs</p>
+            <h3>Ready to move?</h3>
+            <p>We'll respond fast with clear next steps.</p>
           </div>
           <Link
             href="#chat"

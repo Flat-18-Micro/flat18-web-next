@@ -290,10 +290,10 @@ export default function Hero() {
             className={styles.heroPreheading}
             variants={fadeInUp}
           >
-            Designing and Building
+            Senior design + engineering for founders
           </span>
-            <span className={styles.heroHeadingThin}>Robust Web Products</span><br />
-            AI-assisted. Human-led.<br />Shipped properly.
+            <span className={styles.heroHeadingThin}>Web products that convert</span><br />
+            Shipped in weeks, not months.
           </motion.h1>
 
           {/* Supporting line */}
@@ -301,8 +301,23 @@ export default function Hero() {
             className={styles.heroSubheading}
             variants={fadeInUp}
           >
-            UI/UX design backed by security-first engineering and maintainable code.
+            From messaging and UX to production build, we ship high-performing sites and MVPs in 2-12 weeks.
           </motion.p>
+
+          <motion.ul className={styles.heroHighlights} variants={fadeInUp}>
+            <li className={styles.heroHighlightItem}>
+              <span className={styles.heroHighlightIcon}><i className="bi bi-lightning-charge-fill" aria-hidden="true"></i></span>
+              2-12 week delivery windows
+            </li>
+            <li className={styles.heroHighlightItem}>
+              <span className={styles.heroHighlightIcon}><i className="bi bi-people-fill" aria-hidden="true"></i></span>
+              Senior-only team, direct with founders
+            </li>
+            <li className={styles.heroHighlightItem}>
+              <span className={styles.heroHighlightIcon}><i className="bi bi-cash-stack" aria-hidden="true"></i></span>
+              Fixed monthly or fixed-scope pricing
+            </li>
+          </motion.ul>
 
           {/* CTA cluster - F18 style */}
           <motion.div

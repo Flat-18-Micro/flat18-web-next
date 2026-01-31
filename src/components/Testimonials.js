@@ -8,37 +8,37 @@ import { getSectionBackground, getSectionTextColor } from '@/hooks/useScrollBack
 export default function Testimonials() {
   const testimonials = [
     {
-      quote: "Working with Flat 18 felt like having an in-house team. They were responsive, strategic, and nailed the design on the first try.",
+      quote: "Working with Flat 18 felt like having an in-house team. They were responsive, strategic, and nailed the direction fast.",
       author: "Co-founder",
-      role: "Fintech startup",
+      role: "B2B SaaS",
       rating: 5,
       color: "primary"
     },
     {
-      quote: "Flat 18 rebuilt our web app from scratch and the performance boost was immediate. Page loads are faster, UX is cleaner, and our team can finally move fast again.",
+      quote: "They rebuilt our web app and the product finally felt clean and reliable. The team could ship again without fear.",
       author: "Founder",
-      role: "Payments processor platform",
+      role: "Fintech platform",
       rating: 5,
       color: "secondary"
     },
     {
-      quote: "They took our outdated site and gave it a clean, modern look without losing what made our brand special. The new site is performing better across every metric.",
+      quote: "They took our outdated site and made the story obvious. Cleaner UX, clearer messaging, and a site we're proud to send.",
       author: "Solopreneur",
-      role: "Education website",
+      role: "Education product",
       rating: 5,
       color: "accent-blue"
     },
     {
-      quote: "Flat 18 guided us through the Web3 space like pros. Their dashboard design is sharp, intuitive, and fully integrated with our smart contracts.",
-      author: "CEO",
-      role: "Ethereum investment project",
+      quote: "They translated complex workflows into a UI our customers actually understand. That alone was worth it.",
+      author: "Head of Product",
+      role: "Ops software",
       rating: 5,
       color: "accent-teal"
     },
     {
-      quote: "We’ve worked with bigger agencies that didn’t deliver half as much value. Flat 18 was fast, focused, and genuinely cared about the outcome.",
+      quote: "We've worked with bigger agencies that didn't deliver half as much value. Flat 18 was fast, focused, and cared about the outcome.",
       author: "Founder",
-      role: "DeFi dashboard",
+      role: "Marketplace",
       rating: 5,
       color: "accent-pink"
     }
@@ -391,7 +391,7 @@ export default function Testimonials() {
           <span className={styles.sectionTag}>Testimonials</span>
           <h2 className={styles.sectionTitle}>What Our Clients Say</h2>
           <p className={styles.sectionSubtitle}>
-            Hear from founders who’ve trusted us with their digital vision
+            Founders, product leads, and teams who shipped with us
           </p>
         </motion.div>
 

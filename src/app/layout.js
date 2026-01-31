@@ -50,24 +50,24 @@ const playfairDisplay = Playfair_Display({
 })
 
 export const metadata = {
-  title: 'Flat 18 - Web3 & DeFi Development Agency',
-  description: 'design and development agency specializing in Web3, DeFi, BTCPayServer, crypto security, and full-stack development for blockchain entrepreneurs and startups.',
+  title: 'Flat 18 - Senior Design + Engineering for Founders',
+  description: 'Senior design and engineering for conversion-ready websites, MVPs, and fintech products. Shipped in weeks by a senior-only team.',
   metadataBase: new URL('https://flat18.co.uk'),
-  keywords: 'web3 development, defi design, crypto security, btcpayserver, blockchain apps, wallet scrutiny, full-stack development, design agency, next.js development, react development, crypto website, blockchain development, web3 design, defi dashboard, bitcoin payment integration',
+  keywords: 'product design, UX design, web development, MVP build, conversion design, SaaS, fintech, web3, startup agency, next.js development, react development',
   alternates: {
     canonical: 'https://flat18.co.uk',
   },
   authors: [{ name: 'Flat 18', url: 'https://flat18.co.uk' }],
   category: 'Web Development',
   openGraph: {
-    title: 'Flat 18 — Web3 & DeFi Design and Development Agency',
-    description: 'Specialized in Web3, DeFi, and crypto security solutions. We deliver cost-effective, high-performance applications and websites for blockchain entrepreneurs and startups with modern UI/UX and secure architecture.',
+    title: 'Flat 18 — Design + Engineering for Founders',
+    description: 'Senior design and engineering for conversion-ready websites, MVPs, and fintech products. Shipped in weeks with a senior-only team.',
     images: [
       {
         url: '/static/advert-flat-18-f18-og_1-p-2000.webp',
         width: 1200,
         height: 630,
-        alt: 'Flat 18 - Web3 & DeFi Development Agency',
+        alt: 'Flat 18 - Design + Engineering for Founders',
       }
     ],
     locale: 'en_GB',
@@ -76,8 +76,8 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Flat 18 — Web3 & DeFi Design and Development Agency',
-    description: 'Specialized in Web3, DeFi, and crypto security solutions. We deliver cost-effective, high-performance applications and websites for blockchain entrepreneurs and startups with modern UI/UX and secure architecture.',
+    title: 'Flat 18 — Design + Engineering for Founders',
+    description: 'Senior design and engineering for conversion-ready websites, MVPs, and fintech products. Shipped in weeks with a senior-only team.',
     images: ['/static/advert-flat-18-f18-og_1-p-2000.webp'],
     creator: '@f18_dev',
     site: '@f18_dev',
@@ -131,7 +131,7 @@ export default function RootLayout({ children }) {
                 "https://x.com/f18_dev",
                 "https://github.com/vswee"
               ],
-              "description": "design and development agency specializing in Web3, DeFi, BTCPayServer, crypto security, and full-stack development for blockchain entrepreneurs and startups.",
+              "description": "Senior design and engineering for conversion-ready websites, MVPs, and fintech products. Shipped in weeks by a senior-only team.",
               "address": {
                 "@type": "PostalAddress",
                 "addressCountry": "United Kingdom"
@@ -153,8 +153,8 @@ export default function RootLayout({ children }) {
               "@context": "https://schema.org",
               "@type": "WebSite",
               "url": "https://flat18.co.uk",
-              "name": "Flat 18 - Web3 & DeFi Development Agency",
-              "description": "design and development agency specializing in Web3, DeFi, BTCPayServer, crypto security, and full-stack development for blockchain entrepreneurs and startups.",
+              "name": "Flat 18 - Design + Engineering for Founders",
+              "description": "Senior design and engineering for conversion-ready websites, MVPs, and fintech products.",
               "potentialAction": {
                 "@type": "SearchAction",
                 "target": "https://flat18.co.uk/search?q={search_term_string}",

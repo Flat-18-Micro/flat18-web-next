@@ -32,8 +32,8 @@ export default function Tools() {
     >
       <div className="container">
         <div className={styles.toolsHeader}>
-          <h2 className={styles.toolsTitle}>Tools We Trust</h2>
-          <p className={styles.toolsSubtitle}>Best-in-class tech for every build</p>
+          <h2 className={styles.toolsTitle}>Tooling we ship with</h2>
+          <p className={styles.toolsSubtitle}>Reliable stack choices that keep builds fast and maintainable</p>
         </div>
 
         <div className={styles.toolsContainer}>

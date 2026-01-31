@@ -252,7 +252,7 @@
 }
 
 .currencyOption.active {
-  background: rgba(0, 236, 240, .12);
+  background: rgba(35, 64, 255, .12);
   color: var(--secondary)
 }
 

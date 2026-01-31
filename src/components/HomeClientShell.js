@@ -21,16 +21,16 @@ export default function HomeClientShell() {
   return (
     <>
       <Hero />
+      <FeaturedWork />
+      <Testimonials />
       <Stats />
       <Features />
-      <FeaturedWork />
       <HowItWorks />
       <Pricing />
+      <Portfolio />
       <FAQ />
       <Contact />
-      <Portfolio />
       <Tools />
-      <Testimonials />
       <Footer />
       <HomePageSchema />
     </>

@@ -14,34 +14,42 @@ export default function FAQ() {
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "What is Availability?",
+          "name": "How fast can you ship?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "We operate with limited active spaces per month, usually no more than 2 active clients per developer. This ensures you and your project get the attention required for success."
+            "text": "Most scoped projects land in 2-12 weeks depending on complexity. Small tasks move in as little as 48 hours once we are active."
           }
         },
         {
           "@type": "Question",
-          "name": "How much does it cost?",
+          "name": "What does the fit call cover?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Most popular subscription; £2,995/month. Pause/cancel anytime. This covers dedicated development time and ensures consistent progress on your project."
+            "text": "We cover goals, scope, timing, and whether we're the right team. If we're not a fit, we'll tell you quickly."
           }
         },
         {
           "@type": "Question",
-          "name": "What technologies do you use?",
+          "name": "Do you handle both design and engineering?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "We specialize in modern web technologies including Next.js, React, Vue.js, Node.js, and various blockchain technologies. We're also experienced with headless CMS solutions and modern deployment platforms like Vercel, Netlify, and AWS."
+            "text": "Yes. We do product design, UX, UI, and full-stack engineering so you don't need to manage multiple vendors."
           }
         },
         {
           "@type": "Question",
-          "name": "How long does a typical project take?",
+          "name": "Are you only Web3?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Project timelines vary based on complexity and scope. A typical website redesign might take 4-6 weeks, while more complex applications can take 2-3 months or more. We'll provide a detailed timeline during our initial consultation."
+            "text": "No. We work across SaaS, fintech, and digital products. Web3 is optional, not required."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does pricing work?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We offer a monthly subscription for ongoing momentum or fixed-scope quotes for defined projects. We'll recommend the right route on the fit call."
           }
         }
       ]
@@ -66,28 +74,24 @@ export default function FAQ() {
 
   const faqs = [
     {
-      question: "What is Availability?",
-      answer: "We operate with limited active spaces per month, usually no more than 2 active clients per developer. This ensures you and your project get the attention required for success."
+      question: "How fast can you ship?",
+      answer: "Most scoped projects land in 2-12 weeks depending on complexity. Small tasks move in as little as 48 hours once we're active."
     },
     {
-      question: "How much does it cost?",
-      answer: "Most popular subscription; £2,995/month. Pause/cancel anytime. This covers dedicated development time and ensures consistent progress on your project."
+      question: "What does the fit call cover?",
+      answer: "We cover goals, scope, timing, and whether we're the right team. If we're not a fit, we'll tell you quickly."
     },
     {
-      question: "Why the subscription model?",
-      answer: "Our subscription model ensures consistent, dedicated development time for your project. It allows us to plan resources effectively and offer better rates for longer commitments."
+      question: "Do you handle both design and engineering?",
+      answer: "Yes. We do product design, UX, UI, and full-stack engineering so you don't need to manage multiple vendors."
     },
     {
-      question: "What if I need a different timeframe?",
-      answer: "We're flexible and can accommodate different project timeframes. Contact us to discuss your specific needs and we'll find a solution that works for you."
+      question: "Are you only Web3?",
+      answer: "No. We work across SaaS, fintech, and digital products. Web3 is optional, not required."
     },
     {
-      question: "How long will my project take to complete?",
-      answer: "Project timelines vary depending on complexity. A typical website takes 4-8 weeks, while larger applications may take 3-6 months. We'll provide a detailed timeline during our initial consultation."
-    },
-    {
-      question: "Do you work with teams?",
-      answer: "Yes, we collaborate effectively with in-house teams and other contractors. Our experience in team environments helps ensure smooth integration with your existing workflow."
+      question: "How does pricing work?",
+      answer: "We offer a monthly subscription for ongoing momentum or fixed-scope quotes for defined projects. We'll recommend the right route on the fit call."
     }
   ]
 

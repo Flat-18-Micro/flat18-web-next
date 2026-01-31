@@ -11,8 +11,8 @@ export default function HomePageSchema() {
     const homePageSchema = {
       "@context": "https://schema.org",
       "@type": "WebPage",
-      "name": "Flat 18 - Web3, AI & Full-Stack Development Agency",
-      "description": "Flat 18 is a design and development studio for startups and technology entrepreneurs. We specialise in Web3, DeFi, full-stack applications, AI-augmented workflows, and security-focused builds.",
+      "name": "Flat 18 - Design & Engineering Studio for Founders",
+      "description": "Flat 18 builds conversion-ready websites and MVPs for founders. Senior design and engineering, shipped in weeks.",
       "url": "https://flat18.co.uk",
       "isPartOf": {
         "@type": "WebSite",
@@ -29,7 +29,7 @@ export default function HomePageSchema() {
         "@type": "ProfessionalService",
         "name": "Flat 18",
         "image": "https://flat18.co.uk/static/advert-flat-18-f18-og_1-p-2000.webp",
-        "description": "Flat 18 offers design and engineering for the modern web. From Web3 and DeFi platforms to AI-assisted development and custom interfaces, we serve founders who demand performance, polish, and dependability.",
+        "description": "Flat 18 offers senior product design and engineering for the modern web. From high-conversion marketing sites to MVPs and fintech platforms, we serve founders who demand performance, polish, and dependability.",
         "url": "https://flat18.co.uk",
         "telephone": "+44-0000-000000",
         "email": "studio@flat18.co.uk",

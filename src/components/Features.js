@@ -20,29 +20,29 @@ export default function Features() {
     {
       icon: 'bi-palette',
       title: 'Product & UX',
-      description: 'User-centered design that drives outcomes and engagement.',
-      bullets: ['User research & testing', 'Interface design'],
+      description: 'Positioning, flows, and UI that turn interest into action.',
+      bullets: ['Messaging & user journeys', 'Design systems & prototypes'],
       href: '/services/ui-ux-design'
     },
     {
       icon: 'bi-code-slash',
       title: 'Web Engineering',
-      description: 'Fast, scalable development with quality assurance.',
-      bullets: ['Modern frameworks', 'Performance optimization'],
+      description: 'Fast, secure builds that scale without rewrites.',
+      bullets: ['Next.js + API integrations', 'Performance + QA'],
       href: '/services/web-development'
     },
     {
-      icon: 'bi-shield-lock',
-      title: 'Web3 & Emerging',
-      description: 'Blockchain integration and decentralized applications.',
-      bullets: ['Smart contracts', 'Wallet integrations'],
+      icon: 'bi-credit-card-2-front',
+      title: 'Fintech & Web3',
+      description: 'Payments, wallets, and complex data flows built right.',
+      bullets: ['Compliance-aware UX', 'Wallet + payment integrations'],
       href: '/services/web3-blockchain'
     },
     {
       icon: 'bi-gear',
       title: 'Retainers',
-      description: 'Ongoing support and continuous development.',
-      bullets: ['Monthly maintenance', 'Feature updates'],
+      description: 'Ongoing shipping after launch.',
+      bullets: ['Monthly improvements', 'Priority support'],
       href: '/services/maintenance-support'
     }
   ]
@@ -141,7 +141,7 @@ export default function Features() {
           <span className="label-uppercase">Services</span>
           <h2 className={styles.sectionTitle}>What we do</h2>
           <p className={styles.sectionDescription}>
-            Full-stack design and development for crypto and web3 founders
+            Full-stack design and development for founders who need speed without sacrificing quality.
           </p>
         </motion.div>
 

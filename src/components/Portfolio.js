@@ -424,9 +424,9 @@ export default function Portfolio() {
       scale: 1
     },
     active: {
-      backgroundColor: "rgba(0, 240, 181, 0.1)",
+      backgroundColor: "rgba(35, 64, 255, 0.12)",
       color: "var(--primary)",
-      border: "1px solid rgba(0, 240, 181, 0.2)",
+      border: "1px solid rgba(35, 64, 255, 0.3)",
       scale: 1.05
     }
   }
@@ -449,7 +449,7 @@ export default function Portfolio() {
           <span className="label-uppercase">Featured Work</span>
           <h2 className={styles.sectionTitle}>Recent projects</h2>
           <p className={styles.sectionDescription}>
-            A selection of our latest work across web3, fintech, and digital platforms
+            A selection of our latest work across fintech, security, and digital platforms
           </p>
         </motion.div>
 
