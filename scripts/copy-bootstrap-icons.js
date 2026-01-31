@@ -11,17 +11,27 @@ if (!fs.existsSync(destDir)) {
   console.log(`Created directory: ${destDir}`);
 }
 
-// Copy files from source to destination
-fs.readdirSync(sourceDir).forEach(file => {
-  const sourcePath = path.join(sourceDir, file);
-  const destPath = path.join(destDir, file);
-  
-  // Skip if it's a directory
-  if (fs.statSync(sourcePath).isDirectory()) return;
-  
-  // Copy the file
-  fs.copyFileSync(sourcePath, destPath);
-  console.log(`Copied: ${file}`);
+const copyRecursive = (sourcePath, targetPath) => {
+  const stat = fs.statSync(sourcePath);
+
+  if (stat.isDirectory()) {
+    if (!fs.existsSync(targetPath)) {
+      fs.mkdirSync(targetPath, { recursive: true });
+    }
+
+    fs.readdirSync(sourcePath).forEach(entry => {
+      copyRecursive(path.join(sourcePath, entry), path.join(targetPath, entry));
+    });
+    return;
+  }
+
+  fs.copyFileSync(sourcePath, targetPath);
+  console.log(`Copied: ${path.relative(sourceDir, sourcePath)}`);
+};
+
+// Copy files and subdirectories from source to destination
+fs.readdirSync(sourceDir).forEach(entry => {
+  copyRecursive(path.join(sourceDir, entry), path.join(destDir, entry));
 });
 
 console.log('Bootstrap Icons copied successfully!');
