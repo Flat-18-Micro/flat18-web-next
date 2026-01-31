@@ -3,7 +3,28 @@ import styles from '@/styles/component-css/FounderPage.module.css'
 
 export const metadata = {
   title: 'Flat 18 - Founder Version',
-  description: 'A blunt, founder-first overview of how Flat 18 ships conversion-ready websites and MVPs in weeks, not months.'
+  description: 'A blunt, founder-first overview of how Flat 18 ships conversion-ready websites and MVPs in weeks, not months.',
+  openGraph: {
+    title: 'Flat 18 - Founder Version',
+    description: 'A blunt, founder-first overview of how Flat 18 ships conversion-ready websites and MVPs in weeks, not months.',
+    images: [
+      {
+        url: '/static/advert-flat-18-f18-og_1-p-2000.webp',
+        width: 1200,
+        height: 630,
+        alt: 'Flat 18 Founder Version'
+      }
+    ],
+    locale: 'en_GB',
+    type: 'website',
+    siteName: 'Flat 18'
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Flat 18 - Founder Version',
+    description: 'A blunt, founder-first overview of how Flat 18 ships conversion-ready websites and MVPs in weeks, not months.',
+    images: ['/static/advert-flat-18-f18-og_1-p-2000.webp']
+  }
 }
 
 export default function FounderPage() {

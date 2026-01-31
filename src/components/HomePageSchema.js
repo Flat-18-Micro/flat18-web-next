@@ -51,53 +51,53 @@ export default function HomePageSchema() {
         "areaServed": "Worldwide",
         "hasOfferCatalog": {
           "@type": "OfferCatalog",
-          "name": "Web Development Services",
+          "name": "Design + Engineering Services",
           "itemListElement": [
             {
               "@type": "Offer",
               "itemOffered": {
                 "@type": "Service",
-                "name": "Web Development",
-                "description": "Expert web development using Next.js, React, and modern frameworks."
+                "name": "Product & UX Design",
+                "description": "Positioning, UX, UI, and design systems that move users to action."
               }
             },
             {
               "@type": "Offer",
               "itemOffered": {
                 "@type": "Service",
-                "name": "Web3 Development",
-                "description": "Specialised Web3 and DeFi development services."
+                "name": "Web Engineering",
+                "description": "Senior engineering for fast, secure, and maintainable builds."
               }
             },
             {
               "@type": "Offer",
               "itemOffered": {
                 "@type": "Service",
-                "name": "AI-Augmented Development",
-                "description": "Development services augmented with AI technologies."
+                "name": "MVPs & Web Apps",
+                "description": "Launch-ready MVPs, dashboards, and internal tools."
               }
             },
             {
               "@type": "Offer",
               "itemOffered": {
                 "@type": "Service",
-                "name": "AI Prompt Engineering",
-                "description": "Structured prompt engineering for large language models across creative and technical domains."
+                "name": "Fintech & Payments",
+                "description": "Payment flows, wallet integrations, and compliance-aware UX."
               }
             },
             {
               "@type": "Offer",
               "itemOffered": {
                 "@type": "Service",
-                "name": "AI-Seeded Design & Graphics",
-                "description": "Generative AI-powered graphics and design workflows guided by brand identity and creative direction."
+                "name": "Maintenance & Support",
+                "description": "Ongoing retainers for product iteration and support."
               }
             },
             {
               "@type": "Offer",
               "itemOffered": {
                 "@type": "Service",
-                "name": "API Integration",
+                "name": "API Integrations",
                 "description": "Seamless integration with third-party APIs and back-end services."
               }
             }
