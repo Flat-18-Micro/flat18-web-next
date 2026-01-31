@@ -284,9 +284,16 @@ export default function Hero() {
           </motion.div>
 
           {/* Main heading with F18-style large typography */}
+                    
           <motion.h1 className={styles.heroHeading} variants={fadeInUp}>
-            Websites & Apps<br />
-            <span className={styles.heroHeadingThin}>AI-Led Design + Development</span>
+          <span
+            className={styles.heroPreheading}
+            variants={fadeInUp}
+          >
+            Designing and Building
+          </span>
+            <span className={styles.heroHeadingThin}>Robust Web Products</span><br />
+            AI-assisted. Human-led.<br />Shipped properly.
           </motion.h1>
 
           {/* Supporting line */}
@@ -294,7 +301,7 @@ export default function Hero() {
             className={styles.heroSubheading}
             variants={fadeInUp}
           >
-            UI/UX Development. Security-first engineering. Robust code designed to last..
+            UI/UX design backed by security-first engineering and maintainable code.
           </motion.p>
 
           {/* CTA cluster - F18 style */}

@@ -25,7 +25,7 @@ export default function FAQ() {
           "name": "How much does it cost?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "From £2,995/month. Quarterly −15%. Pause/cancel anytime. This covers dedicated development time and ensures consistent progress on your project."
+            "text": "Most popular subscription; £2,995/month. Pause/cancel anytime. This covers dedicated development time and ensures consistent progress on your project."
           }
         },
         {
@@ -71,7 +71,7 @@ export default function FAQ() {
     },
     {
       question: "How much does it cost?",
-      answer: "From £2,995/month. Quarterly −15%. Pause/cancel anytime. This covers dedicated development time and ensures consistent progress on your project."
+      answer: "Most popular subscription; £2,995/month. Pause/cancel anytime. This covers dedicated development time and ensures consistent progress on your project."
     },
     {
       question: "Why the subscription model?",
