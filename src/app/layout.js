@@ -1,5 +1,4 @@
 import '../styles/globals.css'
-import 'bootstrap-icons/font/bootstrap-icons.css'
 import { Sora, Inter, Playfair_Display } from 'next/font/google'
 import { JetBrains_Mono } from 'next/font/google'
 import ChatwootWidget from '@/components/ChatwootWidget'
@@ -103,6 +102,17 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${sora.variable} ${inter.variable} ${jetbrainsMono.variable} ${playfairDisplay.variable}`}>
       <head>
+        <link
+          rel="preload"
+          as="style"
+          href="/bootstrap-icons/font/bootstrap-icons.css"
+          onLoad={(event) => {
+            event.currentTarget.rel = 'stylesheet'
+          }}
+        />
+        <noscript>
+          <link rel="stylesheet" href="/bootstrap-icons/font/bootstrap-icons.css" />
+        </noscript>
         {/* JSON-LD structured data for organization */}
         <script
           type="application/ld+json"
