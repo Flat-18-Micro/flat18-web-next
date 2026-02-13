@@ -12,7 +12,6 @@ import Footer from '@/components/Footer'
 import Portfolio from '@/components/Portfolio'
 import Tools from '@/components/Tools'
 import Testimonials from '@/components/Testimonials'
-import HomePageSchema from '@/components/HomePageSchema'
 import { useScrollBackground } from '@/hooks/useScrollBackground'
 
 export default function HomeClientShell() {
@@ -32,7 +31,6 @@ export default function HomeClientShell() {
       <Contact />
       <Tools />
       <Footer />
-      <HomePageSchema />
     </>
   )
 }

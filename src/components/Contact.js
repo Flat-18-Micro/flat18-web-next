@@ -254,7 +254,7 @@ export default function Contact() {
                   ) : (
                     <>
                       <span>Book a fit check</span>
-                      <i className="bi bi-arrow-right"></i>
+                      <i className="bi bi-arrow-right" aria-hidden="true"></i>
                     </>
                   )}
                 </button>
@@ -265,19 +265,19 @@ export default function Contact() {
 
         <div className={styles.contactInfo}>
           <div className={styles.infoItem}>
-            <i className={`bi bi-envelope ${styles.infoIcon}`}></i>
+            <i className={`bi bi-envelope ${styles.infoIcon}`} aria-hidden="true"></i>
             <span className={styles.infoText}>
               <a href="mailto:hello@flat18.co.uk" className={styles.infoLink}>hello@flat18.co.uk</a>
             </span>
           </div>
 
           <div className={styles.infoItem}>
-            <i className={`bi bi-geo-alt ${styles.infoIcon}`}></i>
+            <i className={`bi bi-geo-alt ${styles.infoIcon}`} aria-hidden="true"></i>
             <span className={styles.infoText}>Remote-first team</span>
           </div>
 
           <div className={styles.infoItem}>
-            <i className={`bi bi-clock ${styles.infoIcon}`}></i>
+            <i className={`bi bi-clock ${styles.infoIcon}`} aria-hidden="true"></i>
             <span className={styles.infoText}>Mon-Fri: 12:00 - 20:00 UTC</span>
           </div>
         </div>
@@ -293,7 +293,7 @@ export default function Contact() {
           <div className={styles.visualElementInner}></div>
           <div className={styles.visualElementGrid}></div>
           <div className={styles.visualElementContent}>
-            <i className="bi bi-chat-square-text" style={{ fontSize: '3rem', marginBottom: '1rem', color: 'var(--secondary)' }}></i>
+            <i className="bi bi-chat-square-text" aria-hidden="true" style={{ fontSize: '3rem', marginBottom: '1rem', color: 'var(--secondary)' }}></i>
             <h3 style={{ fontSize: '1.5rem', marginBottom: '1rem' }}>Let's chat about your project</h3>
             <p style={{ opacity: 0.8, maxWidth: '80%', margin: '0 auto' }}>
               We're here to turn your ideas into reality with our design and development know-how.

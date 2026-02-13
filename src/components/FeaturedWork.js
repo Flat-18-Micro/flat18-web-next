@@ -177,7 +177,7 @@ export default function FeaturedWork() {
                   className={styles.featuredCta}
                 >
                   View Project
-                  <i className="bi bi-arrow-right"></i>
+                  <i className="bi bi-arrow-right" aria-hidden="true"></i>
                 </a>
               </div>
             </motion.div>
@@ -190,7 +190,7 @@ export default function FeaturedWork() {
         >
           <a href="#work" className={styles.viewAllButton}>
             View All Projects
-            <i className="bi bi-arrow-right"></i>
+            <i className="bi bi-arrow-right" aria-hidden="true"></i>
           </a>
         </motion.div>
       </motion.div>

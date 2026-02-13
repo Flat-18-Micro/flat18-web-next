@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import styles from '@/styles/component-css/Navbar.module.css'
@@ -8,44 +8,15 @@ import { analytics } from '@/lib/analytics'
 
 export default function Navbar({ isScrolled }) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-  const [isServicesMenuOpen, setIsServicesMenuOpen] = useState(false)
-  const servicesMenuRef = useRef(null)
-  const servicesButtonRef = useRef(null)
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen)
   }
 
-  const toggleServicesMenu = () => {
-    setIsServicesMenuOpen(!isServicesMenuOpen)
-    if (!isServicesMenuOpen) {
-      analytics.nav.megaMenuOpen()
-    }
-  }
-
-  // Close services menu when clicking outside
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (
-        servicesMenuRef.current &&
-        !servicesMenuRef.current.contains(event.target) &&
-        !servicesButtonRef.current.contains(event.target)
-      ) {
-        setIsServicesMenuOpen(false)
-      }
-    }
-
-    document.addEventListener('mousedown', handleClickOutside)
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside)
-    }
-  }, [])
-
   // Close menu on escape key
   useEffect(() => {
     const handleEscape = (event) => {
       if (event.key === 'Escape') {
-        setIsServicesMenuOpen(false)
         setIsMobileMenuOpen(false)
       }
     }
@@ -55,32 +26,6 @@ export default function Navbar({ isScrolled }) {
       document.removeEventListener('keydown', handleEscape)
     }
   }, [])
-
-  // Services data for mega menu
-  const services = [
-    {
-      title: "Product & UX",
-      description: "User-centered design that drives outcomes and engagement.",
-      href: "/services/ui-ux-design"
-    },
-    {
-      title: "Web Engineering",
-      description: "Fast, scalable development with quality assurance.",
-      href: "/services/web-development"
-    },
-    {
-      title: "Web3 & Emerging",
-      description: "Blockchain integration and decentralized applications.",
-      href: "/services/web3-blockchain"
-    },
-    {
-      quote: "We’ve worked with bigger agencies that didn’t deliver half as much value. Flat 18 was fast, focused, and genuinely cared about the outcome.",
-      author: "Founder",
-      role: "DeFi dashboard",
-      rating: 5,
-      color: "accent-pink"
-    }
-  ]
 
   return (
     <header className={`${styles.navbar} ${isScrolled ? styles.scrolled : ''}`}>
@@ -104,7 +49,7 @@ export default function Navbar({ isScrolled }) {
         )} */}
 
         {/* Desktop Navigation */}
-        <nav className={`${styles.desktopNav} hidden lg:flex`}>
+        <nav className={`${styles.desktopNav} hidden lg:flex`} aria-label="Primary">
           <ul className={styles.menu}>
             <li>
               <Link href="/#work" className={styles.link}>
@@ -131,7 +76,7 @@ export default function Navbar({ isScrolled }) {
               onClick={() => analytics.nav.bookCall()}
             >
               <span className="btn-text">Book a fit check</span>
-              <i className="bi bi-arrow-right"></i>
+              <i className="bi bi-arrow-right" aria-hidden="true"></i>
             </a>
           </div>
         </nav>
@@ -142,12 +87,14 @@ export default function Navbar({ isScrolled }) {
           onClick={toggleMobileMenu}
           aria-label="Toggle menu"
           aria-expanded={isMobileMenuOpen}
+          aria-controls="mobile-menu"
         >
           <span className={`${styles.hamburger} ${isMobileMenuOpen ? styles.hamburgerOpen : ''}`}></span>
         </button>
 
         {/* Mobile Menu */}
         <nav
+          id="mobile-menu"
           className={`${styles.mobileMenu} ${isMobileMenuOpen ? styles.mobileMenuOpen : ''} lg:hidden`}
           aria-label="Mobile navigation"
         >

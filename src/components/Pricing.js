@@ -183,15 +183,23 @@ export default function Pricing() {
         <div className={styles.currencyToolbar}>
           <span className={styles.currencyLabel}>Show pricing in</span>
           <div className={styles.currencyDropdown}>
-            <button className={styles.dropdownTrigger} onClick={toggleCurrencyMenu}>
+            <button
+              className={styles.dropdownTrigger}
+              onClick={toggleCurrencyMenu}
+              aria-haspopup="listbox"
+              aria-expanded={showCurrencyMenu}
+              aria-controls="currency-menu"
+            >
               <span>{selectedCurrency}</span>
-              <i className="bi bi-chevron-down"></i>
+              <i className="bi bi-chevron-down" aria-hidden="true"></i>
             </button>
             {showCurrencyMenu && (
-              <div className={styles.currencyMenu}>
+              <div className={styles.currencyMenu} id="currency-menu" role="listbox" aria-label="Currency options">
                 <button
                   className={`${styles.currencyOption} ${selectedCurrency === 'GBP' ? styles.active : ''}`}
                   onClick={() => selectCurrency('GBP')}
+                  role="option"
+                  aria-selected={selectedCurrency === 'GBP'}
                 >
                   GBP
                 </button>
@@ -202,6 +210,8 @@ export default function Pricing() {
                       key={currency.name}
                       className={`${styles.currencyOption} ${selectedCurrency === currency.name ? styles.active : ''}`}
                       onClick={() => selectCurrency(currency.name)}
+                      role="option"
+                      aria-selected={selectedCurrency === currency.name}
                     >
                       {currency.name}
                     </button>
@@ -209,6 +219,8 @@ export default function Pricing() {
                 <button
                   className={`${styles.currencyOption} ${selectedCurrency === 'BTC' ? styles.active : ''}`}
                   onClick={() => selectCurrency('BTC')}
+                  role="option"
+                  aria-selected={selectedCurrency === 'BTC'}
                 >
                   BTC
                 </button>
@@ -239,7 +251,7 @@ export default function Pricing() {
               <ul className={styles.featuresList}>
                 {SUBSCRIPTION_HIGHLIGHTS.map((highlight) => (
                   <li key={highlight} className={styles.featureItem}>
-                    <i className="bi bi-check-circle-fill"></i>
+                    <i className="bi bi-check-circle-fill" aria-hidden="true"></i>
                     <span>{highlight}</span>
                   </li>
                 ))}

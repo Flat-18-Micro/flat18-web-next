@@ -80,7 +80,7 @@ export default function Breadcrumbs() {
 
                 {!isLast && (
                   <span className={styles.separator} aria-hidden="true">
-                    <i className="bi bi-chevron-right"></i>
+                    <i className="bi bi-chevron-right" aria-hidden="true"></i>
                   </span>
                 )}
               </li>

@@ -13,7 +13,6 @@ const loadNotificationAnimation = () => import('@/animations/Notification-[remix
 const herobgAnimation = () => import('@/animations/paths.json')
 
 export default function Hero() {
-  const heroRef = useRef(null)
   const [startAnimation, setStartAnimation] = useState(false)
   const lottieWrapperRef = useRef(null)
   const herobgLottieRef = useRef(null)
@@ -51,25 +50,12 @@ export default function Hero() {
     }
   }, [prefersReducedMotion])
 
-  // Ensure hero section always uses natural content height
-  useEffect(() => {
-    if (heroRef.current) {
-      // Always use auto height to prevent any clipping
-      // heroRef.current.style.minHeight = 'auto';
-      heroRef.current.style.height = 'auto';
-    }
-  }, []);
-
   // Callback to set animation speed when loaded
   const handleHerobgLoaded = useCallback(() => {
     // Small delay to ensure lottie instance is fully ready
     setTimeout(() => {
       if (herobgLottieRef.current) {
-        console.log('Setting herobg animation speed to 0.25x')
         herobgLottieRef.current.setSpeed(0.25)
-        console.log('Current speed:', herobgLottieRef.current)
-      } else {
-        console.log('herobgLottieRef.current is not available')
       }
     }, 100)
   }, [])
@@ -200,7 +186,6 @@ export default function Hero() {
   return (
     <section
       className={styles.heroSection}
-      ref={heroRef}
       data-bg-color={getSectionBackground('hero')}
       data-text-color={getSectionTextColor('hero')}
     >
@@ -288,7 +273,6 @@ export default function Hero() {
           <motion.h1 className={styles.heroHeading} variants={fadeInUp}>
           <span
             className={styles.heroPreheading}
-            variants={fadeInUp}
           >
             For founders carrying too much
           </span>
@@ -335,7 +319,7 @@ export default function Hero() {
                 onClick={() => analytics.hero.bookCall()}
               >
                 <span className="btn-text">Book a fit check</span>
-                <i className="bi bi-arrow-right"></i>
+                <i className="bi bi-arrow-right" aria-hidden="true"></i>
               </a>
             </motion.div>
 

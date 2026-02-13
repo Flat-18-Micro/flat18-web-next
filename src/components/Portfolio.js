@@ -212,7 +212,7 @@ function ProjectCard({ project, index }) {
               transition={{ duration: 0.3, delay: 0.1 }}
             >
               <span className={styles.overlayLabel}>View Project</span>
-              <i className="bi bi-arrow-right"></i>
+              <i className="bi bi-arrow-right" aria-hidden="true"></i>
             </motion.div>
           </motion.div>
 
@@ -301,7 +301,7 @@ function ProjectCard({ project, index }) {
           }}
         >
           View Project
-          <i className="bi bi-arrow-right"></i>
+          <i className="bi bi-arrow-right" aria-hidden="true"></i>
         </motion.a>
       </motion.div>
     </motion.div>

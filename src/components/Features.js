@@ -169,7 +169,7 @@ export default function Features() {
               >
               <div className={styles.cardHeader}>
                 <div className={styles.iconWrapper}>
-                  <i className={`bi ${service.icon}`}></i>
+                  <i className={`bi ${service.icon}`} aria-hidden="true"></i>
                 </div>
                 <h3 className={styles.serviceTitle}>{service.title}</h3>
               </div>
@@ -186,7 +186,7 @@ export default function Features() {
               <div className={styles.cardFooter}>
                 <a href={service.href} className={styles.microCTA}>
                   Learn more
-                  <i className="bi bi-arrow-right"></i>
+                  <i className="bi bi-arrow-right" aria-hidden="true"></i>
                 </a>
               </div>
             </motion.div>

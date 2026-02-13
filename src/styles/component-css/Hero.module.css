@@ -5,7 +5,7 @@
   align-items: center;
   justify-content: center;
   margin-top: 50px;
-  padding: 0 0 var(--section-spacing-y-lg)0;
+  padding: 0 0 var(--section-spacing-y-lg) 0;
   background-color: var(--bg);
   overflow: visible;
   min-height: calc(100vh - 180px)
@@ -398,7 +398,7 @@
 
 @media (max-width:1024px) {
   .heroSection {
-    padding: 0 0 var(--section-spacing-y)0
+    padding: 0 0 var(--section-spacing-y) 0
   }
 
   .heroHeading {
@@ -450,7 +450,7 @@
 
 @media (max-width:768px) {
   .heroSection {
-    padding: 0 0 var(--section-spacing-y-mobile)0;
+    padding: 0 0 var(--section-spacing-y-mobile) 0;
     min-height: auto;
     justify-content: flex-start
   }
@@ -559,7 +559,7 @@
 @media (max-width:480px) {
   .heroSection {
     min-height: auto;
-    padding: 0 0 var(--section-spacing-y-mobile-sm)0
+    padding: 0 0 var(--section-spacing-y-mobile-sm) 0
   }
 
   .heroContainer {
@@ -654,7 +654,7 @@
 
 @media (max-width:360px) {
   .heroSection {
-    padding: 0 0 var(--section-spacing-y-mobile-sm)0;
+    padding: 0 0 var(--section-spacing-y-mobile-sm) 0;
     min-height: auto
   }
 
@@ -695,7 +695,7 @@
 @media (max-height:600px) and (orientation:landscape) {
   .heroSection {
     min-height: auto !important;
-    padding: 0 0 var(--space-6)0;
+    padding: 0 0 var(--space-6) 0;
     justify-content: flex-start
   }
 
@@ -738,7 +738,7 @@
 @media (max-height:500px) {
   .heroSection {
     min-height: auto !important;
-    padding: 0 0 var(--space-4)0
+    padding: 0 0 var(--space-4) 0
   }
 
   .heroContainer {

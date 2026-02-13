@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect, useRef, useCallback } from 'react'
-import { motion, useInView } from 'framer-motion'
+import { motion, useInView, useReducedMotion } from 'framer-motion'
 import styles from '../styles/component-css/Testimonials.module.css'
 import { getSectionBackground, getSectionTextColor } from '@/hooks/useScrollBackground'
 
@@ -52,6 +52,7 @@ export default function Testimonials() {
   const sectionRef = useRef(null)
   const isInView = useInView(sectionRef, { once: true, amount: 0.2 })
   const autoplayRef = useRef(null)
+  const prefersReducedMotion = useReducedMotion()
 
   // Animation variants
   const sectionVariants = {
@@ -238,7 +239,7 @@ export default function Testimonials() {
     // Scroll to the card with smooth animation
     carouselRef.current.scrollTo({
       left: adjustedScrollPosition,
-      behavior: 'smooth'
+      behavior: prefersReducedMotion ? 'auto' : 'smooth'
     });
 
     // Update active index
@@ -255,7 +256,7 @@ export default function Testimonials() {
         targetCard.classList.add(styles.activeCard);
       }
     }, 300);
-  }, [testimonials.length]);
+  }, [prefersReducedMotion, testimonials.length]);
 
   const stopAutoplay = useCallback(() => {
     if (autoplayRef.current) {
@@ -283,9 +284,10 @@ export default function Testimonials() {
   }, [activeIndex]);
 
   useEffect(() => {
+    if (prefersReducedMotion || !isInView) return;
     startAutoplay();
     return () => stopAutoplay();
-  }, [startAutoplay, stopAutoplay]);
+  }, [isInView, prefersReducedMotion, startAutoplay, stopAutoplay]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -363,7 +365,7 @@ export default function Testimonials() {
   const renderStars = (rating) => {
     return Array.from({ length: 5 }, (_, i) => (
       <span key={i} className={i < rating ? styles.starFilled : styles.starEmpty}>
-        <i className={i < rating ? "bi bi-star-fill" : "bi bi-star"}></i>
+        <i className={i < rating ? "bi bi-star-fill" : "bi bi-star"} aria-hidden="true"></i>
       </span>
     ));
   };
@@ -407,6 +409,21 @@ export default function Testimonials() {
             onTouchStart={handleTouchStart}
             onTouchMove={handleTouchMove}
             onTouchEnd={handleTouchEnd}
+            onKeyDown={(event) => {
+              if (event.key === 'ArrowLeft') {
+                event.preventDefault();
+                const prevIndex = activeIndex > 0 ? activeIndex - 1 : testimonials.length - 1;
+                scrollToCard(prevIndex);
+              }
+              if (event.key === 'ArrowRight') {
+                event.preventDefault();
+                const nextIndex = (activeIndex + 1) % testimonials.length;
+                scrollToCard(nextIndex);
+              }
+            }}
+            role="region"
+            aria-label="Testimonials carousel"
+            tabIndex={0}
           >
             {testimonials.map((testimonial, index) => (
               <motion.div
@@ -423,7 +440,7 @@ export default function Testimonials() {
                   </div>
 
                   <div className={styles.testimonialContent}>
-                    <div className={styles.ratingStars}>
+                    <div className={styles.ratingStars} role="img" aria-label={`${testimonial.rating} out of 5 stars`}>
                       {renderStars(testimonial.rating)}
                     </div>
 
@@ -465,7 +482,7 @@ export default function Testimonials() {
               }}
               aria-label="Previous testimonial"
             >
-              <i className="bi bi-chevron-left"></i>
+              <i className="bi bi-chevron-left" aria-hidden="true"></i>
             </button>
 
             <div className={styles.carouselIndicators}>
@@ -502,7 +519,7 @@ export default function Testimonials() {
               }}
               aria-label="Next testimonial"
             >
-              <i className="bi bi-chevron-right"></i>
+              <i className="bi bi-chevron-right" aria-hidden="true"></i>
             </button>
           </div>
         </div>
@@ -510,7 +527,7 @@ export default function Testimonials() {
         <motion.div className={styles.ctaWrapper} variants={headingVariants}>
           <a href="#chat" className="btn btn-primary">
             <span>Book a fit check</span>
-            <i className="bi bi-arrow-right"></i>
+            <i className="bi bi-arrow-right" aria-hidden="true"></i>
           </a>
         </motion.div>
       </motion.div>
