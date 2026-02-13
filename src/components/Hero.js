@@ -303,9 +303,9 @@ export default function Hero() {
             </li>
           </motion.ul>
 
-          <motion.p className={styles.heroQualifier} variants={fadeInUp}>
+          {/* <motion.p className={styles.heroQualifier} variants={fadeInUp}>
             For founders with a clear product and budget. Not for idea-stage work or large-agency procurement.
-          </motion.p>
+          </motion.p> */}
 
           {/* CTA cluster - F18 style */}
           <motion.div
