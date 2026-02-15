@@ -14,7 +14,7 @@ export default function FeaturedWork() {
     {
       title: 'BTCPay Server',
       description: 'Conversion-focused landing and foundation site refresh for the open-source payments platform.',
-      image: '/images/portfolio-graphics/btcpayserver-bahaus.webp',
+      image: '/images/portfolio-graphics/btcpayserver-mock.webp',
       projectLogo: '/images/portfolio-graphics/logos/btcpayserver.webp',
       link: 'https://btcpayserver.org',
       technologies: ['HTML5', 'CSS', 'JavaScript'],
@@ -27,7 +27,7 @@ export default function FeaturedWork() {
     {
       title: 'WalletScrutiny',
       description: 'Brand + UX redesign to make wallet security research clear and trustworthy.',
-      image: '/images/portfolio-graphics/walletscrutiny-bahaus.webp',
+      image: '/images/portfolio-graphics/walletscrutiny-mock.webp',
       projectLogo: '/images/portfolio-graphics/logos/wallet-scrutiny.webp',
       link: 'https://walletscrutiny.com',
       technologies: ['JavaScript', 'HTML5', 'SCSS'],

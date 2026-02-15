@@ -274,10 +274,10 @@ export default function Hero() {
           <span
             className={styles.heroPreheading}
           >
-            For founders carrying too much
+            For founders who need momentum
           </span>
-            <span className={styles.heroHeadingThin}>Stop chasing progress</span><br />
-            Get your website shipped properly.
+            <span className={styles.heroHeadingThin}>Build what matters.</span><br />
+            Get momentum back.
           </motion.h1>
 
           {/* Supporting line */}
@@ -285,21 +285,17 @@ export default function Hero() {
             className={styles.heroSubheading}
             variants={fadeInUp}
           >
-            You get one senior team that takes the design and build off your plate and ships a conversion-ready site or MVP in 2-12 weeks.
+            Senior team designs and builds your website or MVP in a matter of weeks.
           </motion.p>
 
           <motion.ul className={styles.heroHighlights} variants={fadeInUp}>
             <li className={styles.heroHighlightItem}>
               <span className={styles.heroHighlightIcon}><i className="bi bi-lightning-charge-fill" aria-hidden="true"></i></span>
-              Weekly progress you do not have to chase
+              Weekly progress, no chasing
             </li>
             <li className={styles.heroHighlightItem}>
               <span className={styles.heroHighlightIcon}><i className="bi bi-people-fill" aria-hidden="true"></i></span>
-              One senior team, no handovers
-            </li>
-            <li className={styles.heroHighlightItem}>
-              <span className={styles.heroHighlightIcon}><i className="bi bi-cash-stack" aria-hidden="true"></i></span>
-              Clear scope before we build
+              One senior team, end to end
             </li>
           </motion.ul>
 
@@ -335,7 +331,7 @@ export default function Hero() {
           </motion.div>
 
           <motion.p className={styles.heroCtaNote} variants={fadeInUp}>
-            15-20 minute call. We will tell you quickly if we are a fit.
+            15-20 minute fit check.
           </motion.p>
 
           {/* Trust strip - single-row pill with logos */}
@@ -344,7 +340,7 @@ export default function Hero() {
             variants={fadeInUp}
           >
             <div className={styles.trustPill}>
-              <span className={styles.trustText}>Trusted by founders at</span>
+              <span className={styles.trustText}>Trusted by</span>
               <div className={styles.trustLogos}>
                 <Image src="/images/portfolio-graphics/logos/btcpayserver.webp" alt="Client logo" width={172} height={32} className={styles.trustLogo} />
                 <Image src="/images/portfolio-graphics/logos/wallet-scrutiny.webp" alt="Client logo" width={172} height={32} className={styles.trustLogo} />
