@@ -271,11 +271,11 @@ export default function Hero() {
           {/* Main heading with F18-style large typography */}
                     
           <motion.h1 className={styles.heroHeading} variants={fadeInUp}>
-          <span
+          {/* <span
             className={styles.heroPreheading}
           >
             For founders who need momentum
-          </span>
+          </span> */}
             <span className={styles.heroHeadingThin}>Build what matters.</span><br />
             Get momentum back.
           </motion.h1>
