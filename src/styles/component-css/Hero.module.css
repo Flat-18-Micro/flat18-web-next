@@ -132,7 +132,7 @@
   margin-bottom: 1rem;
 }
 .heroHeading {
-  font-family: var(--font-bwgradual);
+  font-family: var(--font-heading);
   font-size: var(--text-display);
   font-weight: 100;
   line-height: var(--leading-tight);
@@ -149,7 +149,7 @@
   font-size: 1.25rem;
   color: var(--text-secondary);
   line-height: var(--leading-relaxed);
-  max-width: 450px;
+  max-width: 550px;
   margin: 0
 }
 
@@ -310,7 +310,7 @@
 }
 
 .statNumber {
-  font-family: var(--font-bwgradual);
+  font-family: var(--font-heading);
   font-size: 2.5rem;
   font-weight: 700;
   color: var(--fg);

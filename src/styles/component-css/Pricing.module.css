@@ -14,7 +14,7 @@
 }
 
 .sectionTitle {
-  font-family: var(--font-bwgradual);
+  font-family: var(--font-heading);
   font-size: var(--text-section-heading);
   font-weight: 600;
   color: var(--fg);
@@ -104,7 +104,7 @@
 }
 
 .planTitle {
-  font-family: var(--font-bwgradual);
+  font-family: var(--font-heading);
   font-size: 1.75rem;
   font-weight: 600;
   color: var(--fg);
@@ -131,7 +131,7 @@
 }
 
 .priceAmount {
-  font-family: var(--font-bwgradual);
+  font-family: var(--font-heading);
   font-size: clamp(2.8rem, 6vw, 4rem);
   font-weight: 700;
   color: var(--fg);
@@ -153,7 +153,7 @@
 }
 
 .featuresTitle {
-  font-family: var(--font-bwgradual);
+  font-family: var(--font-heading);
   font-size: 1.125rem;
   font-weight: 600;
   color: var(--fg);
@@ -335,7 +335,7 @@
 }
 
 .ctaContent h3 {
-  font-family: var(--font-bwgradual);
+  font-family: var(--font-heading);
   font-size: 1.25rem;
   font-weight: 600;
   color: var(--fg);

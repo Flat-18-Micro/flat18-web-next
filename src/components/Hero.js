@@ -285,10 +285,10 @@ export default function Hero() {
             className={styles.heroSubheading}
             variants={fadeInUp}
           >
-            Senior team designs and builds your website or MVP in a matter of weeks.
+            Senior team designs and builds your website or MVP in a matter of weeks. Track tasks with boards. <br />Weekly progress updates, no chasing.
           </motion.p>
 
-          <motion.ul className={styles.heroHighlights} variants={fadeInUp}>
+          {/* <motion.ul className={styles.heroHighlights} variants={fadeInUp}>
             <li className={styles.heroHighlightItem}>
               <span className={styles.heroHighlightIcon}><i className="bi bi-lightning-charge-fill" aria-hidden="true"></i></span>
               Weekly progress, no chasing
@@ -297,7 +297,7 @@ export default function Hero() {
               <span className={styles.heroHighlightIcon}><i className="bi bi-people-fill" aria-hidden="true"></i></span>
               One senior team, end to end
             </li>
-          </motion.ul>
+          </motion.ul> */}
 
           {/* <motion.p className={styles.heroQualifier} variants={fadeInUp}>
             For founders with a clear product and budget. Not for idea-stage work or large-agency procurement.

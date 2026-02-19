@@ -11,7 +11,7 @@ module.exports = {
         'display': ['var(--font-display)'],
         'mono': ['var(--font-mono)'],
         'playfair': ['var(--font-playfair)'],
-        'bwgradual': ['var(--font-bwgradual)'],
+        'heading': ['var(--font-heading)'],
       },
       colors: {
         // F18-inspired Flat 18 palette

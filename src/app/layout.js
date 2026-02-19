@@ -1,6 +1,5 @@
 import '../styles/globals.css'
-import { Sora, Inter, Playfair_Display } from 'next/font/google'
-import { JetBrains_Mono } from 'next/font/google'
+import { Playfair_Display, JetBrains_Mono } from 'next/font/google'
 import ChatwootWidget from '@/components/ChatwootWidget'
 import ServiceWorkerRegistration from '@/components/ServiceWorkerRegistration'
 import Script from 'next/script'
@@ -9,25 +8,6 @@ import ClientLayout from '@/components/ClientLayout'
 import { ThemeProvider } from './providers'
 
 // Optimize font loading with better performance settings
-const sora = Sora({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-sora',
-  preload: true,
-  fallback: ['system-ui', 'Arial', 'sans-serif'],
-  adjustFontFallback: true,
-  weight: ['400', '500', '700'], // Only load needed weights
-})
-
-const inter = Inter({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-inter',
-  preload: true,
-  fallback: ['system-ui', 'Arial', 'sans-serif'],
-  adjustFontFallback: true,
-  weight: ['400', '500', '600', '700'], // Only load needed weights
-})
 
 const jetbrainsMono = JetBrains_Mono({
   subsets: ['latin'],
@@ -100,7 +80,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${sora.variable} ${inter.variable} ${jetbrainsMono.variable} ${playfairDisplay.variable}`}>
+    <html lang="en" className={`${jetbrainsMono.variable} ${playfairDisplay.variable}`}>
       <head>
         <link rel="preload" as="style" href="/bootstrap-icons/font/bootstrap-icons.css" />
         <link rel="stylesheet" href="/bootstrap-icons/font/bootstrap-icons.css" media="print" />

@@ -65,7 +65,7 @@
 }
 
 .title {
-  font-family: var(--font-bwgradual);
+  font-family: var(--font-heading);
   font-size: clamp(2.6rem, 5vw, 4.6rem);
   line-height: 1.05;
   margin-bottom: var(--space-6)
@@ -180,7 +180,7 @@
 .proofValue {
   font-size: 1.6rem;
   font-weight: 700;
-  font-family: var(--font-bwgradual)
+  font-family: var(--font-heading)
 }
 
 .proofLabel {
@@ -196,7 +196,7 @@
 }
 
 .sectionTitle {
-  font-family: var(--font-bwgradual);
+  font-family: var(--font-heading);
   font-size: clamp(1.8rem, 3vw, 2.6rem);
   margin-bottom: var(--space-2)
 }
@@ -319,7 +319,7 @@
 }
 
 .ctaCard h2 {
-  font-family: var(--font-bwgradual);
+  font-family: var(--font-heading);
   font-size: clamp(1.8rem, 3vw, 2.6rem);
   margin-bottom: var(--space-2)
 }
