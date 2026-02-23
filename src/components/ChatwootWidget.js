@@ -1,13 +1,42 @@
 'use client'
 
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
+import { usePathname, useSearchParams } from 'next/navigation'
 import { initChatwoot } from '@/utils/chatwoot'
 
 const LOAD_TIMEOUT_MS = 5000
 const CHATWOOT_BASE_URL = 'https://chatwoot.flat18.co.uk'
 const CHATWOOT_TOKEN = 'krt1otbtLdpkie19rPwPThai'
+const CHAT_PREFILL_PRESETS = {
+  intro: 'Hi Flat 18 - I would like to talk about a project.',
+  pricing: 'Hi Flat 18 - can you share pricing and timelines?',
+  mvp: 'Hi Flat 18 - I am looking to build an MVP.',
+  redesign: 'Hi Flat 18 - I am interested in a website redesign.',
+  support: 'Hi Flat 18 - I need help with an existing site.',
+}
+
+const resolvePrefillMessage = (value) => {
+  if (!value) return ''
+  const trimmed = String(value).trim()
+  if (!trimmed) return ''
+  const key = trimmed.toLowerCase()
+  return CHAT_PREFILL_PRESETS[key] || trimmed
+}
+
+const isChatPath = (pathname = '') => {
+  const normalized = pathname.replace(/\/+$/, '') || '/'
+  if (normalized === '/chat') return true
+  if (normalized === '/chat.html') return true
+  if (normalized.endsWith('/chat/index.html')) return true
+  return false
+}
 
 export default function ChatwootWidget() {
+  const pathname = usePathname()
+  const searchParams = useSearchParams()
+  const startLoadingRef = useRef(null)
+  const triggerInstantRef = useRef(null)
+
   useEffect(() => {
     if (typeof window === 'undefined') {
       return () => {}
@@ -18,6 +47,7 @@ export default function ChatwootWidget() {
     let idleCallbackId = null
     let timeoutId = null
     const abortControllers = new Set()
+    let latestInstantToken = 0
 
     const clearDeferredHandles = () => {
       if (idleCallbackId !== null && 'cancelIdleCallback' in window) {
@@ -177,10 +207,53 @@ export default function ChatwootWidget() {
     const pointerListener = () => startLoading()
     const keyListener = () => startLoading()
     const focusListener = () => startLoading()
+    const triggerInstantChat = ({ prefillMessage, prefillKey } = {}) => {
+      const token = ++latestInstantToken
+
+      waitForChatwoot().then(() => {
+        if (token !== latestInstantToken || !window.$chatwoot) {
+          return
+        }
+
+        try {
+          if (typeof window.$chatwoot.toggle === 'function' && !window.$chatwoot.isOpen) {
+            window.$chatwoot.toggle()
+          }
+
+          if (prefillMessage) {
+            const attributes = {
+              prefill_message: prefillMessage,
+            }
+
+            if (prefillKey && CHAT_PREFILL_PRESETS[prefillKey]) {
+              attributes.prefill_key = prefillKey
+            }
+
+            if (typeof window.$chatwoot.setCustomAttributes === 'function') {
+              window.$chatwoot.setCustomAttributes(attributes)
+            }
+
+            if (typeof window.$chatwoot.setConversationCustomAttributes === 'function') {
+              window.$chatwoot.setConversationCustomAttributes(attributes)
+            }
+          }
+        } catch (error) {
+          console.warn('Chatwoot instant open error', error)
+        }
+      })
+    }
+
+    startLoadingRef.current = startLoading
+    triggerInstantRef.current = triggerInstantChat
 
     window.addEventListener('pointerdown', pointerListener, { once: true, passive: true })
     window.addEventListener('keydown', keyListener, { once: true })
     window.addEventListener('focus', focusListener, { once: true })
+
+    const initialPath = window.location?.pathname || ''
+    if (isChatPath(initialPath)) {
+      startLoading()
+    }
 
     scheduleDeferredLoad()
 
@@ -192,8 +265,29 @@ export default function ChatwootWidget() {
       window.removeEventListener('pointerdown', pointerListener)
       window.removeEventListener('keydown', keyListener)
       window.removeEventListener('focus', focusListener)
+
+      startLoadingRef.current = null
+      triggerInstantRef.current = null
     }
   }, [])
+
+  useEffect(() => {
+    if (typeof window === 'undefined') {
+      return
+    }
+
+    const currentPath = pathname || window.location?.pathname || ''
+    if (!isChatPath(currentPath)) {
+      return
+    }
+
+    const prefillRaw = searchParams?.get('data') || ''
+    const prefillKey = prefillRaw ? prefillRaw.trim().toLowerCase() : ''
+    const prefillMessage = resolvePrefillMessage(prefillRaw)
+
+    startLoadingRef.current?.()
+    triggerInstantRef.current?.({ prefillMessage, prefillKey })
+  }, [pathname, searchParams])
 
   return null
 }
