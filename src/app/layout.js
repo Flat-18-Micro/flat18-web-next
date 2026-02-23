@@ -1,4 +1,5 @@
 import '../styles/globals.css'
+import { Suspense } from 'react'
 import { Playfair_Display, JetBrains_Mono } from 'next/font/google'
 import ChatwootWidget from '@/components/ChatwootWidget'
 import ServiceWorkerRegistration from '@/components/ServiceWorkerRegistration'
@@ -149,7 +150,9 @@ export default function RootLayout({ children }) {
           <ClientLayout>
             {children}
           </ClientLayout>
-          <ChatwootWidget />
+          <Suspense fallback={null}>
+            <ChatwootWidget />
+          </Suspense>
           <ServiceWorkerRegistration />
           <AnalyticsScripts />
         </ThemeProvider>
