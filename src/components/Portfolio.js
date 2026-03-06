@@ -318,7 +318,7 @@ export default function Portfolio() {
     {
       title: 'PulseOps',
       description: 'Self-hosted network telemetry and operations console for SOHO operators.',
-      image: '/images/case-studies/pulseops/overview.png',
+      image: '/images/portfolio-graphics/pulseops-scr.webp',
       projectLogo: '/images/case-studies/logos/pulseops-lockup.svg',
       link: 'https://flat18.co.uk/case-studies#pulseops',
       stats: [
@@ -332,7 +332,7 @@ export default function Portfolio() {
     {
       title: 'Social Publisher',
       description: 'Platform-aware social scheduling built for lean teams and agencies.',
-      image: '/images/case-studies/social-publisher/hero-composer.webp',
+      image: '/images/portfolio-graphics/soc-pub-scr.webp',
       projectLogo: '/images/case-studies/logos/social-publisher-wordmark.svg',
       link: 'https://flat18.co.uk/case-studies#social-publisher',
       stats: [
