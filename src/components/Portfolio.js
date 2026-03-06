@@ -243,7 +243,7 @@ function ProjectCard({ project, index }) {
               alt={`${project.title} logo`}
               width={400}
               height={40}
-              className={styles.logoImage}
+              className={`${styles.logoImage} ${project.title}`}
             />
           </motion.div>
         )}
@@ -315,6 +315,34 @@ export default function Portfolio() {
 
   // F18-style featured work projects
   const projects = [
+    {
+      title: 'PulseOps',
+      description: 'Self-hosted network telemetry and operations console for SOHO operators.',
+      image: '/images/case-studies/pulseops/overview.png',
+      projectLogo: '/images/case-studies/logos/pulseops-lockup.svg',
+      link: 'https://flat18.co.uk/case-studies#pulseops',
+      stats: [
+        { label: 'Timeline', value: '2026 launch' },
+        { label: 'Platform', value: 'Web App' },
+        { label: 'Industry', value: 'Network Ops' }
+      ],
+      status: 'Live',
+      category: 'app'
+    },
+    {
+      title: 'Social Publisher',
+      description: 'Platform-aware social scheduling built for lean teams and agencies.',
+      image: '/images/case-studies/social-publisher/hero-composer.webp',
+      projectLogo: '/images/case-studies/logos/social-publisher-wordmark.svg',
+      link: 'https://flat18.co.uk/case-studies#social-publisher',
+      stats: [
+        { label: 'Timeline', value: '2026 beta' },
+        { label: 'Platform', value: 'Web App' },
+        { label: 'Industry', value: 'Marketing' }
+      ],
+      status: 'Live beta',
+      category: 'app'
+    },
     {
       title: 'Archimedes Finance',
       description: 'Secure Asset Tokenization Platform for institutional investors',

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="360" viewBox="0 0 600 360">
+  <rect x="24" y="24" width="552" height="312" rx="28" fill="none" stroke="#1d4ed8" stroke-width="6" opacity="0.25"/>
+  <text x="48" y="78" font-family="Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="28" font-weight="700" fill="#1d4ed8">Step 3</text>
+  <text x="48" y="112" font-family="Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="20" font-weight="600" fill="#0b1220" opacity="0.85">Schedule & relax</text>
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M120 210h140" stroke="#4f46e5" stroke-width="10" opacity="0.85"/>
+    <path d="M320 210h160" stroke="#1d4ed8" stroke-width="10" opacity="0.85"/>
+    <path d="M260 170l28 40-28 40" stroke="#1d4ed8" stroke-width="10" opacity="0.75"/>
+  </g>
+  <g>
+    <rect x="92" y="148" width="140" height="120" rx="18" fill="#1d4ed8" opacity="0.10" stroke="#1d4ed8" stroke-opacity="0.25" stroke-width="3"/>
+    <rect x="368" y="148" width="140" height="120" rx="18" fill="#4f46e5" opacity="0.10" stroke="#4f46e5" stroke-opacity="0.25" stroke-width="3"/>
+    <circle cx="132" cy="188" r="14" fill="#1d4ed8" opacity="0.30"/>
+    <circle cx="408" cy="188" r="14" fill="#4f46e5" opacity="0.30"/>
+  </g>
+</svg>

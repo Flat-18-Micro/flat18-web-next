@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="480" viewBox="0 0 720 480">
+  <rect width="720" height="480" rx="36" fill="none"/>
+  <g fill="none" stroke="#111827" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" opacity="0.9">
+    <path d="M320 160v120"/><path d="M260 220h120"/><path d="M280 220v-40"/><path d="M360 220v-40"/><path d="M290 280c0 60 140 60 140 0"/><path d="M310 340v60"/><path d="M350 340v60"/>
+  </g>
+  <g font-family="Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial" fill="#111827">
+    <text x="90" y="100" font-size="44" font-weight="900">No channels connected</text>
+    <text x="90" y="140" font-size="24" font-weight="600" fill="#6b7280">Add content to get started.</text>
+  </g>
+  <g fill="#1d4ed8" opacity="0.12">
+    <circle cx="610" cy="120" r="70"/>
+    <circle cx="120" cy="380" r="90"/>
+  </g>
+</svg>

@@ -12,6 +12,7 @@ export default function sitemap() {
     '/services/api-integration',
     '/pricing',
     '/portfolio',
+    '/case-studies',
     '/ease-of-communication-standard',
     '/terms',
     '/privacy',

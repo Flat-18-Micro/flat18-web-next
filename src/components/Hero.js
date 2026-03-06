@@ -55,7 +55,7 @@ export default function Hero() {
     // Small delay to ensure lottie instance is fully ready
     setTimeout(() => {
       if (herobgLottieRef.current) {
-        herobgLottieRef.current.setSpeed(0.25)
+        herobgLottieRef.current.setSpeed(2)
       }
     }, 100)
   }, [])

@@ -56,6 +56,11 @@ export default function Navbar({ isScrolled }) {
                 <span>Work</span>
               </Link>
             </li>
+            {/* <li>
+              <Link href="/case-studies" className={styles.link}>
+                <span>Case Studies</span>
+              </Link>
+            </li> */}
             <li>
               <Link href="/#pricing" className={styles.link}>
                 <span>Pricing</span>
@@ -104,6 +109,12 @@ export default function Navbar({ isScrolled }) {
                 <Link href="/#work" className={styles.mobileLink} onClick={() => setIsMobileMenuOpen(false)}>
                   <span className={styles.mobileLinkLabel}>Work</span>
                   <span className={styles.mobileLinkDescription}>Our latest projects</span>
+                </Link>
+              </li>
+              <li>
+                <Link href="/case-studies" className={styles.mobileLink} onClick={() => setIsMobileMenuOpen(false)}>
+                  <span className={styles.mobileLinkLabel}>Case Studies</span>
+                  <span className={styles.mobileLinkDescription}>Deep dives & launches</span>
                 </Link>
               </li>
               <li>

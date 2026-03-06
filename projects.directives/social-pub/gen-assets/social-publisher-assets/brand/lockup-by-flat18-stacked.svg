@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="220" viewBox="0 0 360 220">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#1d4ed8"/>
+      <stop offset="1" stop-color="#4f46e5"/>
+    </linearGradient>
+  </defs>
+  <g font-family="Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial">
+    <text x="26" y="70" font-size="56" font-weight="800" fill="#111827">by</text>
+    <text x="26" y="150" font-size="88" font-weight="900" fill="url(#g)">Flat</text>
+    <text x="210" y="150" font-size="88" font-weight="900" fill="#111827">18</text>
+  </g>
+</svg>

@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="200" viewBox="0 0 300 200">
+  <rect x="16" y="16" width="268" height="168" rx="22" fill="none" stroke="#1d4ed8" stroke-opacity="0.18" stroke-width="3"/>
+  <g transform="translate(0,-20)"><path d="M110 230c40-70 70-90 90-90s50 20 90 90" fill="none" stroke="#4f46e5" stroke-width="10" stroke-linecap="round"/><path d="M140 230c26-46 46-60 60-60s34 14 60 60" fill="none" stroke="#1d4ed8" stroke-width="10" stroke-linecap="round" opacity="0.8"/><circle cx="200" cy="250" r="10" fill="#1d4ed8" opacity="0.5"/></g>
+  <text x="150" y="176" text-anchor="middle" font-family="Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="16" font-weight="600" fill="#0b1220" opacity="0.75">Page not found</text>
+</svg>

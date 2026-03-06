@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+<rect width="1200" height="630" fill="#0C0C0C"/>
+<rect x="134.60" y="227.00" width="132" height="132" fill="#0C0C0C" stroke="#1A1A1A" stroke-width="2"/>
+<polyline points="19.20,70.80 34.80,70.80 43.12,51.60 48.32,85.20 53.52,42.00 60.80,80.40 71.20,70.80 86.80,70.80 95.12,56.40 99.28,73.68 107.60,70.80 112.80,70.80" fill="none" stroke="#FF5C2A" stroke-width="10" stroke-linejoin="round" stroke-linecap="round" transform="translate(134.60,227.00)"/>
+<text x="290.60" y="325.20" font-family="Space Grotesk, Cantarell, Arial, sans-serif" font-size="92" fill="#F4F1EC">Pulse</text>
+<text x="769.00" y="325.20" font-family="Space Grotesk, Cantarell, Arial, sans-serif" font-size="92" fill="#FF5C2A">Ops</text>
+<text x="290.60" y="394.20" font-family="IBM Plex Sans, Cantarell, Arial, sans-serif" font-size="30" fill="#F4F1EC" opacity="0.65">Self-hosted network operations for SOHO</text>
+</svg>
