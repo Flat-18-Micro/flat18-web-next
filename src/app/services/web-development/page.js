@@ -1,6 +1,4 @@
 'use client'
-
-import { useEffect } from 'react'
 import { motion } from 'framer-motion'
 import Footer from '@/components/Footer'
 import Contact from '@/components/Contact'
@@ -10,51 +8,6 @@ import styles from '@/styles/component-css/PageStyles.module.css'
 // Metadata is now handled in layout.js
 
 export default function WebDevelopmentPage() {
-  useEffect(() => {
-    // Set page title
-    document.title = 'Web Development Services | Next.js & React Experts | Flat 18'
-
-    // Add structured data for service
-    const serviceSchema = {
-      "@context": "https://schema.org",
-      "@type": "Service",
-      "name": "Web Development Services",
-      "provider": {
-        "@type": "Organization",
-        "name": "Flat 18",
-        "url": "https://flat18.co.uk"
-      },
-      "description": "Expert web development using Next.js, React and modern frameworks. Fast, SEO-optimized websites and applications for startups, scale-ups, and blockchain entrepreneurs.",
-      "serviceType": "Web Development",
-      "areaServed": {
-        "@type": "Country",
-        "name": "Global"
-      },
-      "offers": {
-        "@type": "Offer",
-        "price": "3000",
-        "priceCurrency": "GBP",
-        "availability": "https://schema.org/LimitedAvailability"
-      }
-    }
-
-    // Add the schema to the page
-    const script = document.createElement('script')
-    script.type = 'application/ld+json'
-    script.text = JSON.stringify(serviceSchema)
-    document.head.appendChild(script)
-
-    // Clean up on unmount
-    return () => {
-      const scripts = document.querySelectorAll('script[type="application/ld+json"]')
-      scripts.forEach(s => {
-        if (s.text.includes('"@type":"Service"')) {
-          document.head.removeChild(s)
-        }
-      })
-    }
-  }, [])
-
   // Animation variants
   const containerVariants = {
     hidden: { opacity: 0 },

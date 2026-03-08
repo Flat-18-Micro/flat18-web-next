@@ -1,11 +1,11 @@
-export const metadata = {
-  title: 'Flat 18 - Chat',
+import { generatePageMetadata } from '@/lib/seo'
+
+export const metadata = generatePageMetadata({
+  title: 'Chat',
   description: 'Start a chat with the Flat 18 team.',
-  robots: {
-    index: false,
-    follow: false,
-  },
-}
+  path: '/chat',
+  noIndex: true,
+})
 
 export default function ChatPage() {
   return (

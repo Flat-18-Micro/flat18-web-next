@@ -1,17 +1,10 @@
 'use client'
-
-import { useEffect } from 'react'
 import { motion } from 'framer-motion'
 import Footer from '@/components/Footer'
 import Breadcrumbs from '@/components/Breadcrumbs'
 import styles from '@/styles/component-css/PageStyles.module.css'
 
 export default function PrivacyPage() {
-  useEffect(() => {
-    // Set page title
-    document.title = 'Flat18 — Privacy policy'
-  }, [])
-
   // Animation variants
   const containerVariants = {
     hidden: { opacity: 0 },

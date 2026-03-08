@@ -1,14 +1,7 @@
 'use client'
-
-import { useEffect } from 'react'
 import styles from '@/styles/component-css/TestPage.module.css'
 
 export default function ScrollTestPage() {
-  useEffect(() => {
-    // Set page title
-    document.title = 'Scroll Test Page'
-  }, [])
-
   return (
     <main className={styles.testPage}>
       <div className={styles.testSection} style={{ height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>

@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { motion } from 'framer-motion'
 import Footer from '@/components/Footer'
 import Breadcrumbs from '@/components/Breadcrumbs'
@@ -16,11 +16,6 @@ export default function TermsPage() {
       [key]: !prev[key],
     }));
   };
-
-  useEffect(() => {
-    // Set page title
-    document.title = 'Flat18 — Terms of Service'
-  }, [])
 
   // Animation variants
   const containerVariants = {

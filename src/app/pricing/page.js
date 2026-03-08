@@ -39,9 +39,6 @@ export default function PricingPage() {
   }
 
   useEffect(() => {
-    // Set page title
-    document.title = 'Flat18 — Pricing'
-
     // Initialize any necessary scripts or analytics
     if (window.location.protocol !== 'https:' && window.location.hostname !== 'localhost') {
       if (location.href.indexOf("300") < 0) {

@@ -1,6 +1,4 @@
 'use client'
-
-import { useEffect } from 'react'
 import { motion } from 'framer-motion'
 import Footer from '@/components/Footer'
 import Contact from '@/components/Contact'
@@ -8,11 +6,6 @@ import Breadcrumbs from '@/components/Breadcrumbs'
 import styles from '@/styles/component-css/PageStyles.module.css'
 
 export default function Web3BlockchainPage() {
-  useEffect(() => {
-    // Set page title
-    document.title = 'Flat18 — Web3 & Blockchain Services'
-  }, [])
-
   // Animation variants
   const containerVariants = {
     hidden: { opacity: 0 },

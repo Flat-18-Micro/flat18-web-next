@@ -4,6 +4,18 @@ import { siteConfig } from '@/lib/seo'
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = siteConfig.url
 
+  const serviceRoutes = [
+    '/services/ui-ux-design',
+    '/services/web-development',
+    '/services/web3-blockchain',
+    '/services/app-development',
+    '/services/api-integration',
+    '/services/maintenance-support',
+    '/services/ai-seeded-design',
+    '/services/ai-augmented-development',
+    '/services/ai-prompt-engineering',
+  ]
+
   // Static routes
   const staticRoutes = [
     {
@@ -24,59 +36,29 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly' as const,
       priority: 0.9,
     },
-    {
-      url: `${baseUrl}/services/ui-ux-design`,
+    ...serviceRoutes.map((route) => ({
+      url: `${baseUrl}${route}`,
       lastModified: new Date(),
       changeFrequency: 'monthly' as const,
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/services/web-development`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly' as const,
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/services/web3-blockchain`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly' as const,
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/work`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly' as const,
-      priority: 0.9,
-    },
+      priority: 0.7,
+    })),
     {
       url: `${baseUrl}/case-studies`,
       lastModified: new Date(),
-      changeFrequency: 'weekly' as const,
+      changeFrequency: 'monthly' as const,
       priority: 0.9,
     },
     {
       url: `${baseUrl}/pricing`,
       lastModified: new Date(),
       changeFrequency: 'monthly' as const,
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/process`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly' as const,
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/contact`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly' as const,
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/blog`,
+      url: `${baseUrl}/founder`,
       lastModified: new Date(),
-      changeFrequency: 'weekly' as const,
-      priority: 0.7,
+      changeFrequency: 'monthly' as const,
+      priority: 0.6,
     },
     {
       url: `${baseUrl}/privacy`,
@@ -94,7 +76,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${baseUrl}/ease-of-communication-standard`,
       lastModified: new Date(),
       changeFrequency: 'yearly' as const,
-      priority: 0.5,
+      priority: 0.3,
     },
   ]
 

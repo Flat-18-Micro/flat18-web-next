@@ -1,6 +1,4 @@
 'use client'
-
-import { useEffect } from 'react'
 import { motion } from 'framer-motion'
 import Footer from '@/components/Footer'
 import Contact from '@/components/Contact'
@@ -8,10 +6,6 @@ import Breadcrumbs from '@/components/Breadcrumbs'
 import styles from '@/styles/component-css/PageStyles.module.css'
 
 export default function AiSeededDesignPage() {
-  useEffect(() => {
-    document.title = 'Flat18 — AI-Seeded Design & Graphics'
-  }, [])
-
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: { opacity: 1, transition: { duration: 0.6, ease: 'easeOut' } }

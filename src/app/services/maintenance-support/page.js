@@ -1,17 +1,10 @@
 'use client'
-
-import { useEffect } from 'react'
 import { motion } from 'framer-motion'
 import Footer from '@/components/Footer'
 import Contact from '@/components/Contact'
 import styles from '@/styles/component-css/PageStyles.module.css'
 
 export default function MaintenanceSupportPage() {
-  useEffect(() => {
-    // Set page title
-    document.title = 'Flat18 — Maintenance & Support Services'
-  }, [])
-
   // Animation variants
   const containerVariants = {
     hidden: { opacity: 0 },

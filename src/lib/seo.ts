@@ -4,27 +4,31 @@ import { Metadata } from 'next'
 // Site configuration
 export const siteConfig = {
   name: 'Flat 18',
-  title: 'Flat 18 - Web3 & DeFi Development Agency',
-  description: 'Premium web development and design for crypto, fintech, and digital platforms. Specialized in Web3, DeFi, and blockchain solutions.',
+  legalName: 'Flat 18 Microsystems Development LLC',
+  title: 'Flat 18 - Senior Design + Engineering for Founders',
+  description: 'Senior design and engineering to ship conversion-ready websites and MVPs in 2-12 weeks.',
   url: 'https://flat18.co.uk',
-  ogImage: '/static/advert-flat-18-f18-og_1-p-2000.webp',
+  ogImage: '/og/home.png',
   twitter: '@f18_dev',
+  locale: 'en_GB',
+  email: 'hello@flat18.co.uk',
   keywords: [
-    'web3 development',
-    'defi design',
-    'crypto security',
-    'btcpayserver',
-    'blockchain apps',
-    'wallet scrutiny',
-    'full-stack development',
-    'design agency',
-    'next.js development',
-    'react development',
-    'crypto website',
-    'blockchain development',
-    'web3 design',
-    'defi dashboard',
-    'bitcoin payment integration'
+    'product design',
+    'UX design',
+    'web design',
+    'web development',
+    'MVP development',
+    'startup websites',
+    'conversion optimization',
+    'Next.js agency',
+    'React development',
+    'design and engineering',
+    'founder-led teams',
+    'SaaS marketing site',
+    'fintech UX',
+    'web app development',
+    'API integrations',
+    'web performance'
   ],
 }
 
@@ -38,13 +42,14 @@ export const defaultMetadata: Metadata = {
   keywords: siteConfig.keywords,
   authors: [{ name: siteConfig.name, url: siteConfig.url }],
   creator: siteConfig.name,
+  publisher: siteConfig.name,
   metadataBase: new URL(siteConfig.url),
   alternates: {
     canonical: siteConfig.url,
   },
   openGraph: {
     type: 'website',
-    locale: 'en_GB',
+    locale: siteConfig.locale,
     url: siteConfig.url,
     title: siteConfig.title,
     description: siteConfig.description,
@@ -69,15 +74,21 @@ export const defaultMetadata: Metadata = {
   robots: {
     index: true,
     follow: true,
-    nocache: true,
     googleBot: {
       index: true,
       follow: true,
       'max-image-preview': 'large',
       'max-snippet': -1,
+      'max-video-preview': -1,
     },
   },
-  category: 'Web Development',
+  category: 'Design & Engineering',
+  icons: {
+    icon: '/favicon.ico',
+    shortcut: '/favicon.ico',
+    apple: '/images/webclip.png',
+  },
+  manifest: '/manifest.json',
 }
 
 // Generate page metadata
@@ -87,39 +98,51 @@ export function generatePageMetadata({
   path = '',
   image,
   noIndex = false,
+  keywords,
 }: {
   title?: string
   description?: string
   path?: string
   image?: string
   noIndex?: boolean
+  keywords?: string[]
 }): Metadata {
   const url = `${siteConfig.url}${path}`
   const ogImage = image || siteConfig.ogImage
+  const pageTitle = title || siteConfig.title
+  const pageDescription = description || siteConfig.description
+  const ogTitle = title ? `${title} | ${siteConfig.name}` : siteConfig.title
 
   return {
-    title,
-    description,
+    title: pageTitle,
+    description: pageDescription,
+    keywords,
     alternates: {
       canonical: url,
     },
     openGraph: {
-      title: title || siteConfig.title,
-      description: description || siteConfig.description,
+      type: 'website',
+      locale: siteConfig.locale,
       url,
+      title: ogTitle,
+      description: pageDescription,
+      siteName: siteConfig.name,
       images: [
         {
           url: ogImage,
           width: 1200,
           height: 630,
-          alt: title || siteConfig.title,
+          alt: ogTitle,
         },
       ],
     },
     twitter: {
-      title: title || siteConfig.title,
-      description: description || siteConfig.description,
+      card: 'summary_large_image',
+      title: ogTitle,
+      description: pageDescription,
       images: [ogImage],
+      creator: siteConfig.twitter,
+      site: siteConfig.twitter,
     },
     robots: noIndex
       ? {
@@ -136,6 +159,7 @@ export function generateOrganizationJsonLd() {
     '@context': 'https://schema.org',
     '@type': 'Organization',
     name: siteConfig.name,
+    legalName: siteConfig.legalName,
     url: siteConfig.url,
     logo: `${siteConfig.url}/images/flat18_256x256.avif`,
     sameAs: [
@@ -149,25 +173,26 @@ export function generateOrganizationJsonLd() {
     },
     contactPoint: {
       '@type': 'ContactPoint',
-      contactType: 'customer service',
+      contactType: 'sales',
+      email: siteConfig.email,
       url: `${siteConfig.url}/#chat`,
     },
-    foundingDate: '2020',
+    foundingDate: '2017',
     numberOfEmployees: '2-10',
-    industry: 'Web Development',
+    industry: 'Design & Engineering',
     serviceArea: {
       '@type': 'Place',
       name: 'Worldwide',
     },
     areaServed: 'Worldwide',
     knowsAbout: [
-      'Web3 Development',
-      'DeFi Applications',
-      'Blockchain Integration',
-      'Cryptocurrency',
-      'Smart Contracts',
+      'Product Design',
+      'UX Design',
       'Web Development',
-      'UI/UX Design',
+      'MVP Development',
+      'Conversion Optimization',
+      'Fintech UX',
+      'Web Performance',
     ],
   }
 }
@@ -179,16 +204,12 @@ export function generateWebsiteJsonLd() {
     url: siteConfig.url,
     name: siteConfig.title,
     description: siteConfig.description,
-    potentialAction: {
-      '@type': 'SearchAction',
-      target: `${siteConfig.url}/search?q={search_term_string}`,
-      'query-input': 'required name=search_term_string',
-    },
     publisher: {
       '@type': 'Organization',
       name: siteConfig.name,
       url: siteConfig.url,
     },
+    inLanguage: 'en-GB',
   }
 }
 
@@ -259,12 +280,14 @@ export function generateServiceJsonLd({
   name,
   description,
   url,
+  serviceType,
   price,
   currency = 'GBP',
 }: {
   name: string
   description: string
   url: string
+  serviceType?: string
   price?: number
   currency?: string
 }) {
@@ -280,7 +303,7 @@ export function generateServiceJsonLd({
       url: siteConfig.url,
     },
     areaServed: 'Worldwide',
-    serviceType: 'Web Development',
+    serviceType: serviceType || 'Design & Engineering',
     offers: price ? {
       '@type': 'Offer',
       price,
@@ -312,46 +335,52 @@ export function generateJsonLdScript(data: Record<string, any>): string {
 
 // Common page types
 export const pageTypes = {
-  home: () => generatePageMetadata({
-    title: 'Web3 & DeFi Development Agency',
-    description: 'Premium web development and design for crypto, fintech, and digital platforms. Specialized in Web3, DeFi, and blockchain solutions.',
-    path: '',
-  }),
-  
   about: () => generatePageMetadata({
-    title: 'About Us - Web3 Development Experts',
-    description: 'Learn about Flat 18, a premium web development agency specializing in Web3, DeFi, and blockchain solutions for entrepreneurs.',
+    title: 'About',
+    description: 'Learn about Flat 18, a senior-only design + engineering team building conversion-ready websites and MVPs for founders.',
     path: '/about',
   }),
   
   services: () => generatePageMetadata({
-    title: 'Services - Web3 & Blockchain Development',
-    description: 'Comprehensive web development services including Web3 integration, DeFi applications, UI/UX design, and full-stack development.',
+    title: 'Services',
+    description: 'Product & UX design, web engineering, fintech/web3 delivery, and retainers for ongoing momentum.',
     path: '/services',
   }),
   
-  work: () => generatePageMetadata({
-    title: 'Our Work - Web3 & DeFi Projects',
-    description: 'Explore our portfolio of Web3, DeFi, and blockchain projects. See how we help entrepreneurs build successful digital platforms.',
-    path: '/work',
+  caseStudies: () => generatePageMetadata({
+    title: 'Case Studies',
+    description: 'Recent Flat 18 launches and product stories shipped with clear positioning and execution.',
+    path: '/case-studies',
   }),
   
   pricing: () => generatePageMetadata({
-    title: 'Pricing - Transparent Web Development Costs',
-    description: 'Simple, transparent pricing for premium web development services. No hidden fees, flexible subscription model.',
+    title: 'Pricing',
+    description: 'Transparent pricing for subscription and fixed-scope engagements with a senior team.',
     path: '/pricing',
   }),
   
-  contact: () => generatePageMetadata({
-    title: 'Contact Us - Start Your Web3 Project',
-    description: 'Ready to start your Web3 or DeFi project? Get in touch with our team of experts for a free consultation.',
-    path: '/contact',
+  founder: () => generatePageMetadata({
+    title: 'Founder Version',
+    description: 'A blunt, founder-first overview of how Flat 18 ships conversion-ready websites and MVPs in weeks, not months.',
+    path: '/founder',
   }),
-  
-  blog: () => generatePageMetadata({
-    title: 'Blog - Web3 & Development Insights',
-    description: 'Latest insights on Web3 development, DeFi trends, blockchain technology, and web development best practices.',
-    path: '/blog',
+
+  privacy: () => generatePageMetadata({
+    title: 'Privacy Policy',
+    description: 'How Flat 18 handles data, cookies, and privacy across our services.',
+    path: '/privacy',
+  }),
+
+  terms: () => generatePageMetadata({
+    title: 'Terms of Service',
+    description: 'The Flat 18 terms of service and how we work together.',
+    path: '/terms',
+  }),
+
+  easeOfCommunicationStandard: () => generatePageMetadata({
+    title: 'Ease of Communication Standard',
+    description: 'The Flat 18 Ease of Communication Standard (F18 EoCS).',
+    path: '/ease-of-communication-standard',
   }),
 }
 

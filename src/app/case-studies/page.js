@@ -1,6 +1,4 @@
 'use client'
-
-import { useEffect } from 'react'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 import Breadcrumbs from '@/components/Breadcrumbs'
@@ -9,10 +7,6 @@ import Footer from '@/components/Footer'
 import styles from '@/styles/component-css/CaseStudies.module.css'
 
 export default function CaseStudiesPage() {
-  useEffect(() => {
-    document.title = 'Flat18 — Case Studies'
-  }, [])
-
   const heroVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -415,4 +409,3 @@ export default function CaseStudiesPage() {
     </div>
   )
 }
-
