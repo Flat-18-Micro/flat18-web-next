@@ -1,0 +1,35 @@
+<svg width="1200" height="720" viewBox="0 0 1200 720" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .bg { fill: #f4f4f4; }
+      .frame { fill: #ffffff; stroke: #cfcfcf; stroke-width: 2; rx: 12; }
+      .bar { fill: #e6e6e6; }
+      .text { font: 600 16px Arial, sans-serif; fill: #6a6a6a; }
+      .label { font: 500 12px Arial, sans-serif; fill: #8a8a8a; }
+    </style>
+  </defs>
+
+  <rect width="1200" height="720" class="bg"/>
+  <rect x="20" y="20" width="1160" height="680" class="frame"/>
+
+  <rect x="40" y="40" width="1120" height="48" class="bar" rx="8"/>
+  <text x="60" y="70" class="text">Header</text>
+
+  <rect x="40" y="110" width="180" height="560" class="bar" rx="8"/>
+  <text x="60" y="140" class="label">Side Nav</text>
+
+  <rect x="240" y="110" width="920" height="90" class="bar" rx="8"/>
+  <text x="260" y="160" class="label">Hero Summary</text>
+
+  <rect x="240" y="220" width="290" height="120" class="bar" rx="8"/>
+  <rect x="550" y="220" width="290" height="120" class="bar" rx="8"/>
+  <rect x="870" y="220" width="290" height="120" class="bar" rx="8"/>
+  <text x="260" y="250" class="label">Metric Cards</text>
+
+  <rect x="240" y="360" width="600" height="230" class="bar" rx="8"/>
+  <rect x="860" y="360" width="300" height="230" class="bar" rx="8"/>
+  <text x="260" y="390" class="label">Charts + Governance</text>
+
+  <rect x="240" y="610" width="920" height="60" class="bar" rx="8"/>
+  <text x="260" y="646" class="label">Community Links</text>
+</svg>

@@ -320,7 +320,7 @@ export default function Portfolio() {
       description: 'Self-hosted network telemetry and operations console for SOHO operators.',
       image: '/images/portfolio-graphics/pulseops-scr.webp',
       projectLogo: '/images/case-studies/logos/pulseops-lockup.svg',
-      link: 'https://flat18.co.uk/case-studies#pulseops',
+      link: 'https://flat18.co.uk/case-studies/pulseops',
       stats: [
         { label: 'Timeline', value: '2026 launch' },
         { label: 'Platform', value: 'Web App' },
@@ -334,7 +334,7 @@ export default function Portfolio() {
       description: 'Platform-aware social scheduling built for lean teams and agencies.',
       image: '/images/portfolio-graphics/soc-pub-scr.webp',
       projectLogo: '/images/case-studies/logos/social-publisher-wordmark.svg',
-      link: 'https://flat18.co.uk/case-studies#social-publisher',
+      link: 'https://flat18.co.uk/case-studies/social-publisher',
       stats: [
         { label: 'Timeline', value: '2026 beta' },
         { label: 'Platform', value: 'Web App' },
@@ -348,7 +348,7 @@ export default function Portfolio() {
       description: 'Secure Asset Tokenization Platform for institutional investors',
       image: '/images/portfolio-graphics/archimedesfinance-mock.webp',
       projectLogo: '/images/portfolio-graphics/logos/archimedes-finance.webp',
-      link: 'https://archimedes-finance.pages.dev',
+      link: 'https://flat18.co.uk/case-studies/archimedes-finance',
       stats: [
         { label: 'Timeline', value: '8 weeks' },
         { label: 'Platform', value: 'Web App' },
@@ -362,7 +362,7 @@ export default function Portfolio() {
       description: 'Mining hashboard monitoring dashboard',
       image: '/images/portfolio-graphics/hashboard.webp',
       projectLogo: '/images/portfolio-graphics/logos/zettahash.webp',
-      link: 'https://zettahash.com',
+      link: 'https://flat18.co.uk/case-studies/hashboard',
       stats: [
         { label: 'Timeline', value: '6 weeks' },
         { label: 'Platform', value: 'Web App' },

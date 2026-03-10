@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+  <defs>
+    <style>
+      .label { font: 600 12px 'Space Grotesk', Arial, sans-serif; fill: #5b6472; }
+      .title { font: 700 20px 'Space Grotesk', Arial, sans-serif; fill: #1f2937; }
+    </style>
+  </defs>
+  <rect width="1200" height="800" fill="#ffffff"/>
+  <rect x="120" y="120" width="960" height="560" rx="18" fill="#f7f7f9" stroke="#d0d5dd"/>
+  <rect x="180" y="170" width="300" height="32" rx="6" fill="#ffffff" stroke="#cdd5df"/>
+  <text x="200" y="192" class="label">Plains North Capital</text>
+
+  <text x="200" y="260" class="title">Sign in</text>
+  <text x="200" y="300" class="label">Email address</text>
+  <rect x="200" y="310" width="520" height="44" rx="8" fill="#ffffff" stroke="#cdd5df"/>
+  <text x="200" y="380" class="label">Password</text>
+  <rect x="200" y="390" width="520" height="44" rx="8" fill="#ffffff" stroke="#cdd5df"/>
+  <rect x="200" y="460" width="520" height="44" rx="8" fill="#111827"/>
+  <text x="420" y="488" fill="#ffffff" font-family="Space Grotesk, Arial, sans-serif" font-size="12" font-weight="700">Continue</text>
+
+  <rect x="760" y="250" width="260" height="260" rx="12" fill="#ffffff" stroke="#cdd5df"/>
+  <rect x="790" y="280" width="200" height="80" rx="10" fill="#f2f4f7" stroke="#cdd5df"/>
+  <rect x="790" y="380" width="200" height="20" rx="6" fill="#f2f4f7"/>
+  <rect x="790" y="410" width="160" height="12" rx="6" fill="#f2f4f7"/>
+  <rect x="790" y="440" width="180" height="12" rx="6" fill="#f2f4f7"/>
+  <text x="790" y="530" class="label">KYC required before investing</text>
+</svg>

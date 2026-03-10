@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+  <defs>
+    <style>
+      .label { font: 600 12px 'Space Grotesk', Arial, sans-serif; fill: #5b6472; }
+      .title { font: 700 18px 'Space Grotesk', Arial, sans-serif; fill: #1f2937; }
+    </style>
+  </defs>
+  <rect width="1200" height="800" fill="#ffffff"/>
+  <rect x="40" y="40" width="1120" height="720" rx="16" fill="#f7f7f9" stroke="#d0d5dd"/>
+  <rect x="60" y="70" width="240" height="650" rx="12" fill="#ffffff" stroke="#d0d5dd"/>
+  <rect x="80" y="100" width="200" height="32" rx="6" fill="#f2f4f7"/>
+  <rect x="80" y="150" width="180" height="18" rx="6" fill="#f2f4f7"/>
+  <rect x="80" y="180" width="160" height="18" rx="6" fill="#f2f4f7"/>
+  <rect x="80" y="210" width="170" height="18" rx="6" fill="#f2f4f7"/>
+
+  <text x="330" y="110" class="title">Portfolio Overview</text>
+  <rect x="330" y="130" width="810" height="160" rx="12" fill="#ffffff" stroke="#d0d5dd"/>
+  <rect x="360" y="160" width="220" height="100" rx="10" fill="#f2f4f7"/>
+  <rect x="600" y="160" width="220" height="100" rx="10" fill="#f2f4f7"/>
+  <rect x="840" y="160" width="220" height="100" rx="10" fill="#f2f4f7"/>
+
+  <rect x="330" y="310" width="810" height="200" rx="12" fill="#ffffff" stroke="#d0d5dd"/>
+  <text x="350" y="340" class="label">Asset allocation chart</text>
+  <rect x="350" y="360" width="760" height="130" rx="10" fill="#f2f4f7"/>
+
+  <rect x="330" y="530" width="810" height="180" rx="12" fill="#ffffff" stroke="#d0d5dd"/>
+  <text x="350" y="560" class="label">Holdings table</text>
+  <rect x="350" y="580" width="760" height="24" rx="6" fill="#f2f4f7"/>
+  <rect x="350" y="615" width="760" height="24" rx="6" fill="#f2f4f7"/>
+  <rect x="350" y="650" width="760" height="24" rx="6" fill="#f2f4f7"/>
+</svg>

@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="640" viewBox="0 0 960 640">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#f7f5f2" />
+      <stop offset="100%" stop-color="#eef2f7" />
+    </linearGradient>
+  </defs>
+  <rect width="960" height="640" fill="url(#bg)" />
+  <rect width="960" height="640" fill="#111827" opacity="0.18" />
+
+  <rect x="120" y="86" width="720" height="468" rx="20" fill="#ffffff" stroke="#e5e7eb" />
+  <text x="156" y="128" font-family="Arial, sans-serif" font-size="12" fill="#6b7280">Invoice ID</text>
+  <text x="156" y="156" font-family="Arial, sans-serif" font-size="20" fill="#111827">INV-2918</text>
+  <rect x="640" y="116" width="120" height="24" rx="10" fill="#c6f6d5" />
+  <text x="670" y="132" font-family="Arial, sans-serif" font-size="11" fill="#0f5132">Paid</text>
+
+  <line x1="120" y1="184" x2="840" y2="184" stroke="#f3f4f6" />
+
+  <text x="156" y="216" font-family="Arial, sans-serif" font-size="11" fill="#6b7280">Customer Email</text>
+  <text x="156" y="238" font-family="Arial, sans-serif" font-size="13" fill="#111827">lina@acme.com</text>
+
+  <text x="480" y="216" font-family="Arial, sans-serif" font-size="11" fill="#6b7280">Merchant</text>
+  <text x="480" y="238" font-family="Arial, sans-serif" font-size="13" fill="#111827">Acme Co.</text>
+
+  <text x="156" y="280" font-family="Arial, sans-serif" font-size="11" fill="#6b7280">Amount</text>
+  <text x="156" y="302" font-family="Arial, sans-serif" font-size="13" fill="#111827">480 USDC</text>
+
+  <text x="480" y="280" font-family="Arial, sans-serif" font-size="11" fill="#6b7280">Created</text>
+  <text x="480" y="302" font-family="Arial, sans-serif" font-size="13" fill="#111827">Mar 7, 2026 12:14 PM</text>
+
+  <text x="156" y="344" font-family="Arial, sans-serif" font-size="11" fill="#6b7280">Order ID</text>
+  <text x="156" y="366" font-family="Arial, sans-serif" font-size="13" fill="#111827">ORD-9834</text>
+
+  <text x="480" y="344" font-family="Arial, sans-serif" font-size="11" fill="#6b7280">Crypto Code</text>
+  <text x="480" y="366" font-family="Arial, sans-serif" font-size="13" fill="#111827">USDC</text>
+
+  <text x="156" y="408" font-family="Arial, sans-serif" font-size="11" fill="#6b7280">Transaction Hash</text>
+  <text x="156" y="430" font-family="Arial, sans-serif" font-size="13" fill="#2563eb">0x8c7...f94</text>
+
+  <text x="480" y="408" font-family="Arial, sans-serif" font-size="11" fill="#6b7280">Invoice URL</text>
+  <text x="480" y="430" font-family="Arial, sans-serif" font-size="13" fill="#2563eb">https://invoice...</text>
+
+  <line x1="120" y1="470" x2="840" y2="470" stroke="#f3f4f6" />
+  <rect x="632" y="492" width="96" height="32" rx="10" fill="#2563eb" />
+  <text x="654" y="513" font-family="Arial, sans-serif" font-size="12" fill="#ffffff">View invoice</text>
+  <rect x="738" y="492" width="72" height="32" rx="10" fill="#f3f4f6" stroke="#e5e7eb" />
+  <text x="758" y="513" font-family="Arial, sans-serif" font-size="12" fill="#6b7280">Close</text>
+</svg>

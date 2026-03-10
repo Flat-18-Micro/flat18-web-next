@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="900" viewBox="0 0 1440 900">
+  <defs>
+    <style>
+      .title { font: 700 20px 'Space Grotesk', Arial, sans-serif; fill: #0b1e3b; }
+      .subtitle { font: 600 14px 'Space Grotesk', Arial, sans-serif; fill: #4b5b73; }
+      .nav { font: 600 13px 'Space Grotesk', Arial, sans-serif; fill: #d9e2f2; }
+      .nav-active { font: 700 13px 'Space Grotesk', Arial, sans-serif; fill: #ffffff; }
+      .kpi-label { font: 600 11px 'Space Grotesk', Arial, sans-serif; fill: #7b8798; text-transform: uppercase; }
+      .kpi-value { font: 700 18px 'Space Grotesk', Arial, sans-serif; fill: #0b1e3b; }
+      .small { font: 500 11px 'Space Grotesk', Arial, sans-serif; fill: #6b778c; }
+      .table { font: 600 12px 'Space Grotesk', Arial, sans-serif; fill: #2f3b4c; }
+      .accent { fill: #18a999; }
+    </style>
+  </defs>
+
+  <rect width="1440" height="900" fill="#f5f7fa"/>
+  <rect x="0" y="0" width="1440" height="64" fill="#0b1e3b"/>
+  <text x="24" y="40" class="nav-active">Plains North Capital</text>
+  <rect x="1140" y="18" width="220" height="28" rx="14" fill="#132b4f"/>
+  <text x="1160" y="37" class="nav">Search clients, assets</text>
+  <circle cx="1386" cy="32" r="18" fill="#18a999"/>
+
+  <rect x="0" y="64" width="240" height="836" fill="#0f2a4d"/>
+  <text x="24" y="110" class="nav-active">Dashboard</text>
+  <text x="24" y="148" class="nav">Portfolio</text>
+  <text x="24" y="186" class="nav">Tokenisation</text>
+  <text x="24" y="224" class="nav">KYC Verification</text>
+  <text x="24" y="262" class="nav">Messages</text>
+  <text x="24" y="300" class="nav">Reports</text>
+  <text x="24" y="338" class="nav">Settings</text>
+
+  <text x="272" y="120" class="title">Investor Dashboard</text>
+  <text x="272" y="145" class="subtitle">Overview for Q1 2026</text>
+
+  <rect x="260" y="170" width="270" height="110" rx="12" fill="#ffffff"/>
+  <text x="280" y="205" class="kpi-label">Total AUM</text>
+  <text x="280" y="235" class="kpi-value">$18.4M</text>
+  <text x="280" y="260" class="small">+6.2% MoM</text>
+
+  <rect x="550" y="170" width="270" height="110" rx="12" fill="#ffffff"/>
+  <text x="570" y="205" class="kpi-label">Performance YTD</text>
+  <text x="570" y="235" class="kpi-value">12.8%</text>
+  <text x="570" y="260" class="small">Net of fees</text>
+
+  <rect x="840" y="170" width="270" height="110" rx="12" fill="#ffffff"/>
+  <text x="860" y="205" class="kpi-label">Cash Available</text>
+  <text x="860" y="235" class="kpi-value">$2.1M</text>
+  <text x="860" y="260" class="small">Across 4 currencies</text>
+
+  <rect x="1130" y="170" width="270" height="110" rx="12" fill="#ffffff"/>
+  <text x="1150" y="205" class="kpi-label">Tokens Issued</text>
+  <text x="1150" y="235" class="kpi-value">7</text>
+  <text x="1150" y="260" class="small">2 pending approval</text>
+
+  <rect x="260" y="300" width="840" height="280" rx="14" fill="#ffffff"/>
+  <text x="280" y="330" class="subtitle">Balance History</text>
+  <path d="M290 520 C 360 450, 440 460, 520 420 C 600 380, 680 430, 760 400 C 840 370, 920 390, 1020 340" stroke="#18a999" stroke-width="3" fill="none"/>
+  <rect x="290" y="350" width="40" height="140" fill="#e8f5f2"/>
+  <rect x="350" y="360" width="40" height="130" fill="#e8f5f2"/>
+  <rect x="410" y="370" width="40" height="120" fill="#e8f5f2"/>
+  <rect x="470" y="390" width="40" height="100" fill="#e8f5f2"/>
+  <rect x="530" y="410" width="40" height="80" fill="#e8f5f2"/>
+
+  <rect x="260" y="600" width="840" height="260" rx="14" fill="#ffffff"/>
+  <text x="280" y="630" class="subtitle">Recent Activity</text>
+  <rect x="280" y="650" width="800" height="40" rx="8" fill="#f5f7fa"/>
+  <text x="300" y="675" class="table">Token issuance approved</text>
+  <text x="880" y="675" class="small">2 hours ago</text>
+  <rect x="280" y="700" width="800" height="40" rx="8" fill="#f5f7fa"/>
+  <text x="300" y="725" class="table">Portfolio rebalance</text>
+  <text x="880" y="725" class="small">Yesterday</text>
+  <rect x="280" y="750" width="800" height="40" rx="8" fill="#f5f7fa"/>
+  <text x="300" y="775" class="table">KYC verification complete</text>
+  <text x="880" y="775" class="small">Mar 5</text>
+
+  <rect x="1120" y="300" width="300" height="260" rx="14" fill="#ffffff"/>
+  <text x="1140" y="330" class="subtitle">KYC Status</text>
+  <rect x="1140" y="350" width="260" height="40" rx="8" fill="#e8f5f2"/>
+  <text x="1160" y="375" class="table">Verified - Level 2</text>
+  <text x="1140" y="420" class="small">Last review: Mar 5, 2026</text>
+
+  <rect x="1120" y="580" width="300" height="280" rx="14" fill="#ffffff"/>
+  <text x="1140" y="610" class="subtitle">Alerts</text>
+  <rect x="1140" y="630" width="260" height="46" rx="10" fill="#fdf3e7"/>
+  <text x="1160" y="658" class="table">2 assets pending approval</text>
+  <rect x="1140" y="688" width="260" height="46" rx="10" fill="#eef2ff"/>
+  <text x="1160" y="716" class="table">New message from advisor</text>
+  <rect x="1140" y="746" width="260" height="46" rx="10" fill="#e8f5f2"/>
+  <text x="1160" y="774" class="table">Monthly report ready</text>
+</svg>

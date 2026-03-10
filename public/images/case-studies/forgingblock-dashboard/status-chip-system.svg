@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="360" viewBox="0 0 900 360">
+  <rect width="900" height="360" fill="#f8fafc" />
+  <text x="60" y="70" font-family="Arial, sans-serif" font-size="18" fill="#111827">Status chip system</text>
+  <text x="60" y="95" font-family="Arial, sans-serif" font-size="12" fill="#6b7280">Consistent color semantics across summary + table + detail views.</text>
+
+  <rect x="60" y="130" width="180" height="44" rx="14" fill="#c6f6d5" />
+  <text x="96" y="158" font-family="Arial, sans-serif" font-size="13" fill="#0f5132">Paid / Completed</text>
+
+  <rect x="260" y="130" width="180" height="44" rx="14" fill="#ffe08a" />
+  <text x="310" y="158" font-family="Arial, sans-serif" font-size="13" fill="#5c3200">Open / Unpaid</text>
+
+  <rect x="460" y="130" width="180" height="44" rx="14" fill="#fecdd3" />
+  <text x="514" y="158" font-family="Arial, sans-serif" font-size="13" fill="#7f1d1d">Refunded</text>
+
+  <rect x="660" y="130" width="180" height="44" rx="14" fill="#fff3cd" />
+  <text x="684" y="158" font-family="Arial, sans-serif" font-size="13" fill="#7a4b00">Partially paid</text>
+
+  <line x1="60" y1="210" x2="840" y2="210" stroke="#e5e7eb" />
+
+  <text x="60" y="240" font-family="Arial, sans-serif" font-size="12" fill="#6b7280">Behavior</text>
+  <text x="140" y="240" font-family="Arial, sans-serif" font-size="12" fill="#111827">Chip is clickable (filter), shown in active filters, reused in modal.</text>
+
+  <text x="60" y="270" font-family="Arial, sans-serif" font-size="12" fill="#6b7280">Mapping</text>
+  <text x="140" y="270" font-family="Arial, sans-serif" font-size="12" fill="#111827">PAID/CONFIRM/COMPLETE -> Paid, REFUND/CHARGEBACK -> Refunded.</text>
+</svg>

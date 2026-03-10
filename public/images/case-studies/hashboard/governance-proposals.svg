@@ -1,0 +1,44 @@
+<svg width="1200" height="720" viewBox="0 0 1200 720" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title { font: 600 22px 'IBM Plex Sans', Arial, sans-serif; fill: #e7ecef; }
+      .label { font: 500 14px 'IBM Plex Sans', Arial, sans-serif; fill: #a7b0ba; }
+      .value { font: 700 16px 'IBM Plex Sans', Arial, sans-serif; fill: #f6f8fa; }
+      .card { fill: #171b22; stroke: #2a313a; stroke-width: 1; rx: 16; }
+      .chip { fill: #1b2028; stroke: #2a313a; stroke-width: 1; rx: 10; }
+      .chip-active { fill: #1b2624; stroke: #2f5e58; stroke-width: 1; rx: 10; }
+      .chip-closed { fill: #241b1b; stroke: #5e2f2f; stroke-width: 1; rx: 10; }
+    </style>
+  </defs>
+
+  <rect width="1200" height="720" fill="#0f1115"/>
+  <rect x="0" y="0" width="1200" height="64" fill="#141821"/>
+  <text x="24" y="40" class="title">Governance Proposals</text>
+
+  <rect x="24" y="96" width="1152" height="600" class="card"/>
+  <text x="48" y="132" class="label">Snapshot Proposals</text>
+
+  <rect x="48" y="156" width="1080" height="80" class="chip"/>
+  <text x="70" y="190" class="value">Proposal 19: New mining site onboarding policy</text>
+  <rect x="920" y="176" width="180" height="40" class="chip-active"/>
+  <text x="960" y="202" class="label">Active</text>
+
+  <rect x="48" y="252" width="1080" height="80" class="chip"/>
+  <text x="70" y="286" class="value">Proposal 18: Treasury allocation update</text>
+  <rect x="920" y="272" width="180" height="40" class="chip-active"/>
+  <text x="960" y="298" class="label">Active</text>
+
+  <rect x="48" y="348" width="1080" height="80" class="chip"/>
+  <text x="70" y="382" class="value">Proposal 17: Budget for research grants</text>
+  <rect x="920" y="368" width="180" height="40" class="chip-closed"/>
+  <text x="960" y="394" class="label">Closed</text>
+
+  <rect x="48" y="444" width="1080" height="80" class="chip"/>
+  <text x="70" y="478" class="value">Proposal 16: Governance cadence changes</text>
+  <rect x="920" y="464" width="180" height="40" class="chip-closed"/>
+  <text x="960" y="490" class="label">Closed</text>
+
+  <rect x="48" y="540" width="1080" height="120" class="chip"/>
+  <text x="70" y="574" class="value">Participation tips</text>
+  <text x="70" y="604" class="label">Review proposals, connect wallet, and vote on Snapshot.</text>
+</svg>

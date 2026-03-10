@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#f7f4ef" />
+      <stop offset="100%" stop-color="#eef2f7" />
+    </linearGradient>
+    <linearGradient id="hero" x1="0" x2="1" y1="0" y2="0">
+      <stop offset="0%" stop-color="#f0f6ff" />
+      <stop offset="100%" stop-color="#fef6ea" />
+    </linearGradient>
+  </defs>
+  <rect width="1280" height="720" fill="url(#bg)" />
+
+  <rect x="56" y="36" width="1168" height="56" rx="16" fill="#ffffff" stroke="#e2e8f0" />
+  <text x="84" y="70" font-family="Arial, sans-serif" font-size="18" fill="#1f2937">ForgingBlock Dashboard</text>
+  <text x="1080" y="70" font-family="Arial, sans-serif" font-size="12" fill="#6b7280">Workspace / Payments</text>
+
+  <rect x="56" y="112" width="1168" height="72" rx="14" fill="#fff7ed" stroke="#fdba74" />
+  <text x="84" y="145" font-family="Arial, sans-serif" font-size="16" fill="#7c2d12">Complete your business information</text>
+  <text x="84" y="168" font-family="Arial, sans-serif" font-size="12" fill="#9a3412">Required for a smooth checkout experience.</text>
+  <rect x="1034" y="132" width="160" height="36" rx="10" fill="#2563eb" />
+  <text x="1062" y="156" font-family="Arial, sans-serif" font-size="12" fill="#ffffff">Update business info</text>
+
+  <rect x="56" y="204" width="760" height="210" rx="18" fill="url(#hero)" stroke="#d1d5db" />
+  <text x="84" y="236" font-family="Arial, sans-serif" font-size="14" fill="#374151">Hero balances</text>
+  <rect x="84" y="258" width="200" height="120" rx="14" fill="#ffffff" stroke="#e5e7eb" />
+  <rect x="304" y="258" width="200" height="120" rx="14" fill="#ffffff" stroke="#e5e7eb" />
+  <rect x="524" y="258" width="200" height="120" rx="14" fill="#ffffff" stroke="#e5e7eb" />
+  <text x="104" y="296" font-family="Arial, sans-serif" font-size="12" fill="#6b7280">Available</text>
+  <text x="104" y="324" font-family="Arial, sans-serif" font-size="20" fill="#111827">$48,920</text>
+  <text x="324" y="296" font-family="Arial, sans-serif" font-size="12" fill="#6b7280">Pending</text>
+  <text x="324" y="324" font-family="Arial, sans-serif" font-size="20" fill="#111827">$6,340</text>
+  <text x="544" y="296" font-family="Arial, sans-serif" font-size="12" fill="#6b7280">Total volume</text>
+  <text x="544" y="324" font-family="Arial, sans-serif" font-size="20" fill="#111827">$189,240</text>
+
+  <rect x="840" y="204" width="384" height="210" rx="18" fill="#ffffff" stroke="#d1d5db" />
+  <text x="866" y="236" font-family="Arial, sans-serif" font-size="14" fill="#374151">Quick actions</text>
+  <rect x="866" y="256" width="332" height="40" rx="10" fill="#2563eb" />
+  <text x="988" y="281" font-family="Arial, sans-serif" font-size="12" fill="#ffffff">Get paid</text>
+  <rect x="866" y="306" width="332" height="40" rx="10" fill="#ffffff" stroke="#d1d5db" />
+  <text x="978" y="331" font-family="Arial, sans-serif" font-size="12" fill="#374151">Generate reports</text>
+  <rect x="866" y="356" width="332" height="40" rx="10" fill="#ffffff" stroke="#d1d5db" />
+  <text x="972" y="381" font-family="Arial, sans-serif" font-size="12" fill="#374151">Withdraw balances</text>
+
+  <rect x="56" y="430" width="1168" height="120" rx="18" fill="#ffffff" stroke="#d1d5db" />
+  <text x="84" y="462" font-family="Arial, sans-serif" font-size="14" fill="#374151">Balance trend</text>
+  <polyline points="84,520 180,505 280,512 380,490 480,498 580,470 680,480 780,455 880,468 980,446 1080,462" fill="none" stroke="#2563eb" stroke-width="3" />
+
+  <rect x="56" y="566" width="1168" height="126" rx="18" fill="#ffffff" stroke="#d1d5db" />
+  <text x="84" y="598" font-family="Arial, sans-serif" font-size="14" fill="#374151">Recent payments (compact)</text>
+  <circle cx="90" cy="632" r="12" fill="#6366f1" />
+  <text x="110" y="636" font-family="Arial, sans-serif" font-size="12" fill="#111827">Acme Co.</text>
+  <text x="360" y="636" font-family="Arial, sans-serif" font-size="12" fill="#6b7280">$2,480 USDC</text>
+  <rect x="1040" y="620" width="120" height="24" rx="8" fill="#c6f6d5" />
+  <text x="1070" y="636" font-family="Arial, sans-serif" font-size="11" fill="#0f5132">Completed</text>
+
+  <circle cx="90" cy="662" r="12" fill="#14b8a6" />
+  <text x="110" y="666" font-family="Arial, sans-serif" font-size="12" fill="#111827">Northwind</text>
+  <text x="360" y="666" font-family="Arial, sans-serif" font-size="12" fill="#6b7280">$540 USDC</text>
+  <rect x="1040" y="650" width="120" height="24" rx="8" fill="#ffe08a" />
+  <text x="1078" y="666" font-family="Arial, sans-serif" font-size="11" fill="#5c3200">Open</text>
+</svg>

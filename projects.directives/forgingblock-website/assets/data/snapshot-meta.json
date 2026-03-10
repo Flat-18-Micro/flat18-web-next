@@ -1,0 +1,18 @@
+{
+  "capture_date": "2026-03-10",
+  "redesign_branch": {
+    "name": "next-js-2025",
+    "commit": "b43a3eb6642c8118958d949c963d8960ea31de9a",
+    "date": "2026-02-25"
+  },
+  "legacy_branch": {
+    "name": "master",
+    "commit": "6f102a431b768a73d6761a1d7ed0c7b5c9e3726d",
+    "date": "2025-07-30"
+  },
+  "pages": ["home", "pricing", "white-label", "contact"],
+  "viewports": {
+    "desktop": "1440x900",
+    "mobile": "375x812"
+  }
+}

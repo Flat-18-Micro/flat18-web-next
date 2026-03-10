@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ForgingBlock Redesign Case Study</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Fraunces:wght@400;600&display=swap');
+
+    :root {
+      --ink: #0b0d15;
+      --muted: #5f6475;
+      --accent: #ff6a3d;
+      --accent-2: #2d7ff9;
+      --accent-3: #3ccf91;
+      --surface: rgba(255, 255, 255, 0.82);
+      --line: rgba(12, 18, 34, 0.08);
+      --shadow: 0 24px 50px rgba(9, 16, 34, 0.16);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: "Space Grotesk", system-ui, -apple-system, sans-serif;
+      color: var(--ink);
+      background: radial-gradient(circle at 10% 10%, #fff4e7 0%, #f2f5ff 35%, #edf7ff 100%);
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image: linear-gradient(120deg, rgba(12, 18, 34, 0.03) 1px, transparent 1px),
+        linear-gradient(60deg, rgba(12, 18, 34, 0.03) 1px, transparent 1px);
+      background-size: 120px 120px;
+      pointer-events: none;
+      opacity: 0.5;
+    }
+
+    main {
+      position: relative;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 64px 28px 96px;
+    }
+
+    header {
+      display: grid;
+      gap: 24px;
+      margin-bottom: 48px;
+    }
+
+    h1 {
+      font-size: clamp(2.2rem, 3vw, 3.4rem);
+      letter-spacing: -0.03em;
+      margin: 0;
+    }
+
+    .lede {
+      font-family: "Fraunces", serif;
+      font-size: 1.1rem;
+      color: var(--muted);
+      max-width: 720px;
+    }
+
+    .meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--muted);
+      box-shadow: var(--shadow);
+    }
+
+    .pill span {
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: var(--accent-2);
+      display: inline-block;
+    }
+
+    section {
+      margin-top: 56px;
+    }
+
+    .section-title {
+      font-size: 1.6rem;
+      margin: 0 0 18px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 20px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(8px);
+    }
+
+    .card h3 {
+      margin-top: 0;
+    }
+
+    .targets {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+    }
+
+    .target {
+      background: #fff;
+      border-radius: 16px;
+      padding: 16px;
+      border: 1px solid var(--line);
+      box-shadow: 0 16px 30px rgba(9, 16, 34, 0.12);
+    }
+
+    .target strong {
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .compare {
+      display: grid;
+      gap: 18px;
+    }
+
+    .compare-row {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .compare-row figure {
+      margin: 0;
+      background: #fff;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+    }
+
+    figure img {
+      width: 100%;
+      display: block;
+    }
+
+    figure figcaption {
+      font-size: 0.9rem;
+      padding: 12px 14px;
+      color: var(--muted);
+    }
+
+    .mockups {
+      display: grid;
+      gap: 18px;
+    }
+
+    .mockups img {
+      width: 100%;
+      border-radius: 18px;
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+    }
+
+    .timeline {
+      display: grid;
+      gap: 14px;
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 16px;
+      align-items: start;
+    }
+
+    .timeline-item span {
+      font-weight: 600;
+      color: var(--accent-2);
+    }
+
+    .fade-in {
+      animation: rise 0.7s ease both;
+    }
+
+    .stagger > * {
+      animation: rise 0.7s ease both;
+      animation-delay: calc(var(--i) * 0.08s);
+    }
+
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(14px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 960px) {
+      .grid-2, .compare-row { grid-template-columns: 1fr; }
+      .timeline-item { grid-template-columns: 1fr; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .fade-in, .stagger > * { animation: none; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header class="fade-in">
+      <h1>ForgingBlock Redesign Case Study</h1>
+      <p class="lede">A focused comparison of the legacy `master` snapshot and the `next-js-2025` redesign, documenting strategy, implementation, and visual outcomes.</p>
+      <div class="meta-row">
+        <div class="pill"><span></span>Legacy commit: 6f102a4 (2025-07-30)</div>
+        <div class="pill"><span></span>Redesign commit: b43a3eb (2026-02-25)</div>
+        <div class="pill"><span></span>Capture date: 2026-03-10</div>
+      </div>
+    </header>
+
+    <section class="fade-in">
+      <h2 class="section-title">Targets and outcomes</h2>
+      <div class="targets stagger">
+        <div class="target" style="--i:0">
+          <strong>Value clarity</strong>
+          Benefit-first hero and product story instead of early technical density.
+        </div>
+        <div class="target" style="--i:1">
+          <strong>Trust</strong>
+          Compliance and proof points moved higher in the narrative.
+        </div>
+        <div class="target" style="--i:2">
+          <strong>Hierarchy</strong>
+          Modular sections and consistent spacing improve scanning.
+        </div>
+        <div class="target" style="--i:3">
+          <strong>Mobile</strong>
+          Stacked layouts and clearer CTAs reduce scroll fatigue.
+        </div>
+        <div class="target" style="--i:4">
+          <strong>SEO + metadata</strong>
+          Centralized metadata and structured content blocks.
+        </div>
+        <div class="target" style="--i:5">
+          <strong>Maintainability</strong>
+          Content-driven marketing pages with reusable components.
+        </div>
+      </div>
+    </section>
+
+    <section class="fade-in">
+      <h2 class="section-title">Before / after comparisons</h2>
+      <div class="compare">
+        <div class="compare-row">
+          <figure>
+            <img src="assets/screenshots/legacy-6f102a4/home-desktop.png" alt="Legacy home page" />
+            <figcaption>Legacy home (desktop)</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/screenshots/next-js-2025/home-desktop.png" alt="Redesign home page" />
+            <figcaption>Redesign home (desktop)</figcaption>
+          </figure>
+        </div>
+        <div class="compare-row">
+          <figure>
+            <img src="assets/screenshots/legacy-6f102a4/pricing-desktop.png" alt="Legacy pricing page" />
+            <figcaption>Legacy pricing (desktop)</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/screenshots/next-js-2025/pricing-desktop.png" alt="Redesign pricing page" />
+            <figcaption>Redesign pricing (desktop)</figcaption>
+          </figure>
+        </div>
+        <div class="compare-row">
+          <figure>
+            <img src="assets/screenshots/legacy-6f102a4/white-label-desktop.png" alt="Legacy white-label page" />
+            <figcaption>Legacy white-label (desktop)</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/screenshots/next-js-2025/white-label-desktop.png" alt="Redesign white-label page" />
+            <figcaption>Redesign white-label (desktop)</figcaption>
+          </figure>
+        </div>
+        <div class="compare-row">
+          <figure>
+            <img src="assets/screenshots/legacy-6f102a4/contact-desktop.png" alt="Legacy contact page" />
+            <figcaption>Legacy contact (desktop)</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/screenshots/next-js-2025/contact-desktop.png" alt="Redesign contact page" />
+            <figcaption>Redesign contact (desktop)</figcaption>
+          </figure>
+        </div>
+        <div class="compare-row">
+          <figure>
+            <img src="assets/screenshots/legacy-6f102a4/home-mobile.png" alt="Legacy home mobile" />
+            <figcaption>Legacy home (mobile)</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/screenshots/next-js-2025/home-mobile.png" alt="Redesign home mobile" />
+            <figcaption>Redesign home (mobile)</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="fade-in">
+      <h2 class="section-title">Annotated mockups</h2>
+      <div class="mockups">
+        <img src="assets/mockups/home-comparison.png" alt="Home comparison mockup" />
+        <img src="assets/mockups/pricing-comparison.png" alt="Pricing comparison mockup" />
+      </div>
+    </section>
+
+    <section class="fade-in">
+      <h2 class="section-title">Implementation timeline (highlights)</h2>
+      <div class="timeline card">
+        <div class="timeline-item">
+          <span>2025-11-04</span>
+          <div>Introduced the benefits-led landing layout, new navigation, and a dedicated design system stylesheet.</div>
+        </div>
+        <div class="timeline-item">
+          <span>2025-11-10</span>
+          <div>Added icon chips and supporting content updates for resource cards.</div>
+        </div>
+        <div class="timeline-item">
+          <span>2025-11-11</span>
+          <div>Launched MarketingPageRenderer and rebuilt primary navigation with consistent iconography.</div>
+        </div>
+        <div class="timeline-item">
+          <span>2025-12-17</span>
+          <div>Aligned homepage messaging around stablecoins and added hero animation depth.</div>
+        </div>
+        <div class="timeline-item">
+          <span>2025-12-23</span>
+          <div>Added process flow section and refreshed FAQ styling to match the new system.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="fade-in">
+      <h2 class="section-title">Notes and follow-ups</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3>Accessibility and UX</h3>
+          <p>Reintroduce skip-link access and validate prefers-reduced-motion behavior for hero animations and Lottie media.</p>
+        </div>
+        <div class="card">
+          <h3>Content coverage</h3>
+          <p>Expand case studies, compliance artifacts, and proof points to reinforce merchant trust beyond the homepage.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

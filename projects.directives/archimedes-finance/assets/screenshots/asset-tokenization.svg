@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="900" viewBox="0 0 1440 900">
+  <defs>
+    <style>
+      .title { font: 700 20px 'Space Grotesk', Arial, sans-serif; fill: #0b1e3b; }
+      .subtitle { font: 600 14px 'Space Grotesk', Arial, sans-serif; fill: #4b5b73; }
+      .label { font: 600 11px 'Space Grotesk', Arial, sans-serif; fill: #7b8798; text-transform: uppercase; }
+      .value { font: 600 12px 'Space Grotesk', Arial, sans-serif; fill: #2f3b4c; }
+      .table { font: 600 12px 'Space Grotesk', Arial, sans-serif; fill: #2f3b4c; }
+      .small { font: 500 11px 'Space Grotesk', Arial, sans-serif; fill: #6b778c; }
+      .badge { font: 700 10px 'Space Grotesk', Arial, sans-serif; fill: #ffffff; }
+    </style>
+  </defs>
+
+  <rect width="1440" height="900" fill="#f5f7fa"/>
+  <rect x="0" y="0" width="1440" height="64" fill="#0b1e3b"/>
+  <text x="24" y="40" fill="#ffffff" font-family="Space Grotesk, Arial, sans-serif" font-size="14" font-weight="700">Plains North Capital</text>
+
+  <rect x="0" y="64" width="240" height="836" fill="#0f2a4d"/>
+  <text x="24" y="110" fill="#d9e2f2" font-family="Space Grotesk, Arial, sans-serif" font-size="13" font-weight="600">Dashboard</text>
+  <text x="24" y="148" fill="#ffffff" font-family="Space Grotesk, Arial, sans-serif" font-size="13" font-weight="700">Tokenisation</text>
+  <text x="24" y="186" fill="#d9e2f2" font-family="Space Grotesk, Arial, sans-serif" font-size="13" font-weight="600">Assets</text>
+  <text x="24" y="224" fill="#d9e2f2" font-family="Space Grotesk, Arial, sans-serif" font-size="13" font-weight="600">Approvals</text>
+  <text x="24" y="262" fill="#d9e2f2" font-family="Space Grotesk, Arial, sans-serif" font-size="13" font-weight="600">Reports</text>
+
+  <text x="272" y="120" class="title">Asset Tokenisation</text>
+  <text x="272" y="145" class="subtitle">Create, approve, and distribute tokenised assets</text>
+
+  <rect x="260" y="180" width="560" height="260" rx="14" fill="#ffffff"/>
+  <text x="280" y="210" class="subtitle">New Tokenised Asset</text>
+  <text x="280" y="240" class="label">Asset name</text>
+  <rect x="280" y="250" width="500" height="36" rx="8" fill="#f5f7fa"/>
+  <text x="292" y="273" class="value">Green Ridge Commercial Lot</text>
+
+  <text x="280" y="305" class="label">Asset type</text>
+  <rect x="280" y="315" width="240" height="36" rx="8" fill="#f5f7fa"/>
+  <text x="292" y="338" class="value">Real Estate</text>
+
+  <text x="540" y="305" class="label">Valuation</text>
+  <rect x="540" y="315" width="240" height="36" rx="8" fill="#f5f7fa"/>
+  <text x="552" y="338" class="value">$4,500,000</text>
+
+  <text x="280" y="370" class="label">Supporting documents</text>
+  <rect x="280" y="380" width="500" height="40" rx="8" fill="#e8f5f2"/>
+  <text x="292" y="405" class="value">Upload appraisal, title, and SPV docs</text>
+
+  <rect x="840" y="180" width="560" height="260" rx="14" fill="#ffffff"/>
+  <text x="860" y="210" class="subtitle">Approval Queue</text>
+  <rect x="860" y="235" width="500" height="44" rx="10" fill="#f5f7fa"/>
+  <text x="880" y="262" class="table">Blue Harbor Equity Fund</text>
+  <rect x="1250" y="244" width="90" height="26" rx="13" fill="#f0b429"/>
+  <text x="1268" y="262" class="badge">PENDING</text>
+  <rect x="860" y="290" width="500" height="44" rx="10" fill="#f5f7fa"/>
+  <text x="880" y="317" class="table">Northland Solar SPV</text>
+  <rect x="1250" y="299" width="90" height="26" rx="13" fill="#1f7aec"/>
+  <text x="1268" y="317" class="badge">REVIEW</text>
+  <rect x="860" y="345" width="500" height="44" rx="10" fill="#f5f7fa"/>
+  <text x="880" y="372" class="table">Granite Logistics Note</text>
+  <rect x="1250" y="354" width="90" height="26" rx="13" fill="#18a999"/>
+  <text x="1266" y="372" class="badge">APPROVED</text>
+
+  <rect x="260" y="470" width="1140" height="380" rx="14" fill="#ffffff"/>
+  <text x="280" y="500" class="subtitle">Tokenised Assets</text>
+  <rect x="280" y="520" width="1100" height="44" rx="8" fill="#f5f7fa"/>
+  <text x="300" y="548" class="table">Asset</text>
+  <text x="620" y="548" class="table">Type</text>
+  <text x="780" y="548" class="table">Valuation</text>
+  <text x="940" y="548" class="table">Status</text>
+  <text x="1080" y="548" class="table">Last Update</text>
+
+  <rect x="280" y="575" width="1100" height="50" rx="8" fill="#ffffff" stroke="#eef2f6"/>
+  <text x="300" y="605" class="value">Green Ridge Commercial Lot</text>
+  <text x="620" y="605" class="value">Real Estate</text>
+  <text x="780" y="605" class="value">$4.5M</text>
+  <rect x="930" y="590" width="120" height="26" rx="13" fill="#18a999"/>
+  <text x="960" y="607" class="badge">APPROVED</text>
+  <text x="1080" y="605" class="small">Mar 8</text>
+
+  <rect x="280" y="635" width="1100" height="50" rx="8" fill="#ffffff" stroke="#eef2f6"/>
+  <text x="300" y="665" class="value">Harborview Preferred Equity</text>
+  <text x="620" y="665" class="value">Private Equity</text>
+  <text x="780" y="665" class="value">$2.1M</text>
+  <rect x="930" y="650" width="120" height="26" rx="13" fill="#f0b429"/>
+  <text x="962" y="667" class="badge">PENDING</text>
+  <text x="1080" y="665" class="small">Mar 6</text>
+
+  <rect x="280" y="695" width="1100" height="50" rx="8" fill="#ffffff" stroke="#eef2f6"/>
+  <text x="300" y="725" class="value">Northland Solar SPV</text>
+  <text x="620" y="725" class="value">Infrastructure</text>
+  <text x="780" y="725" class="value">$6.8M</text>
+  <rect x="930" y="710" width="120" height="26" rx="13" fill="#1f7aec"/>
+  <text x="962" y="727" class="badge">REVIEW</text>
+  <text x="1080" y="725" class="small">Mar 4</text>
+</svg>

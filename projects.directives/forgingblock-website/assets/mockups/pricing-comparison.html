@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pricing Page Comparison Mockup</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Fraunces:wght@400;600&display=swap');
+    :root {
+      --ink: #0b0d15;
+      --muted: #5b6070;
+      --accent: #3ccf91;
+      --accent-2: #ffb347;
+      --card: #ffffff;
+      --shadow: 0 28px 60px rgba(10, 20, 40, 0.18);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Space Grotesk", system-ui, -apple-system, sans-serif;
+      color: var(--ink);
+      background: radial-gradient(circle at top, #f1fff8 0%, #f9f1ff 52%, #f6f9ff 100%);
+    }
+    main {
+      max-width: 1600px;
+      margin: 0 auto;
+      padding: 48px 56px 64px;
+    }
+    h1 {
+      font-size: 40px;
+      margin: 0 0 8px;
+      letter-spacing: -0.02em;
+    }
+    p.lede {
+      margin: 0 0 32px;
+      font-family: "Fraunces", serif;
+      font-size: 18px;
+      color: var(--muted);
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 28px;
+    }
+    figure {
+      margin: 0;
+      background: var(--card);
+      border-radius: 22px;
+      box-shadow: var(--shadow);
+      padding: 18px 18px 20px;
+    }
+    .label {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 600;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+    .label span {
+      width: 12px;
+      height: 12px;
+      border-radius: 999px;
+      background: var(--accent);
+      display: inline-block;
+    }
+    .label .amber {
+      background: var(--accent-2);
+    }
+    .frame {
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid #e2e7f3;
+      background: #111;
+    }
+    .frame img {
+      width: 100%;
+      height: 560px;
+      object-fit: cover;
+      object-position: top;
+      display: block;
+    }
+    .callout {
+      position: absolute;
+      border: 2px dashed rgba(60, 207, 145, 0.9);
+      border-radius: 14px;
+      background: rgba(60, 207, 145, 0.1);
+      padding: 10px 12px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #0f5a3a;
+      max-width: 220px;
+    }
+    .callout.amber {
+      border-color: rgba(255, 179, 71, 0.95);
+      background: rgba(255, 179, 71, 0.15);
+      color: #6a3a0f;
+    }
+    .notes {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 28px;
+      margin-top: 28px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+    .notes strong {
+      color: var(--ink);
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Pricing Page Comparison Mockup</h1>
+    <p class="lede">Pricing clarity and trust signals were a key target in the redesign.</p>
+
+    <section class="grid">
+      <figure>
+        <div class="label"><span></span>Legacy 6f102a4 (July 30, 2025)</div>
+        <div class="frame">
+          <img src="../screenshots/legacy-6f102a4/pricing-desktop.png" alt="Legacy pricing page screenshot" />
+          <div class="callout" style="top: 16%; left: 8%;">Pricing detail scattered across sections</div>
+          <div class="callout" style="top: 44%; left: 8%;">Limited emphasis on compliance or guarantees</div>
+          <div class="callout" style="top: 68%; left: 8%;">CTA hierarchy appears late</div>
+        </div>
+      </figure>
+
+      <figure>
+        <div class="label"><span class="amber"></span>Next-js-2025 (Feb 25, 2026)</div>
+        <div class="frame">
+          <img src="../screenshots/next-js-2025/pricing-desktop.png" alt="Redesign pricing page screenshot" />
+          <div class="callout amber" style="top: 16%; left: 8%;">Primary pricing callouts grouped and clear</div>
+          <div class="callout amber" style="top: 42%; left: 8%;">Trust/compliance surfaced alongside pricing</div>
+          <div class="callout amber" style="top: 66%; left: 8%;">CTA placed with pricing context</div>
+        </div>
+      </figure>
+    </section>
+
+    <section class="notes">
+      <div><strong>Legacy gaps:</strong> Pricing narrative is fragmented, which can obscure the primary merchant cost story.</div>
+      <div><strong>Redesign gains:</strong> Cleaner pricing hierarchy and supporting trust cues reduce decision friction.</div>
+    </section>
+  </main>
+</body>
+</html>
