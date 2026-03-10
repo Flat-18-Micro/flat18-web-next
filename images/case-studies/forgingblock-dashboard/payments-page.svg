@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#f6f8fb" />
+      <stop offset="100%" stop-color="#f9f5ef" />
+    </linearGradient>
+    <linearGradient id="header" x1="0" x2="1" y1="0" y2="0">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="100%" stop-color="#f4f9ff" />
+    </linearGradient>
+  </defs>
+  <rect width="1280" height="720" fill="url(#bg)" />
+
+  <rect x="48" y="32" width="1184" height="656" rx="22" fill="#ffffff" stroke="#e5e7eb" />
+
+  <rect x="48" y="32" width="1184" height="160" rx="22" fill="url(#header)" stroke="#e5e7eb" />
+  <text x="84" y="72" font-family="Arial, sans-serif" font-size="20" fill="#111827">Payments</text>
+  <text x="84" y="100" font-family="Arial, sans-serif" font-size="12" fill="#6b7280">Monitor invoices by status and range</text>
+
+  <rect x="940" y="54" width="150" height="32" rx="10" fill="#2563eb" />
+  <text x="968" y="75" font-family="Arial, sans-serif" font-size="12" fill="#ffffff">Download CSV</text>
+  <rect x="1100" y="54" width="32" height="32" rx="10" fill="#f3f4f6" stroke="#e5e7eb" />
+  <text x="1110" y="76" font-family="Arial, sans-serif" font-size="14" fill="#6b7280">R</text>
+
+  <text x="84" y="132" font-family="Arial, sans-serif" font-size="11" fill="#6b7280">Search</text>
+  <rect x="84" y="140" width="380" height="30" rx="8" fill="#ffffff" stroke="#e5e7eb" />
+  <text x="96" y="160" font-family="Arial, sans-serif" font-size="11" fill="#9ca3af">Search by id, email, amount, etc</text>
+
+  <text x="492" y="132" font-family="Arial, sans-serif" font-size="11" fill="#6b7280">Quick ranges</text>
+  <rect x="492" y="140" width="210" height="30" rx="8" fill="#ffffff" stroke="#e5e7eb" />
+  <rect x="500" y="145" width="54" height="20" rx="8" fill="#2563eb" />
+  <text x="514" y="160" font-family="Arial, sans-serif" font-size="10" fill="#ffffff">7d</text>
+  <rect x="560" y="145" width="54" height="20" rx="8" fill="#f3f4f6" />
+  <text x="575" y="160" font-family="Arial, sans-serif" font-size="10" fill="#6b7280">24h</text>
+  <rect x="620" y="145" width="54" height="20" rx="8" fill="#f3f4f6" />
+  <text x="635" y="160" font-family="Arial, sans-serif" font-size="10" fill="#6b7280">30d</text>
+
+  <text x="740" y="132" font-family="Arial, sans-serif" font-size="11" fill="#6b7280">Status</text>
+  <rect x="740" y="140" width="220" height="30" rx="8" fill="#ffffff" stroke="#e5e7eb" />
+  <rect x="748" y="145" width="58" height="20" rx="10" fill="#c6f6d5" />
+  <text x="758" y="160" font-family="Arial, sans-serif" font-size="10" fill="#0f5132">Paid</text>
+  <rect x="812" y="145" width="68" height="20" rx="10" fill="#ffe08a" />
+  <text x="824" y="160" font-family="Arial, sans-serif" font-size="10" fill="#5c3200">Open</text>
+  <rect x="886" y="145" width="64" height="20" rx="10" fill="#fecdd3" />
+  <text x="896" y="160" font-family="Arial, sans-serif" font-size="10" fill="#7f1d1d">Refund</text>
+
+  <text x="1000" y="132" font-family="Arial, sans-serif" font-size="11" fill="#6b7280">Date range</text>
+  <rect x="1000" y="140" width="90" height="30" rx="8" fill="#ffffff" stroke="#e5e7eb" />
+  <rect x="1100" y="140" width="90" height="30" rx="8" fill="#ffffff" stroke="#e5e7eb" />
+  <text x="1010" y="160" font-family="Arial, sans-serif" font-size="10" fill="#9ca3af">From</text>
+  <text x="1110" y="160" font-family="Arial, sans-serif" font-size="10" fill="#9ca3af">To</text>
+
+  <text x="84" y="212" font-family="Arial, sans-serif" font-size="12" fill="#6b7280">Active filters: Paid, 7d</text>
+
+  <rect x="84" y="228" width="350" height="70" rx="14" fill="#ffffff" stroke="#e5e7eb" />
+  <rect x="456" y="228" width="350" height="70" rx="14" fill="#ffffff" stroke="#e5e7eb" />
+  <rect x="828" y="228" width="350" height="70" rx="14" fill="#ffffff" stroke="#e5e7eb" />
+  <text x="104" y="254" font-family="Arial, sans-serif" font-size="11" fill="#6b7280">Invoices</text>
+  <text x="104" y="276" font-family="Arial, sans-serif" font-size="18" fill="#111827">124</text>
+  <text x="476" y="254" font-family="Arial, sans-serif" font-size="11" fill="#6b7280">Paid volume</text>
+  <text x="476" y="276" font-family="Arial, sans-serif" font-size="18" fill="#111827">$94,250</text>
+  <text x="848" y="254" font-family="Arial, sans-serif" font-size="11" fill="#6b7280">Net cash flow</text>
+  <text x="848" y="276" font-family="Arial, sans-serif" font-size="18" fill="#111827">$91,120</text>
+
+  <rect x="84" y="320" width="1094" height="320" rx="16" fill="#ffffff" stroke="#e5e7eb" />
+  <rect x="84" y="320" width="1094" height="44" rx="16" fill="#f9fafb" stroke="#e5e7eb" />
+  <text x="104" y="348" font-family="Arial, sans-serif" font-size="11" fill="#6b7280">Invoice ID</text>
+  <text x="280" y="348" font-family="Arial, sans-serif" font-size="11" fill="#6b7280">Customer Email</text>
+  <text x="560" y="348" font-family="Arial, sans-serif" font-size="11" fill="#6b7280">Amount</text>
+  <text x="700" y="348" font-family="Arial, sans-serif" font-size="11" fill="#6b7280">Status</text>
+  <text x="820" y="348" font-family="Arial, sans-serif" font-size="11" fill="#6b7280">Date / Time</text>
+
+  <line x1="84" y1="382" x2="1178" y2="382" stroke="#f3f4f6" />
+  <text x="104" y="404" font-family="Arial, sans-serif" font-size="11" fill="#111827">INV-2918</text>
+  <text x="280" y="404" font-family="Arial, sans-serif" font-size="11" fill="#111827">lina@acme.com</text>
+  <text x="560" y="404" font-family="Arial, sans-serif" font-size="11" fill="#111827">480 USDC</text>
+  <rect x="690" y="392" width="90" height="20" rx="10" fill="#c6f6d5" />
+  <text x="712" y="406" font-family="Arial, sans-serif" font-size="10" fill="#0f5132">Paid</text>
+  <text x="820" y="404" font-family="Arial, sans-serif" font-size="11" fill="#6b7280">Mar 7, 2026</text>
+
+  <line x1="84" y1="430" x2="1178" y2="430" stroke="#f3f4f6" />
+  <text x="104" y="452" font-family="Arial, sans-serif" font-size="11" fill="#111827">INV-2919</text>
+  <text x="280" y="452" font-family="Arial, sans-serif" font-size="11" fill="#111827">mike@northwind.co</text>
+  <text x="560" y="452" font-family="Arial, sans-serif" font-size="11" fill="#111827">120 USDC</text>
+  <rect x="690" y="440" width="90" height="20" rx="10" fill="#ffe08a" />
+  <text x="713" y="454" font-family="Arial, sans-serif" font-size="10" fill="#5c3200">Open</text>
+  <text x="820" y="452" font-family="Arial, sans-serif" font-size="11" fill="#6b7280">Mar 6, 2026</text>
+
+  <line x1="84" y1="478" x2="1178" y2="478" stroke="#f3f4f6" />
+  <text x="104" y="500" font-family="Arial, sans-serif" font-size="11" fill="#111827">INV-2920</text>
+  <text x="280" y="500" font-family="Arial, sans-serif" font-size="11" fill="#111827">ocean@studio.io</text>
+  <text x="560" y="500" font-family="Arial, sans-serif" font-size="11" fill="#111827">89 USDC</text>
+  <rect x="680" y="488" width="110" height="20" rx="10" fill="#fecdd3" />
+  <text x="690" y="502" font-family="Arial, sans-serif" font-size="10" fill="#7f1d1d">Refunded</text>
+  <text x="820" y="500" font-family="Arial, sans-serif" font-size="11" fill="#6b7280">Mar 5, 2026</text>
+</svg>

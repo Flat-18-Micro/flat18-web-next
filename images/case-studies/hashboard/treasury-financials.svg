@@ -1,0 +1,61 @@
+<svg width="1200" height="720" viewBox="0 0 1200 720" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title { font: 600 22px 'IBM Plex Sans', Arial, sans-serif; fill: #e7ecef; }
+      .label { font: 500 14px 'IBM Plex Sans', Arial, sans-serif; fill: #a7b0ba; }
+      .value { font: 700 18px 'IBM Plex Mono', Menlo, monospace; fill: #f6f8fa; }
+      .card { fill: #171b22; stroke: #2a313a; stroke-width: 1; rx: 16; }
+      .chip { fill: #1b2028; stroke: #2a313a; stroke-width: 1; }
+      .grid { stroke: #20252d; stroke-width: 1; }
+      .accent { fill: #45d0c1; }
+      .accent2 { fill: #f4b44d; }
+      .accent3 { fill: #8da3ff; }
+    </style>
+  </defs>
+
+  <rect width="1200" height="720" fill="#0f1115"/>
+  <rect x="0" y="0" width="1200" height="64" fill="#141821"/>
+  <text x="24" y="40" class="title">Treasury and Financials</text>
+
+  <rect x="24" y="96" width="1152" height="200" class="card"/>
+  <text x="48" y="132" class="label">Core Wallet Balances</text>
+
+  <rect x="48" y="152" width="260" height="120" class="chip" rx="12"/>
+  <text x="64" y="186" class="label">ETH</text>
+  <text x="64" y="214" class="value">3,420 ETH</text>
+
+  <rect x="326" y="152" width="260" height="120" class="chip" rx="12"/>
+  <text x="342" y="186" class="label">BTC</text>
+  <text x="342" y="214" class="value">118 BTC</text>
+
+  <rect x="604" y="152" width="260" height="120" class="chip" rx="12"/>
+  <text x="620" y="186" class="label">USDT</text>
+  <text x="620" y="214" class="value">$4.8M</text>
+
+  <rect x="882" y="152" width="260" height="120" class="chip" rx="12"/>
+  <text x="898" y="186" class="label">ZH</text>
+  <text x="898" y="214" class="value">42.5M</text>
+
+  <rect x="24" y="316" width="700" height="180" class="card"/>
+  <text x="48" y="350" class="label">Vesting Timeline</text>
+  <line x1="48" y1="402" x2="700" y2="402" class="grid"/>
+  <rect x="80" y="382" width="160" height="40" class="accent" rx="10"/>
+  <rect x="260" y="382" width="190" height="40" class="accent2" rx="10"/>
+  <rect x="470" y="382" width="190" height="40" class="accent3" rx="10"/>
+  <text x="90" y="410" class="label">Q1</text>
+  <text x="270" y="410" class="label">Q2</text>
+  <text x="480" y="410" class="label">Q3</text>
+
+  <rect x="744" y="316" width="432" height="180" class="card"/>
+  <text x="768" y="350" class="label">Allocation Mix</text>
+  <rect x="768" y="382" width="360" height="24" class="chip" rx="8"/>
+  <rect x="768" y="382" width="180" height="24" class="accent" rx="8"/>
+  <rect x="948" y="382" width="90" height="24" class="accent2" rx="8"/>
+  <rect x="1038" y="382" width="90" height="24" class="accent3" rx="8"/>
+  <text x="768" y="426" class="label">ZH 50%  ETH 25%  BTC 15%  Stable 10%</text>
+
+  <rect x="24" y="516" width="1152" height="176" class="card"/>
+  <text x="48" y="552" class="label">Treasury Notes</text>
+  <text x="48" y="582" class="value">Diversified treasury across core assets with staggered vesting.</text>
+  <text x="48" y="610" class="label">Audit trail available via wallet links.</text>
+</svg>

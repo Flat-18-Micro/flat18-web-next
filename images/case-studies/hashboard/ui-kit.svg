@@ -1,0 +1,48 @@
+<svg width="1200" height="720" viewBox="0 0 1200 720" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title { font: 600 20px Arial, sans-serif; fill: #3a3a3a; }
+      .label { font: 500 12px Arial, sans-serif; fill: #6a6a6a; }
+      .card { fill: #ffffff; stroke: #cfcfcf; stroke-width: 2; rx: 14; }
+      .chip { fill: #f0f0f0; stroke: #d0d0d0; stroke-width: 1; rx: 12; }
+      .primary { fill: #e7f4f2; stroke: #7fcfc4; stroke-width: 2; rx: 14; }
+      .bar { fill: #e6e6e6; }
+    </style>
+  </defs>
+
+  <rect width="1200" height="720" fill="#f4f4f4"/>
+  <text x="40" y="50" class="title">UI Kit</text>
+
+  <rect x="40" y="80" width="360" height="220" class="card"/>
+  <text x="60" y="120" class="label">Data Card</text>
+  <rect x="60" y="140" width="160" height="24" class="bar" rx="6"/>
+  <rect x="60" y="174" width="260" height="16" class="bar" rx="6"/>
+  <rect x="60" y="198" width="120" height="16" class="bar" rx="6"/>
+
+  <rect x="430" y="80" width="320" height="220" class="card"/>
+  <text x="450" y="120" class="label">Chart Card</text>
+  <rect x="450" y="140" width="280" height="120" class="bar" rx="8"/>
+  <path d="M460 240 L500 220 L560 230 L610 200 L720 210" fill="none" stroke="#7fcfc4" stroke-width="3"/>
+
+  <rect x="770" y="80" width="390" height="220" class="card"/>
+  <text x="790" y="120" class="label">Action Card</text>
+  <rect x="790" y="140" width="150" height="36" class="primary"/>
+  <text x="820" y="164" class="label">Primary</text>
+  <rect x="790" y="186" width="140" height="30" class="chip"/>
+  <text x="810" y="206" class="label">Secondary</text>
+
+  <rect x="40" y="330" width="520" height="140" class="card"/>
+  <text x="60" y="370" class="label">List Row</text>
+  <rect x="60" y="390" width="460" height="24" class="bar" rx="6"/>
+  <rect x="60" y="424" width="360" height="24" class="bar" rx="6"/>
+
+  <rect x="580" y="330" width="580" height="140" class="card"/>
+  <text x="600" y="370" class="label">Tag Set</text>
+  <rect x="600" y="392" width="120" height="30" class="chip"/>
+  <rect x="730" y="392" width="120" height="30" class="chip"/>
+  <rect x="860" y="392" width="120" height="30" class="chip"/>
+
+  <rect x="40" y="490" width="1120" height="190" class="card"/>
+  <text x="60" y="530" class="label">Full Width Panel</text>
+  <rect x="60" y="550" width="1080" height="90" class="bar" rx="10"/>
+</svg>
