@@ -98,7 +98,7 @@
   justify-content: center;
   font-size: var(--text-xl);
   font-weight: var(--font-bold);
-  color: var(--primary)
+  color: var(--accent-contrast-text)
 }
 
 .toolName {

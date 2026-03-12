@@ -1,7 +1,7 @@
 'use client'
 
 import Hero from '@/components/Hero'
-import Stats from '@/components/Stats'
+// import Stats from '@/components/Stats'
 import Features from '@/components/Features'
 import FeaturedWork from '@/components/FeaturedWork'
 import HowItWorks from '@/components/HowItWorks'
@@ -22,7 +22,7 @@ export default function HomeClientShell() {
       <Hero />
       <FeaturedWork />
       <Testimonials />
-      <Stats />
+      {/* <Stats /> */}
       <Features />
       <HowItWorks />
       <Pricing />

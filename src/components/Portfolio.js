@@ -452,9 +452,9 @@ export default function Portfolio() {
       scale: 1
     },
     active: {
-      backgroundColor: "rgba(35, 64, 255, 0.12)",
-      color: "var(--primary)",
-      border: "1px solid rgba(35, 64, 255, 0.3)",
+      backgroundColor: "var(--accent-contrast-bg)",
+      color: "var(--accent-contrast-text)",
+      border: "1px solid var(--accent-contrast-border)",
       scale: 1.05
     }
   }

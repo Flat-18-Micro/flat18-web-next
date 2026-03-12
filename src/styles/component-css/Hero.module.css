@@ -184,8 +184,8 @@
   width: 1.5rem;
   height: 1.5rem;
   border-radius: 999px;
-  background: rgba(35, 64, 255, .12);
-  color: var(--primary);
+  background: var(--accent-contrast-bg-strong);
+  color: var(--accent-contrast-text);
   font-size: .8rem
 }
 

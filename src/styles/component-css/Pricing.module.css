@@ -179,7 +179,7 @@
 }
 
 .featureItem i {
-  color: var(--primary);
+  color: var(--accent-contrast-text);
   font-size: 1rem;
   margin-top: .2rem
 }
