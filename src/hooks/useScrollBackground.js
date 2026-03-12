@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState, useCallback } from 'react'
+import { useEffect, useCallback } from 'react'
 import { usePathname } from 'next/navigation'
 
 const DEFAULT_BG = 'var(--bg)'
@@ -9,18 +9,15 @@ const DEFAULT_TEXT = 'var(--text-primary)'
 export function useScrollBackground() {
   const pathname = usePathname()
 
-  const [currentSectionBg, setCurrentSectionBg] = useState(DEFAULT_BG)
-  const [currentSectionText, setCurrentSectionText] = useState(DEFAULT_TEXT)
-
   const updateMainStyles = useCallback((backgroundVariable, textVariable) => {
     const resolvedBackground = backgroundVariable || DEFAULT_BG
     const resolvedText = textVariable || DEFAULT_TEXT
 
-    const mainElement = document.querySelector('main')
-    if (mainElement) {
+    const bodyElement = document.body
+    if (bodyElement) {
       // Set the background and text color using CSS variables for automatic theming
-      mainElement.style.backgroundColor = resolvedBackground
-      mainElement.style.color = resolvedText
+      bodyElement.style.backgroundColor = resolvedBackground
+      bodyElement.style.color = resolvedText
     }
 
     const rootElement = document.documentElement
@@ -30,81 +27,9 @@ export function useScrollBackground() {
     }
   }, [])
 
-  const handleScroll = useCallback(() => {
-    // Get all sections with data-bg-color attribute
-    const sections = document.querySelectorAll('section[data-bg-color], footer[data-bg-color]')
-    if (!sections.length) return
-
-    let currentSection = null
-    let maxVisibility = 0
-
-    sections.forEach((section) => {
-      const rect = section.getBoundingClientRect()
-      const sectionTop = rect.top + window.scrollY
-      const sectionBottom = sectionTop + rect.height
-
-      // Calculate how much of the section is visible in the viewport
-      const viewportTop = window.scrollY
-      const viewportBottom = window.scrollY + window.innerHeight
-
-      const visibleTop = Math.max(sectionTop, viewportTop)
-      const visibleBottom = Math.min(sectionBottom, viewportBottom)
-      const visibleHeight = Math.max(0, visibleBottom - visibleTop)
-      const visibilityRatio = visibleHeight / window.innerHeight
-
-      // Use the section with the highest visibility ratio (minimum 10% visible)
-      if (visibilityRatio > maxVisibility && visibilityRatio > 0.1) {
-        maxVisibility = visibilityRatio
-        currentSection = section
-      }
-    })
-
-    if (currentSection) {
-      const backgroundColor = currentSection.getAttribute('data-bg-color')
-      const textColor = currentSection.getAttribute('data-text-color')
-      const resolvedTextColor = textColor || DEFAULT_TEXT
-
-      if (
-        backgroundColor &&
-        (backgroundColor !== currentSectionBg || resolvedTextColor !== currentSectionText)
-      ) {
-        setCurrentSectionBg(backgroundColor)
-        setCurrentSectionText(resolvedTextColor)
-        updateMainStyles(backgroundColor, resolvedTextColor)
-      }
-    }
-  }, [currentSectionBg, currentSectionText, updateMainStyles])
-
   useEffect(() => {
-    if (pathname !== '/') {
-      updateMainStyles(DEFAULT_BG, DEFAULT_TEXT)
-    }
+    updateMainStyles(DEFAULT_BG, DEFAULT_TEXT)
   }, [pathname, updateMainStyles])
-
-  useEffect(() => {
-    // Set initial background and text color
-    handleScroll()
-
-    // Add scroll listener with throttling
-    let ticking = false
-    const throttledScroll = () => {
-      if (!ticking) {
-        requestAnimationFrame(() => {
-          handleScroll()
-          ticking = false
-        })
-        ticking = true
-      }
-    }
-
-    window.addEventListener('scroll', throttledScroll, { passive: true })
-    window.addEventListener('resize', handleScroll, { passive: true })
-
-    return () => {
-      window.removeEventListener('scroll', throttledScroll)
-      window.removeEventListener('resize', handleScroll)
-    }
-  }, [handleScroll])
 
   useEffect(() => {
     return () => {
@@ -112,7 +37,7 @@ export function useScrollBackground() {
     }
   }, [updateMainStyles])
 
-  return { currentSectionBg, currentSectionText }
+  return { currentSectionBg: DEFAULT_BG, currentSectionText: DEFAULT_TEXT }
 }
 
 // Helper function to get section background CSS variable for current section

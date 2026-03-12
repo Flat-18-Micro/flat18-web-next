@@ -19,8 +19,7 @@
 .scrolled .container {
   padding: .75rem 1rem .75rem 2rem;
   border-radius: 100px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, .2);
-  backdrop-filter: blur(16px)
+  box-shadow: 0 4px 30px rgba(0, 0, 0, .2)
 }
 
 .scrolled :global(.btn-primary) {
@@ -36,6 +35,13 @@
   width: 100%;
   max-width: 1200px;
   margin: 0 auto
+}
+
+.glassLayer {
+  position: absolute;
+  inset: 0;
+  border-radius: 100px;
+  pointer-events: none
 }
 
 header:not(.scrolled) .container {

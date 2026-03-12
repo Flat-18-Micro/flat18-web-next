@@ -7,6 +7,7 @@ import Script from 'next/script'
 import AnalyticsScripts from '@/components/AnalyticsScripts'
 import ClientLayout from '@/components/ClientLayout'
 import { ThemeProvider } from './providers'
+import LiquidGLScripts from '@/components/LiquidGLScripts'
 import { defaultMetadata, generateOrganizationJsonLd, generateWebsiteJsonLd, siteConfig } from '@/lib/seo'
 
 // Optimize font loading with better performance settings
@@ -74,6 +75,7 @@ export default function RootLayout({ children }) {
       </head>
       <body>
         <ThemeProvider>
+          <LiquidGLScripts />
           <ClientLayout>
             {children}
           </ClientLayout>

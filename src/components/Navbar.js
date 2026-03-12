@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import styles from '@/styles/component-css/Navbar.module.css'
@@ -8,6 +8,9 @@ import { analytics } from '@/lib/analytics'
 
 export default function Navbar({ isScrolled }) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const liquidInitialized = useRef(false)
+  const [liquidReady, setLiquidReady] = useState(false)
+  const [html2CanvasReady, setHtml2CanvasReady] = useState(false)
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen)
@@ -27,9 +30,52 @@ export default function Navbar({ isScrolled }) {
     }
   }, [])
 
+  useEffect(() => {
+    if (typeof window === 'undefined') return
+
+    const setReadyFromWindow = () => {
+      if (window.__html2canvasReady || window.html2canvas) {
+        setHtml2CanvasReady(true)
+      }
+      if (window.__liquidGLReady || window.liquidGL) {
+        setLiquidReady(true)
+      }
+    }
+
+    setReadyFromWindow()
+
+    const handleHtml2CanvasReady = () => setHtml2CanvasReady(true)
+    const handleLiquidReady = () => setLiquidReady(true)
+
+    window.addEventListener('html2canvas:ready', handleHtml2CanvasReady)
+    window.addEventListener('liquidgl:ready', handleLiquidReady)
+
+    return () => {
+      window.removeEventListener('html2canvas:ready', handleHtml2CanvasReady)
+      window.removeEventListener('liquidgl:ready', handleLiquidReady)
+    }
+  }, [])
+
+  useEffect(() => {
+    if (!liquidReady || !html2CanvasReady || typeof window === 'undefined') return
+
+    if (!liquidInitialized.current && window.liquidGL) {
+      liquidInitialized.current = true
+      window.liquidGL({ target: '.liquidGL', shadow: false })
+    }
+
+    const renderer = window.__liquidGLRenderer__
+    if (renderer?.canvas) {
+      renderer.canvas.style.opacity = isScrolled ? '1' : '0'
+      if (isScrolled && renderer.render) {
+        renderer.render()
+      }
+    }
+  }, [liquidReady, html2CanvasReady, isScrolled])
+
   return (
     <header className={`${styles.navbar} ${isScrolled ? styles.scrolled : ''}`}>
-      <div className={`${styles.container} max-w-content mx-auto px-6 sm:px-8`}>
+      <div className={`${styles.container} max-w-content mx-auto px-6 sm:px-8 liquidGL`}>
         {/* Brand */}
         <Link href="/" className={styles.brand}>
           <div className={styles.logo}>

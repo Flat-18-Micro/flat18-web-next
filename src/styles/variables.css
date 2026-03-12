@@ -4,7 +4,7 @@
   --cobalt: #1527ee;
   --violet: #9d4eff;
   --aqua: #3d9eee;
-  --bg: #080a10;
+  --bg: #000;
   --fg: #ffffff;
   --color-teal: #3d9eee;
   --color-teal-dark: #2a7fd0;
@@ -225,7 +225,7 @@
   --container-sm: 640px;
   --container-md: 768px;
   --container-lg: 1024px;
-  --container-xl: 1280px;
+  --container-xl: min(1280px, calc(100vw - 10rem));
   --container-2xl: 1440px;
   --glass-bg: rgba(15, 17, 24, 0.7);
   --glass-border: rgba(255, 255, 255, 0.08);
