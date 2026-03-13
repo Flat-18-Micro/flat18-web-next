@@ -153,10 +153,6 @@ export default function Hero() {
             </div>
           </div>
 
-          <p className={styles.heroCtaNote}>
-            15-20 minute fit check.
-          </p>
-
           {/* Trust strip - single-row pill with logos */}
           <div className={styles.trustStrip}>
             <div className={styles.trustPill}>

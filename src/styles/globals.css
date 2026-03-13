@@ -253,17 +253,14 @@ a:hover {
   border-radius: var(--radius-lg);
   font-weight: var(--font-medium);
   font-size: var(--text-base);
-  transition: box-shadow .3s var(--transition-bounce), transform .3s ease, color .3s ease, background-color .3s ease;
   cursor: pointer;
   border: 0;
   overflow: hidden;
   text-decoration: none;
   z-index: 1;
   letter-spacing: var(--tracking-wide);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
   font-family: var(--font-display);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .2)
+  transition: .3s ease;
 }
 
 .btn-text {
@@ -299,14 +296,15 @@ a:hover {
 }
 
 .btn-primary {
-  background: rgba(74, 156, 255, .35);
+  background: var(--accent-teal);
   color: #fff;
-  border: 1px solid rgba(140, 198, 255, .35)
 }
 
+.btn:hover {
+  transform: translateY(-3px);
+}
 .btn-primary:hover {
-  transform: translateY(-3px) scale(1.02);
-  box-shadow: 0 10px 25px rgba(0, 216, 240, .35), 0 0 15px rgba(0, 232, 240, .2), inset 0 1px 0 rgba(255, 255, 255, .3)
+  box-shadow: 0 10px 25px var(--surface-glass)
 }
 
 .btn-primary:hover::before, .btn-secondary:hover::before {
@@ -320,7 +318,7 @@ a:hover {
 .btn-secondary {
   color: var(--text-primary);
   box-shadow: 0 0 0 1px rgba(255, 255, 255, .12);
-  background: rgba(255, 255, 255, .02);
+  background: var(--bg-surface);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px)
 }
@@ -332,7 +330,8 @@ a:hover {
 }
 
 .btn-secondary:hover {
-  transform: translateY(-3px)
+  transform: translateY(-3px);
+  background: var(--bg-surface-hover);
 }
 
 .btn-secondary:active {

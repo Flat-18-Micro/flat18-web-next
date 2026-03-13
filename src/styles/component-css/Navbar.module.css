@@ -35,11 +35,24 @@
   border-radius: 100px;
   pointer-events: none
 }
+
 /* header:not(.scrolled) *{
   box-shadow: unset !important;
 } */
 .scrolled :global(.btn-primary) {
   border-radius: 100px
+}
+
+header:not(.scrolled) .container {
+  border-radius: 20px;
+  width: 100%;
+  max-width: calc(100vw - 4em);
+}
+
+
+header .container {
+  padding-right: 1rem;
+  transition: .4s ease;
 }
 
 .brand {

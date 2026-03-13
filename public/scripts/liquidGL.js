@@ -1,8 +1,8 @@
 /*
- * liquidGL - Ultra-light glassmorphism for the web
+ * liquidGL – Ultra-light glassmorphism for the web
  * -----------------------------------------------------------------------------
  *
- * Author: NaughtyDuk(c) - https://liquidgl.naughtyduk.com
+ * Author: NaughtyDuk© – https://liquidgl.naughtyduk.com
  * Licence: MIT
  */
 
@@ -1958,7 +1958,7 @@
 
     if (noWebGL) {
       console.warn(
-        "liquidGL: WebGL not available - falling back to CSS backdrop-filter."
+        "liquidGL: WebGL not available – falling back to CSS backdrop-filter."
       );
       const fallbackNodes = document.querySelectorAll(options.target);
       fallbackNodes.forEach((node) => {
