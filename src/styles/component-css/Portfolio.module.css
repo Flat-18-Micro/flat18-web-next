@@ -1,14 +1,5 @@
 .workSection {
   padding: var(--section-spacing-y) 0;
-  background-color: var(--section-bg-portfolio);
-  color: var(--section-text-portfolio);
-  position: relative;
-  --text-primary: var(--section-text-portfolio);
-  --text-secondary: rgba(255, 255, 255, 0.85);
-  --text-tertiary: rgba(255, 255, 255, 0.65);
-  --border-soft: rgba(255, 255, 255, 0.12);
-  --border-strong: rgba(255, 255, 255, 0.2);
-  --surface-dim: rgba(255, 255, 255, 0.06)
 }
 
 .container {
@@ -119,10 +110,9 @@
   border-radius: 1rem;
   font-size: .75rem;
   font-weight: 500;
-  color: var(--text-tertiary);
+  color: var(--secondary);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
-  color: inherit
 }
 
 .projectContent {

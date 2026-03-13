@@ -1,28 +1,17 @@
 'use client'
-import { motion } from 'framer-motion'
 import Footer from '@/components/Footer'
 import Contact from '@/components/Contact'
 import Breadcrumbs from '@/components/Breadcrumbs'
 import styles from '@/styles/component-css/PageStyles.module.css'
 
 export default function AiSeededDesignPage() {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: { opacity: 1, transition: { duration: 0.6, ease: 'easeOut' } }
-  }
-
-  const contentVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut', delay: 0.2 } }
-  }
-
   return (
     <main>
       <section className={styles.pageWrapper}>
         <Breadcrumbs />
         <div className={styles.backgroundGradient}></div>
-        <motion.div className={styles.container} variants={containerVariants} initial="hidden" animate="visible">
-          <motion.div className={styles.pageContent} variants={contentVariants}>
+        <div className={styles.container}>
+          <div className={styles.pageContent}>
             <h1 className={styles.pageHeading}>AI-Seeded Design & Graphics</h1>
             <div className={styles.badge}>Imagination, Accelerated</div>
             <div className={styles.textContent}>
@@ -36,8 +25,8 @@ export default function AiSeededDesignPage() {
               </ul>
               <p>Whether it's hero graphics, icons, or unique aesthetics—our designers guide AI to deliver tailored, production-ready visuals.</p>
             </div>
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
       </section>
       <Contact />
       <Footer />

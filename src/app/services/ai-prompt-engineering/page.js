@@ -1,21 +1,10 @@
 'use client'
-import { motion } from 'framer-motion'
 import Footer from '@/components/Footer'
 import Contact from '@/components/Contact'
 import styles from '@/styles/component-css/PageStyles.module.css'
 import Breadcrumbs from '@/components/Breadcrumbs'
 
 export default function AiPromptEngineeringPage() {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: { opacity: 1, transition: { duration: 0.6, ease: 'easeOut' } }
-  }
-
-  const contentVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut', delay: 0.2 } }
-  }
-
   return (
     <main>
       
@@ -23,8 +12,8 @@ export default function AiPromptEngineeringPage() {
                 <Breadcrumbs />
         
         <div className={styles.backgroundGradient}></div>
-        <motion.div className={styles.container} variants={containerVariants} initial="hidden" animate="visible">
-          <motion.div className={styles.pageContent} variants={contentVariants}>
+        <div className={styles.container}>
+          <div className={styles.pageContent}>
             <h1 className={styles.pageHeading}>AI Prompt Engineering</h1>
             <div className={styles.badge}>Precision Guidance for LLMs</div>
             <div className={styles.textContent}>
@@ -38,8 +27,8 @@ export default function AiPromptEngineeringPage() {
               </ul>
               <p>Whether you're building chatbots, UI generators, or multi-step AI agents, we ensure your prompts deliver consistent and useful results.</p>
             </div>
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
       </section>
       <Contact />
       <Footer />

@@ -1,7 +1,6 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { motion } from 'framer-motion'
 import Footer from '@/components/Footer'
 import Pricing from '@/components/Pricing'
 import Contact from '@/components/Contact'
@@ -59,73 +58,14 @@ export default function PricingPage() {
       .catch(error => console.log('Metrics fetch error:', error))
   }, [])
 
-  // Animation variants
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        duration: 0.6,
-        ease: 'easeOut'
-      }
-    }
-  }
-
-  const contentVariants = {
-    hidden: {
-      opacity: 0,
-      y: 30
-    },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-        ease: 'easeOut',
-        delay: 0.2
-      }
-    }
-  }
-
-  const staggerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.3
-      }
-    }
-  }
-
-  const itemVariants = {
-    hidden: {
-      opacity: 0,
-      y: 20
-    },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.5,
-        ease: 'easeOut'
-      }
-    }
-  }
-
   return (
     <main>
       <section className={styles.pricingPageWrapper}>
         <Breadcrumbs />
         <div className={styles.backgroundGradient}></div>
 
-        <motion.div
-          className={styles.container}
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-        >
-          <motion.div variants={contentVariants}>
+        <div className={styles.container}>
+          <div>
             <h1 className={styles.pageHeading}>Our Pricing</h1>
             <div className={styles.pricingIntro}>
               <p className={styles.pricingIntroText}>
@@ -133,71 +73,67 @@ export default function PricingPage() {
                 Our subscription model ensures you receive consistent, high-quality support for your digital presence.
               </p>
             </div>
-          </motion.div>
+          </div>
 
           <Pricing />
 
           <div id="more-info" className={styles.pricingDetailsSection}>
             <h2 className={styles.sectionHeading}>What's Included</h2>
 
-            <motion.div
+            <div
               className={styles.detailsGrid}
-              variants={staggerVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.1 }}
             >
-              <motion.div className={styles.detailCard} variants={itemVariants}>
+              <div className={styles.detailCard}>
                 <div className={styles.detailIcon}>
                   <i className="bi bi-code-slash"></i>
                 </div>
                 <h3 className={styles.detailTitle}>Full-Stack Development</h3>
                 <p className={styles.detailText}>Our team handles both frontend and backend development, ensuring a seamless, integrated solution for your digital needs.</p>
-              </motion.div>
+              </div>
 
-              <motion.div className={styles.detailCard} variants={itemVariants}>
+              <div className={styles.detailCard}>
                 <div className={styles.detailIcon}>
                   <i className="bi bi-palette"></i>
                 </div>
                 <h3 className={styles.detailTitle}>UI/UX Design</h3>
                 <p className={styles.detailText}>We create intuitive, engaging user interfaces and experiences that align with your brand and business goals.</p>
-              </motion.div>
+              </div>
 
-              <motion.div className={styles.detailCard} variants={itemVariants}>
+              <div className={styles.detailCard}>
                 <div className={styles.detailIcon}>
                   <i className="bi bi-headset"></i>
                 </div>
                 <h3 className={styles.detailTitle}>Technical Support</h3>
                 <p className={styles.detailText}>Ongoing support to address any technical issues or questions that arise during and after development.</p>
-              </motion.div>
+              </div>
 
-              <motion.div className={styles.detailCard} variants={itemVariants}>
+              <div className={styles.detailCard}>
                 <div className={styles.detailIcon}>
                   <i className="bi bi-kanban"></i>
                 </div>
                 <h3 className={styles.detailTitle}>Project Management</h3>
                 <p className={styles.detailText}>Dedicated project management to ensure your project stays on track, on budget, and meets all requirements.</p>
-              </motion.div>
+              </div>
 
-              <motion.div className={styles.detailCard} variants={itemVariants}>
+              <div className={styles.detailCard}>
                 <div className={styles.detailIcon}>
                   <i className="bi bi-phone"></i>
                 </div>
                 <h3 className={styles.detailTitle}>Responsive Design</h3>
                 <p className={styles.detailText}>All our websites and applications are built to work flawlessly across all devices and screen sizes.</p>
-              </motion.div>
+              </div>
 
-              <motion.div className={styles.detailCard} variants={itemVariants}>
+              <div className={styles.detailCard}>
                 <div className={styles.detailIcon}>
                   <i className="bi bi-search"></i>
                 </div>
                 <h3 className={styles.detailTitle}>SEO Optimization</h3>
                 <p className={styles.detailText}>We implement best practices for search engine optimization to help your site rank higher in search results.</p>
-              </motion.div>
-            </motion.div>
+              </div>
+            </div>
           </div>
 
-        </motion.div>
+        </div>
 
         <div className={styles.container}>
           <Contact />

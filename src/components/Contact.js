@@ -1,7 +1,6 @@
 'use client'
 
 import { useState } from 'react'
-import { motion } from 'framer-motion'
 import styles from '../styles/component-css/Contact.module.css'
 import { getSectionBackground, getSectionTextColor } from '@/hooks/useScrollBackground'
 
@@ -118,33 +117,6 @@ export default function Contact() {
     }))
   }
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        duration: 0.6,
-        ease: 'easeOut'
-      }
-    }
-  }
-
-  const formVariants = {
-    hidden: {
-      opacity: 0,
-      y: 30
-    },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-        ease: 'easeOut',
-        delay: 0.2
-      }
-    }
-  }
-
   return (
     <section
       className={styles.contactSection}
@@ -152,13 +124,9 @@ export default function Contact() {
       data-bg-color={getSectionBackground('contact')}
       data-text-color={getSectionTextColor('contact')}
     >
-      <motion.div
+      <div
         className={styles.container}
         data-liquid-prebuild="true"
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.1 }}
       >
         <div className={styles.heading}>
           <h2 className={styles.title}>Tell us what you're building</h2>
@@ -169,10 +137,7 @@ export default function Contact() {
 
         <div className={styles.contentGrid}>
           <div>
-            <motion.div
-              className={styles.formCard}
-              variants={formVariants}
-            >
+            <div className={styles.formCard}>
           {isSubmitted ? (
             <div className="text-center py-8">
               <div className="text-5xl mb-4">🎉</div>
@@ -262,7 +227,7 @@ export default function Contact() {
               </div>
             </form>
           )}
-        </motion.div>
+        </div>
 
         <div className={styles.contactInfo}>
           <div className={styles.infoItem}>
@@ -284,13 +249,7 @@ export default function Contact() {
         </div>
         </div>
 
-        <motion.div
-          className={styles.visualElement}
-          initial={{ opacity: 0, x: 50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          viewport={{ once: true }}
-        >
+        <div className={styles.visualElement}>
           <div className={styles.visualElementInner}></div>
           <div className={styles.visualElementGrid}></div>
           <div className={styles.visualElementContent}>
@@ -300,9 +259,9 @@ export default function Contact() {
               We're here to turn your ideas into reality with our design and development know-how.
             </p>
           </div>
-        </motion.div>
         </div>
-      </motion.div>
+        </div>
+      </div>
     </section>
   )
 }

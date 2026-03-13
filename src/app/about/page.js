@@ -1,55 +1,18 @@
 'use client'
-import { motion } from 'framer-motion'
 import Footer from '@/components/Footer'
 import Contact from '@/components/Contact'
 import Breadcrumbs from '@/components/Breadcrumbs'
 import styles from '@/styles/component-css/PageStyles.module.css'
 
 export default function AboutPage() {
-  // Animation variants
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        duration: 0.6,
-        ease: 'easeOut'
-      }
-    }
-  }
-
-  const contentVariants = {
-    hidden: {
-      opacity: 0,
-      y: 30
-    },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-        ease: 'easeOut',
-        delay: 0.2
-      }
-    }
-  }
-
   return (
     <main>
       <section className={styles.pageWrapper}>
         <Breadcrumbs />
         <div className={styles.backgroundGradient}></div>
 
-        <motion.div
-          className={styles.container}
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-        >
-          <motion.div
-            className={styles.pageContent}
-            variants={contentVariants}
-          >
+        <div className={styles.container}>
+          <div className={styles.pageContent}>
             <h1 className={styles.pageHeading}>Welcome to Flat 18</h1>
 
 
@@ -71,8 +34,8 @@ export default function AboutPage() {
               <p>The future of tech is full of potential and Flat 18 is here to help you tap into it.</p>
               <p>Let’s build something brilliant together. ♥️☘️</p>
             </div>
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
 
         <div className={styles.container}>
           <Contact />

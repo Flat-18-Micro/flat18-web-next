@@ -1,15 +1,10 @@
 'use client'
 
-import { useState, useRef } from 'react'
 import Image from 'next/image'
-import { motion, useInView } from 'framer-motion'
 import styles from '../styles/component-css/FeaturedWork.module.css'
 import { getSectionBackground, getSectionTextColor } from '@/hooks/useScrollBackground'
 
 export default function FeaturedWork() {
-  const sectionRef = useRef(null)
-  const isInView = useInView(sectionRef, { once: true, amount: 0.1 })
-
   const featuredProjects = [
     {
       title: 'BTCPay Server',
@@ -39,82 +34,26 @@ export default function FeaturedWork() {
     }
   ]
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        duration: 0.6,
-        ease: 'easeOut',
-        staggerChildren: 0.2
-      }
-    }
-  }
-
-  const headingVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-        ease: 'easeOut'
-      }
-    }
-  }
-
-  const cardVariants = {
-    hidden: {
-      opacity: 0,
-      y: 40,
-      scale: 0.95
-    },
-    visible: {
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      transition: {
-        duration: 0.7,
-        ease: [0.22, 1, 0.36, 1]
-      }
-    }
-  }
-
   return (
     <section
       className={styles.featuredSection}
       id="featured-work"
-      ref={sectionRef}
       data-bg-color={getSectionBackground('featuredWork')}
       data-text-color={getSectionTextColor('featuredWork')}
     >
-      <motion.div
-        className="container"
-        variants={containerVariants}
-        initial="hidden"
-        animate={isInView ? "visible" : "hidden"}
-      >
-        <motion.div
-          className={styles.featuredHeading}
-          variants={headingVariants}
-        >
+      <div className="container">
+        <div className={styles.featuredHeading}>
           <h2 className={styles.featuredTitle}>Featured results</h2>
           <p className={styles.featuredSubtitle}>
             Real platforms with measurable outcomes, not portfolio fluff
           </p>
-        </motion.div>
+        </div>
 
         <div className={styles.featuredGrid}>
           {featuredProjects.map((project, index) => (
-            <motion.div
+            <div
               key={index}
               className={styles.featuredCard}
-              variants={cardVariants}
-              whileHover={{
-                y: -8,
-                scale: 1.02,
-                transition: { duration: 0.3, ease: 'easeOut' }
-              }}
             >
               <div className={styles.featuredImageWrapper}>
                 <Image
@@ -180,20 +119,17 @@ export default function FeaturedWork() {
                   <i className="bi bi-arrow-right" aria-hidden="true"></i>
                 </a>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
 
-        <motion.div
-          className={styles.featuredFooter}
-          variants={headingVariants}
-        >
+        <div className={styles.featuredFooter}>
           <a href="#work" className={styles.viewAllButton}>
             View All Projects
             <i className="bi bi-arrow-right" aria-hidden="true"></i>
           </a>
-        </motion.div>
-      </motion.div>
+        </div>
+      </div>
     </section>
   )
 }

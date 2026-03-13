@@ -1,7 +1,6 @@
 'use client'
 
 import { useState } from 'react'
-import { motion } from 'framer-motion'
 import styles from '../styles/component-css/FAQ.module.css'
 import { getSectionBackground, getSectionTextColor } from '@/hooks/useScrollBackground'
 
@@ -82,44 +81,6 @@ export default function FAQ() {
     setOpenIndex(openIndex === index ? null : index)
   }
 
-  // Animation variants
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        duration: 0.6,
-        ease: 'easeOut'
-      }
-    }
-  }
-
-  const listVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.2
-      }
-    }
-  }
-
-  const itemVariants = {
-    hidden: {
-      opacity: 0,
-      y: 20
-    },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.5,
-        ease: 'easeOut'
-      }
-    }
-  }
-
   return (
     <section
       className={styles.faqWrapper}
@@ -133,27 +94,14 @@ export default function FAQ() {
       />
       <div className={styles.backgroundGradient}></div>
 
-      <motion.div
-        className={styles.container}
-        data-liquid-prebuild="true"
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.1 }}
-      >
+      <div className={styles.container} data-liquid-prebuild="true">
         <div className={styles.textOrg}>
           <h2 className={styles.gradientText}>Frequently Asked Questions</h2>
           <p className={styles.subtitle}>Answers to the bits we get asked the most</p>
         </div>
 
         <div className={styles.contentGrid}>
-          <motion.div
-            className={styles.visualElement}
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            viewport={{ once: true }}
-          >
+          <div className={styles.visualElement}>
             <div className={styles.visualElementInner}></div>
             <div className={styles.visualElementGrid}></div>
             <div className={styles.visualElementContent}>
@@ -185,18 +133,15 @@ export default function FAQ() {
                 Chat with us
               </a>
             </div>
-          </motion.div>
+          </div>
 
           <div>
 
-          <motion.div
-            className={styles.faqList}
-            variants={listVariants}
-          >
+          <div className={styles.faqList}>
           {faqs.map((faq, index) => {
             const answerId = `faq-answer-${index}`
             return (
-            <motion.div
+            <div
               key={index}
               className={`${styles.faqItem} ${openIndex === index ? styles.open : ''}`}
               onClick={() => toggleFAQ(index)}
@@ -210,7 +155,6 @@ export default function FAQ() {
               tabIndex={0}
               aria-expanded={openIndex === index}
               aria-controls={answerId}
-              variants={itemVariants}
             >
               <div className={styles.faqQuestion}>
                 <h3 className={styles.questionText}>{faq.question}</h3>
@@ -221,12 +165,12 @@ export default function FAQ() {
               <div className={styles.faqAnswer} id={answerId} aria-hidden={openIndex !== index}>
                 <p className={styles.answerText}>{faq.answer}</p>
               </div>
-            </motion.div>
+            </div>
           )})}
-        </motion.div>
         </div>
         </div>
-      </motion.div>
+        </div>
+      </div>
     </section>
   )
 }

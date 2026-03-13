@@ -1,7 +1,6 @@
 'use client'
 
 import Image from 'next/image'
-import { motion } from 'framer-motion'
 import Breadcrumbs from '@/components/Breadcrumbs'
 import Contact from '@/components/Contact'
 import Footer from '@/components/Footer'
@@ -59,70 +58,23 @@ const caseStudies = [
 ]
 
 export default function CaseStudiesPage() {
-  const heroVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        duration: 0.8,
-        ease: [0.22, 1, 0.36, 1],
-        staggerChildren: 0.12
-      }
-    }
-  }
-
-  const heroItem = {
-    hidden: { opacity: 0, y: 18 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] }
-    }
-  }
-
-  const listVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        duration: 0.7,
-        ease: [0.22, 1, 0.36, 1],
-        staggerChildren: 0.12
-      }
-    }
-  }
-
-  const cardVariants = {
-    hidden: { opacity: 0, y: 24 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] }
-    }
-  }
-
   return (
     <div className={styles.page}>
-      <motion.section
-        className={styles.hero}
-        variants={heroVariants}
-        initial="hidden"
-        animate="visible"
-      >
+      <section className={styles.hero}>
         <div className={styles.container}>
           <Breadcrumbs />
-          <motion.div className={styles.heroContent} variants={heroVariants}>
-            <motion.span className={styles.heroKicker} variants={heroItem}>
+          <div className={styles.heroContent}>
+            <span className={styles.heroKicker}>
               Case studies
-            </motion.span>
-            <motion.h1 className={styles.heroTitle} variants={heroItem}>
+            </span>
+            <h1 className={styles.heroTitle}>
               Product platforms, shipped with intent.
-            </motion.h1>
-            <motion.p className={styles.heroSubtitle} variants={heroItem}>
+            </h1>
+            <p className={styles.heroSubtitle}>
               Six launches from Flat 18 across fintech, infrastructure, and data-heavy platforms.
               Each case study links to a dedicated deep dive.
-            </motion.p>
-            <motion.div className={styles.heroStats} variants={heroItem}>
+            </p>
+            <div className={styles.heroStats}>
               <div className={styles.statCard}>
                 <span className={styles.statValue}>6</span>
                 <span className={styles.statLabel}>Case studies</span>
@@ -135,18 +87,12 @@ export default function CaseStudiesPage() {
                 <span className={styles.statValue}>2026</span>
                 <span className={styles.statLabel}>Most recent</span>
               </div>
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
         </div>
-      </motion.section>
+      </section>
 
-      <motion.section
-        className={styles.caseStudySection}
-        variants={listVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.2 }}
-      >
+      <section className={styles.caseStudySection}>
         <div className={styles.container}>
           <div className={styles.caseStudyListHeader}>
             <span className={styles.caseStudyTag}>All case studies</span>
@@ -156,9 +102,9 @@ export default function CaseStudiesPage() {
             </p>
           </div>
 
-          <motion.div className={styles.caseStudyList} variants={listVariants}>
+          <div className={styles.caseStudyList}>
             {caseStudies.map((study) => (
-              <motion.article key={study.href} className={styles.caseStudyCard} variants={cardVariants}>
+              <article key={study.href} className={styles.caseStudyCard}>
                 <div className={styles.caseStudyCardMedia}>
                   <Image
                     src={study.image}
@@ -182,11 +128,11 @@ export default function CaseStudiesPage() {
                     <i className="bi bi-arrow-right" aria-hidden="true"></i>
                   </a>
                 </div>
-              </motion.article>
+              </article>
             ))}
-          </motion.div>
+          </div>
         </div>
-      </motion.section>
+      </section>
 
       <section className={styles.ctaSection}>
         <div className={styles.container}>

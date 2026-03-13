@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect, useRef, useCallback } from 'react'
-import { motion, useInView, useReducedMotion } from 'framer-motion'
+import { useInView, useReducedMotion } from 'framer-motion'
 import styles from '../styles/component-css/Testimonials.module.css'
 import { getSectionBackground, getSectionTextColor } from '@/hooks/useScrollBackground'
 
@@ -53,44 +53,6 @@ export default function Testimonials() {
   const isInView = useInView(sectionRef, { once: true, amount: 0.2 })
   const autoplayRef = useRef(null)
   const prefersReducedMotion = useReducedMotion()
-
-  // Animation variants
-  const sectionVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        duration: 0.8,
-        ease: [0.22, 1, 0.36, 1],
-        staggerChildren: 0.1
-      }
-    }
-  }
-
-  const headingVariants = {
-    hidden: { opacity: 0, y: -20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-        ease: [0.22, 1, 0.36, 1]
-      }
-    }
-  }
-
-  const cardVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: (i) => ({
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.5,
-        ease: [0.22, 1, 0.36, 1],
-        delay: i * 0.1
-      }
-    })
-  }
 
   const handleMouseDown = (e) => {
     if (!carouselRef.current) return;
@@ -383,19 +345,14 @@ export default function Testimonials() {
         <div className={styles.backgroundGrid}></div>
       </div>
 
-      <motion.div
-        className="container"
-        variants={sectionVariants}
-        initial="hidden"
-        animate={isInView ? "visible" : "hidden"}
-      >
-        <motion.div className={styles.sectionHeader} variants={headingVariants}>
+      <div className="container">
+        <div className={styles.sectionHeader}>
           <span className={styles.sectionTag}>Testimonials</span>
           <h2 className={styles.sectionTitle}>What Our Clients Say</h2>
           <p className={styles.sectionSubtitle}>
             Founders, product leads, and teams who shipped with us
           </p>
-        </motion.div>
+        </div>
 
         <div className={styles.carouselContainer}>
           <div className={styles.carouselOverlay}></div>
@@ -426,11 +383,9 @@ export default function Testimonials() {
             tabIndex={0}
           >
             {testimonials.map((testimonial, index) => (
-              <motion.div
+              <div
                 key={index}
                 className={`${styles.testimonialCard} ${styles[testimonial.color]}`}
-                custom={index}
-                variants={cardVariants}
               >
                 <div className={styles.cardInner}>
                   <div className={styles.quoteMarkTop}>
@@ -463,7 +418,7 @@ export default function Testimonials() {
                     </svg>
                   </div>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
 
@@ -524,13 +479,13 @@ export default function Testimonials() {
           </div>
         </div>
 
-        <motion.div className={styles.ctaWrapper} variants={headingVariants}>
+        <div className={styles.ctaWrapper}>
           <a href="#chat" className="btn btn-primary">
             <span>Book a fit check</span>
             <i className="bi bi-arrow-right" aria-hidden="true"></i>
           </a>
-        </motion.div>
-      </motion.div>
+        </div>
+      </div>
     </section>
   );
 }

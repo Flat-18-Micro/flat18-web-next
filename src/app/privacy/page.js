@@ -1,54 +1,17 @@
 'use client'
-import { motion } from 'framer-motion'
 import Footer from '@/components/Footer'
 import Breadcrumbs from '@/components/Breadcrumbs'
 import styles from '@/styles/component-css/PageStyles.module.css'
 
 export default function PrivacyPage() {
-  // Animation variants
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        duration: 0.6,
-        ease: 'easeOut'
-      }
-    }
-  }
-
-  const contentVariants = {
-    hidden: {
-      opacity: 0,
-      y: 30
-    },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-        ease: 'easeOut',
-        delay: 0.2
-      }
-    }
-  }
-
   return (
     <main>
       <section className={styles.pageWrapper}>
         <Breadcrumbs />
         <div className={styles.backgroundGradient}></div>
 
-        <motion.div
-          className={styles.container}
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-        >
-          <motion.div
-            className={styles.pageContent}
-            variants={contentVariants}
-          >
+        <div className={styles.container}>
+          <div className={styles.pageContent}>
             <h1 className={styles.pageHeading}>FLAT18.CO.UK Policy on User Privacy</h1>
             <div className={`${styles.textContent} ${styles.legalContent}`}>
               <p>This policy applies to ALL services, websites, apps, and projects directly provided by FLAT EIGHTEEN MICROSYSTEMS DEVELOPMENT LLC, (FLAT 18), including testing, beta, and alpha releases unless another data-handling policy exists and explicitly overrides this policy by way of actual declaration. This policy applies to site visitors worldwide.</p>
@@ -85,8 +48,8 @@ export default function PrivacyPage() {
               <p>Flat18 is committed to protecting user data by employing industry-standard security measures. This includes the use of encryption, firewalls, secure access controls, and regular security audits. We ensure that all personal data is stored securely and that only authorized personnel have access to this information. Our security practices are regularly reviewed and updated to mitigate any potential risks and to comply with industry best practices.</p>
             </div>
             <div className={styles.badge}>Partially Updated: June 2024</div>
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
       </section>
       <Footer />
     </main>

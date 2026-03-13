@@ -2,11 +2,9 @@
 
 import styles from '../styles/component-css/Tools.module.css'
 import { getSectionBackground, getSectionTextColor } from '@/hooks/useScrollBackground'
-import { motion, useReducedMotion } from 'framer-motion';
 import Image from 'next/image';
 
 export default function Tools() {
-  const prefersReducedMotion = useReducedMotion()
   const tools = [
     { name: 'Infura', logo: '/images/tools/infura_wordmark_red.svg' },
     { name: 'Vue.js', logo: '/images/tools/vuejs.svg' },
@@ -24,7 +22,7 @@ export default function Tools() {
     { name: 'DeepSeek', logo: '/images/tools/DeepSeek_logo.svg' },
     { name: 'Le Chat', logo: '/images/tools/Mistral_AI_logo_(2025–).svg' }
   ]
-  const toolList = prefersReducedMotion ? tools : [...tools, ...tools]
+  const toolList = tools
 
   return (
     <section
@@ -40,12 +38,7 @@ export default function Tools() {
 
         <div className={styles.toolsContainer}>
           <div className={styles.marqueeTrack}>
-            <motion.div
-              className={`${styles.toolsList} ${styles.scrollRow}`}
-              initial={{ x: 0 }}
-              animate={prefersReducedMotion ? { x: 0 } : { x: '-50%' }}
-              transition={prefersReducedMotion ? { duration: 0 } : { repeat: Infinity, duration: 30, ease: 'linear' }}
-            >
+            <div className={`${styles.toolsList} ${styles.scrollRow}`}>
               {toolList.map((tool, index) => (
                 <div key={index} className={`${styles.toolItem} ${styles.scrollItem}`}>
                   <div
@@ -76,7 +69,7 @@ export default function Tools() {
                   {<div className={styles.toolName}>{tool.name}</div>}
                 </div>
               ))}
-            </motion.div>
+            </div>
           </div>
 
           <div className={styles.toolsGradient}></div>

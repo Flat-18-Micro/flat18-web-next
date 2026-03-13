@@ -1,54 +1,17 @@
 'use client'
-import { motion } from 'framer-motion'
 import Footer from '@/components/Footer'
 import Breadcrumbs from '@/components/Breadcrumbs'
 import styles from '@/styles/component-css/PageStyles.module.css'
 
 export default function EaseOfCommunicationStandardPage() {
-  // Animation variants
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        duration: 0.6,
-        ease: 'easeOut'
-      }
-    }
-  }
-
-  const contentVariants = {
-    hidden: {
-      opacity: 0,
-      y: 30
-    },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-        ease: 'easeOut',
-        delay: 0.2
-      }
-    }
-  }
-
   return (
     <main>
       <section className={styles.pageWrapper}>
         <Breadcrumbs />
         <div className={styles.backgroundGradient}></div>
 
-        <motion.div
-          className={styles.container}
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-        >
-          <motion.div
-            className={styles.pageContent}
-            variants={contentVariants}
-          >
+        <div className={styles.container}>
+          <div className={styles.pageContent}>
             <h1 className={styles.pageHeading}>FLAT18 Ease of Communication Standard (F18 EoCS)</h1>
             <div className={styles.badge}>Partially Updated: JUNE 2024</div>
 
@@ -119,8 +82,8 @@ export default function EaseOfCommunicationStandardPage() {
               <h3>Conclusion</h3>
               <p>The Flat18 Ease of Communication Standard is our commitment to clear, accessible, and effective communication. By following these guidelines, we aim to make our interactions more understandable and enjoyable for everyone involved.</p>
             </div>
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
       </section>
       <Footer />
     </main>

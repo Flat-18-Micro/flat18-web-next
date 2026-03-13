@@ -1,54 +1,17 @@
 'use client'
-import { motion } from 'framer-motion'
 import Footer from '@/components/Footer'
 import Contact from '@/components/Contact'
 import styles from '@/styles/component-css/PageStyles.module.css'
 
 export default function MaintenanceSupportPage() {
-  // Animation variants
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        duration: 0.6,
-        ease: 'easeOut'
-      }
-    }
-  }
-  
-  const contentVariants = {
-    hidden: { 
-      opacity: 0,
-      y: 30
-    },
-    visible: { 
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-        ease: 'easeOut',
-        delay: 0.2
-      }
-    }
-  }
-
   return (
     <main>
       
       <section className={styles.pageWrapper}>
         <div className={styles.backgroundGradient}></div>
         
-        <motion.div 
-          className={styles.container}
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-        >
-          <motion.div 
-            className={styles.pageContent}
-            variants={contentVariants}
-          >
+        <div className={styles.container}>
+          <div className={styles.pageContent}>
             <h1 className={styles.pageHeading}>Maintenance & Support Services</h1>
             <div className={styles.badge}>Reliable, Proactive Care</div>
             <div className={styles.textContent}>
@@ -133,8 +96,8 @@ export default function MaintenanceSupportPage() {
                 Contact Flat 18 to discuss your maintenance and support needs. Our team will keep your digital products running smoothly, securely, and ready for growth.
               </p>
             </div>
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
       </section>
       
       <Contact />

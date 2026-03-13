@@ -1,192 +1,21 @@
 'use client'
 
-import { useState, useRef } from 'react'
+import { useState } from 'react'
 import Image from 'next/image'
-import { motion, useInView } from 'framer-motion'
 import styles from '../styles/component-css/Portfolio.module.css'
 import { getSectionBackground, getSectionTextColor } from '@/hooks/useScrollBackground'
 
 // Individual Project Card Component for proper hook usage
 function ProjectCard({ project, index }) {
-  const cardRef = useRef(null)
-  const cardInView = useInView(cardRef, {
-    once: true,
-    amount: 0.3,
-    margin: "-100px 0px -100px 0px"
-  })
-
-  // Dramatic card reveal animation
-  const cardVariants = {
-    hidden: {
-      opacity: 0,
-      y: 60,
-      scale: 0.9,
-      rotateX: 15,
-      filter: "blur(10px)"
-    },
-    visible: {
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      rotateX: 0,
-      filter: "blur(0px)",
-      transition: {
-        duration: 1.2,
-        ease: [0.22, 1, 0.36, 1],
-        staggerChildren: 0.15,
-        delayChildren: 0.2
-      }
-    }
-  }
-
-  // Individual child element animations
-  const imageVariants = {
-    hidden: {
-      opacity: 0,
-      scale: 1.1,
-      y: 30
-    },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      y: 0,
-      transition: {
-        duration: 0.8,
-        ease: [0.22, 1, 0.36, 1]
-      }
-    }
-  }
-
-  const logoVariants = {
-    hidden: {
-      opacity: 0,
-      scale: 0.5,
-      rotate: -10
-    },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      rotate: 0,
-      transition: {
-        duration: 0.6,
-        ease: [0.34, 1.56, 0.64, 1],
-        delay: 0.1
-      }
-    }
-  }
-
-  const titleVariants = {
-    hidden: {
-      opacity: 0,
-      x: -30,
-      filter: "blur(5px)"
-    },
-    visible: {
-      opacity: 1,
-      x: 0,
-      filter: "blur(0px)",
-      transition: {
-        duration: 0.7,
-        ease: [0.22, 1, 0.36, 1],
-        delay: 0.2
-      }
-    }
-  }
-
-  const descriptionVariants = {
-    hidden: {
-      opacity: 0,
-      y: 20
-    },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-        ease: [0.22, 1, 0.36, 1],
-        delay: 0.3
-      }
-    }
-  }
-
-  const techStackVariants = {
-    hidden: {
-      opacity: 0,
-      y: 20,
-      scale: 0.95
-    },
-    visible: {
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      transition: {
-        duration: 0.6,
-        ease: [0.22, 1, 0.36, 1],
-        delay: 0.4,
-        staggerChildren: 0.1
-      }
-    }
-  }
-
-  const techBarVariants = {
-    hidden: {
-      scaleX: 0,
-      opacity: 0
-    },
-    visible: {
-      scaleX: 1,
-      opacity: 1,
-      transition: {
-        duration: 0.8,
-        ease: [0.22, 1, 0.36, 1],
-        delay: 0.1
-      }
-    }
-  }
-
-  const techItemVariants = {
-    hidden: {
-      opacity: 0,
-      scale: 0.8,
-      y: 10
-    },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      y: 0,
-      transition: {
-        duration: 0.4,
-        ease: [0.22, 1, 0.36, 1]
-      }
-    }
-  }
-
   return (
-    <motion.div
-      ref={cardRef}
+    <div
       className={styles.projectCard}
       data-liquid-prebuild="true"
-      variants={cardVariants}
-      initial="hidden"
-      animate={cardInView ? "visible" : "hidden"}
-      whileHover={{
-        y: -8,
-        scale: 1.02,
-        transition: { duration: 0.3, ease: [0.22, 1, 0.36, 1] }
-      }}
     >
       {/* F18-style large imagery */}
-      <motion.div
-        className={styles.projectImageWrapper}
-        data-liquid-prebuild="true"
-        variants={imageVariants}
-      >
+      <div className={styles.projectImageWrapper} data-liquid-prebuild="true">
         <div className={styles.projectImageContainer}>
-          <motion.div
-            initial={{ scale: 1.1, opacity: 0 }}
-            animate={cardInView ? { scale: 1, opacity: 1 } : { scale: 1.1, opacity: 0 }}
-            transition={{ duration: 1, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
-          >
+          <div>
             <Image
               src={project.image}
               alt={project.title}
@@ -198,48 +27,27 @@ function ProjectCard({ project, index }) {
               fetchPriority={index < 2 ? "high" : "auto"}
               quality={90}
             />
-          </motion.div>
+          </div>
 
           {/* Overlay labels */}
-          <motion.div
-            className={styles.imageOverlay}
-            initial={{ opacity: 0 }}
-            whileHover={{ opacity: 1 }}
-            transition={{ duration: 0.3 }}
-          >
-            <motion.div
-              className={styles.overlayContent}
-              initial={{ y: 20, opacity: 0 }}
-              whileHover={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.3, delay: 0.1 }}
-            >
+          <div className={styles.imageOverlay}>
+            <div className={styles.overlayContent}>
               <span className={styles.overlayLabel}>View Project</span>
               <i className="bi bi-arrow-right" aria-hidden="true"></i>
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
 
           {/* Status pill */}
-          <motion.div
-            className={`${styles.statusPill} ${project.status === 'Live' ? styles.live : ''}`}
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={cardInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
-            transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1], delay: 0.5 }}
-          >
+          <div className={`${styles.statusPill} ${project.status === 'Live' ? styles.live : ''}`}>
             {project.status}
-          </motion.div>
+          </div>
         </div>
-      </motion.div>
+      </div>
 
       {/* Project content */}
-      <motion.div
-        className={styles.projectContent}
-        variants={descriptionVariants}
-      >
+      <div className={styles.projectContent}>
         {project.projectLogo && (
-          <motion.div
-            className={styles.projectLogo}
-            variants={logoVariants}
-          >
+          <div className={styles.projectLogo}>
             <Image
               src={project.projectLogo}
               alt={`${project.title} logo`}
@@ -247,73 +55,47 @@ function ProjectCard({ project, index }) {
               height={40}
               className={`${styles.logoImage} ${project.title}`}
             />
-          </motion.div>
+          </div>
         )}
 
-        <motion.h3
-          className={styles.projectTitle}
-          variants={titleVariants}
-        >
+        <h3 className={styles.projectTitle}>
           {project.title}
-        </motion.h3>
+        </h3>
 
-        <motion.p
-          className={styles.projectDescription}
-          variants={descriptionVariants}
-        >
+        <p className={styles.projectDescription}>
           {project.description}
-        </motion.p>
+        </p>
 
         {/* F18-style stat pills */}
-        <motion.div
-          className={styles.projectStats}
-          variants={techStackVariants}
-        >
+        <div className={styles.projectStats}>
           {project.stats.map((stat, statIndex) => (
-            <motion.div
+            <div
               key={statIndex}
               className={styles.statPill}
-              variants={techItemVariants}
-              initial={{ opacity: 0, scale: 0.8, y: 10 }}
-              animate={cardInView ? { opacity: 1, scale: 1, y: 0 } : { opacity: 0, scale: 0.8, y: 10 }}
-              transition={{
-                duration: 0.4,
-                ease: [0.22, 1, 0.36, 1],
-                delay: 0.6 + (statIndex * 0.1)
-              }}
             >
               <span className={styles.statLabel}>{stat.label}</span>
               <span className={styles.statValue}>{stat.value}</span>
-            </motion.div>
+            </div>
           ))}
-        </motion.div>
+        </div>
 
         {/* CTA */}
-        <motion.a
+        <a
           href={project.link}
           target="_blank"
           rel="noopener noreferrer"
           className={styles.projectCTA}
-          initial={{ opacity: 0, x: -20 }}
-          animate={cardInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: 0.8 }}
-          whileHover={{
-            x: 5,
-            transition: { duration: 0.2 }
-          }}
         >
           View Project
           <i className="bi bi-arrow-right" aria-hidden="true"></i>
-        </motion.a>
-      </motion.div>
-    </motion.div>
+        </a>
+      </div>
+    </div>
   )
 }
 
 export default function Portfolio() {
-  const [filter, setFilter] = useState('all')
-  const sectionRef = useRef(null)
-  const isInView = useInView(sectionRef, { once: true, amount: 0.1 })
+  const [filter] = useState('all')
 
   // F18-style featured work projects
   const projects = [
@@ -407,105 +189,35 @@ export default function Portfolio() {
     ? projects
     : projects.filter(project => project.category === filter)
 
-  // Enhanced Animation variants for dramatic reveal
-  const sectionVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        duration: 0.8,
-        ease: [0.22, 1, 0.36, 1]
-      }
-    }
-  }
-
-  const headingVariants = {
-    hidden: {
-      opacity: 0,
-      y: -20
-    },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.7,
-        ease: [0.22, 1, 0.36, 1],
-        delay: 0.2
-      }
-    }
-  }
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.3
-      }
-    }
-  }
-
-  const filterButtonVariants = {
-    inactive: {
-      backgroundColor: "rgba(255, 255, 255, 0.05)",
-      color: "var(--text-secondary)",
-      border: "1px solid rgba(255, 255, 255, 0.1)",
-      scale: 1
-    },
-    active: {
-      backgroundColor: "var(--accent-contrast-bg)",
-      color: "var(--accent-contrast-text)",
-      border: "1px solid var(--accent-contrast-border)",
-      scale: 1.05
-    }
-  }
-
   return (
     <section
       className={styles.workSection}
       id="work"
-      ref={sectionRef}
       data-bg-color={getSectionBackground('portfolio')}
       data-text-color={getSectionTextColor('portfolio')}
     >
       <div className={`${styles.container} max-w-content mx-auto px-6 sm:px-8`}>
-        <motion.div
-          className={styles.sectionHeading}
-          variants={sectionVariants}
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
-        >
+        <div className={styles.sectionHeading}>
           <span className="label-uppercase">Featured Work</span>
           <h2 className={styles.sectionTitle}>Recent projects</h2>
           <p className={styles.sectionDescription}>
             A selection of our latest work across fintech, security, and digital platforms
           </p>
-        </motion.div>
+        </div>
 
         {/* F18-style project grid */}
-        <motion.div
-          className={styles.projectGrid}
-          variants={containerVariants}
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
-        >
-          {projects.map((project, index) => (
+        <div className={styles.projectGrid}>
+          {filteredProjects.map((project, index) => (
             <ProjectCard
               key={index}
               project={project}
               index={index}
             />
           ))}
-        </motion.div>
+        </div>
 
         {/* Bottom CTA */}
-        <motion.div
-          className={styles.bottomCTA}
-          variants={headingVariants}
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
-        >
+        <div className={styles.bottomCTA}>
           <div className={styles.ctaContent}>
             <h3>Ready to start your project?</h3>
             <p>Let's discuss your vision and bring it to life</p>
@@ -513,7 +225,7 @@ export default function Portfolio() {
           <a href="#chat" className="btn btn-primary">
             Book a fit check
           </a>
-        </motion.div>
+        </div>
       </div>
     </section>
   )

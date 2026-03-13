@@ -1,4 +1,6 @@
-:root, :root.dark {
+:root,
+:root.dark,
+body.dark {
   --color-white: #ffffff;
   --color-black: #000000;
   --cobalt: #1527ee;
@@ -234,7 +236,8 @@
   --grey: #eee
 }
 
-:root.light {
+:root.light,
+body.light {
   --grey: #222;
   --bg: #ffffff;
   --fg: #1a1a1a;

@@ -1,7 +1,6 @@
 'use client'
 
 import Image from 'next/image'
-import { motion } from 'framer-motion'
 import { useState } from 'react'
 import Breadcrumbs from '@/components/Breadcrumbs'
 import CaseStudyLightbox from '@/components/CaseStudyLightbox'
@@ -42,57 +41,22 @@ export default function PulseOpsCaseStudyPage() {
   const showNext = () =>
     setLightboxIndex((prev) => (prev === null ? prev : (prev + 1) % mediaItems.length))
 
-  const heroVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        duration: 0.8,
-        ease: [0.22, 1, 0.36, 1],
-        staggerChildren: 0.12
-      }
-    }
-  }
-
-  const heroItem = {
-    hidden: { opacity: 0, y: 18 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] }
-    }
-  }
-
-  const sectionVariants = {
-    hidden: { opacity: 0, y: 40 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] }
-    }
-  }
-
   return (
     <div className={styles.page}>
-      <motion.section
-        className={styles.hero}
-        variants={heroVariants}
-        initial="hidden"
-        animate="visible"
-      >
+      <section className={styles.hero}>
         <div className={styles.container}>
           <Breadcrumbs />
-          <motion.div className={styles.heroContent} variants={heroVariants}>
-            <motion.span className={styles.heroKicker} variants={heroItem}>
+          <div className={styles.heroContent}>
+            <span className={styles.heroKicker}>
               Case study
-            </motion.span>
-            <motion.h1 className={styles.heroTitle} variants={heroItem}>
+            </span>
+            <h1 className={styles.heroTitle}>
               PulseOps
-            </motion.h1>
-            <motion.p className={styles.heroSubtitle} variants={heroItem}>
+            </h1>
+            <p className={styles.heroSubtitle}>
               Self-hosted network operations for SOHO operators and small MSPs.
-            </motion.p>
-            <motion.div className={styles.heroStats} variants={heroItem}>
+            </p>
+            <div className={styles.heroStats}>
               <div className={styles.statCard}>
                 <span className={styles.statValue}>March 2026</span>
                 <span className={styles.statLabel}>Launch</span>
@@ -105,18 +69,12 @@ export default function PulseOpsCaseStudyPage() {
                 <span className={styles.statValue}>Self-hosted</span>
                 <span className={styles.statLabel}>Deployment</span>
               </div>
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
         </div>
-      </motion.section>
+      </section>
 
-      <motion.section
-        className={styles.caseStudySection}
-        variants={sectionVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.2 }}
-      >
+      <section className={styles.caseStudySection}>
         <div className={styles.container}>
           <div className={styles.caseStudyHeader}>
             <div className={styles.caseStudyHeading}>
@@ -248,7 +206,7 @@ export default function PulseOpsCaseStudyPage() {
             </div>
           </div>
         </div>
-      </motion.section>
+      </section>
 
       <section className={styles.ctaSection}>
         <div className={styles.container}>

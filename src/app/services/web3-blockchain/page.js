@@ -1,55 +1,18 @@
 'use client'
-import { motion } from 'framer-motion'
 import Footer from '@/components/Footer'
 import Contact from '@/components/Contact'
 import Breadcrumbs from '@/components/Breadcrumbs'
 import styles from '@/styles/component-css/PageStyles.module.css'
 
 export default function Web3BlockchainPage() {
-  // Animation variants
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        duration: 0.6,
-        ease: 'easeOut'
-      }
-    }
-  }
-
-  const contentVariants = {
-    hidden: {
-      opacity: 0,
-      y: 30
-    },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-        ease: 'easeOut',
-        delay: 0.2
-      }
-    }
-  }
-
   return (
     <main>
       <section className={styles.pageWrapper}>
         <Breadcrumbs />
         <div className={styles.backgroundGradient}></div>
 
-        <motion.div
-          className={styles.container}
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-        >
-          <motion.div
-            className={styles.pageContent}
-            variants={contentVariants}
-          >
+        <div className={styles.container}>
+          <div className={styles.pageContent}>
             <h1 className={styles.pageHeading}>Web3 & Blockchain Services</h1>
             <div className={styles.badge}>Decentralised Digital Solutions</div>
             <div className={styles.textContent}>
@@ -124,8 +87,8 @@ export default function Web3BlockchainPage() {
                 Contact Flat 18 to discuss your Web3 ambitions. Our expert team will help you build secure, innovative decentralised solutions that move your business forward.
               </p>
             </div>
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
       </section>
 
       <Contact />
