@@ -1,8 +1,29 @@
 'use client'
 
+import { useEffect } from 'react'
 import Script from 'next/script'
 
 export default function LiquidGLScripts() {
+  useEffect(() => {
+    const body = document.body
+    if (!body) return () => {}
+
+    body.classList.add('liquid-prebuild')
+
+    const handleInit = () => {
+      body.classList.remove('liquid-prebuild')
+    }
+
+    window.addEventListener('liquidgl:init', handleInit)
+    const timeoutId = window.setTimeout(handleInit, 3000)
+
+    return () => {
+      window.removeEventListener('liquidgl:init', handleInit)
+      window.clearTimeout(timeoutId)
+      body.classList.remove('liquid-prebuild')
+    }
+  }, [])
+
   return (
     <>
       <Script

@@ -146,6 +146,7 @@ export default function HowItWorks() {
               <motion.article
                 key={index}
                 className={styles.processCard}
+                data-liquid-prebuild="true"
                 style={{
                   x: transforms.x,
                   y: transforms.y,

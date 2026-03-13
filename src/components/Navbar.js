@@ -61,7 +61,27 @@ export default function Navbar({ isScrolled }) {
 
     if (!liquidInitialized.current && window.liquidGL) {
       liquidInitialized.current = true
-      window.liquidGL({ target: '.liquidGL', shadow: false })
+      window.liquidGL({
+        snapshot: 'body',
+        target: '.liquidGL',
+        resolution: 2.0,
+        refraction: 0.01,
+        bevelDepth: 0.08,
+        bevelWidth: 0.15,
+        frost: 0,
+        shadow: true,
+        specular: true,
+        reveal: 'fade',
+        tilt: false,
+        tiltFactor: 5,
+        magnify: 1,
+        on: {
+          init(instance) {
+            instance.el.style.pointerEvents = 'auto'
+            window.dispatchEvent(new Event('liquidgl:init'))
+          }
+        }
+      })
     }
 
     const renderer = window.__liquidGLRenderer__

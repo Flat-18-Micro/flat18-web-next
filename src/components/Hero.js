@@ -1,27 +1,21 @@
 'use client'
 
-import { useCallback, useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import Image from 'next/image'
 import styles from '@/styles/component-css/Hero.module.css'
 import { analytics } from '@/lib/analytics'
 import { getSectionBackground, getSectionTextColor } from '@/hooks/useScrollBackground'
-import LottiePlayer, { usePrefersReducedMotion } from '@/components/LottiePlayer'
+import LottiePlayer from '@/components/LottiePlayer'
 
 const loadNotificationAnimation = () => import('@/animations/Notification-[remix].json')
 
 export default function Hero() {
-  const [startAnimation, setStartAnimation] = useState(false)
   const lottieWrapperRef = useRef(null)
-  const prefersReducedMotion = usePrefersReducedMotion()
 
   // Warm up the animation chunk once the browser is idle
   useEffect(() => {
-    if (prefersReducedMotion) {
-      return
-    }
-
     const prefetch = () => {
       loadNotificationAnimation().catch(() => undefined)
     }
@@ -45,15 +39,6 @@ export default function Hero() {
         clearTimeout(idleId)
       }
     }
-  }, [prefersReducedMotion])
-
-  // Start Lottie animation after 2 seconds
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setStartAnimation(true)
-    }, 2000)
-
-    return () => clearTimeout(timer)
   }, [])
 
   const applyThemeToLottie = useCallback(() => {
@@ -78,19 +63,6 @@ export default function Hero() {
       element.style.fill = primaryColor
     })
   }, [])
-
-  // Re-apply theming if the animation changes after it has been shown
-  useEffect(() => {
-    if (!startAnimation || prefersReducedMotion) {
-      return
-    }
-
-    const timer = setTimeout(() => {
-      applyThemeToLottie()
-    }, 120)
-
-    return () => clearTimeout(timer)
-  }, [applyThemeToLottie, prefersReducedMotion, startAnimation])
 
   // Animation variants
   const fadeInUp = {
@@ -184,67 +156,53 @@ export default function Hero() {
           animate="visible"
           variants={staggerContainer}
         >
-          {/* AI-led Badge / Notification Animation */}
+          {/* Notification Animation */}
           <motion.div variants={fadeInUp}>
-            {!startAnimation || prefersReducedMotion ? (
-              <motion.div
-                className={styles.aiBadge}
-                initial={{ opacity: 1 }}
-                animate={{ opacity: startAnimation && !prefersReducedMotion ? 0 : 1 }}
-                transition={{ duration: 0.3 }}
-              >
-                <span className={`${styles.aiBadgeLabel} label-uppercase`}>
-                  <span className={styles.aiBadgeIndicator} aria-hidden="true"></span>
-                  <span className={styles.aiBadgeCopy}>Open for new projects</span>
-                </span>
-              </motion.div>
-            ) : (
-              <motion.div
-                initial={{
-                  opacity: 0,
-                  rotate: -15,
-                  scale: 0.8
-                }}
-                animate={{
-                  opacity: 1,
-                  rotate: 0,
-                  scale: 1
-                }}
-                transition={{
-                  duration: 0.6,
-                  ease: [0.22, 1, 0.36, 1],
-                  type: "spring",
-                  stiffness: 100,
-                  damping: 15
-                }}
+            <motion.div
+              initial={{
+                opacity: 0,
+                rotate: -15,
+                scale: 0.8
+              }}
+              animate={{
+                opacity: 1,
+                rotate: 0,
+                scale: 1
+              }}
+              transition={{
+                duration: 0.6,
+                ease: [0.22, 1, 0.36, 1],
+                type: "spring",
+                stiffness: 100,
+                damping: 15
+              }}
+              style={{
+                transformOrigin: 'center center'
+              }}
+            >
+              <div
+                ref={lottieWrapperRef}
                 style={{
-                  transformOrigin: 'center center'
+                  width: 'clamp(450px, 30vw, 560px)',
+                  maxWidth: '95vw',
+                  // height: 'auto',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  borderRadius: '20px'
                 }}
               >
-                <div
-                  ref={lottieWrapperRef}
-                  style={{
-                    width: 'clamp(450px, 30vw, 560px)',
-                    maxWidth: '95vw',
-                    // height: 'auto',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    borderRadius: '20px'
-                  }}
-                >
-                  <LottiePlayer
-                    animationDataSrc={loadNotificationAnimation}
-                    autoplay
-                    loop={false}
-                    loadOnVisible={false}
-                    playerClassName={styles.themedLottie}
-                    prefersReducedMotionFallback={null}
-                    onAnimationLoaded={applyThemeToLottie}
-                  />
-                </div>
-              </motion.div>
-            )}
+                <LottiePlayer
+                  animationDataSrc={loadNotificationAnimation}
+                  autoplay
+                  loop={false}
+                  loadOnVisible={false}
+                  playerClassName={styles.themedLottie}
+                  prefersReducedMotionFallback={null}
+                  onAnimationLoaded={applyThemeToLottie}
+                />
+              </div>
+            </motion.div>
           </motion.div>
 
           {/* Main heading with F18-style large typography */}

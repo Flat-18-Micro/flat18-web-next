@@ -165,6 +165,7 @@ function ProjectCard({ project, index }) {
     <motion.div
       ref={cardRef}
       className={styles.projectCard}
+      data-liquid-prebuild="true"
       variants={cardVariants}
       initial="hidden"
       animate={cardInView ? "visible" : "hidden"}
@@ -177,6 +178,7 @@ function ProjectCard({ project, index }) {
       {/* F18-style large imagery */}
       <motion.div
         className={styles.projectImageWrapper}
+        data-liquid-prebuild="true"
         variants={imageVariants}
       >
         <div className={styles.projectImageContainer}>

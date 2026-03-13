@@ -159,6 +159,7 @@ export default function Features() {
               <motion.div
                 key={index}
                 className={styles.serviceCard}
+                data-liquid-prebuild="true"
                 style={{
                   x: transforms.x,
                   y: transforms.y,

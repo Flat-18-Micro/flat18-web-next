@@ -135,6 +135,7 @@ export default function FAQ() {
 
       <motion.div
         className={styles.container}
+        data-liquid-prebuild="true"
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
