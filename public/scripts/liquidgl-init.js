@@ -7,6 +7,8 @@
   var fallbackTimer = null;
   var attempts = 0;
   var maxAttempts = 80;
+  var captureRetries = 0;
+  var maxCaptureRetries = 4;
 
   function getBody() {
     return document.body || null;
@@ -48,6 +50,10 @@
     return Boolean(window.liquidGL && window.html2canvas);
   }
 
+  function getNav() {
+    return document.querySelector('.liquidGL-nav');
+  }
+
   function onInstanceInit(instance) {
     if (instance && instance.el && instance.el.style) {
       instance.el.style.pointerEvents = 'auto';
@@ -56,32 +62,44 @@
   }
 
   function init() {
-    if (didInit || !domReady || !isReady()) return;
+    if (didInit || !domReady || !isReady()) return false;
+
+    var nav = getNav();
+    if (!nav) return false;
+
     didInit = true;
 
-    var hasNav = document.querySelector('.liquidGL-nav');
     var hasButtons = document.querySelector('.btn');
 
+    try {
+      window.liquidGL({
+        snapshot: 'body',
+        target: '.liquidGL-nav',
+        resolution: 1.5,
+        refraction: 0.01,
+        bevelDepth: 0.08,
+        bevelWidth: 0.15,
+        frost: 0,
+        shadow: true,
+        specular: false,
+        reveal: 'fade',
+        tilt: false,
+        tiltFactor: 5,
+        magnify: 1,
+        on: {
+          init: onInstanceInit
+        }
+      });
+    } catch (e) {
+      didInit = false;
+      return false;
+    }
 
-    window.liquidGL({
-      snapshot: 'body',
-      target: '.liquidGL-nav',
-      resolution: 2.0,
-      refraction: 0.01,
-      bevelDepth: 0.08,
-      bevelWidth: 0.15,
-      frost: 2,
-      shadow: true,
-      specular: false,
-      reveal: 'fade',
-      tilt: false,
-      tiltFactor: 5,
-      magnify: 1.5,
-      on: {
-        init: onInstanceInit
-      }
-    });
+    if (window.__liquidGLNoWebGL__) {
+      signalReady();
+    }
 
+    scheduleSnapshotRetry();
 
     // if (hasButtons) {
     //   window.liquidGL({
@@ -104,17 +122,28 @@
     //   });
     // }
 
-    if (!hasNav) {
-      signalReady();
+    return true;
+  }
+
+  function scheduleSnapshotRetry() {
+    var renderer = window.__liquidGLRenderer__;
+    if (!renderer || window.__liquidGLNoWebGL__) return;
+    if (renderer.texture || renderer._capturing) return;
+    if (captureRetries >= maxCaptureRetries) return;
+    captureRetries += 1;
+    try {
+      if (renderer.captureSnapshot) {
+        renderer.captureSnapshot();
+      }
+    } catch (e) {
+      // Ignore capture errors; we'll retry.
     }
+    window.setTimeout(scheduleSnapshotRetry, 1400);
   }
 
   function attemptInit() {
     if (!domReady) return;
-    if (isReady()) {
-      init();
-      return;
-    }
+    if (isReady() && init()) return;
     if (attempts >= maxAttempts) return;
     attempts += 1;
     window.setTimeout(attemptInit, 100);
@@ -134,5 +163,8 @@
     document.addEventListener('DOMContentLoaded', onDomReady, { once: true });
   }
 
-  window.addEventListener('load', attemptInit, { once: true });
+  window.addEventListener('load', function () {
+    attemptInit();
+    window.setTimeout(scheduleSnapshotRetry, 300);
+  }, { once: true });
 })();

@@ -1232,8 +1232,26 @@ body.liquid-fallback .btn * {
 }
 
 body.liquid-prebuild .liquidGL-nav,
+body.liquid-fallback .liquidGL-nav {
+  background: var(--surface-glass) !important;
+  border: 1px solid var(--border-soft);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12), 0 0 0 0.5px rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(16px) saturate(1.1) !important;
+  -webkit-backdrop-filter: blur(16px) saturate(1.1) !important;
+}
+
+body.liquid-prebuild .liquidGL-nav,
 body.liquid-prebuild .btn,
 body.liquid-fallback .liquidGL-nav,
 body.liquid-fallback .btn {
   pointer-events: auto !important;
+}
+
+body.liquid-snapshot .carouselControls {
+  --carousel-control-bg: var(--bg-surface-active) !important;
+  --carousel-control-bg-hover: var(--bg-surface-hover) !important;
+  --carousel-control-border: var(--border-medium) !important;
+  --carousel-control-muted: var(--text-disabled) !important;
+  --carousel-control-muted-hover: var(--text-secondary) !important;
+  --carousel-control-pulse: var(--text-secondary) !important;
 }

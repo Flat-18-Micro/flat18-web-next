@@ -481,7 +481,7 @@ export default function Testimonials() {
 
         <div className={styles.ctaWrapper}>
           <a href="#chat" className="btn btn-primary">
-            <span>Book a fit check</span>
+            <span>Chat with us</span>
             <i className="bi bi-arrow-right" aria-hidden="true"></i>
           </a>
         </div>

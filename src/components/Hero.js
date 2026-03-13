@@ -137,7 +137,7 @@ export default function Hero() {
                 className="btn btn-primary btn-icon"
                 onClick={() => analytics.hero.bookCall()}
               >
-                <span className="btn-text">Book a fit check</span>
+                <span className="btn-text">Chat with us</span>
                 <i className="bi bi-arrow-right" aria-hidden="true"></i>
               </a>
             </div>

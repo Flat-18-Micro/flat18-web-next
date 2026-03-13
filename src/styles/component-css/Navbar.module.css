@@ -26,7 +26,12 @@
   max-width: 1200px;
   margin: 0 auto;
   padding: .75rem 1rem .75rem 2rem;
-  border-radius: 100px
+  border-radius: 100px;
+  background: var(--surface-glass);
+  border: 1px solid var(--border-soft);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12), 0 0 0 0.5px rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(16px) saturate(1.1);
+  -webkit-backdrop-filter: blur(16px) saturate(1.1)
 }
 
 .glassLayer {
@@ -52,7 +57,7 @@ header:not(.scrolled) .container {
 
 header .container {
   padding-right: 1rem;
-  transition: .4s ease;
+  transition: .4s ease !important;
 }
 
 .brand {

@@ -279,7 +279,7 @@
   font-weight: var(--font-bold);
   color: var(--text-primary);
   background:var(--badge-bg);
-  box-shadow: 0 4px 10px var(--bg-modern-dark)
+  /* box-shadow: 0 4px 10px var(--bg-modern-dark) */
 }
 
 .primary .authorInitial {
@@ -332,17 +332,6 @@
   --carousel-control-muted: var(--text-disabled);
   --carousel-control-muted-hover: var(--text-secondary);
   --carousel-control-pulse: var(--text-secondary)
-}
-
-@supports (color: color-mix(in srgb, white 50%, black)) {
-  .carouselControls {
-    --carousel-control-bg: color-mix(in srgb, var(--carousel-control-fg) 18%, transparent);
-    --carousel-control-bg-hover: color-mix(in srgb, var(--carousel-control-fg) 28%, transparent);
-    --carousel-control-border: color-mix(in srgb, var(--carousel-control-fg) 45%, transparent);
-    --carousel-control-muted: color-mix(in srgb, var(--carousel-control-fg) 40%, transparent);
-    --carousel-control-muted-hover: color-mix(in srgb, var(--carousel-control-fg) 70%, transparent);
-    --carousel-control-pulse: color-mix(in srgb, var(--carousel-control-fg) 70%, transparent)
-  }
 }
 
 .carouselArrow {

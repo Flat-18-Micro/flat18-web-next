@@ -76,7 +76,7 @@ export default function HowItWorks() {
             <p>We'll map scope, timeline, and next steps fast.</p>
           </div>
           <a href="#chat" className="btn btn-primary">
-            Book a fit check
+            Chat with us
           </a>
         </div>
       </div>

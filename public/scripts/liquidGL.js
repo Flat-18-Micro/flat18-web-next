@@ -414,6 +414,11 @@
       this._capturing = true;
 
       const undos = [];
+      const body = document.body;
+      if (body) {
+        body.classList.add("liquid-snapshot");
+        undos.push(() => body.classList.remove("liquid-snapshot"));
+      }
 
       const attemptCapture = async (
         attempt = 1,
@@ -448,6 +453,10 @@
 
           const ignoreElementsFunc = (element) => {
             if (!element || !element.hasAttribute) return false;
+            const tag = element.tagName;
+            if (tag === "IFRAME" || tag === "VIDEO" || tag === "CANVAS") {
+              return true;
+            }
             if (element === this.canvas || lensElements.includes(element)) {
               return true;
             }
@@ -471,6 +480,7 @@
             scrollX: 0,
             scrollY: 0,
             scale: scale,
+            logging: false,
             ignoreElements: ignoreElementsFunc,
           });
 

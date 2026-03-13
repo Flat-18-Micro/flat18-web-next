@@ -223,7 +223,7 @@ export default function Portfolio() {
             <p>Let's discuss your vision and bring it to life</p>
           </div>
           <a href="#chat" className="btn btn-primary">
-            Book a fit check
+            Chat with us
           </a>
         </div>
       </div>

@@ -80,7 +80,7 @@ export default function Navbar({ isScrolled }) {
               className="btn btn-primary btn-icon"
               onClick={() => analytics.nav.bookCall()}
             >
-              <span className="btn-text">Book a fit check</span>
+              <span className="btn-text">Chat with us</span>
               <i className="bi bi-arrow-right" aria-hidden="true"></i>
             </a>
           </div>
@@ -159,7 +159,7 @@ export default function Navbar({ isScrolled }) {
                   analytics.nav.bookCall()
                 }}
               >
-                <span className="btn-text">Book a fit check</span>
+                <span className="btn-text">Chat with us</span>
               </a>
               <a href="mailto:hello@flat18.co.uk" className={styles.emailLink}>
                 hello@flat18.co.uk

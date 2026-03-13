@@ -93,7 +93,7 @@ export default function Features() {
             <p>Short call to confirm scope and whether we're right.</p>
           </div>
           <a href="#chat" className="btn btn-primary">
-            Book a fit check
+            Chat with us
           </a>
         </div>
       </div>

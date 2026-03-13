@@ -263,7 +263,7 @@ export default function Pricing() {
                   className="btn btn-primary btn-large"
                   onClick={() => analytics.pricing.bookCall()}
                 >
-                  Book a fit check
+                  Chat with us
                 </Link>
                 <p className={styles.ctaNote}>Fit check first, then we confirm scope and timing.</p>
               </div>
@@ -323,7 +323,7 @@ export default function Pricing() {
             className="btn btn-primary"
             onClick={() => analytics.pricing.bookCall()}
           >
-            Book a fit check
+            Chat with us
           </Link>
         </div>
       </div>

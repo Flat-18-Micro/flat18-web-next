@@ -219,7 +219,7 @@ export default function Contact() {
                     <span className="animate-pulse">Sending...</span>
                   ) : (
                     <>
-                      <span>Book a fit check</span>
+                      <span>Chat with us</span>
                       <i className="bi bi-arrow-right" aria-hidden="true"></i>
                     </>
                   )}

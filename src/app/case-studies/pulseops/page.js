@@ -220,7 +220,7 @@ export default function PulseOpsCaseStudyPage() {
             </div>
             <div className={styles.ctaActions}>
               <a href="#chat" className="btn btn-primary">
-                Book a fit check
+                Chat with us
               </a>
               <a href="mailto:hello@flat18.co.uk" className="btn btn-secondary">
                 Email hello@flat18.co.uk
