@@ -306,3 +306,7 @@ body.light {
   --accent-contrast-bg-strong: rgba(35, 64, 255, 0.16);
   --accent-contrast-border: rgba(35, 64, 255, 0.3);
 }
+
+:root {
+  --badge-bg: radial-gradient(ellipse at bottom, var(--color-teal-light) -150%, var(--bg));
+}

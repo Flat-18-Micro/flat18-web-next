@@ -278,12 +278,12 @@
   font-size: var(--text-lg);
   font-weight: var(--font-bold);
   color: var(--text-primary);
-  background: linear-gradient(135deg, rgba(25, 143, 253, .2), rgba(35, 64, 255, .2));
-  box-shadow: 0 4px 10px rgba(0, 0, 0, .2)
+  background:var(--badge-bg);
+  box-shadow: 0 4px 10px var(--bg-modern-dark)
 }
 
 .primary .authorInitial {
-  background: linear-gradient(135deg, rgba(35, 64, 255, .2), rgba(61, 158, 238, .2))
+  background: var(--badge-bg)
 }
 
 .secondary .authorInitial {
@@ -325,11 +325,24 @@
   justify-content: center;
   gap: var(--space-4);
   margin-top: var(--space-6);
-  --carousel-control-fg: #fff;
-  --carousel-control-bg: rgba(255, 255, 255, .2);
-  --carousel-control-bg-hover: rgba(255, 255, 255, .32);
-  --carousel-control-border: rgba(255, 255, 255, .6);
-  --carousel-control-muted: rgba(255, 255, 255, .45)
+  --carousel-control-fg: var(--current-section-text, var(--text-primary));
+  --carousel-control-bg: var(--bg-surface-active);
+  --carousel-control-bg-hover: var(--bg-surface-hover);
+  --carousel-control-border: var(--border-medium);
+  --carousel-control-muted: var(--text-disabled);
+  --carousel-control-muted-hover: var(--text-secondary);
+  --carousel-control-pulse: var(--text-secondary)
+}
+
+@supports (color: color-mix(in srgb, white 50%, black)) {
+  .carouselControls {
+    --carousel-control-bg: color-mix(in srgb, var(--carousel-control-fg) 18%, transparent);
+    --carousel-control-bg-hover: color-mix(in srgb, var(--carousel-control-fg) 28%, transparent);
+    --carousel-control-border: color-mix(in srgb, var(--carousel-control-fg) 45%, transparent);
+    --carousel-control-muted: color-mix(in srgb, var(--carousel-control-fg) 40%, transparent);
+    --carousel-control-muted-hover: color-mix(in srgb, var(--carousel-control-fg) 70%, transparent);
+    --carousel-control-pulse: color-mix(in srgb, var(--carousel-control-fg) 70%, transparent)
+  }
 }
 
 .carouselArrow {
@@ -355,7 +368,7 @@
   background: var(--carousel-control-bg-hover);
   color: var(--carousel-control-fg);
   transform: translateY(-2px);
-  border-color: #fff
+  border-color: var(--carousel-control-fg)
 }
 
 .carouselArrow:active {
@@ -364,8 +377,8 @@
 
 .arrowPressed {
   transform: scale(.95) !important;
-  background: rgba(255, 255, 255, .4) !important;
-  border-color: #fff !important
+  background: var(--carousel-control-bg-hover) !important;
+  border-color: var(--carousel-control-fg) !important
 }
 
 .arrowDisabled {
@@ -381,7 +394,7 @@
   left: 50%;
   width: 100%;
   height: 100%;
-  background: radial-gradient(circle, rgba(255, 255, 255, .35) 0, transparent 70%);
+  background: radial-gradient(circle, var(--carousel-control-fg) 0, transparent 70%);
   transform: translate(-50%, -50%) scale(0);
   opacity: 0;
   transition: transform .5s ease, opacity .5s ease;
@@ -404,7 +417,8 @@
 .carouselIndicators {
   display: flex;
   gap: var(--space-2);
-  padding: var(--space-2)
+  padding: var(--space-2);
+  color: var(--carousel-control-fg)
 }
 
 .indicator {
@@ -420,12 +434,12 @@
 }
 
 .indicator:hover {
-  background: rgba(255, 255, 255, .75);
+  background: var(--carousel-control-muted-hover);
   transform: scale(1.1)
 }
 
 .indicatorActive {
-  background: #fff;
+  background: var(--carousel-control-fg);
   transform: scale(1.2)
 }
 
@@ -440,7 +454,7 @@
   left: 50%;
   width: 100%;
   height: 100%;
-  background: rgba(255, 255, 255, .7);
+  background: var(--carousel-control-pulse);
   border-radius: 50%;
   transform: translate(-50%, -50%);
   opacity: .5;

@@ -303,6 +303,7 @@ a:hover {
 .btn:hover {
   transform: translateY(-3px);
 }
+
 .btn-primary:hover {
   box-shadow: 0 10px 25px var(--surface-glass)
 }
@@ -355,12 +356,13 @@ a:hover {
 }
 
 .btn-icon i {
-  font-size: 1.2em;
-  transition: transform .2s ease
+  /* font-size: 1.2em; */
+  transition: transform .2s ease;
+  transform: scale(1.2)
 }
 
 .btn-icon:hover i {
-  transform: translateX(3px)
+  transform: scale(1.2)translateX(3px)
 }
 
 .card, .glass {
@@ -1108,7 +1110,7 @@ h2.gradient-text {
 .btn:focus {
   outline: 2px solid var(--primary);
   outline-offset: 2px;
-  box-shadow: 0 0 0 4px rgba(35, 64, 255, .2)
+  box-shadow: 0 0 0 4px var(--color-teal-light)
 }
 
 a:focus {
@@ -1120,7 +1122,7 @@ a:focus {
 input:focus, textarea:focus, select:focus, button:focus {
   outline: 2px solid var(--primary);
   outline-offset: 2px;
-  box-shadow: 0 0 0 4px rgba(35, 64, 255, .2)
+  box-shadow: 0 0 0 4px var(--color-teal-light)
 }
 
 .skip-to-content {
