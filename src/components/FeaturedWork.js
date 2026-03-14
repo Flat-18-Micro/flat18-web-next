@@ -124,7 +124,7 @@ export default function FeaturedWork() {
         </div>
 
         <div className={styles.featuredFooter}>
-          <a href="#work" className={styles.viewAllButton}>
+          <a href="#work" className="btn btn-secondary">
             View All Projects
             <i className="bi bi-arrow-right" aria-hidden="true"></i>
           </a>

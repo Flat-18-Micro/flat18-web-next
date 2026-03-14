@@ -51,12 +51,13 @@
   border: 1px solid var(--bg-surface-hover);
   border-radius: 1rem;
   overflow: hidden;
-  position: relative
+  position: relative;
+  transition: all .3s ease
 }
 
 .featuredCard:hover {
-  border-color: rgba(35, 64, 255, .3);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, .3), 0 0 30px rgba(35, 64, 255, .15)
+  border-color: var(--border-primary);
+  box-shadow: var(--drop-shadow-lg)
 }
 
 .featuredImageWrapper {
@@ -74,7 +75,7 @@
 }
 
 .featuredCard:hover .featuredImage {
-  transform: scale(1.05)
+  /* transform: scale(1.05) */
 }
 
 .featuredLogo {
@@ -176,24 +177,6 @@
   margin-top: 3rem
 }
 
-.viewAllButton {
-  display: inline-flex;
-  align-items: center;
-  gap: .5rem;
-  padding: 1rem 2rem;
-  background: rgba(255, 255, 255, .1);
-  border: 1px solid rgba(255, 255, 255, .2);
-  text-decoration: none;
-  border-radius: .5rem;
-  font-weight: 500;
-  backdrop-filter: blur(10px)
-}
-
-.viewAllButton:hover {
-  background: rgba(255, 255, 255, .15);
-  border-color: rgba(255, 255, 255, .3);
-  transform: translateY(-2px)
-}
 
 @media (max-width:1024px) {
   .featuredGrid {

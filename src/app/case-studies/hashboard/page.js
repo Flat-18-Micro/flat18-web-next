@@ -94,6 +94,14 @@ export default function HashboardCaseStudyPage() {
               </p>
             </div>
             <div className={styles.caseStudyActions}>
+              <a
+                href="https://zettahash-hashboard.pages.dev"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-secondary"
+              >
+                View demo
+              </a>
               <a href="#chat" className="btn btn-primary">
                 Chat with us
               </a>
