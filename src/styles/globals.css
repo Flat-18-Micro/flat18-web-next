@@ -209,6 +209,12 @@ a:hover {
   }
 }
 
+@media (max-width:768px) {
+  .container, .container-2xl, .container-lg, .container-md, .container-sm {
+    max-width: 100%
+  }
+}
+
 .section {
   padding: var(--section-spacing-y)0
 }
@@ -968,6 +974,53 @@ a:hover {
 
 .animate-pulse {
   animation: pulse 2s infinite
+}
+
+section.scrolled {
+  --scroll-fade-distance: 18px;
+  --scroll-fade-duration: 0.7s;
+  --scroll-fade-ease: cubic-bezier(0.2, 0.65, 0.25, 1);
+}
+
+section.scrolled :where(h1, h2, h3, h4, h5, h6),
+section.scrolled .scroll-child,
+section.scrolled [data-scroll-child] {
+  opacity: 0;
+  transform: translateY(var(--scroll-fade-distance));
+  transition: opacity var(--scroll-fade-duration) var(--scroll-fade-ease),
+    transform var(--scroll-fade-duration) var(--scroll-fade-ease);
+  will-change: opacity, transform;
+}
+
+section.scrolled.scrolled-in :where(h1, h2, h3, h4, h5, h6),
+section.scrolled.scrolled-in .scroll-child,
+section.scrolled.scrolled-in [data-scroll-child] {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+section.scrolled.scrolled-out :where(h1, h2, h3, h4, h5, h6),
+section.scrolled.scrolled-out .scroll-child,
+section.scrolled.scrolled-out [data-scroll-child] {
+  opacity: 0;
+  transform: translateY(var(--scroll-fade-distance));
+}
+
+@media (prefers-reduced-motion:reduce) {
+  section.scrolled :where(h1, h2, h3, h4, h5, h6),
+  section.scrolled .scroll-child,
+  section.scrolled [data-scroll-child],
+  section.scrolled.scrolled-in :where(h1, h2, h3, h4, h5, h6),
+  section.scrolled.scrolled-in .scroll-child,
+  section.scrolled.scrolled-in [data-scroll-child],
+  section.scrolled.scrolled-out :where(h1, h2, h3, h4, h5, h6),
+  section.scrolled.scrolled-out .scroll-child,
+  section.scrolled.scrolled-out [data-scroll-child] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+    will-change: auto;
+  }
 }
 
 @media (max-width:768px) {

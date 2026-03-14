@@ -310,3 +310,21 @@ body.light {
 :root {
   --badge-bg: radial-gradient(ellipse at bottom, var(--color-teal-light) -150%, var(--bg));
 }
+
+@media (max-width: 1024px) {
+  :root {
+    --container-xl: min(1280px, calc(100vw - 6rem));
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --container-xl: min(1280px, calc(100vw - 3rem));
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --container-xl: min(1280px, calc(100vw - 2rem));
+  }
+}
