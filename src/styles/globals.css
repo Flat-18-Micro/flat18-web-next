@@ -112,7 +112,7 @@ body {
   /* color: var(--text-primary) */
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2 {
   margin: 0;
   line-height: var(--leading-tight);
   font-weight: var(--font-bold);
@@ -982,9 +982,18 @@ section.scrolled {
   --scroll-fade-ease: cubic-bezier(0.2, 0.65, 0.25, 1);
 }
 
-section.scrolled :where(h1, h2, h3, h4, h5, h6),
+section.scrolled :where(h1, h2),
 section.scrolled .scroll-child,
-section.scrolled [data-scroll-child] {
+section.scrolled [data-scroll-child],
+section.scrolled :where([class*="sectionHeader"]) :where(h1, h2, span, p),
+section.scrolled :where([class*="sectionHeading"]) > *,
+section.scrolled :is(
+  [class*="processCard__"],
+  [class*="pricingCard__"],
+  [class*="projectCard__"],
+  [class*="faqItem__"],
+  [class*="visualElement__"]
+) {
   opacity: 0;
   transform: translateY(var(--scroll-fade-distance));
   transition: opacity var(--scroll-fade-duration) var(--scroll-fade-ease),
@@ -992,30 +1001,204 @@ section.scrolled [data-scroll-child] {
   will-change: opacity, transform;
 }
 
-section.scrolled.scrolled-in :where(h1, h2, h3, h4, h5, h6),
+section.scrolled :where([class*="sectionHeading"]) > * {
+  transition-delay: 0ms;
+}
+
+section.scrolled :where([class*="sectionHeader"]) :where(h1, h2, span, p) {
+  transition-delay: 0ms;
+}
+
+section.scrolled.scrolled-in :where([class*="sectionHeading"]) > *:nth-child(1) {
+  transition-delay: 0.05s;
+}
+
+section.scrolled.scrolled-in :where([class*="sectionHeading"]) > *:nth-child(2) {
+  transition-delay: 0.12s;
+}
+
+section.scrolled.scrolled-in :where([class*="sectionHeading"]) > *:nth-child(3) {
+  transition-delay: 0.18s;
+}
+
+section.scrolled.scrolled-in :where([class*="sectionHeading"]) > *:nth-child(4) {
+  transition-delay: 0.24s;
+}
+
+section.scrolled.scrolled-in :where(h1, h2),
 section.scrolled.scrolled-in .scroll-child,
-section.scrolled.scrolled-in [data-scroll-child] {
+section.scrolled.scrolled-in [data-scroll-child],
+section.scrolled.scrolled-in :where([class*="sectionHeader"]) :where(h1, h2, span, p),
+section.scrolled.scrolled-in :where([class*="sectionHeading"]) > *,
+section.scrolled.scrolled-in :is(
+  [class*="processCard__"],
+  [class*="pricingCard__"],
+  [class*="projectCard__"],
+  [class*="faqItem__"],
+  [class*="visualElement__"]
+) {
   opacity: 1;
   transform: translateY(0);
 }
 
-section.scrolled.scrolled-out :where(h1, h2, h3, h4, h5, h6),
+section.scrolled.scrolled-in :where([class*="sectionHeader"]) p {
+  transition-delay: 0.2s;
+}
+
+section.scrolled.scrolled-in :is(
+  [class*="processCard__"],
+  [class*="pricingCard__"],
+  [class*="projectCard__"],
+  [class*="faqItem__"],
+  [class*="visualElement__"]
+):nth-child(1) {
+  transition-delay: 0.2s;
+}
+
+section.scrolled.scrolled-in :is(
+  [class*="processCard__"],
+  [class*="pricingCard__"],
+  [class*="projectCard__"],
+  [class*="faqItem__"],
+  [class*="visualElement__"]
+):nth-child(2) {
+  transition-delay: 0.4s;
+}
+
+section.scrolled.scrolled-in :is(
+  [class*="processCard__"],
+  [class*="pricingCard__"],
+  [class*="projectCard__"],
+  [class*="faqItem__"],
+  [class*="visualElement__"]
+):nth-child(3) {
+  transition-delay: 0.6s;
+}
+
+section.scrolled.scrolled-in :is(
+  [class*="processCard__"],
+  [class*="pricingCard__"],
+  [class*="projectCard__"],
+  [class*="faqItem__"],
+  [class*="visualElement__"]
+):nth-child(4) {
+  transition-delay: 0.8s;
+}
+
+section.scrolled.scrolled-in :is(
+  [class*="processCard__"],
+  [class*="pricingCard__"],
+  [class*="projectCard__"],
+  [class*="faqItem__"],
+  [class*="visualElement__"]
+):nth-child(5) {
+  transition-delay: 1s;
+}
+
+section.scrolled.scrolled-in :is(
+  [class*="processCard__"],
+  [class*="pricingCard__"],
+  [class*="projectCard__"],
+  [class*="faqItem__"],
+  [class*="visualElement__"]
+):nth-child(6) {
+  transition-delay: 1.2s;
+}
+
+section.scrolled.scrolled-in :is(
+  [class*="processCard__"],
+  [class*="pricingCard__"],
+  [class*="projectCard__"],
+  [class*="faqItem__"],
+  [class*="visualElement__"]
+):nth-child(7) {
+  transition-delay: 1.4s;
+}
+
+section.scrolled.scrolled-in :is(
+  [class*="processCard__"],
+  [class*="pricingCard__"],
+  [class*="projectCard__"],
+  [class*="faqItem__"],
+  [class*="visualElement__"]
+):nth-child(8) {
+  transition-delay: 1.6s;
+}
+
+section.scrolled.scrolled-in :is(
+  [class*="processCard__"],
+  [class*="pricingCard__"],
+  [class*="projectCard__"],
+  [class*="faqItem__"],
+  [class*="visualElement__"]
+):nth-child(9) {
+  transition-delay: 1.8s;
+}
+
+section.scrolled.scrolled-in :is(
+  [class*="processCard__"],
+  [class*="pricingCard__"],
+  [class*="projectCard__"],
+  [class*="faqItem__"],
+  [class*="visualElement__"]
+):nth-child(10) {
+  transition-delay: 2s;
+}
+
+section.scrolled.scrolled-out :where(h1, h2),
 section.scrolled.scrolled-out .scroll-child,
-section.scrolled.scrolled-out [data-scroll-child] {
+section.scrolled.scrolled-out [data-scroll-child],
+section.scrolled.scrolled-out :where([class*="sectionHeader"]) :where(h1, h2, span, p),
+section.scrolled.scrolled-out :where([class*="sectionHeading"]) > *,
+section.scrolled.scrolled-out :is(
+  [class*="processCard__"],
+  [class*="pricingCard__"],
+  [class*="projectCard__"],
+  [class*="faqItem__"],
+  [class*="visualElement__"]
+) {
   opacity: 0;
   transform: translateY(var(--scroll-fade-distance));
+  transition-delay: 0ms;
 }
 
 @media (prefers-reduced-motion:reduce) {
-  section.scrolled :where(h1, h2, h3, h4, h5, h6),
+  section.scrolled :where(h1, h2),
   section.scrolled .scroll-child,
   section.scrolled [data-scroll-child],
-  section.scrolled.scrolled-in :where(h1, h2, h3, h4, h5, h6),
+  section.scrolled :where([class*="sectionHeader"]) :where(h1, h2, span, p),
+  section.scrolled :where([class*="sectionHeading"]) > *,
+  section.scrolled :is(
+    [class*="processCard__"],
+    [class*="pricingCard__"],
+    [class*="projectCard__"],
+    [class*="faqItem__"],
+    [class*="visualElement__"]
+  ),
+  section.scrolled.scrolled-in :where(h1, h2),
   section.scrolled.scrolled-in .scroll-child,
   section.scrolled.scrolled-in [data-scroll-child],
-  section.scrolled.scrolled-out :where(h1, h2, h3, h4, h5, h6),
+  section.scrolled.scrolled-in :where([class*="sectionHeader"]) :where(h1, h2, span, p),
+  section.scrolled.scrolled-in :where([class*="sectionHeading"]) > *,
+  section.scrolled.scrolled-in :is(
+    [class*="processCard__"],
+    [class*="pricingCard__"],
+    [class*="projectCard__"],
+    [class*="faqItem__"],
+    [class*="visualElement__"]
+  ),
+  section.scrolled.scrolled-out :where(h1, h2),
   section.scrolled.scrolled-out .scroll-child,
-  section.scrolled.scrolled-out [data-scroll-child] {
+  section.scrolled.scrolled-out [data-scroll-child],
+  section.scrolled.scrolled-out :where([class*="sectionHeader"]) :where(h1, h2, span, p),
+  section.scrolled.scrolled-out :where([class*="sectionHeading"]) > *,
+  section.scrolled.scrolled-out :is(
+    [class*="processCard__"],
+    [class*="pricingCard__"],
+    [class*="projectCard__"],
+    [class*="faqItem__"],
+    [class*="visualElement__"]
+  ) {
     opacity: 1;
     transform: none;
     transition: none;
