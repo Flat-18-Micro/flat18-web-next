@@ -307,6 +307,12 @@
 }
 
 @media (max-width:768px) {
+  :global(body:not(.light)) .container {
+    max-width: 100%;
+    padding-left: var(--space-5);
+    padding-right: var(--space-5)
+  }
+
   .contentGrid {
     grid-template-columns: 1fr;
     gap: var(--space-8)
@@ -331,6 +337,11 @@
 }
 
 @media (max-width:480px) {
+  :global(body:not(.light)) .container {
+    padding-left: var(--space-4);
+    padding-right: var(--space-4)
+  }
+
   .formCard {
     padding: var(--space-4)
   }

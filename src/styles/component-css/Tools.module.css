@@ -36,9 +36,6 @@
 .scrollRow {
   display: flex;
   flex-direction: row;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
   gap: var(--space-8);
   padding: var(--space-4) 0;
   align-items: center
@@ -129,6 +126,26 @@
   transition: background .8s cubic-bezier(.4, 0, .2, 1)
 }
 
+.marqueeTrack {
+  display: flex;
+  width: max-content;
+  animation: toolsMarquee 36s linear infinite
+}
+
+.marqueeTrack:hover {
+  animation-play-state: paused
+}
+
+@keyframes toolsMarquee {
+  0% {
+    transform: translateX(0)
+  }
+
+  100% {
+    transform: translateX(-50%)
+  }
+}
+
 @media (max-width:768px) {
   .toolsSection {
     padding: var(--space-8) 0
@@ -175,7 +192,22 @@
   }
 }
 
-.marqueeTrack {
-  display: flex;
-  width: max-content
+@media (prefers-reduced-motion: reduce) {
+  .marqueeTrack {
+    animation: none
+  }
+
+  .marqueeTrack > .scrollRow:last-child {
+    display: none
+  }
+
+  .toolsContainer {
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch
+  }
+
+  .toolItem {
+    scroll-snap-align: center
+  }
 }

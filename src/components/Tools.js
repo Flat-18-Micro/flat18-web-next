@@ -38,38 +38,40 @@ export default function Tools() {
 
         <div className={styles.toolsContainer}>
           <div className={styles.marqueeTrack}>
-            <div className={`${styles.toolsList} ${styles.scrollRow}`}>
-              {toolList.map((tool, index) => (
-                <div key={index} className={`${styles.toolItem} ${styles.scrollItem}`}>
-                  <div
-                    className={styles.toolLogoContainer}
-                  >
-                    {tool.logo.endsWith('.svg') ? (
-                      <img
-                        src={tool.logo}
-                        alt={`${tool.name} logo`}
-                        className={styles.toolLogo}
-                        loading="lazy"
-                        width={100}
-                        height={40}
-                        style={{ objectFit: 'contain' }}
-                      />
-                    ) : (
-                      <Image
-                        src={tool.logo}
-                        alt={`${tool.name} logo`}
-                        className={styles.toolLogo}
-                        width={100}
-                        height={40}
-                        style={{ objectFit: 'contain' }}
-                        quality={70}
-                      />
-                    )}
+            {[0, 1].map((row) => (
+              <div key={row} className={`${styles.toolsList} ${styles.scrollRow}`} aria-hidden={row === 1}>
+                {toolList.map((tool) => (
+                  <div key={`${row}-${tool.name}`} className={`${styles.toolItem} ${styles.scrollItem}`}>
+                    <div
+                      className={styles.toolLogoContainer}
+                    >
+                      {tool.logo.endsWith('.svg') ? (
+                        <img
+                          src={tool.logo}
+                          alt={`${tool.name} logo`}
+                          className={styles.toolLogo}
+                          loading="lazy"
+                          width={100}
+                          height={40}
+                          style={{ objectFit: 'contain' }}
+                        />
+                      ) : (
+                        <Image
+                          src={tool.logo}
+                          alt={`${tool.name} logo`}
+                          className={styles.toolLogo}
+                          width={100}
+                          height={40}
+                          style={{ objectFit: 'contain' }}
+                          quality={70}
+                        />
+                      )}
+                    </div>
+                    {<div className={styles.toolName}>{tool.name}</div>}
                   </div>
-                  {<div className={styles.toolName}>{tool.name}</div>}
-                </div>
-              ))}
-            </div>
+                ))}
+              </div>
+            ))}
           </div>
 
           <div className={styles.toolsGradient}></div>
