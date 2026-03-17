@@ -91,7 +91,8 @@ export default function SiteLayout({ children }) {
         <div className={bannerStyles.saleBanner} role="region" aria-label="Subscription promotion">
           <div className={bannerStyles.bannerContent}>
             <span className={bannerStyles.bannerBadge}>{promoLabel}</span>
-            <span>{bannerConfig.message}</span>
+            <span className={bannerStyles.bannerMessageFull}>{bannerConfig.message}</span>
+            <span className={bannerStyles.bannerMessageShort}>{bannerConfig.shortMessage || bannerConfig.message}</span>
             <Link className={bannerStyles.bannerLink} href={bannerConfig.href}>
               {bannerConfig.cta}
             </Link>

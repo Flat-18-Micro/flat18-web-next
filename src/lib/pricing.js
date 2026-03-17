@@ -8,7 +8,8 @@ export const SUBSCRIPTION_PROMO = {
   discountRate: 0.5,
   banner: {
     message: 'Half-price monthly subscription. Limited slots available.',
-    cta: 'See pricing',
+    shortMessage: 'Half-off monthly cost.',
+    cta: 'See Pricing',
     href: '/#pricing',
   },
   note: 'Half-price monthly subscription. Limited slots available.',
