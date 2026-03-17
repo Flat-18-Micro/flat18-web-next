@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import Image from 'next/image'
+import ResponsiveImage from './ResponsiveImage'
 import styles from '../styles/component-css/Portfolio.module.css'
 import { getSectionBackground, getSectionTextColor } from '@/hooks/scrollBackgroundUtils'
 
@@ -16,7 +16,7 @@ function ProjectCard({ project, index }) {
       <div className={styles.projectImageWrapper} data-liquid-prebuild="true">
         <div className={styles.projectImageContainer}>
           <div>
-            <Image
+            <ResponsiveImage
               src={project.image}
               alt={project.title}
               width={600}
@@ -25,7 +25,7 @@ function ProjectCard({ project, index }) {
               className={styles.projectImage}
               loading={index < 2 ? "eager" : "lazy"}
               fetchPriority={index < 2 ? "high" : "auto"}
-              quality={90}
+              widths={[400, 800, 1000]}
             />
           </div>
 
@@ -48,12 +48,14 @@ function ProjectCard({ project, index }) {
       <div className={styles.projectContent}>
         {project.projectLogo && (
           <div className={styles.projectLogo}>
-            <Image
+            <ResponsiveImage
               src={project.projectLogo}
               alt={`${project.title} logo`}
               width={400}
               height={40}
               className={`${styles.logoImage} ${project.title}`}
+              sizes="(max-width: 768px) 40vw, 260px"
+              widths={[120, 240, 360, 600, 1000]}
             />
           </div>
         )}

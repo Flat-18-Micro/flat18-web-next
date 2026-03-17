@@ -1,6 +1,7 @@
 'use client'
 
 import Image from 'next/image'
+import ResponsiveImage from '@/components/ResponsiveImage'
 import { useState } from 'react'
 import Breadcrumbs from '@/components/Breadcrumbs'
 import CaseStudyLightbox from '@/components/CaseStudyLightbox'
@@ -80,12 +81,14 @@ export default function HashboardCaseStudyPage() {
             <div className={styles.caseStudyHeading}>
               <span className={styles.caseStudyTag}>Mining + treasury visibility</span>
               <div className={styles.caseStudyTitleRow}>
-                <Image
+                <ResponsiveImage
                   src="/images/portfolio-graphics/logos/zettahash.webp"
                   alt="Zettahash"
                   width={200}
                   height={48}
                   className={styles.caseStudyLogo}
+                  sizes="(max-width: 768px) 50vw, 200px"
+                  widths={[120, 240, 360, 600, 1000]}
                 />
                 <h2 className={styles.caseStudyTitle}>Hashboard</h2>
               </div>

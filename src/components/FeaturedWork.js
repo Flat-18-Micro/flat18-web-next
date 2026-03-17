@@ -1,4 +1,4 @@
-import Image from 'next/image'
+import ResponsiveImage from './ResponsiveImage'
 import styles from '../styles/component-css/FeaturedWork.module.css'
 import { getSectionBackground, getSectionTextColor } from '@/hooks/scrollBackgroundUtils'
 
@@ -54,25 +54,28 @@ export default function FeaturedWork() {
               className={styles.featuredCard}
             >
               <div className={styles.featuredImageWrapper}>
-                <Image
+                <ResponsiveImage
                   src={project.image}
                   alt={project.title}
                   width={600}
                   height={400}
+                  sizes="(max-width: 768px) 100vw, 50vw"
                   className={styles.featuredImage}
                   loading={index === 0 ? "eager" : "lazy"}
                   fetchPriority={index === 0 ? "high" : "auto"}
-                  quality={90}
+                  widths={[400, 800, 1000]}
                 />
                 
                 {project.projectLogo && (
                   <div className={styles.featuredLogo}>
-                    <Image
+                    <ResponsiveImage
                       src={project.projectLogo}
                       alt={`${project.title} logo`}
                       width={40}
                       height={40}
                       className={styles.logoImage}
+                      sizes="50px"
+                      widths={[120, 240, 360, 600, 1000]}
                     />
                   </div>
                 )}

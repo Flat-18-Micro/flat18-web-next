@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useRef } from 'react'
 import Link from 'next/link'
-import Image from 'next/image'
+import ResponsiveImage from './ResponsiveImage'
 import styles from '@/styles/component-css/Hero.module.css'
 import { analytics } from '@/lib/analytics'
 import { getSectionBackground, getSectionTextColor } from '@/hooks/scrollBackgroundUtils'
@@ -158,10 +158,42 @@ export default function Hero() {
             <div className={styles.trustPill}>
               <span className={styles.trustText}>Trusted by</span>
               <div className={styles.trustLogos}>
-                <Image src="/images/portfolio-graphics/logos/btcpayserver.webp" alt="Client logo" width={172} height={32} className={styles.trustLogo} />
-                <Image src="/images/portfolio-graphics/logos/wallet-scrutiny.webp" alt="Client logo" width={172} height={32} className={styles.trustLogo} />
-                <Image src="/images/portfolio-graphics/logos/dvote.webp" alt="Client logo" width={72} height={132} className={`${styles.trustLogo} ${styles.trustLogoDvote}`} />
-                <Image src="/images/portfolio-graphics/logos/zettahash.webp" alt="Client logo" width={172} height={32} className={`${styles.trustLogo} ${styles.trustLogoZetahash}`} />
+                <ResponsiveImage
+                  src="/images/portfolio-graphics/logos/btcpayserver.webp"
+                  alt="Client logo"
+                  width={172}
+                  height={32}
+                  className={styles.trustLogo}
+                  sizes="172px"
+                  widths={[120, 240, 360, 600, 1000]}
+                />
+                <ResponsiveImage
+                  src="/images/portfolio-graphics/logos/wallet-scrutiny.webp"
+                  alt="Client logo"
+                  width={172}
+                  height={32}
+                  className={styles.trustLogo}
+                  sizes="172px"
+                  widths={[120, 240, 360, 600, 1000]}
+                />
+                <ResponsiveImage
+                  src="/images/portfolio-graphics/logos/dvote.webp"
+                  alt="Client logo"
+                  width={72}
+                  height={132}
+                  className={`${styles.trustLogo} ${styles.trustLogoDvote}`}
+                  sizes="72px"
+                  widths={[120, 240, 360, 600, 1000]}
+                />
+                <ResponsiveImage
+                  src="/images/portfolio-graphics/logos/zettahash.webp"
+                  alt="Client logo"
+                  width={172}
+                  height={32}
+                  className={`${styles.trustLogo} ${styles.trustLogoZetahash}`}
+                  sizes="172px"
+                  widths={[120, 240, 360, 600, 1000]}
+                />
               </div>
             </div>
           </div>

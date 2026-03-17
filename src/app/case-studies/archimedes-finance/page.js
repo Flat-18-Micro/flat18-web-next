@@ -1,6 +1,7 @@
 'use client'
 
 import Image from 'next/image'
+import ResponsiveImage from '@/components/ResponsiveImage'
 import { useState } from 'react'
 import Breadcrumbs from '@/components/Breadcrumbs'
 import CaseStudyLightbox from '@/components/CaseStudyLightbox'
@@ -80,12 +81,14 @@ export default function ArchimedesFinanceCaseStudyPage() {
             <div className={styles.caseStudyHeading}>
               <span className={styles.caseStudyTag}>Tokenized investment platform</span>
               <div className={styles.caseStudyTitleRow}>
-                <Image
+                <ResponsiveImage
                   src="/images/portfolio-graphics/logos/archimedes-finance.webp"
                   alt="Archimedes Finance"
                   width={520}
                   height={120}
                   className={styles.caseStudyLogo}
+                  sizes="(max-width: 768px) 70vw, 520px"
+                  widths={[120, 240, 360, 600, 1000]}
                 />
                 <h2 className={styles.caseStudyTitle}>Archimedes Finance</h2>
               </div>
