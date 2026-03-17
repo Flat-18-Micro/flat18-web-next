@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import Image from 'next/image'
 import styles from '../styles/component-css/Portfolio.module.css'
-import { getSectionBackground, getSectionTextColor } from '@/hooks/useScrollBackground'
+import { getSectionBackground, getSectionTextColor } from '@/hooks/scrollBackgroundUtils'
 
 // Individual Project Card Component for proper hook usage
 function ProjectCard({ project, index }) {

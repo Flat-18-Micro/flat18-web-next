@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react'
 import styles from '../styles/component-css/Stats.module.css'
-import { getSectionBackground, getSectionTextColor } from '@/hooks/useScrollBackground'
+import { getSectionBackground, getSectionTextColor } from '@/hooks/scrollBackgroundUtils'
 import LottiePlayer from '@/components/LottiePlayer'
 
 const loadStatsAnimation = () => import('@/animations/Showreel_-Web-gallery-[remix] (2).json')

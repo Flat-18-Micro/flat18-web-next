@@ -1,7 +1,5 @@
-'use client'
-
 import styles from '@/styles/component-css/HowItWorks.module.css'
-import { getSectionBackground, getSectionTextColor } from '@/hooks/useScrollBackground'
+import { getSectionBackground, getSectionTextColor } from '@/hooks/scrollBackgroundUtils'
 
 export default function HowItWorks() {
   // F18-style four-step process

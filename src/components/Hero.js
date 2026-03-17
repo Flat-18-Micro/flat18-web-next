@@ -5,7 +5,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import styles from '@/styles/component-css/Hero.module.css'
 import { analytics } from '@/lib/analytics'
-import { getSectionBackground, getSectionTextColor } from '@/hooks/useScrollBackground'
+import { getSectionBackground, getSectionTextColor } from '@/hooks/scrollBackgroundUtils'
 import LottiePlayer from '@/components/LottiePlayer'
 
 const loadNotificationAnimation = () => import('@/animations/Notification-[remix].json')

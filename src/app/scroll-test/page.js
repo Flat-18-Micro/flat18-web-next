@@ -1,4 +1,3 @@
-'use client'
 import styles from '@/styles/component-css/TestPage.module.css'
 
 export default function ScrollTestPage() {

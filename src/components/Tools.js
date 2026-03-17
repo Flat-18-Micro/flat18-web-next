@@ -1,7 +1,5 @@
-'use client'
-
 import styles from '../styles/component-css/Tools.module.css'
-import { getSectionBackground, getSectionTextColor } from '@/hooks/useScrollBackground'
+import { getSectionBackground, getSectionTextColor } from '@/hooks/scrollBackgroundUtils'
 import Image from 'next/image';
 
 export default function Tools() {

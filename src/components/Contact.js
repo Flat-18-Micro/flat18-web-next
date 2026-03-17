@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import styles from '../styles/component-css/Contact.module.css'
-import { getSectionBackground, getSectionTextColor } from '@/hooks/useScrollBackground'
+import { getSectionBackground, getSectionTextColor } from '@/hooks/scrollBackgroundUtils'
 
 export default function Contact() {
   const [formData, setFormData] = useState({

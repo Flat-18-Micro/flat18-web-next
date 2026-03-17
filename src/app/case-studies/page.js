@@ -1,5 +1,3 @@
-'use client'
-
 import Image from 'next/image'
 import Breadcrumbs from '@/components/Breadcrumbs'
 import Contact from '@/components/Contact'

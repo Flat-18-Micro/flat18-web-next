@@ -1,10 +1,8 @@
 import '../styles/globals.css'
 import { Suspense } from 'react'
+import dynamic from 'next/dynamic'
 import { Playfair_Display, JetBrains_Mono } from 'next/font/google'
-import ChatwootWidget from '@/components/ChatwootWidget'
-import ServiceWorkerRegistration from '@/components/ServiceWorkerRegistration'
 import Script from 'next/script'
-import AnalyticsScripts from '@/components/AnalyticsScripts'
 import ClientLayout from '@/components/ClientLayout'
 import { ThemeProvider } from './providers'
 import { defaultMetadata, generateOrganizationJsonLd, generateWebsiteJsonLd, siteConfig } from '@/lib/seo'
@@ -30,6 +28,11 @@ const playfairDisplay = Playfair_Display({
   adjustFontFallback: true,
   weight: ['400', '500', '600', '700'], // Only load needed weights
 })
+
+const ChatwootWidget = dynamic(() => import('@/components/ChatwootWidget'), { ssr: false })
+const ServiceWorkerRegistration = dynamic(() => import('@/components/ServiceWorkerRegistration'), { ssr: false })
+const AnalyticsScripts = dynamic(() => import('@/components/AnalyticsScripts'), { ssr: false })
+const LiquidGLLoader = dynamic(() => import('@/components/LiquidGLLoader'), { ssr: false })
 
 export const metadata = defaultMetadata
 
@@ -83,9 +86,7 @@ export default function RootLayout({ children }) {
           <ServiceWorkerRegistration />
           <AnalyticsScripts />
         </ThemeProvider>
-        <Script src="/scripts/html2canvas.min.js" strategy="afterInteractive" />
-        <Script src="/scripts/liquidGL.js" strategy="afterInteractive" />
-        <Script src="/scripts/liquidgl-init.js" strategy="afterInteractive" />
+        <LiquidGLLoader />
       </body>
     </html>
   )

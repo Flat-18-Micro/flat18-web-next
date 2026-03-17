@@ -1,7 +1,5 @@
-'use client'
-
 import styles from '@/styles/component-css/Features.module.css'
-import { getSectionBackground, getSectionTextColor } from '@/hooks/useScrollBackground'
+import { getSectionBackground, getSectionTextColor } from '@/hooks/scrollBackgroundUtils'
 
 export default function Features() {
   // F18-style 2x2 services grid

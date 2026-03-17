@@ -1,4 +1,3 @@
-'use client'
 import Footer from '@/components/Footer'
 import Contact from '@/components/Contact'
 import styles from '@/styles/component-css/PageStyles.module.css'

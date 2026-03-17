@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import styles from '../styles/component-css/Footer.module.css'
-import { getSectionBackground, getSectionTextColor } from '@/hooks/useScrollBackground'
+import { getSectionBackground, getSectionTextColor } from '@/hooks/scrollBackgroundUtils'
 import { useEffect, useRef, useState } from 'react'
 import LottiePlayer from '@/components/LottiePlayer'
 import { ThemeSwitcher } from '@/app/providers'

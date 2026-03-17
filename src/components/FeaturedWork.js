@@ -1,8 +1,6 @@
-'use client'
-
 import Image from 'next/image'
 import styles from '../styles/component-css/FeaturedWork.module.css'
-import { getSectionBackground, getSectionTextColor } from '@/hooks/useScrollBackground'
+import { getSectionBackground, getSectionTextColor } from '@/hooks/scrollBackgroundUtils'
 
 export default function FeaturedWork() {
   const featuredProjects = [

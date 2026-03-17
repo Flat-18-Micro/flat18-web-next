@@ -1,5 +1,3 @@
-'use client'
-
 import Hero from '@/components/Hero'
 // import Stats from '@/components/Stats'
 import Features from '@/components/Features'
@@ -12,13 +10,12 @@ import Footer from '@/components/Footer'
 import Portfolio from '@/components/Portfolio'
 import Tools from '@/components/Tools'
 import Testimonials from '@/components/Testimonials'
-import { useScrollBackground } from '@/hooks/useScrollBackground'
+import ScrollBackground from '@/components/ScrollBackground'
 
 export default function HomeClientShell() {
-  useScrollBackground()
-
   return (
     <>
+      <ScrollBackground />
       <Hero />
       <FeaturedWork />
       <Testimonials />

@@ -4,7 +4,7 @@ import { useState, useEffect, useCallback } from 'react'
 import Link from 'next/link'
 import styles from '../styles/component-css/Pricing.module.css'
 import { analytics } from '@/lib/analytics'
-import { getSectionBackground, getSectionTextColor } from '@/hooks/useScrollBackground'
+import { getSectionBackground, getSectionTextColor } from '@/hooks/scrollBackgroundUtils'
 
 const BASE_PRICES = { monthly: 2995 }
 

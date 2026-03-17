@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef, useCallback } from 'react'
 import { useInView, useReducedMotion } from 'framer-motion'
 import styles from '../styles/component-css/Testimonials.module.css'
-import { getSectionBackground, getSectionTextColor } from '@/hooks/useScrollBackground'
+import { getSectionBackground, getSectionTextColor } from '@/hooks/scrollBackgroundUtils'
 
 export default function Testimonials() {
   const testimonials = [

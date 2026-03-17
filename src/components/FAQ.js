@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import styles from '../styles/component-css/FAQ.module.css'
-import { getSectionBackground, getSectionTextColor } from '@/hooks/useScrollBackground'
+import { getSectionBackground, getSectionTextColor } from '@/hooks/scrollBackgroundUtils'
 
 const faqSchema = {
   "@context": "https://schema.org",

@@ -39,17 +39,3 @@ export function useScrollBackground() {
 
   return { currentSectionBg: DEFAULT_BG, currentSectionText: DEFAULT_TEXT }
 }
-
-// Helper function to get section background CSS variable for current section
-export function getSectionBackground(sectionName) {
-  // Convert camelCase to kebab-case for CSS variable names
-  const kebabCase = sectionName.replace(/([A-Z])/g, '-$1').toLowerCase()
-  return `var(--section-bg-${kebabCase})`
-}
-
-// Helper function to get section text color CSS variable for current section
-export function getSectionTextColor(sectionName) {
-  // Convert camelCase to kebab-case for CSS variable names
-  const kebabCase = sectionName.replace(/([A-Z])/g, '-$1').toLowerCase()
-  return `var(--section-text-${kebabCase})`
-}
