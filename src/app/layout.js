@@ -6,6 +6,7 @@ import Script from 'next/script'
 import ClientLayout from '@/components/ClientLayout'
 import { ThemeProvider } from './providers'
 import { defaultMetadata, generateOrganizationJsonLd, generateWebsiteJsonLd, siteConfig } from '@/lib/seo'
+import { SUBSCRIPTION_PROMO } from '@/lib/pricing'
 
 // Optimize font loading with better performance settings
 
@@ -39,6 +40,7 @@ export const metadata = defaultMetadata
 const organizationJsonLd = generateOrganizationJsonLd()
 const websiteJsonLd = generateWebsiteJsonLd()
 const language = siteConfig.locale.replace('_', '-')
+const saleActive = SUBSCRIPTION_PROMO.enabled
 
 export default function RootLayout({ children }) {
   return (
@@ -75,7 +77,7 @@ export default function RootLayout({ children }) {
           }}
         />
       </head>
-      <body>
+      <body className={saleActive ? 'sale-active' : ''}>
         <ThemeProvider>
           <ClientLayout>
             {children}

@@ -1,7 +1,19 @@
 import Link from 'next/link'
 import styles from '@/styles/component-css/FounderPage.module.css'
+import {
+  BASE_PRICES,
+  SUBSCRIPTION_PROMO,
+  applySubscriptionPromo,
+  formatPsychologicalCurrency,
+  getSubscriptionPromoLabel,
+} from '@/lib/pricing'
 
 export default function FounderPage() {
+  const promoActive = SUBSCRIPTION_PROMO.enabled
+  const promoLabel = getSubscriptionPromoLabel()
+  const basePriceLabel = `${formatPsychologicalCurrency(BASE_PRICES.monthly, 'GBP')} / month`
+  const promoPriceLabel = `${formatPsychologicalCurrency(applySubscriptionPromo(BASE_PRICES.monthly), 'GBP')} / month`
+
   return (
     <div className={styles.page}>
       <section className={styles.hero}>
@@ -151,7 +163,16 @@ export default function FounderPage() {
           <div className={styles.pricingGrid}>
             <div className={styles.pricingCard}>
               <h3>Subscription</h3>
-              <p className={styles.price}>GBP 2,995 / month</p>
+              {promoActive ? (
+                <div className={styles.priceStack}>
+                  <span className={styles.saleBadge}>{promoLabel}</span>
+                  <span className={styles.priceOriginal}>{basePriceLabel}</span>
+                  <span className={styles.price}>{promoPriceLabel}</span>
+                  <span className={styles.priceNote}>{SUBSCRIPTION_PROMO.note}</span>
+                </div>
+              ) : (
+                <p className={styles.price}>{basePriceLabel}</p>
+              )}
               <p>Best for ongoing momentum and fast iteration.</p>
             </div>
             <div className={styles.pricingCard}>

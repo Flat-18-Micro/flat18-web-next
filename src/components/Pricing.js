@@ -5,8 +5,14 @@ import Link from 'next/link'
 import styles from '../styles/component-css/Pricing.module.css'
 import { analytics } from '@/lib/analytics'
 import { getSectionBackground, getSectionTextColor } from '@/hooks/scrollBackgroundUtils'
-
-const BASE_PRICES = { monthly: 2995 }
+import {
+  BASE_PRICES,
+  SUBSCRIPTION_PROMO,
+  applySubscriptionPromo,
+  formatBTC,
+  formatPsychologicalCurrency,
+  getSubscriptionPromoLabel,
+} from '@/lib/pricing'
 
 const SUBSCRIPTION_HIGHLIGHTS = [
   'One active request at a time (unlimited queue)',
@@ -34,22 +40,6 @@ const BESPOKE_PACKAGES = [
   }
 ]
 
-const formatCurrency = (amount, currencyCode) => {
-  try {
-    const formatter = new Intl.NumberFormat('en-GB', {
-      style: 'currency',
-      currency: currencyCode,
-      minimumFractionDigits: 0,
-      maximumFractionDigits: 0
-    })
-    return formatter.format(amount)
-  } catch (error) {
-    return `${currencyCode} ${amount.toFixed(2)}`
-  }
-}
-
-const formatBTC = (amount) => `₿${amount.toFixed(6)}`
-
 export default function Pricing() {
   const [currencies, setCurrencies] = useState([])
   const [selectedCurrency, setSelectedCurrency] = useState('GBP')
@@ -58,12 +48,16 @@ export default function Pricing() {
   const [btcRate, setBtcRate] = useState(0)
   const [prices, setPrices] = useState({
     monthly: {
-      GBP: '£2,995',
+      GBP: formatPsychologicalCurrency(BASE_PRICES.monthly, 'GBP'),
       USD: '$3,800',
       EUR: '€3,500',
       BTC: '₿0.075000'
     }
   })
+
+  const promoActive = SUBSCRIPTION_PROMO.enabled
+  const promoLabel = getSubscriptionPromoLabel()
+  const promoPrice = applySubscriptionPromo(BASE_PRICES.monthly)
 
   const fetchExchangeRates = useCallback(async () => {
     try {
@@ -104,13 +98,16 @@ export default function Pricing() {
       const rates = { GBP: 1 }
 
       const updatedPrices = {
-        monthly: { GBP: formatCurrency(BASE_PRICES.monthly, 'GBP') }
+        monthly: { GBP: formatPsychologicalCurrency(BASE_PRICES.monthly, 'GBP') }
       }
 
       data.result.forEach((currency) => {
         if (currency.name !== 'GBP') {
           const exchangeRate = currency.value / gbp.value
-          updatedPrices.monthly[currency.name] = formatCurrency(BASE_PRICES.monthly * exchangeRate, currency.name)
+          updatedPrices.monthly[currency.name] = formatPsychologicalCurrency(
+            BASE_PRICES.monthly * exchangeRate,
+            currency.name
+          )
           rates[currency.name] = exchangeRate
         }
       })
@@ -150,7 +147,7 @@ export default function Pricing() {
     }
 
     const multiplier = currencyRates[selectedCurrency] ?? 1
-    return formatCurrency(amount * multiplier, selectedCurrency)
+    return formatPsychologicalCurrency(amount * multiplier, selectedCurrency)
   }
 
   const formatRange = (min, max) => {
@@ -159,6 +156,9 @@ export default function Pricing() {
     const maxStr = formatAmountForCurrency(max)
     return `${minStr}-${maxStr}`
   }
+
+  const basePriceDisplay = prices.monthly[selectedCurrency] || prices.monthly.GBP
+  const promoPriceDisplay = formatAmountForCurrency(promoPrice)
 
   return (
     <section
@@ -230,18 +230,34 @@ export default function Pricing() {
         </div>
 
         <div className={styles.pricingGrid}>
-          <article className={`${styles.pricingCard} ${styles.subscriptionCard}`}>
+          <article
+            className={`${styles.pricingCard} ${styles.subscriptionCard} ${promoActive ? styles.saleCard : ''}`}
+          >
             <div className={styles.pricingHeader}>
-              <p className={styles.planBadge}>Route A · Subscription</p>
+              <div className={styles.badgeRow}>
+                <p className={styles.planBadge}>Route A · Subscription</p>
+                {promoActive ? <span className={styles.salePill}>{promoLabel}</span> : null}
+              </div>
               <h3 className={styles.planTitle}>Monthly subscription</h3>
               <p className={styles.planSubtitle}>
                 Ongoing senior design + build capacity for teams who want momentum without hiring.
               </p>
 
-              <div className={styles.priceDisplay}>
-                <span className={styles.priceAmount}>{prices.monthly[selectedCurrency] || prices.monthly.GBP}</span>
-                <span className={styles.pricePeriod}>/month</span>
-              </div>
+              {promoActive ? (
+                <div className={styles.priceStack}>
+                  <span className={styles.priceOriginal}>{basePriceDisplay}</span>
+                  <div className={styles.priceDisplay}>
+                    <span className={styles.priceAmount}>{promoPriceDisplay}</span>
+                    <span className={styles.pricePeriod}>/month</span>
+                  </div>
+                  <p className={styles.priceNote}>{SUBSCRIPTION_PROMO.note}</p>
+                </div>
+              ) : (
+                <div className={styles.priceDisplay}>
+                  <span className={styles.priceAmount}>{basePriceDisplay}</span>
+                  <span className={styles.pricePeriod}>/month</span>
+                </div>
+              )}
 
               <p className={styles.planSupportText}>One subscription covers everything. Queue requests anytime, pause when you're done.</p>
             </div>

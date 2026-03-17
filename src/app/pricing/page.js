@@ -6,14 +6,26 @@ import Pricing from '@/components/Pricing'
 import Contact from '@/components/Contact'
 import Breadcrumbs from '@/components/Breadcrumbs'
 import styles from '@/styles/component-css/PricingPage.module.css'
+import {
+  BASE_PRICES,
+  SUBSCRIPTION_PROMO,
+  applySubscriptionPromo,
+  formatPsychologicalCurrency,
+  getSubscriptionPromoLabel,
+} from '@/lib/pricing'
 
 export default function PricingPage() {
   const [openFaqIndex, setOpenFaqIndex] = useState(null)
+  const basePrice = formatPsychologicalCurrency(BASE_PRICES.monthly, 'GBP')
+  const discountedPrice = formatPsychologicalCurrency(applySubscriptionPromo(BASE_PRICES.monthly), 'GBP')
+  const promoLabel = getSubscriptionPromoLabel()
 
   const faqs = [
     {
       question: "How does your subscription model work?",
-      answer: "Our subscription model provides you with dedicated development time each month. You pay a fixed monthly fee of £2,995 (auto-converted if you're outside the UK), queue as many requests as you need, and we work through them one at a time with typical 48-hour turnarounds on smaller tasks."
+      answer: SUBSCRIPTION_PROMO.enabled
+        ? `Our subscription model provides you with dedicated development time each month. Right now it's ${promoLabel} at ${discountedPrice} per month (normally ${basePrice}). Your fee is auto-converted if you're outside the UK, you can queue as many requests as you need, and we work through them one at a time with typical 48-hour turnarounds on smaller tasks.`
+        : `Our subscription model provides you with dedicated development time each month. You pay a fixed monthly fee of ${basePrice} (auto-converted if you're outside the UK), queue as many requests as you need, and we work through them one at a time with typical 48-hour turnarounds on smaller tasks.`
     },
     {
       question: "What if I need more development hours?",
