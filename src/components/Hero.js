@@ -8,15 +8,16 @@ import { analytics } from '@/lib/analytics'
 import { getSectionBackground, getSectionTextColor } from '@/hooks/scrollBackgroundUtils'
 import LottiePlayer from '@/components/LottiePlayer'
 
-const loadNotificationAnimation = () => import('@/animations/Notification-[remix].json')
+const networkAnimation = () => import('@/animations/Network.json')
 
 export default function Hero() {
   const lottieWrapperRef = useRef(null)
+  const lottieRef = useRef(null)
 
   // Warm up the animation chunk once the browser is idle
   useEffect(() => {
     const prefetch = () => {
-      loadNotificationAnimation().catch(() => undefined)
+      networkAnimation().catch(() => undefined)
     }
 
     if (typeof window === 'undefined') {
@@ -61,6 +62,8 @@ export default function Hero() {
     darkElements.forEach(element => {
       element.style.fill = primaryColor
     })
+
+    lottieRef.current?.setSpeed?.(0.1)
   }, [])
 
   return (
@@ -71,96 +74,45 @@ export default function Hero() {
     >
       <div className={styles.herobg} aria-hidden="true" />
       <div className={`${styles.heroContainer} max-w-7xl mx-auto px-4 sm:px-6 lg:px-8`}>
+
+        {/* ── Copy column ── */}
         <div className={styles.heroContent}>
-          {/* Notification Animation */}
-
-              <div
-                ref={lottieWrapperRef}
-                style={{
-                  width: 'clamp(450px, 30vw, 560px)',
-                  maxWidth: '95vw',
-                  // height: 'auto',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  borderRadius: '20px'
-                }}
-              >
-                <LottiePlayer
-                  animationDataSrc={loadNotificationAnimation}
-                  autoplay
-                  loop={false}
-                  loadOnVisible={false}
-                  playerClassName={styles.themedLottie}
-                  prefersReducedMotionFallback={null}
-                  onAnimationLoaded={applyThemeToLottie}
-                />
-              </div>
-
-          {/* Main heading with F18-style large typography */}
-                    
           <h1 className={styles.heroHeading}>
-          {/* <span
-            className={styles.heroPreheading}
-          >
-            For founders who need momentum
-          </span> */}
-            <span className={styles.heroHeadingThin}>Build what matters.</span><br />
-            Get momentum back.
+            <span className={styles.heroHeadingThin}>Build what matters.</span>
+            {' '}Get momentum back.
           </h1>
 
-          {/* Supporting line */}
           <p className={styles.heroSubheading}>
-            Senior team designs and builds your website or MVP in a matter of weeks. Track tasks with boards. <br />Weekly progress updates, no chasing.
+            Senior team designs and builds your website or MVP in weeks.
+            Track tasks with boards — weekly progress updates, no chasing.
           </p>
 
-          {/* <ul className={styles.heroHighlights} variants={fadeInUp}>
-            <li className={styles.heroHighlightItem}>
-              <span className={styles.heroHighlightIcon}><i className="bi bi-lightning-charge-fill" aria-hidden="true"></i></span>
-              Weekly progress, no chasing
-            </li>
-            <li className={styles.heroHighlightItem}>
-              <span className={styles.heroHighlightIcon}><i className="bi bi-people-fill" aria-hidden="true"></i></span>
-              One senior team, end to end
-            </li>
-          </ul> */}
-
-          {/* <p className={styles.heroQualifier} variants={fadeInUp}>
-            For founders with a clear product and budget. Not for idea-stage work or large-agency procurement.
-          </p> */}
-
-          {/* CTA cluster - F18 style */}
           <div className={styles.heroActions}>
-            <div>
-              <a
-                href="#chat"
-                className="btn btn-primary btn-icon"
-                onClick={() => analytics.hero.bookCall()}
-              >
-                <span className="btn-text">Chat with us</span>
-                <i className="bi bi-arrow-right" aria-hidden="true"></i>
-              </a>
-            </div>
-
-            <div>
-              <Link
-                href="/#pricing"
-                className="btn btn-secondary"
-                onClick={() => analytics.hero.ctaClick('See pricing')}
-              >
-                <span className="btn-text">See pricing</span>
-              </Link>
-            </div>
+            <a
+              href="#chat"
+              className="btn btn-primary btn-icon"
+              onClick={() => analytics.hero.bookCall()}
+            >
+              <span className="btn-text">Chat with us</span>
+              <i className="bi bi-arrow-right" aria-hidden="true" />
+            </a>
+            <Link
+              href="/#pricing"
+              className="btn btn-secondary"
+              onClick={() => analytics.hero.ctaClick('See pricing')}
+            >
+              <span className="btn-text">See pricing</span>
+            </Link>
           </div>
 
-          {/* Trust strip - single-row pill with logos */}
+          {/* Trust strip */}
           <div className={styles.trustStrip}>
             <div className={styles.trustPill}>
               <span className={styles.trustText}>Trusted by</span>
               <div className={styles.trustLogos}>
                 <ResponsiveImage
                   src="/images/portfolio-graphics/logos/btcpayserver.webp"
-                  alt="Client logo"
+                  alt="BTCPay Server"
                   width={172}
                   height={32}
                   className={styles.trustLogo}
@@ -169,7 +121,7 @@ export default function Hero() {
                 />
                 <ResponsiveImage
                   src="/images/portfolio-graphics/logos/wallet-scrutiny.webp"
-                  alt="Client logo"
+                  alt="Wallet Scrutiny"
                   width={172}
                   height={32}
                   className={styles.trustLogo}
@@ -178,7 +130,7 @@ export default function Hero() {
                 />
                 <ResponsiveImage
                   src="/images/portfolio-graphics/logos/dvote.webp"
-                  alt="Client logo"
+                  alt="DVote"
                   width={72}
                   height={132}
                   className={`${styles.trustLogo} ${styles.trustLogoDvote}`}
@@ -187,7 +139,7 @@ export default function Hero() {
                 />
                 <ResponsiveImage
                   src="/images/portfolio-graphics/logos/zettahash.webp"
-                  alt="Client logo"
+                  alt="Zettahash"
                   width={172}
                   height={32}
                   className={`${styles.trustLogo} ${styles.trustLogoZetahash}`}
@@ -199,6 +151,19 @@ export default function Hero() {
           </div>
         </div>
 
+        {/* ── Lottie column ── */}
+        <div className={styles.lottieCol} ref={lottieWrapperRef} aria-hidden="true">
+          <LottiePlayer
+            animationDataSrc={networkAnimation}
+            autoplay
+            loop={true}
+            lottieRef={lottieRef}
+            loadOnVisible={false}
+            playerClassName={styles.themedLottie}
+            prefersReducedMotionFallback={null}
+            onAnimationLoaded={applyThemeToLottie}
+          />
+        </div>
 
       </div>
     </section>

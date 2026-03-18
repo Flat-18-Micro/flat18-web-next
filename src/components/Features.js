@@ -57,6 +57,7 @@ export default function Features() {
               key={index}
               className={styles.serviceCard}
               data-liquid-prebuild="true"
+              data-index={String(index + 1).padStart(2, '0')}
             >
               <div className={styles.cardHeader}>
                 <div className={styles.iconWrapper}>

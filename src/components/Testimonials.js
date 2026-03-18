@@ -1,7 +1,6 @@
 'use client'
 
 import { useState, useEffect, useRef, useCallback } from 'react'
-import { useInView, useReducedMotion } from 'framer-motion'
 import styles from '../styles/component-css/Testimonials.module.css'
 import { getSectionBackground, getSectionTextColor } from '@/hooks/scrollBackgroundUtils'
 
@@ -48,11 +47,32 @@ export default function Testimonials() {
   const [isDragging, setIsDragging] = useState(false)
   const [startX, setStartX] = useState(0)
   const [scrollLeft, setScrollLeft] = useState(0)
+  const [isInView, setIsInView] = useState(false)
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false)
   const carouselRef = useRef(null)
   const sectionRef = useRef(null)
-  const isInView = useInView(sectionRef, { once: true, amount: 0.2 })
   const autoplayRef = useRef(null)
-  const prefersReducedMotion = useReducedMotion()
+
+  // Vanilla replacement for useReducedMotion
+  useEffect(() => {
+    const mq = window.matchMedia('(prefers-reduced-motion: reduce)')
+    setPrefersReducedMotion(mq.matches)
+    const handler = (e) => setPrefersReducedMotion(e.matches)
+    mq.addEventListener('change', handler)
+    return () => mq.removeEventListener('change', handler)
+  }, [])
+
+  // Vanilla replacement for useInView
+  useEffect(() => {
+    const section = sectionRef.current
+    if (!section) return
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) { setIsInView(true); observer.disconnect() } },
+      { threshold: 0.2 }
+    )
+    observer.observe(section)
+    return () => observer.disconnect()
+  }, [])
 
   const handleMouseDown = (e) => {
     if (!carouselRef.current) return;

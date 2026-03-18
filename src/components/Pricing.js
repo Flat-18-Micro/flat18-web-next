@@ -175,9 +175,6 @@ export default function Pricing() {
             Pick the route that keeps delivery stable and avoids rebuilding the same work twice.
             We keep the same senior team on your product so context never resets.
           </p>
-          <p className={styles.sectionQualifier}>
-            Not for price shopping or large-agency procurement.
-          </p>
         </div>
 
         <div className={styles.currencyToolbar}>
