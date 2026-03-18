@@ -39,23 +39,7 @@
 }
 
 /* Horizontal connector between cards */
-.stepsGrid::before {
-  content: '';
-  position: absolute;
-  top: 2.6rem; /* aligns with step number centre */
-  left: calc(12.5% + 1.5rem); /* start after first card's number */
-  right: calc(12.5% + 1.5rem);
-  height: 1px;
-  background: linear-gradient(
-    to right,
-    var(--border-soft),
-    var(--secondary),
-    var(--border-soft)
-  );
-  opacity: .5;
-  pointer-events: none;
-  z-index: 0;
-}
+
 
 /* ─── Individual process card ─────────────────────────────── */
 .processCard {

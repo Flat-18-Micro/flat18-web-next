@@ -9,10 +9,24 @@ import { getSectionBackground, getSectionTextColor } from '@/hooks/scrollBackgro
 import LottiePlayer from '@/components/LottiePlayer'
 
 const networkAnimation = () => import('@/animations/Network.json')
+const BASE_SPEED = 0.1
+const SCROLL_SPEED = 1.2
+const SCROLL_BOOST_WINDOW = 220
+const MOUSE_SPEED = 2
+const MOUSE_DEADZONE = 4
 
 export default function Hero() {
   const lottieWrapperRef = useRef(null)
   const lottieRef = useRef(null)
+  const scrollStateRef = useRef({
+    rafId: null,
+    lastScrollTime: 0,
+    currentSpeed: BASE_SPEED,
+  })
+  const mouseStateRef = useRef({
+    isActive: false,
+    targetSpeed: null,
+  })
 
   // Warm up the animation chunk once the browser is idle
   useEffect(() => {
@@ -41,6 +55,17 @@ export default function Hero() {
     }
   }, [])
 
+  const setLottieSpeed = useCallback((speed) => {
+    const player = lottieRef.current
+    if (!player) {
+      return
+    }
+
+    const direction = speed < 0 ? -1 : 1
+    player.setDirection?.(direction)
+    player.setSpeed?.(Math.abs(speed))
+  }, [])
+
   const applyThemeToLottie = useCallback(() => {
     if (!lottieWrapperRef.current) {
       return
@@ -63,8 +88,97 @@ export default function Hero() {
       element.style.fill = primaryColor
     })
 
-    lottieRef.current?.setSpeed?.(0.1)
-  }, [])
+    scrollStateRef.current.currentSpeed = BASE_SPEED
+    setLottieSpeed(BASE_SPEED)
+  }, [setLottieSpeed])
+
+  useEffect(() => {
+    if (typeof window === 'undefined') {
+      return
+    }
+
+    const tick = (time) => {
+      const { lastScrollTime, currentSpeed } = scrollStateRef.current
+      const msSinceScroll = time - lastScrollTime
+      const isMouseActive = mouseStateRef.current.isActive && typeof mouseStateRef.current.targetSpeed === 'number'
+      const targetSpeed = isMouseActive
+        ? mouseStateRef.current.targetSpeed
+        : msSinceScroll < SCROLL_BOOST_WINDOW
+          ? SCROLL_SPEED
+          : BASE_SPEED
+
+      // Ease toward the target speed for a smooth in/out feel.
+      const easedSpeed = currentSpeed + (targetSpeed - currentSpeed) * 0.12
+      scrollStateRef.current.currentSpeed = easedSpeed
+
+      setLottieSpeed(easedSpeed)
+
+      const shouldContinue = isMouseActive || msSinceScroll < 1000 || Math.abs(easedSpeed - BASE_SPEED) > 0.01
+      if (shouldContinue) {
+        scrollStateRef.current.rafId = window.requestAnimationFrame(tick)
+      } else {
+        scrollStateRef.current.rafId = null
+      }
+    }
+
+    const startRaf = () => {
+      if (!scrollStateRef.current.rafId) {
+        scrollStateRef.current.rafId = window.requestAnimationFrame(tick)
+      }
+    }
+
+    const handleScroll = () => {
+      scrollStateRef.current.lastScrollTime = performance.now()
+      startRaf()
+    }
+
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    const wrapper = lottieWrapperRef.current
+
+    const handleMouseMove = (event) => {
+      if (!wrapper) {
+        return
+      }
+
+      const rect = wrapper.getBoundingClientRect()
+      const centerX = rect.left + rect.width / 2
+      const deltaX = event.clientX - centerX
+      const absDeltaX = Math.abs(deltaX)
+
+      if (absDeltaX < MOUSE_DEADZONE) {
+        mouseStateRef.current.isActive = false
+        mouseStateRef.current.targetSpeed = null
+      } else {
+        mouseStateRef.current.isActive = true
+        mouseStateRef.current.targetSpeed = deltaX > 0 ? MOUSE_SPEED : -MOUSE_SPEED
+      }
+
+      startRaf()
+    }
+
+    const handleMouseLeave = () => {
+      mouseStateRef.current.isActive = false
+      mouseStateRef.current.targetSpeed = null
+      startRaf()
+    }
+
+    if (wrapper) {
+      wrapper.addEventListener('mousemove', handleMouseMove)
+      wrapper.addEventListener('mouseleave', handleMouseLeave)
+    }
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+      if (wrapper) {
+        wrapper.removeEventListener('mousemove', handleMouseMove)
+        wrapper.removeEventListener('mouseleave', handleMouseLeave)
+      }
+      if (scrollStateRef.current.rafId) {
+        window.cancelAnimationFrame(scrollStateRef.current.rafId)
+        scrollStateRef.current.rafId = null
+      }
+    }
+  }, [setLottieSpeed])
 
   return (
     <section
