@@ -150,9 +150,9 @@
 .heroContainer {
   width: 100%;
   display: grid;
-  grid-template-columns: 1fr auto;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 1fr);
   align-items: center;
-  gap: 4rem;
+  gap: 2rem;
   position: relative;
   z-index: 1;
 }
@@ -238,59 +238,83 @@
   gap: 1rem;
 }
 
-/* ─── Trust strip ────────────────────────────────────────── */
-.trustStrip {
-  width: 100%;
-}
-
-.trustPill {
-  display: inline-flex;
-  align-items: center;
-  gap: 1.25rem;
-  padding: .875rem 1.5rem;
-  background: var(--surface-dim);
-  border: 1px solid var(--border-soft);
-  border-radius: 999px;
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-}
-
-.trustText {
-  font-size: .8rem;
-  letter-spacing: .06em;
-  text-transform: uppercase;
-  color: var(--text-tertiary);
-  font-weight: 600;
-  white-space: nowrap;
-}
-
-.trustLogos {
+/* ─── Social proof ───────────────────────────────────────── */
+.socialProof {
   display: flex;
   align-items: center;
-  gap: 1.25rem;
+  gap: 1rem;
 }
 
-.trustLogo {
-  height: 28px;
-  width: auto;
-  opacity: .55;
-  filter: saturate(0);
-  transition: opacity .3s ease, filter .3s ease;
+.avatarStack {
+  display: flex;
+  align-items: center;
 }
 
-.trustLogo:hover {
-  opacity: .9;
-  filter: saturate(1);
+.avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: .9rem;
+  font-weight: 700;
+  color: #fff;
+  border: 2.5px solid var(--bg);
+  margin-left: -10px;
+  flex-shrink: 0;
+  user-select: none;
 }
 
-.trustLogoZetahash {
-  border-radius: 100px;
-  padding: 0 8px;
-  background-color: #0062ff;
+.avatar:first-child {
+  margin-left: 0;
 }
 
-.trustLogoDvote {
-  max-height: 1.1rem;
+.avatar1 {
+  background: linear-gradient(135deg, #9fb0ff, #b8c5ff);
+}
+
+.avatar2 {
+  background: linear-gradient(135deg, #9ed6ff, #b8e3ff);
+}
+
+.avatar3 {
+  background: linear-gradient(135deg, #a8e4ff, #c6f0ff);
+}
+
+.avatar4 {
+  background: linear-gradient(135deg, #a9ecd9, #c4f3e6);
+}
+
+.avatar5 {
+  background: linear-gradient(135deg, #f4b6d7, #f8cbe1);
+}
+
+:global(body.dark) .avatar1 {
+  background: linear-gradient(135deg, #2340ff, #4d62ff);
+}
+
+:global(body.dark) .avatar2 {
+  background: linear-gradient(135deg, #3d9eee, #2a7fd0);
+}
+
+:global(body.dark) .avatar3 {
+  background: linear-gradient(135deg, #4d62ff, #3d9eee);
+}
+
+:global(body.dark) .avatar4 {
+  background: linear-gradient(135deg, #198ffd, #3d9eee);
+}
+
+:global(body.dark) .avatar5 {
+  background: linear-gradient(135deg, #ff4ebd, #ff4e6e);
+}
+
+.socialProofText {
+  font-size: .95rem;
+  color: var(--text-secondary);
+  margin: 0;
+  line-height: 1.4;
 }
 
 /* ─── Lottie / visual column ─────────────────────────────── */
@@ -300,6 +324,11 @@
   justify-content: center;
   animation: heroFadeIn .9s ease both;
   animation-delay: .2s;
+  /* Desktop: size the column, then shift right so exactly half overflows
+     the container's right content edge. heroSection overflow:hidden clips
+     anything that reaches the viewport edge. */
+  width: clamp(480px, 46vw, 600px);
+  transform: translateX(-30%);
 }
 
 .lottieCol::before {
@@ -340,14 +369,22 @@
 
 /* ─── Responsive ─────────────────────────────────────────── */
 @media (max-width: 1100px) {
+  .heroSection {
+    overflow: hidden;
+  }
+
   .heroContainer {
     grid-template-columns: 1fr;
-    gap: 3.5rem;
+    gap: 0;
   }
 
   .heroContent {
     align-items: center;
     text-align: center;
+    /* Sit above the lottie in the stacking order */
+    position: relative;
+    z-index: 2;
+    padding-bottom: 3rem;
   }
 
   .heroSubheading {
@@ -358,15 +395,30 @@
     justify-content: center;
   }
 
-  .trustPill {
-    flex-wrap: wrap;
+  .socialProof {
     justify-content: center;
   }
 
+  /* Oversized lottie: pulled up behind the content's lower edge,
+     then clipped by heroSection overflow:hidden at the section bottom. */
   .lottieCol {
-    max-width: clamp(300px, 55vw, 480px);
-    margin: 0 auto;
+    display: none;
+    position: absolute;
+    z-index: 1;
+    transform: none;
+    width: 250vw;
+    height: 250vw;
+    max-width: none;
+    margin-left: -75vw;
+    top: -100%;
   }
+
+  .lottieCol>* {
+    opacity: .1;
+  }
+.heroHeadingThin {
+  margin-bottom: 1rem;
+}
 }
 
 @media (max-width: 768px) {
@@ -377,7 +429,7 @@
   }
 
   .heroContainer {
-    gap: 2.5rem;
+    gap: 0;
   }
 
   .heroHeading {
@@ -400,31 +452,20 @@
     justify-content: center;
   }
 
-  .trustPill {
-    flex-direction: column;
-    gap: .875rem;
-    padding: 1.25rem 1.5rem;
-    border-radius: 1.25rem;
-    width: 100%;
-    max-width: 360px;
-  }
-
-  .themedLottie {
-    max-width: 85vw;
+  .socialProofText {
+    font-size: .875rem;
   }
 
   .lottieCol {
-    max-width: 85vw;
+    width: 150vw;
+    margin-left: -25vw;
+    margin-top: -5rem;
   }
 }
 
 @media (max-width: 480px) {
   .heroSection {
     padding: var(--space-8) 0 var(--section-spacing-y-mobile-sm);
-  }
-
-  .heroContainer {
-    gap: 2rem;
   }
 
   .heroHeading {
@@ -436,18 +477,12 @@
     font-size: 1rem;
   }
 
-  .trustPill {
-    padding: 1rem 1.25rem;
-    max-width: 100%;
+  .avatar {
+    width: 38px;
+    height: 38px;
+    font-size: .8rem;
   }
 
-  .trustLogos {
-    gap: .875rem;
-  }
-
-  .themedLottie {
-    max-width: 80vw;
-  }
 }
 
 @media (max-height: 620px) and (orientation: landscape) {

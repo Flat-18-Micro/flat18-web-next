@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef, useCallback } from 'react'
 import styles from '../styles/component-css/Testimonials.module.css'
 import { getSectionBackground, getSectionTextColor } from '@/hooks/scrollBackgroundUtils'
+import { getTwoLetterInitials } from '@/utils/initials'
 
 export default function Testimonials() {
   const testimonials = [
@@ -40,6 +41,27 @@ export default function Testimonials() {
       role: "Marketplace",
       rating: 5,
       color: "accent-pink"
+    },
+    {
+      quote: "Ed at Flat 18 helped design and launch our first website back in 2018.",
+      author: "BTCPay Server",
+      role: "Open-source payments",
+      rating: 5,
+      color: "primary"
+    },
+    {
+      quote: "Along with Bitcoin Design Community created and delivered a new brand and website design for WalletScrutiny.",
+      author: "WalletScrutiny",
+      role: "Security research",
+      rating: 5,
+      color: "secondary"
+    },
+    {
+      quote: "Professional, responsive, and easy to work with. We saw quick wins across the site.",
+      author: "PNC",
+      role: "Financial services",
+      rating: 5,
+      color: "accent-teal"
     }
   ]
 
@@ -423,7 +445,7 @@ export default function Testimonials() {
 
                     <div className={styles.testimonialAuthor}>
                       <div className={styles.authorInitial}>
-                        {testimonial.author[0]}
+                        {getTwoLetterInitials(testimonial.author)}
                       </div>
                       <div className={styles.authorDetails}>
                         <h4 className={styles.authorName}>{testimonial.author}</h4>

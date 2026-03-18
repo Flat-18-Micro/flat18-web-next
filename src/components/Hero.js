@@ -2,11 +2,12 @@
 
 import { useCallback, useEffect, useRef } from 'react'
 import Link from 'next/link'
-import ResponsiveImage from './ResponsiveImage'
+
 import styles from '@/styles/component-css/Hero.module.css'
 import { analytics } from '@/lib/analytics'
 import { getSectionBackground, getSectionTextColor } from '@/hooks/scrollBackgroundUtils'
 import LottiePlayer from '@/components/LottiePlayer'
+import { getTwoLetterInitials } from '@/utils/initials'
 
 const networkAnimation = () => import('@/animations/Network.json')
 const BASE_SPEED = 0.1
@@ -14,6 +15,8 @@ const SCROLL_SPEED = 1.2
 const SCROLL_BOOST_WINDOW = 220
 const MOUSE_SPEED = 2
 const MOUSE_DEADZONE = 4
+const SOCIAL_PROOF_LABELS = ['Co-founder', 'Founder', 'Solopreneur', 'Head of Product', 'Founder']
+const SOCIAL_PROOF_INITIALS = SOCIAL_PROOF_LABELS.map((label) => getTwoLetterInitials(label))
 
 export default function Hero() {
   const lottieWrapperRef = useRef(null)
@@ -192,8 +195,8 @@ export default function Hero() {
         {/* ── Copy column ── */}
         <div className={styles.heroContent}>
           <h1 className={styles.heroHeading}>
-            <span className={styles.heroHeadingThin}>Build what matters.</span>
-            {' '}Get momentum back.
+            <span className={styles.heroHeadingThin}>We build products that perform.</span>
+            {' '}Design and engineering, under one roof.
           </h1>
 
           <p className={styles.heroSubheading}>
@@ -219,49 +222,19 @@ export default function Hero() {
             </Link>
           </div>
 
-          {/* Trust strip */}
-          <div className={styles.trustStrip}>
-            <div className={styles.trustPill}>
-              <span className={styles.trustText}>Trusted by</span>
-              <div className={styles.trustLogos}>
-                <ResponsiveImage
-                  src="/images/portfolio-graphics/logos/btcpayserver.webp"
-                  alt="BTCPay Server"
-                  width={172}
-                  height={32}
-                  className={styles.trustLogo}
-                  sizes="172px"
-                  widths={[120, 240, 360, 600, 1000]}
-                />
-                <ResponsiveImage
-                  src="/images/portfolio-graphics/logos/wallet-scrutiny.webp"
-                  alt="Wallet Scrutiny"
-                  width={172}
-                  height={32}
-                  className={styles.trustLogo}
-                  sizes="172px"
-                  widths={[120, 240, 360, 600, 1000]}
-                />
-                <ResponsiveImage
-                  src="/images/portfolio-graphics/logos/dvote.webp"
-                  alt="DVote"
-                  width={72}
-                  height={132}
-                  className={`${styles.trustLogo} ${styles.trustLogoDvote}`}
-                  sizes="72px"
-                  widths={[120, 240, 360, 600, 1000]}
-                />
-                <ResponsiveImage
-                  src="/images/portfolio-graphics/logos/zettahash.webp"
-                  alt="Zettahash"
-                  width={172}
-                  height={32}
-                  className={`${styles.trustLogo} ${styles.trustLogoZetahash}`}
-                  sizes="172px"
-                  widths={[120, 240, 360, 600, 1000]}
-                />
-              </div>
+          {/* Social proof */}
+          <div className={styles.socialProof} aria-label="Social proof">
+            <div className={styles.avatarStack} aria-hidden="true">
+              {SOCIAL_PROOF_INITIALS.map((initials, index) => (
+                <span
+                  key={`${initials}-${index}`}
+                  className={`${styles.avatar} ${styles[`avatar${index + 1}`]}`}
+                >
+                  {initials}
+                </span>
+              ))}
             </div>
+            <p className={styles.socialProofText}>20+ Major Projects Delivered with 5-star reviews from our Clients!</p>
           </div>
         </div>
 
