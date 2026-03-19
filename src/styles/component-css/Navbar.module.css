@@ -18,6 +18,8 @@
 }
 
 .scrolled { padding: .625rem 0; }
+.scrolled nav .cta :global(.btn-primary) { border-radius: 100px; }
+.scrolled .container { padding-right: 1rem; }
 
 /* ─── Pill container ──────────────────────────────────────────────────────── */
 .container {
