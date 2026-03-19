@@ -9,6 +9,7 @@
   var maxAttempts = 80;
   var captureRetries = 0;
   var maxCaptureRetries = 4;
+  var navObserver = null;
 
   function getBody() {
     return document.body || null;
@@ -54,6 +55,18 @@
     return document.querySelector('.liquidGL-nav');
   }
 
+  function watchForNav() {
+    if (navObserver || !document.documentElement || !('MutationObserver' in window)) return;
+    navObserver = new MutationObserver(function () {
+      if (getNav()) {
+        navObserver.disconnect();
+        navObserver = null;
+        attemptInit();
+      }
+    });
+    navObserver.observe(document.documentElement, { childList: true, subtree: true });
+  }
+
   function onInstanceInit(instance) {
     if (instance && instance.el && instance.el.style) {
       instance.el.style.pointerEvents = 'auto';
@@ -90,6 +103,9 @@
           init: onInstanceInit
         }
       });
+      if (window.liquidGL && window.liquidGL.registerDynamic) {
+        window.liquidGL.registerDynamic(".liquidgl-dynamic");
+      }
     } catch (e) {
       didInit = false;
       return false;
@@ -141,13 +157,36 @@
     window.setTimeout(scheduleSnapshotRetry, 1400);
   }
 
-  function attemptInit() {
+  function attemptInit(force) {
     if (!domReady) return;
+    if (didInit) return;
+    if (force) {
+      attempts = 0;
+      captureRetries = 0;
+    }
     if (isReady() && init()) return;
+    if (!getNav()) {
+      watchForNav();
+    }
     if (attempts >= maxAttempts) return;
     attempts += 1;
     window.setTimeout(attemptInit, 100);
   }
+
+  function requestInit(force) {
+    if (didInit) return;
+    domReady = document.readyState !== 'loading';
+    addPrebuild();
+    attemptInit(force);
+  }
+
+  window.__liquidGLInit = function (options) {
+    requestInit(options && options.force);
+  };
+
+  window.addEventListener('liquidgl:retry', function () {
+    requestInit(true);
+  });
 
   function onDomReady() {
     domReady = true;

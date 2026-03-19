@@ -93,7 +93,32 @@ export default function Hero() {
 
     scrollStateRef.current.currentSpeed = BASE_SPEED
     setLottieSpeed(BASE_SPEED)
+
+    if (typeof window !== 'undefined' && window.liquidGL?.registerDynamic) {
+      const dynamicTarget = lottieWrapperRef.current.querySelector('.liquidgl-dynamic')
+      window.liquidGL.registerDynamic(dynamicTarget || lottieWrapperRef.current)
+    }
   }, [setLottieSpeed])
+
+  useEffect(() => {
+    if (typeof window === 'undefined') {
+      return
+    }
+
+    const handleLiquidInit = () => {
+      const target = lottieWrapperRef.current?.querySelector('.liquidgl-dynamic') || lottieWrapperRef.current
+      if (target && window.liquidGL?.registerDynamic) {
+        window.liquidGL.registerDynamic(target)
+      }
+    }
+
+    window.addEventListener('liquidgl:init', handleLiquidInit)
+    handleLiquidInit()
+
+    return () => {
+      window.removeEventListener('liquidgl:init', handleLiquidInit)
+    }
+  }, [])
 
   useEffect(() => {
     if (typeof window === 'undefined') {
@@ -239,14 +264,15 @@ export default function Hero() {
         </div>
 
         {/* ── Lottie column ── */}
-        <div className={styles.lottieCol} ref={lottieWrapperRef} aria-hidden="true">
+        <div className={`${styles.lottieCol} animation`} ref={lottieWrapperRef} aria-hidden="true">
           <LottiePlayer
             animationDataSrc={networkAnimation}
             autoplay
             loop={true}
             lottieRef={lottieRef}
             loadOnVisible={false}
-            playerClassName={styles.themedLottie}
+            playerClassName={`${styles.themedLottie} liquidgl-dynamic`}
+            data-liquid-dynamic="realtime"
             prefersReducedMotionFallback={null}
             onAnimationLoaded={applyThemeToLottie}
           />

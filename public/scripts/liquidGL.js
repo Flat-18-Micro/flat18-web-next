@@ -482,6 +482,23 @@
             scale: scale,
             logging: false,
             ignoreElements: ignoreElementsFunc,
+            onclone: (doc) => {
+              if (!doc) return;
+              const win = doc.defaultView || window;
+              const listNodes = doc.querySelectorAll("li, ul, ol");
+              listNodes.forEach((node) => {
+                if (!node || !node.style) return;
+                let computed;
+                try {
+                  computed = win.getComputedStyle ? win.getComputedStyle(node) : null;
+                } catch (e) {
+                  computed = null;
+                }
+                if (!computed || typeof computed.listStyleImage === "undefined") {
+                  node.style.listStyleImage = "none";
+                }
+              });
+            },
           });
 
           this._uploadTexture(snapCanvas);
@@ -1166,8 +1183,14 @@
         _rafId: null,
         _lastCaptureTs: 0,
         _heavyAnim: false,
+        _forceAnim: false,
       };
       this._dynMeta.set(el, meta);
+
+      if (el.getAttribute && el.getAttribute("data-liquid-dynamic") === "realtime") {
+        meta._forceAnim = true;
+        meta._heavyAnim = true;
+      }
 
       const setDirty = () => {
         const m = this._dynMeta.get(el);
@@ -1318,7 +1341,7 @@
 
       const stopRealtime = () => {
         const m = this._dynMeta.get(el);
-        if (!m || !m._animating) return;
+        if (!m || !m._animating || m._forceAnim) return;
         m._animating = false;
         if (m._rafId) {
           cancelAnimationFrame(m._rafId);
@@ -1352,6 +1375,9 @@
       }
 
       this._dynamicNodes.push({ el });
+      if (meta._forceAnim) {
+        startRealtime();
+      }
     }
 
     /* ----------------------------- */

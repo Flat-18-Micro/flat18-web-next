@@ -8,6 +8,32 @@ const SCRIPT_URLS = [
   '/scripts/liquidgl-init.js'
 ]
 
+const getScriptRegistry = () => {
+  if (typeof window === 'undefined') return null
+  if (!window.__liquidGLScriptPromises__) {
+    window.__liquidGLScriptPromises__ = {}
+  }
+  return window.__liquidGLScriptPromises__
+}
+
+const isScriptLoaded = (script) => (
+  script.dataset.liquidglLoaded === 'true' ||
+  script.readyState === 'complete'
+)
+
+const waitForScript = (script, src) => new Promise((resolve, reject) => {
+  const handleLoad = () => {
+    script.dataset.liquidglLoaded = 'true'
+    resolve()
+  }
+  const handleError = () => {
+    script.dataset.liquidglFailed = 'true'
+    reject(new Error(`Failed to load ${src}`))
+  }
+  script.addEventListener('load', handleLoad, { once: true })
+  script.addEventListener('error', handleError, { once: true })
+})
+
 const shouldLoadLiquidGL = () => {
   if (typeof window === 'undefined') return false
 
@@ -28,21 +54,34 @@ const shouldLoadLiquidGL = () => {
   return true
 }
 
-const injectScript = (src) => new Promise((resolve, reject) => {
-  if (document.querySelector(`script[data-liquidgl="${src}"]`)) {
-    resolve()
-    return
+const injectScript = (src) => {
+  if (typeof window === 'undefined') return Promise.resolve()
+
+  const registry = getScriptRegistry()
+  if (registry && registry[src]) return registry[src]
+
+  const existing = document.querySelector(`script[data-liquidgl="${src}"]`)
+  if (existing) {
+    if (isScriptLoaded(existing)) {
+      existing.dataset.liquidglLoaded = 'true'
+      return Promise.resolve()
+    }
+    const pending = waitForScript(existing, src)
+    if (registry) registry[src] = pending
+    return pending
   }
 
   const script = document.createElement('script')
   script.src = src
-  script.async = true
-  script.defer = true
+  script.async = false
   script.dataset.liquidgl = src
-  script.onload = () => resolve()
-  script.onerror = () => reject(new Error(`Failed to load ${src}`))
+
+  const pending = waitForScript(script, src)
+  if (registry) registry[src] = pending
+
   document.body.appendChild(script)
-})
+  return pending
+}
 
 export default function LiquidGLLoader() {
   useEffect(() => {
@@ -52,6 +91,11 @@ export default function LiquidGLLoader() {
       injectScript(SCRIPT_URLS[0])
         .then(() => injectScript(SCRIPT_URLS[1]))
         .then(() => injectScript(SCRIPT_URLS[2]))
+        .then(() => {
+          if (typeof window.__liquidGLInit === 'function') {
+            window.__liquidGLInit({ force: true })
+          }
+        })
         .catch(() => {})
     }
 

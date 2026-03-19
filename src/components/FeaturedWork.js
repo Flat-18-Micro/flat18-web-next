@@ -43,7 +43,7 @@ export default function FeaturedWork() {
         <div className={styles.featuredHeading}>
           <h2 className={styles.featuredTitle}>Featured results</h2>
           <p className={styles.featuredSubtitle}>
-            Real platforms with measurable outcomes, not portfolio fluff
+            Real platforms with measurable outcomes.
           </p>
         </div>
 

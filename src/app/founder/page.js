@@ -23,7 +23,7 @@ export default function FounderPage() {
             <div className={styles.heroCopy}>
               <h1 className={styles.title}>Ship a conversion-ready site or MVP in 2-12 weeks.</h1>
               <p className={styles.subtitle}>
-                Flat 18 is a senior-only design + engineering team. We cut fluff, ship weekly, and stay close to the founder.
+                Flat 18 is a senior design + engineering team. We simplify the development process, ship weekly, and work closely with founders and startups.
               </p>
               <div className={styles.ctaRow}>
                 <a className={styles.primaryCta} href="#founder-cta">Book a 20-min fit call</a>
