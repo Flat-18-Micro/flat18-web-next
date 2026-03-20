@@ -6,10 +6,10 @@
   var domReady = document.readyState !== 'loading';
   var fallbackTimer = null;
   var attempts = 0;
-  var maxAttempts = 80;
+  var maxAttempts = 10; // LiquidGLLoader guarantees all deps are loaded before calling __liquidGLInit
   var captureRetries = 0;
-  var maxCaptureRetries = 4;
-  var navObserver = null;
+  var maxCaptureRetries = 1; // One retry is sufficient; was 4 × 1400 ms = 5.6 s of html2canvas captures
+
 
   function getBody() {
     return document.body || null;
@@ -55,17 +55,10 @@
     return document.querySelector('.liquidGL-nav');
   }
 
-  function watchForNav() {
-    if (navObserver || !document.documentElement || !('MutationObserver' in window)) return;
-    navObserver = new MutationObserver(function () {
-      if (getNav()) {
-        navObserver.disconnect();
-        navObserver = null;
-        attemptInit();
-      }
-    });
-    navObserver.observe(document.documentElement, { childList: true, subtree: true });
-  }
+  // watchForNav removed: LiquidGLLoader loads this script only after user interaction,
+  // by which point React has long since rendered the Navbar into the DOM. A
+  // MutationObserver with subtree:true on documentElement would watch every DOM
+  // mutation across the entire page unnecessarily.
 
   function onInstanceInit(instance) {
     if (instance && instance.el && instance.el.style) {
@@ -82,13 +75,11 @@
 
     didInit = true;
 
-    var hasButtons = document.querySelector('.btn');
-
     try {
       window.liquidGL({
         snapshot: 'body',
         target: '.liquidGL-nav',
-        resolution: 1.5,
+        resolution: 1, // was 1.5 — lower value cuts html2canvas pixel count by 56%
         refraction: 0.01,
         bevelDepth: 0.08,
         bevelWidth: 0.15,
@@ -165,9 +156,6 @@
       captureRetries = 0;
     }
     if (isReady() && init()) return;
-    if (!getNav()) {
-      watchForNav();
-    }
     if (attempts >= maxAttempts) return;
     attempts += 1;
     window.setTimeout(attemptInit, 100);
@@ -188,22 +176,9 @@
     requestInit(true);
   });
 
-  function onDomReady() {
-    domReady = true;
-    addPrebuild();
-    attemptInit();
-  }
-
-  addPrebuild();
-
-  if (domReady) {
-    attemptInit();
-  } else {
-    document.addEventListener('DOMContentLoaded', onDomReady, { once: true });
-  }
-
-  window.addEventListener('load', function () {
-    attemptInit();
-    window.setTimeout(scheduleSnapshotRetry, 300);
-  }, { once: true });
+  // Self-boot removed: LiquidGLLoader.js owns initialization timing.
+  // It loads html2canvas → liquidGL.js → this script sequentially, then calls
+  // window.__liquidGLInit({ force: true }) explicitly. Auto-starting here would
+  // cause a redundant addPrebuild() body-class mutation and an unnecessary
+  // polling loop the moment this script is injected.
 })();
