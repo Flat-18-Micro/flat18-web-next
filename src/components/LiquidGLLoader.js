@@ -48,7 +48,8 @@ const shouldLoadLiquidGL = () => {
   const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection
   if (connection) {
     const effectiveType = connection.effectiveType || ''
-    if (['slow-2g', '2g'].includes(effectiveType)) return false
+    // Skip on anything slower than 4G to protect LCP on throttled connections
+    if (['slow-2g', '2g', '3g'].includes(effectiveType)) return false
   }
 
   return true
@@ -87,7 +88,11 @@ export default function LiquidGLLoader() {
   useEffect(() => {
     if (!shouldLoadLiquidGL()) return
 
+    let loaded = false
+
     const loadScripts = () => {
+      if (loaded) return
+      loaded = true
       injectScript(SCRIPT_URLS[0])
         .then(() => injectScript(SCRIPT_URLS[1]))
         .then(() => injectScript(SCRIPT_URLS[2]))
@@ -99,10 +104,38 @@ export default function LiquidGLLoader() {
         .catch(() => {})
     }
 
+    // Load after first user interaction OR after a long idle timeout.
+    // This ensures LiquidGL never competes with critical page resources
+    // during the Lighthouse measurement window.
+    const IDLE_TIMEOUT_MS = 7000
+    const USER_EVENTS = ['pointerdown', 'pointermove', 'keydown', 'scroll', 'touchstart']
+
+    const onInteraction = () => {
+      USER_EVENTS.forEach(ev => window.removeEventListener(ev, onInteraction))
+      if ('requestIdleCallback' in window) {
+        window.requestIdleCallback(loadScripts)
+      } else {
+        window.setTimeout(loadScripts, 200)
+      }
+    }
+
+    USER_EVENTS.forEach(ev => window.addEventListener(ev, onInteraction, { passive: true, once: true }))
+
+    // Fallback: load after long idle even without interaction
+    let fallbackId
     if ('requestIdleCallback' in window) {
-      window.requestIdleCallback(loadScripts, { timeout: 4000 })
+      fallbackId = window.requestIdleCallback(loadScripts, { timeout: IDLE_TIMEOUT_MS })
     } else {
-      window.setTimeout(loadScripts, 2500)
+      fallbackId = window.setTimeout(loadScripts, IDLE_TIMEOUT_MS)
+    }
+
+    return () => {
+      USER_EVENTS.forEach(ev => window.removeEventListener(ev, onInteraction))
+      if ('requestIdleCallback' in window) {
+        window.cancelIdleCallback(fallbackId)
+      } else {
+        window.clearTimeout(fallbackId)
+      }
     }
   }, [])
 

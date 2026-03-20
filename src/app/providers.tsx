@@ -114,13 +114,11 @@ export function ThemeProvider({ children }: ThemeProviderProps) {
     }
   }, [theme])
 
-  // Prevent hydration mismatch by not rendering until mounted
+  // Render children immediately - the blocking inline script in layout.js head
+  // already sets the correct theme class before React hydrates, so we never
+  // need to hide content to avoid a flash.
   if (!mounted) {
-    return (
-      <div className="theme-loading">
-        {children}
-      </div>
-    )
+    return <>{children}</>
   }
 
   const value: ThemeContextType = {

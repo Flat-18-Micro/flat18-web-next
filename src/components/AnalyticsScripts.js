@@ -6,13 +6,14 @@ const UMAMI_SRC = process.env.NEXT_PUBLIC_UMAMI_SRC || 'https://eu.umami.is/scri
 const UMAMI_WEBSITE_ID = process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID || '54c1aa36-ac18-426d-ba14-3d5827cfa465'
 const ACKEE_SERVER = process.env.NEXT_PUBLIC_ACKEE_SERVER
 const ACKEE_DOMAIN_ID = process.env.NEXT_PUBLIC_ACKEE_DOMAIN_ID
-const TWITTER_PIXEL_ID = process.env.NEXT_PUBLIC_TWITTER_PIXEL_ID || 'oopi3'
-const TWITTER_CONVERSION_ID = process.env.NEXT_PUBLIC_TWITTER_CONVERSION_ID || 'tw-oopi3-qh11e'
+const TWITTER_PIXEL_ID = process.env.NEXT_PUBLIC_TWITTER_PIXEL_ID
+const TWITTER_CONVERSION_ID = process.env.NEXT_PUBLIC_TWITTER_CONVERSION_ID
 const META_PIXEL_ID = process.env.NEXT_PUBLIC_META_PIXEL_ID
 
 export default function AnalyticsScripts() {
   const shouldLoadAckee = Boolean(ACKEE_SERVER && ACKEE_DOMAIN_ID)
   const shouldLoadMetaPixel = Boolean(META_PIXEL_ID)
+  const shouldLoadTwitterPixel = Boolean(TWITTER_PIXEL_ID)
 
   return (
     <>
@@ -37,30 +38,34 @@ export default function AnalyticsScripts() {
         />
       )}
 
-      {/* Twitter conversion tracking */}
-      <Script
-        id="twitter-pixel"
-        strategy="lazyOnload"
-        onError={(e) => console.error('Twitter pixel failed to load:', e)}
-      >
-        {`
-          !function(e,t,n,s,u,a){e.twq||(s=e.twq=function(){s.exe?s.exe.apply(s,arguments):s.queue.push(arguments);
-          },s.version='1.1',s.queue=[],u=t.createElement(n),u.async=!0,u.src='https://static.ads-twitter.com/uwt.js',
-          a=t.getElementsByTagName(n)[0],a.parentNode.insertBefore(u,a))}(window,document,'script');
-          twq('config','${TWITTER_PIXEL_ID}');
-        `}
-      </Script>
-
-      {/* Twitter conversion tracking event */}
-      <Script
-        id={`twitter-conversion-${TWITTER_CONVERSION_ID}`}
-        strategy="lazyOnload"
-        onError={(e) => console.error('Twitter conversion event failed:', e)}
-      >
-        {`
-          try { twq('event','${TWITTER_CONVERSION_ID}',{}); } catch (e) { console.error('twq event error', e); }
-        `}
-      </Script>
+      {/* Twitter conversion tracking — only loads when pixel ID is explicitly configured */}
+      {shouldLoadTwitterPixel && (
+        <>
+          <Script
+            id="twitter-pixel"
+            strategy="lazyOnload"
+            onError={(e) => console.error('Twitter pixel failed to load:', e)}
+          >
+            {`
+              !function(e,t,n,s,u,a){e.twq||(s=e.twq=function(){s.exe?s.exe.apply(s,arguments):s.queue.push(arguments);
+              },s.version='1.1',s.queue=[],u=t.createElement(n),u.async=!0,u.src='https://static.ads-twitter.com/uwt.js',
+              a=t.getElementsByTagName(n)[0],a.parentNode.insertBefore(u,a))}(window,document,'script');
+              twq('config','${TWITTER_PIXEL_ID}');
+            `}
+          </Script>
+          {TWITTER_CONVERSION_ID && (
+            <Script
+              id={`twitter-conversion-${TWITTER_CONVERSION_ID}`}
+              strategy="lazyOnload"
+              onError={(e) => console.error('Twitter conversion event failed:', e)}
+            >
+              {`
+                try { twq('event','${TWITTER_CONVERSION_ID}',{}); } catch (e) { console.error('twq event error', e); }
+              `}
+            </Script>
+          )}
+        </>
+      )}
 
       {/* Meta Pixel */}
       {shouldLoadMetaPixel && (

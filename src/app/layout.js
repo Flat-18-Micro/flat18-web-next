@@ -27,7 +27,7 @@ const playfairDisplay = Playfair_Display({
   preload: true,
   fallback: ['Georgia', 'Times New Roman', 'serif'],
   adjustFontFallback: true,
-  weight: ['400', '500', '600', '700'], // Only load needed weights
+  weight: ['400', '600', '700'], // Only load needed weights (500 removed - unused)
 })
 
 const ChatwootWidget = dynamic(() => import('@/components/ChatwootWidget'), { ssr: false })
@@ -46,6 +46,21 @@ export default function RootLayout({ children }) {
   return (
     <html lang={language} className={`${jetbrainsMono.variable} ${playfairDisplay.variable}`}>
       <head>
+        {/* ── Blocking theme script: sets dark/light class before first paint ── */}
+        {/* This prevents the flash and removes the need to hide content during mount */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var s=localStorage.getItem('theme');var t=(s==='light'||s==='dark')?s:(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.classList.add(t);document.body&&document.body.classList.add(t);}catch(e){}})();`
+          }}
+        />
+
+        {/* ── Critical resource hints ── */}
+        {/* Preload hero background image – discovered early, directly improves LCP */}
+        <link rel="preload" as="image" href="/images/backdrops/bg01-dark.webp" type="image/webp" fetchPriority="high" />
+        {/* Preload the two most-used Inter weights so text renders without FOUT */}
+        <link rel="preload" as="font" type="font/woff2" crossOrigin="anonymous" href="/fonts/inter-v20-latin/inter-v20-latin-regular.woff2" />
+        <link rel="preload" as="font" type="font/woff2" crossOrigin="anonymous" href="/fonts/inter-v20-latin/inter-v20-latin-500.woff2" />
+
         <link rel="preload" as="style" href="/bootstrap-icons/font/bootstrap-icons.css" />
         <link rel="stylesheet" href="/bootstrap-icons/font/bootstrap-icons.css" media="print" />
         <Script id="bootstrap-icons-css" strategy="afterInteractive">

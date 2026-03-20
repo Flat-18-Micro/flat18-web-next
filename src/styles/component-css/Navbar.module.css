@@ -1,7 +1,13 @@
-/* ─── Navbar ──────────────────────────────────────────────────────────────── */
 @keyframes fadeInDown {
-  from { opacity: 0; transform: translateX(-50%) translateY(-8px); }
-  to   { opacity: 1; transform: translateX(-50%) translateY(0); }
+  0% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-8px)
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0)
+  }
 }
 
 .navbar {
@@ -14,20 +20,27 @@
   transition: padding .3s ease;
   display: flex;
   align-items: center;
-  color: var(--current-section-text, var(--text-primary));
+  color: var(--current-section-text, var(--text-primary))
 }
 
-.scrolled { padding: .625rem 0; }
-.scrolled nav .cta :global(.btn-primary) { border-radius: 100px; }
-.scrolled .container { padding-right: 1rem; }
+.scrolled {
+  padding: .625rem 0
+}
 
-/* ─── Pill container ──────────────────────────────────────────────────────── */
+.scrolled nav .cta :global(.btn-primary) {
+  border-radius: 100px
+}
+
+.scrolled .container {
+  padding-right: 1rem
+}
+
 .container {
   display: flex;
   align-items: center;
   justify-content: space-between;
   position: relative;
-  transition: all .35s cubic-bezier(.4, 0, .2, 1);
+  transition: all .35s cubic-bezier(.4, 0, .2, 1) !important;
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
@@ -37,35 +50,42 @@
   border: 1px solid var(--border-soft);
   box-shadow: 0 8px 24px rgba(0, 0, 0, .1), 0 0 0 .5px rgba(255, 255, 255, .05);
   backdrop-filter: blur(20px) saturate(1.2);
-  -webkit-backdrop-filter: blur(20px) saturate(1.2);
+  -webkit-backdrop-filter: blur(20px) saturate(1.2)
 }
 
 header:not(.scrolled) .container {
   border-radius: 1.25rem;
-  max-width: calc(100vw - 4rem);
+  max-width: calc(100vw - 4rem)
 }
 
-header .container { transition: all .35s cubic-bezier(.4, 0, .2, 1); }
+header .container {
+  transition: all .35s cubic-bezier(.4, 0, .2, 1)
+}
 
 .glassLayer {
   position: absolute;
   inset: 0;
   border-radius: inherit;
-  pointer-events: none;
+  pointer-events: none
 }
 
-/* ─── Brand ───────────────────────────────────────────────────────────────── */
 .brand {
   display: flex;
   align-items: center;
   text-decoration: none;
   transition: opacity .25s ease;
   z-index: 1001;
-  gap: .625rem;
+  gap: .625rem
 }
 
-.brand:hover { opacity: .8; }
-.brand:focus, .brand:active { outline: 0; text-decoration: none; }
+.brand:hover {
+  opacity: .8
+}
+
+.brand:focus, .brand:active {
+  outline: 0;
+  text-decoration: none
+}
 
 .logo {
   width: 32px;
@@ -75,23 +95,26 @@ header .container { transition: all .35s cubic-bezier(.4, 0, .2, 1); }
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  flex-shrink: 0;
+  flex-shrink: 0
 }
 
-.logo img { width: 100%; height: 100%; border-radius: inherit; }
+.logo img {
+  width: 100%;
+  height: 100%;
+  border-radius: inherit
+}
 
 .brandName {
   font-size: 1.5rem;
   font-weight: 800;
   font-family: var(--font-heading);
-  color: var(--current-section-text, var(--fg));
+  color: var(--current-section-text, var(--fg))
 }
 
-/* ─── Desktop nav ─────────────────────────────────────────────────────────── */
 .desktopNav {
   display: flex;
   align-items: center;
-  gap: 1.5rem;
+  gap: 1.5rem
 }
 
 .menu {
@@ -100,7 +123,7 @@ header .container { transition: all .35s cubic-bezier(.4, 0, .2, 1); }
   list-style: none;
   margin: 0;
   padding: 0;
-  gap: .25rem;
+  gap: .25rem
 }
 
 .link {
@@ -113,83 +136,108 @@ header .container { transition: all .35s cubic-bezier(.4, 0, .2, 1); }
   padding: .4rem .75rem;
   border-radius: .5rem;
   transition: opacity .2s ease, background .2s ease;
-  background: transparent;
+  background: 0 0;
   border: 0;
   cursor: pointer;
   display: flex;
   align-items: center;
   gap: .4rem;
-  white-space: nowrap;
+  white-space: nowrap
 }
 
-.link:hover { opacity: 1; background: var(--surface-dim); }
-.link:focus { outline: 0; opacity: 1; background: var(--surface-dim); }
-.link:active, .link:focus { text-decoration: none; }
+.link:hover {
+  opacity: 1;
+  background: var(--surface-dim)
+}
 
-/* ─── CTA ─────────────────────────────────────────────────────────────────── */
-.cta { margin-left: .5rem; }
+.link:focus {
+  outline: 0;
+  opacity: 1;
+  background: var(--surface-dim)
+}
 
-/* ─── Theme button ────────────────────────────────────────────────────────── */
-.themeSwitcher { margin-left: .5rem; }
+.link:active, .link:focus {
+  text-decoration: none
+}
+
+.cta {
+  margin-left: .5rem
+}
+
+.themeSwitcher {
+  margin-left: .5rem
+}
 
 .themeButton {
   padding: .4rem .5rem;
   border-radius: .5rem;
-  background: transparent;
+  background: 0 0;
   border: 1px solid transparent;
   transition: all .2s ease;
   color: inherit;
-  cursor: pointer;
+  cursor: pointer
 }
 
 .themeButton:hover {
   background: var(--surface-dim);
-  border-color: var(--border-soft);
+  border-color: var(--border-soft)
 }
 
-/* ─── Mobile toggle ───────────────────────────────────────────────────────── */
 .menuToggle {
   display: none;
-  background: transparent;
+  background: 0 0;
   border: 0;
   cursor: pointer;
   padding: .5rem;
   z-index: 1001;
   border-radius: .5rem;
   transition: background .2s ease;
-  color: inherit;
+  color: inherit
 }
 
-.menuToggle:hover { background: var(--surface-dim); }
+.menuToggle:hover {
+  background: var(--surface-dim)
+}
 
-.hamburger,
-.hamburger::before,
-.hamburger::after {
+.hamburger, .hamburger::before, .hamburger::after {
   width: 20px;
   height: 1.5px;
   background-color: currentColor;
   transition: all .3s ease;
-  display: block;
+  display: block
 }
 
 .hamburger {
-  position: relative;
+  position: relative
 }
 
-.hamburger::before,
+.hamburger::before, .hamburger::after {
+  content: "";
+  position: absolute
+}
+
+.hamburger::before {
+  top: -6px
+}
+
 .hamburger::after {
-  content: '';
-  position: absolute;
+  bottom: -6px
 }
 
-.hamburger::before { top: -6px; }
-.hamburger::after  { bottom: -6px; }
+.hamburgerOpen {
+  background-color: transparent
+}
 
-.hamburgerOpen { background-color: transparent; }
-.hamburgerOpen::before { transform: rotate(45deg);  top: 0; }
-.hamburgerOpen::after  { transform: rotate(-45deg); bottom: 0; }
+.hamburgerOpen::before {
+  transform: rotate(45deg);
+  top: 0
+}
 
-/* ─── Mobile menu ─────────────────────────────────────────────────────────── */
+.hamburgerOpen::after {
+  transform: rotate(-45deg);
+  bottom: 0
+}
+
 .mobileMenu {
   position: fixed;
   top: 0;
@@ -205,26 +253,30 @@ header .container { transition: all .35s cubic-bezier(.4, 0, .2, 1); }
   z-index: 1000;
   overflow-y: auto;
   overflow-x: hidden;
-  will-change: transform;
+  will-change: transform
 }
 
-.mobileMenuOpen { transform: translateX(0); }
+.mobileMenuOpen {
+  transform: translateX(0)
+}
 
 .mobileMenuContent {
   padding: 5.5rem 1.5rem 2rem;
   height: 100%;
   display: flex;
-  flex-direction: column;
+  flex-direction: column
 }
 
 .mobileMenuList {
   list-style: none;
   margin: 0;
   padding: 0;
-  flex: 1;
+  flex: 1
 }
 
-.mobileMenuList li { margin-bottom: .25rem; }
+.mobileMenuList li {
+  margin-bottom: .25rem
+}
 
 .mobileLink {
   display: flex;
@@ -233,22 +285,24 @@ header .container { transition: all .35s cubic-bezier(.4, 0, .2, 1); }
   text-decoration: none;
   border-radius: .75rem;
   transition: background .2s ease;
-  color: var(--fg);
+  color: var(--fg)
 }
 
-.mobileLink:hover { background: var(--surface-dim); }
+.mobileLink:hover {
+  background: var(--surface-dim)
+}
 
 .mobileLinkLabel {
   font-size: 1rem;
   font-weight: 600;
   color: inherit;
   margin-bottom: .2rem;
-  font-family: var(--font-heading);
+  font-family: var(--font-heading)
 }
 
 .mobileLinkDescription {
   font-size: .8rem;
-  color: var(--text-tertiary);
+  color: var(--text-tertiary)
 }
 
 .mobileCTAGroup {
@@ -257,7 +311,7 @@ header .container { transition: all .35s cubic-bezier(.4, 0, .2, 1); }
   border-top: 1px solid var(--border-soft);
   display: flex;
   flex-direction: column;
-  gap: .75rem;
+  gap: .75rem
 }
 
 .emailLink {
@@ -266,12 +320,13 @@ header .container { transition: all .35s cubic-bezier(.4, 0, .2, 1); }
   color: var(--text-secondary);
   text-decoration: none;
   font-size: .85rem;
-  transition: color .2s ease;
+  transition: color .2s ease
 }
 
-.emailLink:hover { color: var(--secondary); }
+.emailLink:hover {
+  color: var(--secondary)
+}
 
-/* ─── AI badge ────────────────────────────────────────────────────────────── */
 .aiBadge {
   position: absolute;
   left: 50%;
@@ -283,31 +338,52 @@ header .container { transition: all .35s cubic-bezier(.4, 0, .2, 1); }
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
   font-size: .75rem;
-  white-space: nowrap;
+  white-space: nowrap
 }
 
-/* ─── Responsive ──────────────────────────────────────────────────────────── */
-@media (max-width: 1023px) {
-  .menuToggle { display: flex; align-items: center; justify-content: center; }
-  .aiBadge    { display: none; }
+@media (max-width:1023px) {
+  .menuToggle {
+    display: flex;
+    align-items: center;
+    justify-content: center
+  }
+
+  .aiBadge {
+    display: none
+  }
 }
 
-@media (max-width: 768px) {
+@media (max-width:768px) {
   header:not(.scrolled) .container {
     border-radius: 0;
     max-width: 100vw;
-    margin-top: calc(-1 * var(--space-4) - 1rem);
+    margin-top: calc(-1*var(--space-4) - 1rem)
   }
 
-  header.scrolled .container { max-width: calc(100vw - 1rem); }
+  header.scrolled .container {
+    max-width: calc(100vw - 1rem)
+  }
 
-  .navbar  { padding: .75rem 0; }
-  .scrolled { padding: .5rem 0; }
-  .brandName { font-size: 1.35rem; }
-  .mobileMenu { width: 100vw; border-left: 0; }
+  .navbar {
+    padding: .75rem 0
+  }
+
+  .scrolled {
+    padding: .5rem 0
+  }
+
+  .brandName {
+    font-size: 1.35rem
+  }
+
+  .mobileMenu {
+    width: 100vw;
+    border-left: 0
+  }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .navbar, .container, .mobileMenu,
-  .hamburger, .hamburger::before, .hamburger::after { transition: none; }
+@media (prefers-reduced-motion:reduce) {
+  .navbar, .container, .mobileMenu, .hamburger, .hamburger::before, .hamburger::after {
+    transition: none
+  }
 }

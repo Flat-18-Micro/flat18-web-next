@@ -270,7 +270,8 @@ export default function Hero() {
             autoplay
             loop={true}
             lottieRef={lottieRef}
-            loadOnVisible={false}
+            loadOnVisible={true}
+            intersectionOptions={{ root: null, rootMargin: '0px', threshold: 0 }}
             playerClassName={`${styles.themedLottie} liquidgl-dynamic`}
             data-liquid-dynamic="realtime"
             prefersReducedMotionFallback={null}

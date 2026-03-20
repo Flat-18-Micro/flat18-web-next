@@ -103,9 +103,9 @@
           init: onInstanceInit
         }
       });
-      if (window.liquidGL && window.liquidGL.registerDynamic) {
-        window.liquidGL.registerDynamic(".liquidgl-dynamic");
-      }
+      // if (window.liquidGL && window.liquidGL.registerDynamic) {
+      //   window.liquidGL.registerDynamic(".liquidgl-dynamic");
+      // }
     } catch (e) {
       didInit = false;
       return false;
