@@ -14,7 +14,7 @@ const jetbrainsMono = JetBrains_Mono({
   subsets: ['latin'],
   display: 'swap',
   variable: '--font-jetbrains-mono',
-  preload: true,
+  preload: false, // Non-critical: only used for code elements
   fallback: ['monospace'],
   adjustFontFallback: true,
   weight: ['400', '500'], // Only load needed weights
@@ -24,7 +24,7 @@ const playfairDisplay = Playfair_Display({
   subsets: ['latin'],
   display: 'swap',
   variable: '--font-playfair-display',
-  preload: true,
+  preload: false, // Non-critical: --font-heading uses Inter; Playfair is a fallback variable
   fallback: ['Georgia', 'Times New Roman', 'serif'],
   adjustFontFallback: true,
   weight: ['400', '600', '700'], // Only load needed weights (500 removed - unused)
@@ -33,7 +33,7 @@ const playfairDisplay = Playfair_Display({
 const ChatwootWidget = dynamic(() => import('@/components/ChatwootWidget'), { ssr: false })
 const ServiceWorkerRegistration = dynamic(() => import('@/components/ServiceWorkerRegistration'), { ssr: false })
 const AnalyticsScripts = dynamic(() => import('@/components/AnalyticsScripts'), { ssr: false })
-// const LiquidGLLoader = dynamic(() => import('@/components/LiquidGLLoader'), { ssr: false })
+const LiquidGLLoader = dynamic(() => import('@/components/LiquidGLLoader'), { ssr: false })
 
 export const metadata = defaultMetadata
 
@@ -61,7 +61,7 @@ export default function RootLayout({ children }) {
         <link rel="preload" as="font" type="font/woff2" crossOrigin="anonymous" href="/fonts/inter-v20-latin/inter-v20-latin-regular.woff2" />
         <link rel="preload" as="font" type="font/woff2" crossOrigin="anonymous" href="/fonts/inter-v20-latin/inter-v20-latin-500.woff2" />
 
-        <link rel="preload" as="style" href="/bootstrap-icons/font/bootstrap-icons.css" />
+        {/* Bootstrap Icons: defer with media="print" trick to avoid render blocking */}
         <link rel="stylesheet" href="/bootstrap-icons/font/bootstrap-icons.css" media="print" />
         <Script id="bootstrap-icons-css" strategy="afterInteractive">
           {`
@@ -103,7 +103,7 @@ export default function RootLayout({ children }) {
           <ServiceWorkerRegistration />
           <AnalyticsScripts />
         </ThemeProvider>
-        {/* <LiquidGLLoader /> */}
+        <LiquidGLLoader />
       </body>
     </html>
   )
