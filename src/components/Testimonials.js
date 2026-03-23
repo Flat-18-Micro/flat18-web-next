@@ -50,7 +50,7 @@ export default function Testimonials() {
       color: "primary"
     },
     {
-      quote: "Along with Bitcoin Design Community created and delivered a new brand and website design for WalletScrutiny.",
+      quote: "Along with the Bitcoin Design Community, we created and delivered a new brand and website design for WalletScrutiny.",
       author: "WalletScrutiny",
       role: "Security research",
       rating: 5,

@@ -72,7 +72,7 @@ export default function NatalChartsCaseStudyPage() {
         <div className={styles.container}>
           <div className={styles.caseStudyHeader}>
             <div className={styles.caseStudyHeading}>
-              <span className={styles.caseStudyTag}>Data visualization</span>
+              <span className={styles.caseStudyTag}>Data visualisation</span>
               <div className={styles.caseStudyTitleRow}>
                 <h2 className={styles.caseStudyTitle}>Natal Charts</h2>
               </div>
@@ -120,7 +120,7 @@ export default function NatalChartsCaseStudyPage() {
                 <div className={styles.infoCard}>
                   <h3>Solution</h3>
                   <p>
-                    Normalize inputs, surface the signal first, and reveal deeper detail progressively so the UI
+                    Normalise inputs, surface the signal first, and reveal deeper detail progressively so the UI
                     stays calm while retaining full context.
                   </p>
                 </div>
@@ -158,7 +158,7 @@ export default function NatalChartsCaseStudyPage() {
                   <span className={styles.chip}>Health + biometrics</span>
                   <span className={styles.chip}>Financial risk</span>
                   <span className={styles.chip}>Scientific reporting</span>
-                  <span className={styles.chip}>Behavioral assessments</span>
+                  <span className={styles.chip}>Behavioural assessments</span>
                 </div>
               </div>
             </div>

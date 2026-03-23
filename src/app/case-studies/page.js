@@ -23,7 +23,7 @@ const caseStudies = [
   },
   {
     title: 'Natal Charts',
-    tag: 'Data visualization',
+    tag: 'Data visualisation',
     description: 'Complex ephemeris data distilled into a calm, explorable chart UI.',
     image: '/images/case-studies/natal-charts/chart-overview.png',
     href: '/case-studies/natal-charts',
@@ -31,8 +31,8 @@ const caseStudies = [
   },
   {
     title: 'Archimedes Finance',
-    tag: 'Tokenized investment platform',
-    description: 'Investor platform for tokenized assets, compliance workflows, and reporting.',
+    tag: 'Tokenised investment platform',
+    description: 'Investor platform for tokenised assets, compliance workflows, and reporting.',
     image: '/images/case-studies/archimedes-finance/dashboard-investor.svg',
     href: '/case-studies/archimedes-finance',
     meta: ['Live', 'Fintech']

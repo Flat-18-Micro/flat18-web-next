@@ -144,7 +144,7 @@ export default function Portfolio() {
     },
     {
       title: 'Archimedes Finance',
-      description: 'Secure Asset Tokenization Platform for institutional investors',
+      description: 'Secure asset tokenisation platform for institutional investors',
       image: '/images/portfolio-graphics/archimedesfinance-mock.webp',
       projectLogo: '/images/portfolio-graphics/logos/archimedes-finance.webp',
       link: 'https://flat18.co.uk/case-studies/archimedes-finance',
@@ -216,7 +216,7 @@ export default function Portfolio() {
           <span className="label-uppercase">Featured Work</span>
           <h2 className={styles.sectionTitle}>Recent projects</h2>
           <p className={styles.sectionDescription}>
-            A selection of our latest work across fintech, security, and digital platforms
+            A selection of our latest work across fintech, security, and digital platforms.
           </p>
         </div>
 

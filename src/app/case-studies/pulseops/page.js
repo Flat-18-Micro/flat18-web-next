@@ -12,8 +12,8 @@ export default function PulseOpsCaseStudyPage() {
   const mediaItems = [
     {
       src: '/images/case-studies/pulseops/overview.png',
-      alt: 'PulseOps command center overview dashboard',
-      caption: 'Command center overview',
+      alt: 'PulseOps command centre overview dashboard',
+      caption: 'Command centre overview',
       sizes: '(max-width: 768px) 100vw, (max-width: 1200px) 55vw, 520px',
       isPrimary: true,
       priority: true
@@ -90,7 +90,7 @@ export default function PulseOpsCaseStudyPage() {
                 <h2 className={styles.caseStudyTitle}>PulseOps</h2>
               </div>
               <p className={styles.caseStudySubtitle}>
-                A unified command center for inventory, telemetry, topology, and device actions.
+                A unified command centre for inventory, telemetry, topology, and device actions.
               </p>
             </div>
             <div className={styles.caseStudyActions}>
@@ -118,7 +118,7 @@ export default function PulseOpsCaseStudyPage() {
               </div>
 
               <p className={styles.caseStudyIntro}>
-                PulseOps delivers a unified command center for inventory, telemetry, topology,
+                PulseOps delivers a unified command centre for inventory, telemetry, topology,
                 and device actions—enterprise-grade visibility without enterprise overhead.
               </p>
 

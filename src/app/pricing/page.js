@@ -33,7 +33,7 @@ export default function PricingPage() {
     },
     {
       question: "Can I pause my subscription?",
-      answer: "Yes, you can pause your subscription with advance notice. We understand that project needs can fluctuate. Please note that pausing may affect your place in our development queue when you resume, but we'll do our best to minimize any disruption to your project timeline."
+      answer: "Yes, you can pause your subscription with advance notice. We understand that project needs can fluctuate. Please note that pausing may affect your place in our development queue when you resume, but we'll do our best to minimise any disruption to your project timeline."
     },
     {
       question: "What payment methods do you accept?",
@@ -41,7 +41,7 @@ export default function PricingPage() {
     },
     {
       question: "Is there a minimum commitment period?",
-      answer: "We don't enforce a minimum term. Most teams stay subscribed for 3-6 months to maximize momentum, but you can pause or cancel anytime. If a one-off engagement fits better, we can switch you over to a bespoke fixed-scope quote."
+      answer: "We don't enforce a minimum term. Most teams stay subscribed for 3-6 months to maximise momentum, but you can pause or cancel at any time. If a one-off engagement fits better, we can switch you over to a bespoke fixed-scope quote."
     }
   ]
 
@@ -139,8 +139,8 @@ export default function PricingPage() {
                 <div className={styles.detailIcon}>
                   <i className="bi bi-search"></i>
                 </div>
-                <h3 className={styles.detailTitle}>SEO Optimization</h3>
-                <p className={styles.detailText}>We implement best practices for search engine optimization to help your site rank higher in search results.</p>
+                <h3 className={styles.detailTitle}>SEO Optimisation</h3>
+                <p className={styles.detailText}>We implement best practices for search engine optimisation to help your site rank higher in search results.</p>
               </div>
             </div>
           </div>

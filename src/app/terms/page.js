@@ -46,7 +46,7 @@ export default function TermsPage() {
                   </div>
                   <div className={styles.textContent}>
                     {visibleVersions['hours'] ? (
-                      <>We're here for you Monday to Friday, 12pm–8pm UTC—though we work flexibly and sometimes outside those hours too. Message us anytime; we'll reply as soon as we can!</>
+                      <>We're here for you Monday to Friday, 12pm–8pm UTC—though we work flexibly and sometimes outside those hours too. Message us at any time; we'll reply as soon as we can!</>
                     ) : (
                       <>Our standard business hours are 12:00–20:00 UTC (or GMT), Monday to Friday, though our team may operate flexibly across time zones. Communications received outside these hours will be addressed promptly during our next available window.</>
                     )}
@@ -63,7 +63,7 @@ export default function TermsPage() {
                     {visibleVersions['contact'] ? (
                       <>Got a project or question? Reach out on Telegram (@f18micro), our live-chat at <a href="https://flat18.co.uk/" target="_blank" rel="noopener noreferrer">https://flat18.co.uk</a>, or email <a href="mailto:hello@flat18.co.uk">hello@flat18.co.uk</a>. We'll help you see if Flat 18 is right for you and set up your project space if you join us!</>
                     ) : (
-                      <>For project inquiries, contact us via Telegram (@f18micro), website live-chat (<a href="https://flat18.co.uk/" target="_blank" rel="noopener noreferrer">https://flat18.co.uk</a>), or email (<a href="mailto:hello@flat18.co.uk">hello@flat18.co.uk</a>). We will discuss your project scope, requirements, and preferences. Upon agreement, we will create an account for you and manage your project through a suitable project management tool.</>
+                      <>For project enquiries, contact us via Telegram (@f18micro), website live-chat (<a href="https://flat18.co.uk/" target="_blank" rel="noopener noreferrer">https://flat18.co.uk</a>), or email (<a href="mailto:hello@flat18.co.uk">hello@flat18.co.uk</a>). We will discuss your project scope, requirements, and preferences. Upon agreement, we will create an account for you and manage your project through a suitable project management tool.</>
                     )}
                   </div>
                 </li>
@@ -213,7 +213,7 @@ export default function TermsPage() {
                     {visibleVersions['permissions'] ? (
                       <>Please make sure you have permission to use everything you send us—like copy, images, logos, code, or trademarks. If someone claims you didn’t have the rights, you agree to cover us and keep us out of any legal trouble.</>
                     ) : (
-                      <>You are responsible for ensuring that all materials provided (e.g., text, images, logos, code, trademarks) are properly licensed or owned. You agree to indemnify and hold us harmless from any claims arising from unauthorized use.</>
+                      <>You are responsible for ensuring that all materials provided (e.g., text, images, logos, code, trademarks) are properly licensed or owned. You agree to indemnify and hold us harmless from any claims arising from unauthorised use.</>
                     )}
                   </div>
                 </li>
@@ -228,7 +228,7 @@ export default function TermsPage() {
                     {visibleVersions['licensing'] ? (
                       <>Once you’ve paid in full, you get a licence to use the product, software, and contents for as long as your project runs. If we host something for you, it might have its own licence terms.</>
                     ) : (
-                      <>Upon full payment, you are granted a license to use the delivered product, software, and content for the duration of your project. Hosted services may be subject to separate licensing terms.</>
+                      <>Upon full payment, you are granted a licence to use the delivered product, software, and content for the duration of your project. Hosted services may be subject to separate licensing terms.</>
                     )}
                   </div>
                 </li>
@@ -243,7 +243,7 @@ export default function TermsPage() {
                     {visibleVersions['search'] ? (
                       <>We’ll do basic SEO best practices, but we can’t promise you’ll hit a certain spot in search results.</>
                     ) : (
-                      <>Basic search engine optimization techniques will be applied, but specific search ranking outcomes cannot be guaranteed.</>
+                      <>Basic search engine optimisation techniques will be applied, but specific search ranking outcomes cannot be guaranteed.</>
                     )}
                   </div>
                 </li>
@@ -333,7 +333,7 @@ export default function TermsPage() {
                     {visibleVersions['backups'] ? (
                       <>Please keep your own backups of your data. We’re not responsible for restoring lost data, websites, or software unless we messed up. We use third-party backup tools like Webflow and Figma.</>
                     ) : (
-                      <>You are responsible for maintaining your own data backups. We are not liable for restoration of lost data, websites, or software except in cases of our direct fault. Third-party backup solutions (e.g., Webflow, Figma) may be utilized.</>
+                      <>You are responsible for maintaining your own data backups. We are not liable for restoration of lost data, websites, or software except in cases of our direct fault. Third-party backup solutions (e.g., Webflow, Figma) may be utilised.</>
                     )}
                   </div>
                 </li>

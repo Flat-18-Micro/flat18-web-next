@@ -88,7 +88,7 @@ export default function FounderPage() {
                 <li>Need a 6-month procurement cycle or multiple approvals</li>
                 <li>Want large teams and lots of meetings</li>
                 <li>Require a deck before we can talk about scope</li>
-                <li>Are optimizing for the cheapest quote</li>
+                <li>Are optimising for the cheapest quote</li>
               </ul>
             </div>
           </div>

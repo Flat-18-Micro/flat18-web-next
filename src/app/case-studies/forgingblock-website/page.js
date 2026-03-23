@@ -83,7 +83,7 @@ export default function ForgingBlockWebsiteCaseStudyPage() {
                 <h2 className={styles.caseStudyTitle}>ForgingBlock Website</h2>
               </div>
               <p className={styles.caseStudySubtitle}>
-                Rebuilt around a clearer narrative, tighter hierarchy, and centralized SEO metadata.
+                Rebuilt around a clearer narrative, tighter hierarchy, and centralised SEO metadata.
               </p>
             </div>
             <div className={styles.caseStudyActions}>
@@ -104,7 +104,7 @@ export default function ForgingBlockWebsiteCaseStudyPage() {
 
               <p className={styles.caseStudyIntro}>
                 The legacy site delivered broad coverage but buried the value proposition and trust signals.
-                The redesign reorganizes the experience into a benefit-first story with consistent modules,
+                The redesign reorganises the experience into a benefit-first story with consistent modules,
                 clearer hierarchy, and a maintainable content architecture.
               </p>
 
@@ -126,7 +126,7 @@ export default function ForgingBlockWebsiteCaseStudyPage() {
                 <div className={styles.infoCard}>
                   <h3>Implementation</h3>
                   <p>
-                    Centralized metadata, content-driven page configs, and shared design tokens
+                    Centralised metadata, content-driven page configs, and shared design tokens
                     for consistent sections across the site.
                   </p>
                 </div>
@@ -146,7 +146,7 @@ export default function ForgingBlockWebsiteCaseStudyPage() {
                   <li>Earlier trust signals and compliance proof</li>
                   <li>Structured modules for scannable storytelling</li>
                   <li>Mobile-first layout simplification</li>
-                  <li>Centralized SEO metadata and structured content</li>
+                  <li>Centralised SEO metadata and structured content</li>
                 </ul>
               </div>
 

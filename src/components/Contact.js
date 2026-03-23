@@ -141,16 +141,16 @@ export default function Contact() {
           {isSubmitted ? (
             <div className="text-center py-8">
               <div className="text-5xl mb-4">🎉</div>
-              <h4 className="text-2xl font-bold mb-2">Thank You!</h4>
+              <h4 className="text-2xl font-bold mb-2">Thank you!</h4>
               <p className="text-tertiary">
-                We've received your inquiry and will contact you shortly.
+                We've received your enquiry and will contact you shortly.
               </p>
             </div>
           ) : (
             <form className={styles.form} onSubmit={handleSubmit}>
               <div className={styles.formGrid}>
                 <div className={styles.formGroup}>
-                  <label htmlFor="name" className={styles.label}>Your Name</label>
+                  <label htmlFor="name" className={styles.label}>Your name</label>
                   <input
                     type="text"
                     id="name"
@@ -164,7 +164,7 @@ export default function Contact() {
                 </div>
 
                 <div className={styles.formGroup}>
-                  <label htmlFor="email" className={styles.label}>Email Address</label>
+                  <label htmlFor="email" className={styles.label}>Email address</label>
                   <input
                     type="email"
                     id="email"
@@ -178,7 +178,7 @@ export default function Contact() {
                 </div>
 
                 <div className={styles.formGroup}>
-                  <label htmlFor="projectType" className={styles.label}>Project Type</label>
+                  <label htmlFor="projectType" className={styles.label}>Project type</label>
                   <select
                     id="projectType"
                     name="projectType"
@@ -195,7 +195,7 @@ export default function Contact() {
                 </div>
 
                 <div className={`${styles.formGroup} ${styles.fullWidth}`}>
-                  <label htmlFor="message" className={styles.label}>Project Details</label>
+                  <label htmlFor="message" className={styles.label}>Project details</label>
                   <textarea
                     id="message"
                     name="message"

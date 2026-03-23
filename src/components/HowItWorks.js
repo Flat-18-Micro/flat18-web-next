@@ -8,7 +8,7 @@ export default function HowItWorks() {
       number: '01',
       title: 'Align',
       description: 'We lock goals, users, and success metrics before we design a pixel.',
-      details: '45-min discovery, scope, timeline, success criteria'
+      details: '45-minute discovery, scope, timeline, success criteria'
     },
     {
       number: '02',
@@ -19,7 +19,7 @@ export default function HowItWorks() {
     {
       number: '03',
       title: 'Build',
-      description: 'Senior engineers build, test, and optimize the product.',
+      description: 'Senior engineers build, test, and optimise the product.',
       details: 'Frontend + backend, QA, performance passes'
     },
     {

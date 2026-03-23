@@ -21,8 +21,8 @@ export default function ArchimedesFinanceCaseStudyPage() {
     },
     {
       src: '/images/case-studies/archimedes-finance/asset-tokenization.svg',
-      alt: 'Asset tokenization workflow',
-      caption: 'Asset tokenization',
+      alt: 'Asset tokenisation workflow',
+      caption: 'Asset tokenisation',
       sizes: '(max-width: 768px) 100vw, 260px'
     },
     {
@@ -55,7 +55,7 @@ export default function ArchimedesFinanceCaseStudyPage() {
               Archimedes Finance
             </h1>
             <p className={styles.heroSubtitle}>
-              Investor platform for tokenized assets, compliance workflows, and distribution reporting.
+              Investor platform for tokenised assets, compliance workflows, and distribution reporting.
             </p>
             <div className={styles.heroStats}>
               <div className={styles.statCard}>
@@ -63,7 +63,7 @@ export default function ArchimedesFinanceCaseStudyPage() {
                 <span className={styles.statLabel}>Stack</span>
               </div>
               <div className={styles.statCard}>
-                <span className={styles.statValue}>Tokenized assets</span>
+                <span className={styles.statValue}>Tokenised assets</span>
                 <span className={styles.statLabel}>Category</span>
               </div>
               <div className={styles.statCard}>
@@ -79,7 +79,7 @@ export default function ArchimedesFinanceCaseStudyPage() {
         <div className={styles.container}>
           <div className={styles.caseStudyHeader}>
             <div className={styles.caseStudyHeading}>
-              <span className={styles.caseStudyTag}>Tokenized investment platform</span>
+              <span className={styles.caseStudyTag}>Tokenised investment platform</span>
               <div className={styles.caseStudyTitleRow}>
                 <ResponsiveImage
                   src="/images/portfolio-graphics/logos/archimedes-finance.webp"
@@ -93,7 +93,7 @@ export default function ArchimedesFinanceCaseStudyPage() {
                 <h2 className={styles.caseStudyTitle}>Archimedes Finance</h2>
               </div>
               <p className={styles.caseStudySubtitle}>
-                Investor app platform for tokenized assets, compliance workflows, and distribution reporting.
+                Investor app platform for tokenised assets, compliance workflows, and distribution reporting.
               </p>
             </div>
             <div className={styles.caseStudyActions}>
@@ -116,12 +116,12 @@ export default function ArchimedesFinanceCaseStudyPage() {
               <div className={styles.metaRow}>
                 <span className={styles.statusPill}>Live</span>
                 <span className={styles.metaItem}>Stack: Vue 3 + Express</span>
-                <span className={styles.metaItem}>Category: Tokenized assets</span>
+                <span className={styles.metaItem}>Category: Tokenised assets</span>
                 <span className={styles.metaItem}>Focus: KYC + audit trails</span>
               </div>
 
               <p className={styles.caseStudyIntro}>
-                Archimedes Finance unifies traditional advisory workflows with digital asset tokenization,
+                Archimedes Finance unifies traditional advisory workflows with digital asset tokenisation,
                 giving managers and clients a single, auditable workspace for onboarding, approvals, and reporting.
               </p>
 
@@ -136,7 +136,7 @@ export default function ArchimedesFinanceCaseStudyPage() {
                 <div className={styles.infoCard}>
                   <h3>Solution</h3>
                   <p>
-                    A role-based platform that pairs onboarding, tokenization workflows, and profit-sharing
+                    A role-based platform that pairs onboarding, tokenisation workflows, and profit-sharing
                     dashboards in one secure interface.
                   </p>
                 </div>
@@ -160,7 +160,7 @@ export default function ArchimedesFinanceCaseStudyPage() {
                 <h4>Key capabilities</h4>
                 <ul className={styles.checkList}>
                   <li>KYC verification with live capture, OCR, and manual review gates</li>
-                  <li>Tokenization workflows with approval and signature trails</li>
+                  <li>Tokenisation workflows with approval and signature trails</li>
                   <li>Profit-sharing dashboards and distribution tracking</li>
                   <li>In-app messaging, notifications, and audit logs</li>
                   <li>Multi-role routing for managers, clients, and admins</li>

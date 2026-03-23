@@ -1,4 +1,4 @@
-// SEO helper for centralizing metadata and JSON-LD
+// SEO helper for centralising metadata and JSON-LD
 import { Metadata } from 'next'
 
 // Site configuration
@@ -19,7 +19,7 @@ export const siteConfig = {
     'web development',
     'MVP development',
     'startup websites',
-    'conversion optimization',
+    'conversion optimisation',
     'Next.js agency',
     'React development',
     'design and engineering',
@@ -190,7 +190,7 @@ export function generateOrganizationJsonLd() {
       'UX Design',
       'Web Development',
       'MVP Development',
-      'Conversion Optimization',
+      'Conversion Optimisation',
       'Fintech UX',
       'Web Performance',
     ],

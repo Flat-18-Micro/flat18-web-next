@@ -18,7 +18,7 @@ const SUBSCRIPTION_HIGHLIGHTS = [
   'One active request at a time (unlimited queue)',
   'Unlimited revisions inside scope',
   'Typical turnaround: 48 hours for small tasks',
-  'Cancel or pause anytime',
+  'Cancel or pause at any time',
   'Direct Slack/Discord access',
   'Senior design + engineering in one squad'
 ]
@@ -256,7 +256,7 @@ export default function Pricing() {
                 </div>
               )}
 
-              <p className={styles.planSupportText}>One subscription covers everything. Queue requests anytime, pause when you're done.</p>
+              <p className={styles.planSupportText}>One subscription covers everything. Queue requests at any time, pause when you're done.</p>
             </div>
 
             <div className={styles.pricingContent}>
@@ -296,7 +296,7 @@ export default function Pricing() {
             <div className={styles.pricingContent}>
               <div className={styles.bespokeSummary}>
                 <p className={styles.bespokeIntro}>
-                  Defined-scope projects delivered in as little as 2 weeks and no longer than 3 months.
+                  Defined-scope projects delivered in as little as 2 weeks and no more than 3 months.
                 </p>
                 <div className={styles.bespokePackages}>
                   {BESPOKE_PACKAGES.map((pkg) => (

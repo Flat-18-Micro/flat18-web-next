@@ -221,12 +221,12 @@ export default function Hero() {
         <div className={styles.heroContent}>
           <h1 className={styles.heroHeading}>
             <span className={styles.heroHeadingThin}>We build products that perform.</span>
-            {' '}Design and engineering, under one roof.
+            {' '}Design and engineering under one roof.
           </h1>
 
           <p className={styles.heroSubheading}>
-            Senior team designs and builds your website or MVP in weeks.
-            Track tasks with boards — weekly progress updates, no chasing.
+            Our senior team designs and builds your website or MVP in weeks.
+            Track tasks on boards — weekly progress updates, no chasing.
           </p>
 
           <div className={styles.heroActions}>
@@ -259,7 +259,7 @@ export default function Hero() {
                 </span>
               ))}
             </div>
-            <p className={styles.socialProofText}>20+ Major Projects Delivered with 5-star reviews from our Clients!</p>
+            <p className={styles.socialProofText}>20+ major projects delivered, with five-star reviews from our clients.</p>
           </div>
         </div>
 

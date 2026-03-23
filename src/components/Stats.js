@@ -155,7 +155,7 @@ export default function Stats() {
   const stats = [
     { value: 20, label: 'Projects launched' },
     { value: 12, label: 'Years shipping products' },
-    { value: 48, label: 'Hour turnaround for small tasks', symbol: 'h', noPlus: true },
+    { value: 48, label: 'hour turnaround for small tasks', symbol: 'h', noPlus: true },
     { value: 2, label: 'Senior team size', noPlus: true }
   ]
 
