@@ -22,6 +22,14 @@ const caseStudies = [
     meta: ['Live beta', 'Social publishing']
   },
   {
+    title: 'Natal Charts',
+    tag: 'Data visualization',
+    description: 'Complex ephemeris data distilled into a calm, explorable chart UI.',
+    image: '/images/case-studies/natal-charts/chart-overview.png',
+    href: '/case-studies/natal-charts',
+    meta: ['Live demo', 'Data-rich UI']
+  },
+  {
     title: 'Archimedes Finance',
     tag: 'Tokenized investment platform',
     description: 'Investor platform for tokenized assets, compliance workflows, and reporting.',
@@ -69,12 +77,12 @@ export default function CaseStudiesPage() {
               Product platforms, shipped with intent.
             </h1>
             <p className={styles.heroSubtitle}>
-              Six launches from Flat 18 across fintech, infrastructure, and data-heavy platforms.
+              Seven launches from Flat 18 across fintech, infrastructure, and data-heavy platforms.
               Each case study links to a dedicated deep dive.
             </p>
             <div className={styles.heroStats}>
               <div className={styles.statCard}>
-                <span className={styles.statValue}>6</span>
+                <span className={styles.statValue}>7</span>
                 <span className={styles.statLabel}>Case studies</span>
               </div>
               <div className={styles.statCard}>

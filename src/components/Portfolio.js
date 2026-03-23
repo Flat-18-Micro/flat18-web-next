@@ -130,6 +130,19 @@ export default function Portfolio() {
       category: 'app'
     },
     {
+      title: 'Natal Charts',
+      description: 'Astrology data pipeline turned into a clear, export-ready chart UI.',
+      image: '/images/case-studies/natal-charts/chart-overview.png',
+      link: 'https://flat18.co.uk/case-studies/natal-charts',
+      stats: [
+        { label: 'Timeline', value: 'Demo build' },
+        { label: 'Platform', value: 'Web App' },
+        { label: 'Industry', value: 'Data Viz' }
+      ],
+      status: 'Live',
+      category: 'app'
+    },
+    {
       title: 'Archimedes Finance',
       description: 'Secure Asset Tokenization Platform for institutional investors',
       image: '/images/portfolio-graphics/archimedesfinance-mock.webp',
