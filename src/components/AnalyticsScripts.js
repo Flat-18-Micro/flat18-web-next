@@ -64,6 +64,36 @@ export default function AnalyticsScripts() {
               `}
             </Script>
           )}
+          <Script
+            id="twitter-conversion-tw-oopi3-136wsu"
+            strategy="lazyOnload"
+            onError={(e) => console.error('Twitter conversion event failed:', e)}
+          >
+            {`
+              try {
+                twq('event', 'tw-oopi3-136wsu', {
+                  value: null,
+                  currency: null,
+                  contents: [
+                    {
+                      content_type: null,
+                      content_id: null,
+                      content_name: null,
+                      content_price: null,
+                      num_items: null,
+                      content_group_id: null
+                    }
+                  ],
+                  status: null,
+                  conversion_id: null,
+                  email_address: null,
+                  phone_number: null
+                });
+              } catch (e) {
+                console.error('twq event error', e);
+              }
+            `}
+          </Script>
         </>
       )}
 
