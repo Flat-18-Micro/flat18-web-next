@@ -6,14 +6,14 @@ const UMAMI_SRC = process.env.NEXT_PUBLIC_UMAMI_SRC || 'https://eu.umami.is/scri
 const UMAMI_WEBSITE_ID = process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID || '54c1aa36-ac18-426d-ba14-3d5827cfa465'
 const ACKEE_SERVER = process.env.NEXT_PUBLIC_ACKEE_SERVER
 const ACKEE_DOMAIN_ID = process.env.NEXT_PUBLIC_ACKEE_DOMAIN_ID
-const TWITTER_PIXEL_ID = process.env.NEXT_PUBLIC_TWITTER_PIXEL_ID
+const TWITTER_PIXEL_ID = 'oopi3'
 const TWITTER_CONVERSION_ID = process.env.NEXT_PUBLIC_TWITTER_CONVERSION_ID
 const META_PIXEL_ID = process.env.NEXT_PUBLIC_META_PIXEL_ID
 
 export default function AnalyticsScripts() {
   const shouldLoadAckee = Boolean(ACKEE_SERVER && ACKEE_DOMAIN_ID)
   const shouldLoadMetaPixel = Boolean(META_PIXEL_ID)
-  const shouldLoadTwitterPixel = Boolean(TWITTER_PIXEL_ID)
+  const shouldLoadTwitterPixel = true
 
   return (
     <>
@@ -38,7 +38,7 @@ export default function AnalyticsScripts() {
         />
       )}
 
-      {/* Twitter conversion tracking — only loads when pixel ID is explicitly configured */}
+      {/* Twitter/X conversion tracking — pixel ID is hardcoded */}
       {shouldLoadTwitterPixel && (
         <>
           <Script
