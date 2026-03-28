@@ -94,6 +94,15 @@ export default function AnalyticsScripts() {
               }
             `}
           </Script>
+          <Script
+            id="twitter-conversion-tw-oopi3-136y6x"
+            strategy="lazyOnload"
+            onError={(e) => console.error('Twitter conversion event failed:', e)}
+          >
+            {`
+              try { twq('event', 'tw-oopi3-136y6x', {}); } catch (e) { console.error('twq event error', e); }
+            `}
+          </Script>
         </>
       )}
 
