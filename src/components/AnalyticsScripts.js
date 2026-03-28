@@ -1,5 +1,6 @@
 'use client'
 
+import { useEffect } from 'react'
 import Script from 'next/script'
 
 const UMAMI_SRC = process.env.NEXT_PUBLIC_UMAMI_SRC || 'https://eu.umami.is/script.js'
@@ -14,6 +15,48 @@ export default function AnalyticsScripts() {
   const shouldLoadAckee = Boolean(ACKEE_SERVER && ACKEE_DOMAIN_ID)
   const shouldLoadMetaPixel = Boolean(META_PIXEL_ID)
   const shouldLoadTwitterPixel = true
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return
+
+    const firedFlag = '__xScrollConversionFired'
+    if (window[firedFlag]) return
+
+    const sendEvent = () => {
+      if (typeof window.twq !== 'function') {
+        return false
+      }
+
+      try {
+        window.twq('event', 'tw-oopi3-rbn4i', {})
+        return true
+      } catch (error) {
+        console.error('twq event error', error)
+        return true
+      }
+    }
+
+    const handleFirstScroll = () => {
+      if (window[firedFlag]) return
+      window[firedFlag] = true
+
+      if (!sendEvent()) {
+        let attempts = 0
+        const intervalId = window.setInterval(() => {
+          attempts += 1
+          if (sendEvent() || attempts >= 20) {
+            window.clearInterval(intervalId)
+          }
+        }, 300)
+      }
+    }
+
+    window.addEventListener('scroll', handleFirstScroll, { passive: true, once: true })
+
+    return () => {
+      window.removeEventListener('scroll', handleFirstScroll)
+    }
+  }, [])
 
   return (
     <>
