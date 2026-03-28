@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from 'react'
 import { usePathname, useSearchParams } from 'next/navigation'
-import { initChatwoot } from '@/utils/chatwoot'
+import { initChatwoot, trackChatwootXConversion } from '@/utils/chatwoot'
 
 const LOAD_TIMEOUT_MS = 5000
 const CHATWOOT_BASE_URL = 'https://chatwoot.flat18.co.uk'
@@ -218,6 +218,7 @@ export default function ChatwootWidget() {
         try {
           if (typeof window.$chatwoot.toggle === 'function' && !window.$chatwoot.isOpen) {
             window.$chatwoot.toggle()
+            trackChatwootXConversion()
           }
 
           if (prefillMessage) {

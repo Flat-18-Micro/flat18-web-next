@@ -65,6 +65,23 @@ export const initChatwoot = (options = {}) => {
   }
 }
 
+const trackChatwootXConversion = () => {
+  if (typeof window === 'undefined') return
+  if (typeof window.twq !== 'function') return
+
+  try {
+    window.twq('event', 'tw-oopi3-136y7b', {
+      conversion_id: null,
+      email_address: null,
+      phone_number: null
+    })
+  } catch (error) {
+    console.error('twq event error', error)
+  }
+}
+
+export { trackChatwootXConversion }
+
 /**
  * Adds click event listeners to all links with href ending in #chat
  */
@@ -83,8 +100,12 @@ export const addChatLinkListeners = () => {
         e.preventDefault()
 
         // Toggle Chatwoot widget
+        const wasOpen = Boolean(window.$chatwoot?.isOpen)
         if (window.$chatwoot && typeof window.$chatwoot.toggle === 'function') {
           window.$chatwoot.toggle()
+          if (!wasOpen) {
+            trackChatwootXConversion()
+          }
         }
 
         // Optionally scroll to the link's location
@@ -108,7 +129,11 @@ export const toggleChatwoot = () => {
   if (typeof window === 'undefined') return
 
   if (window.$chatwoot && typeof window.$chatwoot.toggle === 'function') {
+    const wasOpen = Boolean(window.$chatwoot.isOpen)
     window.$chatwoot.toggle()
+    if (!wasOpen) {
+      trackChatwootXConversion()
+    }
   }
 }
 
@@ -122,6 +147,7 @@ export const openChatwoot = () => {
   if (window.$chatwoot && typeof window.$chatwoot.toggle === 'function') {
     if (!window.$chatwoot.isOpen) {
       window.$chatwoot.toggle()
+      trackChatwootXConversion()
     }
   }
 }
