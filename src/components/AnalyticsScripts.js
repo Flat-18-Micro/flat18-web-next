@@ -19,8 +19,12 @@ export default function AnalyticsScripts() {
   useEffect(() => {
     if (typeof window === 'undefined') return
 
-    const firedFlag = '__xScrollConversionFired'
-    if (window[firedFlag]) return
+    const stateKey = '__xScrollConversionState'
+    const throttleMs = 5000
+    const state = window[stateKey] || { lastFiredAt: 0, timeoutId: null, retryId: null, attached: false }
+    if (state.attached) return
+    state.attached = true
+    window[stateKey] = state
 
     const sendEvent = () => {
       if (typeof window.twq !== 'function') {
@@ -36,25 +40,55 @@ export default function AnalyticsScripts() {
       }
     }
 
-    const handleFirstScroll = () => {
-      if (window[firedFlag]) return
-      window[firedFlag] = true
-
-      if (!sendEvent()) {
-        let attempts = 0
-        const intervalId = window.setInterval(() => {
-          attempts += 1
-          if (sendEvent() || attempts >= 20) {
-            window.clearInterval(intervalId)
-          }
-        }, 300)
-      }
+    const scheduleRetry = () => {
+      if (state.retryId) return
+      let attempts = 0
+      state.retryId = window.setInterval(() => {
+        attempts += 1
+        if (sendEvent() || attempts >= 20) {
+          window.clearInterval(state.retryId)
+          state.retryId = null
+        }
+      }, 300)
     }
 
-    window.addEventListener('scroll', handleFirstScroll, { passive: true, once: true })
+    const scheduleSend = () => {
+      if (state.timeoutId) return
+
+      const now = Date.now()
+      const elapsed = now - state.lastFiredAt
+      if (elapsed >= throttleMs) {
+        if (sendEvent()) {
+          state.lastFiredAt = Date.now()
+        } else {
+          scheduleRetry()
+        }
+        return
+      }
+
+      state.timeoutId = window.setTimeout(() => {
+        state.timeoutId = null
+        scheduleSend()
+      }, throttleMs - elapsed)
+    }
+
+    const handleScroll = () => {
+      scheduleSend()
+    }
+
+    window.addEventListener('scroll', handleScroll, { passive: true })
 
     return () => {
-      window.removeEventListener('scroll', handleFirstScroll)
+      window.removeEventListener('scroll', handleScroll)
+      if (state.timeoutId) {
+        window.clearTimeout(state.timeoutId)
+        state.timeoutId = null
+      }
+      if (state.retryId) {
+        window.clearInterval(state.retryId)
+        state.retryId = null
+      }
+      state.attached = false
     }
   }, [])
 
