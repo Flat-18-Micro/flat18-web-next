@@ -132,7 +132,7 @@ export default function Portfolio() {
     {
       title: 'Natal Charts',
       description: 'Astrology data pipeline turned into a clear, export-ready chart UI.',
-      image: '/images/case-studies/natal-charts/chart-overview.png',
+      image: '/images/case-studies/natal-charts/natal-chart.webp',
       link: 'https://flat18.co.uk/case-studies/natal-charts',
       stats: [
         { label: 'Timeline', value: 'Demo build' },
