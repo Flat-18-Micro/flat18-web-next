@@ -19,12 +19,7 @@ export default function AnalyticsScripts() {
   useEffect(() => {
     if (typeof window === 'undefined') return
 
-    const stateKey = '__xScrollConversionState'
-    const throttleMs = 5000
-    const state = window[stateKey] || { lastFiredAt: 0, timeoutId: null, retryId: null, attached: false }
-    if (state.attached) return
-    state.attached = true
-    window[stateKey] = state
+    let retryId = null
 
     const sendEvent = () => {
       if (typeof window.twq !== 'function') {
@@ -41,54 +36,32 @@ export default function AnalyticsScripts() {
     }
 
     const scheduleRetry = () => {
-      if (state.retryId) return
+      if (retryId) return
       let attempts = 0
-      state.retryId = window.setInterval(() => {
+      retryId = window.setInterval(() => {
         attempts += 1
         if (sendEvent() || attempts >= 20) {
-          window.clearInterval(state.retryId)
-          state.retryId = null
+          window.clearInterval(retryId)
+          retryId = null
         }
       }, 300)
     }
 
-    const scheduleSend = () => {
-      if (state.timeoutId) return
-
-      const now = Date.now()
-      const elapsed = now - state.lastFiredAt
-      if (elapsed >= throttleMs) {
-        if (sendEvent()) {
-          state.lastFiredAt = Date.now()
-        } else {
-          scheduleRetry()
-        }
+    const handleScroll = () => {
+      if (sendEvent()) {
         return
       }
-
-      state.timeoutId = window.setTimeout(() => {
-        state.timeoutId = null
-        scheduleSend()
-      }, throttleMs - elapsed)
+      scheduleRetry()
     }
 
-    const handleScroll = () => {
-      scheduleSend()
-    }
-
-    window.addEventListener('scroll', handleScroll, { passive: true })
+    window.addEventListener('scroll', handleScroll, { passive: true, once: true })
 
     return () => {
       window.removeEventListener('scroll', handleScroll)
-      if (state.timeoutId) {
-        window.clearTimeout(state.timeoutId)
-        state.timeoutId = null
+      if (retryId) {
+        window.clearInterval(retryId)
+        retryId = null
       }
-      if (state.retryId) {
-        window.clearInterval(state.retryId)
-        state.retryId = null
-      }
-      state.attached = false
     }
   }, [])
 

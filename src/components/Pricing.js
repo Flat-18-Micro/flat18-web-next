@@ -278,7 +278,7 @@ export default function Pricing() {
                 >
                   Chat with us
                 </Link>
-                <p className={styles.ctaNote}>Fit check first, then we confirm scope and timing.</p>
+                <p className={styles.ctaNote}>We'll discuss scope and scheduling</p>
               </div>
             </div>
           </article>
@@ -320,7 +320,7 @@ export default function Pricing() {
                 >
                   Request a bespoke quote
                 </Link>
-                <p className={styles.ctaNote}>Share scope, we'll return a fixed proposal after the fit check.</p>
+                <p className={styles.ctaNote}>Share scope, we'll return a fixed proposal.</p>
               </div>
             </div>
           </article>

@@ -18,14 +18,6 @@ const faqSchema = {
     },
     {
       "@type": "Question",
-      "name": "What does the fit call cover?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "We cover goals, scope, timing, and whether we're the right team. If we're not a fit, we'll tell you quickly."
-      }
-    },
-    {
-      "@type": "Question",
       "name": "Do you handle both design and engineering?",
       "acceptedAnswer": {
         "@type": "Answer",
@@ -45,7 +37,7 @@ const faqSchema = {
       "name": "How does pricing work?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "We offer a monthly subscription for ongoing momentum or fixed-scope quotes for defined projects. We'll recommend the right route on the fit call."
+        "text": "We offer a monthly subscription for ongoing momentum or fixed-scope quotes for defined projects. We'll recommend the right route."
       }
     }
   ]
@@ -58,10 +50,6 @@ export default function FAQ() {
       answer: "Most scoped projects land in 2-12 weeks depending on complexity. Small tasks move in as little as 48 hours once we're active."
     },
     {
-      question: "What does the fit call cover?",
-      answer: "We cover goals, scope, timing, and whether we're the right team. If we're not a fit, we'll tell you quickly."
-    },
-    {
       question: "Do you handle both design and engineering?",
       answer: "Yes. We do product design, UX, UI, and full-stack engineering so you don't need to manage multiple vendors."
     },
@@ -71,7 +59,7 @@ export default function FAQ() {
     },
     {
       question: "How does pricing work?",
-      answer: "We offer a monthly subscription for ongoing momentum or fixed-scope quotes for defined projects. We'll recommend the right route on the fit call."
+      answer: "We offer a monthly subscription for ongoing momentum or fixed-scope quotes for defined projects. We'll recommend the right route."
     }
   ]
 
