@@ -219,19 +219,24 @@ export default function Hero() {
 
         {/* ── Copy column ── */}
         <div className={styles.heroContent}>
+          <div className={styles.heroKicker}>
+            {/* <span className={styles.heroKickerBadge}>Fintech + Crypto</span> */}
+            {/* <span className={styles.heroKickerText}>Product studio for founders building ambitious platforms</span> */}
+          </div>
+
           <h1 className={styles.heroHeading}>
-            <span className={styles.heroHeadingThin}>Web design, product design and development.</span>
+            <span className={styles.heroHeadingAccent}>Design & Development</span>
+            <span className={styles.heroHeadingThin}>for modern Websites and Apps</span>
           </h1>
 
           <p className={styles.heroSubheading}>
-            Flat 18 helps startups and technology companies launch and improve digital products.
-Particular experience in fintech, Bitcoin and crypto products.
+            We help startups and technology companies launch and improve digital products in fintech and DeFi.
           </p>
 
           <div className={styles.heroActions}>
             <a
               href="#chat"
-              className="btn btn-primary btn-icon"
+              className="btn btn-primary btn-icon btn-lg"
               onClick={() => analytics.hero.bookCall()}
             >
               <span className="btn-text">Chat with us</span>
@@ -239,7 +244,7 @@ Particular experience in fintech, Bitcoin and crypto products.
             </a>
             <Link
               href="/#pricing"
-              className="btn btn-secondary"
+              className="btn btn-secondary btn-lg"
               onClick={() => analytics.hero.ctaClick('See pricing')}
             >
               <span className="btn-text">See pricing</span>
