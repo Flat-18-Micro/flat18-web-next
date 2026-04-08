@@ -88,16 +88,18 @@
   --hero-accent: rgba(77, 98, 255, 0.95);
   --hero-accent-soft: rgba(77, 98, 255, 0.2);
   --hero-accent-cool: rgba(61, 158, 238, 0.3);
+  --hero-nav-offset: calc(88px + var(--promo-banner-height, 0px));
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: clamp(4rem, 9vh, 7rem) 0 var(--section-spacing-y-lg);
+  padding: calc(clamp(4rem, 9vh, 7rem) + var(--hero-nav-offset)) 0 var(--section-spacing-y-lg);
   background-color: var(--bg);
   overflow: hidden;
-  min-height: calc(100vh - 88px);
-  min-height: calc(100svh - 88px);
+  margin-top: calc(-1 * var(--hero-nav-offset));
+  min-height: calc(100vh + var(--promo-banner-height, 0px));
+  min-height: calc(100svh + var(--promo-banner-height, 0px));
   isolation: isolate
 }
 
@@ -591,7 +593,7 @@
 
 @media (max-width:768px) {
   .heroSection {
-    padding: var(--space-10)0 var(--section-spacing-y-mobile);
+    padding: calc(var(--space-10) + var(--hero-nav-offset)) 0 var(--section-spacing-y-mobile);
     min-height: auto;
     align-items: flex-start
   }
@@ -649,7 +651,7 @@
 
 @media (max-width:480px) {
   .heroSection {
-    padding: var(--space-8)0 var(--section-spacing-y-mobile-sm)
+    padding: calc(var(--space-8) + var(--hero-nav-offset)) 0 var(--section-spacing-y-mobile-sm)
   }
 
   .heroHeading {
@@ -671,7 +673,7 @@
 @media (max-height:620px) and (orientation:landscape) {
   .heroSection {
     min-height: auto;
-    padding: var(--space-6)0
+    padding: calc(var(--space-6) + var(--hero-nav-offset)) 0
   }
 
   .heroContainer {
