@@ -4,7 +4,7 @@ export const BASE_PRICES = {
 
 // Toggle enabled to switch the subscription promo on/off.
 export const SUBSCRIPTION_PROMO = {
-  enabled: true,
+  enabled: false,
   discountRate: 0.5,
   banner: {
     message: 'Half-price monthly subscription. Limited slots available.',
