@@ -22,6 +22,9 @@ export const initChatwoot = (options = {}) => {
   // Set up Chatwoot settings
   window.chatwootSettings = settings
 
+  // Register the X conversion listener for conversation initiation
+  registerChatwootConversationListener()
+
   // Check if Chatwoot script is already loaded
   if (!window.chatwootSDK) {
     // Create and load the script
@@ -80,7 +83,34 @@ const trackChatwootXConversion = () => {
   }
 }
 
-export { trackChatwootXConversion }
+const trackChatwootConversationInitiated = () => {
+  if (typeof window === 'undefined') return
+  if (typeof window.twq !== 'function') return
+
+  try {
+    window.twq('event', 'tw-oopi3-rbyil', {})
+  } catch (error) {
+    console.error('twq event error', error)
+  }
+}
+
+const registerChatwootConversationListener = () => {
+  if (typeof window === 'undefined') return
+  if (window.__chatwootConversationListenerRegistered) return
+  window.__chatwootConversationListenerRegistered = true
+
+  let fired = false
+  const handler = () => {
+    if (fired) return
+    fired = true
+    window.removeEventListener('chatwoot:on-message', handler)
+    trackChatwootConversationInitiated()
+  }
+
+  window.addEventListener('chatwoot:on-message', handler)
+}
+
+export { trackChatwootXConversion, trackChatwootConversationInitiated, registerChatwootConversationListener }
 
 /**
  * Adds click event listeners to all links with href ending in #chat
