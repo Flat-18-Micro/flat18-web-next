@@ -55,20 +55,21 @@ export default function HashboardCaseStudyPage() {
               Zettahash Hashboard
             </h1>
             <p className={styles.heroSubtitle}>
-              Transparency dashboard for mining performance, treasury status, and governance activity.
+              How Flat18 consolidated mining, treasury, market, and governance signals into a
+              transparency dashboard stakeholders can read quickly.
             </p>
             <div className={styles.heroStats}>
               <div className={styles.statCard}>
-                <span className={styles.statValue}>DAO transparency</span>
-                <span className={styles.statLabel}>Objective</span>
+                <span className={styles.statValue}>Trust gap</span>
+                <span className={styles.statLabel}>Problem solved</span>
               </div>
               <div className={styles.statCard}>
-                <span className={styles.statValue}>Vue 3 + Vite</span>
-                <span className={styles.statLabel}>Stack</span>
+                <span className={styles.statValue}>Summary-first</span>
+                <span className={styles.statLabel}>UX approach</span>
               </div>
               <div className={styles.statCard}>
                 <span className={styles.statValue}>Governance ready</span>
-                <span className={styles.statLabel}>Focus</span>
+                <span className={styles.statLabel}>Outcome</span>
               </div>
             </div>
           </div>
@@ -93,7 +94,8 @@ export default function HashboardCaseStudyPage() {
                 <h2 className={styles.caseStudyTitle}>Hashboard</h2>
               </div>
               <p className={styles.caseStudySubtitle}>
-                A single dashboard for performance, treasury, market context, and governance actions.
+                A single dashboard built around the questions tokenholders and contributors need
+                answered before they can act.
               </p>
             </div>
             <div className={styles.caseStudyActions}>
@@ -115,45 +117,57 @@ export default function HashboardCaseStudyPage() {
             <div className={styles.caseStudyContent}>
               <div className={styles.metaRow}>
                 <span className={styles.statusPill}>Live</span>
-                <span className={styles.metaItem}>Audience: Tokenholders + contributors</span>
-                <span className={styles.metaItem}>Focus: Trust + clarity</span>
-                <span className={styles.metaItem}>Surface: DAO dashboard</span>
+                <span className={styles.metaItem}>Diagnosis: project data scattered across tools</span>
+                <span className={styles.metaItem}>Solution: one transparency hub</span>
+                <span className={styles.metaItem}>Outcome: faster stakeholder assessment</span>
               </div>
 
               <p className={styles.caseStudyIntro}>
-                The Hashboard consolidates mining performance, treasury status, market context, and
-                governance activity into one high-signal destination for the Zettahash DAO.
+                Flat18 approached the Hashboard as a trust and participation problem. Stakeholders
+                needed a faster way to understand operational health, financial context, and active
+                governance without stitching together data from mining tools, wallets, markets, and
+                community channels.
               </p>
 
               <div className={styles.infoGrid}>
                 <div className={styles.infoCard}>
-                  <h3>Problem</h3>
+                  <h3>Problem found</h3>
                   <p>
                     Data spread across mining, wallet, and governance tools made it difficult for
                     tokenholders to assess project health quickly.
                   </p>
                 </div>
                 <div className={styles.infoCard}>
-                  <h3>Solution</h3>
+                  <h3>Flat18 diagnosis</h3>
                   <p>
-                    A summary-first dashboard with clear metrics, contextual charts, and direct
-                    links into governance actions.
+                    The information existed, but it lacked hierarchy, source context, and a clear
+                    path from insight to governance action.
                   </p>
                 </div>
                 <div className={styles.infoCard}>
-                  <h3>Product strategy</h3>
+                  <h3>Solution shipped</h3>
                   <p>
-                    Reduce time-to-insight with summary cards, surface trusted sources, and
-                    provide immediate next actions.
+                    We designed a summary-first dashboard with mining metrics, treasury visibility,
+                    market context, proposal status, and immediate next actions.
                   </p>
                 </div>
                 <div className={styles.infoCard}>
-                  <h3>Outcome</h3>
+                  <h3>Customer value</h3>
                   <p>
-                    A transparency hub that makes performance and governance status readable for
-                    both new and existing participants.
+                    Participants can assess project health faster, understand where numbers come from,
+                    and move into governance with more confidence.
                   </p>
                 </div>
+              </div>
+
+              <div className={styles.listBlock}>
+                <h4>What Flat18 handled</h4>
+                <ul className={styles.checkList}>
+                  <li>Identified the trust gap caused by scattered operational and governance data</li>
+                  <li>Prioritised summary metrics and source visibility before dense detail</li>
+                  <li>Designed stakeholder journeys for tokenholder check-ins, governance, and new visitors</li>
+                  <li>Linked insight to action with proposal status, community entry points, and market context</li>
+                </ul>
               </div>
 
               <div className={styles.listBlock}>
@@ -210,10 +224,10 @@ export default function HashboardCaseStudyPage() {
                 ))}
               </div>
               <div className={styles.openSourcePanel}>
-                <h4>Trust-first reporting</h4>
+                <h4>Delivered for confidence</h4>
                 <p>
-                  High-contrast metrics and visible data sources keep the dashboard defensible and
-                  easy to scan during governance decisions.
+                  High-contrast metrics and visible data sources keep the dashboard defensible,
+                  readable, and useful during governance decisions.
                 </p>
               </div>
             </div>
@@ -227,8 +241,8 @@ export default function HashboardCaseStudyPage() {
             <div className={styles.ctaText}>
               <h2>Need a transparency dashboard?</h2>
               <p>
-                We design data-heavy surfaces that keep stakeholders informed without burying them
-                in raw metrics.
+                We can turn scattered operational data into a stakeholder dashboard that explains
+                what matters, where it came from, and what to do next.
               </p>
             </div>
             <div className={styles.ctaActions}>

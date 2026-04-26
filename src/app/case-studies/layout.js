@@ -2,7 +2,7 @@ import { generatePageMetadata } from '@/lib/seo'
 
 export const metadata = generatePageMetadata({
   title: "Case Studies",
-  description: "Open-source products and client launches shipped with clear positioning and execution.",
+  description: "How Flat18 identifies customer problems, designs practical solutions, and ships product changes or services with clear commercial purpose.",
   image: '/og/case-studies.png',
   path: "/case-studies",
 })

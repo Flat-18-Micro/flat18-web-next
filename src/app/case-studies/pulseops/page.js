@@ -54,20 +54,21 @@ export default function PulseOpsCaseStudyPage() {
               PulseOps
             </h1>
             <p className={styles.heroSubtitle}>
-              Self-hosted network operations for SOHO operators and small MSPs.
+              How Flat18 identified a visibility gap for small network operators and turned it into
+              a credible self-hosted product proposition.
             </p>
             <div className={styles.heroStats}>
               <div className={styles.statCard}>
-                <span className={styles.statValue}>March 2026</span>
-                <span className={styles.statLabel}>Launch</span>
+                <span className={styles.statValue}>SOHO + MSP</span>
+                <span className={styles.statLabel}>Audience</span>
               </div>
               <div className={styles.statCard}>
-                <span className={styles.statValue}>Network telemetry</span>
-                <span className={styles.statLabel}>Category</span>
+                <span className={styles.statValue}>Network visibility</span>
+                <span className={styles.statLabel}>Problem solved</span>
               </div>
               <div className={styles.statCard}>
                 <span className={styles.statValue}>Self-hosted</span>
-                <span className={styles.statLabel}>Deployment</span>
+                <span className={styles.statLabel}>Trust posture</span>
               </div>
             </div>
           </div>
@@ -90,7 +91,8 @@ export default function PulseOpsCaseStudyPage() {
                 <h2 className={styles.caseStudyTitle}>PulseOps</h2>
               </div>
               <p className={styles.caseStudySubtitle}>
-                A unified command centre for inventory, telemetry, topology, and device actions.
+                A unified command centre shaped around inventory, telemetry, topology, and device
+                actions that small operators can actually run.
               </p>
             </div>
             <div className={styles.caseStudyActions}>
@@ -112,45 +114,57 @@ export default function PulseOpsCaseStudyPage() {
             <div className={styles.caseStudyContent}>
               <div className={styles.metaRow}>
                 <span className={styles.statusPill}>Live</span>
-                <span className={styles.metaItem}>Launch: March 2026</span>
-                <span className={styles.metaItem}>Category: Network telemetry</span>
-                <span className={styles.metaItem}>Deployment: Self-hosted</span>
+                <span className={styles.metaItem}>Diagnosis: visibility gap</span>
+                <span className={styles.metaItem}>Solution: local command centre</span>
+                <span className={styles.metaItem}>Outcome: operator-ready narrative</span>
               </div>
 
               <p className={styles.caseStudyIntro}>
-                PulseOps delivers a unified command centre for inventory, telemetry, topology,
-                and device actions—enterprise-grade visibility without enterprise overhead.
+                Flat18 saw that smaller network operators were underserved: consumer tools lacked
+                depth, enterprise suites carried too much overhead, and neither gave teams a simple
+                path from visibility to action. PulseOps was positioned and presented as the missing
+                middle: enterprise-grade awareness without enterprise drag.
               </p>
 
               <div className={styles.infoGrid}>
                 <div className={styles.infoCard}>
-                  <h3>Problem</h3>
+                  <h3>Problem found</h3>
                   <p>
                     Small networks sit between consumer tools and enterprise suites, leaving
                     operators without a single, reliable view of health and history.
                   </p>
                 </div>
                 <div className={styles.infoCard}>
-                  <h3>Solution</h3>
+                  <h3>Flat18 diagnosis</h3>
                   <p>
-                    A local, operator-first console that pairs live SSH/SNMP telemetry with
-                    discovery, topology mapping, and device actions.
+                    Operators needed more than monitoring. They needed discovery, telemetry, topology,
+                    logs, and corrective actions to stay connected in one place.
                   </p>
                 </div>
                 <div className={styles.infoCard}>
-                  <h3>Open-source edge</h3>
+                  <h3>Solution shipped</h3>
                   <p>
-                    Auditable telemetry, community device drivers, and long-term survivability
-                    for security-sensitive environments.
+                    We built the product story, proof-led screens, and launch experience around a
+                    local, self-hosted console for SSH/SNMP telemetry and device action.
                   </p>
                 </div>
                 <div className={styles.infoCard}>
-                  <h3>Outcome</h3>
+                  <h3>Customer value</h3>
                   <p>
-                    A proof-heavy marketing site with real dashboards, clear deployment steps,
-                    and a VC-grade narrative for launch.
+                    Customers can see the practical workflow before deployment, understand the trust
+                    posture, and evaluate the product with real interface proof.
                   </p>
                 </div>
+              </div>
+
+              <div className={styles.listBlock}>
+                <h4>What Flat18 handled</h4>
+                <ul className={styles.checkList}>
+                  <li>Defined the market gap and converted it into a focused product narrative</li>
+                  <li>Prioritised product proof over abstract claims by leading with real dashboard surfaces</li>
+                  <li>Framed open source as a trust, auditability, and extensibility advantage</li>
+                  <li>Connected deployment, operator workflows, and roadmap signals into one launch story</li>
+                </ul>
               </div>
 
               <div className={styles.listBlock}>
@@ -197,10 +211,10 @@ export default function PulseOpsCaseStudyPage() {
                 ))}
               </div>
               <div className={styles.openSourcePanel}>
-                <h4>Open-source posture</h4>
+                <h4>Delivered for confidence</h4>
                 <p>
-                  Built for transparency and extensibility—operators can audit telemetry paths,
-                  extend device drivers, and own the roadmap with the community.
+                  The experience shows operators exactly what they can monitor, map, and act on,
+                  while making the open-source posture part of the trust case.
                 </p>
               </div>
             </div>
@@ -214,8 +228,8 @@ export default function PulseOpsCaseStudyPage() {
             <div className={styles.ctaText}>
               <h2>Want a case study like this?</h2>
               <p>
-                We build open-source-ready products and marketing systems that stand up to
-                technical scrutiny and investor-grade narratives.
+                We can turn a rough product opportunity into a clear service, interface, and launch
+                story that customers understand quickly.
               </p>
             </div>
             <div className={styles.ctaActions}>

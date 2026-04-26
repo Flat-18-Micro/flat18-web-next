@@ -54,20 +54,21 @@ export default function ForgingBlockDashboardCaseStudyPage() {
               ForgingBlock Dashboard
             </h1>
             <p className={styles.heroSubtitle}>
-              Payments experience for merchants tracking invoices, cash flow, and payout status.
+              How Flat18 turned scattered merchant payment signals into a calm workflow for invoices,
+              cash flow, and payout status.
             </p>
             <div className={styles.heroStats}>
               <div className={styles.statCard}>
                 <span className={styles.statValue}>March 2026</span>
-                <span className={styles.statLabel}>Capture date</span>
+                <span className={styles.statLabel}>Review date</span>
               </div>
               <div className={styles.statCard}>
-                <span className={styles.statValue}>Payments UX</span>
-                <span className={styles.statLabel}>Focus</span>
+                <span className={styles.statValue}>Invoice clarity</span>
+                <span className={styles.statLabel}>Problem solved</span>
               </div>
               <div className={styles.statCard}>
-                <span className={styles.statValue}>Dashboard platform</span>
-                <span className={styles.statLabel}>Surface</span>
+                <span className={styles.statValue}>Decision-ready</span>
+                <span className={styles.statLabel}>Outcome</span>
               </div>
             </div>
           </div>
@@ -83,7 +84,7 @@ export default function ForgingBlockDashboardCaseStudyPage() {
                 <h2 className={styles.caseStudyTitle}>ForgingBlock Dashboard</h2>
               </div>
               <p className={styles.caseStudySubtitle}>
-                Layered views for quick situational awareness and deep invoice analysis.
+                A merchant dashboard shaped around the questions customers ask when money is moving.
               </p>
             </div>
             <div className={styles.caseStudyActions}>
@@ -98,45 +99,56 @@ export default function ForgingBlockDashboardCaseStudyPage() {
               <div className={styles.metaRow}>
                 <span className={styles.statusPill}>In production</span>
                 <span className={styles.metaItem}>Scope: Payments hub + invoice detail</span>
-                <span className={styles.metaItem}>Focus: Clarity + trust</span>
-                <span className={styles.metaItem}>Surface: Merchant dashboard</span>
+                <span className={styles.metaItem}>Diagnosis: payment status ambiguity</span>
+                <span className={styles.metaItem}>Result: faster invoice lookup</span>
               </div>
 
               <p className={styles.caseStudyIntro}>
-                The ForgingBlock payments surface is designed around a two-step workflow: glanceable
-                insight on the dashboard and deeper analysis inside the payments hub, with a details
-                modal for per-invoice inspection.
+                Flat18 approached the dashboard as an operational support problem, not just a table design.
+                Merchants needed to know what changed, what still needed attention, and where to find
+                evidence for reconciliation. The final workflow gives them that path without forcing
+                them through spreadsheets or disconnected tools.
               </p>
 
               <div className={styles.infoGrid}>
                 <div className={styles.infoCard}>
-                  <h3>Problem</h3>
+                  <h3>Problem found</h3>
                   <p>
-                    Merchants need to answer “what got paid, what’s open, and what changed today”
-                    without digging through spreadsheets or multiple tools.
+                    Payment teams could not quickly answer what was paid, what was open, and what had
+                    changed today without digging through multiple records.
                   </p>
                 </div>
                 <div className={styles.infoCard}>
-                  <h3>Solution</h3>
+                  <h3>Flat18 diagnosis</h3>
                   <p>
-                    A payments hub with fast filters, summary metrics, and a compact table that
-                    opens a detailed invoice modal on click.
+                    The issue was not lack of data. It was lack of hierarchy, status consistency,
+                    and a reliable route from summary to invoice evidence.
                   </p>
                 </div>
                 <div className={styles.infoCard}>
-                  <h3>UX strategy</h3>
+                  <h3>Solution shipped</h3>
                   <p>
-                    Keep actions one click away, surface active filters as chips, and show calm
-                    data states for loading, empty, and error conditions.
+                    We designed a payments hub with fast filters, summary metrics, active chips,
+                    and a compact table that opens a detailed invoice modal on click.
                   </p>
                 </div>
                 <div className={styles.infoCard}>
-                  <h3>Outcome</h3>
+                  <h3>Customer value</h3>
                   <p>
-                    A payments workflow that balances speed and depth, with trustworthy status
-                    signaling across cards, tables, and modal views.
+                    Merchants get a workflow that feels controlled and trustworthy because the same
+                    statuses, actions, and evidence appear across cards, tables, and modal views.
                   </p>
                 </div>
+              </div>
+
+              <div className={styles.listBlock}>
+                <h4>What Flat18 handled</h4>
+                <ul className={styles.checkList}>
+                  <li>Reviewed the payment journey around real merchant questions and support scenarios</li>
+                  <li>Reduced uncertainty by standardising status language across every surface</li>
+                  <li>Kept reconciliation actions close to the data with export, refresh, and copyable fields</li>
+                  <li>Added empty, loading, and error states so customers understand what is happening</li>
+                </ul>
               </div>
 
               <div className={styles.listBlock}>
@@ -193,10 +205,10 @@ export default function ForgingBlockDashboardCaseStudyPage() {
                 ))}
               </div>
               <div className={styles.openSourcePanel}>
-                <h4>Workflow clarity</h4>
+                <h4>Delivered for confidence</h4>
                 <p>
-                  The flow keeps merchants in context, moving from summary to detail without
-                  losing their place or filter state.
+                  The flow keeps merchants in context, moving from summary to detail without losing
+                  their place, filter state, or confidence in the numbers they are reviewing.
                 </p>
               </div>
             </div>
@@ -210,8 +222,8 @@ export default function ForgingBlockDashboardCaseStudyPage() {
             <div className={styles.ctaText}>
               <h2>Need a payments dashboard like this?</h2>
               <p>
-                We design and ship merchant tools that make reporting, exports, and compliance
-                feel calm and trustworthy.
+                We can audit the operational friction in your payment flow, design the missing
+                controls, and ship a dashboard your customers can rely on.
               </p>
             </div>
             <div className={styles.ctaActions}>

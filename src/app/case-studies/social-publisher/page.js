@@ -54,20 +54,21 @@ export default function SocialPublisherCaseStudyPage() {
               Social Publisher
             </h1>
             <p className={styles.heroSubtitle}>
-              Platform-aware social scheduling for small teams, agencies, and creators.
+              How Flat18 converted scattered platform rules, approval friction, and publishing risk
+              into a controlled scheduling workflow.
             </p>
             <div className={styles.heroStats}>
               <div className={styles.statCard}>
-                <span className={styles.statValue}>March 2026</span>
-                <span className={styles.statLabel}>Launch</span>
+                <span className={styles.statValue}>Small teams</span>
+                <span className={styles.statLabel}>Audience</span>
               </div>
               <div className={styles.statCard}>
-                <span className={styles.statValue}>Social publishing</span>
-                <span className={styles.statLabel}>Category</span>
+                <span className={styles.statValue}>Platform rules</span>
+                <span className={styles.statLabel}>Problem solved</span>
               </div>
               <div className={styles.statCard}>
-                <span className={styles.statValue}>Vue 3 + Workers</span>
-                <span className={styles.statLabel}>Stack</span>
+                <span className={styles.statValue}>Queue-backed</span>
+                <span className={styles.statLabel}>Reliability</span>
               </div>
             </div>
           </div>
@@ -90,7 +91,8 @@ export default function SocialPublisherCaseStudyPage() {
                 <h2 className={styles.caseStudyTitle}>Social Publisher</h2>
               </div>
               <p className={styles.caseStudySubtitle}>
-                Platform-aware social scheduling for small teams, agencies, and creators.
+                A publishing workflow designed around the details that cause missed posts,
+                duplicated work, and client anxiety.
               </p>
             </div>
             <div className={styles.caseStudyActions}>
@@ -140,10 +142,10 @@ export default function SocialPublisherCaseStudyPage() {
                 ))}
               </div>
               <div className={styles.openSourcePanel}>
-                <h4>Open-source posture</h4>
+                <h4>Delivered for confidence</h4>
                 <p>
-                  Connector transparency, faster platform updates, and portable deployments
-                  for agencies that need control.
+                  Connector transparency, visible retries, and clear publishing logs give agencies
+                  more control when client posts have to land correctly.
                 </p>
               </div>
             </div>
@@ -151,46 +153,56 @@ export default function SocialPublisherCaseStudyPage() {
             <div className={styles.caseStudyContent}>
               <div className={styles.metaRow}>
                 <span className={styles.statusPill}>Live beta</span>
-                <span className={styles.metaItem}>Launch: March 2026</span>
-                <span className={styles.metaItem}>Category: Social publishing</span>
-                <span className={styles.metaItem}>Stack: Vue 3 + Workers</span>
+                <span className={styles.metaItem}>Diagnosis: platform-specific friction</span>
+                <span className={styles.metaItem}>Solution: validation + queueing</span>
+                <span className={styles.metaItem}>Outcome: lower publishing risk</span>
               </div>
 
               <p className={styles.caseStudyIntro}>
-                Social Publisher helps teams compose once, validate per platform, and schedule with
-                confidence. A queue-backed pipeline tracks logs and retries while BYO AI keys keep
-                costs predictable.
+                Flat18 treated publishing as an operational reliability problem. Small teams do not
+                only need a nicer composer; they need guardrails for platform rules, visible approval
+                status, retry behaviour, and logs that explain what happened when a post fails.
               </p>
 
               <div className={styles.infoGrid}>
                 <div className={styles.infoCard}>
-                  <h3>Problem</h3>
+                  <h3>Problem found</h3>
                   <p>
                     Platform rules, account sprawl, and reliability issues make publishing slow
                     and risky for lean marketing teams.
                   </p>
                 </div>
                 <div className={styles.infoCard}>
-                  <h3>Solution</h3>
+                  <h3>Flat18 diagnosis</h3>
                   <p>
-                    A platform-aware workflow with validation, previews, scheduling, and logs
-                    that keeps teams fast and consistent.
+                    Most scheduling friction comes from hidden differences between platforms and
+                    from not knowing whether a queued post actually succeeded.
                   </p>
                 </div>
                 <div className={styles.infoCard}>
-                  <h3>Open-source edge</h3>
+                  <h3>Solution shipped</h3>
                   <p>
-                    Community-led connectors and capability rules keep the platform transparent,
-                    extensible, and resilient to API changes.
+                    We designed a platform-aware workflow with validation, previews, scheduling,
+                    logs, retries, and BYO AI keys for predictable operating costs.
                   </p>
                 </div>
                 <div className={styles.infoCard}>
-                  <h3>Outcome</h3>
+                  <h3>Customer value</h3>
                   <p>
-                    A launch-ready product narrative with a scalable architecture built on
-                    Cloudflare Pages, Workers, and Neon.
+                    Teams can compose with confidence, spot issues before publishing, and explain
+                    outcomes to clients or stakeholders from one audit-friendly trail.
                   </p>
                 </div>
+              </div>
+
+              <div className={styles.listBlock}>
+                <h4>What Flat18 handled</h4>
+                <ul className={styles.checkList}>
+                  <li>Translated platform constraints into capability rules and user-facing validation</li>
+                  <li>Designed the workflow around compose, tailor, schedule, verify, and retry</li>
+                  <li>Separated interactive app behaviour from scheduled publishing for reliability</li>
+                  <li>Positioned open-source connectors as a practical defence against API change</li>
+                </ul>
               </div>
 
               <div className={styles.listBlock}>
@@ -226,8 +238,8 @@ export default function SocialPublisherCaseStudyPage() {
             <div className={styles.ctaText}>
               <h2>Want a case study like this?</h2>
               <p>
-                We build open-source-ready products and marketing systems that stand up to
-                technical scrutiny and investor-grade narratives.
+                We can turn repeatable customer operations into a dependable product workflow with
+                the right guardrails, logs, and escalation paths.
               </p>
             </div>
             <div className={styles.ctaActions}>

@@ -55,20 +55,21 @@ export default function ArchimedesFinanceCaseStudyPage() {
               Archimedes Finance
             </h1>
             <p className={styles.heroSubtitle}>
-              Investor platform for tokenised assets, compliance workflows, and distribution reporting.
+              How Flat18 organised KYC, tokenisation, reporting, and client communication into one
+              auditable investment platform.
             </p>
             <div className={styles.heroStats}>
               <div className={styles.statCard}>
-                <span className={styles.statValue}>Vue 3 + Express</span>
-                <span className={styles.statLabel}>Stack</span>
+                <span className={styles.statValue}>KYC + audit</span>
+                <span className={styles.statLabel}>Problem solved</span>
               </div>
               <div className={styles.statCard}>
                 <span className={styles.statValue}>Tokenised assets</span>
                 <span className={styles.statLabel}>Category</span>
               </div>
               <div className={styles.statCard}>
-                <span className={styles.statValue}>KYC + audit trails</span>
-                <span className={styles.statLabel}>Focus</span>
+                <span className={styles.statValue}>Role-based</span>
+                <span className={styles.statLabel}>Delivery shape</span>
               </div>
             </div>
           </div>
@@ -93,7 +94,8 @@ export default function ArchimedesFinanceCaseStudyPage() {
                 <h2 className={styles.caseStudyTitle}>Archimedes Finance</h2>
               </div>
               <p className={styles.caseStudySubtitle}>
-                Investor app platform for tokenised assets, compliance workflows, and distribution reporting.
+                A platform designed to reduce friction and compliance risk across onboarding,
+                asset approval, and investor reporting.
               </p>
             </div>
             <div className={styles.caseStudyActions}>
@@ -115,45 +117,56 @@ export default function ArchimedesFinanceCaseStudyPage() {
             <div className={styles.caseStudyContent}>
               <div className={styles.metaRow}>
                 <span className={styles.statusPill}>Live</span>
-                <span className={styles.metaItem}>Stack: Vue 3 + Express</span>
-                <span className={styles.metaItem}>Category: Tokenised assets</span>
-                <span className={styles.metaItem}>Focus: KYC + audit trails</span>
+                <span className={styles.metaItem}>Diagnosis: disconnected compliance workflows</span>
+                <span className={styles.metaItem}>Solution: role-based operating platform</span>
+                <span className={styles.metaItem}>Outcome: clearer audit visibility</span>
               </div>
 
               <p className={styles.caseStudyIntro}>
-                Archimedes Finance unifies traditional advisory workflows with digital asset tokenisation,
-                giving managers and clients a single, auditable workspace for onboarding, approvals, and reporting.
+                Flat18 treated the product as an operational controls problem. Investment teams needed
+                to move clients through verification, asset review, tokenisation, messaging, and
+                distributions without losing evidence or context between tools.
               </p>
 
               <div className={styles.infoGrid}>
                 <div className={styles.infoCard}>
-                  <h3>Problem</h3>
+                  <h3>Problem found</h3>
                   <p>
                     Investment teams juggle disconnected tools for KYC, asset approvals, and reporting,
                     creating delays and compliance risk.
                   </p>
                 </div>
                 <div className={styles.infoCard}>
-                  <h3>Solution</h3>
+                  <h3>Flat18 diagnosis</h3>
                   <p>
-                    A role-based platform that pairs onboarding, tokenisation workflows, and profit-sharing
-                    dashboards in one secure interface.
+                    The workflow needed shared context, role-based boundaries, and persistent records
+                    more than another isolated dashboard.
                   </p>
                 </div>
                 <div className={styles.infoCard}>
-                  <h3>Architecture</h3>
+                  <h3>Solution shipped</h3>
                   <p>
-                    A Vue 3 SPA backed by an Express API and Postgres, with Cloudinary storage and
-                    on-chain signature breadcrumbs for asset auditability.
+                    We delivered a Vue 3 and Express platform covering onboarding, KYC, tokenisation,
+                    profit-sharing dashboards, messaging, and audit trails.
                   </p>
                 </div>
                 <div className={styles.infoCard}>
-                  <h3>Outcome</h3>
+                  <h3>Customer value</h3>
                   <p>
-                    A delivery-ready product narrative with clear compliance workflows and reporting
-                    visibility for managers and investors.
+                    Managers and investors get clearer status visibility, stronger approval records,
+                    and fewer hand-offs across sensitive financial workflows.
                   </p>
                 </div>
+              </div>
+
+              <div className={styles.listBlock}>
+                <h4>What Flat18 handled</h4>
+                <ul className={styles.checkList}>
+                  <li>Mapped client, manager, and admin responsibilities into distinct product journeys</li>
+                  <li>Joined KYC, asset approval, messaging, and reporting into a single operating flow</li>
+                  <li>Added audit-friendly evidence through approval records and signature breadcrumbs</li>
+                  <li>Designed dashboards that make distributions and tokenised asset status easier to review</li>
+                </ul>
               </div>
 
               <div className={styles.listBlock}>
@@ -211,10 +224,10 @@ export default function ArchimedesFinanceCaseStudyPage() {
                 ))}
               </div>
               <div className={styles.openSourcePanel}>
-                <h4>Compliance-ready by design</h4>
+                <h4>Delivered for confidence</h4>
                 <p>
-                  Audit trails, approval workflows, and role-based routing keep sensitive
-                  investment operations transparent and defensible.
+                  Audit trails, approval workflows, and role-based routing keep sensitive investment
+                  operations transparent, defensible, and easier for stakeholders to approve.
                 </p>
               </div>
             </div>
@@ -228,8 +241,8 @@ export default function ArchimedesFinanceCaseStudyPage() {
             <div className={styles.ctaText}>
               <h2>Want a case study like this?</h2>
               <p>
-                We build open-source-ready products and marketing systems that stand up to
-                technical scrutiny and investor-grade narratives.
+                We can consolidate fragmented customer, compliance, or reporting workflows into a
+                product that feels controlled from first login to final approval.
               </p>
             </div>
             <div className={styles.ctaActions}>

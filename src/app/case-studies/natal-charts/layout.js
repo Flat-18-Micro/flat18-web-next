@@ -2,7 +2,7 @@ import { generatePageMetadata } from '@/lib/seo'
 
 export const metadata = generatePageMetadata({
   title: 'Natal Charts Case Study',
-  description: 'Turning dense ephemeris data into a calm, explorable chart product experience.',
+  description: 'How Flat18 turned dense ephemeris, location, and scoring data into a calm product experience customers can explore and share.',
   path: '/case-studies/natal-charts',
   image: '/og/case-studies.png',
 })

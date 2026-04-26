@@ -48,20 +48,21 @@ export default function NatalChartsCaseStudyPage() {
               Natal Charts
             </h1>
             <p className={styles.heroSubtitle}>
-              Turning dense ephemeris data into a calm, explorable chart product experience.
+              How Flat18 turned dense ephemeris, location, and scoring data into a calm product
+              experience customers can explore and share.
             </p>
             <div className={styles.heroStats}>
               <div className={styles.statCard}>
-                <span className={styles.statValue}>Ephemeris + geo</span>
-                <span className={styles.statLabel}>Data inputs</span>
+                <span className={styles.statValue}>Complex inputs</span>
+                <span className={styles.statLabel}>Problem solved</span>
               </div>
               <div className={styles.statCard}>
-                <span className={styles.statValue}>Compatibility scoring</span>
-                <span className={styles.statLabel}>Comparison</span>
+                <span className={styles.statValue}>Progressive detail</span>
+                <span className={styles.statLabel}>UX approach</span>
               </div>
               <div className={styles.statCard}>
-                <span className={styles.statValue}>PDF export</span>
-                <span className={styles.statLabel}>Output</span>
+                <span className={styles.statValue}>Shareable PDF</span>
+                <span className={styles.statLabel}>Customer output</span>
               </div>
             </div>
           </div>
@@ -77,7 +78,8 @@ export default function NatalChartsCaseStudyPage() {
                 <h2 className={styles.caseStudyTitle}>Natal Charts</h2>
               </div>
               <p className={styles.caseStudySubtitle}>
-                A demo that turns raw placements, aspects, and interpretations into a clear, navigable UI.
+                A demo that proves how raw calculations, comparisons, and interpretations can become
+                a usable customer-facing product.
               </p>
             </div>
             <div className={styles.caseStudyActions}>
@@ -99,45 +101,57 @@ export default function NatalChartsCaseStudyPage() {
             <div className={styles.caseStudyContent}>
               <div className={styles.metaRow}>
                 <span className={styles.statusPill}>Live demo</span>
-                <span className={styles.metaItem}>Scope: natal chart + compatibility</span>
-                <span className={styles.metaItem}>Focus: clarity + progressive detail</span>
-                <span className={styles.metaItem}>Output: shareable PDF</span>
+                <span className={styles.metaItem}>Diagnosis: dense data overload</span>
+                <span className={styles.metaItem}>Solution: signal-first UI</span>
+                <span className={styles.metaItem}>Outcome: export-ready report</span>
               </div>
 
               <p className={styles.caseStudyIntro}>
-                Flat18 transforms dense, technical datasets into elegant, usable interfaces without sacrificing depth.
-                The natal chart demo shows how raw calculations, geocoding, and scoring logic become a calm, navigable UI.
+                Flat18 treated this as a data translation challenge: the underlying calculations had
+                to remain rich, but the customer experience needed to feel clear, calm, and useful.
+                The result demonstrates how complex inputs can be shaped into an interface that guides
+                people from overview to detail without overwhelming them.
               </p>
 
               <div className={styles.infoGrid}>
                 <div className={styles.infoCard}>
-                  <h3>Problem</h3>
+                  <h3>Problem found</h3>
                   <p>
                     Astrology data blends coordinates, time zones, ephemeris math, and dense outputs that overwhelm
                     users when presented as raw tables.
                   </p>
                 </div>
                 <div className={styles.infoCard}>
-                  <h3>Solution</h3>
+                  <h3>Flat18 diagnosis</h3>
                   <p>
-                    Normalise inputs, surface the signal first, and reveal deeper detail progressively so the UI
-                    stays calm while retaining full context.
+                    The value was hidden by volume. Users needed a sequence: core signals first,
+                    explanations second, and deeper comparisons only when useful.
                   </p>
                 </div>
                 <div className={styles.infoCard}>
-                  <h3>Approach</h3>
+                  <h3>Solution shipped</h3>
                   <p>
-                    Comparison-ready scoring, expandable interpretations, and clear hierarchy guide users through
-                    the data without losing nuance.
+                    We normalised the inputs, created comparison-ready scoring, added expandable
+                    interpretations, and gave the product a clear visual hierarchy.
                   </p>
                 </div>
                 <div className={styles.infoCard}>
-                  <h3>Outcome</h3>
+                  <h3>Customer value</h3>
                   <p>
-                    A responsive, export-ready product experience that makes complex systems feel understandable
-                    and shareable.
+                    Customers can explore a complex system, understand the key takeaways, and produce
+                    a polished PDF artifact for sharing or records.
                   </p>
                 </div>
+              </div>
+
+              <div className={styles.listBlock}>
+                <h4>What Flat18 handled</h4>
+                <ul className={styles.checkList}>
+                  <li>Mapped unfamiliar technical outputs into consistent product structures</li>
+                  <li>Prioritised the highest-value signals before exposing detailed interpretation</li>
+                  <li>Designed comparison and scoring patterns that make dense data feel navigable</li>
+                  <li>Turned the live product view into a customer-ready downloadable report</li>
+                </ul>
               </div>
 
               <div className={styles.listBlock}>
@@ -194,10 +208,10 @@ export default function NatalChartsCaseStudyPage() {
                 ))}
               </div>
               <div className={styles.openSourcePanel}>
-                <h4>Data made understandable</h4>
+                <h4>Delivered for confidence</h4>
                 <p>
-                  The same system design can translate health, finance, or research datasets into clear narratives
-                  with explainers, hierarchy, and exportable outputs.
+                  The same diligence can translate health, finance, or research datasets into clear
+                  narratives with explainers, hierarchy, and exportable outputs.
                 </p>
               </div>
             </div>
@@ -211,8 +225,8 @@ export default function NatalChartsCaseStudyPage() {
             <div className={styles.ctaText}>
               <h2>Want a case study like this?</h2>
               <p>
-                We build data-rich product experiences that feel approachable and clear, even when the
-                underlying system is complex.
+                We can turn a dense dataset or specialist process into a product customers understand,
+                use, and feel confident sharing.
               </p>
             </div>
             <div className={styles.ctaActions}>

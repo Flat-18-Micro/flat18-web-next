@@ -8,58 +8,58 @@ const caseStudies = [
   {
     title: 'PulseOps',
     tag: 'Open-source infrastructure',
-    description: 'Self-hosted network operations for SOHO operators and small MSPs.',
+    description: 'Identified a gap between consumer routers and enterprise suites, then shaped a self-hosted command centre around real operator workflows.',
     image: '/images/case-studies/pulseops/overview.png',
     href: '/case-studies/pulseops',
-    meta: ['Live', 'Network telemetry']
+    meta: ['Problem discovery', 'Network telemetry']
   },
   {
     title: 'Social Publisher',
     tag: 'Open-source publishing',
-    description: 'Platform-aware social scheduling for small teams, agencies, and creators.',
+    description: 'Turned messy multi-platform publishing rules into a dependable scheduling workflow with validation, retries, and transparent logs.',
     image: '/images/case-studies/social-publisher/hero-composer.webp',
     href: '/case-studies/social-publisher',
-    meta: ['Live beta', 'Social publishing']
+    meta: ['Workflow design', 'Social publishing']
   },
   {
     title: 'Natal Charts',
     tag: 'Data visualisation',
-    description: 'Complex ephemeris data distilled into a calm, explorable chart UI.',
+    description: 'Mapped dense ephemeris, location, and scoring data into a calm product experience with progressive detail and shareable outputs.',
     image: '/images/case-studies/natal-charts/chart-overview.png',
     href: '/case-studies/natal-charts',
-    meta: ['Live demo', 'Data-rich UI']
+    meta: ['Complex data', 'Data-rich UI']
   },
   {
     title: 'Archimedes Finance',
     tag: 'Tokenised investment platform',
-    description: 'Investor platform for tokenised assets, compliance workflows, and reporting.',
+    description: 'Consolidated fragmented investment, KYC, tokenisation, and reporting workflows into a role-based platform built for auditability.',
     image: '/images/case-studies/archimedes-finance/dashboard-investor.svg',
     href: '/case-studies/archimedes-finance',
-    meta: ['Live', 'Fintech']
+    meta: ['Compliance workflow', 'Fintech']
   },
   {
     title: 'ForgingBlock Dashboard',
     tag: 'Payments experience',
-    description: 'Payments hub for invoices, cash flow, and payout monitoring.',
+    description: 'Refined merchant payment operations into a clear invoice, cash-flow, and payout experience that supports fast decisions.',
     image: '/images/case-studies/forgingblock-dashboard/payments-page.svg',
     href: '/case-studies/forgingblock-dashboard',
-    meta: ['Payments UX', 'Dashboard']
+    meta: ['Operational clarity', 'Dashboard']
   },
   {
     title: 'ForgingBlock Website',
     tag: 'Website redesign',
-    description: 'Benefit-first marketing site rebuild with clearer narrative and trust signals.',
+    description: 'Audited a busy legacy site, found the conversion blockers, and rebuilt the journey around trust, clarity, and merchant outcomes.',
     image: '/images/case-studies/forgingblock-website/redesign/home-desktop.png',
     href: '/case-studies/forgingblock-website',
-    meta: ['Redesign', 'Marketing site']
+    meta: ['Strategic audit', 'Marketing site']
   },
   {
     title: 'Zettahash Hashboard',
     tag: 'DAO transparency',
-    description: 'Mining performance, treasury status, and governance activity in one hub.',
+    description: 'Brought mining, treasury, market, and governance signals into one readable hub so stakeholders can assess project health quickly.',
     image: '/images/case-studies/hashboard/dashboard-overview.svg',
     href: '/case-studies/hashboard',
-    meta: ['Live', 'DAO dashboard']
+    meta: ['Stakeholder trust', 'DAO dashboard']
   }
 ]
 
@@ -74,24 +74,24 @@ export default function CaseStudiesPage() {
               Case studies
             </span>
             <h1 className={styles.heroTitle}>
-              Product platforms, shipped with intent.
+              Case studies with a clear commercial purpose.
             </h1>
             <p className={styles.heroSubtitle}>
-              Seven launches from Flat 18 across fintech, infrastructure, and data-heavy platforms.
-              Each case study links to a dedicated deep dive.
+              See how Flat18 investigates business problems, designs practical solutions, and
+              implements product changes or new services with the care needed for confident customer sign-off.
             </p>
             <div className={styles.heroStats}>
               <div className={styles.statCard}>
                 <span className={styles.statValue}>7</span>
-                <span className={styles.statLabel}>Case studies</span>
+                <span className={styles.statLabel}>Deep dives</span>
               </div>
               <div className={styles.statCard}>
-                <span className={styles.statValue}>Fintech + ops</span>
-                <span className={styles.statLabel}>Coverage</span>
+                <span className={styles.statValue}>Discovery to delivery</span>
+                <span className={styles.statLabel}>Method</span>
               </div>
               <div className={styles.statCard}>
-                <span className={styles.statValue}>2026</span>
-                <span className={styles.statLabel}>Most recent</span>
+                <span className={styles.statValue}>Customer-focused</span>
+                <span className={styles.statLabel}>Outcome</span>
               </div>
             </div>
           </div>
@@ -102,9 +102,10 @@ export default function CaseStudiesPage() {
         <div className={styles.container}>
           <div className={styles.caseStudyListHeader}>
             <span className={styles.caseStudyTag}>All case studies</span>
-            <h2 className={styles.caseStudyTitle}>Explore the full set</h2>
+            <h2 className={styles.caseStudyTitle}>Evidence of how we think and ship</h2>
             <p className={styles.caseStudySubtitle}>
-              Each preview links to the full write-up with workflows, architecture, and visuals.
+              Each study follows the same useful pattern: what was wrong, what Flat18 found,
+              what changed, and why the final product was easier for customers or teams to trust.
             </p>
           </div>
 
@@ -146,8 +147,8 @@ export default function CaseStudiesPage() {
             <div className={styles.ctaText}>
               <h2>Want a case study like this?</h2>
               <p>
-                We build product platforms and marketing systems that stand up to technical scrutiny
-                and investor-grade narratives.
+                We can audit the friction in your current product or service, design the fix, and
+                implement it with a clear path to stakeholder approval.
               </p>
             </div>
             <div className={styles.ctaActions}>

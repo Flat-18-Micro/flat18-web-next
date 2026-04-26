@@ -54,20 +54,21 @@ export default function ForgingBlockWebsiteCaseStudyPage() {
               ForgingBlock Website Redesign
             </h1>
             <p className={styles.heroSubtitle}>
-              Benefit-first marketing site rebuild focused on trust, clarity, and conversion.
+              How Flat18 audited a busy merchant website, found the conversion blockers, and rebuilt
+              the journey around trust, clarity, and customer action.
             </p>
             <div className={styles.heroStats}>
               <div className={styles.statCard}>
-                <span className={styles.statValue}>Next.js App Router</span>
-                <span className={styles.statLabel}>Stack</span>
+                <span className={styles.statValue}>Full-site audit</span>
+                <span className={styles.statLabel}>Starting point</span>
               </div>
               <div className={styles.statCard}>
                 <span className={styles.statValue}>Feb 2026</span>
                 <span className={styles.statLabel}>Redesign</span>
               </div>
               <div className={styles.statCard}>
-                <span className={styles.statValue}>Marketing site</span>
-                <span className={styles.statLabel}>Scope</span>
+                <span className={styles.statValue}>Conversion-ready</span>
+                <span className={styles.statLabel}>Outcome</span>
               </div>
             </div>
           </div>
@@ -83,7 +84,8 @@ export default function ForgingBlockWebsiteCaseStudyPage() {
                 <h2 className={styles.caseStudyTitle}>ForgingBlock Website</h2>
               </div>
               <p className={styles.caseStudySubtitle}>
-                Rebuilt around a clearer narrative, tighter hierarchy, and centralised SEO metadata.
+                Rebuilt from a careful review of message clarity, trust placement, mobile scanning,
+                accessibility, and long-term content maintenance.
               </p>
             </div>
             <div className={styles.caseStudyActions}>
@@ -97,46 +99,57 @@ export default function ForgingBlockWebsiteCaseStudyPage() {
             <div className={styles.caseStudyContent}>
               <div className={styles.metaRow}>
                 <span className={styles.statusPill}>Redesign shipped</span>
-                <span className={styles.metaItem}>Focus: Value prop + trust</span>
-                <span className={styles.metaItem}>Surface: Marketing site</span>
-                <span className={styles.metaItem}>Outcome: Faster comprehension</span>
+                <span className={styles.metaItem}>Diagnosis: value hidden by complexity</span>
+                <span className={styles.metaItem}>Solution: benefit-first journey</span>
+                <span className={styles.metaItem}>Outcome: faster comprehension</span>
               </div>
 
               <p className={styles.caseStudyIntro}>
-                The legacy site delivered broad coverage but buried the value proposition and trust signals.
-                The redesign reorganises the experience into a benefit-first story with consistent modules,
-                clearer hierarchy, and a maintainable content architecture.
+                The legacy site contained useful detail, but the customer journey was asking merchants
+                to work too hard. Flat18 reviewed the information architecture, page hierarchy, proof
+                placement, mobile density, and SEO structure before rebuilding the site into a cleaner,
+                benefit-first experience.
               </p>
 
               <div className={styles.infoGrid}>
                 <div className={styles.infoCard}>
-                  <h3>Problem</h3>
+                  <h3>Problem found</h3>
                   <p>
                     Dense copy, deep navigation, and scattered trust proof slowed merchant understanding
-                    and weakened conversion intent.
+                    at the exact point where confidence should have been building.
                   </p>
                 </div>
                 <div className={styles.infoCard}>
-                  <h3>Solution</h3>
+                  <h3>Flat18 diagnosis</h3>
                   <p>
-                    A modular Next.js build with benefit-led messaging, early trust signals, and
-                    mobile-first scanning patterns.
+                    The site had technical credibility, but its strongest proof appeared too late and
+                    the customer path was not organised around decision-making.
                   </p>
                 </div>
                 <div className={styles.infoCard}>
-                  <h3>Implementation</h3>
+                  <h3>Solution shipped</h3>
                   <p>
-                    Centralised metadata, content-driven page configs, and shared design tokens
-                    for consistent sections across the site.
+                    We rebuilt the journey with benefit-led messaging, earlier trust signals,
+                    mobile-first scanning, central metadata, and reusable page modules.
                   </p>
                 </div>
                 <div className={styles.infoCard}>
-                  <h3>Outcome</h3>
+                  <h3>Customer value</h3>
                   <p>
-                    Clearer narrative flow, improved trust positioning, and a maintainable system
-                    for ongoing marketing updates.
+                    Merchants can understand the offer faster, while the business gets a maintainable
+                    system for adding proof, services, and SEO-led content.
                   </p>
                 </div>
+              </div>
+
+              <div className={styles.listBlock}>
+                <h4>What Flat18 handled</h4>
+                <ul className={styles.checkList}>
+                  <li>Audited the legacy site for message clarity, trust signals, SEO, and mobile usability</li>
+                  <li>Reordered the narrative so merchant outcomes appear before technical detail</li>
+                  <li>Converted repeated templates into reusable sections and content-driven configs</li>
+                  <li>Improved long-term upkeep with shared tokens, structured metadata, and consistent modules</li>
+                </ul>
               </div>
 
               <div className={styles.listBlock}>
@@ -192,10 +205,10 @@ export default function ForgingBlockWebsiteCaseStudyPage() {
                 ))}
               </div>
               <div className={styles.openSourcePanel}>
-                <h4>Story-first flow</h4>
+                <h4>Delivered for confidence</h4>
                 <p>
-                  The redesign keeps benefits, trust, and conversion steps in a tighter sequence
-                  so merchants understand value faster.
+                  The redesign keeps benefits, trust, and conversion steps in a tighter sequence so
+                  customers can move from interest to enquiry without losing confidence.
                 </p>
               </div>
             </div>
@@ -209,7 +222,8 @@ export default function ForgingBlockWebsiteCaseStudyPage() {
             <div className={styles.ctaText}>
               <h2>Need a marketing refresh?</h2>
               <p>
-                We rebuild marketing sites around clarity, trust, and conversion-ready narratives.
+                We can audit your current site, identify the points where customers hesitate, and
+                rebuild the journey around proof, clarity, and action.
               </p>
             </div>
             <div className={styles.ctaActions}>

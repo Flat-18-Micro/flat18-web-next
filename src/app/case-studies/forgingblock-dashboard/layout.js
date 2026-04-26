@@ -2,7 +2,7 @@ import { generatePageMetadata } from '@/lib/seo'
 
 export const metadata = generatePageMetadata({
   title: 'ForgingBlock Dashboard Case Study',
-  description: 'Payments experience for merchants monitoring invoices, cash flow, and payouts.',
+  description: 'How Flat18 turned scattered merchant payment signals into a calm workflow for invoices, cash flow, and payout status.',
   path: '/case-studies/forgingblock-dashboard',
   image: '/og/case-studies.png',
 })
