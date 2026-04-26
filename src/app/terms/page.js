@@ -31,10 +31,10 @@ export default function TermsPage() {
             </p>
             <div className={`${styles.textContent} ${styles.legalContent}`}>
               <p>
-                Hi there! We’re FLAT 18 MICROSYSTEMS DEVELOPMENT LLC, but you might see us called @f18micro, F18, Flat 18, or FLAT18.CO.UK in different places online. Any project under a flat18.co.uk subdomain is covered by these terms too. When we say “you,” we mean you, our awesome customer. When you see “we,” “us,” or “our,” that’s Flat 18.
+                We are FLAT 18 MICROSYSTEMS DEVELOPMENT LLC. You may also see us referred to as @f18micro, F18, Flat 18, or FLAT18.CO.UK. Any project under a flat18.co.uk subdomain is covered by these terms. When we say “you,” we mean you, our customer. When we say “we,” “us,” or “our,” we mean Flat 18.
               </p>
               <p>
-                Here’s how we work together and what you can expect from us. We’ve tried to keep everything clear and straightforward.
+                This document explains how we work together and what you can expect from us. We have kept it as clear and straightforward as possible.
               </p>
               <ol role="list" className="terms-list">
                 <li>
@@ -46,7 +46,7 @@ export default function TermsPage() {
                   </div>
                   <div className={styles.textContent}>
                     {visibleVersions['hours'] ? (
-                      <>We're here for you Monday to Friday, 12pm–8pm UTC—though we work flexibly and sometimes outside those hours too. Message us at any time; we'll reply as soon as we can!</>
+                      <>We are available Monday to Friday, 12:00-20:00 UTC, though we work flexibly and may respond outside those hours. Message us at any time; we will reply as soon as we can.</>
                     ) : (
                       <>Our standard business hours are 12:00–20:00 UTC (or GMT), Monday to Friday, though our team may operate flexibly across time zones. Communications received outside these hours will be addressed promptly during our next available window.</>
                     )}
@@ -61,7 +61,7 @@ export default function TermsPage() {
                   </div>
                   <div className={styles.textContent}>
                     {visibleVersions['contact'] ? (
-                      <>Got a project or question? Reach out on Telegram (@f18micro), our live-chat at <a href="https://flat18.co.uk/" target="_blank" rel="noopener noreferrer">https://flat18.co.uk</a>, or email <a href="mailto:hello@flat18.co.uk">hello@flat18.co.uk</a>. We'll help you see if Flat 18 is right for you and set up your project space if you join us!</>
+                      <>If you have a project or question, contact us on Telegram (@f18micro), through live chat at <a href="https://flat18.co.uk/" target="_blank" rel="noopener noreferrer">https://flat18.co.uk</a>, or by email at <a href="mailto:hello@flat18.co.uk">hello@flat18.co.uk</a>. We will help you decide whether Flat 18 is the right fit and set up your project space if you join us.</>
                     ) : (
                       <>For project enquiries, contact us via Telegram (@f18micro), website live-chat (<a href="https://flat18.co.uk/" target="_blank" rel="noopener noreferrer">https://flat18.co.uk</a>), or email (<a href="mailto:hello@flat18.co.uk">hello@flat18.co.uk</a>). We will discuss your project scope, requirements, and preferences. Upon agreement, we will create an account for you and manage your project through a suitable project management tool.</>
                     )}
@@ -76,7 +76,7 @@ export default function TermsPage() {
                   </div>
                   <div className={styles.textContent}>
                     {visibleVersions['queue'] ? (
-                      <>Once you pay your invoice, we’ll pop your tasks into our queue and get started! Sometimes your hours are spread out over the month, but you can always ask for an update on where things stand.</>
+                      <>Once you pay your invoice, we will add your tasks to our queue and begin work. Your hours may be spread across the month, and you can ask for a status update at any time.</>
                     ) : (
                       <>Subscription invoices are payable immediately. Tasks, reviews, and updates are scheduled according to our team's availability and may be distributed throughout the month. Project status updates are available upon request.</>
                     )}
@@ -91,7 +91,7 @@ export default function TermsPage() {
                   </div>
                   <div className={styles.textContent}>
                     {visibleVersions['payments'] ? (
-                      <>We accept all sorts of payments: USD, GBP, EUR, Bitcoin, Ethereum, and ERC-20 tokens. If you change your mind after paying and we haven’t started yet, you can get up to 50% back!</>
+                      <>We accept several payment methods: USD, GBP, EUR, Bitcoin, Ethereum, and ERC-20 tokens. If you change your mind after paying and we have not started yet, you may be eligible for a refund of up to 50%.</>
                     ) : (
                       <>Accepted payment methods include USD, GBP, EUR, Bitcoin, Ethereum, and select ERC-20 tokens. If project work has not commenced within one month of payment (and pending items are not awaiting your input), you may be eligible for a refund of up to 50% of the paid amount.</>
                     )}
@@ -106,7 +106,7 @@ export default function TermsPage() {
                   </div>
                   <div className={styles.textContent}>
                     {visibleVersions['discounts'] ? (
-                      <>Discounts are only valid until the invoice due date (or the issue date if there’s no due date). Pay late, and the regular price applies!</>
+                      <>Discounts are valid only until the invoice due date, or the issue date if there is no due date. If payment is late, the standard price applies.</>
                     ) : (
                       <>Invoice discounts are valid only until the stated due date or, if none is specified, the issue date. Payments made after this period will revert to the standard price as indicated by the invoice reference.</>
                     )}
@@ -121,7 +121,7 @@ export default function TermsPage() {
                   </div>
                   <div className={styles.textContent}>
                     {visibleVersions['materials'] ? (
-                      <>We'll let you know what we need (photos, copy, logos, logins, etc). If you’re late sending things, it can eat into your dev hours, and we can’t roll them over. If delays mean we can’t finish by month’s end, we’ll pause and won’t bill extra until we check in with you.</>
+                      <>We will tell you what we need, such as photos, copy, logos, or logins. If materials arrive late, this may reduce your available development hours and we cannot roll them over. If delays mean we cannot finish by month-end, we will pause the project and will not bill extra until we review it with you.</>
                     ) : (
                       <>Required materials (e.g., images, text, logos, code, credentials, certificates, keys) must be provided as requested. Delays in submission may reduce available development hours, which are non-transferable. Projects delayed beyond the current month may be paused, with additional charges deferred until a mutual review occurs.</>
                     )}
@@ -136,7 +136,7 @@ export default function TermsPage() {
                   </div>
                   <div className={styles.textContent}>
                     {visibleVersions['communication'] ? (
-                      <>We love using Issues on your git repo to keep track of feedback and tasks, but you can pick whatever works best for you. Want regular updates or weekly chats? Just say so!</>
+                      <>We often use Issues in your Git repository to track feedback and tasks, but you can choose the channel that works best for you. If you would like regular updates or weekly check-ins, let us know.</>
                     ) : (
                       <>Project communication may be managed via repository Issues or a preferred channel of your choice. Update frequency is at your discretion. We recommend a brief weekly check-in (10–30 minutes, via text or voice) but can accommodate additional meetings as needed.</>
                     )}
@@ -151,7 +151,7 @@ export default function TermsPage() {
                   </div>
                   <div className={styles.textContent}>
                     {visibleVersions['support'] ? (
-                      <>Need help or a revision? Let us know within a month after we finish! You get up to two support requests (at least two weeks apart). If there’s a bug in our code, we’ll fix it! Support ends after a month, and we may pause support if there are unpaid bills.</>
+                      <>If you need help or a revision, let us know within one month of completion. You receive up to two support requests, at least two weeks apart. If there is a bug in our code, we will fix it. Support ends after one month, and we may pause support if there are unpaid bills.</>
                     ) : (
                       <>Support and revisions are available for one month following project completion, limited to two requests (minimum two weeks apart). Bug fixes are provided for code defects. Support may be suspended for overdue payments and expires after one month if unused.</>
                     )}
@@ -166,7 +166,7 @@ export default function TermsPage() {
                   </div>
                   <div className={styles.textContent}>
                     {visibleVersions['changes'] ? (
-                      <>Want to tweak something? No problem! You can request as many reviews or changes as you like. Small updates can be done in as little as 48 hours, but bigger changes might take longer. If it’s complicated, we’ll pause and chat it over with you first.</>
+                      <>You can request as many reviews or changes as you like. Small updates can be completed in as little as 48 hours, while larger changes may take longer. If a request is complex, we will pause and discuss it with you first.</>
                     ) : (
                       <>Unlimited change and review requests are permitted. Simple modifications may be completed within 48 hours; complex changes may require additional time. Complicated requests will prompt a project pause until further discussion.</>
                     )}
@@ -181,7 +181,7 @@ export default function TermsPage() {
                   </div>
                   <div className={styles.textContent}>
                     {visibleVersions['delays'] ? (
-                      <>If your project gets delayed and isn’t finished by the end of the month, we’ll pause it and let you know. Your project will go to the back of our queue, and we’ll reach out when it’s your turn again. Unused hours aren’t refundable, so try to keep things moving!</>
+                      <>If your project is delayed and is not finished by the end of the month, we will pause it and let you know. Your project will move to the back of our queue, and we will contact you when it is ready to resume. Unused hours are not refundable.</>
                     ) : (
                       <>Projects not completed by month-end may be paused and rescheduled to the end of our active queue. Unused hours are non-refundable.</>
                     )}
@@ -196,7 +196,7 @@ export default function TermsPage() {
                   </div>
                   <div className={styles.textContent}>
                     {visibleVersions['ending'] ? (
-                      <>Need to stop a project? Just tell us on our website live-circle, Telegram, or over a call. We’ll confirm your identity before wrapping things up. Refunds aren’t usual, but we might offer account credit for unused time—just ask!</>
+                      <>If you need to stop a project, tell us through live chat, Telegram, or a call. We will confirm your identity before closing the project. Refunds are not usually provided, but we may offer account credit for unused time at our discretion.</>
                     ) : (
                       <>Project termination requests must be submitted via approved communication channels and will require identity verification. Refunds are generally not provided, but unused time may be credited at our discretion.</>
                     )}
@@ -211,7 +211,7 @@ export default function TermsPage() {
                   </div>
                   <div className={styles.textContent}>
                     {visibleVersions['permissions'] ? (
-                      <>Please make sure you have permission to use everything you send us—like copy, images, logos, code, or trademarks. If someone claims you didn’t have the rights, you agree to cover us and keep us out of any legal trouble.</>
+                      <>Please make sure you have permission to use everything you send us, including copy, images, logos, code, and trademarks. If someone claims you did not have the rights, you agree to cover us and keep us out of any legal dispute.</>
                     ) : (
                       <>You are responsible for ensuring that all materials provided (e.g., text, images, logos, code, trademarks) are properly licensed or owned. You agree to indemnify and hold us harmless from any claims arising from unauthorised use.</>
                     )}
@@ -226,7 +226,7 @@ export default function TermsPage() {
                   </div>
                   <div className={styles.textContent}>
                     {visibleVersions['licensing'] ? (
-                      <>Once you’ve paid in full, you get a licence to use the product, software, and contents for as long as your project runs. If we host something for you, it might have its own licence terms.</>
+                      <>Once you have paid in full, you receive a licence to use the product, software, and content for as long as your project runs. If we host something for you, it may have its own licence terms.</>
                     ) : (
                       <>Upon full payment, you are granted a licence to use the delivered product, software, and content for the duration of your project. Hosted services may be subject to separate licensing terms.</>
                     )}
@@ -241,7 +241,7 @@ export default function TermsPage() {
                   </div>
                   <div className={styles.textContent}>
                     {visibleVersions['search'] ? (
-                      <>We’ll do basic SEO best practices, but we can’t promise you’ll hit a certain spot in search results.</>
+                      <>We will apply basic SEO best practices, but we cannot promise a specific position in search results.</>
                     ) : (
                       <>Basic search engine optimisation techniques will be applied, but specific search ranking outcomes cannot be guaranteed.</>
                     )}
@@ -256,7 +256,7 @@ export default function TermsPage() {
                   </div>
                   <div className={styles.textContent}>
                     {visibleVersions['loss'] ? (
-                      <>We’re not responsible for any losses or damages if your project is delayed, including lost sales or leads from downtime or interruptions.</>
+                      <>We are not responsible for any losses or damages if your project is delayed, including lost sales or leads from downtime or interruptions.</>
                     ) : (
                       <>We disclaim liability for any consequential, incidental, or indirect losses, including but not limited to lost sales, leads, or opportunities resulting from project delays, downtime, or interruptions.</>
                     )}
@@ -271,7 +271,7 @@ export default function TermsPage() {
                   </div>
                   <div className={styles.textContent}>
                     {visibleVersions['disclaimer'] ? (
-                      <>We do our best, but except for what’s written here, we don’t make extra promises about our services. If something goes wrong and the law says we’re liable, we’ll choose to fix, replace, or re-supply the service, or refund you for it.</>
+                      <>We do our best, but except for what is written here, we do not make extra promises about our services. If something goes wrong and the law says we are liable, we will choose whether to fix, replace, re-supply, or refund the service.</>
                     ) : (
                       <>Except as expressly stated herein, no additional warranties or representations are made regarding our services. Where liability is established by law, our remedy will be limited to repair, replacement, re-supply, or refund at our discretion.</>
                     )}
@@ -286,7 +286,7 @@ export default function TermsPage() {
                   </div>
                   <div className={styles.textContent}>
                     {visibleVersions['subcontracting'] ? (
-                      <>Sometimes we bring in trusted partners to help with your project. We’ll make sure they follow these same terms.</>
+                      <>We may bring in trusted partners to help with your project. We will make sure they follow these same terms.</>
                     ) : (
                       <>We may engage subcontractors or partners to assist with your project. All such parties are required to adhere to these terms of service.</>
                     )}
@@ -301,7 +301,7 @@ export default function TermsPage() {
                   </div>
                   <div className={styles.textContent}>
                     {visibleVersions['privacy'] ? (
-                      <>We (and anyone we work with) keep your confidential info safe and never share it with outsiders. Anything we collect about you or your project is protected by our privacy policy, and we treat your data with care. When we’re done, we’ll remind you to change passwords or revoke keys you gave us.</>
+                      <>We, and anyone we work with, keep your confidential information safe and do not share it with outsiders. Anything we collect about you or your project is protected by our privacy policy, and we treat your data with care. When we are done, we will remind you to change passwords or revoke keys you gave us.</>
                     ) : (
                       <>All confidential information is safeguarded and not disclosed to third parties except as required. Data collected is governed by our privacy policy. Upon project completion or as appropriate, we will prompt you to update or revoke credentials previously provided.</>
                     )}
@@ -316,7 +316,7 @@ export default function TermsPage() {
                   </div>
                   <div className={styles.textContent}>
                     {visibleVersions['expenses'] ? (
-                      <>If you ask us to buy things like templates, third-party software, stock photos, fonts, domains, or hosting that aren’t in our original plan, you’ll need to cover those costs.</>
+                      <>If you ask us to buy items such as templates, third-party software, stock photos, fonts, domains, or hosting that are not in our original plan, you will need to cover those costs.</>
                     ) : (
                       <>Any additional purchases (e.g., templates, software, photos, fonts, domains, hosting) requested outside the original project scope will be billed to you at cost.</>
                     )}
@@ -331,7 +331,7 @@ export default function TermsPage() {
                   </div>
                   <div className={styles.textContent}>
                     {visibleVersions['backups'] ? (
-                      <>Please keep your own backups of your data. We’re not responsible for restoring lost data, websites, or software unless we messed up. We use third-party backup tools like Webflow and Figma.</>
+                      <>Please keep your own backups of your data. We are not responsible for restoring lost data, websites, or software unless the loss was our direct fault. We use third-party backup tools such as Webflow and Figma.</>
                     ) : (
                       <>You are responsible for maintaining your own data backups. We are not liable for restoration of lost data, websites, or software except in cases of our direct fault. Third-party backup solutions (e.g., Webflow, Figma) may be utilised.</>
                     )}
@@ -346,7 +346,7 @@ export default function TermsPage() {
                   </div>
                   <div className={styles.textContent}>
                     {visibleVersions['domains'] ? (
-                      <>If we buy domains or hosting for you, we’ll hand over all the login details once you’ve paid us back for those expenses.</>
+                      <>If we buy domains or hosting for you, we will hand over all login details once you have reimbursed us for those expenses.</>
                     ) : (
                       <>Domain and hosting services purchased on your behalf will be transferred to you, including all credentials, upon reimbursement of associated costs.</>
                     )}
@@ -361,7 +361,7 @@ export default function TermsPage() {
                   </div>
                   <div className={styles.textContent}>
                     {visibleVersions['law'] ? (
-                      <>These terms (and any proposals) are under the laws of Trinidad and Tobago. If there’s a dispute, we’ll sort it out there.</>
+                      <>These terms, and any related proposals, are governed by the laws of Trinidad and Tobago. Any dispute will be resolved there.</>
                     ) : (
                       <>These terms and any related proposals are governed by the laws of Trinidad and Tobago. Disputes will be resolved under the jurisdiction of Trinidad and Tobago.</>
                     )}
@@ -376,7 +376,7 @@ export default function TermsPage() {
                   </div>
                   <div className={styles.textContent}>
                     {visibleVersions['compatibility'] ? (
-                      <>We do our best to make sure your project works with current tech and is reasonably backwards compatible. We can’t promise perfection on every platform, but we always follow industry best practices.</>
+                      <>We do our best to make sure your project works with current technology and is reasonably backwards compatible. We cannot promise perfection on every platform, but we follow industry best practices.</>
                     ) : (
                       <>Projects are developed using current technologies and best practices, with reasonable efforts toward backward compatibility. Full compatibility on all platforms is not guaranteed.</>
                     )}
@@ -391,7 +391,7 @@ export default function TermsPage() {
                   </div>
                   <div className={styles.textContent}>
                     {visibleVersions['ecommerce'] ? (
-                      <>You’re in charge of following all the e-commerce rules that apply to you. If there’s a claim or penalty because of your (or your clients’) online shop, you agree to keep us and our partners out of it.</>
+                      <>You are responsible for following all e-commerce rules that apply to you. If there is a claim or penalty because of your, or your clients', online shop, you agree to indemnify us and our partners.</>
                     ) : (
                       <>Compliance with all applicable e-commerce laws and regulations is your responsibility. You agree to indemnify us and our partners against any claims or penalties arising from your (or your clients') online commerce activities.</>
                     )}
@@ -406,7 +406,7 @@ export default function TermsPage() {
                   </div>
                   <div className={styles.textContent}>
                     {visibleVersions['portfolio'] ? (
-                      <>We’re proud of our work! We might feature your project on our website, social media, or in case studies—this could mean screenshots, summaries, or links. Not comfortable with us sharing your project? Just let us know and we’ll keep it private, unless we have to reference it for legal reasons.</>
+                      <>We may feature your project on our website, social media, or in case studies. This could include screenshots, summaries, or links. If you are not comfortable with us sharing your project, tell us and we will keep it private unless we have to reference it for legal reasons.</>
                     ) : (
                       <>We may showcase your project in our portfolio, on social media, or in case studies (including screenshots, summaries, or links). Public code or licensed work may be referenced in technical materials. You may request confidentiality except where legal obligations require disclosure.</>
                     )}

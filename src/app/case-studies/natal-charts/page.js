@@ -139,7 +139,7 @@ export default function NatalChartsCaseStudyPage() {
                   <h3>Customer value</h3>
                   <p>
                     Customers can explore a complex system, understand the key takeaways, and produce
-                    a polished PDF artifact for sharing or records.
+                    a polished PDF artefact for sharing or records.
                   </p>
                 </div>
               </div>
