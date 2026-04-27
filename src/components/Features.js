@@ -89,7 +89,7 @@ export default function Features() {
         <div className={styles.bottomCTA}>
           <div className={styles.ctaContent}>
             <h3>Ready to see if we're a fit?</h3>
-            <p>Short call to confirm scope and whether we're the right fit.</p>
+            <p>A short call to confirm scope and whether we're the right fit.</p>
           </div>
           <a href="#chat" className="btn btn-primary">
             Chat with us

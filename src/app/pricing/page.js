@@ -24,16 +24,16 @@ export default function PricingPage() {
     {
       question: "How does your subscription model work?",
       answer: SUBSCRIPTION_PROMO.enabled
-        ? `Our subscription model provides dedicated development time each month. Right now it is ${promoLabel} at ${discountedPrice} per month (normally ${basePrice}). Your fee is auto-converted if you are outside the UK, you can queue as many requests as you need, and we work through them one at a time with typical 48-hour turnarounds on smaller tasks.`
-        : `Our subscription model provides dedicated development time each month. You pay a fixed monthly fee of ${basePrice} (auto-converted if you are outside the UK), queue as many requests as you need, and we work through them one at a time with typical 48-hour turnarounds on smaller tasks.`
+        ? `Our subscription model provides dedicated development time each month. Right now it's ${promoLabel} at ${discountedPrice} per month (normally ${basePrice}). Your fee is auto-converted if you're outside the UK, you can queue as many requests as you need, and we work through them one at a time with typical 48-hour turnarounds on smaller tasks.`
+        : `Our subscription model provides dedicated development time each month. You pay a fixed monthly fee of ${basePrice} (auto-converted if you're outside the UK), queue as many requests as you need, and we work through them one at a time with typical 48-hour turnarounds on smaller tasks.`
     },
     {
       question: "What if I need more development hours?",
-      answer: "If you need additional development hours beyond your subscription, we can accommodate that. We will discuss your needs and either temporarily increase your subscription level or add extra hours at our standard rate. We can adapt to your project's changing requirements."
+      answer: "If you need additional development hours beyond your subscription, we can accommodate that. We'll discuss your needs and either temporarily increase your subscription level or add extra hours at our standard rate. We can adapt to your project's changing requirements."
     },
     {
       question: "Can I pause my subscription?",
-      answer: "Yes, you can pause your subscription with advance notice. We understand that project needs can fluctuate. Please note that pausing may affect your place in our development queue when you resume, but we will do our best to minimise any disruption to your project timeline."
+      answer: "Yes, you can pause your subscription with advance notice. We understand that project needs can fluctuate. Please note that pausing may affect your place in our development queue when you resume, but we'll do our best to minimise any disruption to your project timeline."
     },
     {
       question: "What payment methods do you accept?",
@@ -41,7 +41,7 @@ export default function PricingPage() {
     },
     {
       question: "Is there a minimum commitment period?",
-      answer: "We do not enforce a minimum term. Most teams stay subscribed for 3-6 months to maximise momentum, but you can pause or cancel at any time. If a one-off engagement fits better, we can switch you to a bespoke fixed-scope quote."
+      answer: "We don't enforce a minimum term. Most teams stay subscribed for 3-6 months to maximise momentum, but you can pause or cancel at any time. If a one-off engagement fits better, we can switch you to a bespoke fixed-scope quote."
     }
   ]
 

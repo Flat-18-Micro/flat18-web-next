@@ -13,7 +13,7 @@ const faqSchema = {
       "name": "How fast can you ship?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Most scoped projects land in 2-12 weeks depending on complexity. Small tasks move in as little as 48 hours once we are active."
+        "text": "Most scoped projects land in 2-12 weeks depending on complexity. Small tasks move in as little as 48 hours once we're active."
       }
     },
     {
@@ -85,7 +85,7 @@ export default function FAQ() {
       <div className={styles.container} data-liquid-prebuild="true">
         <div className={styles.textOrg}>
           <h2 className={styles.gradientText}>Frequently Asked Questions</h2>
-          <p className={styles.subtitle}>Answers to the bits we get asked the most</p>
+          <p className={styles.subtitle}>Answers to the questions we're asked most often</p>
         </div>
 
         <div className={styles.contentGrid}>

@@ -22,7 +22,7 @@ export default function AiSeededDesignPage() {
                 <li>AI-enhanced illustration and compositing</li>
                 <li>Midjourney, DALL·E, and custom fine-tuning</li>
               </ul>
-              <p>Whether it's hero graphics, icons, or unique aesthetics—our designers guide AI to deliver tailored, production-ready visuals.</p>
+              <p>Whether it's hero graphics, icons, or a distinctive visual style, our designers guide AI to deliver tailored, production-ready visuals.</p>
             </div>
           </div>
         </div>

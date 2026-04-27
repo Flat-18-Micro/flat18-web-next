@@ -71,7 +71,7 @@ export default function HowItWorks() {
         <div className={styles.processBottom}>
           <div className={styles.ctaContent}>
             <h3>Ready to ship?</h3>
-            <p>We'll map scope, timeline, and next steps fast.</p>
+            <p>We'll map scope, timeline, and next steps quickly.</p>
           </div>
           <a href="#chat" className="btn btn-primary">
             Chat with us

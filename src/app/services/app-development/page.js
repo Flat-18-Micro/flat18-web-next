@@ -16,7 +16,7 @@ export default function AppDevelopmentPage() {
             <div className={styles.badge}>Expert-Led Digital Apps</div>
             <div className={styles.textContent}>
               <p>
-                Flat 18 designs and develops apps for startups and scale-ups. We deliver robust, scalable solutions using modern tech stacks, tailored to your business goals and user needs.
+                Flat 18 designs and develops apps for startups and scale-ups. We deliver robust, scalable solutions using modern technology stacks, tailored to your business goals and user needs.
               </p>
 
               <h2>What Sets Our App Development Apart?</h2>

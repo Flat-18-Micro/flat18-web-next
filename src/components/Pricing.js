@@ -290,7 +290,7 @@ export default function Pricing() {
               <p className={styles.planSubtitle}>
                 Fixed scope, fixed timeline, fixed price. Ideal when you need a defined delivery end-to-end.
               </p>
-              <p className={styles.planSupportText}>We'll scope fast, quote clearly, then build to the approved plan.</p>
+              <p className={styles.planSupportText}>We'll scope quickly, quote clearly, then build to the approved plan.</p>
             </div>
 
             <div className={styles.pricingContent}>
@@ -320,7 +320,7 @@ export default function Pricing() {
                 >
                   Request a bespoke quote
                 </Link>
-                <p className={styles.ctaNote}>Share scope, we'll return a fixed proposal.</p>
+                <p className={styles.ctaNote}>Share scope, and we'll return a fixed proposal.</p>
               </div>
             </div>
           </article>
@@ -329,7 +329,7 @@ export default function Pricing() {
         <div className={styles.bottomCTA}>
           <div className={styles.ctaContent}>
             <h3>Ready to move?</h3>
-            <p>We'll respond fast with clear next steps.</p>
+            <p>We'll respond quickly with clear next steps.</p>
           </div>
           <Link
             href="#chat"

@@ -159,7 +159,7 @@ export default function SocialPublisherCaseStudyPage() {
               </div>
 
               <p className={styles.caseStudyIntro}>
-                Flat18 treated publishing as an operational reliability problem. Small teams do not
+                Flat18 treated publishing as an operational reliability problem. Small teams don't
                 only need a nicer composer; they need guardrails for platform rules, visible approval
                 status, retry behaviour, and logs that explain what happened when a post fails.
               </p>
