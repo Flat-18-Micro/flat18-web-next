@@ -61,7 +61,7 @@ export default function Breadcrumbs() {
 
   return (
     <nav aria-label="Breadcrumb" className={styles.breadcrumbs}>
-      <div className="container bread-bin">
+      <div className={`container ${styles.breadBin}`}>
         <ol className={styles.breadcrumbsList}>
           {breadcrumbItems.map((item, index) => {
             const isLast = index === breadcrumbItems.length - 1

@@ -57,33 +57,6 @@ const nextConfig = {
       },
     ]
   },
-  webpack: (config) => {
-    // Use deterministic chunk and module ids for consistent file names
-    config.optimization.moduleIds = 'deterministic';
-    config.optimization.chunkIds = 'deterministic';
-
-    // Optimize chunk splitting for better caching
-    config.optimization.splitChunks = {
-      chunks: 'all',
-      cacheGroups: {
-        vendor: {
-          test: /[\\/]node_modules[\\/]/,
-          name: 'vendors',
-          chunks: 'all',
-          priority: 10,
-        },
-        common: {
-          name: 'common',
-          minChunks: 2,
-          chunks: 'all',
-          priority: 5,
-          reuseExistingChunk: true,
-        },
-      },
-    };
-
-    return config;
-  },
 }
 
 if (isStaticExport) {
