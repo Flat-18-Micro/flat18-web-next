@@ -6,6 +6,30 @@ import styles from '@/styles/component-css/CaseStudies.module.css'
 
 const caseStudies = [
   {
+    title: 'Felt Weather',
+    tag: 'Weather intelligence',
+    description: 'Combined official forecasts with nearby public weather conversation to show how conditions feel locally, not just what the forecast says.',
+    image: '/images/case-studies/felt-weather/01-live-felt-weather-map.png',
+    href: '/case-studies/felt-weather',
+    meta: ['Local signals', 'Map-based UI']
+  },
+  {
+    title: 'Ledger',
+    tag: 'Personal finance utility',
+    description: 'Turned informal money tracking into clear, purpose-built ledgers for loans, shared costs, project budgets, receipts, and read-only records.',
+    image: '/images/case-studies/ledger/detail.png',
+    href: '/case-studies/ledger',
+    meta: ['Trust workflows', 'Everyday finance']
+  },
+  {
+    title: 'Workouts',
+    tag: 'Fitness planning app',
+    description: 'Built a practical training system that guides users from onboarding and schedule selection to workout logging and progress review.',
+    image: '/images/case-studies/workouts/03-plan-overview.png',
+    href: '/case-studies/workouts',
+    meta: ['Planning workflow', 'Mobile app UI']
+  },
+  {
     title: 'PulseOps',
     tag: 'Open-source infrastructure',
     description: 'Identified a gap between consumer routers and enterprise suites, then shaped a self-hosted command centre around real operator workflows.',
@@ -15,19 +39,19 @@ const caseStudies = [
   },
   {
     title: 'Social Publisher',
-    tag: 'Open-source publishing',
-    description: 'Turned messy multi-platform publishing rules into a dependable scheduling workflow with validation, retries, and transparent logs.',
-    image: '/images/case-studies/social-publisher/hero-composer.webp',
+    tag: 'Social publishing workflow',
+    description: 'Turned scattered publishing work into one workspace for channel connection, platform variants, validation, scheduling, and dispatch logs.',
+    image: '/images/case-studies/social-publisher/01-dashboard-overview.png',
     href: '/case-studies/social-publisher',
     meta: ['Workflow design', 'Social publishing']
   },
   {
     title: 'Natal Charts',
     tag: 'Data visualisation',
-    description: 'Mapped dense ephemeris, location, and scoring data into a calm product experience with progressive detail and shareable outputs.',
-    image: '/images/case-studies/natal-charts/chart-overview.png',
+    description: 'Mapped ephemeris data, time-zone logic, current transits, and relationship comparison into a clear browser-based chart product.',
+    image: '/images/case-studies/natal-charts/01-chart-overview.png',
     href: '/case-studies/natal-charts',
-    meta: ['Complex data', 'Data-rich UI']
+    meta: ['Complex data', 'Chart workflow']
   },
   {
     title: 'Archimedes Finance',
@@ -82,7 +106,7 @@ export default function CaseStudiesPage() {
             </p>
             <div className={styles.heroStats}>
               <div className={styles.statCard}>
-                <span className={styles.statValue}>7</span>
+                <span className={styles.statValue}>10</span>
                 <span className={styles.statLabel}>Deep dives</span>
               </div>
               <div className={styles.statCard}>

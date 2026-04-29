@@ -11,23 +11,35 @@ import styles from '@/styles/component-css/CaseStudies.module.css'
 export default function SocialPublisherCaseStudyPage() {
   const mediaItems = [
     {
-      src: '/images/case-studies/social-publisher/hero-composer.webp',
-      alt: 'Social Publisher composer workflow mockup',
-      caption: 'Compose once, tailor everywhere',
+      src: '/images/case-studies/social-publisher/01-dashboard-overview.png',
+      alt: 'Social Publisher dashboard overview with metrics, queue, and channel health',
+      caption: 'Dashboard overview',
       sizes: '(max-width: 768px) 100vw, (max-width: 1200px) 55vw, 520px',
       isPrimary: true,
       priority: true
     },
     {
-      src: '/images/case-studies/social-publisher/feature-calendar.webp',
-      alt: 'Social Publisher drag-and-drop scheduling calendar',
-      caption: 'Drag-and-drop calendar',
+      src: '/images/case-studies/social-publisher/00-live-home.png',
+      alt: 'Social Publisher live homepage',
+      caption: 'Live product homepage',
       sizes: '(max-width: 768px) 100vw, 260px'
     },
     {
-      src: '/images/case-studies/social-publisher/feature-publishing-log.webp',
-      alt: 'Social Publisher publishing logs and retries',
-      caption: 'Publishing logs + retries',
+      src: '/images/case-studies/social-publisher/02-compose-validation-preview.png',
+      alt: 'Social Publisher composer with platform variants, preview, media, and validation',
+      caption: 'Composer and validation',
+      sizes: '(max-width: 768px) 100vw, 260px'
+    },
+    {
+      src: '/images/case-studies/social-publisher/03-calendar-scheduling.png',
+      alt: 'Social Publisher weekly scheduling calendar with queued posts',
+      caption: 'Calendar scheduling',
+      sizes: '(max-width: 768px) 100vw, 260px'
+    },
+    {
+      src: '/images/case-studies/social-publisher/04-channels-logs-status.png',
+      alt: 'Social Publisher channels, publishing logs, retries, and status views',
+      caption: 'Channels, logs, and status',
       sizes: '(max-width: 768px) 100vw, 260px'
     }
   ]
@@ -54,8 +66,8 @@ export default function SocialPublisherCaseStudyPage() {
               Social Publisher
             </h1>
             <p className={styles.heroSubtitle}>
-              How Flat18 converted scattered platform rules, approval friction, and publishing risk
-              into a controlled scheduling workflow.
+              How Flat18 turned social publishing into a structured workflow for channel connection,
+              platform-aware drafting, validation, scheduling, and dispatch logs.
             </p>
             <div className={styles.heroStats}>
               <div className={styles.statCard}>
@@ -79,7 +91,7 @@ export default function SocialPublisherCaseStudyPage() {
         <div className={styles.container}>
           <div className={styles.caseStudyHeader}>
             <div className={styles.caseStudyHeading}>
-              <span className={styles.caseStudyTag}>Open-source publishing</span>
+              <span className={styles.caseStudyTag}>Social publishing workflow</span>
               <div className={styles.caseStudyTitleRow}>
                 <Image
                   src="/images/case-studies/logos/social-publisher-wordmark.svg"
@@ -91,8 +103,8 @@ export default function SocialPublisherCaseStudyPage() {
                 <h2 className={styles.caseStudyTitle}>Social Publisher</h2>
               </div>
               <p className={styles.caseStudySubtitle}>
-                A publishing workflow designed around the details that cause missed posts,
-                duplicated work, and client anxiety.
+                A focused scheduling workspace for teams that need dependable publishing without
+                enterprise complexity.
               </p>
             </div>
             <div className={styles.caseStudyActions}>
@@ -144,8 +156,8 @@ export default function SocialPublisherCaseStudyPage() {
               <div className={styles.openSourcePanel}>
                 <h4>Delivered for confidence</h4>
                 <p>
-                  Connector transparency, visible retries, and clear publishing logs give agencies
-                  more control when client posts have to land correctly.
+                  Dashboard state, channel health, validation feedback, logs, and retry visibility
+                  make the publishing pipeline easier to inspect before and after dispatch.
                 </p>
               </div>
             </div>
@@ -153,44 +165,44 @@ export default function SocialPublisherCaseStudyPage() {
             <div className={styles.caseStudyContent}>
               <div className={styles.metaRow}>
                 <span className={styles.statusPill}>Live beta</span>
-                <span className={styles.metaItem}>Diagnosis: platform-specific friction</span>
-                <span className={styles.metaItem}>Solution: validation + queueing</span>
-                <span className={styles.metaItem}>Outcome: lower publishing risk</span>
+                <span className={styles.metaItem}>Diagnosis: fragmented publishing operations</span>
+                <span className={styles.metaItem}>Solution: structured scheduling workspace</span>
+                <span className={styles.metaItem}>Outcome: calmer content execution</span>
               </div>
 
               <p className={styles.caseStudyIntro}>
-                Flat18 treated publishing as an operational reliability problem. Small teams don't
-                only need a nicer composer; they need guardrails for platform rules, visible approval
-                status, retry behaviour, and logs that explain what happened when a post fails.
+                Flat18 treated social publishing as a recurring operations problem. Teams need more
+                than a text box and a calendar reminder; they need one place to prepare variants,
+                check platform rules, schedule content, and see what happened after the queue runs.
               </p>
 
               <div className={styles.infoGrid}>
                 <div className={styles.infoCard}>
                   <h3>Problem found</h3>
                   <p>
-                    Platform rules, account sprawl, and reliability issues make publishing slow
-                    and risky for lean marketing teams.
+                    Lean teams often manage posts across drafts, platform tabs, calendars, media
+                    folders, AI tools, account credentials, and manual reminders.
                   </p>
                 </div>
                 <div className={styles.infoCard}>
                   <h3>Flat18 diagnosis</h3>
                   <p>
-                    Most scheduling friction comes from hidden differences between platforms and
-                    from not knowing whether a queued post actually succeeded.
+                    The product needed to make platform differences visible before scheduling and
+                    make queue health visible after dispatch.
                   </p>
                 </div>
                 <div className={styles.infoCard}>
                   <h3>Solution shipped</h3>
                   <p>
-                    We designed a platform-aware workflow with validation, previews, scheduling,
-                    logs, retries, and BYO AI keys for predictable operating costs.
+                    We designed a workspace for connected channels, base posts, per-platform
+                    variants, validation, previews, calendar scheduling, logs, retries, and BYO AI.
                   </p>
                 </div>
                 <div className={styles.infoCard}>
                   <h3>Customer value</h3>
                   <p>
-                    Teams can compose with confidence, spot issues before publishing, and explain
-                    outcomes to clients or stakeholders from one audit-friendly trail.
+                    Small teams can run content with clearer ownership, fewer avoidable mistakes,
+                    and a practical record of what is ready, queued, published, or failed.
                   </p>
                 </div>
               </div>
@@ -198,10 +210,10 @@ export default function SocialPublisherCaseStudyPage() {
               <div className={styles.listBlock}>
                 <h4>What Flat18 handled</h4>
                 <ul className={styles.checkList}>
-                  <li>Translated platform constraints into capability rules and user-facing validation</li>
-                  <li>Designed the workflow around compose, tailor, schedule, verify, and retry</li>
-                  <li>Separated interactive app behaviour from scheduled publishing for reliability</li>
-                  <li>Positioned open-source connectors as a practical defence against API change</li>
+                  <li>Mapped the operational loop from channel connection to draft, validation, schedule, dispatch, and logs</li>
+                  <li>Made platform differences explicit through variants, previews, and early validation checks</li>
+                  <li>Designed dashboard and calendar surfaces that show publishing state, not just reminders</li>
+                  <li>Framed BYO AI support around predictable costs and user control over providers</li>
                 </ul>
               </div>
 
@@ -209,10 +221,11 @@ export default function SocialPublisherCaseStudyPage() {
                 <h4>Workflow highlights</h4>
                 <ul className={styles.checkList}>
                   <li>Compose once, tailor per-platform variants</li>
-                  <li>Platform-aware validation before publish</li>
-                  <li>Drag-and-drop calendar scheduling</li>
-                  <li>Transparent logs with retry controls</li>
-                  <li>BYO AI keys for predictable costs</li>
+                  <li>Check text length, media limits, links, authorisation state, and entitlement limits early</li>
+                  <li>Preview estimated platform output before posts enter the queue</li>
+                  <li>Schedule from a weekly calendar with status and review context</li>
+                  <li>Inspect channel health, publishing logs, retry state, and dispatch outcomes</li>
+                  <li>Use bring-your-own AI provider keys for cost and data control</li>
                 </ul>
               </div>
 

@@ -11,17 +11,35 @@ import styles from '@/styles/component-css/CaseStudies.module.css'
 export default function NatalChartsCaseStudyPage() {
   const mediaItems = [
     {
-      src: '/images/case-studies/natal-charts/chart-overview.png',
-      alt: 'Natal chart overview screen',
-      caption: 'Chart overview',
+      src: '/images/case-studies/natal-charts/01-chart-overview.png',
+      alt: 'Generated natal chart overview with map, core triad, chart wheel, and summary scores',
+      caption: 'Generated chart overview',
       sizes: '(max-width: 768px) 100vw, (max-width: 1200px) 55vw, 520px',
       isPrimary: true,
       priority: true
     },
     {
-      src: '/images/case-studies/natal-charts/relationship-report.png',
-      alt: 'Relationship compatibility report',
-      caption: 'Compatibility report',
+      src: '/images/case-studies/natal-charts/02-transits-focus.png',
+      alt: 'Present-time transit panel and focus-area scoring for relationship, work, and life themes',
+      caption: 'Transits and focus areas',
+      sizes: '(max-width: 768px) 100vw, 260px'
+    },
+    {
+      src: '/images/case-studies/natal-charts/03-relationship-comparison.png',
+      alt: 'Relationship comparison with partner scores and category explanations',
+      caption: 'Relationship comparison',
+      sizes: '(max-width: 768px) 100vw, 260px'
+    },
+    {
+      src: '/images/case-studies/natal-charts/04-synastry-composite.png',
+      alt: 'Synastry aspect list and composite chart details',
+      caption: 'Synastry and composite chart',
+      sizes: '(max-width: 768px) 100vw, 260px'
+    },
+    {
+      src: '/images/case-studies/natal-charts/05-interpretation-notes.png',
+      alt: 'Major aspects and interpretation notes generated from the sample chart',
+      caption: 'Interpretation notes',
       sizes: '(max-width: 768px) 100vw, 260px'
     }
   ]
@@ -48,8 +66,8 @@ export default function NatalChartsCaseStudyPage() {
               Natal Charts
             </h1>
             <p className={styles.heroSubtitle}>
-              How Flat18 turned dense ephemeris, location, and scoring data into a calm product
-              experience customers can explore and share.
+              How Flat18 turned ephemeris data, time-zone logic, relationship scoring, current
+              transits, and interpretation notes into a clear browser product.
             </p>
             <div className={styles.heroStats}>
               <div className={styles.statCard}>
@@ -61,7 +79,7 @@ export default function NatalChartsCaseStudyPage() {
                 <span className={styles.statLabel}>UX approach</span>
               </div>
               <div className={styles.statCard}>
-                <span className={styles.statValue}>Shareable PDF</span>
+                <span className={styles.statValue}>Swiss Ephemeris</span>
                 <span className={styles.statLabel}>Customer output</span>
               </div>
             </div>
@@ -78,8 +96,8 @@ export default function NatalChartsCaseStudyPage() {
                 <h2 className={styles.caseStudyTitle}>Natal Charts</h2>
               </div>
               <p className={styles.caseStudySubtitle}>
-                A demo that proves how raw calculations, comparisons, and interpretations can become
-                a usable customer-facing product.
+                A browser-based chart generator with geocoding, Swiss Ephemeris calculation,
+                current transit context, relationship comparison, and exportable results.
               </p>
             </div>
             <div className={styles.caseStudyActions}>
@@ -100,46 +118,46 @@ export default function NatalChartsCaseStudyPage() {
           <div className={styles.caseStudyGrid}>
             <div className={styles.caseStudyContent}>
               <div className={styles.metaRow}>
-                <span className={styles.statusPill}>Live demo</span>
-                <span className={styles.metaItem}>Diagnosis: dense data overload</span>
-                <span className={styles.metaItem}>Solution: signal-first UI</span>
+                <span className={styles.statusPill}>Live</span>
+                <span className={styles.metaItem}>Diagnosis: technical astrology workflow</span>
+                <span className={styles.metaItem}>Solution: guided chart generation</span>
                 <span className={styles.metaItem}>Outcome: export-ready report</span>
               </div>
 
               <p className={styles.caseStudyIntro}>
-                Flat18 treated this as a data translation challenge: the underlying calculations had
-                to remain rich, but the customer experience needed to feel clear, calm, and useful.
-                The result demonstrates how complex inputs can be shaped into an interface that guides
-                people from overview to detail without overwhelming them.
+                Flat18 treated the app as a data translation challenge. The calculation layer had to
+                stay accurate, while the interface needed to help people move from birth details to
+                chart overview, current transits, relationship comparison, deeper synastry, and
+                shareable interpretation without training.
               </p>
 
               <div className={styles.infoGrid}>
                 <div className={styles.infoCard}>
                   <h3>Problem found</h3>
                   <p>
-                    Astrology data blends coordinates, time zones, ephemeris math, and dense outputs that overwhelm
-                    users when presented as raw tables.
+                    Natal chart tools must coordinate birthplace lookup, time zones, house systems,
+                    planetary positions, aspects, relationship methods, and readable explanations.
                   </p>
                 </div>
                 <div className={styles.infoCard}>
                   <h3>Flat18 diagnosis</h3>
                   <p>
-                    The value was hidden by volume. Users needed a sequence: core signals first,
-                    explanations second, and deeper comparisons only when useful.
+                    The value was hidden by density. Users needed a sequence: trusted inputs first,
+                    core chart signals next, and deeper comparison data only when useful.
                   </p>
                 </div>
                 <div className={styles.infoCard}>
                   <h3>Solution shipped</h3>
                   <p>
-                    We normalised the inputs, created comparison-ready scoring, added expandable
-                    interpretations, and gave the product a clear visual hierarchy.
+                    We shaped a browser workflow for geocoding, Swiss Ephemeris calculation, chart
+                    summaries, transits, partner comparison, synastry, composite charts, and PDF export.
                   </p>
                 </div>
                 <div className={styles.infoCard}>
                   <h3>Customer value</h3>
                   <p>
-                    Customers can explore a complex system, understand the key takeaways, and produce
-                    a polished PDF artefact for sharing or records.
+                    Users can explore a complex symbolic system, understand the key takeaways, inspect
+                    the supporting data, and produce a polished artefact for sharing or records.
                   </p>
                 </div>
               </div>
@@ -147,32 +165,33 @@ export default function NatalChartsCaseStudyPage() {
               <div className={styles.listBlock}>
                 <h4>What Flat18 handled</h4>
                 <ul className={styles.checkList}>
-                  <li>Mapped unfamiliar technical outputs into consistent product structures</li>
-                  <li>Prioritised the highest-value signals before exposing detailed interpretation</li>
-                  <li>Designed comparison and scoring patterns that make dense data feel navigable</li>
-                  <li>Turned the live product view into a customer-ready downloadable report</li>
+                  <li>Mapped birth details, location, time-zone handling, and house systems into a guided intake flow</li>
+                  <li>Prioritised core triad, chart wheel, summary gauges, and focus areas before deeper data</li>
+                  <li>Designed relationship scoring that combines plain summaries with inspectable synastry aspects</li>
+                  <li>Kept interpretation, calculation detail, privacy notes, and PDF export in one coherent journey</li>
                 </ul>
               </div>
 
               <div className={styles.listBlock}>
                 <h4>Key capabilities</h4>
                 <ul className={styles.checkList}>
-                  <li>Structured placements, aspects, summaries, and interpretations</li>
-                  <li>Core triad highlights with focus areas and summary gauges</li>
-                  <li>Relationship compatibility view with scoring and highlights</li>
-                  <li>Progressive disclosure for long-form explanations</li>
-                  <li>One-click PDF export for sharing or records</li>
-                  <li>Responsive layout for desktop and mobile</li>
+                  <li>Birthplace geocoding with coordinate confirmation and time-zone handling</li>
+                  <li>Swiss Ephemeris chart calculation with house systems, placements, angles, retrogrades, and aspects</li>
+                  <li>Core triad, element and mode distribution, summary scores, and focus areas</li>
+                  <li>Current transit houses, Moon phase, illumination, and retrograde status</li>
+                  <li>Relationship comparison with category scores, synastry aspects, and composite chart details</li>
+                  <li>Interpretation notes, privacy guidance, and PDF export for sharing or records</li>
                 </ul>
               </div>
 
               <div className={styles.listBlock}>
-                <h4>Where this scales</h4>
+                <h4>Reusable pattern</h4>
                 <div className={styles.chipRow}>
-                  <span className={styles.chip}>Health + biometrics</span>
-                  <span className={styles.chip}>Financial risk</span>
-                  <span className={styles.chip}>Scientific reporting</span>
-                  <span className={styles.chip}>Behavioural assessments</span>
+                  <span className={styles.chip}>Intake forms</span>
+                  <span className={styles.chip}>Calculation layers</span>
+                  <span className={styles.chip}>Signal summaries</span>
+                  <span className={styles.chip}>Comparison tools</span>
+                  <span className={styles.chip}>Exportable reports</span>
                 </div>
               </div>
             </div>
@@ -210,8 +229,8 @@ export default function NatalChartsCaseStudyPage() {
               <div className={styles.openSourcePanel}>
                 <h4>Delivered for confidence</h4>
                 <p>
-                  The same diligence can translate health, finance, or research datasets into clear
-                  narratives with explainers, hierarchy, and exportable outputs.
+                  The app keeps technical calculation, symbolic interpretation, relationship analysis,
+                  and privacy guidance separate enough for users to understand what they are seeing.
                 </p>
               </div>
             </div>

@@ -1,0 +1,500 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ledger Case Study Screenshot Mockups</title>
+    <link rel="stylesheet" href="../src/styles.css" />
+    <style>
+      body {
+        background: #f7f6f1;
+      }
+
+      .mock-screen {
+        display: none;
+      }
+
+      .mock-screen.active {
+        display: block;
+      }
+
+      .mock-shell {
+        min-height: 100vh;
+      }
+
+      .mock-shell main {
+        max-width: 1280px;
+      }
+
+      .mock-card-note {
+        color: #5e6c5a;
+        font-size: 13px;
+        line-height: 1.4;
+        margin: 0;
+      }
+
+      .mock-receipt-preview {
+        background: #fff;
+        border: 1px solid #dfddd4;
+        border-radius: 8px;
+        box-shadow: inset 0 0 0 1px rgb(30 95 67 / 8%);
+        display: grid;
+        gap: 6px;
+        margin: 12px 0;
+        padding: 14px;
+      }
+
+      .mock-receipt-preview strong {
+        color: #17201a;
+        font-size: 13px;
+      }
+
+      .mock-receipt-line {
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .mock-mini-summary {
+        display: grid;
+        gap: 10px;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        margin-bottom: 18px;
+      }
+
+      .mock-summary-tile {
+        background: #fff;
+        border: 1px solid #dfddd4;
+        border-radius: 8px;
+        padding: 14px;
+      }
+
+      .mock-summary-tile small {
+        display: block;
+        font-weight: 800;
+        margin-bottom: 6px;
+        text-transform: uppercase;
+      }
+
+      .mock-summary-tile strong {
+        font-size: 24px;
+      }
+
+      .mock-dialog-backdrop {
+        align-items: center;
+        background: rgb(23 32 26 / 34%);
+        display: flex;
+        min-height: calc(100vh - 64px);
+        padding: 32px;
+      }
+
+      .mock-dialog-backdrop .modal-panel {
+        margin: 0 auto;
+        max-width: 760px;
+        width: 100%;
+      }
+
+      .mock-public-main {
+        max-width: 1180px;
+      }
+
+      .mock-share-link {
+        font-size: 13px;
+      }
+
+      .topbar .mock-user {
+        color: #394237;
+        font-weight: 700;
+      }
+
+      body.public-recipient .topbar nav {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="mock-shell">
+      <header class="topbar">
+        <a class="brand" href="#">Ledger</a>
+        <nav>
+          <span class="mock-user">Maya Quinn</span>
+          <a class="ghost nav-link" href="#">Settings</a>
+          <button class="ghost" type="button">Sign out</button>
+        </nav>
+      </header>
+
+      <main>
+        <section id="list" class="mock-screen">
+          <section class="page-grid">
+            <div>
+              <p class="eyebrow">Your ledgers</p>
+              <h1>Start with a person, project, trip, or shared expense.</h1>
+
+              <div class="ledger-list">
+                <a class="ledger-row" href="#">
+                  <span class="ledger-mark" style="background-color: #2563eb">🏠</span>
+                  <span>
+                    <strong>Flat 18 renovation</strong>
+                    <small>Project budget · Remaining · EUR</small>
+                  </span>
+                  <b>€1,247.50</b>
+                </a>
+                <a class="ledger-row" href="#">
+                  <span class="ledger-mark" style="background-color: #2f855a">💸</span>
+                  <span>
+                    <strong>Money lent to Alex</strong>
+                    <small>Money lent · Owed · EUR</small>
+                  </span>
+                  <b>€600.00</b>
+                </a>
+                <a class="ledger-row" href="#">
+                  <span class="ledger-mark" style="background-color: #d97706">🤝</span>
+                  <span>
+                    <strong>Lisbon weekend</strong>
+                    <small>Shared expense · Balance · EUR</small>
+                  </span>
+                  <b>€314.80</b>
+                </a>
+                <a class="ledger-row" href="#">
+                  <span class="ledger-mark" style="background-color: #a855f7">🛠️</span>
+                  <span>
+                    <strong>Website refresh</strong>
+                    <small>Project spending · Total cost · EUR</small>
+                  </span>
+                  <b>€2,840.00</b>
+                </a>
+              </div>
+            </div>
+
+            <form class="panel">
+              <h2>Create ledger</h2>
+              <label>
+                Name
+                <input value="Kitchen upgrade budget" />
+              </label>
+              <label>
+                Type
+                <select>
+                  <option selected>Project budget</option>
+                </select>
+              </label>
+              <div class="display-controls">
+                <label>
+                  Colour
+                  <input class="colour-input" type="color" value="#2563eb" />
+                </label>
+                <label>
+                  Emoji
+                  <button class="emoji-picker-button" type="button">🏠</button>
+                </label>
+              </div>
+              <label>
+                Currency
+                <input value="EUR" maxlength="3" />
+              </label>
+              <label>
+                Description
+                <textarea rows="3">Track deposits, supplies, contractors, and receipt-backed expenses.</textarea>
+              </label>
+              <button class="primary" type="button">Create ledger</button>
+            </form>
+          </section>
+        </section>
+
+        <section id="detail" class="mock-screen">
+          <section class="ledger-detail">
+            <div class="ledger-title">
+              <div>
+                <a class="back-link" href="#"><span class="back-icon">←</span><span>Back</span></a>
+                <p class="eyebrow">Project budget</p>
+                <div class="emoji-title-flex">
+                  <span class="ledger-hero-mark" style="background-color: #2563eb">🏠</span>
+                  <h1>Flat 18 renovation</h1>
+                </div>
+                <p class="muted">Budget for repairs, paint, fittings, and contractor visits.</p>
+              </div>
+              <div class="balance-block">
+                <span>Remaining</span>
+                <strong class="balance" style="color: #2563eb">€1,247.50</strong>
+                <button class="secondary compact-action" type="button">Settings</button>
+              </div>
+            </div>
+
+            <div class="mock-mini-summary">
+              <div class="mock-summary-tile">
+                <small>Deposits</small>
+                <strong class="amount-up">€2,500.00</strong>
+              </div>
+              <div class="mock-summary-tile">
+                <small>Expenses</small>
+                <strong class="amount-down">€1,252.50</strong>
+              </div>
+              <div class="mock-summary-tile">
+                <small>Entries</small>
+                <strong>8</strong>
+              </div>
+            </div>
+
+            <div class="work-grid">
+              <section class="ledger-main">
+                <div class="toolbar">
+                  <h2>Entries</h2>
+                  <div class="toolbar-actions">
+                    <span>8 total</span>
+                    <button class="secondary compact-action" type="button">Reports</button>
+                  </div>
+                </div>
+
+                <div class="entry-table">
+                  <article class="entry-row" role="button">
+                    <span>
+                      <strong>April salary allocation</strong>
+                      <small>2026-04-01 · Funding · Payroll</small>
+                      <em class="entry-note">Ring-fenced for materials and urgent repairs.</em>
+                    </span>
+                    <span class="amount-up">€1,500.00</span>
+                    <span class="row-actions"><button class="ghost" type="button">Edit</button></span>
+                  </article>
+                  <article class="entry-row" role="button">
+                    <span>
+                      <strong>Paint and primer</strong>
+                      <small>2026-04-08 · Materials · Colour House · 1 receipt</small>
+                      <em class="entry-note">OCR captured vendor, date, total, and line items.</em>
+                    </span>
+                    <span class="amount-down">-€318.40</span>
+                    <span class="row-actions">
+                      <button class="ghost" type="button">View receipt</button>
+                      <button class="ghost" type="button">Edit</button>
+                    </span>
+                  </article>
+                  <article class="entry-row" role="button">
+                    <span>
+                      <strong>Plumber call-out</strong>
+                      <small>2026-04-12 · Contractor · Northside Plumbing · 1 receipt</small>
+                    </span>
+                    <span class="amount-down">-€220.00</span>
+                    <span class="row-actions">
+                      <button class="ghost" type="button">View receipt</button>
+                      <button class="ghost" type="button">Edit</button>
+                    </span>
+                  </article>
+                  <article class="entry-row" role="button">
+                    <span>
+                      <strong>Savings transfer</strong>
+                      <small>2026-04-15 · Funding · Revolut</small>
+                    </span>
+                    <span class="amount-up">€1,000.00</span>
+                    <span class="row-actions"><button class="ghost" type="button">Edit</button></span>
+                  </article>
+                </div>
+              </section>
+
+              <aside class="side-stack">
+                <form class="panel">
+                  <h2>Quick entry</h2>
+                  <label>
+                    Amount
+                    <input value="84.20" inputmode="decimal" />
+                  </label>
+                  <div class="two-cols">
+                    <label>
+                      Type
+                      <select><option selected>Expense</option></select>
+                    </label>
+                    <label>
+                      Date
+                      <input type="date" value="2026-04-22" />
+                    </label>
+                  </div>
+                  <div class="description-upload-row">
+                    <label>
+                      Description
+                      <input value="Door handles" />
+                    </label>
+                    <button class="receipt-upload-button active" type="button" title="Receipt selected">
+                      <svg aria-hidden="true" viewBox="0 0 24 24">
+                        <path d="M8.5 7.5 10 5.5h4l1.5 2h2A2.5 2.5 0 0 1 20 10v6.5a2.5 2.5 0 0 1-2.5 2.5h-11A2.5 2.5 0 0 1 4 16.5V10a2.5 2.5 0 0 1 2.5-2.5h2Z" />
+                        <path d="M12 16a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
+                      </svg>
+                    </button>
+                  </div>
+                  <div class="mock-receipt-preview">
+                    <strong>Colour House Supplies</strong>
+                    <div class="mock-receipt-line"><small>Door handles</small><small>€64.20</small></div>
+                    <div class="mock-receipt-line"><small>Screws</small><small>€20.00</small></div>
+                    <div class="mock-receipt-line"><strong>Total</strong><strong>€84.20</strong></div>
+                  </div>
+                  <p class="notice">Receipt scanned. Review the proposed values before saving.</p>
+                  <button class="advanced-toggle" type="button"><span>Hide advanced</span><span class="chevron open">⌄</span></button>
+                  <label>
+                    Vendor or source
+                    <input value="Colour House Supplies" />
+                  </label>
+                  <label>
+                    Category
+                    <input value="Materials" />
+                  </label>
+                  <label>
+                    Item details
+                    <textarea rows="3">Door handles 64.20
+Screws 20.00</textarea>
+                  </label>
+                  <label>
+                    Private note
+                    <textarea rows="3">Matched against kitchen upgrade estimate.</textarea>
+                  </label>
+                  <button class="primary" type="button">Add entry</button>
+                </form>
+              </aside>
+            </div>
+          </section>
+        </section>
+
+        <section id="report" class="mock-screen">
+          <div class="mock-dialog-backdrop">
+            <section class="modal-panel">
+              <div class="toolbar">
+                <h2>Reports</h2>
+                <button class="ghost" type="button">Close</button>
+              </div>
+
+              <section class="settings-section">
+                <h3>Generate summary</h3>
+                <div class="two-cols">
+                  <label>
+                    From
+                    <input type="date" value="2026-04-01" />
+                  </label>
+                  <label>
+                    To
+                    <input type="date" value="2026-04-30" />
+                  </label>
+                </div>
+                <label>
+                  Category
+                  <input value="Materials" />
+                </label>
+                <label>
+                  Search
+                  <input value="paint" />
+                </label>
+                <button type="button" class="secondary">Generate report</button>
+              </section>
+
+              <section class="settings-section">
+                <h3>Results</h3>
+                <dl class="summary-list">
+                  <div>
+                    <dt>Deposit</dt>
+                    <dd>€0.00</dd>
+                  </div>
+                  <div>
+                    <dt>Expense</dt>
+                    <dd>€318.40</dd>
+                  </div>
+                  <div>
+                    <dt>Remaining</dt>
+                    <dd>€1,247.50</dd>
+                  </div>
+                  <div>
+                    <dt>Entries</dt>
+                    <dd>1</dd>
+                  </div>
+                </dl>
+                <p class="mock-card-note">A date, category, and search filter turn a busy ledger into a concise answer for a month-end check-in or reimbursement discussion.</p>
+              </section>
+            </section>
+          </div>
+        </section>
+
+        <section id="sharing" class="mock-screen">
+          <div class="mock-dialog-backdrop">
+            <section class="modal-panel">
+              <div class="toolbar">
+                <h2>Ledger settings</h2>
+                <button class="ghost" type="button">Close</button>
+              </div>
+
+              <div class="settings-tabs" role="tablist" aria-label="Ledger settings sections">
+                <button type="button" role="tab">Details</button>
+                <button type="button" role="tab">Appearance</button>
+                <button class="active" type="button" role="tab">Sharing</button>
+              </div>
+
+              <section class="settings-section settings-tab-panel">
+                <h3>Sharing</h3>
+                <label class="check-row">
+                  <input type="checkbox" checked />
+                  Public read-only link
+                </label>
+                <label class="check-row">
+                  <input type="checkbox" checked />
+                  Hide private notes
+                </label>
+                <input class="mock-share-link" value="https://ledger.flat18.app/share/renovation-2026-demo" readonly />
+                <p class="mock-card-note">The owner can send a transparent balance without exposing private context or allowing edits.</p>
+              </section>
+            </section>
+          </div>
+        </section>
+
+        <section id="public" class="mock-screen">
+          <section class="public-view mock-public-main">
+            <div class="ledger-title">
+              <span class="ledger-hero-mark" style="background-color: #2563eb">🏠</span>
+              <div>
+                <p class="eyebrow">Shared ledger</p>
+                <h1>Flat 18 renovation</h1>
+                <p class="muted">Budget for repairs, paint, fittings, and contractor visits.</p>
+              </div>
+              <div class="balance-block">
+                <span>Remaining</span>
+                <strong class="balance" style="color: #2563eb">€1,247.50</strong>
+              </div>
+            </div>
+
+            <div class="entry-table public-table">
+              <div class="entry-row static">
+                <span>
+                  <strong>April salary allocation</strong>
+                  <small>2026-04-01 · Funding · Payroll</small>
+                </span>
+                <span class="amount-up">€1,500.00</span>
+              </div>
+              <div class="entry-row static">
+                <span>
+                  <strong>Paint and primer</strong>
+                  <small>2026-04-08 · Materials · Colour House</small>
+                </span>
+                <span class="amount-down">-€318.40</span>
+              </div>
+              <div class="entry-row static">
+                <span>
+                  <strong>Plumber call-out</strong>
+                  <small>2026-04-12 · Contractor · Northside Plumbing</small>
+                </span>
+                <span class="amount-down">-€220.00</span>
+              </div>
+              <div class="entry-row static">
+                <span>
+                  <strong>Savings transfer</strong>
+                  <small>2026-04-15 · Funding · Revolut</small>
+                </span>
+                <span class="amount-up">€1,000.00</span>
+              </div>
+            </div>
+          </section>
+        </section>
+      </main>
+    </div>
+
+    <script>
+      const params = new URLSearchParams(window.location.search);
+      const screen = params.get('screen') || 'list';
+      document.body.classList.toggle('public-recipient', screen === 'public');
+      document.querySelectorAll('.mock-screen').forEach((node) => {
+        node.classList.toggle('active', node.id === screen);
+      });
+    </script>
+  </body>
+</html>

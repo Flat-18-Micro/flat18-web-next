@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import { useState } from 'react'
 import ResponsiveImage from './ResponsiveImage'
 import styles from '../styles/component-css/Portfolio.module.css'
@@ -16,17 +17,29 @@ function ProjectCard({ project, index }) {
       <div className={styles.projectImageWrapper} data-liquid-prebuild="true">
         <div className={styles.projectImageContainer}>
           <div>
-            <ResponsiveImage
-              src={project.image}
-              alt={project.title}
-              width={600}
-              height={400}
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-              className={styles.projectImage}
-              loading={index < 2 ? "eager" : "lazy"}
-              fetchPriority={index < 2 ? "high" : "auto"}
-              widths={[400, 800, 1000]}
-            />
+            {project.useNextImage ? (
+              <Image
+                src={project.image}
+                alt={project.title}
+                width={600}
+                height={400}
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                className={styles.projectImage}
+                priority={index < 2}
+              />
+            ) : (
+              <ResponsiveImage
+                src={project.image}
+                alt={project.title}
+                width={600}
+                height={400}
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                className={styles.projectImage}
+                loading={index < 2 ? "eager" : "lazy"}
+                fetchPriority={index < 2 ? "high" : "auto"}
+                widths={[400, 800, 1000]}
+              />
+            )}
           </div>
 
           {/* Overlay labels */}
@@ -102,11 +115,53 @@ export default function Portfolio() {
   // F18-style featured work projects
   const projects = [
     {
+      title: 'Felt Weather',
+      description: 'Map-based weather intelligence combining official conditions with local human signals.',
+      image: '/images/portfolio-graphics/felt-weather.webp',
+      link: '/case-studies/felt-weather',
+      stats: [
+        { label: 'Timeline', value: '2026 launch' },
+        { label: 'Platform', value: 'Web App' },
+        { label: 'Industry', value: 'Weather' }
+      ],
+      status: 'Live',
+      category: 'app',
+      useNextImage: true
+    },
+    {
+      title: 'Ledger',
+      description: 'Simple ledgers for money lent, spent, repaid, shared, and backed by receipts.',
+      image: '/images/portfolio-graphics/ledger.webp',
+      link: '/case-studies/ledger',
+      stats: [
+        { label: 'Timeline', value: '2026 launch' },
+        { label: 'Platform', value: 'Web App' },
+        { label: 'Industry', value: 'Finance' }
+      ],
+      status: 'Live',
+      category: 'app',
+      useNextImage: true
+    },
+    {
+      title: 'Workouts',
+      description: 'Workout planning, logging, recovery context, and progress signals in one training app.',
+      image: '/images/portfolio-graphics/workouts.webp',
+      link: '/case-studies/workouts',
+      stats: [
+        { label: 'Timeline', value: '2026 launch' },
+        { label: 'Platform', value: 'Web App' },
+        { label: 'Industry', value: 'Fitness' }
+      ],
+      status: 'Live',
+      category: 'app',
+      useNextImage: true
+    },
+    {
       title: 'PulseOps',
       description: 'Self-hosted network telemetry and operations console for SOHO operators.',
       image: '/images/portfolio-graphics/pulseops-scr.webp',
       projectLogo: '/images/case-studies/logos/pulseops-lockup.svg',
-      link: 'https://flat18.co.uk/case-studies/pulseops',
+      link: '/case-studies/pulseops',
       stats: [
         { label: 'Timeline', value: '2026 launch' },
         { label: 'Platform', value: 'Web App' },
@@ -117,37 +172,39 @@ export default function Portfolio() {
     },
     {
       title: 'Social Publisher',
-      description: 'Platform-aware social scheduling built for lean teams and agencies.',
-      image: '/images/portfolio-graphics/soc-pub-scr.webp',
+      description: 'A focused scheduling workspace for channel variants, validation, calendars, logs, and retries.',
+      image: '/images/portfolio-graphics/social-publisher.webp',
       projectLogo: '/images/case-studies/logos/social-publisher-wordmark.svg',
-      link: 'https://flat18.co.uk/case-studies/social-publisher',
+      link: '/case-studies/social-publisher',
       stats: [
         { label: 'Timeline', value: '2026 beta' },
         { label: 'Platform', value: 'Web App' },
         { label: 'Industry', value: 'Marketing' }
       ],
       status: 'Live beta',
-      category: 'app'
+      category: 'app',
+      useNextImage: true
     },
     {
       title: 'Natal Charts',
-      description: 'Astrology data pipeline turned into a clear, export-ready chart UI.',
-      image: '/images/case-studies/natal-charts/natal-chart.webp',
-      link: 'https://flat18.co.uk/case-studies/natal-charts',
+      description: 'Browser-based chart generation with transits, relationship comparison, and exportable readings.',
+      image: '/images/portfolio-graphics/natal-charts.webp',
+      link: '/case-studies/natal-charts',
       stats: [
         { label: 'Timeline', value: 'Demo build' },
         { label: 'Platform', value: 'Web App' },
         { label: 'Industry', value: 'Data Viz' }
       ],
       status: 'Live',
-      category: 'app'
+      category: 'app',
+      useNextImage: true
     },
     {
       title: 'Archimedes Finance',
       description: 'Secure asset tokenisation platform for institutional investors',
       image: '/images/portfolio-graphics/archimedesfinance-mock.webp',
       projectLogo: '/images/portfolio-graphics/logos/archimedes-finance.webp',
-      link: 'https://flat18.co.uk/case-studies/archimedes-finance',
+      link: '/case-studies/archimedes-finance',
       stats: [
         { label: 'Timeline', value: '8 weeks' },
         { label: 'Platform', value: 'Web App' },
@@ -161,7 +218,7 @@ export default function Portfolio() {
       description: 'Mining hashboard monitoring dashboard',
       image: '/images/portfolio-graphics/hashboard.webp',
       projectLogo: '/images/portfolio-graphics/logos/zettahash.webp',
-      link: 'https://flat18.co.uk/case-studies/hashboard',
+      link: '/case-studies/hashboard',
       stats: [
         { label: 'Timeline', value: '6 weeks' },
         { label: 'Platform', value: 'Web App' },

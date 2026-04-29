@@ -1,0 +1,891 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Social Publisher marketing screenshot fixtures</title>
+    <style>
+      :root {
+        --ink: #111827;
+        --muted: #64748b;
+        --line: #e5e7eb;
+        --paper: #f6f7fb;
+        --white: #ffffff;
+        --mint: #d9f6e4;
+        --green: #16a34a;
+        --blue: #2563eb;
+        --orange: #f97316;
+        --red: #dc2626;
+        --violet: #7c3aed;
+        --shadow: 0 18px 45px rgba(15, 23, 42, 0.1);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family:
+          Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        color: var(--ink);
+        background:
+          radial-gradient(circle at top left, rgba(37, 99, 235, 0.08), transparent 32rem),
+          radial-gradient(circle at bottom right, rgba(22, 163, 74, 0.08), transparent 28rem),
+          var(--paper);
+      }
+
+      .frame {
+        width: 1440px;
+        min-height: 1100px;
+        padding: 28px;
+        display: grid;
+        grid-template-columns: 260px 1fr;
+        gap: 28px;
+      }
+
+      .sidebar,
+      .surface,
+      .card {
+        background: var(--white);
+        border: 1px solid rgba(15, 23, 42, 0.08);
+        box-shadow: var(--shadow);
+      }
+
+      .sidebar {
+        border-radius: 24px;
+        padding: 28px 22px;
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        height: calc(1100px - 56px);
+      }
+
+      .brand {
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 30px;
+        font-weight: 700;
+        letter-spacing: -0.03em;
+        line-height: 1;
+      }
+
+      .workspace {
+        padding: 14px;
+        border-radius: 16px;
+        background: #f8fafc;
+        border: 1px solid var(--line);
+      }
+
+      .workspace strong {
+        display: block;
+        font-size: 14px;
+      }
+
+      .workspace span {
+        color: var(--muted);
+        font-size: 12px;
+      }
+
+      .nav {
+        display: grid;
+        gap: 8px;
+      }
+
+      .nav span {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        border-radius: 13px;
+        padding: 12px 13px;
+        color: #475569;
+        font-weight: 650;
+        font-size: 14px;
+      }
+
+      .nav span.active {
+        background: var(--mint);
+        color: #0f172a;
+      }
+
+      .nav i {
+        width: 22px;
+        height: 22px;
+        display: inline-grid;
+        place-items: center;
+        border-radius: 8px;
+        background: rgba(15, 23, 42, 0.07);
+        font-style: normal;
+        font-size: 12px;
+      }
+
+      .content {
+        display: grid;
+        gap: 22px;
+        align-content: start;
+      }
+
+      .header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .eyebrow {
+        color: var(--muted);
+        font-size: 13px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin: 0;
+      }
+
+      h1 {
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 42px;
+        letter-spacing: -0.035em;
+      }
+
+      h2 {
+        font-size: 22px;
+        letter-spacing: -0.02em;
+      }
+
+      h3 {
+        font-size: 16px;
+        letter-spacing: -0.01em;
+      }
+
+      .muted {
+        color: var(--muted);
+      }
+
+      .btn {
+        border: 0;
+        background: #111827;
+        color: white;
+        padding: 12px 16px;
+        border-radius: 14px;
+        font-weight: 750;
+        display: inline-flex;
+        gap: 8px;
+        align-items: center;
+      }
+
+      .btn.secondary {
+        background: white;
+        color: var(--ink);
+        border: 1px solid var(--line);
+      }
+
+      .surface {
+        border-radius: 24px;
+        padding: 22px;
+      }
+
+      .card {
+        border-radius: 18px;
+        padding: 18px;
+      }
+
+      .grid-4 {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 16px;
+      }
+
+      .grid-3 {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+      }
+
+      .grid-2 {
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 18px;
+      }
+
+      .metric {
+        display: grid;
+        gap: 10px;
+      }
+
+      .metric .value {
+        font-size: 34px;
+        font-weight: 800;
+        letter-spacing: -0.04em;
+      }
+
+      .metric .delta {
+        color: var(--green);
+        font-size: 13px;
+        font-weight: 750;
+      }
+
+      .pill,
+      .tag,
+      .status {
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+        border-radius: 999px;
+        padding: 7px 10px;
+        font-size: 12px;
+        font-weight: 760;
+        white-space: nowrap;
+      }
+
+      .pill {
+        background: #eef2ff;
+        color: #3730a3;
+      }
+
+      .tag {
+        background: #f1f5f9;
+        color: #334155;
+      }
+
+      .status.good {
+        background: #dcfce7;
+        color: #166534;
+      }
+
+      .status.warn {
+        background: #ffedd5;
+        color: #9a3412;
+      }
+
+      .status.bad {
+        background: #fee2e2;
+        color: #991b1b;
+      }
+
+      .status.info {
+        background: #dbeafe;
+        color: #1d4ed8;
+      }
+
+      .section-head {
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        align-items: center;
+        margin-bottom: 16px;
+      }
+
+      .list {
+        display: grid;
+        gap: 12px;
+      }
+
+      .row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 14px;
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        background: #fbfdff;
+      }
+
+      .row-main {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        min-width: 0;
+      }
+
+      .avatar {
+        width: 42px;
+        height: 42px;
+        border-radius: 14px;
+        display: grid;
+        place-items: center;
+        color: white;
+        font-weight: 850;
+        background: var(--blue);
+      }
+
+      .avatar.green {
+        background: var(--green);
+      }
+
+      .avatar.dark {
+        background: #0f172a;
+      }
+
+      .avatar.violet {
+        background: var(--violet);
+      }
+
+      .title {
+        font-weight: 780;
+      }
+
+      .sub {
+        color: var(--muted);
+        font-size: 13px;
+        margin-top: 3px;
+      }
+
+      .chart {
+        height: 270px;
+        display: flex;
+        align-items: end;
+        gap: 13px;
+        padding-top: 16px;
+      }
+
+      .bar {
+        flex: 1;
+        border-radius: 12px 12px 6px 6px;
+        background: linear-gradient(180deg, #2563eb, #93c5fd);
+        min-height: 42px;
+      }
+
+      .calendar {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 12px;
+      }
+
+      .day {
+        min-height: 630px;
+        border: 1px solid var(--line);
+        background: #f8fafc;
+        border-radius: 18px;
+        padding: 12px;
+        display: grid;
+        align-content: start;
+        gap: 10px;
+      }
+
+      .day-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-weight: 800;
+        color: #334155;
+      }
+
+      .event {
+        padding: 12px;
+        border-radius: 14px;
+        background: white;
+        border: 1px solid var(--line);
+        display: grid;
+        gap: 8px;
+        box-shadow: 0 8px 18px rgba(15, 23, 42, 0.05);
+      }
+
+      .event.highlight {
+        border-color: rgba(37, 99, 235, 0.35);
+        box-shadow: 0 12px 24px rgba(37, 99, 235, 0.12);
+      }
+
+      .platforms {
+        display: flex;
+        gap: 6px;
+        flex-wrap: wrap;
+      }
+
+      .platform {
+        width: 26px;
+        height: 26px;
+        border-radius: 9px;
+        display: grid;
+        place-items: center;
+        background: #e0f2fe;
+        color: #0369a1;
+        font-size: 11px;
+        font-weight: 850;
+      }
+
+      .platform.x {
+        background: #e2e8f0;
+        color: #0f172a;
+      }
+
+      .platform.li {
+        background: #dbeafe;
+        color: #1d4ed8;
+      }
+
+      .platform.rd {
+        background: #ffedd5;
+        color: #c2410c;
+      }
+
+      .compose {
+        display: grid;
+        grid-template-columns: 0.9fr 1.1fr 0.82fr;
+        gap: 18px;
+      }
+
+      textarea,
+      input {
+        width: 100%;
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        padding: 14px;
+        font: inherit;
+        background: #fbfdff;
+      }
+
+      textarea {
+        min-height: 230px;
+        resize: none;
+        line-height: 1.55;
+      }
+
+      .media-strip {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+      }
+
+      .media {
+        aspect-ratio: 1.3;
+        border-radius: 16px;
+        background:
+          linear-gradient(135deg, rgba(37, 99, 235, 0.85), rgba(22, 163, 74, 0.7)),
+          linear-gradient(45deg, #dbeafe, #dcfce7);
+        display: grid;
+        place-items: center;
+        color: white;
+        font-weight: 850;
+      }
+
+      .preview {
+        border: 1px solid var(--line);
+        border-radius: 20px;
+        padding: 18px;
+        background: white;
+        display: grid;
+        gap: 12px;
+      }
+
+      .preview:nth-child(2) {
+        background: #fbfdff;
+      }
+
+      .preview-author {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .checks {
+        display: grid;
+        gap: 10px;
+      }
+
+      .check {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        padding: 12px;
+      }
+
+      .progress {
+        height: 9px;
+        border-radius: 999px;
+        background: #e2e8f0;
+        overflow: hidden;
+      }
+
+      .progress span {
+        display: block;
+        height: 100%;
+        background: var(--green);
+        border-radius: inherit;
+      }
+
+      .status-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 18px;
+      }
+
+      .timeline {
+        display: grid;
+        gap: 12px;
+      }
+
+      .log {
+        border-left: 4px solid var(--green);
+        padding: 12px 14px;
+        background: #fbfdff;
+        border-radius: 0 14px 14px 0;
+      }
+
+      .log.warn {
+        border-color: var(--orange);
+      }
+
+      .log.bad {
+        border-color: var(--red);
+      }
+
+      .screen {
+        display: none;
+      }
+
+      .screen.active {
+        display: contents;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="frame">
+      <aside class="sidebar">
+        <div class="brand">Social Publisher</div>
+        <div class="workspace">
+          <strong>Flat 18 Studio</strong>
+          <span>Growth workspace - Pro</span>
+        </div>
+        <nav class="nav" aria-label="Product navigation">
+          <span data-nav="dashboard"><i>D</i> Dashboard</span>
+          <span data-nav="compose"><i>C</i> Compose</span>
+          <span data-nav="calendar"><i>W</i> Calendar</span>
+          <span data-nav="archive"><i>A</i> Archive</span>
+          <span data-nav="channels"><i>N</i> Channels</span>
+          <span data-nav="logs"><i>L</i> Logs</span>
+          <span data-nav="status"><i>S</i> Status</span>
+          <span data-nav="billing"><i>B</i> Billing</span>
+        </nav>
+      </aside>
+
+      <section class="content">
+        <div id="dashboard" class="screen">
+          <header class="header">
+            <div>
+              <p class="eyebrow">Workspace overview</p>
+              <h1>Dashboard</h1>
+            </div>
+            <button class="btn">+ Compose post</button>
+          </header>
+
+          <section class="grid-4">
+            <article class="card metric">
+              <span class="tag">Scheduled this week</span>
+              <span class="value">38</span>
+              <span class="delta">+12 from last week</span>
+            </article>
+            <article class="card metric">
+              <span class="tag">Connected channels</span>
+              <span class="value">7</span>
+              <span class="delta">All publish-ready</span>
+            </article>
+            <article class="card metric">
+              <span class="tag">Published</span>
+              <span class="value">426</span>
+              <span class="delta">99.3% success rate</span>
+            </article>
+            <article class="card metric">
+              <span class="tag">Saved time</span>
+              <span class="value">11h</span>
+              <span class="delta">Estimated weekly</span>
+            </article>
+          </section>
+
+          <section class="grid-2">
+            <article class="surface">
+              <div class="section-head">
+                <div>
+                  <h2>Publishing volume</h2>
+                  <p class="muted">Posts scheduled and published by day</p>
+                </div>
+                <span class="pill">Next 7 days</span>
+              </div>
+              <div class="chart" aria-hidden="true">
+                <span class="bar" style="height: 35%"></span>
+                <span class="bar" style="height: 52%"></span>
+                <span class="bar" style="height: 72%"></span>
+                <span class="bar" style="height: 48%"></span>
+                <span class="bar" style="height: 88%"></span>
+                <span class="bar" style="height: 65%"></span>
+                <span class="bar" style="height: 58%"></span>
+              </div>
+            </article>
+
+            <article class="surface">
+              <div class="section-head">
+                <div>
+                  <h2>Channel health</h2>
+                  <p class="muted">Authorization and capability checks</p>
+                </div>
+                <span class="status good">Ready</span>
+              </div>
+              <div class="list">
+                <div class="row">
+                  <div class="row-main"><span class="avatar">B</span><div><p class="title">Bluesky</p><p class="sub">@flat18.app</p></div></div>
+                  <span class="status good">Active</span>
+                </div>
+                <div class="row">
+                  <div class="row-main"><span class="avatar dark">X</span><div><p class="title">X</p><p class="sub">@flat18studio</p></div></div>
+                  <span class="status good">Paid add-on</span>
+                </div>
+                <div class="row">
+                  <div class="row-main"><span class="avatar violet">in</span><div><p class="title">LinkedIn</p><p class="sub">Flat 18 page</p></div></div>
+                  <span class="status good">Active</span>
+                </div>
+                <div class="row">
+                  <div class="row-main"><span class="avatar green">G</span><div><p class="title">Google Business</p><p class="sub">Dublin studio listing</p></div></div>
+                  <span class="status warn">Reconnect soon</span>
+                </div>
+              </div>
+            </article>
+          </section>
+
+          <section class="surface">
+            <div class="section-head">
+              <div>
+                <h2>Upcoming queue</h2>
+                <p class="muted">The next posts Social Publisher will dispatch</p>
+              </div>
+              <span class="pill">Today through Friday</span>
+            </div>
+            <div class="list">
+              <div class="row">
+                <div class="row-main"><span class="avatar green">09</span><div><p class="title">New onboarding walkthrough</p><p class="sub">Today, 09:30 - Bluesky, LinkedIn, X</p></div></div>
+                <span class="status info">Queued</span>
+              </div>
+              <div class="row">
+                <div class="row-main"><span class="avatar">13</span><div><p class="title">Customer workflow thread</p><p class="sub">Today, 13:45 - Bluesky and X variants</p></div></div>
+                <span class="status good">Validated</span>
+              </div>
+              <div class="row">
+                <div class="row-main"><span class="avatar violet">F</span><div><p class="title">Friday feature roundup</p><p class="sub">Friday, 16:10 - 4 media assets attached</p></div></div>
+                <span class="status warn">Needs review</span>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <div id="compose" class="screen">
+          <header class="header">
+            <div>
+              <p class="eyebrow">Multi-platform drafting</p>
+              <h1>Compose</h1>
+            </div>
+            <div style="display: flex; gap: 10px"><button class="btn secondary">Save draft</button><button class="btn">Schedule</button></div>
+          </header>
+
+          <section class="compose">
+            <article class="surface">
+              <div class="section-head">
+                <div>
+                  <h2>Base post</h2>
+                  <p class="muted">Write once, then tailor per network</p>
+                </div>
+                <span class="pill">AI assist</span>
+              </div>
+              <textarea>We rebuilt the client onboarding workflow so teams can schedule a full launch week in one focused session. Compose once, adapt per platform, preview the result, and let the queue handle dispatch.</textarea>
+              <div style="height: 14px"></div>
+              <div class="media-strip">
+                <div class="media">Hero</div>
+                <div class="media">Demo</div>
+                <div class="media">Chart</div>
+              </div>
+            </article>
+
+            <article class="surface">
+              <div class="section-head">
+                <div>
+                  <h2>Platform previews</h2>
+                  <p class="muted">Estimated rendering before scheduling</p>
+                </div>
+                <span class="status good">All valid</span>
+              </div>
+              <div class="list">
+                <div class="preview">
+                  <div class="preview-author"><span class="avatar">B</span><div><p class="title">Flat 18</p><p class="sub">Bluesky preview - 262 / 300 chars</p></div></div>
+                  <p>Launch week planning should not live in six tabs. Social Publisher lets us compose once, adjust per channel, and schedule the queue with platform checks built in.</p>
+                  <div class="platforms"><span class="platform">B</span><span class="tag">link card</span><span class="tag">3 images</span></div>
+                </div>
+                <div class="preview">
+                  <div class="preview-author"><span class="avatar dark">X</span><div><p class="title">Flat 18 Studio</p><p class="sub">X preview - 238 / 280 chars</p></div></div>
+                  <p>We turned a launch week of posts into one validated queue: variants, previews, media checks, and scheduled dispatch from the same workspace.</p>
+                  <div class="platforms"><span class="platform x">X</span><span class="tag">paid add-on</span><span class="tag">thread-ready</span></div>
+                </div>
+                <div class="preview">
+                  <div class="preview-author"><span class="avatar violet">in</span><div><p class="title">Flat 18</p><p class="sub">LinkedIn company page</p></div></div>
+                  <p>For small teams, publishing reliability is an operations problem. Social Publisher keeps channel-specific drafts, validation, and queue status in one place.</p>
+                  <div class="platforms"><span class="platform li">in</span><span class="tag">company page</span></div>
+                </div>
+              </div>
+            </article>
+
+            <article class="surface">
+              <div class="section-head">
+                <div>
+                  <h2>Validation</h2>
+                  <p class="muted">Platform rules caught before publish</p>
+                </div>
+              </div>
+              <div class="checks">
+                <div class="check"><span>Bluesky text length</span><span class="status good">Pass</span></div>
+                <div class="check"><span>X text length</span><span class="status good">Pass</span></div>
+                <div class="check"><span>Media count</span><span class="status good">3 / 4</span></div>
+                <div class="check"><span>LinkedIn auth</span><span class="status good">Ready</span></div>
+                <div class="check"><span>Daily quota</span><span class="status info">4 used</span></div>
+                <div class="card metric" style="box-shadow: none">
+                  <span class="tag">Queue confidence</span>
+                  <span class="value">98%</span>
+                  <div class="progress"><span style="width: 98%"></span></div>
+                </div>
+              </div>
+            </article>
+          </section>
+        </div>
+
+        <div id="calendar" class="screen">
+          <header class="header">
+            <div>
+              <p class="eyebrow">Scheduling operations</p>
+              <h1>Calendar</h1>
+            </div>
+            <div style="display: flex; gap: 10px"><button class="btn secondary">Import CSV</button><button class="btn">New post</button></div>
+          </header>
+
+          <section class="surface">
+            <div class="section-head">
+              <div>
+                <h2>Week of May 4, 2026</h2>
+                <p class="muted">Drag posts between times, review variants, and archive old campaigns</p>
+              </div>
+              <div style="display: flex; gap: 8px"><span class="status good">31 validated</span><span class="status warn">2 review</span></div>
+            </div>
+            <div class="calendar">
+              <div class="day">
+                <div class="day-head"><span>Mon</span><span>4</span></div>
+                <div class="event highlight"><span class="tag">09:30</span><p class="title">Onboarding walkthrough</p><p class="sub">Product education</p><div class="platforms"><span class="platform">B</span><span class="platform x">X</span><span class="platform li">in</span></div></div>
+                <div class="event"><span class="tag">14:10</span><p class="title">Feature carousel</p><p class="sub">3 images attached</p><div class="platforms"><span class="platform">B</span><span class="platform li">in</span></div></div>
+              </div>
+              <div class="day">
+                <div class="day-head"><span>Tue</span><span>5</span></div>
+                <div class="event"><span class="tag">10:00</span><p class="title">Customer story</p><p class="sub">Agency workflow</p><div class="platforms"><span class="platform li">in</span><span class="platform rd">R</span></div></div>
+                <div class="event"><span class="tag">16:45</span><p class="title">Founder note</p><p class="sub">Long-form variant</p><div class="platforms"><span class="platform">B</span><span class="platform x">X</span></div></div>
+              </div>
+              <div class="day">
+                <div class="day-head"><span>Wed</span><span>6</span></div>
+                <div class="event"><span class="tag">08:55</span><p class="title">Pricing reminder</p><p class="sub">Free + X add-on</p><div class="platforms"><span class="platform">B</span><span class="platform x">X</span><span class="platform li">in</span></div></div>
+                <div class="event"><span class="tag">12:20</span><p class="title">Release notes</p><p class="sub">Link card enabled</p><div class="platforms"><span class="platform">B</span><span class="platform li">in</span></div></div>
+                <div class="event"><span class="tag">17:30</span><p class="title">Demo clip</p><p class="sub">Video asset</p><div class="platforms"><span class="platform x">X</span></div></div>
+              </div>
+              <div class="day">
+                <div class="day-head"><span>Thu</span><span>7</span></div>
+                <div class="event"><span class="tag">11:15</span><p class="title">How validation works</p><p class="sub">Capability matrix post</p><div class="platforms"><span class="platform">B</span><span class="platform li">in</span></div></div>
+                <div class="event"><span class="tag">15:00</span><p class="title">Behind the build</p><p class="sub">Engineering thread</p><div class="platforms"><span class="platform x">X</span><span class="platform">B</span></div></div>
+              </div>
+              <div class="day">
+                <div class="day-head"><span>Fri</span><span>8</span></div>
+                <div class="event"><span class="tag">09:00</span><p class="title">Weekly recap</p><p class="sub">All channels</p><div class="platforms"><span class="platform">B</span><span class="platform x">X</span><span class="platform li">in</span></div></div>
+                <div class="event"><span class="tag">16:10</span><p class="title">Launch week wrap</p><p class="sub">Needs final review</p><div class="platforms"><span class="platform li">in</span><span class="platform">B</span></div></div>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <div id="channels" class="screen">
+          <header class="header">
+            <div>
+              <p class="eyebrow">Reliability and integrations</p>
+              <h1>Channels, logs, and status</h1>
+            </div>
+            <button class="btn">+ Connect channel</button>
+          </header>
+
+          <section class="grid-3">
+            <article class="card metric">
+              <span class="tag">Connected channels</span>
+              <span class="value">7</span>
+              <span class="delta">5 direct publish, 2 planned</span>
+            </article>
+            <article class="card metric">
+              <span class="tag">Queue health</span>
+              <span class="value">99%</span>
+              <span class="delta">No duplicate dispatches</span>
+            </article>
+            <article class="card metric">
+              <span class="tag">Retries handled</span>
+              <span class="value">14</span>
+              <span class="delta">This month</span>
+            </article>
+          </section>
+
+          <section class="status-grid">
+            <article class="surface">
+              <div class="section-head">
+                <div>
+                  <h2>Channels</h2>
+                  <p class="muted">Each account keeps its own capability profile</p>
+                </div>
+              </div>
+              <div class="list">
+                <div class="row"><div class="row-main"><span class="avatar">B</span><div><p class="title">Bluesky - @flat18.app</p><p class="sub">Text 300 chars - 4 images - link cards</p></div></div><span class="status good">Publishing</span></div>
+                <div class="row"><div class="row-main"><span class="avatar dark">X</span><div><p class="title">X - @flat18studio</p><p class="sub">Text 280 chars - paid add-on active</p></div></div><span class="status good">Publishing</span></div>
+                <div class="row"><div class="row-main"><span class="avatar violet">in</span><div><p class="title">LinkedIn - Flat 18</p><p class="sub">Company page - long-form content</p></div></div><span class="status good">Publishing</span></div>
+                <div class="row"><div class="row-main"><span class="avatar green">G</span><div><p class="title">Google Business Profile</p><p class="sub">Location selected - refresh token expires soon</p></div></div><span class="status warn">Action needed</span></div>
+              </div>
+            </article>
+
+            <article class="surface">
+              <div class="section-head">
+                <div>
+                  <h2>Publishing logs</h2>
+                  <p class="muted">Failures are visible, explainable, and retryable</p>
+                </div>
+                <span class="pill">Last 24 hours</span>
+              </div>
+              <div class="timeline">
+                <div class="log"><p class="title">Scheduled job published</p><p class="sub">Bluesky - onboarding walkthrough - 09:31</p></div>
+                <div class="log"><p class="title">Scheduled job published</p><p class="sub">LinkedIn - onboarding walkthrough - 09:32</p></div>
+                <div class="log warn"><p class="title">Retry queued after rate limit</p><p class="sub">X - customer story - next attempt in 7 minutes</p></div>
+                <div class="log"><p class="title">Retry succeeded</p><p class="sub">X - customer story - idempotency key matched</p></div>
+                <div class="log bad"><p class="title">Credential check failed</p><p class="sub">Google Business - reconnect requested</p></div>
+              </div>
+            </article>
+          </section>
+
+          <section class="surface">
+            <div class="section-head">
+              <div>
+                <h2>System status</h2>
+                <p class="muted">API, queue, storage, billing, and worker health in one operational view</p>
+              </div>
+              <span class="status good">Operational</span>
+            </div>
+            <div class="grid-4">
+              <div class="check"><span>Pages API</span><span class="status good">Normal</span></div>
+              <div class="check"><span>Publisher worker</span><span class="status good">Normal</span></div>
+              <div class="check"><span>Media storage</span><span class="status good">Normal</span></div>
+              <div class="check"><span>Billing</span><span class="status good">Normal</span></div>
+            </div>
+          </section>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      const params = new URLSearchParams(location.search);
+      const screen = params.get("screen") || "dashboard";
+      document.querySelectorAll(".screen").forEach((node) => {
+        node.classList.toggle("active", node.id === screen);
+      });
+      document.querySelectorAll("[data-nav]").forEach((node) => {
+        node.classList.toggle("active", node.dataset.nav === screen || (screen === "channels" && ["channels", "logs", "status"].includes(node.dataset.nav)));
+      });
+    </script>
+  </body>
+</html>
