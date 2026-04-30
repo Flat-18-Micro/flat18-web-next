@@ -76,6 +76,15 @@ export default function AnalyticsScripts() {
         onError={(e) => console.error('Umami script failed to load:', e)}
       />
 
+      {/* Signal Analytics */}
+      <Script
+        src="https://signal.flat18.app/signal.js"
+        data-site="28dd6bd831a1fdc12234eade"
+        strategy="lazyOnload"
+        defer
+        onError={(e) => console.error('Signal script failed to load:', e)}
+      />
+
       {/* Ackee Analytics */}
       {shouldLoadAckee && (
         <Script
