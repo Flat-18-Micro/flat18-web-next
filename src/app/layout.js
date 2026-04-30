@@ -44,7 +44,7 @@ const saleActive = SUBSCRIPTION_PROMO.enabled
 
 export default function RootLayout({ children }) {
   return (
-    <html lang={language} className={`${jetbrainsMono.variable} ${playfairDisplay.variable}`}>
+    <html lang={language} className={`${jetbrainsMono.variable} ${playfairDisplay.variable}`} suppressHydrationWarning>
       <head>
         {/* ── Blocking theme script: sets dark/light class before first paint ── */}
         {/* This prevents the flash and removes the need to hide content during mount */}
@@ -92,7 +92,7 @@ export default function RootLayout({ children }) {
           }}
         />
       </head>
-      <body className={saleActive ? 'sale-active' : ''}>
+      <body className={saleActive ? 'sale-active' : ''} suppressHydrationWarning>
         <ThemeProvider>
           <ClientLayout>
             {children}

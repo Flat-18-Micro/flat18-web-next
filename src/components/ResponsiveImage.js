@@ -6,6 +6,10 @@ const buildSrcSet = (src, widths) => {
 
   const base = src.slice(0, extensionIndex)
   const extension = src.slice(extensionIndex)
+  if (extension.toLowerCase() === '.svg') {
+    return { srcSet: undefined, fallbackSrc: src }
+  }
+
   const sortedWidths = [...widths].sort((a, b) => a - b)
   const maxWidth = sortedWidths[sortedWidths.length - 1]
 
