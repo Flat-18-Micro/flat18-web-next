@@ -203,7 +203,7 @@ function descriptionLines(lines, startY) {
 function svgFor(page, logoDataUri) {
   const titleFontSize = page.title.some((line) => line.length > 13) ? 86 : 96
   const titleLineHeight = titleFontSize * 0.88
-  const titleStartY = 176
+  const titleStartY = 208
   const titleBottom = titleStartY + (page.title.length - 1) * titleLineHeight
   const descriptionY = titleBottom + 86
 
