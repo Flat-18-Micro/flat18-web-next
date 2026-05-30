@@ -205,7 +205,7 @@ function svgFor(page, logoDataUri) {
   const titleLineHeight = titleFontSize * 0.88
   const titleStartY = 176
   const titleBottom = titleStartY + (page.title.length - 1) * titleLineHeight
-  const descriptionY = titleBottom + 58
+  const descriptionY = titleBottom + 86
 
   return `
 <svg width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" xmlns="http://www.w3.org/2000/svg">
