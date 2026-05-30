@@ -260,7 +260,7 @@ function svgFor(page, logoDataUri) {
     accentIndex: page.titleAccent,
   })}
 
-  <line x1="70" y1="${descriptionY - 30}" x2="260" y2="${descriptionY - 30}" stroke="#0878d8" stroke-opacity=".9" stroke-width="3"/>
+  <line x1="70" y1="${descriptionY - 54}" x2="260" y2="${descriptionY - 54}" stroke="#0878d8" stroke-opacity=".9" stroke-width="3"/>
   ${descriptionLines(page.description, descriptionY)}
   <text x="70" y="552" text-anchor="start" class="domain" fill="#16d1ff">flat18.co.uk</text>
 </svg>`
