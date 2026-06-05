@@ -10,18 +10,18 @@ import { getSectionBackground, getSectionTextColor } from '@/hooks/scrollBackgro
 const PROOF_POINTS = [
   {
     icon: 'bi-code-slash',
-    title: 'Senior technical control',
-    text: 'Architecture, security, review and release decisions stay with experienced developers.',
+    title: 'Senior control',
+    text: 'Architecture, security and release stay in expert hands.',
   },
   {
     icon: 'bi-lightning-charge',
-    title: 'MVP in weeks',
-    text: 'LLMs accelerate research, scaffolding, UI drafts, tests and documentation.',
+    title: 'Weeks, not months',
+    text: 'LLMs speed up drafts, tests, docs and build decisions.',
   },
   {
     icon: 'bi-box-arrow-up-right',
-    title: 'Ownable code',
-    text: 'You get the repository, decisions, documentation and next-step roadmap.',
+    title: 'Code you own',
+    text: 'Repository, roadmap and technical decisions included.',
   },
 ]
 
@@ -44,7 +44,7 @@ export default function Hero() {
       <div className={`${styles.heroContainer} max-w-7xl mx-auto px-6 sm:px-8`}>
         <div className={styles.heroContent}>
           <h1 className={styles.heroHeading}>
-            Senior developers using LLMs to ship better products faster
+            Ship <span className={styles.heroSerifAccent}>better</span> products <span className={styles.heroSerifAccent}>faster</span> with expert use of LLMs and <span className={styles.heroSerifAccent}>AI</span>
           </h1>
 
           <p className={styles.heroSubheading}>

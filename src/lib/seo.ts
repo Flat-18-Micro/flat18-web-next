@@ -5,7 +5,7 @@ import { Metadata } from 'next'
 export const siteConfig = {
   name: 'Flat 18',
   legalName: 'Flat 18 Microsystems Development LLC',
-  title: 'Flat 18 - Senior developers using LLMs to ship better products faster',
+  title: 'Flat 18 - Ship better products faster with expert use of LLMs and AI',
   description: 'Senior full-stack developers using LLMs to design and build curated MVPs, internal tools and complete digital products quickly.',
   url: 'https://flat18.co.uk',
   ogImage: '/og/home.png',
