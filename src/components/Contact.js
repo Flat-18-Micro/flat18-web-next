@@ -205,9 +205,9 @@ export default function Contact() {
                   >
                     <option value="">Select budget (optional)</option>
                     <option value="discovery">Discovery budget only</option>
-                    <option value="3500-12000">£3,500-£12,000</option>
-                    <option value="12000-30000">£12,000-£30,000</option>
-                    <option value="30000-plus">£30,000+</option>
+                    <option value="3500-12000">Starting at £3,500</option>
+                    <option value="12000-30000">Starting at £12,000</option>
+                    <option value="30000-plus">Starting at £30,000</option>
                     <option value="monthly">Monthly product team</option>
                   </select>
                 </div>

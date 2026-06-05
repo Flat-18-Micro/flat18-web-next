@@ -21,7 +21,6 @@ const PROJECT_ROUTES = [
     timeline: '2-6 weeks',
     description: 'A tight build for a usable first version, demo or market test.',
     min: 3500,
-    max: 12000,
     cta: 'Start a project',
     highlights: [
       'Scope and user flow',
@@ -35,7 +34,6 @@ const PROJECT_ROUTES = [
     timeline: '6-12+ weeks',
     description: 'Design and engineering for production software.',
     min: 12000,
-    max: null,
     cta: 'Request a quote',
     highlights: [
       'Architecture and product design',
@@ -161,13 +159,6 @@ export default function Pricing({ headingLevel = 'h2' }) {
     return formatCurrency(amount * multiplier, selectedCurrency)
   }
 
-  const formatRange = (min, max) => {
-    const minStr = formatAmountForCurrency(min)
-    if (!max) return `${minStr}+`
-    const maxStr = formatAmountForCurrency(max)
-    return `${minStr}-${maxStr}`
-  }
-
   const basePriceDisplay = prices.monthly[selectedCurrency] || prices.monthly.GBP
   const promoPriceDisplay = formatAmountForCurrency(promoPrice)
   const HeadingTag = headingLevel === 'h1' ? 'h1' : 'h2'
@@ -246,7 +237,10 @@ export default function Pricing({ headingLevel = 'h2' }) {
               <div className={styles.pricingHeader}>
                 <h3 className={styles.planTitle}>{route.title}</h3>
                 <p className={styles.timeline}>{route.timeline}</p>
-                <p className={styles.priceRange}>{formatRange(route.min, route.max)}</p>
+                <div className={styles.priceBlock}>
+                  <span className={styles.startingAt}>Starting at</span>
+                  <p className={styles.priceRange}>{formatAmountForCurrency(route.min)}</p>
+                </div>
               </div>
               <p className={styles.planSubtitle}>{route.description}</p>
               <ul className={styles.featuresList}>
@@ -321,6 +315,10 @@ export default function Pricing({ headingLevel = 'h2' }) {
             </Link>
           </article>
         </div>
+
+        <p className={styles.pricingNote}>
+          Final pricing depends on scope, integrations and release requirements.
+        </p>
 
         <div className={styles.bottomCTA}>
           <div className={styles.ctaContent}>
