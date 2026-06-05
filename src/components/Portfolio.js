@@ -9,12 +9,9 @@ import { getSectionBackground, getSectionTextColor } from '@/hooks/scrollBackgro
 // Individual Project Card Component for proper hook usage
 function ProjectCard({ project, index }) {
   return (
-    <div
-      className={styles.projectCard}
-      data-liquid-prebuild="true"
-    >
+    <div className={styles.projectCard}>
       {/* F18-style large imagery */}
-      <div className={styles.projectImageWrapper} data-liquid-prebuild="true">
+      <div className={styles.projectImageWrapper}>
         <div className={styles.projectImageContainer}>
           <div>
             {project.useNextImage ? (

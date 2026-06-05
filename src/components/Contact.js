@@ -126,10 +126,7 @@ export default function Contact() {
       data-bg-color={getSectionBackground('contact')}
       data-text-color={getSectionTextColor('contact')}
     >
-      <div
-        className={styles.container}
-        data-liquid-prebuild="true"
-      >
+      <div className={styles.container}>
         <div className={styles.heading}>
           <h2 className={styles.title}>Tell us what you want to build</h2>
           <p className={styles.subtitle}>

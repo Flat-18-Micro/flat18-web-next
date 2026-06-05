@@ -50,7 +50,6 @@ export default function HowItWorks() {
             <article
               key={index}
               className={styles.processCard}
-              data-liquid-prebuild="true"
             >
                 <div className={styles.cardHeader}>
                   <span className={styles.stepNumber}>{step.number}</span>

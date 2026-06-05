@@ -1,0 +1,154 @@
+.motionOverrides :global([class*="briefArtifact"]) {
+  animation:
+    artifactFadeIn 0.9s cubic-bezier(0.2, 0.65, 0.25, 1) 0.12s both,
+    specDrift 34s ease-in-out 1.8s infinite;
+}
+
+.motionOverrides :global([class*="pipelineArtifact"]) {
+  animation: artifactFadeIn 0.95s cubic-bezier(0.2, 0.65, 0.25, 1) 0.22s both;
+  transform: translate3d(0, 0, 0);
+}
+
+.motionOverrides :global([class*="releaseArtifact"]) {
+  animation:
+    artifactFadeIn 1s cubic-bezier(0.2, 0.65, 0.25, 1) 0.34s both,
+    launchBoardDrift 24s ease-in-out 1.4s infinite;
+}
+
+.motionOverrides :global([class*="blueprintRoute"]) {
+  animation: routeDrawOnce 5.8s cubic-bezier(0.2, 0.65, 0.25, 1) 0.45s 1 both;
+}
+
+.motionOverrides :global([class*="chartLine"]) {
+  animation: routeDrawOnce 6s cubic-bezier(0.2, 0.65, 0.25, 1) 0.7s 1 both;
+}
+
+.motionOverrides :global([class*="pipelinePulse"]) {
+  animation: pipelineTrace 4.8s cubic-bezier(0.2, 0.65, 0.25, 1) 0.8s 1 both;
+}
+
+.motionOverrides :global([class*="blueprintNode"]),
+.motionOverrides :global([class*="chartPoint"]) {
+  animation: none;
+  opacity: 1;
+  transform: none;
+}
+
+.motionOverrides :global([class*="releaseMetrics"]) div::before {
+  animation: none;
+  transform: scaleX(1);
+  transform-origin: left center;
+}
+
+.motionOverrides :global([class*="releaseList"]) {
+  gap: 0.3rem;
+}
+
+.motionOverrides :global([class*="releaseList"]) span {
+  min-width: 0;
+  padding: 0.48rem 0.46rem;
+  overflow: hidden;
+}
+
+.motionOverrides :global([class*="releaseList"]) em {
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  color: var(--hero-muted);
+  font-size: 0.58rem;
+  letter-spacing: 0.025em;
+  line-height: 1.1;
+}
+
+.motionOverrides :global([class*="releaseList"]) strong {
+  margin-top: 0.22rem;
+  font-size: 0.72rem;
+  line-height: 1.18;
+}
+
+@media (max-width: 820px) {
+  .motionOverrides :global([class*="releaseList"]) em {
+    font-size: 0.66rem;
+    letter-spacing: 0.045em;
+  }
+
+  .motionOverrides :global([class*="releaseList"]) strong {
+    margin-top: 0;
+    font-size: 0.82rem;
+  }
+}
+
+@keyframes artifactFadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes specDrift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  45% {
+    transform: translate3d(0, -2px, 0);
+  }
+
+  70% {
+    transform: translate3d(0, 1px, 0);
+  }
+}
+
+@keyframes launchBoardDrift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  35% {
+    transform: translate3d(0, -8px, 0);
+  }
+
+  68% {
+    transform: translate3d(0, 5px, 0);
+  }
+}
+
+@keyframes routeDrawOnce {
+  from {
+    opacity: 0.42;
+    stroke-dashoffset: 520;
+  }
+
+  to {
+    opacity: 1;
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes pipelineTrace {
+  0% {
+    opacity: 0;
+    stroke-dashoffset: 410;
+  }
+
+  25%,
+  80% {
+    opacity: 0.65;
+  }
+
+  100% {
+    opacity: 0;
+    stroke-dashoffset: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .motionOverrides :global(*) {
+    animation: none;
+    transition: none;
+  }
+}

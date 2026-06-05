@@ -5,6 +5,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import styles from '@/styles/component-css/Navbar.module.css'
 import { analytics } from '@/lib/analytics'
+import { ThemeSwitcher } from '@/app/providers'
 
 export default function Navbar({ isScrolled }) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
@@ -29,7 +30,7 @@ export default function Navbar({ isScrolled }) {
 
   return (
     <header className={`${styles.navbar} ${isScrolled ? styles.scrolled : ''}`}>
-      <div className={`${styles.container} max-w-content mx-auto px-6 sm:px-8 liquidGL-nav`}>
+      <div className={`${styles.container} max-w-content mx-auto px-6 sm:px-8`}>
         {/* Brand */}
         <Link href="/" className={styles.brand}>
           <div className={styles.logo}>
@@ -77,6 +78,8 @@ export default function Navbar({ isScrolled }) {
               </Link>
             </li>
           </ul>
+
+          <ThemeSwitcher className={styles.themeSwitcher} />
 
           {/* CTA Button */}
           <div className={styles.cta}>
@@ -156,6 +159,7 @@ export default function Navbar({ isScrolled }) {
 
             {/* Mobile CTA Group */}
             <div className={styles.mobileCTAGroup}>
+              <ThemeSwitcher className={styles.mobileThemeSwitcher} showLabel />
               <a
                 href="#chat"
                 className="btn btn-primary w-full"

@@ -33,7 +33,6 @@ const playfairDisplay = Playfair_Display({
 const ChatwootWidget = dynamic(() => import('@/components/ChatwootWidget'), { ssr: false })
 const ServiceWorkerRegistration = dynamic(() => import('@/components/ServiceWorkerRegistration'), { ssr: false })
 const AnalyticsScripts = dynamic(() => import('@/components/AnalyticsScripts'), { ssr: false })
-const LiquidGLLoader = dynamic(() => import('@/components/LiquidGLLoader'), { ssr: false })
 
 export const metadata = defaultMetadata
 
@@ -103,7 +102,6 @@ export default function RootLayout({ children }) {
           <ServiceWorkerRegistration />
           <AnalyticsScripts />
         </ThemeProvider>
-        <LiquidGLLoader />
       </body>
     </html>
   )
