@@ -11,18 +11,29 @@ export default function AiAugmentedDevelopmentPage() {
         <div className={styles.backgroundGradient}></div>
         <div className={styles.container}>
           <div className={styles.pageContent}>
-            <h1 className={styles.pageHeading}>AI-Augmented Development</h1>
-            <div className={styles.badge}>Faster, Smarter Code</div>
+            <h1 className={styles.pageHeading}>LLM-accelerated development</h1>
+            <div className={styles.badge}>Fast delivery under senior control</div>
             <div className={styles.textContent}>
-              <p>Flat 18 uses AI-assisted workflows to speed up development while improving code quality and maintainability.</p>
-              <h2>Capabilities</h2>
+              <p>
+                Flat 18 uses LLMs as a serious engineering accelerator. They help us explore, draft, test and document faster, while experienced developers own the architecture, review and production decisions.
+              </p>
+              <h2>Where LLMs help</h2>
               <ul>
-                <li>Co-pilot integrations and fine-tuned LLMs for coding support</li>
-                <li>Code scaffolding and refactoring using AI-generated templates</li>
-                <li>Automated test generation and inline documentation</li>
-                <li>Context-aware linting, debugging, and suggestions</li>
+                <li>Turning a brief into clearer product options, user flows and technical tasks</li>
+                <li>Drafting components, API routes, tests and documentation quickly</li>
+                <li>Comparing implementation paths before committing to one</li>
+                <li>Speeding up refactors, debugging and handover notes</li>
               </ul>
-              <p>We build with AI, not just for AI. Accelerate your roadmap with intelligent development practices.</p>
+              <h2>Where humans stay in control</h2>
+              <ul>
+                <li>Architecture, security, privacy and commercial risk decisions</li>
+                <li>Code review, performance checks and accessibility standards</li>
+                <li>Final product judgement: what to ship, what to cut and what to improve</li>
+                <li>Client communication, scope decisions and long-term maintainability</li>
+              </ul>
+              <p>
+                The result is not a prompt demo. It is working software built faster because the tools are in experienced hands.
+              </p>
             </div>
           </div>
         </div>

@@ -9,6 +9,7 @@ export default function Contact() {
     name: '',
     email: '',
     projectType: '',
+    budget: '',
     message: '',
   })
 
@@ -98,6 +99,7 @@ export default function Contact() {
           name: '',
           email: '',
           projectType: '',
+          budget: '',
           message: '',
         })
       }, 5000)
@@ -129,9 +131,9 @@ export default function Contact() {
         data-liquid-prebuild="true"
       >
         <div className={styles.heading}>
-          <h2 className={styles.title}>Tell us what you're building</h2>
+          <h2 className={styles.title}>Tell us what you want to build</h2>
           <p className={styles.subtitle}>
-            We take on a small number of projects at a time, and we'll tell you within a day if it's a fit.
+            We will reply with the best route, likely timeline and next step. If we are not the right fit, we will say so clearly.
           </p>
         </div>
 
@@ -139,11 +141,10 @@ export default function Contact() {
           <div>
             <div className={styles.formCard}>
           {isSubmitted ? (
-            <div className="text-center py-8">
-              <div className="text-5xl mb-4">🎉</div>
-              <h4 className="text-2xl font-bold mb-2">Thank you!</h4>
+            <div className={styles.successState}>
+              <h4>Thank you.</h4>
               <p className="text-tertiary">
-                We've received your enquiry and will contact you shortly.
+                We have received your enquiry and will reply with the best next step.
               </p>
             </div>
           ) : (
@@ -187,10 +188,30 @@ export default function Contact() {
                     className={styles.select}
                   >
                     <option value="">Select project type (optional)</option>
-                    <option value="marketing-site">Marketing site</option>
-                    <option value="mvp">MVP / Web app</option>
-                    <option value="fintech-web3">Fintech / Web3</option>
-                    <option value="other">Other</option>
+                    <option value="mvp-sprint">MVP sprint</option>
+                    <option value="complete-product">Complete product</option>
+                    <option value="monthly-product-team">Monthly product team</option>
+                    <option value="llm-workflow">LLM workflow or internal tool</option>
+                    <option value="takeover">Take over an existing product</option>
+                    <option value="not-sure">Not sure yet</option>
+                  </select>
+                </div>
+
+                <div className={styles.formGroup}>
+                  <label htmlFor="budget" className={styles.label}>Budget</label>
+                  <select
+                    id="budget"
+                    name="budget"
+                    value={formData.budget}
+                    onChange={handleChange}
+                    className={styles.select}
+                  >
+                    <option value="">Select budget (optional)</option>
+                    <option value="under-1000">Under £1,000</option>
+                    <option value="1000-3500">£1,000-£3,500</option>
+                    <option value="3500-12000">£3,500-£12,000</option>
+                    <option value="12000-plus">£12,000+</option>
+                    <option value="monthly">Monthly product team</option>
                   </select>
                 </div>
 
@@ -202,9 +223,9 @@ export default function Contact() {
                     value={formData.message}
                     onChange={handleChange}
                     required
-                    placeholder="Goals, scope, timeline, and anything we should know"
+                    placeholder="What are you building, who is it for, and what needs to happen next?"
                     className={styles.textarea}
-                    rows="3"
+                    rows="5"
                   ></textarea>
                 </div>
               </div>
@@ -219,7 +240,7 @@ export default function Contact() {
                     <span className="animate-pulse">Sending...</span>
                   ) : (
                     <>
-                      <span>Chat with us</span>
+                      <span>Start the conversation</span>
                       <i className="bi bi-arrow-right" aria-hidden="true"></i>
                     </>
                   )}
@@ -250,14 +271,22 @@ export default function Contact() {
         </div>
 
         <div className={styles.visualElement}>
-          <div className={styles.visualElementInner}></div>
           <div className={styles.visualElementGrid}></div>
           <div className={styles.visualElementContent}>
-            <i className="bi bi-chat-square-text" aria-hidden="true" style={{ fontSize: '3rem', marginBottom: '1rem', color: 'var(--secondary)' }}></i>
-            <h3 style={{ fontSize: '1.5rem', marginBottom: '1rem' }}>Let's chat about your project</h3>
-            <p style={{ opacity: 0.8, maxWidth: '80%', margin: '0 auto' }}>
-              We're here to turn your ideas into reality with our design and development know-how.
-            </p>
+            <div className={styles.assuranceItem}>
+              <i className="bi bi-clock" aria-hidden="true"></i>
+              <div>
+                <h3>Fast, useful response</h3>
+                <p>We will confirm the best route, likely timeline and next step within 1-2 working days.</p>
+              </div>
+            </div>
+            <div className={styles.assuranceItem}>
+              <i className="bi bi-shield-check" aria-hidden="true"></i>
+              <div>
+                <h3>Confidential by default</h3>
+                <p>Your ideas, data and plans are treated with care and complete confidentiality.</p>
+              </div>
+            </div>
           </div>
         </div>
         </div>

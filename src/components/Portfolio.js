@@ -45,7 +45,7 @@ function ProjectCard({ project, index }) {
           {/* Overlay labels */}
           <div className={styles.imageOverlay}>
             <div className={styles.overlayContent}>
-              <span className={styles.overlayLabel}>View Project</span>
+              <span className={styles.overlayLabel}>View project</span>
               <i className="bi bi-arrow-right" aria-hidden="true"></i>
             </div>
           </div>
@@ -101,7 +101,7 @@ function ProjectCard({ project, index }) {
           rel="noopener noreferrer"
           className={styles.projectCTA}
         >
-          View Project
+          View project
           <i className="bi bi-arrow-right" aria-hidden="true"></i>
         </a>
       </div>
@@ -121,7 +121,7 @@ export default function Portfolio() {
       link: '/case-studies/felt-weather',
       stats: [
         { label: 'Timeline', value: '2026 launch' },
-        { label: 'Platform', value: 'Web App' },
+        { label: 'Platform', value: 'Web app' },
         { label: 'Industry', value: 'Weather' }
       ],
       status: 'Live',
@@ -135,7 +135,7 @@ export default function Portfolio() {
       link: '/case-studies/ledger',
       stats: [
         { label: 'Timeline', value: '2026 launch' },
-        { label: 'Platform', value: 'Web App' },
+        { label: 'Platform', value: 'Web app' },
         { label: 'Industry', value: 'Finance' }
       ],
       status: 'Live',
@@ -149,7 +149,7 @@ export default function Portfolio() {
       link: '/case-studies/workouts',
       stats: [
         { label: 'Timeline', value: '2026 launch' },
-        { label: 'Platform', value: 'Web App' },
+        { label: 'Platform', value: 'Web app' },
         { label: 'Industry', value: 'Fitness' }
       ],
       status: 'Live',
@@ -164,8 +164,8 @@ export default function Portfolio() {
       link: '/case-studies/pulseops',
       stats: [
         { label: 'Timeline', value: '2026 launch' },
-        { label: 'Platform', value: 'Web App' },
-        { label: 'Industry', value: 'Network Ops' }
+        { label: 'Platform', value: 'Web app' },
+        { label: 'Industry', value: 'Network ops' }
       ],
       status: 'Live',
       category: 'app'
@@ -178,7 +178,7 @@ export default function Portfolio() {
       link: '/case-studies/social-publisher',
       stats: [
         { label: 'Timeline', value: '2026 beta' },
-        { label: 'Platform', value: 'Web App' },
+        { label: 'Platform', value: 'Web app' },
         { label: 'Industry', value: 'Marketing' }
       ],
       status: 'Live beta',
@@ -192,8 +192,8 @@ export default function Portfolio() {
       link: '/case-studies/natal-charts',
       stats: [
         { label: 'Timeline', value: 'Demo build' },
-        { label: 'Platform', value: 'Web App' },
-        { label: 'Industry', value: 'Data Viz' }
+        { label: 'Platform', value: 'Web app' },
+        { label: 'Industry', value: 'Data visualisation' }
       ],
       status: 'Live',
       category: 'app',
@@ -201,27 +201,27 @@ export default function Portfolio() {
     },
     {
       title: 'Archimedes Finance',
-      description: 'Secure asset tokenisation platform for institutional investors',
+      description: 'Secure asset tokenisation platform for institutional investors.',
       image: '/images/portfolio-graphics/archimedesfinance-mock.webp',
       projectLogo: '/images/portfolio-graphics/logos/archimedes-finance.webp',
       link: '/case-studies/archimedes-finance',
       stats: [
         { label: 'Timeline', value: '8 weeks' },
-        { label: 'Platform', value: 'Web App' },
-        { label: 'Industry', value: 'FinTech' }
+        { label: 'Platform', value: 'Web app' },
+        { label: 'Industry', value: 'Fintech' }
       ],
       status: 'Live',
       category: 'app'
     },
     {
       title: 'Zettahash Hashboard',
-      description: 'Mining hashboard monitoring dashboard',
+      description: 'Mining hashboard monitoring dashboard.',
       image: '/images/portfolio-graphics/hashboard.webp',
       projectLogo: '/images/portfolio-graphics/logos/zettahash.webp',
       link: '/case-studies/hashboard',
       stats: [
         { label: 'Timeline', value: '6 weeks' },
-        { label: 'Platform', value: 'Web App' },
+        { label: 'Platform', value: 'Web app' },
         { label: 'Industry', value: 'Mining' }
       ],
       status: 'Live',
@@ -229,7 +229,7 @@ export default function Portfolio() {
     },
     {
       title: 'WalletScrutiny',
-      description: 'Bitcoin wallet security analysis platform redesign',
+      description: 'Bitcoin wallet security analysis platform redesign.',
       image: '/images/portfolio-graphics/walletscrutiny-mock.webp',
       projectLogo: '/images/portfolio-graphics/logos/wallet-scrutiny.webp',
       link: 'https://walletscrutiny.com',
@@ -243,7 +243,7 @@ export default function Portfolio() {
     },
     {
       title: 'BTCPay Server',
-      description: 'Open-source Bitcoin payment processor platform',
+      description: 'Open-source Bitcoin payment processor platform.',
       image: '/images/portfolio-graphics/btcpayserver-mock.webp',
       projectLogo: '/images/portfolio-graphics/logos/btcpayserver.webp',
       link: 'https://btcpayserver.org',
@@ -270,10 +270,10 @@ export default function Portfolio() {
     >
       <div className={`${styles.container} max-w-content mx-auto px-6 sm:px-8`}>
         <div className={styles.sectionHeading}>
-          <span className="label-uppercase">Featured Work</span>
-          <h2 className={styles.sectionTitle}>Recent projects</h2>
+          <span className="label-uppercase">Featured work</span>
+          <h2 className={styles.sectionTitle}>Products and launches</h2>
           <p className={styles.sectionDescription}>
-            A selection of our latest work across fintech, security, and digital platforms.
+            A selection of product, platform and interface work that shows the technical depth behind the new LLM-accelerated offer.
           </p>
         </div>
 
@@ -291,11 +291,11 @@ export default function Portfolio() {
         {/* Bottom CTA */}
         <div className={styles.bottomCTA}>
           <div className={styles.ctaContent}>
-            <h3>Ready to start your project?</h3>
-            <p>Let's discuss your vision and bring it to life</p>
+            <h3>Ready to start your product?</h3>
+            <p>Let's discuss your goals, constraints and the fastest responsible route to launch.</p>
           </div>
           <a href="#chat" className="btn btn-primary">
-            Chat with us
+            Start a project
           </a>
         </div>
       </div>

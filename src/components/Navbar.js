@@ -35,7 +35,7 @@ export default function Navbar({ isScrolled }) {
           <div className={styles.logo}>
             <Image
               src="/images/flat18_256x256.avif"
-              alt="Flat 18 Logo"
+              alt="Flat 18 logo"
               width={42}
               height={42}
             />
@@ -56,11 +56,16 @@ export default function Navbar({ isScrolled }) {
                 <span>Work</span>
               </Link>
             </li>
-            {/* <li>
-              <Link href="/case-studies" className={styles.link}>
-                <span>Case Studies</span>
+            <li>
+              <Link href="/#services" className={styles.link}>
+                <span>Services</span>
               </Link>
-            </li> */}
+            </li>
+            <li>
+              <Link href="/#process" className={styles.link}>
+                <span>Process</span>
+              </Link>
+            </li>
             <li>
               <Link href="/#pricing" className={styles.link}>
                 <span>Pricing</span>
@@ -68,7 +73,7 @@ export default function Navbar({ isScrolled }) {
             </li>
             <li>
               <Link href="https://accounts.flat18.co.uk/client/login" className={styles.link}>
-                <span>Client Portal</span>
+                <span>Client portal</span>
               </Link>
             </li>
           </ul>
@@ -80,7 +85,7 @@ export default function Navbar({ isScrolled }) {
               className="btn btn-primary btn-icon"
               onClick={() => analytics.nav.bookCall()}
             >
-              <span className="btn-text">Chat with us</span>
+              <span className="btn-text">Start a project</span>
               <i className="bi bi-arrow-right" aria-hidden="true"></i>
             </a>
           </div>
@@ -113,20 +118,20 @@ export default function Navbar({ isScrolled }) {
               </li>
               <li>
                 <Link href="/case-studies" className={styles.mobileLink} onClick={() => setIsMobileMenuOpen(false)}>
-                  <span className={styles.mobileLinkLabel}>Case Studies</span>
-                  <span className={styles.mobileLinkDescription}>Deep dives & launches</span>
+                  <span className={styles.mobileLinkLabel}>Case studies</span>
+                  <span className={styles.mobileLinkDescription}>Deep dives and launches</span>
                 </Link>
               </li>
               <li>
-                <Link href="/services" className={styles.mobileLink} onClick={() => setIsMobileMenuOpen(false)}>
+                <Link href="/#services" className={styles.mobileLink} onClick={() => setIsMobileMenuOpen(false)}>
                   <span className={styles.mobileLinkLabel}>Services</span>
-                  <span className={styles.mobileLinkDescription}>What we offer</span>
+                  <span className={styles.mobileLinkDescription}>What we build</span>
                 </Link>
               </li>
               <li>
-                <Link href="/process" className={styles.mobileLink} onClick={() => setIsMobileMenuOpen(false)}>
+                <Link href="/#process" className={styles.mobileLink} onClick={() => setIsMobileMenuOpen(false)}>
                   <span className={styles.mobileLinkLabel}>Process</span>
-                  <span className={styles.mobileLinkDescription}>How we work</span>
+                  <span className={styles.mobileLinkDescription}>How we use LLMs</span>
                 </Link>
               </li>
               <li>
@@ -142,9 +147,9 @@ export default function Navbar({ isScrolled }) {
                 </Link>
               </li>
               <li>
-                <Link href="/blog" className={styles.mobileLink} onClick={() => setIsMobileMenuOpen(false)}>
-                  <span className={styles.mobileLinkLabel}>Blog</span>
-                  <span className={styles.mobileLinkDescription}>Insights & updates</span>
+                <Link href="https://accounts.flat18.co.uk/client/login" className={styles.mobileLink} onClick={() => setIsMobileMenuOpen(false)}>
+                  <span className={styles.mobileLinkLabel}>Client portal</span>
+                  <span className={styles.mobileLinkDescription}>Access your account</span>
                 </Link>
               </li>
             </ul>
@@ -159,7 +164,7 @@ export default function Navbar({ isScrolled }) {
                   analytics.nav.bookCall()
                 }}
               >
-                <span className="btn-text">Chat with us</span>
+                <span className="btn-text">Start a project</span>
               </a>
               <a href="mailto:hello@flat18.co.uk" className={styles.emailLink}>
                 hello@flat18.co.uk

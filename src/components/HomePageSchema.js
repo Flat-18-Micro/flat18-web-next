@@ -26,7 +26,7 @@ const homePageSchema = {
     "@type": "ProfessionalService",
     "name": siteConfig.name,
     "image": `${siteConfig.url}${siteConfig.ogImage}`,
-    "description": "Flat 18 offers senior product design and engineering for the modern web. From conversion-ready marketing sites to MVPs and fintech platforms, we serve founders who want steady progress and clean delivery.",
+    "description": "Flat 18 is an expert-led design and development studio using LLMs to accelerate curated MVPs, complete product builds and long-term product work without losing senior engineering control.",
     "url": siteConfig.url,
     "email": siteConfig.email,
     "address": {
@@ -46,54 +46,54 @@ const homePageSchema = {
     "areaServed": "Worldwide",
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
-      "name": "Design + Engineering Services",
+      "name": "LLM-accelerated design and development services",
       "itemListElement": [
         {
           "@type": "Offer",
           "itemOffered": {
             "@type": "Service",
-            "name": "Product & UX Design",
-            "description": "Positioning, UX, UI, and design systems that move users to action."
+            "name": "Curated MVPs",
+            "description": "Fast first versions scoped, designed, built and reviewed by experienced full-stack developers."
           }
         },
         {
           "@type": "Offer",
           "itemOffered": {
             "@type": "Service",
-            "name": "Web Engineering",
-            "description": "Senior engineering for fast, secure, and maintainable builds."
+            "name": "Complete product builds",
+            "description": "End-to-end product design, frontend, backend, integrations, QA, deployment and handover."
           }
         },
         {
           "@type": "Offer",
           "itemOffered": {
             "@type": "Service",
-            "name": "MVPs & Web Apps",
-            "description": "Launch-ready MVPs, dashboards, and internal tools."
+            "name": "LLM workflow design",
+            "description": "AI-assisted workflows, prompts, review systems and internal tools for faster delivery."
           }
         },
         {
           "@type": "Offer",
           "itemOffered": {
             "@type": "Service",
-            "name": "Fintech & Payments",
-            "description": "Payment flows, wallet integrations, and compliance-aware UX."
+            "name": "Monthly product team",
+            "description": "Ongoing senior design and development capacity for continuous product momentum."
           }
         },
         {
           "@type": "Offer",
           "itemOffered": {
             "@type": "Service",
-            "name": "Maintenance & Support",
-            "description": "Ongoing retainers for product iteration and support."
+            "name": "Existing product takeover",
+            "description": "Codebase audits, refactors, stabilisation and continued product delivery."
           }
         },
         {
           "@type": "Offer",
           "itemOffered": {
             "@type": "Service",
-            "name": "API Integrations",
-            "description": "Seamless integration with third-party APIs and back-end services."
+            "name": "Full-stack integrations",
+            "description": "APIs, payments, data flows and third-party services built into maintainable products."
           }
         }
       ]

@@ -11,88 +11,65 @@ export default function MaintenanceSupportPage() {
         
         <div className={styles.container}>
           <div className={styles.pageContent}>
-            <h1 className={styles.pageHeading}>Maintenance & Support Services</h1>
-            <div className={styles.badge}>Reliable, Proactive Care</div>
+            <h1 className={styles.pageHeading}>Long-term product support</h1>
+            <div className={styles.badge}>Ongoing senior product capacity</div>
             <div className={styles.textContent}>
               <p>
-                Flat 18 provides maintenance and support for your websites and digital products. Our expert team ensures your assets remain secure, up-to-date, and performing at their best—so you can focus on scaling your business.
+                Flat 18 provides ongoing design and development support for products that need steady improvement after launch. You get senior technical judgement, LLM-assisted delivery speed and clear ownership without hiring a full internal team.
               </p>
 
-              <h2>Why Flat 18 for Support?</h2>
+              <h2>Why Flat 18 for support?</h2>
               <ul>
-                <li>Senior technical support—no call centres</li>
-                <li>Proactive monitoring, regular updates, and security-first approach</li>
-                <li>Flexible plans for startups and high-traffic scale-ups</li>
-                <li>Clear communication and rapid response</li>
+                <li>Senior technical support with direct communication</li>
+                <li>Product improvements, refactors and releases handled together</li>
+                <li>LLM-assisted speed for analysis, implementation and documentation</li>
+                <li>Clear priorities, practical reporting and no agency theatre</li>
               </ul>
 
-              <h2>Our Maintenance & Support Expertise</h2>
+              <h2>What we can help with</h2>
               <p>
-                Launching your site or app is just the beginning. We provide continuous care, swiftly addressing issues and delivering ongoing improvements.
+                Launch is only the start. We help keep the product useful, stable and ready for the next commercial step.
               </p>
 
-              <h3>Proactive Maintenance</h3>
+              <h3>Product improvements</h3>
               <p>
-                We prevent problems before they arise—applying updates, security patches, and performance optimisations to keep your digital assets in peak condition.
+                We design, build and release new features, refinements and workflow improvements against a clear priority list.
               </p>
 
-              <h3>24/7 Technical Support</h3>
+              <h3>Refactors and stabilisation</h3>
               <p>
-                Our expert team is available around the clock to resolve issues, with guaranteed response times and multiple support channels.
+                We clean up fragile areas, improve maintainability and reduce the cost of future changes.
               </p>
 
-              <h3>Security Monitoring & Updates</h3>
+              <h3>Security and reliability</h3>
               <p>
-                We continuously monitor for vulnerabilities and implement updates to protect your data and users from emerging threats.
+                We review dependencies, monitor risk, apply updates and check production behaviour before problems become expensive.
               </p>
 
-              <h3>Performance Optimisation</h3>
+              <h3>Performance optimisation</h3>
               <p>
-                We regularly analyse and tune your site or app for speed and efficiency—boosting user experience and search rankings.
+                We analyse and tune the product for speed, stability and usability across devices.
               </p>
 
-              <h3>Content Management & Updates</h3>
+              <h3>Release support</h3>
               <p>
-                Need content changes? We keep your site fresh and relevant, handling everything from product updates to new blog posts.
+                We help plan releases, test changes, document decisions and keep stakeholders clear on what shipped.
               </p>
 
-              <h3>Backup & Disaster Recovery</h3>
+              <h2>How monthly support works</h2>
               <p>
-                Robust backup solutions and recovery procedures ensure your data is safe and business continuity is never at risk.
+                The monthly product team route gives you ongoing capacity without losing senior context between tasks.
               </p>
-
-              <h2>Flexible Support Plans</h2>
-              <p>
-                Choose from support plans tailored to your needs:
-              </p>
-              <h3>Essential Support</h3>
-              <p>
-                Regular updates, security patches, and email support during business hours—ideal for smaller sites and apps.
-              </p>
-
-              <h3>Support</h3>
-              <p>
-                All Essential features plus priority response, phone support, and monthly performance reports—perfect for business-critical platforms.
-              </p>
-
-              <h3>Enterprise Support</h3>
-              <p>
-                Comprehensive cover: 24/7 support, dedicated staff, emergency response, and quarterly strategy reviews—for high-traffic, complex digital estates.
-              </p>
-
-              <h2>Benefits of Partnering with Flat 18</h2>
               <ul>
-                <li><strong>Peace of Mind:</strong> Experts safeguarding your digital assets</li>
-                <li><strong>Stronger Security:</strong> Stay protected against evolving threats</li>
-                <li><strong>Peak Performance:</strong> Fast, reliable sites and apps</li>
-                <li><strong>Minimal Downtime:</strong> Rapid issue resolution</li>
-                <li><strong>Cost Savings:</strong> Prevent costly emergencies</li>
-                <li><strong>Focus on Growth:</strong> Let us handle the technical details</li>
+                <li><strong>Queue:</strong> Add product, design and engineering requests as they arise.</li>
+                <li><strong>Prioritise:</strong> We agree the most useful next task together.</li>
+                <li><strong>Ship:</strong> We design, build, review and document the work.</li>
+                <li><strong>Repeat:</strong> Pause when you are done or keep momentum month to month.</li>
               </ul>
 
-              <h2>Secure Your Digital Success</h2>
+              <h2>Need continuous momentum?</h2>
               <p>
-                Contact Flat 18 to discuss your maintenance and support needs. Our team will keep your digital products running smoothly, securely, and ready for growth.
+                Tell us what needs improving and how often you need changes shipped. We will recommend whether monthly support is the right route.
               </p>
             </div>
           </div>

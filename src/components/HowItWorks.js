@@ -2,31 +2,30 @@ import styles from '@/styles/component-css/HowItWorks.module.css'
 import { getSectionBackground, getSectionTextColor } from '@/hooks/scrollBackgroundUtils'
 
 export default function HowItWorks() {
-  // F18-style four-step process
   const steps = [
     {
       number: '01',
-      title: 'Align',
-      description: 'We lock goals, users, and success metrics before we design a pixel.',
-      details: '45-minute discovery, scope, timeline, success criteria'
+      title: 'Frame the problem',
+      description: 'We clarify outcomes, constraints, risks and acceptance criteria before LLMs touch the work.',
+      details: 'Brief, scope, users, technical constraints, success metrics'
     },
     {
       number: '02',
-      title: 'Design',
-      description: 'Messaging, flows, and UI that move people to act.',
-      details: 'Wireframes, prototypes, content direction'
+      title: 'Generate options',
+      description: 'LLMs help us explore approaches, draft components, compare paths and expose trade-offs quickly.',
+      details: 'Prompted exploration, prototypes, code drafts, test ideas'
     },
     {
       number: '03',
-      title: 'Build',
-      description: 'Senior engineers build, test, and optimise the product.',
-      details: 'Frontend + backend, QA, performance passes'
+      title: 'Engineer the product',
+      description: 'Senior developers shape the architecture, implement the right solution and integrate the moving parts.',
+      details: 'Frontend, backend, APIs, data models, deployment'
     },
     {
       number: '04',
-      title: 'Launch + Iterate',
-      description: 'We deploy, monitor, and keep improving with you.',
-      details: 'Release, analytics, handover, support'
+      title: 'Review, test and harden',
+      description: 'We review for security, performance and reliability before release, then document the handover clearly.',
+      details: 'Code review, QA, accessibility, documentation, support'
     }
   ]
 
@@ -40,13 +39,12 @@ export default function HowItWorks() {
       <div className={`${styles.container} max-w-content mx-auto px-6 sm:px-8`}>
         <div className={styles.sectionHeading}>
           <span className="label-uppercase">Process</span>
-          <h2 className={styles.sectionTitle}>How we ship</h2>
+          <h2 className={styles.sectionTitle}>How we use LLMs without losing control</h2>
           <p className={styles.sectionDescription}>
-            Clear milestones, weekly updates, and no surprises.
+            LLMs accelerate research, drafting and implementation. Senior engineers own the architecture, security, quality and handover.
           </p>
         </div>
 
-        {/* Dynamic card layout */}
         <div className={styles.stepsGrid}>
           {steps.map((step, index) => (
             <article
@@ -67,14 +65,13 @@ export default function HowItWorks() {
           ))}
         </div>
 
-        {/* Bottom CTA */}
         <div className={styles.processBottom}>
           <div className={styles.ctaContent}>
-            <h3>Ready to ship?</h3>
-            <p>We'll map scope, timeline, and next steps quickly.</p>
+            <h3>Speed should not mean guesswork.</h3>
+            <p>We keep the process clear so the product can move quickly without losing quality.</p>
           </div>
           <a href="#chat" className="btn btn-primary">
-            Chat with us
+            Start a project
           </a>
         </div>
       </div>

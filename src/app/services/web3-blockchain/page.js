@@ -13,7 +13,7 @@ export default function Web3BlockchainPage() {
         <div className={styles.container}>
           <div className={styles.pageContent}>
             <h1 className={styles.pageHeading}>Web3 & Blockchain Services</h1>
-            <div className={styles.badge}>Decentralised Digital Solutions</div>
+            <div className={styles.badge}>Secure Web3 product delivery</div>
             <div className={styles.textContent}>
               <p>
                 Flat 18 provides expert-led Web3 and blockchain services for startups and scale-ups. We deliver secure, scalable decentralised apps, smart contracts, and integrations—helping you harness the power of next-generation technologies.

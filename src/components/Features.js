@@ -2,34 +2,33 @@ import styles from '@/styles/component-css/Features.module.css'
 import { getSectionBackground, getSectionTextColor } from '@/hooks/scrollBackgroundUtils'
 
 export default function Features() {
-  // F18-style 2x2 services grid
   const services = [
     {
-      icon: 'bi-palette',
-      title: 'Product & UX',
-      description: 'Positioning, flows, and UI that turn interest into action.',
-      bullets: ['Messaging & user journeys', 'Design systems & prototypes'],
-      href: '/services/ui-ux-design'
+      icon: 'bi-lightning-charge',
+      title: 'Curated MVPs',
+      description: 'From idea to usable product quickly, with the right scope and no throwaway prototype.',
+      bullets: ['Scope, UX, build and launch', 'Fast first version with senior review'],
+      href: '/services/app-development'
     },
     {
-      icon: 'bi-code-slash',
-      title: 'Web Engineering',
-      description: 'Fast, secure builds that scale without rewrites.',
-      bullets: ['Next.js + API integrations', 'Performance + QA'],
+      icon: 'bi-layers',
+      title: 'Complete product builds',
+      description: 'Design, frontend, backend, integrations, QA and deployment handled end to end.',
+      bullets: ['Architecture and engineering', 'Production deployment and handover'],
       href: '/services/web-development'
     },
     {
-      icon: 'bi-credit-card-2-front',
-      title: 'Fintech & Web3',
-      description: 'Payments, wallets, and complex data flows built right.',
-      bullets: ['Compliance-aware UX', 'Wallet + payment integrations'],
-      href: '/services/web3-blockchain'
+      icon: 'bi-stars',
+      title: 'LLM workflow design',
+      description: 'Internal tools, prompts and review systems that help your team ship more with less waste.',
+      bullets: ['AI-assisted workflows', 'Human review and governance'],
+      href: '/services/ai-augmented-development'
     },
     {
       icon: 'bi-gear',
-      title: 'Retainers',
-      description: 'Ongoing shipping after launch.',
-      bullets: ['Monthly improvements', 'Priority support'],
+      title: 'Long-term product support',
+      description: 'Ongoing improvements, refactors, releases and performance work after launch.',
+      bullets: ['Monthly product capacity', 'Priority fixes and optimisation'],
       href: '/services/maintenance-support'
     }
   ]
@@ -44,13 +43,12 @@ export default function Features() {
       <div className={`${styles.container} max-w-content mx-auto px-6 sm:px-8`}>
         <div className={styles.sectionHeading}>
           <span className="label-uppercase">Services</span>
-          <h2 className={styles.sectionTitle}>What we do</h2>
+          <h2 className={styles.sectionTitle}>What we build</h2>
           <p className={styles.sectionDescription}>
-            Full-stack design and development for founders who need speed without sacrificing quality.
+            Fast MVPs, full products and retainers for teams who need senior judgement as well as speed.
           </p>
         </div>
 
-        {/* F18-style 2x2 grid */}
         <div className={styles.servicesGrid}>
           {services.map((service, index) => (
             <div
@@ -85,14 +83,13 @@ export default function Features() {
           ))}
         </div>
 
-        {/* Bottom CTA */}
         <div className={styles.bottomCTA}>
           <div className={styles.ctaContent}>
-            <h3>Ready to see if we're a fit?</h3>
-            <p>A short call to confirm scope and whether we're the right fit.</p>
+            <h3>Need a first version or a complete product?</h3>
+            <p>We will help you choose the right scope before the build starts.</p>
           </div>
           <a href="#chat" className="btn btn-primary">
-            Chat with us
+            Start a project
           </a>
         </div>
       </div>

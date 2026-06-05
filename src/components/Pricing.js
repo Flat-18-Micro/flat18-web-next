@@ -14,30 +14,42 @@ import {
   getSubscriptionPromoLabel,
 } from '@/lib/pricing'
 
-const SUBSCRIPTION_HIGHLIGHTS = [
-  'One active request at a time (unlimited queue)',
-  'Unlimited revisions inside scope',
-  'Typical turnaround: 48 hours for small tasks',
-  'Cancel or pause at any time',
-  'Direct Slack/Discord access',
-  'Senior design + engineering in one squad'
-]
-
-const BESPOKE_PACKAGES = [
+const PROJECT_ROUTES = [
   {
-    label: 'Small project',
-    detail: 'Landing page / redesign sprint',
+    icon: 'bi-lightning-charge',
+    title: 'MVP sprint',
+    timeline: 'From 2 weeks',
+    description: 'A focused build for a validated first version, investor demo or market test.',
     min: 995,
     max: 3500,
-    timeline: 'Up to 2 weeks'
+    cta: 'Start a project',
+    highlights: [
+      'Scope and delivery plan',
+      'UX, UI and build sprint',
+      'Deployment and handover',
+    ],
   },
   {
-    label: 'Large project',
-    detail: 'MVP / integrations / migrations',
+    icon: 'bi-layers',
+    title: 'Complete product',
+    timeline: '2-12 weeks',
+    description: 'A full design and engineering engagement for production-ready software.',
     min: 12000,
     max: null,
-    timeline: '2-12 weeks (up to 3 months)'
-  }
+    cta: 'Request a quote',
+    highlights: [
+      'Architecture and product design',
+      'Frontend, backend and integrations',
+      'QA, launch and documentation',
+    ],
+  },
+]
+
+const PRODUCT_TEAM_HIGHLIGHTS = [
+  'Ongoing senior design and development capacity',
+  'LLM-assisted delivery under senior review',
+  'One active request at a time, with an unlimited queue',
+  'Pause or cancel when the work is done',
 ]
 
 export default function Pricing() {
@@ -96,7 +108,6 @@ export default function Pricing() {
       }
 
       const rates = { GBP: 1 }
-
       const updatedPrices = {
         monthly: { GBP: formatPsychologicalCurrency(BASE_PRICES.monthly, 'GBP') }
       }
@@ -170,10 +181,9 @@ export default function Pricing() {
       <div className={`${styles.container} max-w-content mx-auto px-6 sm:px-8`}>
         <div className={styles.sectionHeading}>
           <span className="label-uppercase">Pricing</span>
-          <h2 className={styles.sectionTitle}>Two ways to engage</h2>
+          <h2 className={styles.sectionTitle}>Choose the route that fits the work</h2>
           <p className={styles.sectionDescription}>
-            Pick the route that keeps delivery stable and avoids rebuilding the same work twice.
-            We keep the same senior team on your product so context never resets.
+            Three ways to engage. Same senior team. Expert-led delivery accelerated by LLMs for speed without compromise.
           </p>
         </div>
 
@@ -227,116 +237,101 @@ export default function Pricing() {
         </div>
 
         <div className={styles.pricingGrid}>
-          <article
-            className={`${styles.pricingCard} ${styles.subscriptionCard} ${promoActive ? styles.saleCard : ''}`}
-          >
-            <div className={styles.pricingHeader}>
-              <div className={styles.badgeRow}>
-                <p className={styles.planBadge}>Route A · Subscription</p>
-                {promoActive ? <span className={styles.salePill}>{promoLabel}</span> : null}
+          {PROJECT_ROUTES.map((route) => (
+            <article key={route.title} className={styles.pricingCard}>
+              <div className={styles.routeIcon}>
+                <i className={`bi ${route.icon}`} aria-hidden="true" />
               </div>
-              <h3 className={styles.planTitle}>Monthly subscription</h3>
-              <p className={styles.planSubtitle}>
-                Ongoing senior design + build capacity for teams who want momentum without hiring.
-              </p>
-
-              {promoActive ? (
-                <div className={styles.priceStack}>
-                  <span className={styles.priceOriginal}>{basePriceDisplay}</span>
-                  <div className={styles.priceDisplay}>
-                    <span className={styles.priceAmount}>{promoPriceDisplay}</span>
-                    <span className={styles.pricePeriod}>/month</span>
-                  </div>
-                  <p className={styles.priceNote}>{SUBSCRIPTION_PROMO.note}</p>
-                </div>
-              ) : (
-                <div className={styles.priceDisplay}>
-                  <span className={styles.priceAmount}>{basePriceDisplay}</span>
-                  <span className={styles.pricePeriod}>/month</span>
-                </div>
-              )}
-
-              <p className={styles.planSupportText}>One subscription covers everything. Queue requests at any time, pause when you're done.</p>
-            </div>
-
-            <div className={styles.pricingContent}>
-              <h4 className={styles.featuresTitle}>Key clarifications</h4>
+              <div className={styles.pricingHeader}>
+                <h3 className={styles.planTitle}>{route.title}</h3>
+                <p className={styles.timeline}>{route.timeline}</p>
+                <p className={styles.priceRange}>{formatRange(route.min, route.max)}</p>
+              </div>
+              <p className={styles.planSubtitle}>{route.description}</p>
               <ul className={styles.featuresList}>
-                {SUBSCRIPTION_HIGHLIGHTS.map((highlight) => (
+                {route.highlights.map((highlight) => (
                   <li key={highlight} className={styles.featureItem}>
-                    <i className="bi bi-check-circle-fill" aria-hidden="true"></i>
+                    <i className="bi bi-check2" aria-hidden="true"></i>
                     <span>{highlight}</span>
                   </li>
                 ))}
               </ul>
+              <Link
+                href="#chat"
+                className={`btn ${route.title === 'MVP sprint' ? 'btn-primary' : 'btn-secondary'}`}
+                onClick={() => analytics.pricing.bookCall()}
+              >
+                {route.cta}
+                <i className="bi bi-arrow-right" aria-hidden="true"></i>
+              </Link>
+            </article>
+          ))}
 
-              <div className={styles.pricingCTA}>
-                <Link
-                  href="#chat"
-                  className="btn btn-primary btn-large"
-                  onClick={() => analytics.pricing.bookCall()}
-                >
-                  Chat with us
-                </Link>
-                <p className={styles.ctaNote}>We'll discuss scope and scheduling</p>
-              </div>
+          <article className={`${styles.pricingCard} ${styles.teamCard} ${promoActive ? styles.saleCard : ''}`}>
+            <div className={styles.routeIcon}>
+              <i className="bi bi-people" aria-hidden="true" />
             </div>
-          </article>
-
-          <article className={`${styles.pricingCard} ${styles.bespokeCard}`}>
-            <div className={styles.pricingHeader}>
-              <p className={styles.planBadge}>Route B · Bespoke</p>
-              <h3 className={styles.planTitle}>One-off project</h3>
-              <p className={styles.planSubtitle}>
-                Fixed scope, fixed timeline, fixed price. Ideal when you need a defined delivery end-to-end.
-              </p>
-              <p className={styles.planSupportText}>We'll scope quickly, quote clearly, then build to the approved plan.</p>
-            </div>
-
-            <div className={styles.pricingContent}>
-              <div className={styles.bespokeSummary}>
-                <p className={styles.bespokeIntro}>
-                  Defined-scope projects delivered in as little as 2 weeks and no more than 3 months.
-                </p>
-                <div className={styles.bespokePackages}>
-                  {BESPOKE_PACKAGES.map((pkg) => (
-                    <div key={pkg.label} className={styles.packageCard}>
-                      <div className={styles.packageHeader}>
-                        <p className={styles.packageLabel}>{pkg.label}</p>
-                        <span className={styles.packageTimeline}>{pkg.timeline}</span>
-                      </div>
-                      <p className={styles.packageDetail}>{pkg.detail}</p>
-                      <p className={styles.packagePrice}>{formatRange(pkg.min, pkg.max)}</p>
-                    </div>
-                  ))}
+            <div className={styles.teamContent}>
+              <div>
+                <div className={styles.badgeRow}>
+                  <h3 className={styles.planTitle}>Monthly product team</h3>
+                  {promoActive ? <span className={styles.salePill}>{promoLabel}</span> : null}
                 </div>
+                <p className={styles.planSubtitle}>
+                  Ongoing senior design and development capacity when you need continuous momentum.
+                </p>
               </div>
 
-              <div className={styles.pricingCTA}>
-                <Link
-                  href="#chat"
-                  className="btn btn-secondary btn-large"
-                  onClick={() => analytics.pricing.bookCall()}
-                >
-                  Request a bespoke quote
-                </Link>
-                <p className={styles.ctaNote}>Share scope, and we'll return a fixed proposal.</p>
+              <div className={styles.teamPriceBlock}>
+                {promoActive ? (
+                  <>
+                    <span className={styles.priceOriginal}>{basePriceDisplay}</span>
+                    <div className={styles.priceDisplay}>
+                      <span className={styles.priceAmount}>{promoPriceDisplay}</span>
+                      <span className={styles.pricePeriod}>/month</span>
+                    </div>
+                    <p className={styles.priceNote}>{SUBSCRIPTION_PROMO.note}</p>
+                  </>
+                ) : (
+                  <div className={styles.priceDisplay}>
+                    <span className={styles.priceAmount}>{basePriceDisplay}</span>
+                    <span className={styles.pricePeriod}>/month</span>
+                  </div>
+                )}
               </div>
             </div>
+
+            <ul className={styles.teamHighlights}>
+              {PRODUCT_TEAM_HIGHLIGHTS.map((highlight) => (
+                <li key={highlight}>
+                  <i className="bi bi-check2" aria-hidden="true"></i>
+                  <span>{highlight}</span>
+                </li>
+              ))}
+            </ul>
+
+            <Link
+              href="#chat"
+              className="btn btn-primary"
+              onClick={() => analytics.pricing.bookCall()}
+            >
+              Start a project
+              <i className="bi bi-arrow-right" aria-hidden="true"></i>
+            </Link>
           </article>
         </div>
 
         <div className={styles.bottomCTA}>
           <div className={styles.ctaContent}>
-            <h3>Ready to move?</h3>
-            <p>We'll respond quickly with clear next steps.</p>
+            <h3>Not sure which route fits?</h3>
+            <p>Share your goal and constraints. We will recommend the leanest route that can still deliver properly.</p>
           </div>
           <Link
             href="#chat"
-            className="btn btn-primary"
+            className="btn btn-secondary"
             onClick={() => analytics.pricing.bookCall()}
           >
-            Chat with us
+            Ask for guidance
           </Link>
         </div>
       </div>

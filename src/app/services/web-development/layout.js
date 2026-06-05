@@ -1,7 +1,7 @@
 import { generatePageMetadata, generateServiceJsonLd, siteConfig } from '@/lib/seo'
 
-const title = 'Web Development Services'
-const description = 'Senior web engineering for conversion-ready websites and MVPs built with Next.js and React.'
+const title = 'Complete product builds'
+const description = 'End-to-end product design and full-stack engineering accelerated by LLMs and reviewed by senior developers.'
 const path = '/services/web-development'
 
 export const metadata = generatePageMetadata({
@@ -9,11 +9,13 @@ export const metadata = generatePageMetadata({
   description,
   path,
   keywords: [
+    'complete product build',
     'web development',
     'Next.js development',
     'React development',
     'full-stack development',
     'MVP development',
+    'LLM-assisted development',
     'website performance',
   ],
   image: '/og/web-development.png',
@@ -23,7 +25,7 @@ const serviceJsonLd = generateServiceJsonLd({
   name: title,
   description,
   url: `${siteConfig.url}${path}`,
-  serviceType: 'Web Development',
+  serviceType: 'Full-stack product development',
 })
 
 export default function WebDevelopmentLayout({ children }) {

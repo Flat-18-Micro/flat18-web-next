@@ -1,7 +1,7 @@
 import { generatePageMetadata, generateServiceJsonLd, siteConfig } from '@/lib/seo'
 
-const title = "AI-Seeded Design & Graphics"
-const description = "AI-seeded design to accelerate concepting, visual iteration, and production-ready assets."
+const title = "AI-seeded design and graphics"
+const description = "AI-seeded design to accelerate concepting, visual iteration and production-ready assets under senior creative direction."
 const path = "/services/ai-seeded-design"
 
 export const metadata = generatePageMetadata({
@@ -15,7 +15,7 @@ const serviceJsonLd = generateServiceJsonLd({
   name: title,
   description,
   url: `${siteConfig.url}${path}`,
-  serviceType: "Design",
+  serviceType: "AI-assisted design",
 })
 
 export default function Layout({ children }) {

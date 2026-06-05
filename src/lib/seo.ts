@@ -5,8 +5,8 @@ import { Metadata } from 'next'
 export const siteConfig = {
   name: 'Flat 18',
   legalName: 'Flat 18 Microsystems Development LLC',
-  title: 'Flat 18 - Senior Design + Engineering for Founders',
-  description: 'Senior design and engineering to ship conversion-ready websites and MVPs in 2-12 weeks.',
+  title: 'Flat 18 - Expert-built products, accelerated by LLMs',
+  description: 'Senior full-stack developers using LLMs to design and build curated MVPs and complete digital products quickly.',
   url: 'https://flat18.co.uk',
   ogImage: '/og/home.png',
   twitter: '@f18_dev',
@@ -18,11 +18,16 @@ export const siteConfig = {
     'web design',
     'web development',
     'MVP development',
+    'LLM development studio',
+    'AI-assisted development',
+    'LLM product development',
+    'AI product studio',
     'startup websites',
     'conversion optimisation',
     'Next.js agency',
     'React development',
     'design and engineering',
+    'senior developers',
     'founder-led teams',
     'SaaS marketing site',
     'fintech UX',
@@ -82,7 +87,7 @@ export const defaultMetadata: Metadata = {
       'max-video-preview': -1,
     },
   },
-  category: 'Design & Engineering',
+  category: 'Design and engineering',
   icons: {
     icon: '/favicon.ico',
     shortcut: '/favicon.ico',
@@ -179,20 +184,23 @@ export function generateOrganizationJsonLd() {
     },
     foundingDate: '2017',
     numberOfEmployees: '2-10',
-    industry: 'Design & Engineering',
+    industry: 'Design and engineering',
     serviceArea: {
       '@type': 'Place',
       name: 'Worldwide',
     },
     areaServed: 'Worldwide',
     knowsAbout: [
-      'Product Design',
-      'UX Design',
-      'Web Development',
-      'MVP Development',
-      'Conversion Optimisation',
+      'Product design',
+      'UX design',
+      'Web development',
+      'MVP development',
+      'LLM-assisted development',
+      'AI workflow design',
+      'Full-stack engineering',
+      'Conversion optimisation',
       'Fintech UX',
-      'Web Performance',
+      'Web performance',
     ],
   }
 }
@@ -303,7 +311,7 @@ export function generateServiceJsonLd({
       url: siteConfig.url,
     },
     areaServed: 'Worldwide',
-    serviceType: serviceType || 'Design & Engineering',
+    serviceType: serviceType || 'Design and engineering',
     offers: price ? {
       '@type': 'Offer',
       price,
@@ -337,42 +345,42 @@ export function generateJsonLdScript(data: Record<string, any>): string {
 export const pageTypes = {
   about: () => generatePageMetadata({
     title: 'About',
-    description: 'Learn about Flat 18, a senior-only design + engineering team building conversion-ready websites and MVPs for founders.',
+    description: 'Learn about Flat 18, an expert-led design and development studio using LLMs to help founders ship serious products faster.',
     path: '/about',
   }),
   
   services: () => generatePageMetadata({
     title: 'Services',
-    description: 'Product & UX design, web engineering, fintech/web3 delivery, and retainers for ongoing momentum.',
+    description: 'Curated MVPs, complete product builds, LLM workflow design and long-term product support from senior full-stack developers.',
     path: '/services',
   }),
   
   caseStudies: () => generatePageMetadata({
-    title: 'Case Studies',
-    description: 'Recent Flat 18 launches and product stories shipped with clear positioning and execution.',
+    title: 'Case studies',
+    description: 'Recent Flat 18 launches and product stories shipped with clear product thinking, design and engineering.',
     path: '/case-studies',
   }),
   
   pricing: () => generatePageMetadata({
     title: 'Pricing',
-    description: 'Transparent pricing for subscription and fixed-scope engagements with a senior team.',
+    description: 'Pricing routes for MVP sprints, complete product builds and monthly product team capacity.',
     path: '/pricing',
   }),
   
   founder: () => generatePageMetadata({
-    title: 'Founder Version',
-    description: 'A blunt, founder-first overview of how Flat 18 ships conversion-ready websites and MVPs in weeks, not months.',
+    title: 'Founder version',
+    description: 'A blunt, founder-first overview of how Flat 18 uses senior judgement and LLM speed to ship products faster.',
     path: '/founder',
   }),
 
   privacy: () => generatePageMetadata({
-    title: 'Privacy Policy',
+    title: 'Privacy policy',
     description: 'How Flat 18 handles data, cookies, and privacy across our services.',
     path: '/privacy',
   }),
 
   terms: () => generatePageMetadata({
-    title: 'Terms of Service',
+    title: 'Terms of service',
     description: 'The Flat 18 terms of service and how we work together.',
     path: '/terms',
   }),

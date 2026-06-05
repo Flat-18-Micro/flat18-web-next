@@ -6,26 +6,26 @@ export default function FeaturedWork() {
   const featuredProjects = [
     {
       title: 'BTCPay Server',
-      description: 'Conversion-focused landing and foundation site refresh for the open-source payments platform.',
+      description: 'Conversion-focused landing and foundation site refresh for a widely used open-source payments platform.',
       image: '/images/portfolio-graphics/btcpayserver-mock.webp',
       projectLogo: '/images/portfolio-graphics/logos/btcpayserver.webp',
       link: 'https://btcpayserver.org',
       technologies: ['HTML5', 'CSS', 'JavaScript'],
       metrics: {
-        primary: 'Marketing site',
-        secondary: 'Foundation hub'
+        primary: 'Public platform',
+        secondary: 'Clearer conversion'
       },
       status: 'Live'
     },
     {
       title: 'WalletScrutiny',
-      description: 'Brand + UX redesign to make wallet security research clear and trustworthy.',
+      description: 'Brand and UX redesign to make wallet security research clearer, calmer and easier to trust.',
       image: '/images/portfolio-graphics/walletscrutiny-mock.webp',
       projectLogo: '/images/portfolio-graphics/logos/wallet-scrutiny.webp',
       link: 'https://walletscrutiny.com',
       technologies: ['JavaScript', 'HTML5', 'SCSS'],
       metrics: {
-        primary: 'Brand + UX',
+        primary: 'Brand and UX',
         secondary: 'Research platform'
       },
       status: 'Current version'
@@ -41,9 +41,9 @@ export default function FeaturedWork() {
     >
       <div className="container">
         <div className={styles.featuredHeading}>
-          <h2 className={styles.featuredTitle}>Featured results</h2>
+          <h2 className={styles.featuredTitle}>Real products, not prompt demos</h2>
           <p className={styles.featuredSubtitle}>
-            Real platforms with measurable outcomes.
+            Before LLMs changed the pace of delivery, we were already designing and engineering production software for founders and technical teams.
           </p>
         </div>
 
@@ -116,7 +116,7 @@ export default function FeaturedWork() {
                   rel="noopener noreferrer"
                   className={styles.featuredCta}
                 >
-                  View Project
+                  View project
                   <i className="bi bi-arrow-right" aria-hidden="true"></i>
                 </a>
               </div>
@@ -126,7 +126,7 @@ export default function FeaturedWork() {
 
         <div className={styles.featuredFooter}>
           <a href="#work" className="btn btn-secondary">
-            View All Projects
+            View all projects
             <i className="bi bi-arrow-right" aria-hidden="true"></i>
           </a>
         </div>

@@ -1,236 +1,45 @@
 'use client'
 
-import { useCallback, useEffect, useRef } from 'react'
 import Link from 'next/link'
 
 import styles from '@/styles/component-css/Hero.module.css'
 import { analytics } from '@/lib/analytics'
 import { getSectionBackground, getSectionTextColor } from '@/hooks/scrollBackgroundUtils'
-import LottiePlayer from '@/components/LottiePlayer'
-import { getTwoLetterInitials } from '@/utils/initials'
 
-const networkAnimation = () => import('@/animations/Network.json')
-const BASE_SPEED = 0.1
-const SCROLL_SPEED = 1.2
-const SCROLL_BOOST_WINDOW = 220
-const MOUSE_SPEED = 2
-const MOUSE_DEADZONE = 4
-const SOCIAL_PROOF_LABELS = ['Co-founder', 'Founder', 'Solopreneur', 'Head of Product', 'Founder']
-const SOCIAL_PROOF_INITIALS = SOCIAL_PROOF_LABELS.map((label) => getTwoLetterInitials(label))
+const PROOF_POINTS = [
+  {
+    icon: 'bi-code-slash',
+    title: 'Senior code review',
+    text: 'Experienced engineers check the architecture, security and production details.',
+  },
+  {
+    icon: 'bi-lightning-charge',
+    title: 'Prototype in days',
+    text: 'LLMs speed up drafts, components, tests and documentation from the first sprint.',
+  },
+  {
+    icon: 'bi-box-seam',
+    title: 'Built for handover',
+    text: 'You own the code, decisions and roadmap when the project moves on.',
+  },
+]
 
 export default function Hero() {
-  const lottieWrapperRef = useRef(null)
-  const lottieRef = useRef(null)
-  const scrollStateRef = useRef({
-    rafId: null,
-    lastScrollTime: 0,
-    currentSpeed: BASE_SPEED,
-  })
-  const mouseStateRef = useRef({
-    isActive: false,
-    targetSpeed: null,
-  })
-
-  // Warm up the animation chunk once the browser is idle
-  useEffect(() => {
-    const prefetch = () => {
-      networkAnimation().catch(() => undefined)
-    }
-
-    if (typeof window === 'undefined') {
-      return
-    }
-
-    let idleId
-
-    if ('requestIdleCallback' in window) {
-      idleId = window.requestIdleCallback(prefetch)
-    } else {
-      idleId = window.setTimeout(prefetch, 1200)
-    }
-
-    return () => {
-      if ('cancelIdleCallback' in window && typeof idleId === 'number') {
-        window.cancelIdleCallback(idleId)
-      } else if (idleId) {
-        clearTimeout(idleId)
-      }
-    }
-  }, [])
-
-  const setLottieSpeed = useCallback((speed) => {
-    const player = lottieRef.current
-    if (!player) {
-      return
-    }
-
-    const direction = speed < 0 ? -1 : 1
-    player.setDirection?.(direction)
-    player.setSpeed?.(Math.abs(speed))
-  }, [])
-
-  const applyThemeToLottie = useCallback(() => {
-    if (!lottieWrapperRef.current) {
-      return
-    }
-
-    const lottieContainer = lottieWrapperRef.current.querySelector('svg')
-    if (!lottieContainer) {
-      return
-    }
-
-    const primaryColor = getComputedStyle(document.documentElement).getPropertyValue('--primary').trim()
-    const elementsToRecolor = lottieContainer.querySelectorAll('[fill="rgb(230,230,230)"], [style*="fill:rgb(230,230,230)"]')
-    const darkElements = lottieContainer.querySelectorAll('[fill="rgb(0,0,0)"], [fill="black"], [style*="fill:rgb(0,0,0)"]')
-
-    elementsToRecolor.forEach(element => {
-      element.style.fill = primaryColor
-    })
-
-    darkElements.forEach(element => {
-      element.style.fill = primaryColor
-    })
-
-    scrollStateRef.current.currentSpeed = BASE_SPEED
-    setLottieSpeed(BASE_SPEED)
-
-    if (typeof window !== 'undefined' && window.liquidGL?.registerDynamic) {
-      const dynamicTarget = lottieWrapperRef.current.querySelector('.liquidgl-dynamic')
-      window.liquidGL.registerDynamic(dynamicTarget || lottieWrapperRef.current)
-    }
-  }, [setLottieSpeed])
-
-  useEffect(() => {
-    if (typeof window === 'undefined') {
-      return
-    }
-
-    const handleLiquidInit = () => {
-      const target = lottieWrapperRef.current?.querySelector('.liquidgl-dynamic') || lottieWrapperRef.current
-      if (target && window.liquidGL?.registerDynamic) {
-        window.liquidGL.registerDynamic(target)
-      }
-    }
-
-    window.addEventListener('liquidgl:init', handleLiquidInit)
-    handleLiquidInit()
-
-    return () => {
-      window.removeEventListener('liquidgl:init', handleLiquidInit)
-    }
-  }, [])
-
-  useEffect(() => {
-    if (typeof window === 'undefined') {
-      return
-    }
-
-    const tick = (time) => {
-      const { lastScrollTime, currentSpeed } = scrollStateRef.current
-      const msSinceScroll = time - lastScrollTime
-      const isMouseActive = mouseStateRef.current.isActive && typeof mouseStateRef.current.targetSpeed === 'number'
-      const targetSpeed = isMouseActive
-        ? mouseStateRef.current.targetSpeed
-        : msSinceScroll < SCROLL_BOOST_WINDOW
-          ? SCROLL_SPEED
-          : BASE_SPEED
-
-      // Ease toward the target speed for a smooth in/out feel.
-      const easedSpeed = currentSpeed + (targetSpeed - currentSpeed) * 0.12
-      scrollStateRef.current.currentSpeed = easedSpeed
-
-      setLottieSpeed(easedSpeed)
-
-      const shouldContinue = isMouseActive || msSinceScroll < 1000 || Math.abs(easedSpeed - BASE_SPEED) > 0.01
-      if (shouldContinue) {
-        scrollStateRef.current.rafId = window.requestAnimationFrame(tick)
-      } else {
-        scrollStateRef.current.rafId = null
-      }
-    }
-
-    const startRaf = () => {
-      if (!scrollStateRef.current.rafId) {
-        scrollStateRef.current.rafId = window.requestAnimationFrame(tick)
-      }
-    }
-
-    const handleScroll = () => {
-      scrollStateRef.current.lastScrollTime = performance.now()
-      startRaf()
-    }
-
-    window.addEventListener('scroll', handleScroll, { passive: true })
-    const wrapper = lottieWrapperRef.current
-
-    const handleMouseMove = (event) => {
-      if (!wrapper) {
-        return
-      }
-
-      const rect = wrapper.getBoundingClientRect()
-      const centerX = rect.left + rect.width / 2
-      const deltaX = event.clientX - centerX
-      const absDeltaX = Math.abs(deltaX)
-
-      if (absDeltaX < MOUSE_DEADZONE) {
-        mouseStateRef.current.isActive = false
-        mouseStateRef.current.targetSpeed = null
-      } else {
-        mouseStateRef.current.isActive = true
-        mouseStateRef.current.targetSpeed = deltaX > 0 ? MOUSE_SPEED : -MOUSE_SPEED
-      }
-
-      startRaf()
-    }
-
-    const handleMouseLeave = () => {
-      mouseStateRef.current.isActive = false
-      mouseStateRef.current.targetSpeed = null
-      startRaf()
-    }
-
-    if (wrapper) {
-      wrapper.addEventListener('mousemove', handleMouseMove)
-      wrapper.addEventListener('mouseleave', handleMouseLeave)
-    }
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll)
-      if (wrapper) {
-        wrapper.removeEventListener('mousemove', handleMouseMove)
-        wrapper.removeEventListener('mouseleave', handleMouseLeave)
-      }
-      if (scrollStateRef.current.rafId) {
-        window.cancelAnimationFrame(scrollStateRef.current.rafId)
-        scrollStateRef.current.rafId = null
-      }
-    }
-  }, [setLottieSpeed])
-
   return (
     <section
       className={styles.heroSection}
       data-bg-color={getSectionBackground('hero')}
       data-text-color={getSectionTextColor('hero')}
     >
-      <div className={styles.herobg} aria-hidden="true" />
-      <div className={`${styles.heroContainer} max-w-7xl mx-auto px-4 sm:px-6 lg:px-8`}>
-
-        {/* ── Copy column ── */}
+      <div className={styles.heroRule} aria-hidden="true" />
+      <div className={`${styles.heroContainer} max-w-7xl mx-auto px-6 sm:px-8`}>
         <div className={styles.heroContent}>
-          <div className={styles.heroKicker}>
-            {/* <span className={styles.heroKickerBadge}>Fintech + Crypto</span> */}
-            {/* <span className={styles.heroKickerText}>Product studio for founders building ambitious platforms</span> */}
-          </div>
-
           <h1 className={styles.heroHeading}>
-            <span className={styles.heroHeadingAccent}>Design & Development</span>
-            <span className={styles.heroHeadingThin}>for modern Websites and Apps</span>
+            Expert-built products, accelerated by LLMs
           </h1>
 
           <p className={styles.heroSubheading}>
-            We help startups and technology companies launch and improve digital products in fintech and DeFi.
+            We design and build curated MVPs and complete digital products at speed, using modern AI tools in the hands of senior full-stack developers.
           </p>
 
           <div className={styles.heroActions}>
@@ -239,7 +48,7 @@ export default function Hero() {
               className="btn btn-primary btn-icon btn-lg"
               onClick={() => analytics.hero.bookCall()}
             >
-              <span className="btn-text">Chat with us</span>
+              <span className="btn-text">Start a project</span>
               <i className="bi bi-arrow-right" aria-hidden="true" />
             </a>
             <Link
@@ -251,39 +60,79 @@ export default function Hero() {
             </Link>
           </div>
 
-          {/* Social proof */}
-          <div className={styles.socialProof} aria-label="Social proof">
-            <div className={styles.avatarStack} aria-hidden="true">
-              {SOCIAL_PROOF_INITIALS.map((initials, index) => (
-                <span
-                  key={`${initials}-${index}`}
-                  className={`${styles.avatar} ${styles[`avatar${index + 1}`]}`}
-                >
-                  {initials}
-                </span>
-              ))}
-            </div>
-            <p className={styles.socialProofText}>20+ projects delivered. Rated 5 stars by clients.</p>
+          <div className={styles.proofRow} aria-label="Delivery proof">
+            {PROOF_POINTS.map((point) => (
+              <div key={point.title} className={styles.proofItem}>
+                <i className={`bi ${point.icon}`} aria-hidden="true" />
+                <div>
+                  <strong>{point.title}</strong>
+                  <span>{point.text}</span>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
 
-        {/* ── Lottie column ── */}
-        <div className={`${styles.lottieCol} animation`} ref={lottieWrapperRef} aria-hidden="true">
-          <LottiePlayer
-            animationDataSrc={networkAnimation}
-            autoplay
-            loop={true}
-            lottieRef={lottieRef}
-            loadOnVisible={true}
-            intersectionOptions={{ root: null, rootMargin: '0px', threshold: 0 }}
-            playerClassName={`${styles.themedLottie} liquidgl-dynamic`}
-            data-liquid-dynamic="realtime"
-            prefersReducedMotionFallback={null}
-            onAnimationLoaded={applyThemeToLottie}
-          />
-        </div>
+        <div className={styles.heroVisual} aria-label="Product delivery artefacts">
+          <div className={`${styles.artifact} ${styles.specArtifact}`}>
+            <div className={styles.artifactHeader}>Product spec</div>
+            <dl className={styles.specList}>
+              <div>
+                <dt>Audience</dt>
+                <dd>Founders and operators</dd>
+              </div>
+              <div>
+                <dt>Problem</dt>
+                <dd>Long build times and unclear scope</dd>
+              </div>
+              <div>
+                <dt>Solution</dt>
+                <dd>Curated MVP, fast iteration, clean handover</dd>
+              </div>
+            </dl>
+          </div>
 
+          <div className={`${styles.artifact} ${styles.codeArtifact}`} aria-hidden="true">
+            <div className={styles.windowDots}>
+              <span />
+              <span />
+              <span />
+            </div>
+            <pre>{`export async function createProject(input) {
+  const plan = await scopeWithLLM(input)
+  const product = await buildReviewed(plan)
+
+  await runTests(product)
+  return handover(product)
+}`}</pre>
+          </div>
+
+          <div className={`${styles.artifact} ${styles.productArtifact}`}>
+            <div className={styles.productShell}>
+              <div className={styles.productNav}>
+                <span>Acme</span>
+                <i className="bi bi-check-circle" aria-hidden="true" />
+              </div>
+              <div className={styles.productMetrics}>
+                <div>
+                  <span>Activation</span>
+                  <strong>64%</strong>
+                </div>
+                <div>
+                  <span>Build</span>
+                  <strong>Live</strong>
+                </div>
+              </div>
+              <div className={styles.releaseList}>
+                <span>Reviewed architecture</span>
+                <span>Production deployment</span>
+                <span>Handover notes</span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
+
     </section>
   )
 }

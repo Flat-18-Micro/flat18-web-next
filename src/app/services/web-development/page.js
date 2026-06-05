@@ -14,73 +14,73 @@ export default function WebDevelopmentPage() {
 
         <div className={styles.container}>
           <div className={styles.pageContent}>
-            <h1 className={styles.pageHeading}>Web Development Services</h1>
-            <div className={styles.badge}>Digital Solutions</div>
+            <h1 className={styles.pageHeading}>Complete product builds</h1>
+            <div className={styles.badge}>Design, engineering and launch</div>
             <div className={styles.textContent}>
               <p>
-                Flat 18 delivers expert-led web development for ambitious startups and scale-ups. We craft bespoke websites and digital platforms using the latest frameworks, optimised for speed, SEO, and measurable business results.
+                Flat 18 builds complete digital products for teams that need design and engineering handled together. We use LLMs to speed up drafting, implementation and documentation, with senior developers controlling the architecture and quality.
               </p>
 
-              <h2>Why Choose Flat 18?</h2>
+              <h2>Why choose Flat 18?</h2>
               <ul>
-                <li>Premium, tailored solutions for high-growth companies</li>
-                <li>Senior team with deep technical and design expertise</li>
-                <li>Transparent process and proactive communication</li>
-                <li>Focus on performance, accessibility, and scalability</li>
+                <li>One team for product thinking, UX, UI and full-stack engineering</li>
+                <li>LLM-assisted speed without handing quality over to the model</li>
+                <li>Clear milestones, practical scope and direct communication</li>
+                <li>Production standards for performance, accessibility and maintainability</li>
               </ul>
 
-              <h2>Our Web Development Expertise</h2>
+              <h2>What we build</h2>
               <p>
-                We combine robust engineering with thoughtful design to deliver digital experiences that elevate your brand and convert your audience.
+                We can take a product from concept to launch or take over a partially built product and give it a clearer path forward.
               </p>
 
-              <h3>Bespoke Website Development</h3>
+              <h3>Product strategy and UX</h3>
               <p>
-                We build fully bespoke websites to suit your unique business goals. Whether you need a marketing site, a content platform, or an e-commerce solution, we ensure your site is distinctive and aligned with your strategy.
+                We clarify the offer, users, flows and acceptance criteria before the build starts, so speed does not become guesswork.
               </p>
 
-              <h3>Modern Frameworks & Headless Architecture</h3>
+              <h3>Frontend and backend engineering</h3>
               <p>
-                Our team specialises in Next.js, React, and other modern frameworks, delivering lightning-fast, future-ready sites. We implement headless CMS solutions for flexible content management.
+                We build the interface, data layer, API routes, authentication, integrations and deployment pipeline needed for a working product.
               </p>
 
-              <h3>Performance & SEO Optimisation</h3>
+              <h3>LLM-assisted engineering workflow</h3>
               <p>
-                Every build is engineered for speed, accessibility, and search visibility. We optimise code, images, and infrastructure to ensure your site ranks highly and loads instantly for all users.
+                LLMs help us generate options, boilerplate, test cases and documentation faster. Senior developers review, refactor and harden the result.
               </p>
 
-              <h3>Responsive, Accessible Design</h3>
+              <h3>Performance and accessibility</h3>
               <p>
-                Your website will look and perform flawlessly on every device, from desktop to mobile. We adhere to accessibility standards and best practices to ensure an inclusive experience.
+                We check speed, responsive behaviour, accessibility and usability so the product feels credible in front of real users.
               </p>
 
-              <h3>Web App & Portal Development</h3>
+              <h3>Handover and support</h3>
               <p>
-                Need more than a website? We create secure, scalable web apps and client portals with complex business logic, integrations, and user management.
+                You get the code, documentation and next-step recommendations. We can hand over or stay involved through a monthly product team retainer.
               </p>
 
               <h2>Our Approach</h2>
               <ol>
-                <li><strong>Discovery:</strong> We clarify your goals, audience, and technical requirements.</li>
-                <li><strong>Design & Prototyping:</strong> Wireframes and visual concepts to align on direction.</li>
-                <li><strong>Development:</strong> Clean, maintainable code built to the latest standards.</li>
-                <li><strong>Quality Assurance:</strong> Rigorous testing for performance, security, and usability.</li>
-                <li><strong>Deployment & Support:</strong> Seamless launch, with ongoing support and optimisation.</li>
+                <li><strong>Frame:</strong> Goals, users, constraints, risks and success metrics.</li>
+                <li><strong>Generate:</strong> LLM-assisted options, prototypes and implementation drafts.</li>
+                <li><strong>Engineer:</strong> Senior full-stack build, integration and review.</li>
+                <li><strong>Harden:</strong> Testing, security checks, performance passes and documentation.</li>
+                <li><strong>Launch:</strong> Deployment, analytics, handover and support options.</li>
               </ol>
 
-              <h2>Technologies We Use</h2>
+              <h2>Technologies we use</h2>
               <ul>
                 <li>Next.js, React, and Vue.js</li>
                 <li>Node.js for server-side logic</li>
                 <li>Vercel, Netlify, AWS for hosting and deployment</li>
-                <li>Headless CMS: Jekyll</li>
+                <li>Headless CMS and content workflows where useful</li>
                 <li>GraphQL and REST APIs</li>
                 <li>CSS Modules, Tailwind CSS, Styled Components</li>
               </ul>
 
-              <h2>Ready to Elevate Your Web Presence?</h2>
+              <h2>Ready to build the product?</h2>
               <p>
-                Get in touch to discuss your next web project. Flat 18’s expert team will help you build a digital platform that sets you apart and fuels your growth.
+                Tell us what you need to launch, prove or fix. We will recommend the right route and likely timeline.
               </p>
             </div>
           </div>

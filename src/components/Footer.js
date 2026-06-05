@@ -3,25 +3,8 @@
 import Link from 'next/link'
 import styles from '../styles/component-css/Footer.module.css'
 import { getSectionBackground, getSectionTextColor } from '@/hooks/scrollBackgroundUtils'
-import { useEffect, useRef, useState } from 'react'
-import LottiePlayer from '@/components/LottiePlayer'
-import { ThemeSwitcher } from '@/app/providers'
-
-const loadFooterAnimation = () => import('@/animations/List-(4_3).json')
 
 export default function Footer() {
-  const lottieRef = useRef(null)
-  const [isAnimationReady, setAnimationReady] = useState(false)
-
-  useEffect(() => {
-    if (!isAnimationReady || !lottieRef.current) {
-      return
-    }
-
-    // Slow the animation right down
-    lottieRef.current.setSpeed(0.5)
-  }, [isAnimationReady])
-
   return (
     <footer
       className={styles.footer}
@@ -31,26 +14,9 @@ export default function Footer() {
     >
       <h2 id="footer-heading" className="sr-only">Footer</h2>
       <div className={`${styles.container} max-w-content mx-auto px-6 sm:px-8`}>
-        {/* Main footer content with Lottie animation on left and content on right */}
         <div className={styles.footerMainContent}>
-          {/* Lottie Animation */}
-          <div className={styles.footerAnimation}>
-            <LottiePlayer
-              animationDataSrc={loadFooterAnimation}
-              loop
-              autoplay
-              lottieRef={lottieRef}
-              className={styles.lottieAnimation}
-              intersectionOptions={{ rootMargin: '0px 0px 200px 0px', threshold: 0.1 }}
-              onAnimationLoaded={() => setAnimationReady(true)}
-            />
-          </div>
-
-          {/* Footer content aligned to the right */}
           <div className={styles.footerContentWrapper}>
-            {/* F18-style 4-column layout */}
             <div className={styles.footerGrid}>
-              {/* Brand column */}
               <div className={styles.brandColumn}>
                 <Link href="/" className={styles.footerBrand} aria-label="Flat 18 Home">
                   <div className={styles.footerLogo}>
@@ -59,7 +25,7 @@ export default function Footer() {
                   <span className={styles.brandName}>Flat 18</span>
                 </Link>
                 <p className={styles.footerTagline}>
-                  Premium design + engineering for founders shipping digital products
+                  Expert-led design and development for LLM-accelerated MVPs and complete products.
                 </p>
 
                 {/* Social icons */}
@@ -76,50 +42,48 @@ export default function Footer() {
                 </div>
               </div>
 
-              {/* Services column */}
               <div className={styles.footerColumn}>
-                <h3 className={styles.columnTitle}>SERVICES</h3>
+                <h3 className={styles.columnTitle}>Services</h3>
                 <ul className={styles.linksList}>
                   <li>
                     <Link href="/#services" className={styles.footerLink}>
-                      Web Development
+                      Curated MVPs
                     </Link>
                   </li>
                   <li>
                     <Link href="/#services" className={styles.footerLink}>
-                      App Development
+                      Complete product builds
                     </Link>
                   </li>
                   <li>
                     <Link href="/#services" className={styles.footerLink}>
-                      UI/UX Design
+                      LLM workflow design
                     </Link>
                   </li>
                   <li>
                     <Link href="/#services" className={styles.footerLink}>
-                      Fintech & Web3
+                      Long-term product support
                     </Link>
                   </li>
                 </ul>
               </div>
 
-              {/* Company column */}
               <div className={styles.footerColumn}>
-                <h3 className={styles.columnTitle}>COMPANY</h3>
+                <h3 className={styles.columnTitle}>Company</h3>
                 <ul className={styles.linksList}>
                   <li>
                     <Link href="https://accounts.flat18.co.uk/client/login" className={styles.footerLink}>
-                      <span>Client Portal</span>
+                      <span>Client portal</span>
                     </Link>
                   </li>
                   <li>
                     <Link href="/#work" className={styles.footerLink}>
-                      Our Work
+                      Our work
                     </Link>
                   </li>
                   <li>
                     <Link href="/case-studies" className={styles.footerLink}>
-                      Case Studies
+                      Case studies
                     </Link>
                   </li>
                   <li>
@@ -134,24 +98,23 @@ export default function Footer() {
                   </li>
                   <li>
                     <Link href="/founder" className={styles.footerLink}>
-                      Founder Version
+                      Founder version
                     </Link>
                   </li>
                   <li>
                     <Link href="/ease-of-communication-standard" className={styles.footerLink}>
-                      Communication Standard
+                      Communication standard
                     </Link>
                   </li>
                 </ul>
               </div>
 
-              {/* Contact column */}
               <div className={styles.footerColumn}>
-                <h3 className={styles.columnTitle}>CONTACT</h3>
+                <h3 className={styles.columnTitle}>Contact</h3>
                 <ul className={styles.linksList}>
                   <li>
                     <a href="#chat" className={styles.footerLink}>
-                      Live Chat
+                      Start a project
                     </a>
                   </li>
                   <li>
@@ -173,7 +136,6 @@ export default function Footer() {
               </div>
             </div>
 
-            {/* Footer bottom */}
             <div className={styles.footerBottom}>
               <div className={styles.footerCopyright}>
                 © {new Date().getFullYear()} Flat 18. All rights reserved.
@@ -181,14 +143,11 @@ export default function Footer() {
               <div className={styles.footerMeta}>
                 <div className={styles.footerLegal}>
                   <Link href="/privacy" className={styles.legalLink}>
-                    Privacy Policy
+                    Privacy policy
                   </Link>
                   <Link href="/terms" className={styles.legalLink}>
-                    Terms of Service
+                    Terms of service
                   </Link>
-                </div>
-                <div className={styles.footerThemeSwitcher}>
-                  <ThemeSwitcher className={styles.footerThemeButton} showLabel />
                 </div>
               </div>
             </div>

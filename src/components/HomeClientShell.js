@@ -2,6 +2,8 @@ import dynamic from 'next/dynamic'
 import Hero from '@/components/Hero'
 import FeaturedWork from '@/components/FeaturedWork'
 import ScrollBackground from '@/components/ScrollBackground'
+import HashAnchorScroll from '@/components/HashAnchorScroll'
+import styles from '@/styles/component-css/HomeClientShell.module.css'
 
 // Above-fold: Hero + FeaturedWork are eagerly loaded (critical path).
 // Everything below is split into separate JS chunks via dynamic imports so the
@@ -20,7 +22,8 @@ const Footer      = dynamic(() => import('@/components/Footer'))
 
 export default function HomeClientShell() {
   return (
-    <>
+    <div className={styles.homeLanding}>
+      <HashAnchorScroll />
       <ScrollBackground />
       <Hero />
       <FeaturedWork />
@@ -33,6 +36,6 @@ export default function HomeClientShell() {
       <Contact />
       <Tools />
       <Footer />
-    </>
+    </div>
   )
 }

@@ -12,74 +12,65 @@ export default function AppDevelopmentPage() {
 
         <div className={styles.container}>
           <div className={styles.pageContent}>
-            <h1 className={styles.pageHeading}>App Development Services</h1>
-            <div className={styles.badge}>Expert-Led Digital Apps</div>
+            <h1 className={styles.pageHeading}>Curated MVP development</h1>
+            <div className={styles.badge}>Fast first versions, built properly</div>
             <div className={styles.textContent}>
               <p>
-                Flat 18 designs and develops apps for startups and scale-ups. We deliver robust, scalable solutions using modern technology stacks, tailored to your business goals and user needs.
+                Flat 18 designs and builds focused MVPs for founders who need a usable product quickly without accepting throwaway code. We use LLMs to accelerate research, scaffolding, interface drafts, tests and documentation, while senior developers own the product decisions.
               </p>
 
-              <h2>What Sets Our App Development Apart?</h2>
+              <h2>What sets our MVP work apart?</h2>
               <ul>
-                <li>Bespoke apps for ambitious companies</li>
-                <li>Senior engineers and designers on every project</li>
-                <li>Agile, transparent process with rapid delivery</li>
-                <li>Focus on usability, security, and future growth</li>
+                <li>Clear scope before we build, so the first version has a real purpose</li>
+                <li>Senior full-stack developers reviewing architecture, code and security</li>
+                <li>LLM-assisted speed for drafts, prototypes, tests and documentation</li>
+                <li>Usable software you can launch, learn from and keep improving</li>
               </ul>
 
-              <h2>Our App Development Expertise</h2>
+              <h2>What we can deliver</h2>
               <p>
-                We specialise in crafting digital products that combine powerful back-end logic with delightful user experiences.
+                The right MVP is not the biggest version of your idea. It is the smallest useful product that can prove demand, support a demo or unlock the next stage.
               </p>
 
-              <h3>Full-Stack App Development</h3>
+              <h3>Full-stack product build</h3>
               <p>
-                From idea to launch, we handle everything: business logic, data processing, and seamless user journeys. Our integrated approach ensures your app is cohesive and maintainable.
+                We handle product flows, interface design, frontend, backend, data models, integrations, deployment and handover.
               </p>
 
-              <h3>Node.js & Modern Frameworks</h3>
+              <h3>Prototype to production path</h3>
               <p>
-                We use Node.js for high-performance, scalable back-ends, and frameworks like React and Vue.js for sleek, interactive front-ends.
+                We can move from idea to clickable flow, then into a working build without separating design thinking from engineering reality.
               </p>
 
-              <h3>Serverless & Cloud-Native Solutions</h3>
+              <h3>Technical foundations</h3>
               <p>
-                Our serverless architectures (AWS Lambda, Vercel, Cloudflare Workers) enable automatic scaling and cost efficiency—ideal for startups expecting rapid growth.
+                We make sensible stack choices for speed, maintainability and future handover, rather than chasing complexity too early.
               </p>
 
-              <h3>Database Design & Integration</h3>
+              <h3>LLM-assisted delivery</h3>
               <p>
-                We design and implement efficient data storage using PostgreSQL, MySQL, MongoDB, or Firebase, ensuring your app is reliable and secure.
+                LLMs help us move faster, but every important output is reviewed by experienced developers before it becomes part of your product.
               </p>
 
-              <h3>API-First Development</h3>
-              <p>
-                Our team builds robust APIs for seamless integration with third-party services and your wider digital ecosystem.
-              </p>
-
-              <h2>Our Proven Process</h2>
+              <h2>How the sprint works</h2>
               <ol>
-                <li><strong>Discovery:</strong> We clarify your objectives and technical needs.</li>
-                <li><strong>Architecture:</strong> Scalable, maintainable blueprints for your app.</li>
-                <li><strong>UI/UX:</strong> Intuitive and engaging user interfaces.</li>
-                <li><strong>Development:</strong> Clean, testable code from experienced developers.</li>
-                <li><strong>Testing:</strong> Comprehensive QA for performance and security.</li>
-                <li><strong>Launch & Support:</strong> Smooth deployment and ongoing improvements.</li>
+                <li><strong>Frame:</strong> We define users, constraints, risk and success criteria.</li>
+                <li><strong>Design:</strong> We map the product flow and interface direction.</li>
+                <li><strong>Build:</strong> We use LLM-assisted workflows to accelerate implementation under senior review.</li>
+                <li><strong>Harden:</strong> We test, refine, document and prepare the product for launch or handover.</li>
               </ol>
 
-              <h2>Technologies We Use</h2>
+              <h2>Common stack choices</h2>
               <ul>
-                <li>Node.js, Express.js, NestJS</li>
-                <li>React, Vue.js, Next.js</li>
-                <li>PostgreSQL, MySQL, MongoDB, Firebase</li>
-                <li>AWS, Vercel, Cloudflare</li>
-                <li>Docker for containerisation</li>
-                <li>GraphQL and REST APIs</li>
+                <li>Next.js, React and modern frontend frameworks</li>
+                <li>Node.js, serverless functions and API routes</li>
+                <li>Postgres, Neon, Supabase and other practical data layers</li>
+                <li>Vercel, Cloudflare, GitHub Actions and monitored deployment</li>
               </ul>
 
-              <h2>Let’s Build Your Next App</h2>
+              <h2>Ready to test the idea properly?</h2>
               <p>
-                Contact Flat 18 to discuss your app vision. Our expert team will help you launch a digital product that drives real business impact.
+                Send us the idea, target user and deadline. We will tell you the leanest route to a credible first version.
               </p>
             </div>
           </div>

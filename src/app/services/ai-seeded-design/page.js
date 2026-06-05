@@ -11,7 +11,7 @@ export default function AiSeededDesignPage() {
         <div className={styles.backgroundGradient}></div>
         <div className={styles.container}>
           <div className={styles.pageContent}>
-            <h1 className={styles.pageHeading}>AI-Seeded Design & Graphics</h1>
+            <h1 className={styles.pageHeading}>AI-seeded design and graphics</h1>
             <div className={styles.badge}>Imagination, Accelerated</div>
             <div className={styles.textContent}>
               <p>We use generative AI to accelerate concept development, visual iteration, and production of high-fidelity assets.</p>
