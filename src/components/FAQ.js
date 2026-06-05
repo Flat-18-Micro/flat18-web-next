@@ -7,19 +7,27 @@ import { getSectionBackground, getSectionTextColor } from '@/hooks/scrollBackgro
 const faqs = [
   {
     question: 'Can an LLM really speed up serious product work?',
-    answer: 'Yes, when it is used by people who understand the work. LLMs help us explore options, draft code, write tests and prepare documentation faster. Senior developers still decide what should be built and whether the result is good enough.',
+    answer: 'Yes, when experienced people use it. LLMs help us explore options, draft code, write tests and prepare documentation faster. Senior developers still decide what is good enough to ship.',
   },
   {
     question: 'Will the code be production-ready?',
-    answer: 'That is the goal. We review architecture, security, performance, accessibility and maintainability before launch. We do not treat AI-generated output as finished just because it compiles.',
+    answer: 'That is the goal for product builds. We review architecture, security, performance, accessibility and maintainability before launch.',
+  },
+  {
+    question: 'Can an MVP become the long-term product?',
+    answer: 'Yes, if that is the plan. We scope MVPs to prove the important behaviour quickly without choosing throwaway foundations.',
   },
   {
     question: 'Can you take over an existing product?',
-    answer: 'Yes. We can audit an existing codebase, stabilise the important parts, improve the user experience and then use LLM-assisted workflows to move faster without losing control.',
+    answer: 'Yes. We can audit the codebase, stabilise the important parts, improve the UX and then move faster with LLM-assisted workflows.',
+  },
+  {
+    question: 'Do you put confidential project data into public AI tools?',
+    answer: 'We agree working boundaries before sensitive work starts. Where privacy or commercial risk matter, human judgement takes priority over convenience.',
   },
   {
     question: 'What happens after launch?',
-    answer: 'You can keep the product, code and documentation. We can hand over cleanly to your team or stay involved through a monthly product team retainer for improvements, releases and support.',
+    answer: 'You keep the product, code and documentation. We can hand over to your team or stay involved through monthly support.',
   },
 ]
 
@@ -60,7 +68,7 @@ export default function FAQ() {
           <span className="label-uppercase">FAQ</span>
           <h2 className={styles.title}>Common questions</h2>
           <p className={styles.subtitle}>
-            Straight answers about how we use LLMs, how we protect quality and what you own at the end.
+            Short answers about LLMs, quality and ownership.
           </p>
         </div>
 

@@ -15,21 +15,21 @@ export default function AiAugmentedDevelopmentPage() {
             <div className={styles.badge}>Fast delivery under senior control</div>
             <div className={styles.textContent}>
               <p>
-                Flat 18 uses LLMs as a serious engineering accelerator. They help us explore, draft, test and document faster, while experienced developers own the architecture, review and production decisions.
+                Flat 18 uses LLMs as a serious engineering accelerator. They help us explore, draft, test and document faster. Experienced developers own the architecture, review and production decisions.
               </p>
               <h2>Where LLMs help</h2>
               <ul>
-                <li>Turning a brief into clearer product options, user flows and technical tasks</li>
-                <li>Drafting components, API routes, tests and documentation quickly</li>
-                <li>Comparing implementation paths before committing to one</li>
+                <li>Turning a brief into product options and technical tasks</li>
+                <li>Drafting components, API routes, tests and documentation</li>
+                <li>Comparing implementation paths</li>
                 <li>Speeding up refactors, debugging and handover notes</li>
               </ul>
               <h2>Where humans stay in control</h2>
               <ul>
-                <li>Architecture, security, privacy and commercial risk decisions</li>
-                <li>Code review, performance checks and accessibility standards</li>
-                <li>Final product judgement: what to ship, what to cut and what to improve</li>
-                <li>Client communication, scope decisions and long-term maintainability</li>
+                <li>Architecture, security, privacy and commercial risk</li>
+                <li>Code review, performance and accessibility</li>
+                <li>What to ship, cut or improve</li>
+                <li>Scope, communication and maintainability</li>
               </ul>
               <p>
                 The result is not a prompt demo. It is working software built faster because the tools are in experienced hands.

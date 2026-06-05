@@ -130,7 +130,7 @@ export default function Contact() {
         <div className={styles.heading}>
           <h2 className={styles.title}>Tell us what you want to build</h2>
           <p className={styles.subtitle}>
-            We will reply with the best route, likely timeline and next step. If we are not the right fit, we will say so clearly.
+            Share the goal, deadline and current state. We will reply with the best route and next step.
           </p>
         </div>
 
@@ -185,7 +185,7 @@ export default function Contact() {
                     className={styles.select}
                   >
                     <option value="">Select project type (optional)</option>
-                    <option value="mvp-sprint">MVP sprint</option>
+                    <option value="mvp-sprint">Curated MVP sprint</option>
                     <option value="complete-product">Complete product</option>
                     <option value="monthly-product-team">Monthly product team</option>
                     <option value="llm-workflow">LLM workflow or internal tool</option>
@@ -204,10 +204,10 @@ export default function Contact() {
                     className={styles.select}
                   >
                     <option value="">Select budget (optional)</option>
-                    <option value="under-1000">Under £1,000</option>
-                    <option value="1000-3500">£1,000-£3,500</option>
+                    <option value="discovery">Discovery budget only</option>
                     <option value="3500-12000">£3,500-£12,000</option>
-                    <option value="12000-plus">£12,000+</option>
+                    <option value="12000-30000">£12,000-£30,000</option>
+                    <option value="30000-plus">£30,000+</option>
                     <option value="monthly">Monthly product team</option>
                   </select>
                 </div>
@@ -220,7 +220,7 @@ export default function Contact() {
                     value={formData.message}
                     onChange={handleChange}
                     required
-                    placeholder="What are you building, who is it for, and what needs to happen next?"
+                    placeholder="What are you building, who is it for, and what would make the first release useful?"
                     className={styles.textarea}
                     rows="5"
                   ></textarea>
@@ -274,14 +274,14 @@ export default function Contact() {
               <i className="bi bi-clock" aria-hidden="true"></i>
               <div>
                 <h3>Fast, useful response</h3>
-                <p>We will confirm the best route, likely timeline and next step within 1-2 working days.</p>
+                <p>We will reply with the route, likely timeline and next step within 1-2 working days.</p>
               </div>
             </div>
             <div className={styles.assuranceItem}>
               <i className="bi bi-shield-check" aria-hidden="true"></i>
               <div>
                 <h3>Confidential by default</h3>
-                <p>Your ideas, data and plans are treated with care and complete confidentiality.</p>
+                <p>Your ideas, data and plans are treated with care.</p>
               </div>
             </div>
           </div>

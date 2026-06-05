@@ -10,30 +10,30 @@ import {
   SUBSCRIPTION_PROMO,
   applySubscriptionPromo,
   formatBTC,
-  formatPsychologicalCurrency,
+  formatCurrency,
   getSubscriptionPromoLabel,
 } from '@/lib/pricing'
 
 const PROJECT_ROUTES = [
   {
     icon: 'bi-lightning-charge',
-    title: 'MVP sprint',
-    timeline: 'From 2 weeks',
-    description: 'A focused build for a validated first version, investor demo or market test.',
-    min: 995,
-    max: 3500,
+    title: 'Curated MVP sprint',
+    timeline: '2-6 weeks',
+    description: 'A tight build for a usable first version, demo or market test.',
+    min: 3500,
+    max: 12000,
     cta: 'Start a project',
     highlights: [
-      'Scope and delivery plan',
-      'UX, UI and build sprint',
+      'Scope and user flow',
+      'UX, UI and full-stack build',
       'Deployment and handover',
     ],
   },
   {
     icon: 'bi-layers',
     title: 'Complete product',
-    timeline: '2-12 weeks',
-    description: 'A full design and engineering engagement for production-ready software.',
+    timeline: '6-12+ weeks',
+    description: 'Design and engineering for production software.',
     min: 12000,
     max: null,
     cta: 'Request a quote',
@@ -46,13 +46,13 @@ const PROJECT_ROUTES = [
 ]
 
 const PRODUCT_TEAM_HIGHLIGHTS = [
-  'Ongoing senior design and development capacity',
-  'LLM-assisted delivery under senior review',
-  'One active request at a time, with an unlimited queue',
-  'Pause or cancel when the work is done',
+  'Senior design and development capacity',
+  'LLM-assisted implementation and review',
+  'One active request, clear queue',
+  'Pause when done',
 ]
 
-export default function Pricing() {
+export default function Pricing({ headingLevel = 'h2' }) {
   const [currencies, setCurrencies] = useState([])
   const [selectedCurrency, setSelectedCurrency] = useState('GBP')
   const [showCurrencyMenu, setShowCurrencyMenu] = useState(false)
@@ -60,7 +60,7 @@ export default function Pricing() {
   const [btcRate, setBtcRate] = useState(0)
   const [prices, setPrices] = useState({
     monthly: {
-      GBP: formatPsychologicalCurrency(BASE_PRICES.monthly, 'GBP'),
+      GBP: formatCurrency(BASE_PRICES.monthly, 'GBP'),
       USD: '$3,800',
       EUR: '€3,500',
       BTC: '₿0.075000'
@@ -109,13 +109,13 @@ export default function Pricing() {
 
       const rates = { GBP: 1 }
       const updatedPrices = {
-        monthly: { GBP: formatPsychologicalCurrency(BASE_PRICES.monthly, 'GBP') }
+        monthly: { GBP: formatCurrency(BASE_PRICES.monthly, 'GBP') }
       }
 
       data.result.forEach((currency) => {
         if (currency.name !== 'GBP') {
           const exchangeRate = currency.value / gbp.value
-          updatedPrices.monthly[currency.name] = formatPsychologicalCurrency(
+          updatedPrices.monthly[currency.name] = formatCurrency(
             BASE_PRICES.monthly * exchangeRate,
             currency.name
           )
@@ -158,7 +158,7 @@ export default function Pricing() {
     }
 
     const multiplier = currencyRates[selectedCurrency] ?? 1
-    return formatPsychologicalCurrency(amount * multiplier, selectedCurrency)
+    return formatCurrency(amount * multiplier, selectedCurrency)
   }
 
   const formatRange = (min, max) => {
@@ -170,10 +170,11 @@ export default function Pricing() {
 
   const basePriceDisplay = prices.monthly[selectedCurrency] || prices.monthly.GBP
   const promoPriceDisplay = formatAmountForCurrency(promoPrice)
+  const HeadingTag = headingLevel === 'h1' ? 'h1' : 'h2'
 
   return (
     <section
-      className={styles.pricingSection}
+      className={`${styles.pricingSection} ${headingLevel === 'h1' ? styles.pagePricing : ''}`}
       id="pricing"
       data-bg-color={getSectionBackground('pricing')}
       data-text-color={getSectionTextColor('pricing')}
@@ -181,9 +182,9 @@ export default function Pricing() {
       <div className={`${styles.container} max-w-content mx-auto px-6 sm:px-8`}>
         <div className={styles.sectionHeading}>
           <span className="label-uppercase">Pricing</span>
-          <h2 className={styles.sectionTitle}>Choose the route that fits the work</h2>
+          <HeadingTag className={styles.sectionTitle}>Pricing for serious product work</HeadingTag>
           <p className={styles.sectionDescription}>
-            Three ways to engage. Same senior team. Expert-led delivery accelerated by LLMs for speed without compromise.
+            Clear starting points. Faster LLM-assisted delivery, still led by senior product and engineering judgement.
           </p>
         </div>
 
@@ -258,7 +259,7 @@ export default function Pricing() {
               </ul>
               <Link
                 href="#chat"
-                className={`btn ${route.title === 'MVP sprint' ? 'btn-primary' : 'btn-secondary'}`}
+                className={`btn ${route.title === 'Curated MVP sprint' ? 'btn-primary' : 'btn-secondary'}`}
                 onClick={() => analytics.pricing.bookCall()}
               >
                 {route.cta}
@@ -278,7 +279,7 @@ export default function Pricing() {
                   {promoActive ? <span className={styles.salePill}>{promoLabel}</span> : null}
                 </div>
                 <p className={styles.planSubtitle}>
-                  Ongoing senior design and development capacity when you need continuous momentum.
+                  Ongoing senior product work when you need continuous momentum.
                 </p>
               </div>
 
@@ -324,7 +325,7 @@ export default function Pricing() {
         <div className={styles.bottomCTA}>
           <div className={styles.ctaContent}>
             <h3>Not sure which route fits?</h3>
-            <p>Share your goal and constraints. We will recommend the leanest route that can still deliver properly.</p>
+            <p>Share your goal and constraints. We will recommend the leanest responsible route.</p>
           </div>
           <Link
             href="#chat"

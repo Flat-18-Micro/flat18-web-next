@@ -5,27 +5,27 @@ export default function HowItWorks() {
   const steps = [
     {
       number: '01',
-      title: 'Frame the problem',
-      description: 'We clarify outcomes, constraints, risks and acceptance criteria before LLMs touch the work.',
-      details: 'Brief, scope, users, technical constraints, success metrics'
+      title: 'Scope',
+      description: 'Define the outcome, users, constraints and success criteria.',
+      details: 'Brief, user flow, risks, acceptance criteria'
     },
     {
       number: '02',
-      title: 'Generate options',
-      description: 'LLMs help us explore approaches, draft components, compare paths and expose trade-offs quickly.',
-      details: 'Prompted exploration, prototypes, code drafts, test ideas'
+      title: 'Draft',
+      description: 'Use LLMs for options, scaffolds, components and test ideas.',
+      details: 'Product drafts, code scaffolds, test ideas'
     },
     {
       number: '03',
-      title: 'Engineer the product',
-      description: 'Senior developers shape the architecture, implement the right solution and integrate the moving parts.',
-      details: 'Frontend, backend, APIs, data models, deployment'
+      title: 'Build',
+      description: 'Turn useful drafts into the product: UI, APIs, data, auth and deployment.',
+      details: 'Frontend, backend, APIs, data, deployment'
     },
     {
       number: '04',
-      title: 'Review, test and harden',
-      description: 'We review for security, performance and reliability before release, then document the handover clearly.',
-      details: 'Code review, QA, accessibility, documentation, support'
+      title: 'Review',
+      description: 'Check security, performance, accessibility and handover notes.',
+      details: 'Code review, QA, documentation, roadmap'
     }
   ]
 
@@ -39,9 +39,9 @@ export default function HowItWorks() {
       <div className={`${styles.container} max-w-content mx-auto px-6 sm:px-8`}>
         <div className={styles.sectionHeading}>
           <span className="label-uppercase">Process</span>
-          <h2 className={styles.sectionTitle}>How we use LLMs without losing control</h2>
+          <h2 className={styles.sectionTitle}>A simple gated process</h2>
           <p className={styles.sectionDescription}>
-            LLMs accelerate research, drafting and implementation. Senior engineers own the architecture, security, quality and handover.
+            LLMs help at each stage. Every stage still has a human decision point.
           </p>
         </div>
 
@@ -66,8 +66,8 @@ export default function HowItWorks() {
 
         <div className={styles.processBottom}>
           <div className={styles.ctaContent}>
-            <h3>Speed should not mean guesswork.</h3>
-            <p>We keep the process clear so the product can move quickly without losing quality.</p>
+            <h3>Fast should still be maintainable.</h3>
+            <p>Each release is designed to launch, learn and improve.</p>
           </div>
           <a href="#chat" className="btn btn-primary">
             Start a project

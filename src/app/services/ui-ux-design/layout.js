@@ -1,7 +1,7 @@
 import { generatePageMetadata, generateServiceJsonLd, siteConfig } from '@/lib/seo'
 
-const title = "UI/UX Design Services"
-const description = "Senior UI/UX design with research, prototypes, and design systems that make products clear, usable, and conversion-ready."
+const title = "UI/UX design"
+const description = "Clear product interface design, prototypes and design systems for MVPs, internal tools and complete products."
 const path = "/services/ui-ux-design"
 
 export const metadata = generatePageMetadata({

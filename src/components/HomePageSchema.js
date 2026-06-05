@@ -26,7 +26,7 @@ const homePageSchema = {
     "@type": "ProfessionalService",
     "name": siteConfig.name,
     "image": `${siteConfig.url}${siteConfig.ogImage}`,
-    "description": "Flat 18 is an expert-led design and development studio using LLMs to accelerate curated MVPs, complete product builds and long-term product work without losing senior engineering control.",
+    "description": "Flat 18 is a senior design and full-stack development studio using LLMs to accelerate curated MVPs, complete product builds and long-term product work without losing senior engineering control.",
     "url": siteConfig.url,
     "email": siteConfig.email,
     "address": {
@@ -46,13 +46,13 @@ const homePageSchema = {
     "areaServed": "Worldwide",
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
-      "name": "LLM-accelerated design and development services",
+      "name": "LLM-accelerated design and full-stack development services",
       "itemListElement": [
         {
           "@type": "Offer",
           "itemOffered": {
             "@type": "Service",
-            "name": "Curated MVPs",
+            "name": "Curated MVP sprints",
             "description": "Fast first versions scoped, designed, built and reviewed by experienced full-stack developers."
           }
         },

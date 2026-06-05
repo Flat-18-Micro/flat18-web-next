@@ -15,15 +15,15 @@ export default function MaintenanceSupportPage() {
             <div className={styles.badge}>Ongoing senior product capacity</div>
             <div className={styles.textContent}>
               <p>
-                Flat 18 provides ongoing design and development support for products that need steady improvement after launch. You get senior technical judgement, LLM-assisted delivery speed and clear ownership without hiring a full internal team.
+                Flat 18 provides ongoing design and development support for products that need steady improvement after launch. You get senior judgement, LLM-assisted speed and clear ownership without hiring a full internal team.
               </p>
 
-              <h2>Why Flat 18 for support?</h2>
+              <h2>What you get</h2>
               <ul>
                 <li>Senior technical support with direct communication</li>
-                <li>Product improvements, refactors and releases handled together</li>
-                <li>LLM-assisted speed for analysis, implementation and documentation</li>
-                <li>Clear priorities, practical reporting and no agency theatre</li>
+                <li>Product improvements, refactors and releases</li>
+                <li>LLM-assisted analysis, implementation and documentation</li>
+                <li>Clear priorities and practical reporting</li>
               </ul>
 
               <h2>What we can help with</h2>
@@ -31,30 +31,13 @@ export default function MaintenanceSupportPage() {
                 Launch is only the start. We help keep the product useful, stable and ready for the next commercial step.
               </p>
 
-              <h3>Product improvements</h3>
-              <p>
-                We design, build and release new features, refinements and workflow improvements against a clear priority list.
-              </p>
-
-              <h3>Refactors and stabilisation</h3>
-              <p>
-                We clean up fragile areas, improve maintainability and reduce the cost of future changes.
-              </p>
-
-              <h3>Security and reliability</h3>
-              <p>
-                We review dependencies, monitor risk, apply updates and check production behaviour before problems become expensive.
-              </p>
-
-              <h3>Performance optimisation</h3>
-              <p>
-                We analyse and tune the product for speed, stability and usability across devices.
-              </p>
-
-              <h3>Release support</h3>
-              <p>
-                We help plan releases, test changes, document decisions and keep stakeholders clear on what shipped.
-              </p>
+              <ul>
+                <li>New features and workflow improvements</li>
+                <li>Refactors and stabilisation</li>
+                <li>Security, dependency and reliability work</li>
+                <li>Performance and accessibility improvements</li>
+                <li>Release planning, QA and documentation</li>
+              </ul>
 
               <h2>How monthly support works</h2>
               <p>
@@ -62,14 +45,14 @@ export default function MaintenanceSupportPage() {
               </p>
               <ul>
                 <li><strong>Queue:</strong> Add product, design and engineering requests as they arise.</li>
-                <li><strong>Prioritise:</strong> We agree the most useful next task together.</li>
-                <li><strong>Ship:</strong> We design, build, review and document the work.</li>
-                <li><strong>Repeat:</strong> Pause when you are done or keep momentum month to month.</li>
+                <li><strong>Prioritise:</strong> Agree the most useful next task.</li>
+                <li><strong>Ship:</strong> Design, build, review and document the work.</li>
+                <li><strong>Repeat:</strong> Pause when done or keep momentum month to month.</li>
               </ul>
 
               <h2>Need continuous momentum?</h2>
               <p>
-                Tell us what needs improving and how often you need changes shipped. We will recommend whether monthly support is the right route.
+                Tell us what needs improving and how often you need changes shipped. We will say whether monthly support is the right route.
               </p>
             </div>
           </div>

@@ -5,30 +5,29 @@ export default function Features() {
   const services = [
     {
       icon: 'bi-lightning-charge',
-      title: 'Curated MVPs',
-      description: 'From idea to usable product quickly, with the right scope and no throwaway prototype.',
-      bullets: ['Scope, UX, build and launch', 'Fast first version with senior review'],
+      title: 'Curated MVP sprint',
+      description: 'A tight sprint from idea to usable first release.',
+      bestFor: 'New products, demos and market tests',
+      pace: '2-6 weeks',
+      bullets: ['Scope and user flow', 'UX, UI and full-stack build', 'Deploy, document, hand over'],
       href: '/services/app-development'
     },
     {
       icon: 'bi-layers',
-      title: 'Complete product builds',
-      description: 'Design, frontend, backend, integrations, QA and deployment handled end to end.',
-      bullets: ['Architecture and engineering', 'Production deployment and handover'],
+      title: 'Complete product build',
+      description: 'End-to-end design and engineering for production software.',
+      bestFor: 'SaaS, dashboards, internal tools and customer platforms',
+      pace: '6-12+ weeks',
+      bullets: ['Architecture and product design', 'Frontend, backend and integrations', 'QA, launch and handover'],
       href: '/services/web-development'
     },
     {
-      icon: 'bi-stars',
-      title: 'LLM workflow design',
-      description: 'Internal tools, prompts and review systems that help your team ship more with less waste.',
-      bullets: ['AI-assisted workflows', 'Human review and governance'],
-      href: '/services/ai-augmented-development'
-    },
-    {
-      icon: 'bi-gear',
-      title: 'Long-term product support',
-      description: 'Ongoing improvements, refactors, releases and performance work after launch.',
-      bullets: ['Monthly product capacity', 'Priority fixes and optimisation'],
+      icon: 'bi-infinity',
+      title: 'Monthly product team',
+      description: 'Steady senior product work without hiring.',
+      bestFor: 'Teams with a live product or growing backlog',
+      pace: 'Monthly',
+      bullets: ['One active request', 'Clear product queue', 'Pause when done'],
       href: '/services/maintenance-support'
     }
   ]
@@ -43,9 +42,9 @@ export default function Features() {
       <div className={`${styles.container} max-w-content mx-auto px-6 sm:px-8`}>
         <div className={styles.sectionHeading}>
           <span className="label-uppercase">Services</span>
-          <h2 className={styles.sectionTitle}>What we build</h2>
+          <h2 className={styles.sectionTitle}>Three ways to build</h2>
           <p className={styles.sectionDescription}>
-            Fast MVPs, full products and retainers for teams who need senior judgement as well as speed.
+            Pick the shape of work. We keep scope tight, use LLMs where they help, and ship code you can keep.
           </p>
         </div>
 
@@ -64,6 +63,17 @@ export default function Features() {
               </div>
 
               <p className={styles.serviceDescription}>{service.description}</p>
+
+              <div className={styles.serviceMetaGrid}>
+                <div className={styles.serviceMeta}>
+                  <span>Best for</span>
+                  <strong>{service.bestFor}</strong>
+                </div>
+                <div className={styles.serviceMeta}>
+                  <span>Typical pace</span>
+                  <strong>{service.pace}</strong>
+                </div>
+              </div>
 
               <ul className={styles.serviceBullets}>
                 {service.bullets.map((bullet, bulletIndex) => (
@@ -84,8 +94,8 @@ export default function Features() {
 
         <div className={styles.bottomCTA}>
           <div className={styles.ctaContent}>
-            <h3>Need a first version or a complete product?</h3>
-            <p>We will help you choose the right scope before the build starts.</p>
+            <h3>Not sure which route fits?</h3>
+            <p>Send the goal, deadline and main risk. We will suggest the leanest responsible route.</p>
           </div>
           <a href="#chat" className="btn btn-primary">
             Start a project

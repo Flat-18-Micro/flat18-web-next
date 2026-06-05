@@ -41,9 +41,9 @@ export default function FeaturedWork() {
     >
       <div className="container">
         <div className={styles.featuredHeading}>
-          <h2 className={styles.featuredTitle}>Real products, not prompt demos</h2>
+          <h2 className={styles.featuredTitle}>Work that proves the craft</h2>
           <p className={styles.featuredSubtitle}>
-            Before LLMs changed the pace of delivery, we were already designing and engineering production software for founders and technical teams.
+            LLMs make delivery faster. This work shows the judgement we bring before the tools get involved.
           </p>
         </div>
 

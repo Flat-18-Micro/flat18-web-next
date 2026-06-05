@@ -10,27 +10,27 @@ import { getSectionBackground, getSectionTextColor } from '@/hooks/scrollBackgro
 const PROOF_POINTS = [
   {
     icon: 'bi-code-slash',
-    title: 'Senior code review',
-    text: 'Experienced engineers check the architecture, security and production details.',
+    title: 'Senior technical control',
+    text: 'Architecture, security, review and release decisions stay with experienced developers.',
   },
   {
     icon: 'bi-lightning-charge',
-    title: 'Prototype in days',
-    text: 'LLMs speed up drafts, components, tests and documentation from the first sprint.',
+    title: 'MVP in weeks',
+    text: 'LLMs accelerate research, scaffolding, UI drafts, tests and documentation.',
   },
   {
-    icon: 'bi-box-seam',
-    title: 'Built for handover',
-    text: 'You own the code, decisions and roadmap when the project moves on.',
+    icon: 'bi-box-arrow-up-right',
+    title: 'Ownable code',
+    text: 'You get the repository, decisions, documentation and next-step roadmap.',
   },
 ]
 
-const PIPELINE_STAGES = ['Brief', 'LLM draft', 'Review', 'Launch']
+const PIPELINE_STAGES = ['Scope', 'Generate', 'Engineer', 'Harden']
 
 const RELEASE_ROWS = [
   ['Architecture', 'Approved'],
-  ['Interface', 'In build'],
-  ['Tests', 'Passing'],
+  ['Review', 'Senior pass'],
+  ['Release', 'Ready'],
 ]
 
 export default function Hero() {
@@ -44,11 +44,11 @@ export default function Hero() {
       <div className={`${styles.heroContainer} max-w-7xl mx-auto px-6 sm:px-8`}>
         <div className={styles.heroContent}>
           <h1 className={styles.heroHeading}>
-            Expert-built products, accelerated by LLMs
+            Senior developers using LLMs to ship better products faster
           </h1>
 
           <p className={styles.heroSubheading}>
-            We design and build curated MVPs and complete digital products at speed, using modern AI tools in the hands of senior full-stack developers.
+            Flat 18 designs and builds curated MVPs, internal tools and complete products. LLMs add speed; senior full-stack developers keep the scope, architecture and release under control.
           </p>
 
           <div className={styles.heroActions}>
@@ -85,8 +85,8 @@ export default function Hero() {
         <div className={styles.heroVisual} aria-label="Product delivery artefacts">
           <div className={`${styles.artifact} ${styles.briefArtifact}`}>
             <div className={styles.artifactHeader}>
-              <span>Product spec</span>
-              <span>01</span>
+              <span>Project brief</span>
+              <span>Senior scoped</span>
             </div>
             <div className={styles.blueprintFrame} aria-hidden="true">
               <svg className={styles.blueprintSvg} viewBox="0 0 320 178" focusable="false">
@@ -103,23 +103,23 @@ export default function Hero() {
             <dl className={styles.specList}>
               <div>
                 <dt>Audience</dt>
-                <dd>Founders and operators</dd>
+                <dd>Founders and product teams</dd>
               </div>
               <div>
                 <dt>Problem</dt>
-                <dd>Long build times and unclear scope</dd>
+                <dd>Slow delivery, unclear scope</dd>
               </div>
               <div>
                 <dt>Solution</dt>
-                <dd>Curated MVP, fast iteration, clean handover</dd>
+                <dd>Scoped sprint, reviewed code</dd>
               </div>
             </dl>
           </div>
 
           <div className={`${styles.artifact} ${styles.pipelineArtifact}`}>
             <div className={styles.artifactHeader}>
-              <span>Build loop</span>
-              <span>LLM + senior review</span>
+              <span>LLM delivery loop</span>
+              <span>Human gated</span>
             </div>
             <div className={styles.pipelineBody}>
               <svg className={styles.pipelineSvg} viewBox="0 0 420 122" aria-hidden="true" focusable="false">
@@ -138,9 +138,9 @@ export default function Hero() {
                 })}
               </svg>
               <div className={styles.codeBlock} aria-hidden="true">
-                <span>{'scope.with(context)'}</span>
-                <span>{'generate.components()'}</span>
-                <span>{'review.ship()'}</span>
+                <span>{'scope.lock(decisions)'}</span>
+                <span>{'llm.draft(components)'}</span>
+                <span>{'senior.review(ship)'}</span>
               </div>
             </div>
           </div>
@@ -162,12 +162,12 @@ export default function Hero() {
               </div>
               <div className={styles.releaseMetrics}>
                 <div>
-                  <span>Prototype</span>
-                  <strong>7 days</strong>
+                  <span>First version</span>
+                  <strong>Weeks</strong>
                 </div>
                 <div>
                   <span>Build state</span>
-                  <strong>Live</strong>
+                  <strong>Reviewed</strong>
                 </div>
               </div>
               <div className={styles.releaseList}>

@@ -1,54 +1,13 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
 import Footer from '@/components/Footer'
 import Pricing from '@/components/Pricing'
 import Contact from '@/components/Contact'
 import Breadcrumbs from '@/components/Breadcrumbs'
 import styles from '@/styles/component-css/PricingPage.module.css'
-import {
-  BASE_PRICES,
-  SUBSCRIPTION_PROMO,
-  applySubscriptionPromo,
-  formatPsychologicalCurrency,
-  getSubscriptionPromoLabel,
-} from '@/lib/pricing'
 
 export default function PricingPage() {
-  const [openFaqIndex, setOpenFaqIndex] = useState(null)
-  const basePrice = formatPsychologicalCurrency(BASE_PRICES.monthly, 'GBP')
-  const discountedPrice = formatPsychologicalCurrency(applySubscriptionPromo(BASE_PRICES.monthly), 'GBP')
-  const promoLabel = getSubscriptionPromoLabel()
-
-  const faqs = [
-    {
-      question: "How does your subscription model work?",
-      answer: SUBSCRIPTION_PROMO.enabled
-        ? `Our subscription model provides dedicated development time each month. Right now it's ${promoLabel} at ${discountedPrice} per month (normally ${basePrice}). Your fee is auto-converted if you're outside the UK, you can queue as many requests as you need, and we work through them one at a time with typical 48-hour turnarounds on smaller tasks.`
-        : `Our subscription model provides dedicated development time each month. You pay a fixed monthly fee of ${basePrice} (auto-converted if you're outside the UK), queue as many requests as you need, and we work through them one at a time with typical 48-hour turnarounds on smaller tasks.`
-    },
-    {
-      question: "What if I need more development hours?",
-      answer: "If you need additional development hours beyond your subscription, we can accommodate that. We'll discuss your needs and either temporarily increase your subscription level or add extra hours at our standard rate. We can adapt to your project's changing requirements."
-    },
-    {
-      question: "Can I pause my subscription?",
-      answer: "Yes, you can pause your subscription with advance notice. We understand that project needs can fluctuate. Please note that pausing may affect your place in our development queue when you resume, but we'll do our best to minimise any disruption to your project timeline."
-    },
-    {
-      question: "What payment methods do you accept?",
-      answer: "We accept payments in multiple currencies including GBP, USD, EUR, and cryptocurrencies like Bitcoin and Ethereum. Our payment system automatically converts between currencies to provide you with flexible payment options that suit your needs."
-    },
-    {
-      question: "Is there a minimum commitment period?",
-      answer: "We don't enforce a minimum term. Most teams stay subscribed for 3-6 months to maximise momentum, but you can pause or cancel at any time. If a one-off engagement fits better, we can switch you to a bespoke fixed-scope quote."
-    }
-  ]
-
-  const toggleFaq = (index) => {
-    setOpenFaqIndex(openFaqIndex === index ? null : index)
-  }
-
   useEffect(() => {
     // Initialize any necessary scripts or analytics
     if (window.location.protocol !== 'https:' && window.location.hostname !== 'localhost') {
@@ -67,30 +26,19 @@ export default function PricingPage() {
         let persist = localStorage && localStorage.getItem("webM") ? localStorage.getItem("webM") : data.webM
         localStorage.setItem("webM", persist)
       })
-      .catch(error => console.log('Metrics fetch error:', error))
+      .catch(error => console.warn('Metrics fetch error:', error))
   }, [])
 
   return (
     <main>
       <section className={styles.pricingPageWrapper}>
         <Breadcrumbs />
-        <div className={styles.backgroundGradient}></div>
+
+        <Pricing headingLevel="h1" />
 
         <div className={styles.container}>
-          <div>
-            <h1 className={styles.pageHeading}>Our Pricing</h1>
-            <div className={styles.pricingIntro}>
-              <p className={styles.pricingIntroText}>
-                At Flat 18, we believe in transparent, value-based pricing that aligns with your business goals.
-                Our subscription model ensures you receive consistent, high-quality support for your digital presence.
-              </p>
-            </div>
-          </div>
-
-          <Pricing />
-
           <div id="more-info" className={styles.pricingDetailsSection}>
-            <h2 className={styles.sectionHeading}>What's Included</h2>
+            <h2 className={styles.sectionHeading}>What the price covers</h2>
 
             <div
               className={styles.detailsGrid}
@@ -99,48 +47,48 @@ export default function PricingPage() {
                 <div className={styles.detailIcon}>
                   <i className="bi bi-code-slash"></i>
                 </div>
-                <h3 className={styles.detailTitle}>Full-Stack Development</h3>
-                <p className={styles.detailText}>Our team handles both frontend and backend development, ensuring a seamless, integrated solution for your digital needs.</p>
+                <h3 className={styles.detailTitle}>Full-stack development</h3>
+                <p className={styles.detailText}>Frontend, backend, APIs, data models and deployment handled together.</p>
               </div>
 
               <div className={styles.detailCard}>
                 <div className={styles.detailIcon}>
                   <i className="bi bi-palette"></i>
                 </div>
-                <h3 className={styles.detailTitle}>UI/UX Design</h3>
-                <p className={styles.detailText}>We create intuitive, engaging user interfaces and experiences that align with your brand and business goals.</p>
+                <h3 className={styles.detailTitle}>UI/UX design</h3>
+                <p className={styles.detailText}>Clear flows, usable interfaces and design systems that engineers can build cleanly.</p>
               </div>
 
               <div className={styles.detailCard}>
                 <div className={styles.detailIcon}>
                   <i className="bi bi-headset"></i>
                 </div>
-                <h3 className={styles.detailTitle}>Technical Support</h3>
-                <p className={styles.detailText}>Ongoing support to address any technical issues or questions that arise during and after development.</p>
+                <h3 className={styles.detailTitle}>Technical support</h3>
+                <p className={styles.detailText}>Practical help during delivery, launch and handover.</p>
               </div>
 
               <div className={styles.detailCard}>
                 <div className={styles.detailIcon}>
                   <i className="bi bi-kanban"></i>
                 </div>
-                <h3 className={styles.detailTitle}>Project Management</h3>
-                <p className={styles.detailText}>Dedicated project management to ensure your project stays on track, on budget, and meets all requirements.</p>
+                <h3 className={styles.detailTitle}>Delivery control</h3>
+                <p className={styles.detailText}>Clear scope, visible decisions and a steady route to release.</p>
               </div>
 
               <div className={styles.detailCard}>
                 <div className={styles.detailIcon}>
                   <i className="bi bi-phone"></i>
                 </div>
-                <h3 className={styles.detailTitle}>Responsive Design</h3>
-                <p className={styles.detailText}>All our websites and applications are built to work flawlessly across all devices and screen sizes.</p>
+                <h3 className={styles.detailTitle}>Responsive design</h3>
+                <p className={styles.detailText}>Interfaces designed and checked across desktop and mobile.</p>
               </div>
 
               <div className={styles.detailCard}>
                 <div className={styles.detailIcon}>
                   <i className="bi bi-search"></i>
                 </div>
-                <h3 className={styles.detailTitle}>SEO Optimisation</h3>
-                <p className={styles.detailText}>We implement best practices for search engine optimisation to help your site rank higher in search results.</p>
+                <h3 className={styles.detailTitle}>Launch basics</h3>
+                <p className={styles.detailText}>Metadata, analytics, performance checks and practical release notes.</p>
               </div>
             </div>
           </div>

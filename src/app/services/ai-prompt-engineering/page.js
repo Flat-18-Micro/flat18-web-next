@@ -13,18 +13,18 @@ export default function AiPromptEngineeringPage() {
         <div className={styles.backgroundGradient}></div>
         <div className={styles.container}>
           <div className={styles.pageContent}>
-            <h1 className={styles.pageHeading}>AI Prompt Engineering</h1>
-            <div className={styles.badge}>Precision Guidance for LLMs</div>
+            <h1 className={styles.pageHeading}>Prompt and LLM workflows</h1>
+            <div className={styles.badge}>Reliable AI-assisted work</div>
             <div className={styles.textContent}>
-              <p>We design, test, and optimise prompts to drive reliable, high-quality outputs from large language models (LLMs).</p>
-              <h2>What We Offer</h2>
+              <p>We design and test LLM workflows for teams that need more than ad hoc prompts. The goal is repeatable output, clear review points and useful integration with the product or team process.</p>
+              <h2>What we offer</h2>
               <ul>
-                <li>Prompt frameworks for marketing, design, and development workflows</li>
-                <li>Data injection strategies and memory structures</li>
-                <li>Few-shot examples and fallback control flows</li>
-                <li>Structured output guarantees (JSON, Markdown, tabular)</li>
+                <li>Prompt systems for product, design and development workflows</li>
+                <li>Structured output patterns for JSON, Markdown and tables</li>
+                <li>Review checkpoints and fallback paths</li>
+                <li>Context, memory and retrieval patterns where useful</li>
               </ul>
-              <p>Whether you're building chatbots, UI generators, or multi-step AI agents, we ensure your prompts deliver consistent and useful results.</p>
+              <p>Prompt work is strongest when it is connected to a real product, internal tool or delivery process. We can build that connection as part of the engagement.</p>
             </div>
           </div>
         </div>

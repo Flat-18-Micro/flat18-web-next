@@ -1,7 +1,7 @@
 import { generatePageMetadata, generateServiceJsonLd, siteConfig } from '@/lib/seo'
 
-const title = "AI Prompt Engineering"
-const description = "Prompt engineering for reliable LLM outputs, structured workflows, and production-ready AI systems."
+const title = "Prompt and LLM workflows"
+const description = "Prompt systems and LLM workflows for repeatable output, review checkpoints and product integration."
 const path = "/services/ai-prompt-engineering"
 
 export const metadata = generatePageMetadata({
@@ -15,7 +15,7 @@ const serviceJsonLd = generateServiceJsonLd({
   name: title,
   description,
   url: `${siteConfig.url}${path}`,
-  serviceType: "AI Prompt Engineering",
+  serviceType: "Prompt and LLM workflow design",
 })
 
 export default function Layout({ children }) {

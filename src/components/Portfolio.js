@@ -268,9 +268,9 @@ export default function Portfolio() {
       <div className={`${styles.container} max-w-content mx-auto px-6 sm:px-8`}>
         <div className={styles.sectionHeading}>
           <span className="label-uppercase">Featured work</span>
-          <h2 className={styles.sectionTitle}>Products and launches</h2>
+          <h2 className={styles.sectionTitle}>Products, platforms and launches</h2>
           <p className={styles.sectionDescription}>
-            A selection of product, platform and interface work that shows the technical depth behind the new LLM-accelerated offer.
+            Product and interface work that shows the technical depth behind our faster delivery model.
           </p>
         </div>
 
@@ -289,7 +289,7 @@ export default function Portfolio() {
         <div className={styles.bottomCTA}>
           <div className={styles.ctaContent}>
             <h3>Ready to start your product?</h3>
-            <p>Let's discuss your goals, constraints and the fastest responsible route to launch.</p>
+            <p>Tell us the goal, constraints and deadline. We will suggest the fastest responsible route.</p>
           </div>
           <a href="#chat" className="btn btn-primary">
             Start a project

@@ -12,78 +12,54 @@ export default function Web3BlockchainPage() {
 
         <div className={styles.container}>
           <div className={styles.pageContent}>
-            <h1 className={styles.pageHeading}>Web3 & Blockchain Services</h1>
-            <div className={styles.badge}>Secure Web3 product delivery</div>
+            <h1 className={styles.pageHeading}>Web3 and blockchain delivery</h1>
+            <div className={styles.badge}>Specialist technical experience</div>
             <div className={styles.textContent}>
               <p>
-                Flat 18 provides expert-led Web3 and blockchain services for startups and scale-ups. We deliver secure, scalable decentralised apps, smart contracts, and integrations—helping you harness the power of next-generation technologies.
+                Flat 18 still brings deep experience in Bitcoin, Web3 products, wallets, payments and blockchain interfaces. We now treat that as specialist technical depth inside a broader product studio offer.
               </p>
 
-              <h2>Why Choose Flat 18 for Blockchain?</h2>
+              <h2>Where we can help</h2>
               <ul>
                 <li>Over a decade of hands-on blockchain expertise</li>
-                <li>Bespoke solutions tailored to your business model</li>
-                <li>Security-first, fully audited code</li>
-                <li>Clear process and ongoing support</li>
+                <li>Secure wallet and payment flows</li>
+                <li>Clear user interfaces for complex technical products</li>
+                <li>Senior review of architecture, risk and handover</li>
               </ul>
 
-              <h2>Our Web3 & Blockchain Expertise</h2>
+              <h2>What we build</h2>
               <p>
-                We design and build decentralised solutions that solve real business problems—combining deep technical skill with practical experience.
+                We focus on product work where the technical layer needs to be handled carefully and explained clearly to users.
               </p>
 
-              <h3>Smart Contract Development</h3>
-              <p>
-                We write and audit secure smart contracts for Ethereum, Polygon, and other EVM-compatible chains. Our contracts are robust, gas-efficient, and thoroughly tested.
-              </p>
+              <ul>
+                <li>Wallet, payment and transaction interfaces</li>
+                <li>dApp frontends and product flows</li>
+                <li>API and indexer integrations</li>
+                <li>Security-minded product review</li>
+                <li>Documentation and technical handover</li>
+              </ul>
 
-              <h3>Decentralised App (dApp) Development</h3>
-              <p>
-                We build user-friendly dApps that connect your users to blockchain features, combining intuitive front-ends with resilient back-ends.
-              </p>
-
-              <h3>Wallet Integration</h3>
-              <p>
-                We implement seamless wallet connections (MetaMask, WalletConnect, and more) to enable secure user authentication and transactions.
-              </p>
-
-              <h3>Token Creation & Tokenomics</h3>
-              <p>
-                We create bespoke tokens—utility, governance, or NFT—engineered for your specific use case and compliant with best practices.
-              </p>
-
-              <h3>Security Audits</h3>
-              <p>
-                Our team conducts comprehensive blockchain security audits, identifying vulnerabilities and safeguarding your project and users.
-              </p>
-
-              <h3>DeFi & Protocol Engineering</h3>
-              <p>
-                We architect and implement decentralised finance protocols—lending, trading, and staking—tailored to your requirements.
-              </p>
-
-              <h2>Our Blockchain Process</h2>
+              <h2>Process</h2>
               <ol>
-                <li><strong>Discovery:</strong> Define your objectives and technical needs.</li>
-                <li><strong>Architecture:</strong> Design secure, scalable solutions.</li>
-                <li><strong>Development:</strong> Write and audit smart contracts and dApps.</li>
-                <li><strong>Testing & Security:</strong> Rigorous testing and independent audits.</li>
-                <li><strong>Deployment:</strong> Launch on testnet and mainnet.</li>
-                <li><strong>Ongoing Support:</strong> Continuous monitoring and updates.</li>
+                <li><strong>Scope:</strong> define the product goal and technical risk.</li>
+                <li><strong>Design:</strong> make complex flows understandable.</li>
+                <li><strong>Build:</strong> implement the interface, integrations and data flows.</li>
+                <li><strong>Review:</strong> check security, reliability and handover needs.</li>
               </ol>
 
-              <h2>Technologies We Use</h2>
+              <h2>Technologies</h2>
               <ul>
                 <li>Ethereum, ERC-20</li>
                 <li>Bitcoin, Lightning Network</li>
                 <li>Web3.js, ethers.js, wagmi</li>
-                <li>IPFS (decentralised storage)</li>
+                <li>IPFS and decentralised storage</li>
                 <li>MetaMask, WalletConnect</li>
               </ul>
 
-              <h2>Ready to Launch Your Blockchain Project?</h2>
+              <h2>Need specialist technical depth?</h2>
               <p>
-                Contact Flat 18 to discuss your Web3 ambitions. Our expert team will help you build secure, innovative decentralised solutions that move your business forward.
+                Tell us what you are building and where the technical risk sits.
               </p>
             </div>
           </div>

@@ -5,8 +5,8 @@ import { Metadata } from 'next'
 export const siteConfig = {
   name: 'Flat 18',
   legalName: 'Flat 18 Microsystems Development LLC',
-  title: 'Flat 18 - Expert-built products, accelerated by LLMs',
-  description: 'Senior full-stack developers using LLMs to design and build curated MVPs and complete digital products quickly.',
+  title: 'Flat 18 - Senior developers using LLMs to ship better products faster',
+  description: 'Senior full-stack developers using LLMs to design and build curated MVPs, internal tools and complete digital products quickly.',
   url: 'https://flat18.co.uk',
   ogImage: '/og/home.png',
   twitter: '@f18_dev',
@@ -18,6 +18,7 @@ export const siteConfig = {
     'web design',
     'web development',
     'MVP development',
+    'MVP sprint',
     'LLM development studio',
     'AI-assisted development',
     'LLM product development',
@@ -26,6 +27,7 @@ export const siteConfig = {
     'conversion optimisation',
     'Next.js agency',
     'React development',
+    'full-stack development studio',
     'design and engineering',
     'senior developers',
     'founder-led teams',
@@ -345,13 +347,13 @@ export function generateJsonLdScript(data: Record<string, any>): string {
 export const pageTypes = {
   about: () => generatePageMetadata({
     title: 'About',
-    description: 'Learn about Flat 18, an expert-led design and development studio using LLMs to help founders ship serious products faster.',
+    description: 'Learn about Flat 18, a senior design and full-stack development studio using LLMs to help founders ship serious products faster.',
     path: '/about',
   }),
   
   services: () => generatePageMetadata({
     title: 'Services',
-    description: 'Curated MVPs, complete product builds, LLM workflow design and long-term product support from senior full-stack developers.',
+    description: 'Curated MVP sprints, complete product builds, LLM workflow design and long-term product support from senior full-stack developers.',
     path: '/services',
   }),
   
@@ -363,16 +365,9 @@ export const pageTypes = {
   
   pricing: () => generatePageMetadata({
     title: 'Pricing',
-    description: 'Pricing routes for MVP sprints, complete product builds and monthly product team capacity.',
+    description: 'Pricing routes for curated MVP sprints, complete product builds and monthly product team capacity.',
     path: '/pricing',
   }),
-  
-  founder: () => generatePageMetadata({
-    title: 'Founder version',
-    description: 'A blunt, founder-first overview of how Flat 18 uses senior judgement and LLM speed to ship products faster.',
-    path: '/founder',
-  }),
-
   privacy: () => generatePageMetadata({
     title: 'Privacy policy',
     description: 'How Flat 18 handles data, cookies, and privacy across our services.',

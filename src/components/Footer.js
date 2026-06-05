@@ -25,7 +25,7 @@ export default function Footer() {
                   <span className={styles.brandName}>Flat 18</span>
                 </Link>
                 <p className={styles.footerTagline}>
-                  Expert-led design and development for LLM-accelerated MVPs and complete products.
+                  Senior design and full-stack development for LLM-accelerated MVPs, complete products and product teams.
                 </p>
 
                 {/* Social icons */}
@@ -46,22 +46,22 @@ export default function Footer() {
                 <h3 className={styles.columnTitle}>Services</h3>
                 <ul className={styles.linksList}>
                   <li>
-                    <Link href="/#services" className={styles.footerLink}>
+                    <Link href="/services/app-development" className={styles.footerLink}>
                       Curated MVPs
                     </Link>
                   </li>
                   <li>
-                    <Link href="/#services" className={styles.footerLink}>
+                    <Link href="/services/web-development" className={styles.footerLink}>
                       Complete product builds
                     </Link>
                   </li>
                   <li>
-                    <Link href="/#services" className={styles.footerLink}>
+                    <Link href="/services/ai-augmented-development" className={styles.footerLink}>
                       LLM workflow design
                     </Link>
                   </li>
                   <li>
-                    <Link href="/#services" className={styles.footerLink}>
+                    <Link href="/services/maintenance-support" className={styles.footerLink}>
                       Long-term product support
                     </Link>
                   </li>
@@ -94,11 +94,6 @@ export default function Footer() {
                   <li>
                     <Link href="/about" className={styles.footerLink}>
                       About
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/founder" className={styles.footerLink}>
-                      Founder version
                     </Link>
                   </li>
                   <li>

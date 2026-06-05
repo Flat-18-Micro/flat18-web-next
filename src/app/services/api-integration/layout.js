@@ -1,7 +1,7 @@
 import { generatePageMetadata, generateServiceJsonLd, siteConfig } from '@/lib/seo'
 
-const title = "API Integration Services"
-const description = "API integration services to connect products with payments, data platforms, and third-party systems."
+const title = "API integrations"
+const description = "Reliable API integrations for payments, data platforms, CRMs, internal systems and product workflows."
 const path = "/services/api-integration"
 
 export const metadata = generatePageMetadata({

@@ -18,13 +18,13 @@ export default function WebDevelopmentPage() {
             <div className={styles.badge}>Design, engineering and launch</div>
             <div className={styles.textContent}>
               <p>
-                Flat 18 builds complete digital products for teams that need design and engineering handled together. We use LLMs to speed up drafting, implementation and documentation, with senior developers controlling the architecture and quality.
+                Flat 18 builds complete digital products for teams that need design and engineering handled together. LLMs speed up drafting, implementation and documentation. Senior developers control the architecture and quality.
               </p>
 
-              <h2>Why choose Flat 18?</h2>
+              <h2>Why choose this route?</h2>
               <ul>
-                <li>One team for product thinking, UX, UI and full-stack engineering</li>
-                <li>LLM-assisted speed without handing quality over to the model</li>
+                <li>One team for UX, UI and full-stack engineering</li>
+                <li>LLM-assisted speed under senior review</li>
                 <li>Clear milestones, practical scope and direct communication</li>
                 <li>Production standards for performance, accessibility and maintainability</li>
               </ul>
@@ -34,53 +34,35 @@ export default function WebDevelopmentPage() {
                 We can take a product from concept to launch or take over a partially built product and give it a clearer path forward.
               </p>
 
-              <h3>Product strategy and UX</h3>
-              <p>
-                We clarify the offer, users, flows and acceptance criteria before the build starts, so speed does not become guesswork.
-              </p>
+              <ul>
+                <li>Product strategy, UX and interface design</li>
+                <li>Frontend, backend, APIs, auth and data layers</li>
+                <li>Integrations, deployment and release planning</li>
+                <li>Performance, accessibility and maintainability checks</li>
+                <li>Documentation, handover and support options</li>
+              </ul>
 
-              <h3>Frontend and backend engineering</h3>
-              <p>
-                We build the interface, data layer, API routes, authentication, integrations and deployment pipeline needed for a working product.
-              </p>
-
-              <h3>LLM-assisted engineering workflow</h3>
-              <p>
-                LLMs help us generate options, boilerplate, test cases and documentation faster. Senior developers review, refactor and harden the result.
-              </p>
-
-              <h3>Performance and accessibility</h3>
-              <p>
-                We check speed, responsive behaviour, accessibility and usability so the product feels credible in front of real users.
-              </p>
-
-              <h3>Handover and support</h3>
-              <p>
-                You get the code, documentation and next-step recommendations. We can hand over or stay involved through a monthly product team retainer.
-              </p>
-
-              <h2>Our Approach</h2>
+              <h2>Our approach</h2>
               <ol>
-                <li><strong>Frame:</strong> Goals, users, constraints, risks and success metrics.</li>
-                <li><strong>Generate:</strong> LLM-assisted options, prototypes and implementation drafts.</li>
-                <li><strong>Engineer:</strong> Senior full-stack build, integration and review.</li>
-                <li><strong>Harden:</strong> Testing, security checks, performance passes and documentation.</li>
-                <li><strong>Launch:</strong> Deployment, analytics, handover and support options.</li>
+                <li><strong>Frame:</strong> goals, users, constraints and risks.</li>
+                <li><strong>Draft:</strong> LLM-assisted options, prototypes and implementation starts.</li>
+                <li><strong>Build:</strong> senior full-stack engineering and review.</li>
+                <li><strong>Harden:</strong> testing, security, performance and documentation.</li>
+                <li><strong>Launch:</strong> deployment, analytics, handover and support options.</li>
               </ol>
 
-              <h2>Technologies we use</h2>
+              <h2>Typical stack</h2>
               <ul>
-                <li>Next.js, React, and Vue.js</li>
-                <li>Node.js for server-side logic</li>
-                <li>Vercel, Netlify, AWS for hosting and deployment</li>
-                <li>Headless CMS and content workflows where useful</li>
-                <li>GraphQL and REST APIs</li>
-                <li>CSS Modules, Tailwind CSS, Styled Components</li>
+                <li>Next.js, React and modern frontend frameworks</li>
+                <li>Node.js, APIs and serverless functions</li>
+                <li>Postgres, Supabase, Neon and practical data layers</li>
+                <li>Vercel, Cloudflare, AWS and GitHub Actions</li>
+                <li>REST, GraphQL and third-party integrations</li>
               </ul>
 
               <h2>Ready to build the product?</h2>
               <p>
-                Tell us what you need to launch, prove or fix. We will recommend the right route and likely timeline.
+                Tell us what you need to launch, prove or fix. We will suggest the right route and likely timeline.
               </p>
             </div>
           </div>

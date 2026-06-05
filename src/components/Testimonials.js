@@ -4,23 +4,23 @@ import { getSectionBackground, getSectionTextColor } from '@/hooks/scrollBackgro
 const reasons = [
   {
     icon: 'bi-terminal',
-    title: 'LLMs do the heavy lifting',
-    text: 'We use LLMs to draft approaches, generate boilerplate, explore options, write tests and prepare documentation quickly.',
+    title: 'Fast drafts',
+    text: 'Research, scaffolding, UI options, tests and documentation move faster.',
   },
   {
     icon: 'bi-person-check',
-    title: 'Senior developers keep control',
-    text: 'Experienced engineers own the architecture, integration choices, code review, security checks and final product decisions.',
+    title: 'Technical judgement',
+    text: 'Architecture, integrations, security and product behaviour are reviewed by senior developers.',
   },
   {
     icon: 'bi-box',
-    title: 'You get a product, not a prompt',
-    text: 'The output is working software with clear scope, production standards, handover notes and a roadmap you can keep using.',
+    title: 'One product system',
+    text: 'UX, code, data and release choices stay connected.',
   },
   {
     icon: 'bi-shield-lock',
-    title: 'AI speed without shortcuts',
-    text: 'We avoid using LLMs where judgement, privacy, resilience or commercial risk need direct human attention.',
+    title: 'Ownable output',
+    text: 'You leave with a working repo, clear decisions and next steps.',
   },
 ]
 
@@ -34,12 +34,12 @@ export default function Testimonials() {
     >
       <div className={`${styles.container} max-w-content mx-auto px-6 sm:px-8`}>
         <div className={styles.sectionHeader}>
-          <span className="label-uppercase">Why founders choose Flat 18</span>
+          <span className="label-uppercase">Why it works</span>
           <h2 id="why-flat18" className={styles.sectionTitle}>
-            Experience, judgement and the right tools
+            AI speed, senior control
           </h2>
           <p className={styles.sectionSubtitle}>
-            LLMs make production work faster. Senior full-stack developers make sure the result is useful, maintainable and safe to own.
+            LLMs cut drafting time. Our value is knowing what to keep, change and ship.
           </p>
         </div>
 
@@ -55,7 +55,7 @@ export default function Testimonials() {
 
         <div className={styles.evidenceRow}>
           <p>
-            The advantage is not the tool by itself. It is senior people using the tool with taste, technical depth and responsibility.
+            No prompt demos. Reviewed software you can build on.
           </p>
           <a href="#chat" className="btn btn-secondary">
             Discuss your project

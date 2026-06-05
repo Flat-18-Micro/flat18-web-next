@@ -10,9 +10,9 @@ const CHATWOOT_TOKEN = 'krt1otbtLdpkie19rPwPThai'
 const CHAT_PREFILL_PRESETS = {
   intro: 'Hi Flat 18 - I would like to talk about a project.',
   pricing: 'Hi Flat 18 - can you share pricing and timelines?',
-  mvp: 'Hi Flat 18 - I am looking to build an MVP.',
-  redesign: 'Hi Flat 18 - I am interested in a website redesign.',
-  support: 'Hi Flat 18 - I need help with an existing site.',
+  mvp: 'Hi Flat 18 - I am looking to build a curated MVP.',
+  redesign: 'Hi Flat 18 - I am interested in redesigning or rebuilding a product.',
+  support: 'Hi Flat 18 - I need senior support for an existing product.',
 }
 
 const resolvePrefillMessage = (value) => {
@@ -146,7 +146,7 @@ export default function ChatwootWidget() {
         if (error.name === 'AbortError') {
           console.warn('Metrics fetch request timed out')
         } else {
-          console.error('Metrics fetch error:', error)
+          console.warn('Metrics fetch error:', error)
         }
       } finally {
         if (controller) {
