@@ -9,9 +9,8 @@
   --font-display: 'Dela Gothic One', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-heading: 'Dela Gothic One', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-heading-bold: 'Dela Gothic One', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-editorial: 'Colitez Serif', Georgia, 'Times New Roman', serif;
-  --font-mono: var(--font-jetbrains-mono), 'JetBrains Mono', 'SF Mono', 'Roboto Mono', Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
-  --font-playfair: var(--font-playfair-display), Georgia, 'Times New Roman', serif
+  --font-editorial: Georgia, 'Colitez Serif', 'Cormorant Garamond', 'Times New Roman', serif;
+  --font-mono: var(--font-jetbrains-mono), 'JetBrains Mono', 'SF Mono', 'Roboto Mono', Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace
 }
 
 @keyframes fadeIn {
@@ -111,13 +110,13 @@ h1, h2 {
   line-height: 1.08;
   font-weight: var(--font-normal);
   font-family: var(--font-heading);
-  letter-spacing: -0.045em;
+  letter-spacing: 0;
   text-balance: balance
 }
 
 h1 {
   font-size: var(--text-display);
-  letter-spacing: -0.05em;
+  letter-spacing: 0;
   font-weight: var(--font-normal);
   font-family: var(--font-heading);
   max-width: 12ch
@@ -126,19 +125,19 @@ h1 {
 h1 strong, h1 .heavy, .hero-heavy {
   font-family: var(--font-heading-bold);
   font-weight: var(--font-normal);
-  letter-spacing: -0.055em
+  letter-spacing: 0
 }
 
 .editorial-accent {
-  font-family: var(--font-editorial);
-  font-style: italic;
+  font-family: var(--font-heading);
+  font-style: normal;
   font-weight: 400;
-  letter-spacing: -.02em
+  letter-spacing: 0
 }
 
 h2 {
   font-size: var(--text-section-heading);
-  letter-spacing: -0.045em;
+  letter-spacing: 0;
   font-weight: var(--font-normal);
   font-family: var(--font-heading)
 }
@@ -147,7 +146,7 @@ h3 {
   font-size: var(--text-3xl);
   font-weight: var(--font-bold);
   font-family: var(--font-sans);
-  letter-spacing: -0.02em;
+  letter-spacing: 0;
   line-height: var(--leading-snug)
 }
 
@@ -155,7 +154,7 @@ h4 {
   font-size: var(--text-2xl);
   font-weight: var(--font-bold);
   font-family: var(--font-sans);
-  letter-spacing: -0.02em;
+  letter-spacing: 0;
   line-height: var(--leading-snug)
 }
 
@@ -163,7 +162,7 @@ h5 {
   font-size: var(--text-xl);
   font-weight: var(--font-bold);
   font-family: var(--font-sans);
-  letter-spacing: -0.015em;
+  letter-spacing: 0;
   line-height: var(--leading-snug)
 }
 
@@ -171,7 +170,7 @@ h6 {
   font-size: var(--text-lg);
   font-weight: var(--font-bold);
   font-family: var(--font-sans);
-  letter-spacing: -0.015em;
+  letter-spacing: 0;
   line-height: var(--leading-snug)
 }
 
@@ -1147,7 +1146,7 @@ h2.gradient-text {
   font-size: var(--text-5xl);
   font-weight: var(--font-normal);
   line-height: 1.08;
-  letter-spacing: -0.045em
+  letter-spacing: 0
 }
 
 [class*=Heading]>p {

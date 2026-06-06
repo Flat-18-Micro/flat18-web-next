@@ -1,5 +1,6 @@
 import dynamic from 'next/dynamic'
 import Hero from '@/components/Hero'
+import TrustSection from '@/components/TrustSection'
 import FeaturedWork from '@/components/FeaturedWork'
 import ScrollBackground from '@/components/ScrollBackground'
 import HashAnchorScroll from '@/components/HashAnchorScroll'
@@ -18,6 +19,7 @@ const Portfolio   = dynamic(() => import('@/components/Portfolio'))
 const FAQ         = dynamic(() => import('@/components/FAQ'))
 const Contact     = dynamic(() => import('@/components/Contact'))
 const Tools       = dynamic(() => import('@/components/Tools'))
+const FinalCTA    = dynamic(() => import('@/components/FinalCTA'))
 const Footer      = dynamic(() => import('@/components/Footer'))
 
 export default function HomeClientShell() {
@@ -26,6 +28,7 @@ export default function HomeClientShell() {
       <HashAnchorScroll />
       <ScrollBackground />
       <Hero />
+      <TrustSection />
       <FeaturedWork />
       <Testimonials />
       <Features />
@@ -35,6 +38,7 @@ export default function HomeClientShell() {
       <FAQ />
       <Contact />
       <Tools />
+      <FinalCTA />
       <Footer />
     </div>
   )

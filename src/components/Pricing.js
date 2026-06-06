@@ -17,39 +17,56 @@ import {
 const PROJECT_ROUTES = [
   {
     icon: 'bi-lightning-charge',
-    title: 'Curated MVP sprint',
+    title: 'Curated MVP Sprint',
     timeline: '2-6 weeks',
-    description: 'A tight build for a usable first version, demo or market test.',
+    description: 'For founders who need a working MVP quickly, not another static mockup.',
+    bestFor: 'Idea validation, investor demos and early user testing',
     min: 3500,
-    max: 12000,
-    cta: 'Start a project',
+    period: null,
+    cta: 'Start an MVP',
     highlights: [
-      'Scope and user flow',
-      'UX, UI and full-stack build',
-      'Deployment and handover',
+      'Discovery and product scoping',
+      'UX/UI design direction',
+      'Full-stack MVP build',
+      'LLM-accelerated implementation',
+      'Deployment and launch support',
     ],
   },
   {
     icon: 'bi-layers',
-    title: 'Complete product',
+    title: 'Complete Product Build',
     timeline: '6-12+ weeks',
-    description: 'Design and engineering for production software.',
+    description: 'For teams that need a more robust product, dashboard or web app built with stronger technical foundations.',
+    bestFor: 'Dashboards, web apps and product systems with real users',
     min: 12000,
-    max: null,
-    cta: 'Request a quote',
+    period: null,
+    cta: 'Plan a build',
     highlights: [
-      'Architecture and product design',
-      'Frontend, backend and integrations',
-      'QA, launch and documentation',
+      'Product planning',
+      'Interface design',
+      'Frontend and backend development',
+      'Authentication, database and integrations',
+      'Testing, refinement and deployment',
     ],
   },
-]
-
-const PRODUCT_TEAM_HIGHLIGHTS = [
-  'Senior design and development capacity',
-  'LLM-assisted implementation and review',
-  'One active request, clear queue',
-  'Pause when done',
+  {
+    icon: 'bi-people',
+    title: 'Monthly Studio Support',
+    timeline: 'Monthly',
+    description: 'For ongoing product improvements, experiments, fixes and feature delivery.',
+    bestFor: 'Live products with a steady product and engineering backlog',
+    min: BASE_PRICES.monthly,
+    period: '/month',
+    cta: 'Work with us monthly',
+    highlights: [
+      'Monthly design and development capacity',
+      'Feature iteration',
+      'UX improvements',
+      'Technical support',
+      'Refactoring and optimisation',
+    ],
+    isMonthly: true,
+  },
 ]
 
 export default function Pricing({ headingLevel = 'h2' }) {
@@ -161,13 +178,6 @@ export default function Pricing({ headingLevel = 'h2' }) {
     return formatCurrency(amount * multiplier, selectedCurrency)
   }
 
-  const formatRange = (min, max) => {
-    const minStr = formatAmountForCurrency(min)
-    if (!max) return `${minStr}+`
-    const maxStr = formatAmountForCurrency(max)
-    return `${minStr}-${maxStr}`
-  }
-
   const basePriceDisplay = prices.monthly[selectedCurrency] || prices.monthly.GBP
   const promoPriceDisplay = formatAmountForCurrency(promoPrice)
   const HeadingTag = headingLevel === 'h1' ? 'h1' : 'h2'
@@ -184,7 +194,7 @@ export default function Pricing({ headingLevel = 'h2' }) {
           <span className="label-uppercase">Pricing</span>
           <HeadingTag className={styles.sectionTitle}>Pricing for serious product work</HeadingTag>
           <p className={styles.sectionDescription}>
-            Clear starting points. Faster LLM-assisted delivery, still led by senior product and engineering judgement.
+            Clear starting points for LLM-assisted product work led by senior developers. Pick the closest route and we will confirm the responsible scope before anything starts.
           </p>
         </div>
 
@@ -239,16 +249,43 @@ export default function Pricing({ headingLevel = 'h2' }) {
 
         <div className={styles.pricingGrid}>
           {PROJECT_ROUTES.map((route) => (
-            <article key={route.title} className={styles.pricingCard}>
+            <article
+              key={route.title}
+              className={`${styles.pricingCard} ${route.isMonthly && promoActive ? styles.saleCard : ''}`}
+            >
               <div className={styles.routeIcon}>
                 <i className={`bi ${route.icon}`} aria-hidden="true" />
               </div>
               <div className={styles.pricingHeader}>
-                <h3 className={styles.planTitle}>{route.title}</h3>
+                <div className={styles.badgeRow}>
+                  <h3 className={styles.planTitle}>{route.title}</h3>
+                  {route.isMonthly && promoActive ? <span className={styles.salePill}>{promoLabel}</span> : null}
+                </div>
                 <p className={styles.timeline}>{route.timeline}</p>
-                <p className={styles.priceRange}>{formatRange(route.min, route.max)}</p>
+                <div className={styles.priceBlock}>
+                  <span className={styles.startingAt}>Starting at</span>
+                  {route.isMonthly && promoActive ? (
+                    <>
+                      <span className={styles.priceOriginal}>{basePriceDisplay}</span>
+                      <p className={styles.priceRange}>
+                        {promoPriceDisplay}
+                        <span>{route.period}</span>
+                      </p>
+                      <p className={styles.priceNote}>{SUBSCRIPTION_PROMO.note}</p>
+                    </>
+                  ) : (
+                    <p className={styles.priceRange}>
+                      {formatAmountForCurrency(route.min)}
+                      {route.period ? <span>{route.period}</span> : null}
+                    </p>
+                  )}
+                </div>
               </div>
               <p className={styles.planSubtitle}>{route.description}</p>
+              <div className={styles.bestFor}>
+                <span>Best for</span>
+                <strong>{route.bestFor}</strong>
+              </div>
               <ul className={styles.featuresList}>
                 {route.highlights.map((highlight) => (
                   <li key={highlight} className={styles.featureItem}>
@@ -259,7 +296,7 @@ export default function Pricing({ headingLevel = 'h2' }) {
               </ul>
               <Link
                 href="#chat"
-                className={`btn ${route.title === 'Curated MVP sprint' ? 'btn-primary' : 'btn-secondary'}`}
+                className={`btn ${route.title === 'Curated MVP Sprint' ? 'btn-primary' : 'btn-secondary'}`}
                 onClick={() => analytics.pricing.bookCall()}
               >
                 {route.cta}
@@ -267,59 +304,6 @@ export default function Pricing({ headingLevel = 'h2' }) {
               </Link>
             </article>
           ))}
-
-          <article className={`${styles.pricingCard} ${styles.teamCard} ${promoActive ? styles.saleCard : ''}`}>
-            <div className={styles.routeIcon}>
-              <i className="bi bi-people" aria-hidden="true" />
-            </div>
-            <div className={styles.teamContent}>
-              <div>
-                <div className={styles.badgeRow}>
-                  <h3 className={styles.planTitle}>Monthly product team</h3>
-                  {promoActive ? <span className={styles.salePill}>{promoLabel}</span> : null}
-                </div>
-                <p className={styles.planSubtitle}>
-                  Ongoing senior product work when you need continuous momentum.
-                </p>
-              </div>
-
-              <div className={styles.teamPriceBlock}>
-                {promoActive ? (
-                  <>
-                    <span className={styles.priceOriginal}>{basePriceDisplay}</span>
-                    <div className={styles.priceDisplay}>
-                      <span className={styles.priceAmount}>{promoPriceDisplay}</span>
-                      <span className={styles.pricePeriod}>/month</span>
-                    </div>
-                    <p className={styles.priceNote}>{SUBSCRIPTION_PROMO.note}</p>
-                  </>
-                ) : (
-                  <div className={styles.priceDisplay}>
-                    <span className={styles.priceAmount}>{basePriceDisplay}</span>
-                    <span className={styles.pricePeriod}>/month</span>
-                  </div>
-                )}
-              </div>
-            </div>
-
-            <ul className={styles.teamHighlights}>
-              {PRODUCT_TEAM_HIGHLIGHTS.map((highlight) => (
-                <li key={highlight}>
-                  <i className="bi bi-check2" aria-hidden="true"></i>
-                  <span>{highlight}</span>
-                </li>
-              ))}
-            </ul>
-
-            <Link
-              href="#chat"
-              className="btn btn-primary"
-              onClick={() => analytics.pricing.bookCall()}
-            >
-              Start a project
-              <i className="bi bi-arrow-right" aria-hidden="true"></i>
-            </Link>
-          </article>
         </div>
 
         <div className={styles.bottomCTA}>

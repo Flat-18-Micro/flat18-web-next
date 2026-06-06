@@ -5,29 +5,29 @@ export default function Features() {
   const services = [
     {
       icon: 'bi-lightning-charge',
-      title: 'Curated MVP sprint',
-      description: 'A tight sprint from idea to usable first release.',
-      bestFor: 'New products, demos and market tests',
+      title: 'MVP Sprint',
+      description: "For founders who need to validate an idea, demo a product or get a working MVP into users' hands quickly.",
+      bestFor: 'Validation, demos and early users',
       pace: '2-6 weeks',
-      bullets: ['Scope and user flow', 'UX, UI and full-stack build', 'Deploy, document, hand over'],
+      bullets: ['Product scoping', 'UX/UI direction', 'Full-stack implementation', 'LLM-accelerated build process', 'Deployment support'],
       href: '/services/app-development'
     },
     {
       icon: 'bi-layers',
-      title: 'Complete product build',
-      description: 'End-to-end design and engineering for production software.',
+      title: 'Product Build',
+      description: 'For teams that need a more complete web app, dashboard or product system built with stronger foundations.',
       bestFor: 'SaaS, dashboards, internal tools and customer platforms',
       pace: '6-12+ weeks',
-      bullets: ['Architecture and product design', 'Frontend, backend and integrations', 'QA, launch and handover'],
+      bullets: ['UX and interface design', 'Frontend and backend development', 'Authentication, data models and integrations', 'Testing and refinement', 'Launch support'],
       href: '/services/web-development'
     },
     {
       icon: 'bi-infinity',
-      title: 'Monthly product team',
-      description: 'Steady senior product work without hiring.',
+      title: 'Ongoing Studio',
+      description: 'For clients who need a long-term design and development partner for product improvements, experiments and feature delivery.',
       bestFor: 'Teams with a live product or growing backlog',
       pace: 'Monthly',
-      bullets: ['One active request', 'Clear product queue', 'Pause when done'],
+      bullets: ['Iterative feature work', 'Design and UX improvements', 'Technical maintenance', 'Refactoring and performance work', 'Product support'],
       href: '/services/maintenance-support'
     }
   ]
@@ -42,9 +42,9 @@ export default function Features() {
       <div className={`${styles.container} max-w-content mx-auto px-6 sm:px-8`}>
         <div className={styles.sectionHeading}>
           <span className="label-uppercase">Services</span>
-          <h2 className={styles.sectionTitle}>Three ways to build</h2>
+          <h2 className={styles.sectionTitle}>Three focused build paths</h2>
           <p className={styles.sectionDescription}>
-            Pick the shape of work. We keep scope tight, use LLMs where they help, and ship code you can keep.
+            Choose the level of support that fits the product. Each route uses senior direction, practical design and LLM-assisted delivery where it genuinely speeds the work.
           </p>
         </div>
 

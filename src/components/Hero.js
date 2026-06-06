@@ -25,13 +25,7 @@ const PROOF_POINTS = [
   },
 ]
 
-const PIPELINE_STAGES = ['Scope', 'Generate', 'Engineer', 'Harden']
-
-const RELEASE_ROWS = [
-  ['Architecture', 'Approved'],
-  ['Review', 'Senior pass'],
-  ['Release', 'Ready'],
-]
+const PIPELINE_STEPS = [0, 1, 2, 3]
 
 export default function Hero() {
   return (
@@ -40,7 +34,7 @@ export default function Hero() {
       data-bg-color={getSectionBackground('hero')}
       data-text-color={getSectionTextColor('hero')}
     >
-      <div className={styles.heroRule} aria-hidden="true" />
+      {/* <div className={styles.heroRule} aria-hidden="true" /> */}
       <div className={`${styles.heroContainer} max-w-7xl mx-auto px-6 sm:px-8`}>
         <div className={styles.heroContent}>
           <h1 className={styles.heroHeading}>
@@ -48,7 +42,7 @@ export default function Hero() {
           </h1>
 
           <p className={styles.heroSubheading}>
-            Flat 18 designs and builds curated MVPs, internal tools and complete products. LLMs add speed; senior full-stack developers keep the scope, architecture and release under control.
+            We are Senior Developers steering AI agents to turn big ideas into polished MVPs, dashboards and full-stack systems.
           </p>
 
           <div className={styles.heroActions}>
@@ -61,11 +55,11 @@ export default function Hero() {
               <i className="bi bi-arrow-right" aria-hidden="true" />
             </a>
             <Link
-              href="/#pricing"
+              href="/#senior-control"
               className="btn btn-secondary btn-lg"
-              onClick={() => analytics.hero.ctaClick('See pricing')}
+              onClick={() => analytics.hero.ctaClick('See how we work')}
             >
-              <span className="btn-text">See pricing</span>
+              <span className="btn-text">See how we work</span>
             </Link>
           </div>
 
@@ -85,8 +79,8 @@ export default function Hero() {
         <div className={styles.heroVisual} aria-label="Product delivery artefacts">
           <div className={`${styles.artifact} ${styles.briefArtifact}`}>
             <div className={styles.artifactHeader}>
-              <span>Project brief</span>
-              <span>Senior scoped</span>
+              <span>Brief</span>
+              <span>Scoped</span>
             </div>
             <div className={styles.blueprintFrame} aria-hidden="true">
               <svg className={styles.blueprintSvg} viewBox="0 0 320 178" focusable="false">
@@ -100,47 +94,37 @@ export default function Hero() {
                 <circle className={styles.blueprintNode} cx="274" cy="80" r="6" />
               </svg>
             </div>
-            <dl className={styles.specList}>
-              <div>
-                <dt>Audience</dt>
-                <dd>Founders and product teams</dd>
-              </div>
-              <div>
-                <dt>Problem</dt>
-                <dd>Slow delivery, unclear scope</dd>
-              </div>
-              <div>
-                <dt>Solution</dt>
-                <dd>Scoped sprint, reviewed code</dd>
-              </div>
-            </dl>
+            <div className={styles.signalGrid} aria-hidden="true">
+              <span />
+              <span />
+              <span />
+            </div>
           </div>
 
           <div className={`${styles.artifact} ${styles.pipelineArtifact}`}>
             <div className={styles.artifactHeader}>
-              <span>LLM delivery loop</span>
-              <span>Human gated</span>
+              <span>Loop</span>
+              <span>Gated</span>
             </div>
             <div className={styles.pipelineBody}>
               <svg className={styles.pipelineSvg} viewBox="0 0 420 122" aria-hidden="true" focusable="false">
                 <path className={styles.pipelineRail} d="M44 62H376" />
                 <path className={styles.pipelinePulse} d="M44 62H376" />
-                {PIPELINE_STAGES.map((stage, index) => {
+                {PIPELINE_STEPS.map((step, index) => {
                   const x = 44 + index * 110
 
                   return (
-                    <g key={stage} className={styles.pipelineNodeGroup}>
+                    <g key={step} className={styles.pipelineNodeGroup}>
                       <circle className={styles.pipelineNode} cx={x} cy="62" r="11" />
                       <circle className={styles.pipelineNodeCore} cx={x} cy="62" r="4" />
-                      <text x={x} y="96" textAnchor="middle">{stage}</text>
                     </g>
                   )
                 })}
               </svg>
-              <div className={styles.codeBlock} aria-hidden="true">
-                <span>{'scope.lock(decisions)'}</span>
-                <span>{'llm.draft(components)'}</span>
-                <span>{'senior.review(ship)'}</span>
+              <div className={styles.flowBars} aria-hidden="true">
+                <span />
+                <span />
+                <span />
               </div>
             </div>
           </div>
@@ -148,7 +132,7 @@ export default function Hero() {
           <div className={`${styles.artifact} ${styles.releaseArtifact}`}>
             <div className={styles.releaseShell}>
               <div className={styles.releaseNav}>
-                <span>Launch board</span>
+                <span>Launch</span>
                 <i className="bi bi-check-circle" aria-hidden="true" />
               </div>
               <div className={styles.releaseChart} aria-hidden="true">
@@ -160,23 +144,14 @@ export default function Hero() {
                   <circle className={styles.chartPoint} cx="424" cy="26" r="5" />
                 </svg>
               </div>
-              <div className={styles.releaseMetrics}>
-                <div>
-                  <span>First version</span>
-                  <strong>Weeks</strong>
-                </div>
-                <div>
-                  <span>Build state</span>
-                  <strong>Reviewed</strong>
-                </div>
+              <div className={styles.releaseMeters} aria-hidden="true">
+                <span />
+                <span />
               </div>
-              <div className={styles.releaseList}>
-                {RELEASE_ROWS.map(([label, status]) => (
-                  <span key={label}>
-                    <em>{label}</em>
-                    <strong>{status}</strong>
-                  </span>
-                ))}
+              <div className={styles.releaseChecks} aria-hidden="true">
+                <span><i className="bi bi-check2" aria-hidden="true" /></span>
+                <span><i className="bi bi-check2" aria-hidden="true" /></span>
+                <span><i className="bi bi-check2" aria-hidden="true" /></span>
               </div>
             </div>
           </div>

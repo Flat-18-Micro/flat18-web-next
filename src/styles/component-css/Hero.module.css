@@ -87,11 +87,12 @@
 
 .heroSerifAccent {
   display: inline-block;
+  color: var(--hero-blue);
   font-family: var(--font-editorial);
   font-style: italic;
   font-weight: 400;
-  letter-spacing: -0.075em;
-  transform: scaleX(0.86) translateY(-0.02em);
+  letter-spacing: -0.055em;
+  transform: scaleX(0.92) translateY(-0.015em);
   transform-origin: center;
 }
 
@@ -187,8 +188,7 @@
   left: 0;
   z-index: 2;
   width: min(52%, 360px);
-  padding: 1.15rem;
-  animation: heroFloat 8s ease-in-out infinite
+  padding: 1.15rem
 }
 
 .pipelineArtifact {
@@ -196,8 +196,7 @@
   right: 0;
   z-index: 3;
   width: min(47%, 380px);
-  padding: 1rem;
-  animation: heroFloat 9s ease-in-out .9s infinite
+  padding: 1rem
 }
 
 .releaseArtifact {
@@ -206,8 +205,7 @@
   z-index: 4;
   width: min(54%, 430px);
   padding: 1rem;
-  background: var(--hero-card-strong);
-  animation: heroFloat 10s ease-in-out 1.6s infinite
+  background: var(--hero-card-strong)
 }
 
 .artifactHeader {
@@ -263,7 +261,7 @@
   stroke-linecap: round;
   stroke-dasharray: 520;
   stroke-dashoffset: 520;
-  animation: routeDraw 6.4s ease-in-out infinite
+  animation: routeDrawIn 1.8s cubic-bezier(.2, .65, .25, 1) .45s both
 }
 
 .blueprintNode {
@@ -272,33 +270,41 @@
   stroke-width: 2;
   transform-box: fill-box;
   transform-origin: center;
-  animation: nodePulse 3.8s ease-in-out infinite
+  opacity: 0;
+  animation: nodeSettle .8s cubic-bezier(.2, .65, .25, 1) 1.65s both
 }
 
-.specList {
+.signalGrid {
   display: grid;
-  gap: .72rem;
-  margin: .85rem 0 0
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: .48rem;
+  margin-top: .85rem
 }
 
-.specList div {
-  margin: 0
+.signalGrid span {
+  position: relative;
+  display: block;
+  height: 2.65rem;
+  border: 1px solid var(--hero-rule);
+  background: linear-gradient(to top, rgba(154, 107, 52, .16), transparent 62%), var(--hero-card-strong)
 }
 
-.specList dt {
-  margin-bottom: .22rem;
-  color: var(--hero-brass);
-  font-size: .68rem;
-  font-weight: 700;
-  letter-spacing: .09em;
-  text-transform: uppercase
+.signalGrid span::before {
+  content: "";
+  position: absolute;
+  left: .52rem;
+  right: .52rem;
+  bottom: .55rem;
+  height: 3px;
+  background: var(--hero-brass)
 }
 
-.specList dd {
-  margin: 0;
-  color: var(--hero-muted);
-  font-size: .8rem;
-  line-height: 1.4
+.signalGrid span:nth-child(2)::before {
+  background: var(--hero-blue)
+}
+
+.signalGrid span:nth-child(3)::before {
+  background: var(--hero-green)
 }
 
 .pipelineBody {
@@ -323,8 +329,9 @@
   stroke: var(--hero-blue);
   stroke-width: 3;
   stroke-linecap: round;
-  stroke-dasharray: 34 410;
-  animation: pipelinePulse 4.8s linear infinite
+  stroke-dasharray: 410;
+  stroke-dashoffset: 410;
+  animation: pipelineTraceIn 2.4s cubic-bezier(.2, .65, .25, 1) .8s both
 }
 
 .pipelineNode {
@@ -337,41 +344,29 @@
   fill: var(--hero-brass)
 }
 
-.pipelineSvg text {
-  fill: var(--hero-muted);
-  font-family: var(--font-sans);
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0
-}
-
-.codeBlock {
+.flowBars {
   display: grid;
-  gap: .45rem;
-  padding: .9rem 1rem;
+  gap: .42rem;
+  padding: .85rem .95rem;
   border: 1px solid var(--hero-rule);
-  background: #11100f;
-  color: #f8f7f2;
-  font-family: var(--font-mono);
-  font-size: .78rem;
-  line-height: 1.5
+  background: #11100f
 }
 
-.codeBlock span {
-  position: relative;
+.flowBars span {
   display: block;
-  padding-left: 1rem
+  height: .52rem;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--hero-green), rgba(248, 247, 242, .22))
 }
 
-.codeBlock span::before {
-  content: "";
-  position: absolute;
-  top: .62em;
-  left: 0;
-  width: .38rem;
-  height: .38rem;
-  border-radius: 999px;
-  background: var(--hero-green)
+.flowBars span:nth-child(2) {
+  width: 74%;
+  background: linear-gradient(90deg, var(--hero-blue), rgba(248, 247, 242, .2))
+}
+
+.flowBars span:nth-child(3) {
+  width: 88%;
+  background: linear-gradient(90deg, var(--hero-brass), rgba(248, 247, 242, .2))
 }
 
 .releaseShell {
@@ -410,7 +405,7 @@
   stroke-linecap: round;
   stroke-dasharray: 520;
   stroke-dashoffset: 520;
-  animation: routeDraw 7.2s ease-in-out .4s infinite
+  animation: routeDrawIn 1.9s cubic-bezier(.2, .65, .25, 1) .7s both
 }
 
 .chartPoint {
@@ -419,133 +414,118 @@
   stroke-width: 2;
   transform-box: fill-box;
   transform-origin: center;
-  animation: nodePulse 3.5s ease-in-out .5s infinite
+  opacity: 0;
+  animation: nodeSettle .8s cubic-bezier(.2, .65, .25, 1) 1.9s both
 }
 
-.releaseMetrics {
+.releaseMeters {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: .6rem
 }
 
-.releaseMetrics div {
+.releaseMeters span {
   position: relative;
   overflow: hidden;
-  padding: .6rem;
+  min-height: 3.25rem;
   border: 1px solid var(--hero-rule);
   background: var(--hero-card-strong)
 }
 
-.releaseMetrics div::before {
+.releaseMeters span::before {
   content: "";
   position: absolute;
   inset: auto 0 0;
   width: 72%;
   height: 3px;
   background: var(--hero-brass);
-  animation: barGrow 4.8s ease-in-out infinite
+  transform: scaleX(.18);
+  transform-origin: left center;
+  animation: barBuildIn 1.3s cubic-bezier(.2, .65, .25, 1) 1.05s both
 }
 
-.releaseMetrics div:nth-child(2)::before {
+.releaseMeters span:nth-child(2)::before {
   width: 88%;
   background: var(--hero-green);
-  animation-delay: .5s
+  animation-delay: 1.25s
 }
 
-.releaseMetrics span, .releaseList em {
-  display: block;
-  color: var(--hero-muted);
-  font-size: .72rem;
-  font-style: normal;
-  font-weight: 700;
-  letter-spacing: .06em;
-  text-transform: uppercase
+.releaseMeters span::after {
+  content: "";
+  position: absolute;
+  left: .6rem;
+  right: .6rem;
+  top: .72rem;
+  height: .5rem;
+  border-radius: 999px;
+  background: var(--hero-rule)
 }
 
-.releaseMetrics strong {
-  display: block;
-  margin-top: .24rem;
-  color: var(--hero-ink);
-  font-size: 1rem
-}
-
-.releaseList {
+.releaseChecks {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: .36rem
 }
 
-.releaseList span {
-  display: block;
-  padding: .46rem .52rem;
+.releaseChecks span {
+  display: grid;
+  min-height: 2.6rem;
+  place-items: center;
   border: 1px solid var(--hero-rule);
   background: var(--hero-card-strong)
 }
 
-.releaseList strong {
-  display: block;
-  margin-top: .2rem;
-  color: var(--hero-ink);
-  font-size: .72rem;
-  line-height: 1.25
+.releaseChecks i {
+  color: var(--hero-green);
+  font-size: 1rem
 }
 
-@keyframes heroFloat {
-  0%, to {
-    transform: translate3d(0, 0, 0)
-  }
-
-  50% {
-    transform: translate3d(0, -8px, 0)
-  }
-}
-
-@keyframes routeDraw {
-  0% {
+@keyframes routeDrawIn {
+  from {
     stroke-dashoffset: 520;
     opacity: .55
   }
 
-  48%, 78% {
+  to {
     stroke-dashoffset: 0;
     opacity: 1
   }
-
-  to {
-    stroke-dashoffset: -520;
-    opacity: .55
-  }
 }
 
-@keyframes pipelinePulse {
+@keyframes pipelineTraceIn {
   0% {
+    opacity: 0;
     stroke-dashoffset: 410
   }
 
+  20% {
+    opacity: .75
+  }
+
   to {
+    opacity: 0;
     stroke-dashoffset: 0
   }
 }
 
-@keyframes nodePulse {
-  0%, to {
-    opacity: .72;
-    transform: scale(1)
+@keyframes nodeSettle {
+  from {
+    opacity: 0;
+    transform: scale(.72)
   }
 
-  45% {
+  to {
     opacity: 1;
-    transform: scale(1.16)
+    transform: scale(1)
   }
 }
 
-@keyframes barGrow {
-  0%, to {
-    transform: scaleX(.54);
-    transform-origin: left center
+@keyframes barBuildIn {
+  from {
+    transform: scaleX(.18)
   }
 
-  50% {
+  to {
     transform: scaleX(1)
   }
 }
@@ -560,9 +540,9 @@
     font-size: 3.75rem
   }
   .heroSerifAccent {
-  letter-spacing: -0.055em;
-  transform: scaleX(0.9) translateY(-0.015em);
-}
+    letter-spacing: -0.045em;
+    transform: scaleX(0.94) translateY(-0.01em);
+  }
 
   .proofItem span {
     display: none
@@ -645,21 +625,16 @@
     width: 74%
   }
 
-  .releaseList {
+  .releaseChecks {
     grid-template-columns: 1fr
   }
 
-  .releaseList span {
+  .releaseChecks span {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     gap: 1rem;
-    padding: .52rem .72rem
-  }
-
-  .releaseList strong {
-    margin-top: 0;
-    font-size: .82rem
+    min-height: 2.2rem
   }
 }
 

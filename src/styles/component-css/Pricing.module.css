@@ -101,7 +101,7 @@
 
 .pricingGrid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1rem;
 }
 
@@ -171,11 +171,42 @@
   font-weight: 700;
 }
 
+.priceRange span {
+  margin-left: .35rem;
+  color: var(--text-secondary);
+  font-family: var(--font-sans);
+  font-size: .9rem;
+  font-weight: 700;
+}
+
 .planSubtitle {
   margin: 0;
   color: var(--text-secondary);
   font-size: .98rem;
   line-height: 1.7;
+}
+
+.bestFor {
+  display: grid;
+  gap: .3rem;
+  padding: .85rem .95rem;
+  border: 1px solid var(--border-soft);
+  background: var(--surface-dim);
+}
+
+.bestFor span {
+  color: var(--text-tertiary);
+  font-size: .68rem;
+  font-weight: 700;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+}
+
+.bestFor strong {
+  color: var(--fg);
+  font-size: .9rem;
+  font-weight: 650;
+  line-height: 1.45;
 }
 
 .featuresList,
@@ -322,8 +353,13 @@
   line-height: 1.6;
 }
 
+@media (max-width: 1100px) {
+  .pricingGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
 @media (max-width: 980px) {
-  .pricingGrid,
   .teamCard,
   .teamContent {
     grid-template-columns: 1fr;
@@ -342,6 +378,10 @@
 }
 
 @media (max-width: 680px) {
+  .pricingGrid {
+    grid-template-columns: 1fr;
+  }
+
   .sectionHeading {
     text-align: left;
   }

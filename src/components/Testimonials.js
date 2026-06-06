@@ -3,24 +3,24 @@ import { getSectionBackground, getSectionTextColor } from '@/hooks/scrollBackgro
 
 const reasons = [
   {
-    icon: 'bi-terminal',
-    title: 'Fast drafts',
-    text: 'Research, scaffolding, UI options, tests and documentation move faster.',
-  },
-  {
     icon: 'bi-person-check',
-    title: 'Technical judgement',
-    text: 'Architecture, integrations, security and product behaviour are reviewed by senior developers.',
+    title: 'Senior direction',
+    text: 'Experienced developers shape the architecture, implementation path and trade-offs.',
   },
   {
-    icon: 'bi-box',
-    title: 'One product system',
-    text: 'UX, code, data and release choices stay connected.',
+    icon: 'bi-lightning-charge',
+    title: 'Faster iteration',
+    text: 'LLMs help us test interface ideas, implementation routes and content variants quickly.',
+  },
+  {
+    icon: 'bi-sliders',
+    title: 'Curated output',
+    text: 'We do not ship raw AI output. We edit, refine, test and integrate the work properly.',
   },
   {
     icon: 'bi-shield-lock',
-    title: 'Ownable output',
-    text: 'You leave with a working repo, clear decisions and next steps.',
+    title: 'Production awareness',
+    text: 'We think beyond the demo: data, permissions, deployment, maintainability and future changes.',
   },
 ]
 
@@ -28,6 +28,7 @@ export default function Testimonials() {
   return (
     <section
       className={styles.testimonialsSection}
+      id="ai-speed-control"
       data-bg-color={getSectionBackground('testimonials')}
       data-text-color={getSectionTextColor('testimonials')}
       aria-labelledby="why-flat18"
@@ -39,7 +40,7 @@ export default function Testimonials() {
             AI speed, senior control
           </h2>
           <p className={styles.sectionSubtitle}>
-            LLMs cut drafting time. Our value is knowing what to keep, change and ship.
+            LLMs can produce code quickly. The difference is knowing what to ask for, what to reject, what to refactor and how to turn rapid output into a product that can survive real users.
           </p>
         </div>
 
@@ -55,7 +56,7 @@ export default function Testimonials() {
 
         <div className={styles.evidenceRow}>
           <p>
-            No prompt demos. Reviewed software you can build on.
+            LLMs are the acceleration layer. Senior developers are the quality control.
           </p>
           <a href="#chat" className="btn btn-secondary">
             Discuss your project

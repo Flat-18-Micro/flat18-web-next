@@ -5,27 +5,27 @@ export default function HowItWorks() {
   const steps = [
     {
       number: '01',
-      title: 'Scope',
-      description: 'Define the outcome, users, constraints and success criteria.',
-      details: 'Brief, user flow, risks, acceptance criteria'
+      title: 'Shape',
+      description: 'We clarify the product idea, audience, workflows, must-have features and commercial goal.',
+      details: 'Idea, users, workflows, risks'
     },
     {
       number: '02',
-      title: 'Draft',
-      description: 'Use LLMs for options, scaffolds, components and test ideas.',
-      details: 'Product drafts, code scaffolds, test ideas'
+      title: 'Plan',
+      description: 'We define the build path, technical stack, interface direction and delivery priorities.',
+      details: 'Stack, interface direction, delivery priorities'
     },
     {
       number: '03',
-      title: 'Build',
-      description: 'Turn useful drafts into the product: UI, APIs, data, auth and deployment.',
-      details: 'Frontend, backend, APIs, data, deployment'
+      title: 'Generate and build',
+      description: 'We use LLMs to accelerate scaffolding, implementation, content and iteration while senior developers direct the work.',
+      details: 'Scaffolds, implementation, content, iteration'
     },
     {
       number: '04',
-      title: 'Review',
-      description: 'Check security, performance, accessibility and handover notes.',
-      details: 'Code review, QA, documentation, roadmap'
+      title: 'Refine and ship',
+      description: 'We review, test, polish, deploy and hand over a product that is ready to use or demonstrate.',
+      details: 'Review, QA, deployment, handover'
     }
   ]
 
@@ -39,9 +39,9 @@ export default function HowItWorks() {
       <div className={`${styles.container} max-w-content mx-auto px-6 sm:px-8`}>
         <div className={styles.sectionHeading}>
           <span className="label-uppercase">Process</span>
-          <h2 className={styles.sectionTitle}>A simple gated process</h2>
+          <h2 className={styles.sectionTitle}>A simple guided process</h2>
           <p className={styles.sectionDescription}>
-            LLMs help at each stage. Every stage still has a human decision point.
+            A fast build still needs clear decisions. We keep the path visible from first scope to launch.
           </p>
         </div>
 
@@ -67,7 +67,7 @@ export default function HowItWorks() {
         <div className={styles.processBottom}>
           <div className={styles.ctaContent}>
             <h3>Fast should still be maintainable.</h3>
-            <p>Each release is designed to launch, learn and improve.</p>
+            <p>LLMs are the acceleration layer. Senior developers are the quality control.</p>
           </div>
           <a href="#chat" className="btn btn-primary">
             Start a project

@@ -1,0 +1,133 @@
+.trustSection {
+  position: relative;
+  padding: clamp(3.25rem, 7vw, 6rem) 0;
+  background: var(--bg);
+}
+
+.container {
+  width: 100%;
+}
+
+.heading {
+  display: grid;
+  grid-template-columns: minmax(260px, .46fr) minmax(0, .54fr);
+  column-gap: clamp(2rem, 6vw, 6rem);
+  row-gap: 1.5rem;
+  align-items: end;
+  margin-bottom: clamp(2.4rem, 5vw, 4rem);
+}
+
+.heading :global(.label-uppercase) {
+  grid-column: 1;
+}
+
+.title {
+  grid-column: 1;
+  margin: .75rem 0 0;
+  color: var(--fg);
+  font-family: var(--font-heading);
+  font-size: clamp(2.25rem, 4.5vw, 4.35rem);
+  font-weight: 400;
+  line-height: 1.02;
+  letter-spacing: 0;
+  text-wrap: balance;
+}
+
+.intro {
+  grid-column: 2;
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: clamp(1.05rem, 1.45vw, 1.24rem);
+  line-height: var(--leading-relaxed);
+}
+
+.cardGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  border-top: 1px solid var(--border-soft);
+  border-bottom: 1px solid var(--border-soft);
+}
+
+.card {
+  display: flex;
+  min-height: 260px;
+  flex-direction: column;
+  gap: 1rem;
+  padding: clamp(1.4rem, 2.6vw, 2.2rem);
+  border-right: 1px solid var(--border-soft);
+  background: transparent;
+}
+
+.card:last-child {
+  border-right: 0;
+}
+
+.card i {
+  display: grid;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  border: 1px solid var(--border-soft);
+  color: var(--secondary);
+  font-size: 1.14rem;
+}
+
+.card h3 {
+  margin: .25rem 0 0;
+  color: var(--fg);
+  font-family: var(--font-sans);
+  font-size: clamp(1.05rem, 1.45vw, 1.28rem);
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: 0;
+}
+
+.card p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: .94rem;
+  line-height: 1.65;
+}
+
+@media (max-width: 1024px) {
+  .cardGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .card:nth-child(2) {
+    border-right: 0;
+  }
+
+  .card:nth-child(-n+2) {
+    border-bottom: 1px solid var(--border-soft);
+  }
+}
+
+@media (max-width: 760px) {
+  .heading {
+    grid-template-columns: 1fr;
+  }
+
+  .heading :global(.label-uppercase),
+  .title,
+  .intro {
+    grid-column: 1;
+  }
+
+  .cardGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .card,
+  .card:nth-child(2),
+  .card:nth-child(-n+2) {
+    min-height: auto;
+    border-right: 0;
+    border-bottom: 1px solid var(--border-soft);
+  }
+
+  .card:last-child {
+    border-bottom: 0;
+  }
+}
+

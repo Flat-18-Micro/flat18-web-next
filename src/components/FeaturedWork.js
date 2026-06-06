@@ -6,28 +6,28 @@ export default function FeaturedWork() {
   const featuredProjects = [
     {
       title: 'BTCPay Server',
-      description: 'Conversion-focused landing and foundation site refresh for a widely used open-source payments platform.',
+      projectType: 'Open-source payments platform',
+      audience: 'For a global Bitcoin payments project',
+      description: 'A conversion-focused foundation site refresh for a widely used open-source payments platform.',
       image: '/images/portfolio-graphics/btcpayserver-mock.webp',
       projectLogo: '/images/portfolio-graphics/logos/btcpayserver.webp',
       link: 'https://btcpayserver.org',
       technologies: ['HTML5', 'CSS', 'JavaScript'],
-      metrics: {
-        primary: 'Public platform',
-        secondary: 'Clearer conversion'
-      },
+      capabilities: ['Information architecture', 'Responsive frontend', 'Conversion path clarity'],
+      outcome: 'Made the product easier to understand and trust without adding marketing noise.',
       status: 'Live'
     },
     {
       title: 'WalletScrutiny',
-      description: 'Brand and UX redesign to make wallet security research clearer, calmer and easier to trust.',
+      projectType: 'Security research UX redesign',
+      audience: 'For wallet researchers and privacy-conscious users',
+      description: 'A brand and UX redesign to make wallet security research clearer, calmer and easier to trust.',
       image: '/images/portfolio-graphics/walletscrutiny-mock.webp',
       projectLogo: '/images/portfolio-graphics/logos/wallet-scrutiny.webp',
       link: 'https://walletscrutiny.com',
       technologies: ['JavaScript', 'HTML5', 'SCSS'],
-      metrics: {
-        primary: 'Brand and UX',
-        secondary: 'Research platform'
-      },
+      capabilities: ['Research-led UX', 'Content structure', 'Frontend implementation'],
+      outcome: 'Turned dense technical analysis into a more usable product experience.',
       status: 'Current version'
     }
   ]
@@ -43,7 +43,7 @@ export default function FeaturedWork() {
         <div className={styles.featuredHeading}>
           <h2 className={styles.featuredTitle}>Work that proves the craft</h2>
           <p className={styles.featuredSubtitle}>
-            LLMs make delivery faster. This work shows the judgement we bring before the tools get involved.
+            Fast delivery only matters if the product still feels considered, stable and commercially useful. These examples show the interfaces, systems and product thinking we bring to LLM-accelerated builds.
           </p>
         </div>
 
@@ -93,14 +93,27 @@ export default function FeaturedWork() {
 
                 <div className={styles.featuredMetrics}>
                   <div className={styles.metric}>
-                    <span className={styles.metricValue}>{project.metrics.primary}</span>
-                    <span className={styles.metricLabel}>Scope</span>
+                    <span className={styles.metricValue}>{project.projectType}</span>
+                    <span className={styles.metricLabel}>Project type</span>
                   </div>
                   <div className={styles.metric}>
-                    <span className={styles.metricValue}>{project.metrics.secondary}</span>
-                    <span className={styles.metricLabel}>Focus</span>
+                    <span className={styles.metricValue}>{project.audience}</span>
+                    <span className={styles.metricLabel}>Built for</span>
                   </div>
                 </div>
+
+                <div className={styles.capabilityBlock}>
+                  <span>Key capabilities</span>
+                  <ul>
+                    {project.capabilities.map((capability) => (
+                      <li key={capability}>{capability}</li>
+                    ))}
+                  </ul>
+                </div>
+
+                <p className={styles.featuredOutcome}>
+                  {project.outcome}
+                </p>
 
                 <div className={styles.featuredTech}>
                   {project.technologies.map((tech, techIndex) => (

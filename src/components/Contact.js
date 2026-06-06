@@ -185,9 +185,9 @@ export default function Contact() {
                     className={styles.select}
                   >
                     <option value="">Select project type (optional)</option>
-                    <option value="mvp-sprint">Curated MVP sprint</option>
-                    <option value="complete-product">Complete product</option>
-                    <option value="monthly-product-team">Monthly product team</option>
+                    <option value="mvp-sprint">MVP Sprint</option>
+                    <option value="complete-product">Product Build</option>
+                    <option value="ongoing-studio">Ongoing Studio</option>
                     <option value="llm-workflow">LLM workflow or internal tool</option>
                     <option value="takeover">Take over an existing product</option>
                     <option value="not-sure">Not sure yet</option>
@@ -205,10 +205,10 @@ export default function Contact() {
                   >
                     <option value="">Select budget (optional)</option>
                     <option value="discovery">Discovery budget only</option>
-                    <option value="3500-12000">£3,500-£12,000</option>
-                    <option value="12000-30000">£12,000-£30,000</option>
+                    <option value="3500-plus">Starting at £3,500</option>
+                    <option value="12000-plus">Starting at £12,000</option>
                     <option value="30000-plus">£30,000+</option>
-                    <option value="monthly">Monthly product team</option>
+                    <option value="monthly">Monthly studio support</option>
                   </select>
                 </div>
 

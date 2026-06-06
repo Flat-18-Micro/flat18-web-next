@@ -1,7 +1,7 @@
 import '../styles/globals.css'
 import { Suspense } from 'react'
 import dynamic from 'next/dynamic'
-import { Playfair_Display, JetBrains_Mono } from 'next/font/google'
+import { JetBrains_Mono } from 'next/font/google'
 import Script from 'next/script'
 import ClientLayout from '@/components/ClientLayout'
 import { ThemeProvider } from './providers'
@@ -20,16 +20,6 @@ const jetbrainsMono = JetBrains_Mono({
   weight: ['400', '500'], // Only load needed weights
 })
 
-const playfairDisplay = Playfair_Display({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-playfair-display',
-  preload: false, // Non-critical: --font-heading uses Inter; Playfair is a fallback variable
-  fallback: ['Georgia', 'Times New Roman', 'serif'],
-  adjustFontFallback: true,
-  weight: ['400', '600', '700'], // Only load needed weights (500 removed - unused)
-})
-
 const ChatwootWidget = dynamic(() => import('@/components/ChatwootWidget'), { ssr: false })
 const ServiceWorkerRegistration = dynamic(() => import('@/components/ServiceWorkerRegistration'), { ssr: false })
 const AnalyticsScripts = dynamic(() => import('@/components/AnalyticsScripts'), { ssr: false })
@@ -43,7 +33,7 @@ const saleActive = SUBSCRIPTION_PROMO.enabled
 
 export default function RootLayout({ children }) {
   return (
-    <html lang={language} className={`${jetbrainsMono.variable} ${playfairDisplay.variable}`} suppressHydrationWarning>
+    <html lang={language} className={jetbrainsMono.variable} suppressHydrationWarning>
       <head>
         {/* ── Blocking theme script: sets dark/light class before first paint ── */}
         {/* This prevents the flash and removes the need to hide content during mount */}

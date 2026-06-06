@@ -25,7 +25,7 @@ export default function Footer() {
                   <span className={styles.brandName}>Flat 18</span>
                 </Link>
                 <p className={styles.footerTagline}>
-                  Senior design and full-stack development for LLM-accelerated MVPs, complete products and product teams.
+                  Senior design and full-stack development for LLM-accelerated MVPs, dashboards and complete product builds.
                 </p>
 
                 {/* Social icons */}
@@ -62,7 +62,7 @@ export default function Footer() {
                   </li>
                   <li>
                     <Link href="/services/maintenance-support" className={styles.footerLink}>
-                      Long-term product support
+                      Monthly Studio Support
                     </Link>
                   </li>
                 </ul>
