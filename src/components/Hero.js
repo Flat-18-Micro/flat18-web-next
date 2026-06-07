@@ -1,3 +1,7 @@
+'use client'
+
+import { useEffect, useRef, useState } from 'react'
+import Lottie from 'lottie-react'
 import HeroActions from '@/components/HeroActions'
 import TitleWords from '@/components/TitleWords'
 import styles from '@/styles/component-css/Hero.module.css'
@@ -43,6 +47,23 @@ const SHIP_SIGNALS = [
 ]
 
 export default function Hero() {
+  const lottieRef = useRef(null)
+  const [animationData, setAnimationData] = useState(null)
+
+  useEffect(() => {
+    // Fetch the lottie animation data
+    fetch('/lottiefiles/ea6225fb-859a-4eb1-9706-1f52f789d436.json')
+      .then(res => res.json())
+      .then(data => setAnimationData(data))
+      .catch(err => console.error('Failed to load animation:', err))
+  }, [])
+
+  useEffect(() => {
+    if (lottieRef.current && animationData) {
+      lottieRef.current.play()
+    }
+  }, [animationData])
+
   return (
     <section
       className={`${styles.heroSection} ${motionStyles.motionOverrides}`}
@@ -75,82 +96,16 @@ export default function Hero() {
           </div>
         </div>
 
-        <div className={styles.heroVisual} aria-label="AI-assisted product delivery pipeline with senior review gates">
-          <div className={styles.aiPipeline}>
-            <div className={styles.pipelineHeader}>
-              <span>Expert AI pipeline</span>
-              <span>Senior controlled</span>
-            </div>
-
-            <div className={styles.pipelineRailWrap} aria-hidden="true">
-              <svg className={styles.aiRailSvg} viewBox="0 0 640 96" focusable="false">
-                <path className={styles.aiRailBase} d="M42 48H598" />
-                <path className={styles.aiRailTrace} d="M42 48H598" />
-                <circle className={styles.aiRailNode} cx="42" cy="48" r="8" />
-                <circle className={styles.aiRailNode} cx="236" cy="48" r="8" />
-                <circle className={styles.aiRailNode} cx="432" cy="48" r="8" />
-                <circle className={styles.aiRailNode} cx="598" cy="48" r="8" />
-              </svg>
-            </div>
-
-            <div className={styles.stageGrid}>
-              <div className={`${styles.pipelineStage} ${styles.briefStage}`}>
-                <div className={styles.stageEyebrow}>Brief</div>
-                <strong>Rough idea</strong>
-                <div className={styles.briefLines} aria-hidden="true">
-                  <span />
-                  <span />
-                  <span />
-                </div>
-                <ul>
-                  <li>Goal</li>
-                  <li>Users</li>
-                  <li>Risk</li>
-                </ul>
-              </div>
-
-              <div className={`${styles.pipelineStage} ${styles.aiStage}`}>
-                <div className={styles.stageEyebrow}>AI draft</div>
-                <strong>Parallel acceleration</strong>
-                <div className={styles.aiLaneGrid}>
-                  {AI_LANES.map((lane) => (
-                    <div key={lane.label} className={styles.aiLane}>
-                      <span>{lane.label}</span>
-                      <small>{lane.detail}</small>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <div className={`${styles.pipelineStage} ${styles.reviewStage}`}>
-                <div className={styles.stageEyebrow}>Senior review</div>
-                <strong>Quality gate</strong>
-                <div className={styles.reviewChecks}>
-                  {REVIEW_CHECKS.map((check) => (
-                    <span key={check}>
-                      <i className="bi bi-check2" aria-hidden="true" />
-                      {check}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-              <div className={`${styles.pipelineStage} ${styles.launchStage}`}>
-                <div className={styles.stageEyebrow}>Launch</div>
-                <strong>Client-owned product</strong>
-                <div className={styles.launchWindow} aria-hidden="true">
-                  <span />
-                  <span />
-                  <span />
-                </div>
-                <div className={styles.shipSignals}>
-                  {SHIP_SIGNALS.map((signal) => (
-                    <span key={signal}>{signal}</span>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
+        <div className={styles.heroVisual} aria-label="AI-assisted product delivery animation">
+          {animationData && (
+            <Lottie
+              ref={lottieRef}
+              animationData={animationData}
+              loop
+              autoplay={false}
+              style={{ width: '100%', height: '100%' }}
+            />
+          )}
         </div>
       </div>
 
