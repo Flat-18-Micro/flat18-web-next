@@ -6,29 +6,23 @@ export default function Features() {
     {
       icon: 'bi-lightning-charge',
       title: 'MVP Sprint',
-      description: "For founders who need to validate an idea, demo a product or get a working MVP into users' hands quickly.",
-      bestFor: 'Validation, demos and early users',
-      pace: '2-6 weeks',
-      bullets: ['Product scoping', 'UX/UI direction', 'Full-stack implementation', 'LLM-accelerated build process', 'Deployment support'],
-      href: '/services/app-development'
+      description: 'For focused first versions.',
+      bullets: ['Product scoping', 'UX/UI direction', 'Full-stack MVP build', 'LLM-assisted implementation', 'Deployment support'],
+      cta: 'Start an MVP',
     },
     {
       icon: 'bi-layers',
       title: 'Product Build',
-      description: 'For teams that need a more complete web app, dashboard or product system built with stronger foundations.',
-      bestFor: 'SaaS, dashboards, internal tools and customer platforms',
-      pace: '6-12+ weeks',
-      bullets: ['UX and interface design', 'Frontend and backend development', 'Authentication, data models and integrations', 'Testing and refinement', 'Launch support'],
-      href: '/services/web-development'
+      description: 'For serious end-to-end launches.',
+      bullets: ['Product planning', 'Interface design', 'Frontend and backend development', 'Authentication, database and integrations', 'Testing and release support'],
+      cta: 'Plan a build',
     },
     {
       icon: 'bi-infinity',
-      title: 'Ongoing Studio',
-      description: 'For clients who need a long-term design and development partner for product improvements, experiments and feature delivery.',
-      bestFor: 'Teams with a live product or growing backlog',
-      pace: 'Monthly',
-      bullets: ['Iterative feature work', 'Design and UX improvements', 'Technical maintenance', 'Refactoring and performance work', 'Product support'],
-      href: '/services/maintenance-support'
+      title: 'Monthly Studio',
+      description: 'For ongoing product work.',
+      bullets: ['Feature delivery', 'UX improvements', 'Technical support', 'Refactoring', 'Product experiments'],
+      cta: 'Work monthly',
     }
   ]
 
@@ -41,10 +35,9 @@ export default function Features() {
     >
       <div className={`${styles.container} max-w-content mx-auto px-6 sm:px-8`}>
         <div className={styles.sectionHeading}>
-          <span className="label-uppercase">Services</span>
-          <h2 className={styles.sectionTitle}>Three focused build paths</h2>
+          <h2 className={styles.sectionTitle}>Three ways to build</h2>
           <p className={styles.sectionDescription}>
-            Choose the level of support that fits the product. Each route uses senior direction, practical design and LLM-assisted delivery where it genuinely speeds the work.
+            Choose the level of product help you need.
           </p>
         </div>
 
@@ -64,17 +57,6 @@ export default function Features() {
 
               <p className={styles.serviceDescription}>{service.description}</p>
 
-              <div className={styles.serviceMetaGrid}>
-                <div className={styles.serviceMeta}>
-                  <span>Best for</span>
-                  <strong>{service.bestFor}</strong>
-                </div>
-                <div className={styles.serviceMeta}>
-                  <span>Typical pace</span>
-                  <strong>{service.pace}</strong>
-                </div>
-              </div>
-
               <ul className={styles.serviceBullets}>
                 {service.bullets.map((bullet, bulletIndex) => (
                   <li key={bulletIndex}>{bullet}</li>
@@ -83,8 +65,8 @@ export default function Features() {
 
               {/* Micro-CTA */}
               <div className={styles.cardFooter}>
-                <a href={service.href} className={styles.microCTA}>
-                  Learn more
+                <a href="#contact" className={styles.microCTA}>
+                  {service.cta}
                   <i className="bi bi-arrow-right" aria-hidden="true"></i>
                 </a>
               </div>
@@ -95,9 +77,9 @@ export default function Features() {
         <div className={styles.bottomCTA}>
           <div className={styles.ctaContent}>
             <h3>Not sure which route fits?</h3>
-            <p>Send the goal, deadline and main risk. We will suggest the leanest responsible route.</p>
+            <p>Send the goal, deadline and main risk. We'll suggest the leanest responsible route.</p>
           </div>
-          <a href="#chat" className="btn btn-primary">
+          <a href="#contact" className="btn btn-primary">
             Start a project
           </a>
         </div>

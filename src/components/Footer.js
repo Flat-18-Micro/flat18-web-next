@@ -43,7 +43,7 @@ export default function Footer() {
               </div>
 
               <div className={styles.footerColumn}>
-                <h3 className={styles.columnTitle}>Services</h3>
+                <h3 className={styles.columnTitle}>Build routes</h3>
                 <ul className={styles.linksList}>
                   <li>
                     <Link href="/services/app-development" className={styles.footerLink}>
@@ -62,7 +62,7 @@ export default function Footer() {
                   </li>
                   <li>
                     <Link href="/services/maintenance-support" className={styles.footerLink}>
-                      Monthly Studio Support
+                      Monthly Product Team
                     </Link>
                   </li>
                 </ul>
@@ -108,9 +108,9 @@ export default function Footer() {
                 <h3 className={styles.columnTitle}>Contact</h3>
                 <ul className={styles.linksList}>
                   <li>
-                    <a href="#chat" className={styles.footerLink}>
+                    <Link href="/#contact" className={styles.footerLink}>
                       Start a project
-                    </a>
+                    </Link>
                   </li>
                   <li>
                     <a href="mailto:hello@flat18.co.uk" className={styles.footerLink}>

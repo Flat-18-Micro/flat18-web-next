@@ -19,25 +19,25 @@ const PROJECT_ROUTES = [
     icon: 'bi-lightning-charge',
     title: 'Curated MVP Sprint',
     timeline: '2-6 weeks',
-    description: 'For founders who need a working MVP quickly, not another static mockup.',
-    bestFor: 'Idea validation, investor demos and early user testing',
+    description: 'For focused first versions.',
+    bestFor: 'MVPs, demos and early user testing',
     min: 3500,
     period: null,
     cta: 'Start an MVP',
     highlights: [
-      'Discovery and product scoping',
+      'Product scoping',
       'UX/UI design direction',
       'Full-stack MVP build',
-      'LLM-accelerated implementation',
-      'Deployment and launch support',
+      'Deployment support',
+      'Handover notes',
     ],
   },
   {
     icon: 'bi-layers',
     title: 'Complete Product Build',
     timeline: '6-12+ weeks',
-    description: 'For teams that need a more robust product, dashboard or web app built with stronger technical foundations.',
-    bestFor: 'Dashboards, web apps and product systems with real users',
+    description: 'For serious end-to-end launches.',
+    bestFor: 'Dashboards, web apps and product systems',
     min: 12000,
     period: null,
     cta: 'Plan a build',
@@ -45,25 +45,25 @@ const PROJECT_ROUTES = [
       'Product planning',
       'Interface design',
       'Frontend and backend development',
-      'Authentication, database and integrations',
-      'Testing, refinement and deployment',
+      'Auth, database and integrations',
+      'Testing and deployment',
     ],
   },
   {
     icon: 'bi-people',
-    title: 'Monthly Studio Support',
+    title: 'Monthly Product Team',
     timeline: 'Monthly',
-    description: 'For ongoing product improvements, experiments, fixes and feature delivery.',
-    bestFor: 'Live products with a steady product and engineering backlog',
+    description: 'For ongoing product work.',
+    bestFor: 'Live products with a steady backlog',
     min: BASE_PRICES.monthly,
     period: '/month',
-    cta: 'Work with us monthly',
+    cta: 'Work monthly',
     highlights: [
-      'Monthly design and development capacity',
+      'Monthly development capacity',
       'Feature iteration',
       'UX improvements',
-      'Technical support',
-      'Refactoring and optimisation',
+      'Technical maintenance',
+      'Product experiments',
     ],
     isMonthly: true,
   },
@@ -194,7 +194,7 @@ export default function Pricing({ headingLevel = 'h2' }) {
           <span className="label-uppercase">Pricing</span>
           <HeadingTag className={styles.sectionTitle}>Pricing for serious product work</HeadingTag>
           <p className={styles.sectionDescription}>
-            Clear starting points for LLM-assisted product work led by senior developers. Pick the closest route and we will confirm the responsible scope before anything starts.
+            Clear routes for MVPs, builds and retained product support.
           </p>
         </div>
 
@@ -295,7 +295,7 @@ export default function Pricing({ headingLevel = 'h2' }) {
                 ))}
               </ul>
               <Link
-                href="#chat"
+                href="#contact"
                 className={`btn ${route.title === 'Curated MVP Sprint' ? 'btn-primary' : 'btn-secondary'}`}
                 onClick={() => analytics.pricing.bookCall()}
               >
@@ -312,11 +312,11 @@ export default function Pricing({ headingLevel = 'h2' }) {
             <p>Share your goal and constraints. We will recommend the leanest responsible route.</p>
           </div>
           <Link
-            href="#chat"
+            href="#contact"
             className="btn btn-secondary"
             onClick={() => analytics.pricing.bookCall()}
           >
-            Ask for guidance
+            Start a project
           </Link>
         </div>
       </div>

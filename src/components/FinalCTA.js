@@ -5,6 +5,7 @@ export default function FinalCTA() {
   return (
     <section
       className={styles.finalSection}
+      id="contact"
       data-bg-color={getSectionBackground('finalCta')}
       data-text-color={getSectionTextColor('finalCta')}
       aria-labelledby="final-cta-heading"
@@ -12,14 +13,14 @@ export default function FinalCTA() {
       <div className={`${styles.container} max-w-content mx-auto px-6 sm:px-8`}>
         <div className={styles.content}>
           <h2 id="final-cta-heading" className={styles.title}>
-            Have an MVP, dashboard or product idea that needs momentum?
+            Ready to ship something better?
           </h2>
           <p>
-            Flat 18 can help you shape it, build it and ship it faster, with senior developers directing the LLM-assisted process from first concept to production-ready release.
+            Flat 18 can help you shape, build and ship it faster with senior developers directing the LLM-assisted process.
           </p>
         </div>
         <div className={styles.actions}>
-          <a href="#chat" className="btn btn-primary">
+          <a href="mailto:hello@flat18.co.uk?subject=Start%20a%20project" className="btn btn-primary">
             Start a project
             <i className="bi bi-arrow-right" aria-hidden="true" />
           </a>
@@ -31,4 +32,3 @@ export default function FinalCTA() {
     </section>
   )
 }
-

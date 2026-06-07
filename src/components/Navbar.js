@@ -58,11 +58,6 @@ export default function Navbar({ isScrolled }) {
               </Link>
             </li>
             <li>
-              <Link href="/#services" className={styles.link}>
-                <span>Services</span>
-              </Link>
-            </li>
-            <li>
               <Link href="/#process" className={styles.link}>
                 <span>Process</span>
               </Link>
@@ -73,8 +68,8 @@ export default function Navbar({ isScrolled }) {
               </Link>
             </li>
             <li>
-              <Link href="https://accounts.flat18.co.uk/client/login" className={styles.link}>
-                <span>Client portal</span>
+              <Link href="/#contact" className={styles.link}>
+                <span>Contact</span>
               </Link>
             </li>
           </ul>
@@ -83,14 +78,14 @@ export default function Navbar({ isScrolled }) {
 
           {/* CTA Button */}
           <div className={styles.cta}>
-            <a
-              href="#chat"
+            <Link
+              href="/#contact"
               className="btn btn-primary btn-icon"
               onClick={() => analytics.nav.bookCall()}
             >
               <span className="btn-text">Start a project</span>
               <i className="bi bi-arrow-right" aria-hidden="true"></i>
-            </a>
+            </Link>
           </div>
         </nav>
 
@@ -116,43 +111,25 @@ export default function Navbar({ isScrolled }) {
               <li>
                 <Link href="/#work" className={styles.mobileLink} onClick={() => setIsMobileMenuOpen(false)}>
                   <span className={styles.mobileLinkLabel}>Work</span>
-                  <span className={styles.mobileLinkDescription}>Our latest projects</span>
-                </Link>
-              </li>
-              <li>
-                <Link href="/case-studies" className={styles.mobileLink} onClick={() => setIsMobileMenuOpen(false)}>
-                  <span className={styles.mobileLinkLabel}>Case studies</span>
-                  <span className={styles.mobileLinkDescription}>Deep dives and launches</span>
-                </Link>
-              </li>
-              <li>
-                <Link href="/#services" className={styles.mobileLink} onClick={() => setIsMobileMenuOpen(false)}>
-                  <span className={styles.mobileLinkLabel}>Services</span>
-                  <span className={styles.mobileLinkDescription}>What we build</span>
+                  <span className={styles.mobileLinkDescription}>Real product builds</span>
                 </Link>
               </li>
               <li>
                 <Link href="/#process" className={styles.mobileLink} onClick={() => setIsMobileMenuOpen(false)}>
                   <span className={styles.mobileLinkLabel}>Process</span>
-                  <span className={styles.mobileLinkDescription}>How we use LLMs</span>
+                  <span className={styles.mobileLinkDescription}>Fast work, reviewed</span>
                 </Link>
               </li>
               <li>
                 <Link href="/#pricing" className={styles.mobileLink} onClick={() => setIsMobileMenuOpen(false)}>
                   <span className={styles.mobileLinkLabel}>Pricing</span>
-                  <span className={styles.mobileLinkDescription}>Transparent rates</span>
+                  <span className={styles.mobileLinkDescription}>MVPs, builds and retained support</span>
                 </Link>
               </li>
               <li>
-                <Link href="/about" className={styles.mobileLink} onClick={() => setIsMobileMenuOpen(false)}>
-                  <span className={styles.mobileLinkLabel}>About</span>
-                  <span className={styles.mobileLinkDescription}>Our story</span>
-                </Link>
-              </li>
-              <li>
-                <Link href="https://accounts.flat18.co.uk/client/login" className={styles.mobileLink} onClick={() => setIsMobileMenuOpen(false)}>
-                  <span className={styles.mobileLinkLabel}>Client portal</span>
-                  <span className={styles.mobileLinkDescription}>Access your account</span>
+                <Link href="/#contact" className={styles.mobileLink} onClick={() => setIsMobileMenuOpen(false)}>
+                  <span className={styles.mobileLinkLabel}>Contact</span>
+                  <span className={styles.mobileLinkDescription}>Start a project</span>
                 </Link>
               </li>
             </ul>
@@ -160,8 +137,8 @@ export default function Navbar({ isScrolled }) {
             {/* Mobile CTA Group */}
             <div className={styles.mobileCTAGroup}>
               <ThemeSwitcher className={styles.mobileThemeSwitcher} showLabel />
-              <a
-                href="#chat"
+              <Link
+                href="/#contact"
                 className="btn btn-primary w-full"
                 onClick={() => {
                   setIsMobileMenuOpen(false)
@@ -169,7 +146,7 @@ export default function Navbar({ isScrolled }) {
                 }}
               >
                 <span className="btn-text">Start a project</span>
-              </a>
+              </Link>
               <a href="mailto:hello@flat18.co.uk" className={styles.emailLink}>
                 hello@flat18.co.uk
               </a>

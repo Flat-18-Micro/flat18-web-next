@@ -26,7 +26,7 @@ const homePageSchema = {
     "@type": "ProfessionalService",
     "name": siteConfig.name,
     "image": `${siteConfig.url}${siteConfig.ogImage}`,
-    "description": "Flat 18 is a development and design studio using LLMs in the hands of experienced full-stack developers to deliver curated MVPs, dashboards and complete product builds faster.",
+    "description": "Flat 18 is a senior development and design studio using LLMs to deliver curated MVPs, dashboards and full-stack product builds faster.",
     "url": siteConfig.url,
     "email": siteConfig.email,
     "address": {
@@ -46,14 +46,14 @@ const homePageSchema = {
     "areaServed": "Worldwide",
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
-      "name": "LLM-accelerated design and development services",
+      "name": "Productised design and development routes",
       "itemListElement": [
         {
           "@type": "Offer",
           "itemOffered": {
             "@type": "Service",
             "name": "Curated MVP Sprint",
-            "description": "Fast first versions scoped, designed, built and reviewed by experienced full-stack developers."
+            "description": "Focused first versions with product scoping, UX/UI direction, full-stack MVP build, deployment support and handover notes."
           }
         },
         {
@@ -61,39 +61,15 @@ const homePageSchema = {
           "itemOffered": {
             "@type": "Service",
             "name": "Complete Product Build",
-            "description": "End-to-end product design, frontend, backend, integrations, QA, deployment and handover."
+            "description": "End-to-end product planning, interface design, frontend and backend development, integrations, testing and deployment."
           }
         },
         {
           "@type": "Offer",
           "itemOffered": {
             "@type": "Service",
-            "name": "LLM workflow design",
-            "description": "AI-assisted workflows, prompts, review systems and internal tools for faster delivery."
-          }
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Monthly Studio Support",
-            "description": "Ongoing senior design and development capacity for continuous product momentum."
-          }
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Existing product takeover",
-            "description": "Codebase audits, refactors, stabilisation and continued product delivery."
-          }
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Full-stack integrations",
-            "description": "APIs, payments, data flows and third-party services built into maintainable products."
+            "name": "Monthly Product Team",
+            "description": "Ongoing monthly development capacity for feature iteration, UX improvements, technical maintenance and product experiments."
           }
         }
       ]

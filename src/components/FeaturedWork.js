@@ -7,43 +7,35 @@ export default function FeaturedWork() {
     {
       title: 'BTCPay Server',
       projectType: 'Open-source payments platform',
-      audience: 'For a global Bitcoin payments project',
-      description: 'A conversion-focused foundation site refresh for a widely used open-source payments platform.',
+      description: 'A clearer product site for a widely used Bitcoin payments platform.',
       image: '/images/portfolio-graphics/btcpayserver-mock.webp',
       projectLogo: '/images/portfolio-graphics/logos/btcpayserver.webp',
       link: 'https://btcpayserver.org',
-      technologies: ['HTML5', 'CSS', 'JavaScript'],
-      capabilities: ['Information architecture', 'Responsive frontend', 'Conversion path clarity'],
-      outcome: 'Made the product easier to understand and trust without adding marketing noise.',
-      status: 'Live'
+      value: 'Made the product easier to understand and trust without adding marketing noise.',
     },
     {
       title: 'WalletScrutiny',
       projectType: 'Security research UX redesign',
-      audience: 'For wallet researchers and privacy-conscious users',
-      description: 'A brand and UX redesign to make wallet security research clearer, calmer and easier to trust.',
+      description: 'A brand and UX redesign for wallet security research.',
       image: '/images/portfolio-graphics/walletscrutiny-mock.webp',
       projectLogo: '/images/portfolio-graphics/logos/wallet-scrutiny.webp',
       link: 'https://walletscrutiny.com',
-      technologies: ['JavaScript', 'HTML5', 'SCSS'],
-      capabilities: ['Research-led UX', 'Content structure', 'Frontend implementation'],
-      outcome: 'Turned dense technical analysis into a more usable product experience.',
-      status: 'Current version'
+      value: 'Turned dense technical analysis into a calmer, more usable product experience.',
     }
   ]
 
   return (
     <section
       className={styles.featuredSection}
-      id="featured-work"
+      id="work"
       data-bg-color={getSectionBackground('featuredWork')}
       data-text-color={getSectionTextColor('featuredWork')}
     >
       <div className="container">
         <div className={styles.featuredHeading}>
-          <h2 className={styles.featuredTitle}>Work that proves the craft</h2>
+          <h2 className={styles.featuredTitle}>Work that proves it</h2>
           <p className={styles.featuredSubtitle}>
-            Fast delivery only matters if the product still feels considered, stable and commercially useful. These examples show the interfaces, systems and product thinking we bring to LLM-accelerated builds.
+            Real product builds, not pitch-deck theatre.
           </p>
         </div>
 
@@ -84,44 +76,16 @@ export default function FeaturedWork() {
               <div className={styles.featuredContent}>
                 <div className={styles.featuredHeader}>
                   <h3 className={styles.featuredProjectTitle}>{project.title}</h3>
-                  <span className={styles.featuredStatus}>{project.status}</span>
+                  <span className={styles.featuredStatus}>{project.projectType}</span>
                 </div>
 
                 <p className={styles.featuredDescription}>
                   {project.description}
                 </p>
 
-                <div className={styles.featuredMetrics}>
-                  <div className={styles.metric}>
-                    <span className={styles.metricValue}>{project.projectType}</span>
-                    <span className={styles.metricLabel}>Project type</span>
-                  </div>
-                  <div className={styles.metric}>
-                    <span className={styles.metricValue}>{project.audience}</span>
-                    <span className={styles.metricLabel}>Built for</span>
-                  </div>
-                </div>
-
-                <div className={styles.capabilityBlock}>
-                  <span>Key capabilities</span>
-                  <ul>
-                    {project.capabilities.map((capability) => (
-                      <li key={capability}>{capability}</li>
-                    ))}
-                  </ul>
-                </div>
-
                 <p className={styles.featuredOutcome}>
-                  {project.outcome}
+                  {project.value}
                 </p>
-
-                <div className={styles.featuredTech}>
-                  {project.technologies.map((tech, techIndex) => (
-                    <span key={techIndex} className={styles.techBadge}>
-                      {tech}
-                    </span>
-                  ))}
-                </div>
 
                 <a
                   href={project.link}
@@ -129,7 +93,7 @@ export default function FeaturedWork() {
                   rel="noopener noreferrer"
                   className={styles.featuredCta}
                 >
-                  View project
+                  View work
                   <i className="bi bi-arrow-right" aria-hidden="true"></i>
                 </a>
               </div>
@@ -138,8 +102,8 @@ export default function FeaturedWork() {
         </div>
 
         <div className={styles.featuredFooter}>
-          <a href="#work" className="btn btn-secondary">
-            View all projects
+          <a href="/case-studies" className="btn btn-secondary">
+            View work
             <i className="bi bi-arrow-right" aria-hidden="true"></i>
           </a>
         </div>

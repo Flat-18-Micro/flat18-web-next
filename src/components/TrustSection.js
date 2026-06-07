@@ -4,23 +4,23 @@ import { getSectionBackground, getSectionTextColor } from '@/hooks/scrollBackgro
 const trustCards = [
   {
     icon: 'bi-compass',
-    title: 'Product judgement before prompting',
-    text: 'We clarify the product, users, workflows and edge cases before code generation starts.',
-  },
-  {
-    icon: 'bi-diagram-3',
-    title: 'Real architecture',
-    text: 'Systems are structured for maintainability, not assembled as disposable prompt output.',
+    title: 'Senior direction',
+    text: 'Architecture, trade-offs and implementation stay developer-led.',
   },
   {
     icon: 'bi-lightning-charge',
-    title: 'Accelerated implementation',
-    text: 'LLMs help us explore, scaffold and iterate faster across frontend, backend and content.',
+    title: 'Fast iteration',
+    text: 'LLMs help explore UI, code, content and tests quickly.',
   },
   {
     icon: 'bi-check2-square',
-    title: 'Human review and refinement',
-    text: 'Every meaningful output is reviewed, tested and shaped by senior developers.',
+    title: 'Curated output',
+    text: 'We refine, test and integrate. We do not ship raw AI output.',
+  },
+  {
+    icon: 'bi-diagram-3',
+    title: 'Production awareness',
+    text: 'Data, permissions, deployment and maintainability are considered from the start.',
   },
 ]
 
@@ -35,12 +35,11 @@ export default function TrustSection() {
     >
       <div className={`${styles.container} max-w-content mx-auto px-6 sm:px-8`}>
         <div className={styles.heading}>
-          <span className="label-uppercase">Quality control</span>
           <h2 id="trust-heading" className={styles.title}>
-            LLMs accelerate the work. Senior developers protect the outcome.
+            AI speed. Senior control.
           </h2>
           <p className={styles.intro}>
-            We use LLMs to move faster through scaffolding, interface exploration, implementation, documentation and iteration. The important decisions stay with experienced developers: architecture, data modelling, security, integrations, performance, testing and launch readiness.
+            LLMs accelerate the work. Experienced developers make the calls.
           </p>
         </div>
 

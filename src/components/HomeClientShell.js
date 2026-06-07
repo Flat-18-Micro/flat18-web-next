@@ -12,13 +12,8 @@ import styles from '@/styles/component-css/HomeClientShell.module.css'
 // SSR is kept ON (default) so the HTML is still baked in at build time for SEO.
 
 const Features    = dynamic(() => import('@/components/Features'))
-const Testimonials = dynamic(() => import('@/components/Testimonials'))
 const HowItWorks  = dynamic(() => import('@/components/HowItWorks'))
 const Pricing     = dynamic(() => import('@/components/Pricing'))
-const Portfolio   = dynamic(() => import('@/components/Portfolio'))
-const FAQ         = dynamic(() => import('@/components/FAQ'))
-const Contact     = dynamic(() => import('@/components/Contact'))
-const Tools       = dynamic(() => import('@/components/Tools'))
 const FinalCTA    = dynamic(() => import('@/components/FinalCTA'))
 const Footer      = dynamic(() => import('@/components/Footer'))
 
@@ -28,16 +23,11 @@ export default function HomeClientShell() {
       <HashAnchorScroll />
       <ScrollBackground />
       <Hero />
-      <TrustSection />
       <FeaturedWork />
-      <Testimonials />
+      <TrustSection />
       <Features />
       <HowItWorks />
       <Pricing />
-      <Portfolio />
-      <FAQ />
-      <Contact />
-      <Tools />
       <FinalCTA />
       <Footer />
     </div>

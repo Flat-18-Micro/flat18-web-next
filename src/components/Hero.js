@@ -42,12 +42,12 @@ export default function Hero() {
           </h1>
 
           <p className={styles.heroSubheading}>
-            We are Senior Developers steering AI agents to turn big ideas into polished MVPs, dashboards and full-stack systems.
+            Flat 18 turns rough product ideas into polished MVPs, dashboards and full-stack systems.
           </p>
 
           <div className={styles.heroActions}>
             <a
-              href="#chat"
+              href="#contact"
               className="btn btn-primary btn-icon btn-lg"
               onClick={() => analytics.hero.bookCall()}
             >
@@ -55,11 +55,11 @@ export default function Hero() {
               <i className="bi bi-arrow-right" aria-hidden="true" />
             </a>
             <Link
-              href="/#senior-control"
+              href="/#pricing"
               className="btn btn-secondary btn-lg"
-              onClick={() => analytics.hero.ctaClick('See how we work')}
+              onClick={() => analytics.hero.ctaClick('See pricing')}
             >
-              <span className="btn-text">See how we work</span>
+              <span className="btn-text">See pricing</span>
             </Link>
           </div>
 

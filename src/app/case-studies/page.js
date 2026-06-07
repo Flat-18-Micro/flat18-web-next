@@ -6,14 +6,6 @@ import styles from '@/styles/component-css/CaseStudies.module.css'
 
 const caseStudies = [
   {
-    title: 'Felt Weather',
-    tag: 'Weather intelligence',
-    description: 'Combined official forecasts with nearby public weather conversation to show how conditions feel locally, not just what the forecast says.',
-    image: '/images/case-studies/felt-weather/01-live-felt-weather-map.png',
-    href: '/case-studies/felt-weather',
-    meta: ['Local signals', 'Map-based UI']
-  },
-  {
     title: 'Ledger',
     tag: 'Personal finance utility',
     description: 'Turned informal money tracking into clear, purpose-built ledgers for loans, shared costs, project budgets, receipts, and read-only records.',
@@ -76,6 +68,14 @@ const caseStudies = [
     image: '/images/case-studies/forgingblock-website/redesign/home-desktop.png',
     href: '/case-studies/forgingblock-website',
     meta: ['Strategic audit', 'Marketing site']
+  },
+  {
+    title: 'Felt Weather',
+    tag: 'Weather intelligence',
+    description: 'Combined official forecasts with nearby public weather conversation to show how conditions feel locally, not just what the forecast says.',
+    image: '/images/case-studies/felt-weather/01-live-felt-weather-map.png',
+    href: '/case-studies/felt-weather',
+    meta: ['Local signals', 'Map-based UI']
   },
   {
     title: 'Zettahash Hashboard',
