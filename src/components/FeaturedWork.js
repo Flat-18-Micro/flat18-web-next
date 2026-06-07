@@ -6,23 +6,38 @@ import { getSectionBackground, getSectionTextColor } from '@/hooks/scrollBackgro
 export default function FeaturedWork() {
   const featuredProjects = [
     {
-      title: 'BTCPay Server',
-      projectType: 'Open-source payments platform',
-      description: 'A clearer product site for a widely used Bitcoin payments platform.',
-      image: '/images/portfolio-graphics/btcpayserver-mock.webp',
-      projectLogo: '/images/portfolio-graphics/logos/btcpayserver.webp',
-      link: 'https://btcpayserver.org',
-      value: 'Made the product easier to understand and trust without adding marketing noise.',
+      title: 'Social Publisher',
+      projectType: 'Publishing workflow',
+      description: 'A focused workspace for channel variants, validation, calendars, logs and retries.',
+      image: '/images/portfolio-graphics/social-publisher.webp',
+      projectLogo: '/images/case-studies/logos/social-publisher-wordmark.svg',
+      link: '/case-studies/social-publisher',
+      value: 'Turned scattered social publishing work into a structured product teams can operate with less manual checking.',
     },
     {
-      title: 'WalletScrutiny',
-      projectType: 'Security research UX redesign',
-      description: 'A brand and UX redesign for wallet security research.',
-      image: '/images/portfolio-graphics/walletscrutiny-mock.webp',
-      projectLogo: '/images/portfolio-graphics/logos/wallet-scrutiny.webp',
-      link: 'https://walletscrutiny.com',
-      value: 'Turned dense technical analysis into a calmer, more usable product experience.',
-    }
+      title: 'Ledger',
+      projectType: 'Personal finance utility',
+      description: 'Simple ledgers for money lent, spent, repaid, shared and backed by receipts.',
+      image: '/images/portfolio-graphics/ledger.webp',
+      link: '/case-studies/ledger',
+      value: 'Turned informal money tracking into clear records for loans, shared costs, project budgets and read-only review.',
+    },
+    {
+      title: 'Workouts',
+      projectType: 'Training product',
+      description: 'Workout planning, schedule selection, logging, recovery context and progress review.',
+      image: '/images/portfolio-graphics/workouts.webp',
+      link: '/case-studies/workouts',
+      value: 'Built a practical product flow from onboarding to progress signals, with enough structure to support repeated use.',
+    },
+    {
+      title: 'Felt Weather',
+      projectType: 'Weather intelligence',
+      description: 'Map-based weather intelligence combining official conditions with nearby public signals.',
+      image: '/images/portfolio-graphics/felt-weather.webp',
+      link: '/case-studies/felt-weather',
+      value: 'Combined forecast data with local context so people can understand how conditions feel nearby.',
+    },
   ]
 
   return (
@@ -52,7 +67,7 @@ export default function FeaturedWork() {
                   alt={project.title}
                   width={600}
                   height={400}
-                  sizes="(max-width: 768px) 100vw, 50vw"
+                  sizes="(max-width: 360px) 100vw, (max-width: 900px) 50vw, 33vw"
                   className={styles.featuredImage}
                   loading={index === 0 ? "eager" : "lazy"}
                   fetchPriority={index === 0 ? "high" : "auto"}
@@ -90,11 +105,9 @@ export default function FeaturedWork() {
 
                 <a
                   href={project.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
                   className={styles.featuredCta}
                 >
-                  View work
+                  Read case study
                   <i className="bi bi-arrow-right" aria-hidden="true"></i>
                 </a>
               </div>

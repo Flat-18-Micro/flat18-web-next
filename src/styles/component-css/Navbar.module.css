@@ -145,7 +145,7 @@
   width: 40px;
   height: 40px;
   padding: 0;
-  border: 1px solid var(--nav-rule);
+  /* border: 1px solid var(--nav-rule); */
   border-radius: 999px;
   background: transparent;
   color: var(--nav-ink);

@@ -1244,45 +1244,6 @@ h2.gradient-text {
   line-height: var(--leading-relaxed)
 }
 
-.theme-switcher {
-  display: flex;
-  align-items: center;
-  gap: .5rem;
-  padding: .5rem;
-  background: var(--surface-dim);
-  border: 1px solid var(--border-soft);
-  border-radius: .5rem;
-  color: var(--current-section-text, var(--text-primary));
-  cursor: pointer;
-  transition: all .3s ease;
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px)
-}
-
-.theme-switcher:hover {
-  background: rgba(255, 255, 255, .05);
-  border-color: var(--current-section-text, var(--text-primary))
-}
-
-.theme-switcher:focus {
-  outline: 2px solid var(--primary);
-  outline-offset: 2px
-}
-
-.theme-switcher i {
-  font-size: 1rem;
-  transition: transform .3s ease
-}
-
-.theme-switcher:hover i {
-  transform: scale(1.1)
-}
-
-.theme-switcher-label {
-  font-size: .875rem;
-  font-weight: 500
-}
-
 .theme-loading {
   opacity: 0;
   transition: opacity .3s ease
