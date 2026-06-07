@@ -1,10 +1,7 @@
-'use client'
-
-import Link from 'next/link'
-
+import HeroActions from '@/components/HeroActions'
+import TitleWords from '@/components/TitleWords'
 import styles from '@/styles/component-css/Hero.module.css'
 import motionStyles from '@/styles/component-css/HeroMotion.module.css'
-import { analytics } from '@/lib/analytics'
 import { getSectionBackground, getSectionTextColor } from '@/hooks/scrollBackgroundUtils'
 
 const PROOF_POINTS = [
@@ -37,31 +34,15 @@ export default function Hero() {
       {/* <div className={styles.heroRule} aria-hidden="true" /> */}
       <div className={`${styles.heroContainer} max-w-7xl mx-auto px-6 sm:px-8`}>
         <div className={styles.heroContent}>
-          <h1 className={styles.heroHeading}>
+          <TitleWords as="h1" className={styles.heroHeading}>
             Ship <span className={styles.heroSerifAccent}>better</span> products <span className={styles.heroSerifAccent}>faster</span> with expert use of LLMs and <span className={styles.heroSerifAccent}>AI</span>
-          </h1>
+          </TitleWords>
 
           <p className={styles.heroSubheading}>
             Flat 18 turns rough product ideas into polished MVPs, dashboards and full-stack systems.
           </p>
 
-          <div className={styles.heroActions}>
-            <a
-              href="#contact"
-              className="btn btn-primary btn-icon btn-lg"
-              onClick={() => analytics.hero.bookCall()}
-            >
-              <span className="btn-text">Start a project</span>
-              <i className="bi bi-arrow-right" aria-hidden="true" />
-            </a>
-            <Link
-              href="/#pricing"
-              className="btn btn-secondary btn-lg"
-              onClick={() => analytics.hero.ctaClick('See pricing')}
-            >
-              <span className="btn-text">See pricing</span>
-            </Link>
-          </div>
+          <HeroActions />
 
           <div className={styles.proofRow} aria-label="Delivery proof">
             {PROOF_POINTS.map((point) => (

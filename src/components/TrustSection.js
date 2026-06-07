@@ -1,3 +1,4 @@
+import TitleWords from '@/components/TitleWords'
 import styles from '@/styles/component-css/TrustSection.module.css'
 import { getSectionBackground, getSectionTextColor } from '@/hooks/scrollBackgroundUtils'
 
@@ -35,9 +36,9 @@ export default function TrustSection() {
     >
       <div className={`${styles.container} max-w-content mx-auto px-6 sm:px-8`}>
         <div className={styles.heading}>
-          <h2 id="trust-heading" className={styles.title}>
+          <TitleWords as="h2" id="trust-heading" className={styles.title}>
             AI speed. Senior control.
-          </h2>
+          </TitleWords>
           <p className={styles.intro}>
             LLMs accelerate the work. Experienced developers make the calls.
           </p>
@@ -47,7 +48,7 @@ export default function TrustSection() {
           {trustCards.map((card) => (
             <article key={card.title} className={styles.card}>
               <i className={`bi ${card.icon}`} aria-hidden="true" />
-              <h3>{card.title}</h3>
+              <TitleWords as="h3">{card.title}</TitleWords>
               <p>{card.text}</p>
             </article>
           ))}

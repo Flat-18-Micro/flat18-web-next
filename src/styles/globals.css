@@ -1003,7 +1003,7 @@ section.scrolled {
   --scroll-fade-ease: cubic-bezier(0.2, 0.65, 0.25, 1)
 }
 
-section.scrolled :where(h1, h2), section.scrolled .scroll-child, section.scrolled [data-scroll-child], section.scrolled :where([class*=sectionHeader]) :where(h1, h2, span, p), section.scrolled :where([class*=sectionHeading])>*, section.scrolled :is([class*=processCard__], [class*=pricingCard__], [class*=projectCard__], [class*=faqItem__], [class*=visualElement__]) {
+section.scrolled :where(h1, h2), section.scrolled .scroll-child, section.scrolled [data-scroll-child], section.scrolled :where([class*=sectionHeader]) :where(h1, h2, span, p), section.scrolled :where([class*=sectionHeading])>*, section.scrolled :is(article, [class*=serviceCard__], [class*=processCard__], [class*=pricingCard__], [class*=projectCard__], [class*=faqItem__], [class*=visualElement__], [class*=proofItem__]) {
   opacity: 0;
   transform: translateY(var(--scroll-fade-distance));
   transition: opacity var(--scroll-fade-duration) var(--scroll-fade-ease), transform var(--scroll-fade-duration) var(--scroll-fade-ease);
@@ -1016,6 +1016,76 @@ section.scrolled :where([class*=sectionHeading])>* {
 
 section.scrolled :where([class*=sectionHeader]) :where(h1, h2, span, p) {
   transition-delay: 0ms
+}
+
+section.scrolled :where(h1, h2, h3)[data-scroll-title-words] {
+  opacity: 1;
+  transform: none;
+  transition: none;
+  will-change: auto
+}
+
+section.scrolled [data-scroll-title-word] {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(5px);
+  transition: opacity .55s var(--scroll-fade-ease), transform .55s var(--scroll-fade-ease);
+  transition-delay: 0ms;
+  will-change: opacity, transform
+}
+
+section.scrolled.scrolled-in [data-scroll-title-word] {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: calc(var(--scroll-title-word-index, 0) * .04s)
+}
+
+section.scrolled.scrolled-in [data-scroll-title-word]:nth-child(1) {
+  transition-delay: .04s
+}
+
+section.scrolled.scrolled-in [data-scroll-title-word]:nth-child(2) {
+  transition-delay: .08s
+}
+
+section.scrolled.scrolled-in [data-scroll-title-word]:nth-child(3) {
+  transition-delay: .12s
+}
+
+section.scrolled.scrolled-in [data-scroll-title-word]:nth-child(4) {
+  transition-delay: .16s
+}
+
+section.scrolled.scrolled-in [data-scroll-title-word]:nth-child(5) {
+  transition-delay: .2s
+}
+
+section.scrolled.scrolled-in [data-scroll-title-word]:nth-child(6) {
+  transition-delay: .24s
+}
+
+section.scrolled.scrolled-in [data-scroll-title-word]:nth-child(7) {
+  transition-delay: .28s
+}
+
+section.scrolled.scrolled-in [data-scroll-title-word]:nth-child(8) {
+  transition-delay: .32s
+}
+
+section.scrolled.scrolled-in [data-scroll-title-word]:nth-child(9) {
+  transition-delay: .36s
+}
+
+section.scrolled.scrolled-in [data-scroll-title-word]:nth-child(10) {
+  transition-delay: .4s
+}
+
+section.scrolled.scrolled-in [data-scroll-title-word]:nth-child(11) {
+  transition-delay: .44s
+}
+
+section.scrolled.scrolled-in [data-scroll-title-word]:nth-child(12) {
+  transition-delay: .48s
 }
 
 section.scrolled.scrolled-in :where([class*=sectionHeading])>:nth-child(1) {
@@ -1034,7 +1104,7 @@ section.scrolled.scrolled-in :where([class*=sectionHeading])>:nth-child(4) {
   transition-delay: .24s
 }
 
-section.scrolled.scrolled-in :where(h1, h2), section.scrolled.scrolled-in .scroll-child, section.scrolled.scrolled-in [data-scroll-child], section.scrolled.scrolled-in :where([class*=sectionHeader]) :where(h1, h2, span, p), section.scrolled.scrolled-in :where([class*=sectionHeading])>*, section.scrolled.scrolled-in :is([class*=processCard__], [class*=pricingCard__], [class*=projectCard__], [class*=faqItem__], [class*=visualElement__]) {
+section.scrolled.scrolled-in :where(h1, h2), section.scrolled.scrolled-in .scroll-child, section.scrolled.scrolled-in [data-scroll-child], section.scrolled.scrolled-in :where([class*=sectionHeader]) :where(h1, h2, span, p), section.scrolled.scrolled-in :where([class*=sectionHeading])>*, section.scrolled.scrolled-in :is(article, [class*=serviceCard__], [class*=processCard__], [class*=pricingCard__], [class*=projectCard__], [class*=faqItem__], [class*=visualElement__], [class*=proofItem__]) {
   opacity: 1;
   transform: translateY(0)
 }
@@ -1043,54 +1113,71 @@ section.scrolled.scrolled-in :where([class*=sectionHeader]) p {
   transition-delay: .2s
 }
 
-section.scrolled.scrolled-in :is([class*=processCard__], [class*=pricingCard__], [class*=projectCard__], [class*=faqItem__], [class*=visualElement__]):nth-child(1) {
+section.scrolled.scrolled-in :is(article, [class*=serviceCard__], [class*=processCard__], [class*=pricingCard__], [class*=projectCard__], [class*=faqItem__], [class*=visualElement__], [class*=proofItem__]):nth-child(1) {
   transition-delay: .2s
 }
 
-section.scrolled.scrolled-in :is([class*=processCard__], [class*=pricingCard__], [class*=projectCard__], [class*=faqItem__], [class*=visualElement__]):nth-child(2) {
+section.scrolled.scrolled-in :is(article, [class*=serviceCard__], [class*=processCard__], [class*=pricingCard__], [class*=projectCard__], [class*=faqItem__], [class*=visualElement__], [class*=proofItem__]):nth-child(2) {
   transition-delay: .4s
 }
 
-section.scrolled.scrolled-in :is([class*=processCard__], [class*=pricingCard__], [class*=projectCard__], [class*=faqItem__], [class*=visualElement__]):nth-child(3) {
+section.scrolled.scrolled-in :is(article, [class*=serviceCard__], [class*=processCard__], [class*=pricingCard__], [class*=projectCard__], [class*=faqItem__], [class*=visualElement__], [class*=proofItem__]):nth-child(3) {
   transition-delay: .6s
 }
 
-section.scrolled.scrolled-in :is([class*=processCard__], [class*=pricingCard__], [class*=projectCard__], [class*=faqItem__], [class*=visualElement__]):nth-child(4) {
+section.scrolled.scrolled-in :is(article, [class*=serviceCard__], [class*=processCard__], [class*=pricingCard__], [class*=projectCard__], [class*=faqItem__], [class*=visualElement__], [class*=proofItem__]):nth-child(4) {
   transition-delay: .8s
 }
 
-section.scrolled.scrolled-in :is([class*=processCard__], [class*=pricingCard__], [class*=projectCard__], [class*=faqItem__], [class*=visualElement__]):nth-child(5) {
+section.scrolled.scrolled-in :is(article, [class*=serviceCard__], [class*=processCard__], [class*=pricingCard__], [class*=projectCard__], [class*=faqItem__], [class*=visualElement__], [class*=proofItem__]):nth-child(5) {
   transition-delay: 1s
 }
 
-section.scrolled.scrolled-in :is([class*=processCard__], [class*=pricingCard__], [class*=projectCard__], [class*=faqItem__], [class*=visualElement__]):nth-child(6) {
+section.scrolled.scrolled-in :is(article, [class*=serviceCard__], [class*=processCard__], [class*=pricingCard__], [class*=projectCard__], [class*=faqItem__], [class*=visualElement__], [class*=proofItem__]):nth-child(6) {
   transition-delay: 1.2s
 }
 
-section.scrolled.scrolled-in :is([class*=processCard__], [class*=pricingCard__], [class*=projectCard__], [class*=faqItem__], [class*=visualElement__]):nth-child(7) {
+section.scrolled.scrolled-in :is(article, [class*=serviceCard__], [class*=processCard__], [class*=pricingCard__], [class*=projectCard__], [class*=faqItem__], [class*=visualElement__], [class*=proofItem__]):nth-child(7) {
   transition-delay: 1.4s
 }
 
-section.scrolled.scrolled-in :is([class*=processCard__], [class*=pricingCard__], [class*=projectCard__], [class*=faqItem__], [class*=visualElement__]):nth-child(8) {
+section.scrolled.scrolled-in :is(article, [class*=serviceCard__], [class*=processCard__], [class*=pricingCard__], [class*=projectCard__], [class*=faqItem__], [class*=visualElement__], [class*=proofItem__]):nth-child(8) {
   transition-delay: 1.6s
 }
 
-section.scrolled.scrolled-in :is([class*=processCard__], [class*=pricingCard__], [class*=projectCard__], [class*=faqItem__], [class*=visualElement__]):nth-child(9) {
+section.scrolled.scrolled-in :is(article, [class*=serviceCard__], [class*=processCard__], [class*=pricingCard__], [class*=projectCard__], [class*=faqItem__], [class*=visualElement__], [class*=proofItem__]):nth-child(9) {
   transition-delay: 1.8s
 }
 
-section.scrolled.scrolled-in :is([class*=processCard__], [class*=pricingCard__], [class*=projectCard__], [class*=faqItem__], [class*=visualElement__]):nth-child(10) {
+section.scrolled.scrolled-in :is(article, [class*=serviceCard__], [class*=processCard__], [class*=pricingCard__], [class*=projectCard__], [class*=faqItem__], [class*=visualElement__], [class*=proofItem__]):nth-child(10) {
   transition-delay: 2s
 }
 
-section.scrolled.scrolled-out :where(h1, h2), section.scrolled.scrolled-out .scroll-child, section.scrolled.scrolled-out [data-scroll-child], section.scrolled.scrolled-out :where([class*=sectionHeader]) :where(h1, h2, span, p), section.scrolled.scrolled-out :where([class*=sectionHeading])>*, section.scrolled.scrolled-out :is([class*=processCard__], [class*=pricingCard__], [class*=projectCard__], [class*=faqItem__], [class*=visualElement__]) {
+section.scrolled.scrolled-out :where(h1, h2), section.scrolled.scrolled-out .scroll-child, section.scrolled.scrolled-out [data-scroll-child], section.scrolled.scrolled-out :where([class*=sectionHeader]) :where(h1, h2, span, p), section.scrolled.scrolled-out :where([class*=sectionHeading])>*, section.scrolled.scrolled-out :is(article, [class*=serviceCard__], [class*=processCard__], [class*=pricingCard__], [class*=projectCard__], [class*=faqItem__], [class*=visualElement__], [class*=proofItem__]) {
   opacity: 0;
   transform: translateY(var(--scroll-fade-distance));
   transition-delay: 0ms
 }
 
+section.scrolled.scrolled-in :where(h1, h2, h3)[data-scroll-title-words],
+section.scrolled.scrolled-out :where(h1, h2, h3)[data-scroll-title-words] {
+  opacity: 1;
+  transform: none;
+  transition: none;
+  will-change: auto
+}
+
 @media (prefers-reduced-motion:reduce) {
-  section.scrolled :where(h1, h2), section.scrolled .scroll-child, section.scrolled [data-scroll-child], section.scrolled :where([class*=sectionHeader]) :where(h1, h2, span, p), section.scrolled :where([class*=sectionHeading])>*, section.scrolled :is([class*=processCard__], [class*=pricingCard__], [class*=projectCard__], [class*=faqItem__], [class*=visualElement__]), section.scrolled.scrolled-in :where(h1, h2), section.scrolled.scrolled-in .scroll-child, section.scrolled.scrolled-in [data-scroll-child], section.scrolled.scrolled-in :where([class*=sectionHeader]) :where(h1, h2, span, p), section.scrolled.scrolled-in :where([class*=sectionHeading])>*, section.scrolled.scrolled-in :is([class*=processCard__], [class*=pricingCard__], [class*=projectCard__], [class*=faqItem__], [class*=visualElement__]), section.scrolled.scrolled-out :where(h1, h2), section.scrolled.scrolled-out .scroll-child, section.scrolled.scrolled-out [data-scroll-child], section.scrolled.scrolled-out :where([class*=sectionHeader]) :where(h1, h2, span, p), section.scrolled.scrolled-out :where([class*=sectionHeading])>*, section.scrolled.scrolled-out :is([class*=processCard__], [class*=pricingCard__], [class*=projectCard__], [class*=faqItem__], [class*=visualElement__]) {
+  section.scrolled :where(h1, h2), section.scrolled .scroll-child, section.scrolled [data-scroll-child], section.scrolled :where([class*=sectionHeader]) :where(h1, h2, span, p), section.scrolled :where([class*=sectionHeading])>*, section.scrolled :is(article, [class*=serviceCard__], [class*=processCard__], [class*=pricingCard__], [class*=projectCard__], [class*=faqItem__], [class*=visualElement__], [class*=proofItem__]), section.scrolled.scrolled-in :where(h1, h2), section.scrolled.scrolled-in .scroll-child, section.scrolled.scrolled-in [data-scroll-child], section.scrolled.scrolled-in :where([class*=sectionHeader]) :where(h1, h2, span, p), section.scrolled.scrolled-in :where([class*=sectionHeading])>*, section.scrolled.scrolled-in :is(article, [class*=serviceCard__], [class*=processCard__], [class*=pricingCard__], [class*=projectCard__], [class*=faqItem__], [class*=visualElement__], [class*=proofItem__]), section.scrolled.scrolled-out :where(h1, h2), section.scrolled.scrolled-out .scroll-child, section.scrolled.scrolled-out [data-scroll-child], section.scrolled.scrolled-out :where([class*=sectionHeader]) :where(h1, h2, span, p), section.scrolled.scrolled-out :where([class*=sectionHeading])>*, section.scrolled.scrolled-out :is(article, [class*=serviceCard__], [class*=processCard__], [class*=pricingCard__], [class*=projectCard__], [class*=faqItem__], [class*=visualElement__], [class*=proofItem__]) {
+    opacity: 1;
+    transform: none;
+    transition: none;
+    will-change: auto
+  }
+
+  section.scrolled [data-scroll-title-word],
+  section.scrolled.scrolled-in [data-scroll-title-word],
+  section.scrolled.scrolled-out [data-scroll-title-word] {
     opacity: 1;
     transform: none;
     transition: none;

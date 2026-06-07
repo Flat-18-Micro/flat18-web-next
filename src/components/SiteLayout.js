@@ -48,6 +48,62 @@ export default function SiteLayout({ children }) {
       return
     }
 
+    const collectTextNodes = (node, nodes = []) => {
+      Array.from(node.childNodes).forEach((child) => {
+        if (child.nodeType === window.Node.TEXT_NODE && child.nodeValue.trim()) {
+          nodes.push(child)
+          return
+        }
+
+        if (child.nodeType === window.Node.ELEMENT_NODE && child.dataset?.scrollTitleWord !== 'true') {
+          collectTextNodes(child, nodes)
+        }
+      })
+
+      return nodes
+    }
+
+    const wrapTitleWords = (heading) => {
+      if (heading.dataset.scrollTitleWords === 'true') {
+        return
+      }
+
+      const textNodes = collectTextNodes(heading)
+
+      textNodes.forEach((textNode) => {
+        const fragment = document.createDocumentFragment()
+        const parts = textNode.nodeValue.split(/(\s+)/)
+
+        parts.forEach((part) => {
+          if (!part) {
+            return
+          }
+
+          if (/^\s+$/.test(part)) {
+            fragment.appendChild(document.createTextNode(part))
+            return
+          }
+
+          const word = document.createElement('span')
+          word.dataset.scrollTitleWord = 'true'
+          word.textContent = part
+          fragment.appendChild(word)
+        })
+
+        textNode.replaceWith(fragment)
+      })
+
+      heading.dataset.scrollTitleWords = 'true'
+    }
+
+    const wrapSectionTitles = () => {
+      sections.forEach((section) => {
+        section.querySelectorAll('h1, h2, h3').forEach(wrapTitleWords)
+      })
+    }
+
+    wrapSectionTitles()
+
     const setSectionState = (section, isInView) => {
       section.classList.add('scrolled')
       section.classList.toggle('scrolled-in', isInView)
@@ -82,7 +138,18 @@ export default function SiteLayout({ children }) {
 
     sections.forEach((section) => observer.observe(section))
 
-    return () => observer.disconnect()
+    const wrapTimeouts = [0, 120, 360].map((delay) => window.setTimeout(wrapSectionTitles, delay))
+    const titleObserver = new MutationObserver(wrapSectionTitles)
+    titleObserver.observe(document.querySelector('main'), {
+      childList: true,
+      subtree: true
+    })
+
+    return () => {
+      observer.disconnect()
+      titleObserver.disconnect()
+      wrapTimeouts.forEach((timeoutId) => window.clearTimeout(timeoutId))
+    }
   }, [pathname])
 
   return (

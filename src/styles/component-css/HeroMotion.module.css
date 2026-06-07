@@ -1,26 +1,115 @@
-.motionOverrides :global([class*="briefArtifact"]) {
-  animation: artifactFadeIn 0.9s cubic-bezier(0.2, 0.65, 0.25, 1) 0.12s both;
+.motionOverrides {
+  --hero-replay-ease: cubic-bezier(0.2, 0.65, 0.25, 1);
 }
 
-.motionOverrides :global([class*="pipelineArtifact"]) {
-  animation: artifactFadeIn 0.95s cubic-bezier(0.2, 0.65, 0.25, 1) 0.22s both;
-  transform: translate3d(0, 0, 0);
+.motionOverrides :global([class*="heroSubheading"]),
+.motionOverrides :global([class*="heroActions"]) {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.65s var(--hero-replay-ease), transform 0.65s var(--hero-replay-ease);
+  will-change: opacity, transform;
 }
 
+.motionOverrides:global(.scrolled-in) :global([class*="heroSubheading"]),
+.motionOverrides:global(.scrolled-in) :global([class*="heroActions"]) {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.motionOverrides:global(.scrolled-in) :global([class*="heroSubheading"]) {
+  transition-delay: 0.5s;
+}
+
+.motionOverrides:global(.scrolled-in) :global([class*="heroActions"]) {
+  transition-delay: 0.62s;
+}
+
+.motionOverrides:global(.scrolled-out) :global([class*="heroSubheading"]),
+.motionOverrides:global(.scrolled-out) :global([class*="heroActions"]) {
+  opacity: 0;
+  transform: translateY(10px);
+  transition-delay: 0s;
+}
+
+.motionOverrides :global([class*="briefArtifact"]),
+.motionOverrides :global([class*="pipelineArtifact"]),
 .motionOverrides :global([class*="releaseArtifact"]) {
-  animation: artifactFadeIn 1s cubic-bezier(0.2, 0.65, 0.25, 1) 0.34s both;
+  opacity: 0;
+  animation: none;
+  transform: translate3d(0, 12px, 0);
 }
 
-.motionOverrides :global([class*="blueprintRoute"]) {
-  animation: routeDrawOnce 5.8s cubic-bezier(0.2, 0.65, 0.25, 1) 0.45s 1 both;
+.motionOverrides:global(.scrolled-in) :global([class*="briefArtifact"]) {
+  animation: artifactFadeIn 0.9s var(--hero-replay-ease) 0.12s both;
 }
 
+.motionOverrides:global(.scrolled-in) :global([class*="pipelineArtifact"]) {
+  animation: artifactFadeIn 0.95s var(--hero-replay-ease) 0.22s both;
+}
+
+.motionOverrides:global(.scrolled-in) :global([class*="releaseArtifact"]) {
+  animation: artifactFadeIn 1s var(--hero-replay-ease) 0.34s both;
+}
+
+.motionOverrides:global(.scrolled-out) :global([class*="briefArtifact"]),
+.motionOverrides:global(.scrolled-out) :global([class*="pipelineArtifact"]),
+.motionOverrides:global(.scrolled-out) :global([class*="releaseArtifact"]) {
+  opacity: 0;
+  animation: none;
+  transform: translate3d(0, 12px, 0);
+}
+
+.motionOverrides :global([class*="blueprintRoute"]),
 .motionOverrides :global([class*="chartLine"]) {
-  animation: routeDrawOnce 6s cubic-bezier(0.2, 0.65, 0.25, 1) 0.7s 1 both;
+  opacity: 0.42;
+  stroke-dashoffset: 520;
+  animation: none;
+}
+
+.motionOverrides:global(.scrolled-in) :global([class*="blueprintRoute"]) {
+  animation: routeDrawOnce 5.8s var(--hero-replay-ease) 0.45s 1 both;
+}
+
+.motionOverrides:global(.scrolled-in) :global([class*="chartLine"]) {
+  animation: routeDrawOnce 6s var(--hero-replay-ease) 0.7s 1 both;
 }
 
 .motionOverrides :global([class*="pipelinePulse"]) {
-  animation: pipelineTrace 4.8s cubic-bezier(0.2, 0.65, 0.25, 1) 0.8s 1 both;
+  opacity: 0;
+  stroke-dashoffset: 410;
+  animation: none;
+}
+
+.motionOverrides:global(.scrolled-in) :global([class*="pipelinePulse"]) {
+  animation: pipelineTrace 4.8s var(--hero-replay-ease) 0.8s 1 both;
+}
+
+.motionOverrides :global([class*="blueprintNode"]),
+.motionOverrides :global([class*="chartPoint"]) {
+  opacity: 0;
+  transform: scale(0.72);
+  animation: none;
+}
+
+.motionOverrides:global(.scrolled-in) :global([class*="blueprintNode"]) {
+  animation: heroNodeSettle 0.8s var(--hero-replay-ease) 1.65s both;
+}
+
+.motionOverrides:global(.scrolled-in) :global([class*="chartPoint"]) {
+  animation: heroNodeSettle 0.8s var(--hero-replay-ease) 1.9s both;
+}
+
+.motionOverrides :global([class*="releaseMeters"]) span::before {
+  transform: scaleX(0.18);
+  animation: none;
+}
+
+.motionOverrides:global(.scrolled-in) :global([class*="releaseMeters"]) span::before {
+  animation: heroBarBuildIn 1.3s var(--hero-replay-ease) 1.05s both;
+}
+
+.motionOverrides:global(.scrolled-in) :global([class*="releaseMeters"]) span:nth-child(2)::before {
+  animation-delay: 1.25s;
 }
 
 .motionOverrides :global([class*="releaseChecks"]) {
@@ -35,10 +124,12 @@
 @keyframes artifactFadeIn {
   from {
     opacity: 0;
+    transform: translate3d(0, 12px, 0);
   }
 
   to {
     opacity: 1;
+    transform: translate3d(0, 0, 0);
   }
 }
 
@@ -51,6 +142,28 @@
   to {
     opacity: 1;
     stroke-dashoffset: 0;
+  }
+}
+
+@keyframes heroNodeSettle {
+  from {
+    opacity: 0;
+    transform: scale(0.72);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes heroBarBuildIn {
+  from {
+    transform: scaleX(0.18);
+  }
+
+  to {
+    transform: scaleX(1);
   }
 }
 

@@ -1,4 +1,5 @@
 import ResponsiveImage from './ResponsiveImage'
+import TitleWords from '@/components/TitleWords'
 import styles from '../styles/component-css/FeaturedWork.module.css'
 import { getSectionBackground, getSectionTextColor } from '@/hooks/scrollBackgroundUtils'
 
@@ -33,7 +34,7 @@ export default function FeaturedWork() {
     >
       <div className="container">
         <div className={styles.featuredHeading}>
-          <h2 className={styles.featuredTitle}>Work that proves it</h2>
+          <TitleWords as="h2" className={styles.featuredTitle}>Work that proves it</TitleWords>
           <p className={styles.featuredSubtitle}>
             Real product builds, not pitch-deck theatre.
           </p>
@@ -75,7 +76,7 @@ export default function FeaturedWork() {
 
               <div className={styles.featuredContent}>
                 <div className={styles.featuredHeader}>
-                  <h3 className={styles.featuredProjectTitle}>{project.title}</h3>
+                  <TitleWords as="h3" className={styles.featuredProjectTitle}>{project.title}</TitleWords>
                   <span className={styles.featuredStatus}>{project.projectType}</span>
                 </div>
 

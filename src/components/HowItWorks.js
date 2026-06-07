@@ -1,3 +1,4 @@
+import TitleWords from '@/components/TitleWords'
 import styles from '@/styles/component-css/HowItWorks.module.css'
 import { getSectionBackground, getSectionTextColor } from '@/hooks/scrollBackgroundUtils'
 
@@ -38,7 +39,7 @@ export default function HowItWorks() {
     >
       <div className={`${styles.container} max-w-content mx-auto px-6 sm:px-8`}>
         <div className={styles.sectionHeading}>
-          <h2 className={styles.sectionTitle}>A simple gated process</h2>
+          <TitleWords as="h2" className={styles.sectionTitle}>A simple gated process</TitleWords>
           <p className={styles.sectionDescription}>
             Fast work, reviewed before it ships.
           </p>
@@ -52,7 +53,7 @@ export default function HowItWorks() {
             >
                 <div className={styles.cardHeader}>
                   <span className={styles.stepNumber}>{step.number}</span>
-                  <h3 className={styles.stepTitle}>{step.title}</h3>
+                  <TitleWords as="h3" className={styles.stepTitle}>{step.title}</TitleWords>
                 </div>
 
                 <div className={styles.cardBody}>
@@ -65,7 +66,7 @@ export default function HowItWorks() {
 
         <div className={styles.processBottom}>
           <div className={styles.ctaContent}>
-            <h3>Fast output. Senior review.</h3>
+            <TitleWords as="h3">Fast output. Senior review.</TitleWords>
             <p>LLMs are the acceleration layer. Senior developers are the quality control.</p>
           </div>
           <a href="#contact" className="btn btn-primary">

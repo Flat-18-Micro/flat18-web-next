@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useCallback } from 'react'
 import Link from 'next/link'
+import TitleWords from '@/components/TitleWords'
 import styles from '../styles/component-css/Pricing.module.css'
 import { analytics } from '@/lib/analytics'
 import { getSectionBackground, getSectionTextColor } from '@/hooks/scrollBackgroundUtils'
@@ -192,7 +193,7 @@ export default function Pricing({ headingLevel = 'h2' }) {
       <div className={`${styles.container} max-w-content mx-auto px-6 sm:px-8`}>
         <div className={styles.sectionHeading}>
           <span className="label-uppercase">Pricing</span>
-          <HeadingTag className={styles.sectionTitle}>Pricing for serious product work</HeadingTag>
+          <TitleWords as={HeadingTag} className={styles.sectionTitle}>Pricing for serious product work</TitleWords>
           <p className={styles.sectionDescription}>
             Clear routes for MVPs, builds and retained product support.
           </p>
@@ -258,7 +259,7 @@ export default function Pricing({ headingLevel = 'h2' }) {
               </div>
               <div className={styles.pricingHeader}>
                 <div className={styles.badgeRow}>
-                  <h3 className={styles.planTitle}>{route.title}</h3>
+                  <TitleWords as="h3" className={styles.planTitle}>{route.title}</TitleWords>
                   {route.isMonthly && promoActive ? <span className={styles.salePill}>{promoLabel}</span> : null}
                 </div>
                 <p className={styles.timeline}>{route.timeline}</p>
@@ -308,7 +309,7 @@ export default function Pricing({ headingLevel = 'h2' }) {
 
         <div className={styles.bottomCTA}>
           <div className={styles.ctaContent}>
-            <h3>Not sure which route fits?</h3>
+            <TitleWords as="h3">Not sure which route fits?</TitleWords>
             <p>Share your goal and constraints. We will recommend the leanest responsible route.</p>
           </div>
           <Link

@@ -1,3 +1,4 @@
+import TitleWords from '@/components/TitleWords'
 import styles from '@/styles/component-css/FinalCTA.module.css'
 import { getSectionBackground, getSectionTextColor } from '@/hooks/scrollBackgroundUtils'
 
@@ -12,9 +13,9 @@ export default function FinalCTA() {
     >
       <div className={`${styles.container} max-w-content mx-auto px-6 sm:px-8`}>
         <div className={styles.content}>
-          <h2 id="final-cta-heading" className={styles.title}>
+          <TitleWords as="h2" id="final-cta-heading" className={styles.title}>
             Ready to ship something better?
-          </h2>
+          </TitleWords>
           <p>
             Flat 18 can help you shape, build and ship it faster with senior developers directing the LLM-assisted process.
           </p>

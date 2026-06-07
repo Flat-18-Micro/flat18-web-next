@@ -1,3 +1,4 @@
+import TitleWords from '@/components/TitleWords'
 import styles from '@/styles/component-css/Features.module.css'
 import { getSectionBackground, getSectionTextColor } from '@/hooks/scrollBackgroundUtils'
 
@@ -35,7 +36,7 @@ export default function Features() {
     >
       <div className={`${styles.container} max-w-content mx-auto px-6 sm:px-8`}>
         <div className={styles.sectionHeading}>
-          <h2 className={styles.sectionTitle}>Three ways to build</h2>
+          <TitleWords as="h2" className={styles.sectionTitle}>Three ways to build</TitleWords>
           <p className={styles.sectionDescription}>
             Choose the level of product help you need.
           </p>
@@ -52,7 +53,7 @@ export default function Features() {
                 <div className={styles.iconWrapper}>
                   <i className={`bi ${service.icon}`} aria-hidden="true"></i>
                 </div>
-                <h3 className={styles.serviceTitle}>{service.title}</h3>
+                <TitleWords as="h3" className={styles.serviceTitle}>{service.title}</TitleWords>
               </div>
 
               <p className={styles.serviceDescription}>{service.description}</p>
@@ -76,7 +77,7 @@ export default function Features() {
 
         <div className={styles.bottomCTA}>
           <div className={styles.ctaContent}>
-            <h3>Not sure which route fits?</h3>
+            <TitleWords as="h3">Not sure which route fits?</TitleWords>
             <p>Send the goal, deadline and main risk. We'll suggest the leanest responsible route.</p>
           </div>
           <a href="#contact" className="btn btn-primary">
