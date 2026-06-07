@@ -307,6 +307,10 @@ export default function Pricing({ headingLevel = 'h2' }) {
           ))}
         </div>
 
+        <p className={styles.pricingNote}>
+          Final pricing depends on scope, integrations and release requirements.
+        </p>
+
         <div className={styles.bottomCTA}>
           <div className={styles.ctaContent}>
             <TitleWords as="h3">Not sure which route fits?</TitleWords>
