@@ -161,7 +161,9 @@
 
 .heroVisual {
   position: relative;
-  min-height: 500px
+  min-height: 500px;
+  perspective: 1200px;
+  perspective-origin: 42% 50%
 }
 
 .aiPipeline {
@@ -172,7 +174,33 @@
   border-radius: 8px;
   background: linear-gradient(135deg, rgba(255, 255, 255, .5), rgba(255, 255, 255, 0) 36%), var(--hero-card);
   box-shadow: var(--hero-shadow);
-  color: var(--hero-ink)
+  color: var(--hero-ink);
+  transform-style: preserve-3d;
+  transform-origin: 42% 50%;
+  will-change: transform;
+  animation: heroVisualCornerTilt 9.5s cubic-bezier(.45, 0, .55, 1) infinite
+}
+
+@keyframes heroVisualCornerTilt {
+  0%, 100% {
+    transform: rotateX(0deg) rotateY(0deg) translateZ(0)
+  }
+
+  18% {
+    transform: rotateX(2.8deg) rotateY(-5.4deg) translateZ(0)
+  }
+
+  38% {
+    transform: rotateX(-3.4deg) rotateY(-4.6deg) translateZ(0)
+  }
+
+  58% {
+    transform: rotateX(-1.8deg) rotateY(2.4deg) translateZ(0)
+  }
+
+  78% {
+    transform: rotateX(1.5deg) rotateY(1.8deg) translateZ(0)
+  }
 }
 
 :global(html.dark) .aiPipeline, :global(body.dark) .aiPipeline {
@@ -1015,7 +1043,9 @@
   .heroVisual {
     display: grid;
     min-height: auto;
-    gap: .8rem
+    gap: .8rem;
+    perspective: 900px;
+    perspective-origin: 44% 50%
   }
 
   .aiPipeline {
@@ -1081,6 +1111,11 @@
   .heroSection *, .heroSection ::before, .heroSection ::after {
     scroll-behavior: auto;
     transition: none;
+    animation: none
+  }
+
+  .aiPipeline {
+    transform: none;
     animation: none
   }
 }

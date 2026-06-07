@@ -35,10 +35,11 @@
   opacity: 0;
   animation: none;
   transform: translate3d(0, 12px, 0);
+  transform-style: preserve-3d;
 }
 
 .motionOverrides:global(.scrolled-in) :global([class*="aiPipeline"]) {
-  animation: artifactFadeIn 0.72s var(--hero-replay-ease) 0.12s both;
+  animation: artifactFadeIn 0.72s var(--hero-replay-ease) 0.12s both, heroMotionCornerTilt 9.5s cubic-bezier(.45, 0, .55, 1) 0.84s infinite;
 }
 
 .motionOverrides:global(.scrolled-out) :global([class*="aiPipeline"]) {
@@ -177,6 +178,28 @@
   to {
     opacity: 1;
     transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes heroMotionCornerTilt {
+  0%, 100% {
+    transform: rotateX(0deg) rotateY(0deg) translateZ(0);
+  }
+
+  18% {
+    transform: rotateX(2.8deg) rotateY(-5.4deg) translateZ(0);
+  }
+
+  38% {
+    transform: rotateX(-3.4deg) rotateY(-4.6deg) translateZ(0);
+  }
+
+  58% {
+    transform: rotateX(-1.8deg) rotateY(2.4deg) translateZ(0);
+  }
+
+  78% {
+    transform: rotateX(1.5deg) rotateY(1.8deg) translateZ(0);
   }
 }
 
