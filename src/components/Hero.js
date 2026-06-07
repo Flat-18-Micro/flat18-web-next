@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 import Lottie from 'lottie-react'
 import HeroActions from '@/components/HeroActions'
 import TitleWords from '@/components/TitleWords'
@@ -47,7 +47,6 @@ const SHIP_SIGNALS = [
 ]
 
 export default function Hero() {
-  const lottieRef = useRef(null)
   const [animationData, setAnimationData] = useState(null)
 
   useEffect(() => {
@@ -57,12 +56,6 @@ export default function Hero() {
       .then(data => setAnimationData(data))
       .catch(err => console.error('Failed to load animation:', err))
   }, [])
-
-  useEffect(() => {
-    if (lottieRef.current && animationData) {
-      lottieRef.current.play()
-    }
-  }, [animationData])
 
   return (
     <section
@@ -99,10 +92,13 @@ export default function Hero() {
         <div className={styles.heroVisual} aria-label="AI-assisted product delivery animation">
           {animationData && (
             <Lottie
-              ref={lottieRef}
+
               animationData={animationData}
               loop
-              autoplay={false}
+              autoplay
+              rendererSettings={{
+                preserveAspectRatio: 'xMidYMid meet',
+              }}
               style={{ width: '100%', height: '100%' }}
             />
           )}
