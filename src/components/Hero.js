@@ -22,7 +22,25 @@ const PROOF_POINTS = [
   },
 ]
 
-const PIPELINE_STEPS = [0, 1, 2, 3]
+const AI_LANES = [
+  { label: 'Scope', detail: 'Risks, flows, priorities' },
+  { label: 'UI', detail: 'Screens, states, copy' },
+  { label: 'Code', detail: 'Frontend, backend, data' },
+  { label: 'Tests', detail: 'Checks, fixtures, edge cases' },
+  { label: 'Docs', detail: 'Handover, roadmap, notes' },
+]
+
+const REVIEW_CHECKS = [
+  'Architecture',
+  'Security',
+  'Release',
+]
+
+const SHIP_SIGNALS = [
+  'MVP ready',
+  'Repo owned',
+  'Roadmap clear',
+]
 
 export default function Hero() {
   return (
@@ -57,82 +75,79 @@ export default function Hero() {
           </div>
         </div>
 
-        <div className={styles.heroVisual} aria-label="Product delivery artefacts">
-          <div className={`${styles.artifact} ${styles.briefArtifact}`}>
-            <div className={styles.artifactHeader}>
-              <span>Brief</span>
-              <span>Scoped</span>
+        <div className={styles.heroVisual} aria-label="AI-assisted product delivery pipeline with senior review gates">
+          <div className={styles.aiPipeline}>
+            <div className={styles.pipelineHeader}>
+              <span>Expert AI pipeline</span>
+              <span>Senior controlled</span>
             </div>
-            <div className={styles.blueprintFrame} aria-hidden="true">
-              <svg className={styles.blueprintSvg} viewBox="0 0 320 178" focusable="false">
-                <path className={styles.blueprintGridLine} d="M28 28H292M28 68H292M28 108H292M28 148H292" />
-                <path className={styles.blueprintGridLine} d="M48 18V158M108 18V158M168 18V158M228 18V158M288 18V158" />
-                <rect className={styles.blueprintPanel} x="42" y="34" width="92" height="54" rx="2" />
-                <rect className={styles.blueprintPanel} x="194" y="94" width="72" height="42" rx="2" />
-                <path className={styles.blueprintRoute} d="M58 128C88 75 126 110 150 62C172 18 232 44 274 80" />
-                <circle className={styles.blueprintNode} cx="58" cy="128" r="6" />
-                <circle className={styles.blueprintNode} cx="150" cy="62" r="6" />
-                <circle className={styles.blueprintNode} cx="274" cy="80" r="6" />
+
+            <div className={styles.pipelineRailWrap} aria-hidden="true">
+              <svg className={styles.aiRailSvg} viewBox="0 0 640 96" focusable="false">
+                <path className={styles.aiRailBase} d="M42 48H598" />
+                <path className={styles.aiRailTrace} d="M42 48H598" />
+                <circle className={styles.aiRailNode} cx="42" cy="48" r="8" />
+                <circle className={styles.aiRailNode} cx="236" cy="48" r="8" />
+                <circle className={styles.aiRailNode} cx="432" cy="48" r="8" />
+                <circle className={styles.aiRailNode} cx="598" cy="48" r="8" />
               </svg>
             </div>
-            <div className={styles.signalGrid} aria-hidden="true">
-              <span />
-              <span />
-              <span />
-            </div>
-          </div>
 
-          <div className={`${styles.artifact} ${styles.pipelineArtifact}`}>
-            <div className={styles.artifactHeader}>
-              <span>Loop</span>
-              <span>Gated</span>
-            </div>
-            <div className={styles.pipelineBody}>
-              <svg className={styles.pipelineSvg} viewBox="0 0 420 122" aria-hidden="true" focusable="false">
-                <path className={styles.pipelineRail} d="M44 62H376" />
-                <path className={styles.pipelinePulse} d="M44 62H376" />
-                {PIPELINE_STEPS.map((step, index) => {
-                  const x = 44 + index * 110
+            <div className={styles.stageGrid}>
+              <div className={`${styles.pipelineStage} ${styles.briefStage}`}>
+                <div className={styles.stageEyebrow}>Brief</div>
+                <strong>Rough idea</strong>
+                <div className={styles.briefLines} aria-hidden="true">
+                  <span />
+                  <span />
+                  <span />
+                </div>
+                <ul>
+                  <li>Goal</li>
+                  <li>Users</li>
+                  <li>Risk</li>
+                </ul>
+              </div>
 
-                  return (
-                    <g key={step} className={styles.pipelineNodeGroup}>
-                      <circle className={styles.pipelineNode} cx={x} cy="62" r="11" />
-                      <circle className={styles.pipelineNodeCore} cx={x} cy="62" r="4" />
-                    </g>
-                  )
-                })}
-              </svg>
-              <div className={styles.flowBars} aria-hidden="true">
-                <span />
-                <span />
-                <span />
+              <div className={`${styles.pipelineStage} ${styles.aiStage}`}>
+                <div className={styles.stageEyebrow}>AI draft</div>
+                <strong>Parallel acceleration</strong>
+                <div className={styles.aiLaneGrid}>
+                  {AI_LANES.map((lane) => (
+                    <div key={lane.label} className={styles.aiLane}>
+                      <span>{lane.label}</span>
+                      <small>{lane.detail}</small>
+                    </div>
+                  ))}
+                </div>
               </div>
-            </div>
-          </div>
 
-          <div className={`${styles.artifact} ${styles.releaseArtifact}`}>
-            <div className={styles.releaseShell}>
-              <div className={styles.releaseNav}>
-                <span>Launch</span>
-                <i className="bi bi-check-circle" aria-hidden="true" />
+              <div className={`${styles.pipelineStage} ${styles.reviewStage}`}>
+                <div className={styles.stageEyebrow}>Senior review</div>
+                <strong>Quality gate</strong>
+                <div className={styles.reviewChecks}>
+                  {REVIEW_CHECKS.map((check) => (
+                    <span key={check}>
+                      <i className="bi bi-check2" aria-hidden="true" />
+                      {check}
+                    </span>
+                  ))}
+                </div>
               </div>
-              <div className={styles.releaseChart} aria-hidden="true">
-                <svg viewBox="0 0 460 150" className={styles.releaseSvg} focusable="false">
-                  <path className={styles.chartGrid} d="M34 36H424M34 74H424M34 112H424" />
-                  <path className={styles.chartLine} d="M42 108C92 104 102 78 148 78C190 78 196 52 240 54C296 56 300 34 360 38C396 40 410 30 424 26" />
-                  <circle className={styles.chartPoint} cx="148" cy="78" r="5" />
-                  <circle className={styles.chartPoint} cx="240" cy="54" r="5" />
-                  <circle className={styles.chartPoint} cx="424" cy="26" r="5" />
-                </svg>
-              </div>
-              <div className={styles.releaseMeters} aria-hidden="true">
-                <span />
-                <span />
-              </div>
-              <div className={styles.releaseChecks} aria-hidden="true">
-                <span><i className="bi bi-check2" aria-hidden="true" /></span>
-                <span><i className="bi bi-check2" aria-hidden="true" /></span>
-                <span><i className="bi bi-check2" aria-hidden="true" /></span>
+
+              <div className={`${styles.pipelineStage} ${styles.launchStage}`}>
+                <div className={styles.stageEyebrow}>Launch</div>
+                <strong>Client-owned product</strong>
+                <div className={styles.launchWindow} aria-hidden="true">
+                  <span />
+                  <span />
+                  <span />
+                </div>
+                <div className={styles.shipSignals}>
+                  {SHIP_SIGNALS.map((signal) => (
+                    <span key={signal}>{signal}</span>
+                  ))}
+                </div>
               </div>
             </div>
           </div>

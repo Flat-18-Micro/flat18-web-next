@@ -95,6 +95,11 @@
   transform: scaleX(0.92) translateY(-0.015em);
   transform-origin: center;
 }
+.heroSerifAccent span {
+  /* width: calc(100% + 1rem); */
+  /* margin-left: -.5rem; */
+  padding-right: .75rem;
+}
 
 .heroSubheading {
   max-width: 680px;
@@ -157,6 +162,315 @@
 .heroVisual {
   position: relative;
   min-height: 500px
+}
+
+.aiPipeline {
+  position: relative;
+  overflow: hidden;
+  padding: 1.05rem;
+  border: 1px solid var(--hero-rule);
+  border-radius: 8px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, .5), rgba(255, 255, 255, 0) 36%), var(--hero-card);
+  box-shadow: var(--hero-shadow);
+  color: var(--hero-ink)
+}
+
+:global(html.dark) .aiPipeline, :global(body.dark) .aiPipeline {
+  background: linear-gradient(135deg, rgba(255, 255, 255, .08), rgba(255, 255, 255, 0) 38%), var(--hero-card)
+}
+
+.aiPipeline::before {
+  content: "";
+  position: absolute;
+  inset: 3.7rem 0 auto;
+  height: 1px;
+  background: var(--hero-rule);
+  pointer-events: none
+}
+
+.pipelineHeader {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: .1rem .1rem .9rem;
+  color: var(--hero-ink);
+  font-family: var(--font-heading);
+  font-size: 1.08rem;
+  font-weight: 600
+}
+
+.pipelineHeader span:last-child {
+  color: var(--hero-muted);
+  font-family: var(--font-sans);
+  font-size: .64rem;
+  font-weight: 800;
+  letter-spacing: .09em;
+  text-align: right;
+  text-transform: uppercase
+}
+
+.pipelineRailWrap {
+  position: relative;
+  margin: .3rem 0 .5rem;
+  padding: 0 .45rem
+}
+
+.aiRailSvg {
+  display: block;
+  width: 100%;
+  height: auto
+}
+
+.aiRailBase,
+.aiRailTrace {
+  fill: none;
+  stroke-linecap: round
+}
+
+.aiRailBase {
+  stroke: var(--hero-rule-strong);
+  stroke-width: 2
+}
+
+.aiRailTrace {
+  stroke: var(--hero-blue);
+  stroke-width: 4;
+  stroke-dasharray: 560;
+  stroke-dashoffset: 560
+}
+
+.aiRailNode {
+  fill: var(--hero-card-strong);
+  stroke: var(--hero-blue);
+  stroke-width: 2;
+  transform-box: fill-box;
+  transform-origin: center
+}
+
+.stageGrid {
+  display: grid;
+  grid-template-columns: .92fr 1.45fr 1.02fr 1.08fr;
+  gap: .78rem;
+  align-items: stretch
+}
+
+.pipelineStage {
+  position: relative;
+  display: flex;
+  min-height: 315px;
+  flex-direction: column;
+  gap: .72rem;
+  overflow: hidden;
+  padding: .95rem;
+  border: 1px solid var(--hero-rule);
+  border-radius: 6px;
+  background: var(--hero-card-strong);
+  color: var(--hero-ink)
+}
+
+.pipelineStage::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(150deg, rgba(255, 255, 255, .38), rgba(255, 255, 255, 0) 34%);
+  pointer-events: none
+}
+
+:global(html.dark) .pipelineStage::after, :global(body.dark) .pipelineStage::after {
+  background: linear-gradient(150deg, rgba(255, 255, 255, .075), rgba(255, 255, 255, 0) 36%)
+}
+
+.stageEyebrow {
+  color: var(--hero-brass);
+  font-size: .64rem;
+  font-weight: 800;
+  letter-spacing: .09em;
+  line-height: 1.25;
+  text-transform: uppercase
+}
+
+.pipelineStage strong {
+  position: relative;
+  z-index: 1;
+  display: block;
+  color: var(--hero-ink);
+  font-size: .98rem;
+  line-height: 1.25
+}
+
+.briefLines {
+  display: grid;
+  gap: .5rem;
+  margin-top: .25rem;
+  padding: .78rem;
+  border: 1px solid var(--hero-rule);
+  background: var(--hero-soft)
+}
+
+.briefLines span {
+  display: block;
+  height: .5rem;
+  border-radius: 999px;
+  background: var(--hero-rule-strong)
+}
+
+.briefLines span:nth-child(1) {
+  width: 82%
+}
+
+.briefLines span:nth-child(2) {
+  width: 62%
+}
+
+.briefLines span:nth-child(3) {
+  width: 74%
+}
+
+.briefStage ul {
+  display: grid;
+  gap: .45rem;
+  margin: auto 0 0;
+  padding: 0;
+  list-style: none
+}
+
+.briefStage li {
+  padding: .46rem .55rem;
+  border: 1px solid var(--hero-rule);
+  color: var(--hero-muted);
+  font-size: .72rem;
+  font-weight: 700;
+  line-height: 1.25
+}
+
+.aiLaneGrid {
+  display: grid;
+  gap: .5rem;
+  margin-top: .15rem
+}
+
+.aiStage {
+  border-color: color-mix(in srgb, var(--hero-blue) 38%, var(--hero-rule))
+}
+
+.aiLane {
+  position: relative;
+  display: grid;
+  gap: .18rem;
+  overflow: hidden;
+  padding: .58rem .68rem .58rem .78rem;
+  border: 1px solid var(--hero-rule);
+  background: var(--hero-soft)
+}
+
+.aiLane::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 3px;
+  background: var(--hero-blue);
+  transform: scaleY(.22);
+  transform-origin: bottom center
+}
+
+.aiLane span {
+  position: relative;
+  z-index: 1;
+  color: var(--hero-ink);
+  font-size: .78rem;
+  font-weight: 800;
+  line-height: 1.25
+}
+
+.aiLane small {
+  position: relative;
+  z-index: 1;
+  color: var(--hero-muted);
+  font-size: .66rem;
+  line-height: 1.35
+}
+
+.reviewStage {
+  border-color: color-mix(in srgb, var(--hero-brass) 42%, var(--hero-rule));
+  background: linear-gradient(to bottom, color-mix(in srgb, var(--hero-brass) 8%, var(--hero-card-strong)), var(--hero-card-strong))
+}
+
+.reviewChecks {
+  display: grid;
+  gap: .58rem;
+  margin-top: .2rem
+}
+
+.reviewChecks span {
+  display: flex;
+  align-items: center;
+  gap: .46rem;
+  min-width: 0;
+  min-height: 2.28rem;
+  padding: .48rem .55rem;
+  border: 1px solid var(--hero-rule);
+  background: var(--hero-card);
+  color: var(--hero-muted);
+  font-size: .68rem;
+  font-weight: 800;
+  line-height: 1.25;
+  overflow-wrap: anywhere
+}
+
+.reviewChecks i {
+  flex: 0 0 auto;
+  color: var(--hero-green);
+  font-size: 1rem
+}
+
+.launchStage {
+  background: linear-gradient(to bottom, color-mix(in srgb, var(--hero-green) 8%, var(--hero-card-strong)), var(--hero-card-strong))
+}
+
+.launchWindow {
+  display: grid;
+  min-height: 5.4rem;
+  grid-template-columns: 1.1fr .9fr;
+  gap: .48rem;
+  margin-top: .1rem;
+  padding: .62rem;
+  border: 1px solid var(--hero-rule);
+  background: var(--hero-soft)
+}
+
+.launchWindow span {
+  display: block;
+  border: 1px solid var(--hero-rule);
+  background: var(--hero-card-strong)
+}
+
+.launchWindow span:first-child {
+  grid-row: span 2;
+  background: linear-gradient(to top, color-mix(in srgb, var(--hero-blue) 18%, transparent), transparent 72%), var(--hero-card-strong)
+}
+
+.launchWindow span:nth-child(2) {
+  background: linear-gradient(to right, color-mix(in srgb, var(--hero-brass) 22%, transparent), transparent), var(--hero-card-strong)
+}
+
+.launchWindow span:nth-child(3) {
+  background: linear-gradient(to right, color-mix(in srgb, var(--hero-green) 22%, transparent), transparent), var(--hero-card-strong)
+}
+
+.shipSignals {
+  display: grid;
+  gap: .4rem;
+  margin-top: auto
+}
+
+.shipSignals span {
+  padding: .42rem .5rem;
+  border: 1px solid var(--hero-rule);
+  color: var(--hero-muted);
+  font-size: .68rem;
+  font-weight: 800;
+  line-height: 1.25
 }
 
 .artifact {
@@ -610,6 +924,14 @@
     min-height: 470px
   }
 
+  .stageGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr))
+  }
+
+  .pipelineStage {
+    min-height: 255px
+  }
+
   .briefArtifact {
     left: 0;
     width: 54%
@@ -694,6 +1016,49 @@
     display: grid;
     min-height: auto;
     gap: .8rem
+  }
+
+  .aiPipeline {
+    padding: .82rem
+  }
+
+  .aiPipeline::before,
+  .pipelineRailWrap {
+    display: none
+  }
+
+  .pipelineHeader {
+    display: grid;
+    gap: .28rem;
+    padding-bottom: .72rem;
+    font-size: .98rem
+  }
+
+  .pipelineHeader span:last-child {
+    text-align: left
+  }
+
+  .stageGrid {
+    grid-template-columns: 1fr;
+    gap: .66rem
+  }
+
+  .pipelineStage {
+    min-height: auto;
+    padding: .82rem
+  }
+
+  .aiLaneGrid {
+    grid-template-columns: 1fr
+  }
+
+  .aiLane small {
+    display: none
+  }
+
+  .reviewChecks,
+  .shipSignals {
+    grid-template-columns: 1fr
   }
 
   .artifact {

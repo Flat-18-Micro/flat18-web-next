@@ -31,94 +31,141 @@
   transition-delay: 0s;
 }
 
-.motionOverrides :global([class*="briefArtifact"]),
-.motionOverrides :global([class*="pipelineArtifact"]),
-.motionOverrides :global([class*="releaseArtifact"]) {
+.motionOverrides :global([class*="aiPipeline"]) {
   opacity: 0;
   animation: none;
   transform: translate3d(0, 12px, 0);
 }
 
-.motionOverrides:global(.scrolled-in) :global([class*="briefArtifact"]) {
-  animation: artifactFadeIn 0.9s var(--hero-replay-ease) 0.12s both;
+.motionOverrides:global(.scrolled-in) :global([class*="aiPipeline"]) {
+  animation: artifactFadeIn 0.72s var(--hero-replay-ease) 0.12s both;
 }
 
-.motionOverrides:global(.scrolled-in) :global([class*="pipelineArtifact"]) {
-  animation: artifactFadeIn 0.95s var(--hero-replay-ease) 0.22s both;
-}
-
-.motionOverrides:global(.scrolled-in) :global([class*="releaseArtifact"]) {
-  animation: artifactFadeIn 1s var(--hero-replay-ease) 0.34s both;
-}
-
-.motionOverrides:global(.scrolled-out) :global([class*="briefArtifact"]),
-.motionOverrides:global(.scrolled-out) :global([class*="pipelineArtifact"]),
-.motionOverrides:global(.scrolled-out) :global([class*="releaseArtifact"]) {
+.motionOverrides:global(.scrolled-out) :global([class*="aiPipeline"]) {
   opacity: 0;
   animation: none;
   transform: translate3d(0, 12px, 0);
 }
 
-.motionOverrides :global([class*="blueprintRoute"]),
-.motionOverrides :global([class*="chartLine"]) {
-  opacity: 0.42;
-  stroke-dashoffset: 520;
-  animation: none;
-}
-
-.motionOverrides:global(.scrolled-in) :global([class*="blueprintRoute"]) {
-  animation: routeDrawOnce 5.8s var(--hero-replay-ease) 0.45s 1 both;
-}
-
-.motionOverrides:global(.scrolled-in) :global([class*="chartLine"]) {
-  animation: routeDrawOnce 6s var(--hero-replay-ease) 0.7s 1 both;
-}
-
-.motionOverrides :global([class*="pipelinePulse"]) {
+.motionOverrides :global([class*="pipelineStage"]) {
   opacity: 0;
-  stroke-dashoffset: 410;
+  transform: translate3d(0, 10px, 0);
   animation: none;
 }
 
-.motionOverrides:global(.scrolled-in) :global([class*="pipelinePulse"]) {
-  animation: pipelineTrace 4.8s var(--hero-replay-ease) 0.8s 1 both;
+.motionOverrides:global(.scrolled-in) :global([class*="briefStage"]) {
+  animation: artifactFadeIn 0.7s var(--hero-replay-ease) 0.24s both;
 }
 
-.motionOverrides :global([class*="blueprintNode"]),
-.motionOverrides :global([class*="chartPoint"]) {
+.motionOverrides:global(.scrolled-in) :global([class*="aiStage"]) {
+  animation: artifactFadeIn 0.72s var(--hero-replay-ease) 0.42s both;
+}
+
+.motionOverrides:global(.scrolled-in) :global([class*="reviewStage"]) {
+  animation: artifactFadeIn 0.74s var(--hero-replay-ease) 0.7s both;
+}
+
+.motionOverrides:global(.scrolled-in) :global([class*="launchStage"]) {
+  animation: artifactFadeIn 0.76s var(--hero-replay-ease) 0.96s both;
+}
+
+.motionOverrides:global(.scrolled-out) :global([class*="pipelineStage"]) {
+  opacity: 0;
+  animation: none;
+  transform: translate3d(0, 10px, 0);
+}
+
+.motionOverrides :global([class*="aiRailTrace"]) {
+  opacity: 0;
+  stroke-dashoffset: 560;
+  animation: none;
+}
+
+.motionOverrides:global(.scrolled-in) :global([class*="aiRailTrace"]) {
+  animation: aiRailTraceBuild 1.75s var(--hero-replay-ease) 0.34s both;
+}
+
+.motionOverrides :global([class*="aiRailNode"]) {
   opacity: 0;
   transform: scale(0.72);
   animation: none;
 }
 
-.motionOverrides:global(.scrolled-in) :global([class*="blueprintNode"]) {
-  animation: heroNodeSettle 0.8s var(--hero-replay-ease) 1.65s both;
+.motionOverrides:global(.scrolled-in) :global([class*="aiRailNode"]) {
+  animation: heroNodeSettle 0.62s var(--hero-replay-ease) 0.5s both;
 }
 
-.motionOverrides:global(.scrolled-in) :global([class*="chartPoint"]) {
-  animation: heroNodeSettle 0.8s var(--hero-replay-ease) 1.9s both;
+.motionOverrides:global(.scrolled-in) :global([class*="aiRailNode"]:nth-of-type(3)) {
+  animation-delay: 0.78s;
 }
 
-.motionOverrides :global([class*="releaseMeters"]) span::before {
-  transform: scaleX(0.18);
+.motionOverrides:global(.scrolled-in) :global([class*="aiRailNode"]:nth-of-type(4)) {
+  animation-delay: 1s;
+}
+
+.motionOverrides:global(.scrolled-in) :global([class*="aiRailNode"]:nth-of-type(5)) {
+  animation-delay: 1.22s;
+}
+
+.motionOverrides :global([class*="aiLane"]),
+.motionOverrides :global([class*="reviewChecks"]) span,
+.motionOverrides :global([class*="shipSignals"]) span {
+  opacity: 0;
+  transform: translate3d(0, 5px, 0);
   animation: none;
 }
 
-.motionOverrides:global(.scrolled-in) :global([class*="releaseMeters"]) span::before {
-  animation: heroBarBuildIn 1.3s var(--hero-replay-ease) 1.05s both;
+.motionOverrides :global([class*="aiLane"])::before {
+  animation: none;
+  transform: scaleY(0.22);
 }
 
-.motionOverrides:global(.scrolled-in) :global([class*="releaseMeters"]) span:nth-child(2)::before {
-  animation-delay: 1.25s;
+.motionOverrides:global(.scrolled-in) :global([class*="aiLane"]) {
+  animation: microItemBuild 0.48s var(--hero-replay-ease) 0.68s both;
 }
 
-.motionOverrides :global([class*="releaseChecks"]) {
-  gap: 0.3rem;
+.motionOverrides:global(.scrolled-in) :global([class*="aiLane"]:nth-child(2)) {
+  animation-delay: 0.76s;
 }
 
-.motionOverrides :global([class*="releaseChecks"]) span {
-  min-width: 0;
-  overflow: hidden;
+.motionOverrides:global(.scrolled-in) :global([class*="aiLane"]:nth-child(3)) {
+  animation-delay: 0.84s;
+}
+
+.motionOverrides:global(.scrolled-in) :global([class*="aiLane"]:nth-child(4)) {
+  animation-delay: 0.92s;
+}
+
+.motionOverrides:global(.scrolled-in) :global([class*="aiLane"]:nth-child(5)) {
+  animation-delay: 1s;
+}
+
+.motionOverrides:global(.scrolled-in) :global([class*="aiLane"])::before {
+  animation: heroBarBuildIn 0.62s var(--hero-replay-ease) 0.76s both;
+}
+
+.motionOverrides:global(.scrolled-in) :global([class*="reviewChecks"]) span {
+  animation: microItemBuild 0.5s var(--hero-replay-ease) 1.02s both;
+}
+
+.motionOverrides:global(.scrolled-in) :global([class*="reviewChecks"]) span:nth-child(2) {
+  animation-delay: 1.12s;
+}
+
+.motionOverrides:global(.scrolled-in) :global([class*="reviewChecks"]) span:nth-child(3) {
+  animation-delay: 1.22s;
+}
+
+.motionOverrides:global(.scrolled-in) :global([class*="shipSignals"]) span {
+  animation: microItemBuild 0.5s var(--hero-replay-ease) 1.28s both;
+}
+
+.motionOverrides:global(.scrolled-in) :global([class*="shipSignals"]) span:nth-child(2) {
+  animation-delay: 1.38s;
+}
+
+.motionOverrides:global(.scrolled-in) :global([class*="shipSignals"]) span:nth-child(3) {
+  animation-delay: 1.48s;
 }
 
 @keyframes artifactFadeIn {
@@ -159,11 +206,40 @@
 
 @keyframes heroBarBuildIn {
   from {
-    transform: scaleX(0.18);
+    transform: scaleY(0.22);
   }
 
   to {
-    transform: scaleX(1);
+    transform: scaleY(1);
+  }
+}
+
+@keyframes microItemBuild {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 5px, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes aiRailTraceBuild {
+  0% {
+    opacity: 0;
+    stroke-dashoffset: 560;
+  }
+
+  20%,
+  92% {
+    opacity: 0.82;
+  }
+
+  100% {
+    opacity: 0.42;
+    stroke-dashoffset: 0;
   }
 }
 
@@ -188,5 +264,26 @@
   .motionOverrides :global(*) {
     animation: none;
     transition: none;
+  }
+
+  .motionOverrides :global([class*="heroSubheading"]),
+  .motionOverrides :global([class*="heroActions"]),
+  .motionOverrides :global([class*="aiPipeline"]),
+  .motionOverrides :global([class*="pipelineStage"]),
+  .motionOverrides :global([class*="aiRailTrace"]),
+  .motionOverrides :global([class*="aiRailNode"]),
+  .motionOverrides :global([class*="aiLane"]),
+  .motionOverrides :global([class*="reviewChecks"]) span,
+  .motionOverrides :global([class*="shipSignals"]) span {
+    opacity: 1;
+    transform: none;
+  }
+
+  .motionOverrides :global([class*="aiRailTrace"]) {
+    stroke-dashoffset: 0;
+  }
+
+  .motionOverrides :global([class*="aiLane"])::before {
+    transform: scaleY(1);
   }
 }
