@@ -1,17 +1,23 @@
 import fs from 'node:fs/promises'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
-import sharp from 'sharp'
+import { createCanvas, registerFont, loadImage } from 'canvas'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const repoRoot = path.resolve(__dirname, '..')
 const outputDir = path.resolve(repoRoot, 'public/og')
 const logoPath = path.resolve(repoRoot, 'public/og/_sources/flat18-logo.png')
-// const delaGothicPath = path.resolve(repoRoot, 'public/fonts/dela-gothic-one/DelaGothicOne-Regular.ttf')
+
 const delaGothicPath = path.resolve(repoRoot, 'public/fonts/dela-gothic-one/dela-gothic-one-v19-latin-regular.ttf')
 const interRegularPath = path.resolve(repoRoot, 'public/fonts/inter-v20-latin/inter-v20-latin-regular.ttf')
 const interMediumPath = path.resolve(repoRoot, 'public/fonts/inter-v20-latin/inter-v20-latin-500.ttf')
 const interBoldPath = path.resolve(repoRoot, 'public/fonts/inter-v20-latin/inter-v20-latin-700.ttf')
+
+// Register fonts for Canvas
+registerFont(delaGothicPath, { family: 'Dela Gothic One', weight: 'normal' })
+registerFont(interRegularPath, { family: 'Inter', weight: 'normal' })
+registerFont(interMediumPath, { family: 'Inter', weight: '500' })
+registerFont(interBoldPath, { family: 'Inter', weight: 'bold' })
 
 const width = 1200
 const height = 630
@@ -153,189 +159,139 @@ const pages = [
     script: 'plain English',
     description: ['The terms that define how we work together', 'in clear, readable language.'],
   },
-  {
-    file: 'communication-standard.png',
-    kicker: 'Standard',
-    title: ['Communication', 'Standard'],
-    titleAccent: 1,
-    script: 'ease',
-    description: ['Clear, direct communication', 'at every stage of the work.'],
-  },
 ]
 
-function escapeXml(value) {
-  return String(value)
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;')
+function drawBackground(ctx) {
+  const grad = ctx.createRadialGradient(width * 0.5, height * 0.44, 0, width * 0.5, height * 0.44, width * 0.7)
+  grad.addColorStop(0, '#07112a')
+  grad.addColorStop(0.58, '#030713')
+  grad.addColorStop(1, '#01030b')
+  ctx.fillStyle = grad
+  ctx.fillRect(0, 0, width, height)
+
+  // Glows
+  const glowLeft = ctx.createRadialGradient(width * 0.22, height * 0.7, 0, width * 0.22, height * 0.7, width * 0.38)
+  glowLeft.addColorStop(0, 'rgba(0, 108, 255, 0.28)')
+  glowLeft.addColorStop(1, 'rgba(0, 108, 255, 0)')
+  ctx.fillStyle = glowLeft
+  ctx.fillRect(0, 0, width, height)
+
+  const glowRight = ctx.createRadialGradient(width * 0.82, height * 0.48, 0, width * 0.82, height * 0.48, width * 0.38)
+  glowRight.addColorStop(0, 'rgba(0, 213, 255, 0.24)')
+  glowRight.addColorStop(1, 'rgba(0, 213, 255, 0)')
+  ctx.fillStyle = glowRight
+  ctx.fillRect(0, 0, width, height)
+
+  ctx.fillStyle = 'rgba(0, 3, 12, 0.22)'
+  ctx.fillRect(0, 0, width, height)
 }
 
-async function fontDataUri(fontPath) {
-  const buffer = await fs.readFile(fontPath)
-  return `data:font/ttf;base64,${buffer.toString('base64')}`
-}
-
-function dots({ x, y, columns, rows, stepX, stepY, amplitude, phase, opacity, rotate = 0 }) {
-  const circles = []
-
-  for (let row = 0; row < rows; row += 1) {
-    for (let column = 0; column < columns; column += 1) {
-      const wave = Math.sin(column * 0.21 + row * 0.32 + phase) * amplitude
-      const drift = Math.cos(column * 0.12 + phase) * 10
-      const cx = column * stepX + drift
-      const cy = row * stepY + wave
-      const fadeX = Math.min(column / 10, (columns - column) / 14, 1)
-      const fadeY = Math.min(row / 5, (rows - row) / 5, 1)
-      const alpha = Math.max(0, opacity * fadeX * fadeY)
-      const colour = row % 3 === 0 ? '#00c8ff' : '#0058ff'
-
-      circles.push(`<circle cx="${cx.toFixed(2)}" cy="${cy.toFixed(2)}" r="1.08" fill="${colour}" opacity="${alpha.toFixed(3)}"/>`)
+function drawDots(ctx, { x, y, columns, rows, stepX, stepY, amplitude, phase, opacity, rotate = 0 }) {
+  ctx.save()
+  ctx.translate(x, y)
+  ctx.rotate((rotate * Math.PI) / 180)
+  ctx.fillStyle = `rgba(255, 255, 255, ${opacity})`
+  
+  for (let row = 0; row < rows; row++) {
+    for (let col = 0; col < columns; col++) {
+      const offsetX = Math.sin(col * 0.21 + row * 0.32 + phase) * amplitude
+      const offsetY = Math.cos(col * 0.21 + row * 0.32 + phase) * amplitude
+      ctx.beginPath()
+      ctx.arc(col * stepX + offsetX, row * stepY + offsetY, 1, 0, Math.PI * 2)
+      ctx.fill()
     }
   }
-
-  return `<g transform="translate(${x} ${y}) rotate(${rotate})">${circles.join('')}</g>`
-}
-
-function textLines(lines, { startY, fontSize, lineHeight, accentIndex }) {
-  return lines.map((line, index) => {
-    const fill = index === accentIndex ? 'url(#titleGradient)' : '#f8fbff'
-    return `<text x="70" y="${startY + index * lineHeight}" text-anchor="start" class="title" font-size="${fontSize}" fill="${fill}">${escapeXml(line)}</text>`
-  }).join('')
-}
-
-function descriptionLines(lines, startY) {
-  return lines.map((line, index) => (
-    `<text x="70" y="${startY + index * 46}" text-anchor="start" class="description">${escapeXml(line)}</text>`
-  )).join('')
-}
-
-function svgFor(page, logoDataUri, fonts) {
-  const titleFontSize = page.title.some((line) => line.length > 13) ? 78 : 88
-  const titleLineHeight = titleFontSize * 0.98
-  const titleStartY = 208
-  const titleBottom = titleStartY + (page.title.length - 1) * titleLineHeight
-  const descriptionY = titleBottom + 86
-
-  return `
-<svg width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <radialGradient id="bgA" cx="50%" cy="44%" r="70%">
-      <stop offset="0%" stop-color="#07112a"/>
-      <stop offset="58%" stop-color="#030713"/>
-      <stop offset="100%" stop-color="#01030b"/>
-    </radialGradient>
-    <radialGradient id="glowLeft" cx="22%" cy="70%" r="38%">
-      <stop offset="0%" stop-color="#006cff" stop-opacity=".28"/>
-      <stop offset="100%" stop-color="#006cff" stop-opacity="0"/>
-    </radialGradient>
-    <radialGradient id="glowRight" cx="82%" cy="48%" r="38%">
-      <stop offset="0%" stop-color="#00d5ff" stop-opacity=".24"/>
-      <stop offset="100%" stop-color="#00d5ff" stop-opacity="0"/>
-    </radialGradient>
-    <linearGradient id="titleGradient" x1="70" x2="760" y1="0" y2="0" gradientUnits="userSpaceOnUse">
-      <stop offset="0%" stop-color="#0a75ff"/>
-      <stop offset="54%" stop-color="#00a8ff"/>
-      <stop offset="100%" stop-color="#33d6ff"/>
-    </linearGradient>
-    <filter id="softShadow" x="-20%" y="-30%" width="140%" height="160%">
-      <feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#000814" flood-opacity=".6"/>
-    </filter>
-    <style>
-      @font-face {
-        font-family: 'Dela Gothic One';
-        font-style: normal;
-        font-weight: 400;
-        src: url('${fonts.delaGothic}') format('truetype');
-      }
-      @font-face {
-        font-family: 'Inter';
-        font-style: normal;
-        font-weight: 400;
-        src: url('${fonts.interRegular}') format('truetype');
-      }
-      @font-face {
-        font-family: 'Inter';
-        font-style: normal;
-        font-weight: 500;
-        src: url('${fonts.interMedium}') format('truetype');
-      }
-      @font-face {
-        font-family: 'Inter';
-        font-style: normal;
-        font-weight: 700;
-        src: url('${fonts.interBold}') format('truetype');
-      }
-      .kicker { font-family: Inter, Arial, Helvetica, sans-serif; font-weight: 500; letter-spacing: 4px; text-transform: uppercase; }
-      .title { font-family: 'Dela Gothic One', Inter, Arial, Helvetica, sans-serif; font-weight: 400; letter-spacing: 0; line-height: 0.98; filter: url(#softShadow); }
-      .description { font-family: Inter, Arial, Helvetica, sans-serif; font-size: 34px; font-weight: 400; fill: #e7eef8; letter-spacing: 0; filter: url(#softShadow); }
-      .domain { font-family: Inter, Arial, Helvetica, sans-serif; font-size: 24px; font-weight: 700; letter-spacing: 1px; }
-    </style>
-  </defs>
-
-  <rect width="1200" height="630" fill="url(#bgA)"/>
-  <rect width="1200" height="630" fill="url(#glowLeft)"/>
-  <rect width="1200" height="630" fill="url(#glowRight)"/>
-  <rect width="1200" height="630" fill="#00030c" opacity=".22"/>
-
-  ${dots({ x: -142, y: 360, columns: 66, rows: 18, stepX: 13, stepY: 7, amplitude: 31, phase: 0.4, opacity: 0.42, rotate: -9 })}
-  ${dots({ x: 645, y: 142, columns: 66, rows: 18, stepX: 12, stepY: 7, amplitude: 27, phase: 2.1, opacity: 0.44, rotate: 8 })}
-
-  <circle cx="958" cy="315" r="244" fill="#006cff" opacity=".07"/>
-  <circle cx="958" cy="315" r="196" fill="#00d5ff" opacity=".05"/>
-  <image href="${logoDataUri}" x="762" y="120" width="390" height="390" preserveAspectRatio="xMidYMid meet"/>
-
-  <text x="70" y="104" text-anchor="start" class="kicker" font-size="18" fill="#7089ad">${escapeXml(page.kicker)}</text>
-
-  ${textLines(page.title, {
-    startY: titleStartY,
-    fontSize: titleFontSize,
-    lineHeight: titleLineHeight,
-    accentIndex: page.titleAccent,
-  })}
-
-  <line x1="70" y1="${descriptionY - 54}" x2="260" y2="${descriptionY - 54}" stroke="#0878d8" stroke-opacity=".9" stroke-width="3"/>
-  ${descriptionLines(page.description, descriptionY)}
-  <text x="70" y="552" text-anchor="start" class="domain" fill="#16d1ff">flat18.co.uk</text>
-</svg>`
+  ctx.restore()
 }
 
 async function render() {
-  await Promise.all([
-    fs.access(logoPath),
-    fs.access(delaGothicPath),
-    fs.access(interRegularPath),
-    fs.access(interMediumPath),
-    fs.access(interBoldPath),
-  ])
-
-  const [logo, delaGothic, interRegular, interMedium, interBold] = await Promise.all([
-    sharp(logoPath)
-      .resize(390, 390, { fit: 'contain' })
-      .png()
-      .toBuffer(),
-    fontDataUri(delaGothicPath),
-    fontDataUri(interRegularPath),
-    fontDataUri(interMediumPath),
-    fontDataUri(interBoldPath),
-  ])
-
-  const logoDataUri = `data:image/png;base64,${logo.toString('base64')}`
-  const fonts = {
-    delaGothic,
-    interRegular,
-    interMedium,
-    interBold,
-  }
+  const canvas = createCanvas(width, height)
+  const ctx = canvas.getContext('2d')
+  const logo = await loadImage(logoPath)
 
   for (const page of pages) {
-    const svg = Buffer.from(svgFor(page, logoDataUri, fonts))
+    ctx.clearRect(0, 0, width, height)
+    drawBackground(ctx)
 
-    await sharp(svg)
-      .flatten({ background: '#01030b' })
-      .removeAlpha()
-      .png({ compressionLevel: 9, adaptiveFiltering: true })
-      .toFile(path.join(outputDir, page.file))
+    drawDots(ctx, { x: -142, y: 360, columns: 66, rows: 18, stepX: 13, stepY: 7, amplitude: 31, phase: 0.4, opacity: 0.42, rotate: -9 })
+    drawDots(ctx, { x: 645, y: 142, columns: 66, rows: 18, stepX: 12, stepY: 7, amplitude: 27, phase: 2.1, opacity: 0.44, rotate: 8 })
+
+    // Decorative circles
+    ctx.fillStyle = 'rgba(0, 108, 255, 0.07)'
+    ctx.beginPath()
+    ctx.arc(958, 315, 244, 0, Math.PI * 2)
+    ctx.fill()
+    ctx.fillStyle = 'rgba(0, 213, 255, 0.05)'
+    ctx.beginPath()
+    ctx.arc(958, 315, 196, 0, Math.PI * 2)
+    ctx.fill()
+
+    ctx.drawImage(logo, 762, 120, 390, 390)
+
+    // Kicker
+    ctx.font = '500 18px "Inter"'
+    ctx.fillStyle = '#7089ad'
+    ctx.letterSpacing = '4px'
+    ctx.textBaseline = 'top'
+    ctx.fillText(page.kicker.toUpperCase(), 70, 104)
+    ctx.letterSpacing = '0px'
+
+    // Title
+    const titleFontSize = page.title.some((line) => line.length > 13) ? 78 : 88
+    const titleLineHeight = titleFontSize * 0.98
+    const titleStartY = 108
+
+    ctx.font = `400 ${titleFontSize}px "Dela Gothic One"`
+    ctx.textBaseline = 'top'
+    
+    page.title.forEach((line, i) => {
+      if (i === page.titleAccent) {
+        const titleGrad = ctx.createLinearGradient(70, 0, 760, 0)
+        titleGrad.addColorStop(0, '#0a75ff')
+        titleGrad.addColorStop(0.54, '#00a8ff')
+        titleGrad.addColorStop(1, '#33d6ff')
+        ctx.fillStyle = titleGrad
+      } else {
+        ctx.fillStyle = '#f8fbff'
+      }
+      
+      // Shadow effect
+      ctx.shadowColor = 'rgba(0, 8, 20, 0.6)'
+      ctx.shadowBlur = 5
+      ctx.shadowOffsetY = 4
+      ctx.fillText(line, 70, titleStartY + i * titleLineHeight)
+      ctx.shadowColor = 'transparent'
+    })
+
+    const titleBottom = titleStartY + (page.title.length - 1) * titleLineHeight
+    const descriptionY = titleBottom + 186
+
+    // Line
+    ctx.strokeStyle = '#0878d8'
+    ctx.lineWidth = 3
+    ctx.beginPath()
+    ctx.moveTo(70, descriptionY - 34)
+    ctx.lineTo(460, descriptionY - 34)
+    ctx.stroke()
+
+    // Description
+    ctx.font = '400 34px "Inter"'
+    ctx.fillStyle = '#e7eef8'
+    page.description.forEach((line, i) => {
+      ctx.shadowColor = 'rgba(0, 8, 20, 0.6)'
+      ctx.shadowBlur = 5
+      ctx.shadowOffsetY = 4
+      ctx.fillText(line, 70, descriptionY + i * 46)
+      ctx.shadowColor = 'transparent'
+    })
+
+    // Domain
+    ctx.font = 'bold 24px "Inter"'
+    ctx.fillStyle = '#16d1ff'
+    ctx.fillText('flat18.co.uk', 70, 552)
+
+    const buffer = canvas.toBuffer('image/png')
+    await fs.writeFile(path.join(outputDir, page.file), buffer)
   }
 }
 
