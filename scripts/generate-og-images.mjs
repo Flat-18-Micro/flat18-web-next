@@ -7,6 +7,11 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const repoRoot = path.resolve(__dirname, '..')
 const outputDir = path.resolve(repoRoot, 'public/og')
 const logoPath = path.resolve(repoRoot, 'public/og/_sources/flat18-logo.png')
+// const delaGothicPath = path.resolve(repoRoot, 'public/fonts/dela-gothic-one/DelaGothicOne-Regular.ttf')
+const delaGothicPath = path.resolve(repoRoot, 'public/fonts/dela-gothic-one/dela-gothic-one-v19-latin-regular.ttf')
+const interRegularPath = path.resolve(repoRoot, 'public/fonts/inter-v20-latin/inter-v20-latin-regular.ttf')
+const interMediumPath = path.resolve(repoRoot, 'public/fonts/inter-v20-latin/inter-v20-latin-500.ttf')
+const interBoldPath = path.resolve(repoRoot, 'public/fonts/inter-v20-latin/inter-v20-latin-700.ttf')
 
 const width = 1200
 const height = 630
@@ -166,6 +171,11 @@ function escapeXml(value) {
     .replace(/"/g, '&quot;')
 }
 
+async function fontDataUri(fontPath) {
+  const buffer = await fs.readFile(fontPath)
+  return `data:font/ttf;base64,${buffer.toString('base64')}`
+}
+
 function dots({ x, y, columns, rows, stepX, stepY, amplitude, phase, opacity, rotate = 0 }) {
   const circles = []
 
@@ -200,9 +210,9 @@ function descriptionLines(lines, startY) {
   )).join('')
 }
 
-function svgFor(page, logoDataUri) {
-  const titleFontSize = page.title.some((line) => line.length > 13) ? 86 : 96
-  const titleLineHeight = titleFontSize * 0.88
+function svgFor(page, logoDataUri, fonts) {
+  const titleFontSize = page.title.some((line) => line.length > 13) ? 78 : 88
+  const titleLineHeight = titleFontSize * 0.98
   const titleStartY = 208
   const titleBottom = titleStartY + (page.title.length - 1) * titleLineHeight
   const descriptionY = titleBottom + 86
@@ -232,10 +242,34 @@ function svgFor(page, logoDataUri) {
       <feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#000814" flood-opacity=".6"/>
     </filter>
     <style>
-      .kicker { font-family: Inter, Arial, Helvetica, sans-serif; font-weight: 750; letter-spacing: 4px; text-transform: uppercase; }
-      .title { font-family: Inter, Arial, Helvetica, sans-serif; font-weight: 850; letter-spacing: 0; filter: url(#softShadow); }
-      .description { font-family: Inter, Arial, Helvetica, sans-serif; font-size: 34px; font-weight: 450; fill: #e7eef8; letter-spacing: 0; filter: url(#softShadow); }
-      .domain { font-family: Inter, Arial, Helvetica, sans-serif; font-size: 24px; font-weight: 850; letter-spacing: 1px; }
+      @font-face {
+        font-family: 'Dela Gothic One';
+        font-style: normal;
+        font-weight: 400;
+        src: url('${fonts.delaGothic}') format('truetype');
+      }
+      @font-face {
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 400;
+        src: url('${fonts.interRegular}') format('truetype');
+      }
+      @font-face {
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 500;
+        src: url('${fonts.interMedium}') format('truetype');
+      }
+      @font-face {
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 700;
+        src: url('${fonts.interBold}') format('truetype');
+      }
+      .kicker { font-family: Inter, Arial, Helvetica, sans-serif; font-weight: 500; letter-spacing: 4px; text-transform: uppercase; }
+      .title { font-family: 'Dela Gothic One', Inter, Arial, Helvetica, sans-serif; font-weight: 400; letter-spacing: 0; line-height: 0.98; filter: url(#softShadow); }
+      .description { font-family: Inter, Arial, Helvetica, sans-serif; font-size: 34px; font-weight: 400; fill: #e7eef8; letter-spacing: 0; filter: url(#softShadow); }
+      .domain { font-family: Inter, Arial, Helvetica, sans-serif; font-size: 24px; font-weight: 700; letter-spacing: 1px; }
     </style>
   </defs>
 
@@ -267,16 +301,35 @@ function svgFor(page, logoDataUri) {
 }
 
 async function render() {
-  await fs.access(logoPath)
+  await Promise.all([
+    fs.access(logoPath),
+    fs.access(delaGothicPath),
+    fs.access(interRegularPath),
+    fs.access(interMediumPath),
+    fs.access(interBoldPath),
+  ])
 
-  const logo = await sharp(logoPath)
-    .resize(390, 390, { fit: 'contain' })
-    .png()
-    .toBuffer()
+  const [logo, delaGothic, interRegular, interMedium, interBold] = await Promise.all([
+    sharp(logoPath)
+      .resize(390, 390, { fit: 'contain' })
+      .png()
+      .toBuffer(),
+    fontDataUri(delaGothicPath),
+    fontDataUri(interRegularPath),
+    fontDataUri(interMediumPath),
+    fontDataUri(interBoldPath),
+  ])
+
   const logoDataUri = `data:image/png;base64,${logo.toString('base64')}`
+  const fonts = {
+    delaGothic,
+    interRegular,
+    interMedium,
+    interBold,
+  }
 
   for (const page of pages) {
-    const svg = Buffer.from(svgFor(page, logoDataUri))
+    const svg = Buffer.from(svgFor(page, logoDataUri, fonts))
 
     await sharp(svg)
       .flatten({ background: '#01030b' })
