@@ -338,14 +338,6 @@ export default function Contact() {
         <div className={styles.visualElement}>
           <div style={visualGlowStyle} aria-hidden="true"></div>
           <div className={styles.visualElementContent}>
-            <div style={visualIntroStyle}>
-              <span style={visualEyebrowStyle}>Helpful context</span>
-              <h3 style={visualIntroTitleStyle}>What helps us reply well</h3>
-              <p style={visualIntroTextStyle}>
-                Share the goal, what is already in place and when you need a useful next step.
-                We will come back with a sensible route, not a long form.
-              </p>
-            </div>
             <div style={visualCtaStyle}>
               <span style={visualEyebrowStyle}>Quick contact</span>
               <p style={visualCtaTextStyle}>
@@ -362,17 +354,17 @@ export default function Contact() {
                   <i className="bi bi-chat-dots" aria-hidden="true"></i>
                 </button>
                 <a
-                  href="https://t.me/flat18_bot"
+                  href="https://t.me/sinaswee"
                   className="btn btn-secondary btn-icon"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <span className="btn-text">Telegram bot</span>
+                  <span className="btn-text">Telegram</span>
                   <i className="bi bi-telegram" aria-hidden="true"></i>
                 </a>
               </div>
             </div>
-            <div className={styles.assuranceItem}>
+            {/* <div className={styles.assuranceItem}>
               <i className="bi bi-clock" aria-hidden="true"></i>
               <div>
                 <h3>Fast, useful reply</h3>
@@ -385,7 +377,7 @@ export default function Contact() {
                 <h3>Confidential by default</h3>
                 <p>Your ideas, data and plans are treated with care.</p>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
         </div>
