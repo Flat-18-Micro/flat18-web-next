@@ -68,9 +68,9 @@ export default function Navbar({ isScrolled }) {
               </Link>
             </li>
             <li>
-              <Link href="/#contact" className={styles.link}>
+              <a href="#contact-form" className={styles.link}>
                 <span>Contact</span>
-              </Link>
+              </a>
             </li>
           </ul>
 
@@ -127,10 +127,10 @@ export default function Navbar({ isScrolled }) {
                 </Link>
               </li>
               <li>
-                <Link href="/#contact" className={styles.mobileLink} onClick={() => setIsMobileMenuOpen(false)}>
+                <a href="#contact-form" className={styles.mobileLink} onClick={() => setIsMobileMenuOpen(false)}>
                   <span className={styles.mobileLinkLabel}>Contact</span>
-                  <span className={styles.mobileLinkDescription}>Start a project</span>
-                </Link>
+                  <span className={styles.mobileLinkDescription}>Contact form</span>
+                </a>
               </li>
             </ul>
 

@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import styles from '../styles/component-css/Contact.module.css'
 import { getSectionBackground, getSectionTextColor } from '@/hooks/scrollBackgroundUtils'
+import { openChatwoot } from '@/utils/chatwoot'
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -119,10 +120,76 @@ export default function Contact() {
     }))
   }
 
+  const visualGlowStyle = {
+    position: 'absolute',
+    inset: '-18%',
+    background: 'radial-gradient(circle at 18% 18%, rgba(24, 58, 143, 0.16), transparent 36%), radial-gradient(circle at 84% 18%, rgba(154, 107, 52, 0.12), transparent 32%), radial-gradient(circle at 50% 78%, rgba(255, 255, 255, 0.08), transparent 40%)',
+    opacity: 0.95,
+    pointerEvents: 'none',
+  }
+
+  const visualIntroStyle = {
+    display: 'grid',
+    gap: '0.6rem',
+    padding: '1.1rem 1.15rem 1.2rem',
+    border: '1px solid var(--border-soft)',
+    background: 'var(--surface-glass)',
+    backdropFilter: 'blur(8px)',
+    WebkitBackdropFilter: 'blur(8px)',
+  }
+
+  const visualEyebrowStyle = {
+    fontSize: '.72rem',
+    textTransform: 'uppercase',
+    letterSpacing: '.14em',
+    color: 'var(--text-tertiary)',
+    fontWeight: 700,
+  }
+
+  const visualIntroTitleStyle = {
+    margin: 0,
+    color: 'var(--fg)',
+    fontFamily: 'var(--font-heading)',
+    fontSize: '1.55rem',
+    lineHeight: 1.1,
+    fontWeight: 600,
+  }
+
+  const visualIntroTextStyle = {
+    margin: 0,
+    color: 'var(--text-secondary)',
+    fontSize: '.95rem',
+    lineHeight: 1.65,
+    maxWidth: '32ch',
+  }
+
+  const visualCtaStyle = {
+    display: 'grid',
+    gap: '0.85rem',
+    padding: '1rem 1.05rem',
+    border: '1px solid var(--border-soft)',
+    background: 'var(--surface-glass)',
+    backdropFilter: 'blur(8px)',
+    WebkitBackdropFilter: 'blur(8px)',
+  }
+
+  const visualCtaTextStyle = {
+    margin: 0,
+    color: 'var(--text-secondary)',
+    fontSize: '.95rem',
+    lineHeight: 1.6,
+  }
+
+  const visualCtaActionsStyle = {
+    display: 'flex',
+    flexWrap: 'wrap',
+    gap: '0.7rem',
+  }
+
   return (
     <section
       className={styles.contactSection}
-      id="chat"
+      id="contact-form"
       data-bg-color={getSectionBackground('contact')}
       data-text-color={getSectionTextColor('contact')}
     >
@@ -231,6 +298,7 @@ export default function Contact() {
                 <button
                   type="submit"
                   className={styles.submitButton}
+                  style={{ color: 'var(--button-on-primary, #fff)' }}
                   disabled={isSubmitting}
                 >
                   {isSubmitting ? (
@@ -268,12 +336,46 @@ export default function Contact() {
         </div>
 
         <div className={styles.visualElement}>
-          <div className={styles.visualElementGrid}></div>
+          <div style={visualGlowStyle} aria-hidden="true"></div>
           <div className={styles.visualElementContent}>
+            <div style={visualIntroStyle}>
+              <span style={visualEyebrowStyle}>Helpful context</span>
+              <h3 style={visualIntroTitleStyle}>What helps us reply well</h3>
+              <p style={visualIntroTextStyle}>
+                Share the goal, what is already in place and when you need a useful next step.
+                We will come back with a sensible route, not a long form.
+              </p>
+            </div>
+            <div style={visualCtaStyle}>
+              <span style={visualEyebrowStyle}>Quick contact</span>
+              <p style={visualCtaTextStyle}>
+                Need a quicker back-and-forth? Open live chat or message us on Telegram.
+              </p>
+              <div style={visualCtaActionsStyle}>
+                <button
+                  type="button"
+                  className="btn btn-primary btn-icon"
+                  onClick={openChatwoot}
+                  aria-label="Open live chat"
+                >
+                  <span className="btn-text">Live chat</span>
+                  <i className="bi bi-chat-dots" aria-hidden="true"></i>
+                </button>
+                <a
+                  href="https://t.me/flat18_bot"
+                  className="btn btn-secondary btn-icon"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <span className="btn-text">Telegram bot</span>
+                  <i className="bi bi-telegram" aria-hidden="true"></i>
+                </a>
+              </div>
+            </div>
             <div className={styles.assuranceItem}>
               <i className="bi bi-clock" aria-hidden="true"></i>
               <div>
-                <h3>Fast, useful response</h3>
+                <h3>Fast, useful reply</h3>
                 <p>We will reply with the route, likely timeline and next step within 1-2 working days.</p>
               </div>
             </div>

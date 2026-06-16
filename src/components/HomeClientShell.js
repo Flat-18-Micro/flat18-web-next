@@ -14,6 +14,7 @@ import styles from '@/styles/component-css/HomeClientShell.module.css'
 const Features    = dynamic(() => import('@/components/Features'))
 const HowItWorks  = dynamic(() => import('@/components/HowItWorks'))
 const Pricing     = dynamic(() => import('@/components/Pricing'))
+const Contact     = dynamic(() => import('@/components/Contact'))
 const FinalCTA    = dynamic(() => import('@/components/FinalCTA'))
 const Footer      = dynamic(() => import('@/components/Footer'))
 
@@ -28,6 +29,7 @@ export default function HomeClientShell() {
       <Features />
       <HowItWorks />
       <Pricing />
+      <Contact />
       <FinalCTA />
       <Footer />
     </div>
