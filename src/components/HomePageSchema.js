@@ -19,7 +19,8 @@ const homePageSchema = {
     "logo": `${siteConfig.url}/images/flat18_256x256.avif`,
     "sameAs": [
       "https://x.com/f18_dev",
-      "https://github.com/vswee"
+      "https://github.com/vswee",
+      "https://t.me/flat18_bot"
     ]
   },
   "mainEntity": {
@@ -36,7 +37,8 @@ const homePageSchema = {
     "priceRange": "££",
     "sameAs": [
       "https://x.com/f18_dev",
-      "https://github.com/vswee"
+      "https://github.com/vswee",
+      "https://t.me/flat18_bot"
     ],
     "founder": {
       "@type": "Person",

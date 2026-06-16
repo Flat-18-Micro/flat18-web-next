@@ -159,6 +159,7 @@ export function generateOrganizationJsonLd() {
     sameAs: [
       'https://x.com/f18_dev',
       'https://github.com/vswee',
+      'https://t.me/flat18_bot',
     ],
     description: siteConfig.description,
     address: {
@@ -169,7 +170,7 @@ export function generateOrganizationJsonLd() {
       '@type': 'ContactPoint',
       contactType: 'sales',
       email: siteConfig.email,
-      url: `${siteConfig.url}/#contact`,
+      url: `${siteConfig.url}/contact`,
     },
     foundingDate: '2017',
     numberOfEmployees: '2-10',

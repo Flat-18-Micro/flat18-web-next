@@ -68,9 +68,9 @@ export default function Navbar({ isScrolled }) {
               </Link>
             </li>
             <li>
-              <a href="#contact-form" className={styles.link}>
+              <Link href="/contact" className={styles.link}>
                 <span>Contact</span>
-              </a>
+              </Link>
             </li>
           </ul>
 
@@ -79,7 +79,7 @@ export default function Navbar({ isScrolled }) {
           {/* CTA Button */}
           <div className={styles.cta}>
             <Link
-              href="/#contact"
+              href="/contact"
               className="btn btn-primary btn-icon"
               onClick={() => analytics.nav.bookCall()}
             >
@@ -127,10 +127,10 @@ export default function Navbar({ isScrolled }) {
                 </Link>
               </li>
               <li>
-                <a href="#contact-form" className={styles.mobileLink} onClick={() => setIsMobileMenuOpen(false)}>
+                <Link href="/contact" className={styles.mobileLink} onClick={() => setIsMobileMenuOpen(false)}>
                   <span className={styles.mobileLinkLabel}>Contact</span>
-                  <span className={styles.mobileLinkDescription}>Contact form</span>
-                </a>
+                  <span className={styles.mobileLinkDescription}>Contact page</span>
+                </Link>
               </li>
             </ul>
 
@@ -138,7 +138,7 @@ export default function Navbar({ isScrolled }) {
             <div className={styles.mobileCTAGroup}>
               <ThemeSwitcher className={styles.mobileThemeSwitcher} showLabel />
               <Link
-                href="/#contact"
+                href="/contact"
                 className="btn btn-primary w-full"
                 onClick={() => {
                   setIsMobileMenuOpen(false)

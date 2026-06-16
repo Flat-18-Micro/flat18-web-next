@@ -30,7 +30,7 @@ export default function Footer() {
 
                 {/* Social icons */}
                 <div className={styles.socialIcons}>
-                  <a href="https://x.com/f18_dev" className={styles.socialLink} target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+                  <a href="https://x.com/f18_dev" className={styles.socialLink} target="_blank" rel="noopener noreferrer" aria-label="X">
                     <i className="bi bi-twitter-x" aria-hidden="true"></i>
                   </a>
                   <a href="https://github.com/vswee" className={styles.socialLink} target="_blank" rel="noopener noreferrer" aria-label="GitHub">
@@ -108,7 +108,7 @@ export default function Footer() {
                 <h3 className={styles.columnTitle}>Contact</h3>
                 <ul className={styles.linksList}>
                   <li>
-                    <Link href="/#contact" className={styles.footerLink}>
+                    <Link href="/contact" className={styles.footerLink}>
                       Start a project
                     </Link>
                   </li>

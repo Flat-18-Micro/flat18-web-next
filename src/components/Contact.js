@@ -354,7 +354,7 @@ export default function Contact() {
                   <i className="bi bi-chat-dots" aria-hidden="true"></i>
                 </button>
                 <a
-                  href="https://t.me/sinaswee"
+                  href="https://t.me/flat18_bot"
                   className="btn btn-secondary btn-icon"
                   target="_blank"
                   rel="noopener noreferrer"
