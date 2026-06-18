@@ -1,12 +1,8 @@
-import { generatePageMetadata } from '@/lib/seo'
+import CaseStudySeo from '@/components/CaseStudySeo'
+import { generateCaseStudyMetadata } from '@/lib/case-study-seo'
 
-export const metadata = generatePageMetadata({
-  title: 'Ledger Case Study',
-  description: 'How Flat18 shaped a simple money-tracking app for informal loans, project budgets, shared costs, receipts, and read-only records people can trust.',
-  path: '/case-studies/ledger',
-  image: '/og/case-studies.png',
-})
+export const metadata = generateCaseStudyMetadata('ledger')
 
 export default function Layout({ children }) {
-  return children
+  return <CaseStudySeo slug="ledger">{children}</CaseStudySeo>
 }

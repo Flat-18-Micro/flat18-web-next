@@ -1,12 +1,8 @@
-import { generatePageMetadata } from '@/lib/seo'
+import CaseStudySeo from '@/components/CaseStudySeo'
+import { generateCaseStudyMetadata } from '@/lib/case-study-seo'
 
-export const metadata = generatePageMetadata({
-  title: 'ForgingBlock Dashboard Case Study',
-  description: 'How Flat18 turned scattered merchant payment signals into a calm workflow for invoices, cash flow, and payout status.',
-  path: '/case-studies/forgingblock-dashboard',
-  image: '/og/case-studies.png',
-})
+export const metadata = generateCaseStudyMetadata('forgingblock-dashboard')
 
 export default function Layout({ children }) {
-  return children
+  return <CaseStudySeo slug="forgingblock-dashboard">{children}</CaseStudySeo>
 }

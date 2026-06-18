@@ -1,12 +1,8 @@
-import { generatePageMetadata } from '@/lib/seo'
+import CaseStudySeo from '@/components/CaseStudySeo'
+import { generateCaseStudyMetadata } from '@/lib/case-study-seo'
 
-export const metadata = generatePageMetadata({
-  title: 'Archimedes Finance Case Study',
-  description: 'How Flat18 shaped Archimedes Finance into a role-based investment platform for onboarding, KYC, tokenisation, vesting, reporting, and client communication.',
-  path: '/case-studies/archimedes-finance',
-  image: '/og/case-studies.png',
-})
+export const metadata = generateCaseStudyMetadata('archimedes-finance')
 
 export default function Layout({ children }) {
-  return children
+  return <CaseStudySeo slug="archimedes-finance">{children}</CaseStudySeo>
 }

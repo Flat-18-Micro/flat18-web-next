@@ -1,13 +1,8 @@
-import { generatePageMetadata } from '@/lib/seo'
+import CaseStudySeo from '@/components/CaseStudySeo'
+import { generateCaseStudyMetadata } from '@/lib/case-study-seo'
 
-export const metadata = generatePageMetadata({
-  title: 'WalletScrutiny Case Study',
-  description:
-    'How Flat18 helped shape WalletScrutiny into a clearer Bitcoin wallet security site, with stronger search, review pages, and methodology-led presentation.',
-  path: '/case-studies/walletscrutiny',
-  image: '/og/case-studies.png',
-})
+export const metadata = generateCaseStudyMetadata('walletscrutiny')
 
 export default function Layout({ children }) {
-  return children
+  return <CaseStudySeo slug="walletscrutiny">{children}</CaseStudySeo>
 }

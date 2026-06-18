@@ -1,12 +1,8 @@
-import { generatePageMetadata } from '@/lib/seo'
+import CaseStudySeo from '@/components/CaseStudySeo'
+import { generateCaseStudyMetadata } from '@/lib/case-study-seo'
 
-export const metadata = generatePageMetadata({
-  title: 'Zettahash Hashboard Case Study',
-  description: 'How Flat18 consolidated mining, treasury, market, and governance signals into a stakeholder transparency dashboard.',
-  path: '/case-studies/hashboard',
-  image: '/og/case-studies.png',
-})
+export const metadata = generateCaseStudyMetadata('hashboard')
 
 export default function Layout({ children }) {
-  return children
+  return <CaseStudySeo slug="hashboard">{children}</CaseStudySeo>
 }

@@ -1,12 +1,8 @@
-import { generatePageMetadata } from '@/lib/seo'
+import CaseStudySeo from '@/components/CaseStudySeo'
+import { generateCaseStudyMetadata } from '@/lib/case-study-seo'
 
-export const metadata = generatePageMetadata({
-  title: 'F18 Pay Case Study',
-  description: 'How Flat18 shaped F18 Pay into a merchant payment system for store setup, invoices, payment requests, wallet controls, and public checkout.',
-  path: '/case-studies/f18-pay',
-  image: '/og/case-studies.png',
-})
+export const metadata = generateCaseStudyMetadata('f18-pay')
 
 export default function Layout({ children }) {
-  return children
+  return <CaseStudySeo slug="f18-pay">{children}</CaseStudySeo>
 }

@@ -1,12 +1,8 @@
-import { generatePageMetadata } from '@/lib/seo'
+import CaseStudySeo from '@/components/CaseStudySeo'
+import { generateCaseStudyMetadata } from '@/lib/case-study-seo'
 
-export const metadata = generatePageMetadata({
-  title: 'Natal Charts Case Study',
-  description: 'How Flat18 turned ephemeris data, time-zone logic, relationship scoring, current transits, and interpretation notes into a clear browser product.',
-  path: '/case-studies/natal-charts',
-  image: '/og/case-studies.png',
-})
+export const metadata = generateCaseStudyMetadata('natal-charts')
 
 export default function Layout({ children }) {
-  return children
+  return <CaseStudySeo slug="natal-charts">{children}</CaseStudySeo>
 }

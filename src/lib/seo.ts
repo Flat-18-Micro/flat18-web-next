@@ -93,6 +93,7 @@ export function generatePageMetadata({
   image,
   noIndex = false,
   keywords,
+  type = 'website',
 }: {
   title?: string
   description?: string
@@ -100,6 +101,7 @@ export function generatePageMetadata({
   image?: string
   noIndex?: boolean
   keywords?: string[]
+  type?: 'website' | 'article' | 'profile' | 'book' | 'music.song' | 'video.other'
 }): Metadata {
   const url = `${siteConfig.url}${path}`
   const ogImage = image || siteConfig.ogImage
@@ -115,7 +117,7 @@ export function generatePageMetadata({
       canonical: url,
     },
     openGraph: {
-      type: 'website',
+      type,
       locale: siteConfig.locale,
       url,
       title: ogTitle,
@@ -274,6 +276,58 @@ export function generateArticleJsonLd({
   }
 }
 
+export function generateCreativeWorkJsonLd({
+  name,
+  description,
+  url,
+  image,
+  about,
+  author = siteConfig.name,
+}: {
+  name: string
+  description: string
+  url: string
+  image?: string
+  about?: string[]
+  author?: string
+}) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'CreativeWork',
+    name,
+    description,
+    url,
+    author: {
+      '@type': 'Organization',
+      name: author,
+      url: siteConfig.url,
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: siteConfig.name,
+      url: siteConfig.url,
+      logo: {
+        '@type': 'ImageObject',
+        url: `${siteConfig.url}/images/flat18_256x256.avif`,
+      },
+    },
+    image: image
+      ? {
+          '@type': 'ImageObject',
+          url: image,
+        }
+      : undefined,
+    about: about?.map((item) => ({
+      '@type': 'Thing',
+      name: item,
+    })),
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': url,
+    },
+  }
+}
+
 export function generateServiceJsonLd({
   name,
   description,
@@ -347,7 +401,7 @@ export const pageTypes = {
   
   caseStudies: () => generatePageMetadata({
     title: 'Case studies',
-    description: 'Recent Flat 18 launches and product stories shipped with clear product thinking, design and engineering.',
+    description: 'Recent Flat 18 launches and product stories that show how we approach discovery, design, development and delivery.',
     path: '/case-studies',
   }),
   
