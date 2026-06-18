@@ -229,7 +229,7 @@ export default function Portfolio() {
       description: 'Bitcoin wallet security analysis platform redesign.',
       image: '/images/portfolio-graphics/walletscrutiny-mock.webp',
       projectLogo: '/images/portfolio-graphics/logos/wallet-scrutiny.webp',
-      link: 'https://walletscrutiny.com',
+      link: '/case-studies/walletscrutiny',
       stats: [
         { label: 'Timeline', value: '12 weeks' },
         { label: 'Platform', value: 'Website' },
@@ -243,7 +243,7 @@ export default function Portfolio() {
       description: 'Open-source Bitcoin payment processor platform.',
       image: '/images/portfolio-graphics/btcpayserver-mock.webp',
       projectLogo: '/images/portfolio-graphics/logos/btcpayserver.webp',
-      link: 'https://btcpayserver.org',
+      link: '/case-studies/btcpayserver',
       stats: [
         { label: 'Timeline', value: '10 weeks' },
         { label: 'Platform', value: 'Website' },

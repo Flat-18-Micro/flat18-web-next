@@ -151,7 +151,8 @@ export default function SocialPublisherCaseStudyPage() {
                 <Image
                   src="/images/case-studies/social-publisher/01-dashboard-overview-dark.png"
                   alt="Social Publisher dashboard overview with publishing volume, channel health, and upcoming queue"
-                  fill
+                  width={1440}
+                  height={1100}
                   sizes="(max-width: 768px) 100vw, 640px"
                   className={styles.productHeroImage}
                   priority

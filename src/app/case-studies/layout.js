@@ -1,4 +1,5 @@
 import { generatePageMetadata } from '@/lib/seo'
+import CaseStudyJourneyScroll from '@/components/CaseStudyJourneyScroll'
 
 export const metadata = generatePageMetadata({
   title: 'Case Studies',
@@ -8,5 +9,10 @@ export const metadata = generatePageMetadata({
 })
 
 export default function Layout({ children }) {
-  return children
+  return (
+    <>
+      <CaseStudyJourneyScroll />
+      {children}
+    </>
+  )
 }

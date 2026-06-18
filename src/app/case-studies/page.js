@@ -14,6 +14,46 @@ const caseStudies = [
     meta: ['Trust workflows', 'Everyday finance']
   },
   {
+    title: 'F18 Pay',
+    tag: 'Payment infrastructure',
+    description: 'Built a merchant payment system for Bitcoin and Ethereum stores, with invoices, payment requests, wallet controls, and QR checkout pages.',
+    image: '/images/case-studies/f18-pay/01-dashboard-overview.png',
+    href: '/case-studies/f18-pay',
+    meta: ['Store setup', 'Wallet controls']
+  },
+  {
+    title: 'SignalMap',
+    tag: 'Privacy-first analytics',
+    description: 'Built a privacy-first analytics platform that turns browser signals, edge ingest, and aggregate reporting into practical recommendations.',
+    image: '/images/case-studies/signalmap/01-landing.png',
+    href: '/case-studies/signalmap',
+    meta: ['Cookie-free', 'Edge-first']
+  },
+  {
+    title: 'WalletScrutiny',
+    tag: 'Bitcoin wallet security',
+    description: 'Reshaped a large wallet review catalogue into a clearer research interface with stronger search, review pages, and methodology context.',
+    image: '/images/case-studies/walletscrutiny/2023-home.jpeg',
+    href: '/case-studies/walletscrutiny',
+    meta: ['Search UX', 'Methodology']
+  },
+  {
+    title: 'BTCPay Server',
+    tag: 'Open-source payments',
+    description: 'Created a first website for a self-hosted Bitcoin payments project, then evolved it into a multilingual, video-led, evidence-backed homepage.',
+    image: '/images/case-studies/btcpayserver/07-2025-09-03-24891c5-case-studies-ui.png',
+    href: '/case-studies/btcpayserver',
+    meta: ['Multilingual', 'Case studies']
+  },
+  {
+    title: 'Flat18 Geo',
+    tag: 'IP geolocation service',
+    description: 'Built a compact IP intelligence API for Vercel with city, region, and ASN lookups, browser-safe geo responses, refresh dispatch, and freshness monitoring.',
+    image: '/images/case-studies/ipgeo/flat18-geo-overview.png',
+    href: '/case-studies/ipgeo',
+    meta: ['API design', 'Data freshness']
+  },
+  {
     title: 'Workouts',
     tag: 'Fitness planning app',
     description: 'Built a practical training system that guides users from onboarding and schedule selection to workout logging and progress review.',
@@ -41,17 +81,17 @@ const caseStudies = [
     title: 'Natal Charts',
     tag: 'Data visualisation',
     description: 'Mapped ephemeris data, time-zone logic, current transits, and relationship comparison into a clear browser-based chart product.',
-    image: '/images/case-studies/natal-charts/01-chart-overview.png',
+    image: '/images/case-studies/natal-charts/01-landing.png',
     href: '/case-studies/natal-charts',
     meta: ['Complex data', 'Chart workflow']
   },
   {
     title: 'Archimedes Finance',
     tag: 'Tokenised investment platform',
-    description: 'Consolidated fragmented investment, KYC, tokenisation, and reporting workflows into a role-based platform built for auditability.',
-    image: '/images/case-studies/archimedes-finance/dashboard-investor.svg',
+    description: 'Built a role-based tokenisation platform that keeps onboarding, KYC, vesting, reporting, and client communication in one auditable flow.',
+    image: '/images/case-studies/archimedes-finance/25-home-landing.jpeg',
     href: '/case-studies/archimedes-finance',
-    meta: ['Compliance workflow', 'Fintech']
+    meta: ['Role-based access', 'Audit trail']
   },
   {
     title: 'ForgingBlock Dashboard',
@@ -65,7 +105,7 @@ const caseStudies = [
     title: 'ForgingBlock Website',
     tag: 'Website redesign',
     description: 'Audited a busy legacy site, found the conversion blockers, and rebuilt the journey around trust, clarity, and merchant outcomes.',
-    image: '/images/case-studies/forgingblock-website/redesign/home-desktop.png',
+    image: '/images/case-studies/forgingblock-website/mockups/home-comparison.png',
     href: '/case-studies/forgingblock-website',
     meta: ['Strategic audit', 'Marketing site']
   },
@@ -89,7 +129,7 @@ const caseStudies = [
 
 export default function CaseStudiesPage() {
   return (
-    <div className={styles.page}>
+    <div className={`${styles.page} ${styles.caseStudyIndexPage}`}>
       <section className={styles.hero}>
         <div className={styles.container}>
           <Breadcrumbs />
@@ -102,7 +142,7 @@ export default function CaseStudiesPage() {
             </p>
             <div className={styles.heroStats}>
               <div className={styles.statCard}>
-                <span className={styles.statValue}>10</span>
+                <span className={styles.statValue}>15</span>
                 <span className={styles.statLabel}>Deep dives</span>
               </div>
               <div className={styles.statCard}>

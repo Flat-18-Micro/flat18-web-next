@@ -8,30 +8,112 @@ import Contact from '@/components/Contact'
 import Footer from '@/components/Footer'
 import styles from '@/styles/component-css/CaseStudies.module.css'
 
-export default function PulseOpsCaseStudyPage() {
-  const mediaItems = [
-    {
-      src: '/images/case-studies/pulseops/overview.png',
-      alt: 'PulseOps command centre overview dashboard',
-      caption: 'Command centre overview',
-      sizes: '(max-width: 768px) 100vw, (max-width: 1200px) 55vw, 520px',
-      isPrimary: true,
-      priority: true
-    },
-    {
-      src: '/images/case-studies/pulseops/network-visualisation.png',
-      alt: 'PulseOps network visualisation with topology map',
-      caption: 'Topology visualisation',
-      sizes: '(max-width: 768px) 100vw, 260px'
-    },
-    {
-      src: '/images/case-studies/pulseops/insights.png',
-      alt: 'PulseOps historical insights dashboard',
-      caption: 'Historical insights',
-      sizes: '(max-width: 768px) 100vw, 260px'
-    }
-  ]
+const mediaItems = [
+  {
+    src: '/images/case-studies/pulseops/overview-mockup.webp',
+    lightSrc: '/images/case-studies/pulseops/overview-mockup.webp',
+    alt: 'PulseOps command centre mockup showing the product in context',
+    caption: 'Command centre mockup',
+    sizes: '(max-width: 768px) 100vw, (max-width: 1200px) 55vw, 620px',
+    isPrimary: true,
+    priority: true
+  },
+  {
+    src: '/images/case-studies/pulseops/overview.png',
+    lightSrc: '/images/case-studies/pulseops/overview.png',
+    alt: 'PulseOps dashboard overview showing network inventory and status',
+    caption: 'Overview dashboard',
+    sizes: '(max-width: 768px) 100vw, 320px'
+  },
+  {
+    src: '/images/case-studies/pulseops/network-visualisation.png',
+    lightSrc: '/images/case-studies/pulseops/network-visualisation.png',
+    alt: 'PulseOps network visualisation with topology map',
+    caption: 'Topology visualisation',
+    sizes: '(max-width: 768px) 100vw, 320px'
+  },
+  {
+    src: '/images/case-studies/pulseops/insights.png',
+    lightSrc: '/images/case-studies/pulseops/insights.png',
+    alt: 'PulseOps historical insights dashboard',
+    caption: 'Historical insights',
+    sizes: '(max-width: 768px) 100vw, 320px'
+  }
+]
 
+const journeySteps = [
+  {
+    eyebrow: '01 / Visibility gap',
+    title: 'Small operators were stuck between tools that were too shallow and tools that were too heavy.',
+    copy:
+      'The product had to make network health easier to understand without asking teams to buy into an enterprise platform they did not need.',
+    mediaIndex: 2
+  },
+  {
+    eyebrow: '02 / Product shape',
+    title: 'We shaped PulseOps around inventory, telemetry, topology, and device action.',
+    copy:
+      'Instead of treating monitoring as one big dashboard, we broke the work into the moments operators actually need: find the device, check the state, inspect the map, and act with confidence.',
+    mediaIndex: 0
+  },
+  {
+    eyebrow: '03 / Decision layer',
+    title: 'The final interface keeps history and next steps close together.',
+    copy:
+      'Discovery, insights, and network actions live in the same working view, so the product feels useful from the first scan rather than impressive only in a demo.',
+    mediaIndex: 3
+  }
+]
+
+const proofPoints = [
+  {
+    value: 'Self-hosted',
+    label: 'Trust posture',
+    detail: 'Teams can run the platform on their own infrastructure without losing clarity.',
+  },
+  {
+    value: 'SSH + SNMP',
+    label: 'Telemetry',
+    detail: 'Operational data stays tied to the devices, not hidden in disconnected reports.',
+  },
+  {
+    value: 'Topology-first',
+    label: 'Workflow',
+    detail: 'Operators can see relationships before they decide what to fix.',
+  }
+]
+
+const featureCards = [
+  {
+    mediaIndex: 0,
+    kicker: 'Command centre',
+    title: 'Keep the current state readable at a glance.',
+    copy:
+      'Inventory, live telemetry, and status sit together so operators do not need to assemble the picture themselves.',
+    ariaLabel: 'Open PulseOps command centre mockup in viewer',
+    large: true
+  },
+  {
+    mediaIndex: 2,
+    kicker: 'Topology',
+    title: 'Map the network before you touch it.',
+    copy:
+      'The visualisation makes dependencies and weak points easier to understand when the next move matters.',
+    ariaLabel: 'Open PulseOps network visualisation screenshot in viewer'
+  },
+  {
+    mediaIndex: 3,
+    kicker: 'History',
+    title: 'Turn past incidents into something useful.',
+    copy:
+      'Insights keep recurring faults, changes, and support context in one place so the team can spot patterns quickly.',
+    ariaLabel: 'Open PulseOps historical insights screenshot in viewer'
+  }
+]
+
+const galleryItems = [1, 2, 3, 0]
+
+export default function PulseOpsCaseStudyPage() {
   const [lightboxIndex, setLightboxIndex] = useState(null)
 
   const openLightbox = (index) => setLightboxIndex(index)
@@ -41,76 +123,210 @@ export default function PulseOpsCaseStudyPage() {
   const showNext = () =>
     setLightboxIndex((prev) => (prev === null ? prev : (prev + 1) % mediaItems.length))
 
+  const lightboxImages = mediaItems.map((item) => ({
+    ...item,
+    src: item.lightSrc || item.src
+  }))
+
   return (
-    <div className={styles.page}>
-      <section className={styles.hero}>
+    <div className={`${styles.page} ${styles.productCasePage}`}>
+      <section className={`${styles.hero} ${styles.productHero}`}>
         <div className={styles.container}>
           <Breadcrumbs />
-          <div className={styles.heroContent}>
-            <span className={styles.heroKicker}>
-              Case study
-            </span>
-            <h1 className={styles.heroTitle}>
-              PulseOps
-            </h1>
-            <p className={styles.heroSubtitle}>
-              How Flat18 identified a visibility gap for small network operators and turned it into
-              a credible self-hosted product proposition.
-            </p>
-            <div className={styles.heroStats}>
-              <div className={styles.statCard}>
-                <span className={styles.statValue}>SOHO + MSP</span>
-                <span className={styles.statLabel}>Audience</span>
+          <div className={styles.productHeroGrid}>
+            <div className={styles.productHeroContent}>
+              <span className={styles.heroKicker}>Case study / Open-source network operations</span>
+              <h1 className={styles.productHeroTitle}>PulseOps</h1>
+              <p className={styles.productHeroSubtitle}>
+                A self-hosted command centre for small operators that brings inventory, telemetry,
+                topology, and device actions into one readable place.
+              </p>
+              <div className={styles.productHeroActions}>
+                <a
+                  href="https://pulseops.flat18.app"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn btn-primary"
+                >
+                  View live product
+                </a>
+                <a href="#story" className="btn btn-secondary">
+                  Read the build story
+                </a>
               </div>
-              <div className={styles.statCard}>
-                <span className={styles.statValue}>Network visibility</span>
-                <span className={styles.statLabel}>Problem solved</span>
-              </div>
-              <div className={styles.statCard}>
-                <span className={styles.statValue}>Self-hosted</span>
-                <span className={styles.statLabel}>Trust posture</span>
+              <div className={styles.productProofGrid}>
+                {proofPoints.map((point) => (
+                  <div key={point.label} className={styles.productProofCard}>
+                    <span className={styles.productProofValue}>{point.value}</span>
+                    <span className={styles.productProofLabel}>{point.label}</span>
+                    <p>{point.detail}</p>
+                  </div>
+                ))}
               </div>
             </div>
+
+            <div className={styles.productHeroVisual}>
+              <button
+                type="button"
+                className={styles.productHeroImageButton}
+                style={{ minHeight: 'clamp(320px, 42vw, 560px)' }}
+                onClick={() => openLightbox(0)}
+                aria-label="Open PulseOps command centre mockup in viewer"
+              >
+                <Image
+                  src={mediaItems[0].src}
+                  alt={mediaItems[0].alt}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 640px"
+                  className={styles.productHeroImage}
+                  priority
+                />
+                <span className={styles.productHeroBadge}>Self-hosted</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="story" className={styles.productStorySection}>
+        <div className={styles.container}>
+          <div className={styles.productSectionIntro}>
+            <span className={styles.caseStudyTag}>Development journey</span>
+            <h2>From a visibility gap to a command centre operators can actually run.</h2>
+            <p>
+              Flat18 treated PulseOps as a product story problem. Small operators needed one place to
+              check inventory, health, topology, history, and next actions without carrying enterprise
+              overhead.
+            </p>
+          </div>
+
+          <div className={styles.productJourneyGrid}>
+            {journeySteps.map((step) => {
+              const item = mediaItems[step.mediaIndex]
+
+              return (
+                <article key={step.title} className={styles.productJourneyCard}>
+                  <div className={styles.productJourneyCopy}>
+                    <span>{step.eyebrow}</span>
+                    <h3>{step.title}</h3>
+                    <p>{step.copy}</p>
+                  </div>
+                  <button
+                    type="button"
+                    className={styles.productJourneyImageButton}
+                    onClick={() => openLightbox(step.mediaIndex)}
+                    aria-label={`Open ${item.alt} in viewer`}
+                  >
+                    <Image
+                      src={item.src}
+                      alt={item.alt}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 520px"
+                      className={styles.productJourneyImage}
+                    />
+                  </button>
+                </article>
+              )
+            })}
+          </div>
+        </div>
+      </section>
+
+      <section className={styles.productShowcaseSection}>
+        <div className={styles.container}>
+          <div className={styles.productShowcaseHeader}>
+            <div>
+              <span className={styles.caseStudyTag}>Product surfaces</span>
+              <h2>Designed around the moments where network operators need answers quickly.</h2>
+            </div>
+            <p>
+              PulseOps does not try to be a generic monitor. Each surface supports inventory,
+              topology, history, or action, so operators can move from overview to fix without losing
+              context.
+            </p>
+          </div>
+
+          <div className={styles.productFeatureGrid}>
+            {featureCards.map((card) => {
+              const item = mediaItems[card.mediaIndex]
+
+              return (
+                <article
+                  key={card.title}
+                  className={`${styles.productFeatureCard} ${card.large ? styles.productFeatureCardLarge : ''}`}
+                >
+                  <button
+                    type="button"
+                    className={styles.productFeatureImageButton}
+                    onClick={() => openLightbox(card.mediaIndex)}
+                    aria-label={card.ariaLabel}
+                  >
+                    <Image
+                      src={item.src}
+                      alt={item.alt}
+                      fill
+                      sizes={card.large ? '(max-width: 768px) 100vw, 720px' : '(max-width: 768px) 100vw, 420px'}
+                      className={styles.productFeatureImage}
+                    />
+                  </button>
+                  <div className={styles.productFeatureCopy}>
+                    <span>{card.kicker}</span>
+                    <h3>{card.title}</h3>
+                    <p>{card.copy}</p>
+                  </div>
+                </article>
+              )
+            })}
           </div>
         </div>
       </section>
 
       <section className={styles.caseStudySection}>
         <div className={styles.container}>
-          <div className={styles.caseStudyHeader}>
-            <div className={styles.caseStudyHeading}>
-              <span className={styles.caseStudyTag}>Open-source infrastructure</span>
-              <div className={styles.caseStudyTitleRow}>
-                <Image
-                  src="/images/case-studies/logos/pulseops-lockup.svg"
-                  alt="PulseOps"
-                  width={900}
-                  height={256}
-                  className={styles.caseStudyLogo}
-                />
-                <h2 className={styles.caseStudyTitle}>PulseOps</h2>
-              </div>
-              <p className={styles.caseStudySubtitle}>
-                A unified command centre shaped around inventory, telemetry, topology, and device
-                actions that small operators can actually run.
-              </p>
-            </div>
-            <div className={styles.caseStudyActions}>
-              <a
-                href="https://pulseops.flat18.app"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn btn-secondary"
-              >
-                View PulseOps
-              </a>
-              <a href="#chat" className="btn btn-primary">
-                Start a project
-              </a>
-            </div>
-          </div>
+          <div className={`${styles.caseStudyGrid} ${styles.caseStudyGridReverse}`}>
+            <div className={styles.caseStudyMedia}>
+              <div className={styles.mediaGrid}>
+                {galleryItems.map((mediaIndex, galleryIndex) => {
+                  const item = mediaItems[mediaIndex]
 
-          <div className={styles.caseStudyGrid}>
+                  return (
+                    <figure
+                      key={item.src}
+                      className={`${styles.mediaItem} ${galleryIndex === 0 ? styles.mediaPrimary : styles.mediaSecondary}`}
+                    >
+                      <button
+                        type="button"
+                        className={styles.mediaButton}
+                        onClick={() => openLightbox(mediaIndex)}
+                        aria-label={`Open ${item.alt} in viewer`}
+                      >
+                        <Image
+                          src={item.src}
+                          alt={item.alt}
+                          fill
+                          sizes={item.sizes}
+                          className={styles.mediaImage}
+                          priority={item.priority}
+                        />
+                        <span className={styles.mediaButtonHint}>
+                          <i className="bi bi-arrows-fullscreen" aria-hidden="true"></i>
+                          View
+                        </span>
+                      </button>
+                      <figcaption className={styles.mediaCaption}>{item.caption}</figcaption>
+                    </figure>
+                  )
+                })}
+              </div>
+              <div className={styles.openSourcePanel}>
+                <h4>Delivered for confidence</h4>
+                <p>
+                  The product makes the trust posture visible. Teams can run it themselves, see where
+                  the data comes from, and move from overview to action without losing their place.
+                </p>
+              </div>
+            </div>
+
             <div className={styles.caseStudyContent}>
               <div className={styles.metaRow}>
                 <span className={styles.statusPill}>Live</span>
@@ -120,39 +336,36 @@ export default function PulseOpsCaseStudyPage() {
               </div>
 
               <p className={styles.caseStudyIntro}>
-                Flat18 saw that smaller network operators were underserved: consumer tools lacked
-                depth, enterprise suites carried too much overhead, and neither gave teams a simple
-                path from visibility to action. PulseOps was positioned and presented as the missing
-                middle: enterprise-grade awareness without enterprise drag.
+                PulseOps was treated as a product story problem. The interface had to help small
+                operators see the estate, understand the topology, and decide what to do next without
+                pretending they needed enterprise overhead.
               </p>
 
               <div className={styles.infoGrid}>
                 <div className={styles.infoCard}>
                   <h3>Problem found</h3>
                   <p>
-                    Small networks sit between consumer tools and enterprise suites, leaving
-                    operators without a single, reliable view of health and history.
+                    Smaller networks lacked one reliable place to check state, history, and device
+                    relationships.
                   </p>
                 </div>
                 <div className={styles.infoCard}>
                   <h3>Flat18 diagnosis</h3>
                   <p>
-                    Operators needed more than monitoring. They needed discovery, telemetry, topology,
-                    logs, and corrective actions to stay connected in one place.
+                    The product needed discovery, telemetry, topology, and action in one workflow.
                   </p>
                 </div>
                 <div className={styles.infoCard}>
                   <h3>Solution shipped</h3>
                   <p>
-                    We built the product story, proof-led screens, and launch experience around a
-                    local, self-hosted console for SSH/SNMP telemetry and device action.
+                    We shaped a self-hosted console with overview, map, and insight surfaces that
+                    stay close to the work.
                   </p>
                 </div>
                 <div className={styles.infoCard}>
                   <h3>Customer value</h3>
                   <p>
-                    Customers can see the practical workflow before deployment, understand the trust
-                    posture, and evaluate the product with real interface proof.
+                    Teams can inspect, explain, and act without stitching together several tools.
                   </p>
                 </div>
               </div>
@@ -160,10 +373,10 @@ export default function PulseOpsCaseStudyPage() {
               <div className={styles.listBlock}>
                 <h4>What Flat18 handled</h4>
                 <ul className={styles.checkList}>
-                  <li>Defined the market gap and converted it into a focused product narrative</li>
-                  <li>Prioritised product proof over abstract claims by leading with real dashboard surfaces</li>
-                  <li>Framed open source as a trust, auditability, and extensibility advantage</li>
-                  <li>Connected deployment, operator workflows, and roadmap signals into one launch story</li>
+                  <li>Translated the market gap into a focused product narrative</li>
+                  <li>Kept topology, telemetry, and action close enough to support real work</li>
+                  <li>Used open-source positioning as part of the trust case, not a side note</li>
+                  <li>Made the experience feel practical for small operators rather than oversized</li>
                 </ul>
               </div>
 
@@ -171,51 +384,11 @@ export default function PulseOpsCaseStudyPage() {
                 <h4>Key capabilities</h4>
                 <ul className={styles.checkList}>
                   <li>Device inventory and status tracking</li>
-                  <li>Live SSH/SNMP telemetry (latency, CPU, memory, uptime)</li>
+                  <li>Live SSH and SNMP telemetry</li>
                   <li>Topology maps and network visualisation</li>
-                  <li>Discovery and network analysis workflows</li>
-                  <li>Device actions (backup, reboot, reprovision)</li>
-                  <li>Activity logs with historical context</li>
+                  <li>Historical insights and recurring fault patterns</li>
+                  <li>Fast device actions with supporting context</li>
                 </ul>
-              </div>
-            </div>
-
-            <div className={styles.caseStudyMedia}>
-              <div className={styles.mediaGrid}>
-                {mediaItems.map((item, index) => (
-                  <figure
-                    key={item.src}
-                    className={`${styles.mediaItem} ${item.isPrimary ? styles.mediaPrimary : styles.mediaSecondary}`}
-                  >
-                    <button
-                      type="button"
-                      className={styles.mediaButton}
-                      onClick={() => openLightbox(index)}
-                      aria-label={`Open ${item.alt} in viewer`}
-                    >
-                      <Image
-                        src={item.src}
-                        alt={item.alt}
-                        fill
-                        sizes={item.sizes}
-                        className={styles.mediaImage}
-                        priority={item.priority}
-                      />
-                      <span className={styles.mediaButtonHint}>
-                        <i className="bi bi-arrows-fullscreen" aria-hidden="true"></i>
-                        View
-                      </span>
-                    </button>
-                    <figcaption className={styles.mediaCaption}>{item.caption}</figcaption>
-                  </figure>
-                ))}
-              </div>
-              <div className={styles.openSourcePanel}>
-                <h4>Delivered for confidence</h4>
-                <p>
-                  The experience shows operators exactly what they can monitor, map, and act on,
-                  while making the open-source posture part of the trust case.
-                </p>
               </div>
             </div>
           </div>
@@ -226,10 +399,10 @@ export default function PulseOpsCaseStudyPage() {
         <div className={styles.container}>
           <div className={styles.ctaCard}>
             <div className={styles.ctaText}>
-              <h2>Want a case study like this?</h2>
+              <h2>Need a command centre like this?</h2>
               <p>
-                We can turn a rough product opportunity into a clear service, interface, and launch
-                story that customers understand quickly.
+                Flat18 can turn a rough product opportunity into a clear service, interface, and launch
+                story that small teams can understand quickly.
               </p>
             </div>
             <div className={styles.ctaActions}>
@@ -247,7 +420,7 @@ export default function PulseOpsCaseStudyPage() {
       <Contact />
       <Footer />
       <CaseStudyLightbox
-        images={mediaItems}
+        images={lightboxImages}
         activeIndex={lightboxIndex}
         onClose={closeLightbox}
         onNext={showNext}

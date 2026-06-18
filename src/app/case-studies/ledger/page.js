@@ -159,7 +159,8 @@ export default function LedgerCaseStudyPage() {
                 <Image
                   src="/images/case-studies/ledger/01-landing-page-dark.png"
                   alt="Ledger landing page showing the product positioning for simple shared money records"
-                  fill
+                  width={1280}
+                  height={1075}
                   sizes="(max-width: 768px) 100vw, 640px"
                   className={styles.productHeroImage}
                   priority

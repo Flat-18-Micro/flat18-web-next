@@ -5,6 +5,18 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import styles from '@/styles/component-css/Breadcrumbs.module.css'
 
+const breadcrumbLabelOverrides = {
+  'f18-pay': 'F18 Pay',
+  'forgingblock-dashboard': 'ForgingBlock Dashboard',
+  'forgingblock-website': 'ForgingBlock Website',
+  btcpayserver: 'BTCPay Server',
+  hashboard: 'Zettahash Hashboard',
+  ipgeo: 'Flat18 Geo',
+  pulseops: 'PulseOps',
+  signalmap: 'SignalMap',
+  walletscrutiny: 'WalletScrutiny',
+}
+
 export default function Breadcrumbs() {
   const pathname = usePathname()
 
@@ -17,7 +29,7 @@ export default function Breadcrumbs() {
     ...pathSegments.map((segment, index) => {
       const path = `/${pathSegments.slice(0, index + 1).join('/')}`
       // Format the label (capitalize and replace hyphens with spaces)
-      const label = segment
+      const label = breadcrumbLabelOverrides[segment] ?? segment
         .split('-')
         .map(word => word.charAt(0).toUpperCase() + word.slice(1))
         .join(' ')
