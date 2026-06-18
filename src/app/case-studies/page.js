@@ -33,7 +33,7 @@ const caseStudies = [
     title: 'Social Publisher',
     tag: 'Social publishing workflow',
     description: 'Turned scattered publishing work into one workspace for channel connection, platform variants, validation, scheduling, and dispatch logs.',
-    image: '/images/case-studies/social-publisher/01-dashboard-overview.png',
+    image: '/images/case-studies/social-publisher/01-dashboard-overview-dark.png',
     href: '/case-studies/social-publisher',
     meta: ['Workflow design', 'Social publishing']
   },
@@ -94,12 +94,8 @@ export default function CaseStudiesPage() {
         <div className={styles.container}>
           <Breadcrumbs />
           <div className={styles.heroContent}>
-            <span className={styles.heroKicker}>
-              Case studies
-            </span>
-            <h1 className={styles.heroTitle}>
-              Case studies with a clear commercial purpose.
-            </h1>
+            <span className={styles.heroKicker}>Case studies</span>
+            <h1 className={styles.heroTitle}>Case studies with a clear commercial purpose.</h1>
             <p className={styles.heroSubtitle}>
               See how Flat18 investigates business problems, designs practical solutions, and
               implements product changes or new services with the care needed for confident customer sign-off.
@@ -176,12 +172,8 @@ export default function CaseStudiesPage() {
               </p>
             </div>
             <div className={styles.ctaActions}>
-              <a href="#chat" className="btn btn-primary">
-                Chat with us
-              </a>
-              <a href="mailto:hello@flat18.co.uk" className="btn btn-secondary">
-                Email hello@flat18.co.uk
-              </a>
+              <a href="#chat" className="btn btn-primary">Chat with us</a>
+              <a href="mailto:hello@flat18.co.uk" className="btn btn-secondary">Email hello@flat18.co.uk</a>
             </div>
           </div>
         </div>

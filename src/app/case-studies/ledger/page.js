@@ -8,42 +8,96 @@ import Contact from '@/components/Contact'
 import Footer from '@/components/Footer'
 import styles from '@/styles/component-css/CaseStudies.module.css'
 
-export default function LedgerCaseStudyPage() {
-  const mediaItems = [
-    {
-      src: '/images/case-studies/ledger/detail.png',
-      alt: 'Ledger detail screen with balance, entries, and receipt-assisted quick entry',
-      caption: 'Ledger detail workflow',
-      sizes: '(max-width: 768px) 100vw, (max-width: 1200px) 55vw, 520px',
-      isPrimary: true,
-      priority: true
-    },
-    {
-      src: '/images/case-studies/ledger/list.png',
-      alt: 'Ledger list and create-ledger workflow',
-      caption: 'Purpose-built ledgers',
-      sizes: '(max-width: 768px) 100vw, 260px'
-    },
-    {
-      src: '/images/case-studies/ledger/report.png',
-      alt: 'Ledger report modal with filtered spending summary',
-      caption: 'Filtered reports',
-      sizes: '(max-width: 768px) 100vw, 260px'
-    },
-    {
-      src: '/images/case-studies/ledger/sharing.png',
-      alt: 'Ledger sharing settings with read-only public link controls',
-      caption: 'Controlled sharing',
-      sizes: '(max-width: 768px) 100vw, 260px'
-    },
-    {
-      src: '/images/case-studies/ledger/public.png',
-      alt: 'Read-only public shared Ledger view',
-      caption: 'Public read-only view',
-      sizes: '(max-width: 768px) 100vw, 260px'
-    }
-  ]
+const mediaItems = [
+  {
+    src: '/images/case-studies/ledger/01-landing-page-dark.png',
+    lightSrc: '/images/case-studies/ledger/01-landing-page-dark.png',
+    alt: 'Ledger landing page showing the product positioning for simple shared money records',
+    caption: 'Product landing page',
+    sizes: '(max-width: 768px) 100vw, (max-width: 1200px) 55vw, 620px',
+    isPrimary: true,
+    priority: true
+  },
+  {
+    src: '/images/case-studies/ledger/07-list-mockup-dark.png',
+    lightSrc: '/images/case-studies/ledger/07-list-mockup-dark.png',
+    alt: 'Ledger list screen showing purpose-built ledgers for different money records',
+    caption: 'Ledger list',
+    sizes: '(max-width: 768px) 100vw, 320px'
+  },
+  {
+    src: '/images/case-studies/ledger/08-detail-mockup-dark.png',
+    lightSrc: '/images/case-studies/ledger/08-detail-mockup-dark.png',
+    alt: 'Ledger detail screen showing entries, balance, and receipt-assisted quick entry',
+    caption: 'Ledger detail workflow',
+    sizes: '(max-width: 768px) 100vw, 320px'
+  },
+  {
+    src: '/images/case-studies/ledger/09-report-mockup-dark.png',
+    lightSrc: '/images/case-studies/ledger/09-report-mockup-dark.png',
+    alt: 'Ledger report view showing filtered spending and balance summaries',
+    caption: 'Filtered reports',
+    sizes: '(max-width: 768px) 100vw, 320px'
+  },
+  {
+    src: '/images/case-studies/ledger/10-sharing-mockup-dark.png',
+    lightSrc: '/images/case-studies/ledger/10-sharing-mockup-dark.png',
+    alt: 'Ledger sharing settings showing read-only public link controls',
+    caption: 'Controlled sharing',
+    sizes: '(max-width: 768px) 100vw, 320px'
+  },
+  {
+    src: '/images/case-studies/ledger/11-public-mockup-dark.png',
+    lightSrc: '/images/case-studies/ledger/11-public-mockup-dark.png',
+    alt: 'Ledger public read-only view for sharing a trusted money record',
+    caption: 'Public read-only view',
+    sizes: '(max-width: 768px) 100vw, 320px'
+  }
+]
 
+const journeySteps = [
+  {
+    eyebrow: '01 / Trust gap',
+    title: 'Informal money records were too fragile for the conversations they supported.',
+    copy: 'Loans, shared costs, project spending, household bills, and trip budgets often live across screenshots, bank app notes, receipts, chat history, and memory. That is fine until someone needs proof, context, or a calm answer.',
+    image: '/images/case-studies/ledger/01-landing-page-dark.png',
+    alt: 'Ledger landing page framing the problem of trusted shared money records'
+  },
+  {
+    eyebrow: '02 / Product shape',
+    title: 'We designed ledgers around real-life money situations, not accounting jargon.',
+    copy: 'Each ledger became a focused record with the right labels, fast entry, receipts, notes, categories, balance state, and reports. The app had to feel quicker than a spreadsheet and less dramatic than a group chat argument about who paid for petrol.',
+    image: '/images/case-studies/ledger/07-list-mockup-dark.png',
+    alt: 'Ledger list showing different record types and balances'
+  },
+  {
+    eyebrow: '03 / Confidence layer',
+    title: 'The final workflow makes private context and public proof coexist.',
+    copy: 'Ledger separates private notes from shareable facts, preserves edit context, supports filtered reports, and lets users publish a read-only view when the record needs to be trusted without exposing everything.',
+    image: '/images/case-studies/ledger/10-sharing-mockup-dark.png',
+    alt: 'Ledger sharing controls for read-only public records'
+  }
+]
+
+const proofPoints = [
+  {
+    value: '5+',
+    label: 'Record types',
+    detail: 'Loans, trips, households, projects, shared costs, and everyday balances.'
+  },
+  {
+    value: 'OCR',
+    label: 'Receipt assistance',
+    detail: 'Entry support for amount, date, vendor, and line-item context when receipts matter.'
+  },
+  {
+    value: 'Read-only',
+    label: 'Shareable proof',
+    detail: 'Public links keep the useful record visible while protecting private notes.'
+  }
+]
+
+export default function LedgerCaseStudyPage() {
   const [lightboxIndex, setLightboxIndex] = useState(null)
 
   const openLightbox = (index) => setLightboxIndex(index)
@@ -53,68 +107,199 @@ export default function LedgerCaseStudyPage() {
   const showNext = () =>
     setLightboxIndex((prev) => (prev === null ? prev : (prev + 1) % mediaItems.length))
 
+  const lightboxImages = mediaItems.map((item) => ({
+    ...item,
+    src: item.lightSrc || item.src
+  }))
+
   return (
-    <div className={styles.page}>
-      <section className={styles.hero}>
+    <div className={`${styles.page} ${styles.productCasePage}`}>
+      <section className={`${styles.hero} ${styles.productHero}`}>
         <div className={styles.container}>
           <Breadcrumbs />
-          <div className={styles.heroContent}>
-            <span className={styles.heroKicker}>
-              Case study
-            </span>
-            <h1 className={styles.heroTitle}>
-              Ledger
-            </h1>
-            <p className={styles.heroSubtitle}>
-              How Flat18 shaped a simple money-tracking app for informal loans, project budgets,
-              shared costs, receipts, and read-only records people can trust.
-            </p>
-            <div className={styles.heroStats}>
-              <div className={styles.statCard}>
-                <span className={styles.statValue}>Everyday money</span>
-                <span className={styles.statLabel}>Audience</span>
+          <div className={styles.productHeroGrid}>
+            <div className={styles.productHeroContent}>
+              <span className={styles.heroKicker}>Case study / Personal finance utility</span>
+              <h1 className={styles.productHeroTitle}>Ledger</h1>
+              <p className={styles.productHeroSubtitle}>
+                A clean money-record product for informal loans, shared costs, project budgets,
+                receipts, and read-only balances people can trust without needing accounting software.
+              </p>
+              <div className={styles.productHeroActions}>
+                <a
+                  href="https://ledger.flat18.app"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn btn-primary"
+                >
+                  View live product
+                </a>
+                <a href="#story" className="btn btn-secondary">
+                  Read the build story
+                </a>
               </div>
-              <div className={styles.statCard}>
-                <span className={styles.statValue}>Version history</span>
-                <span className={styles.statLabel}>Trust model</span>
-              </div>
-              <div className={styles.statCard}>
-                <span className={styles.statValue}>Read-only links</span>
-                <span className={styles.statLabel}>Sharing</span>
+              <div className={styles.productProofGrid}>
+                {proofPoints.map((point) => (
+                  <div key={point.label} className={styles.productProofCard}>
+                    <span className={styles.productProofValue}>{point.value}</span>
+                    <span className={styles.productProofLabel}>{point.label}</span>
+                    <p>{point.detail}</p>
+                  </div>
+                ))}
               </div>
             </div>
+
+            <div className={styles.productHeroVisual}>
+              <button
+                type="button"
+                className={styles.productHeroImageButton}
+                onClick={() => openLightbox(0)}
+                aria-label="Open Ledger product landing page screenshot in viewer"
+              >
+                <Image
+                  src="/images/case-studies/ledger/01-landing-page-dark.png"
+                  alt="Ledger landing page showing the product positioning for simple shared money records"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 640px"
+                  className={styles.productHeroImage}
+                  priority
+                />
+                <span className={styles.productHeroBadge}>Live product</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="story" className={styles.productStorySection}>
+        <div className={styles.container}>
+          <div className={styles.productSectionIntro}>
+            <span className={styles.caseStudyTag}>Development journey</span>
+            <h2>From messy shared expenses to a product built around trust.</h2>
+            <p>
+              Flat18 approached Ledger as a trust and clarity problem. The interface needed to make
+              informal money records easier to create, easier to explain, and safer to share without
+              dragging users into full accounting software.
+            </p>
+          </div>
+
+          <div className={styles.productJourneyGrid}>
+            {journeySteps.map((step, index) => (
+              <article key={step.title} className={styles.productJourneyCard}>
+                <div className={styles.productJourneyCopy}>
+                  <span>{step.eyebrow}</span>
+                  <h3>{step.title}</h3>
+                  <p>{step.copy}</p>
+                </div>
+                <button
+                  type="button"
+                  className={styles.productJourneyImageButton}
+                  onClick={() => openLightbox(index === 0 ? 0 : index === 1 ? 1 : 4)}
+                  aria-label={`Open ${step.alt} in viewer`}
+                >
+                  <Image
+                    src={step.image}
+                    alt={step.alt}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 520px"
+                    className={styles.productJourneyImage}
+                  />
+                </button>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className={styles.productShowcaseSection}>
+        <div className={styles.container}>
+          <div className={styles.productShowcaseHeader}>
+            <div>
+              <span className={styles.caseStudyTag}>Product surfaces</span>
+              <h2>Designed around the moments where informal records usually fail.</h2>
+            </div>
+            <p>
+              Ledger is not a mini accounting suite wearing a fake moustache. Each surface supports a
+              real trust moment: creating the record, proving what happened, summarising the balance,
+              and sharing the version other people need to see.
+            </p>
+          </div>
+
+          <div className={styles.productFeatureGrid}>
+            <article className={`${styles.productFeatureCard} ${styles.productFeatureCardLarge}`}>
+              <button
+                type="button"
+                className={styles.productFeatureImageButton}
+                onClick={() => openLightbox(2)}
+                aria-label="Open Ledger detail workflow screenshot in viewer"
+              >
+                <Image
+                  src="/images/case-studies/ledger/08-detail-mockup-dark.png"
+                  alt="Ledger detail screen with entries, balance, and receipt-assisted quick entry"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 720px"
+                  className={styles.productFeatureImage}
+                />
+              </button>
+              <div className={styles.productFeatureCopy}>
+                <span>Detail workflow</span>
+                <h3>Fast entries when speed matters, richer context when trust matters.</h3>
+                <p>
+                  The detail view keeps the balance, entries, private context, categories, receipt evidence,
+                  and correction history close to the record instead of scattering it across tools.
+                </p>
+              </div>
+            </article>
+
+            <article className={styles.productFeatureCard}>
+              <button
+                type="button"
+                className={styles.productFeatureImageButton}
+                onClick={() => openLightbox(3)}
+                aria-label="Open Ledger report screenshot in viewer"
+              >
+                <Image
+                  src="/images/case-studies/ledger/09-report-mockup-dark.png"
+                  alt="Ledger report view with filtered spending summary"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 420px"
+                  className={styles.productFeatureImage}
+                />
+              </button>
+              <div className={styles.productFeatureCopy}>
+                <span>Reports</span>
+                <h3>Answer practical questions quickly.</h3>
+                <p>Users can filter by date, category, and search text without pretending they are running an accounts department.</p>
+              </div>
+            </article>
+
+            <article className={styles.productFeatureCard}>
+              <button
+                type="button"
+                className={styles.productFeatureImageButton}
+                onClick={() => openLightbox(5)}
+                aria-label="Open Ledger public read-only view screenshot in viewer"
+              >
+                <Image
+                  src="/images/case-studies/ledger/11-public-mockup-dark.png"
+                  alt="Ledger public read-only view for sharing a trusted record"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 420px"
+                  className={styles.productFeatureImage}
+                />
+              </button>
+              <div className={styles.productFeatureCopy}>
+                <span>Public proof</span>
+                <h3>Share the useful record, not the private mess.</h3>
+                <p>Read-only links let a ledger become evidence while keeping sensitive notes and edit context under control.</p>
+              </div>
+            </article>
           </div>
         </div>
       </section>
 
       <section className={styles.caseStudySection}>
         <div className={styles.container}>
-          <div className={styles.caseStudyHeader}>
-            <div className={styles.caseStudyHeading}>
-              <span className={styles.caseStudyTag}>Personal finance utility</span>
-              <div className={styles.caseStudyTitleRow}>
-                <h2 className={styles.caseStudyTitle}>Ledger</h2>
-              </div>
-              <p className={styles.caseStudySubtitle}>
-                A lightweight record for money lent, spent, repaid, and shared without accounting
-                jargon or spreadsheet maintenance.
-              </p>
-            </div>
-            <div className={styles.caseStudyActions}>
-              <a
-                href="https://ledger.flat18.app"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn btn-secondary"
-              >
-                View Ledger
-              </a>
-              <a href="#chat" className="btn btn-primary">
-                Chat with us
-              </a>
-            </div>
-          </div>
-
           <div className={`${styles.caseStudyGrid} ${styles.caseStudyGridReverse}`}>
             <div className={styles.caseStudyMedia}>
               <div className={styles.mediaGrid}>
@@ -149,8 +334,8 @@ export default function LedgerCaseStudyPage() {
               <div className={styles.openSourcePanel}>
                 <h4>Delivered for confidence</h4>
                 <p>
-                  Ledger keeps the balance, receipt evidence, private context, corrections, and
-                  public sharing controls in one understandable workflow.
+                  Ledger keeps balances, entries, receipt evidence, private notes, reports, and public
+                  sharing controls in one understandable workflow.
                 </p>
               </div>
             </div>
@@ -164,9 +349,9 @@ export default function LedgerCaseStudyPage() {
               </div>
 
               <p className={styles.caseStudyIntro}>
-                Many money situations are too important for scattered notes, but too small for full
-                accounting software. Ledger gives each person, project, trip, or shared expense a
-                dedicated record with plain labels, receipts, reports, and controlled public links.
+                Ledger turns sensitive, everyday money situations into clear records. Flat18 handled the
+                product framing, interface design, ledger workflows, receipt-assisted entry model, reporting
+                surfaces, privacy boundaries, and shareable public views.
               </p>
 
               <div className={styles.infoGrid}>
@@ -180,22 +365,22 @@ export default function LedgerCaseStudyPage() {
                 <div className={styles.infoCard}>
                   <h3>Flat18 diagnosis</h3>
                   <p>
-                    Users needed a shared factual record, not accounting concepts. The product had to
-                    feel as quick as a note and more trustworthy than a spreadsheet.
+                    Users needed a shared factual record, not accounting concepts. The product had to feel
+                    as quick as a note and more trustworthy than a spreadsheet.
                   </p>
                 </div>
                 <div className={styles.infoCard}>
                   <h3>Solution shipped</h3>
                   <p>
-                    We designed ledgers with type-specific labels, fast entries, optional receipt
-                    detail, preserved edit history, small reports, and read-only sharing.
+                    We designed ledgers with type-specific labels, fast entries, optional receipt detail,
+                    preserved edit context, useful reports, and read-only sharing.
                   </p>
                 </div>
                 <div className={styles.infoCard}>
                   <h3>Customer value</h3>
                   <p>
-                    People can explain what happened, when it happened, what evidence supports it,
-                    and what the balance is now without exposing private notes.
+                    People can explain what happened, when it happened, what evidence supports it, and
+                    what the balance is now without exposing private notes.
                   </p>
                 </div>
               </div>
@@ -203,9 +388,9 @@ export default function LedgerCaseStudyPage() {
               <div className={styles.listBlock}>
                 <h4>What Flat18 handled</h4>
                 <ul className={styles.checkList}>
-                  <li>Translated money tracking into plain-language workflows for real-life situations</li>
+                  <li>Translated everyday money tracking into plain-language workflows for real-life situations</li>
                   <li>Kept quick entry simple while allowing detail when receipts or context matter</li>
-                  <li>Designed trust features around version history, private notes, and read-only sharing</li>
+                  <li>Designed trust features around private notes, correction context, and read-only sharing</li>
                   <li>Built reporting around practical questions instead of finance jargon</li>
                 </ul>
               </div>
@@ -216,7 +401,6 @@ export default function LedgerCaseStudyPage() {
                   <li>Purpose-built ledgers for loans, budgets, trips, households, and project spending</li>
                   <li>Fast entry with amount, direction, date, description, vendor, and category</li>
                   <li>Receipt upload with OCR-assisted amount, date, vendor, and line-item suggestions</li>
-                  <li>Editable entries with preserved version history</li>
                   <li>Reports filtered by date, category, and search text</li>
                   <li>Read-only public links with private-note controls</li>
                 </ul>
@@ -230,10 +414,10 @@ export default function LedgerCaseStudyPage() {
         <div className={styles.container}>
           <div className={styles.ctaCard}>
             <div className={styles.ctaText}>
-              <h2>Want a case study like this?</h2>
+              <h2>Need a trust-sensitive workflow made clear?</h2>
               <p>
-                We can turn a sensitive, messy workflow into a clear product experience with the
-                controls people need to trust it.
+                Flat18 can turn messy records, shared decisions, and sensitive operational workflows into
+                polished products people can inspect, explain, and trust.
               </p>
             </div>
             <div className={styles.ctaActions}>
@@ -251,7 +435,7 @@ export default function LedgerCaseStudyPage() {
       <Contact />
       <Footer />
       <CaseStudyLightbox
-        images={mediaItems}
+        images={lightboxImages}
         activeIndex={lightboxIndex}
         onClose={closeLightbox}
         onNext={showNext}
