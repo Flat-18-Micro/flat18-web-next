@@ -7,6 +7,7 @@ import styles from '@/styles/component-css/Breadcrumbs.module.css'
 
 const breadcrumbLabelOverrides = {
   'f18-pay': 'F18 Pay',
+  'axis-finance': 'Axis Finance',
   'forgingblock-dashboard': 'ForgingBlock Dashboard',
   'forgingblock-website': 'ForgingBlock Website',
   btcpayserver: 'BTCPay Server',

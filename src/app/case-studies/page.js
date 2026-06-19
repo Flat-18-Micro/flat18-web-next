@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import axisFinanceDashboard from './axis-finance/dashboard.png'
 import Breadcrumbs from '@/components/Breadcrumbs'
 import Contact from '@/components/Contact'
 import Footer from '@/components/Footer'
@@ -20,6 +21,14 @@ const caseStudies = [
     image: '/images/case-studies/f18-pay/01-dashboard-overview.png',
     href: '/case-studies/f18-pay',
     meta: ['Store setup', 'Wallet controls']
+  },
+  {
+    title: 'Axis Finance',
+    tag: 'Portfolio monitoring',
+    description: 'Shaped a privacy-first finance layer for live positions, prices, alerts, and read-only wallet tracking.',
+    image: axisFinanceDashboard,
+    href: '/case-studies/axis-finance',
+    meta: ['Read-only', 'Privacy first']
   },
   {
     title: 'SignalMap',
@@ -142,7 +151,7 @@ export default function CaseStudiesPage() {
             </p>
             <div className={styles.heroStats}>
               <div className={styles.statCard}>
-                <span className={styles.statValue}>15</span>
+                <span className={styles.statValue}>16</span>
                 <span className={styles.statLabel}>Deep dives</span>
               </div>
               <div className={styles.statCard}>
