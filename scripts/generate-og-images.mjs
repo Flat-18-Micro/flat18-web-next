@@ -6,7 +6,7 @@ import { createCanvas, registerFont, loadImage } from 'canvas'
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const repoRoot = path.resolve(__dirname, '..')
 const outputDir = path.resolve(repoRoot, 'public/og')
-const logoPath = path.resolve(repoRoot, 'public/og/_sources/flat18-logo.png')
+const logoPath = path.resolve(repoRoot, 'public/og/_sources/flat18-logo-6.png')
 
 const delaGothicPath = path.resolve(repoRoot, 'public/fonts/dela-gothic-one/dela-gothic-one-v19-latin-regular.ttf')
 const interRegularPath = path.resolve(repoRoot, 'public/fonts/inter-v20-latin/inter-v20-latin-regular.ttf')
@@ -21,6 +21,7 @@ registerFont(interBoldPath, { family: 'Inter', weight: 'bold' })
 
 const width = 1200
 const height = 630
+const xPositionText = 300
 
 const pages = [
   {
@@ -176,11 +177,11 @@ function drawBackground(ctx) {
   ctx.fillStyle = glowLeft
   ctx.fillRect(0, 0, width, height)
 
-  const glowRight = ctx.createRadialGradient(width * 0.82, height * 0.48, 0, width * 0.82, height * 0.48, width * 0.38)
-  glowRight.addColorStop(0, 'rgba(0, 213, 255, 0.24)')
-  glowRight.addColorStop(1, 'rgba(0, 213, 255, 0)')
-  ctx.fillStyle = glowRight
-  ctx.fillRect(0, 0, width, height)
+  // const glowRight = ctx.createRadialGradient(width * 0.82, height * 0.48, 0, width * 0.82, height * 0.48, width * 0.38)
+  // glowRight.addColorStop(0, 'rgba(0, 213, 255, 0.24)')
+  // glowRight.addColorStop(1, 'rgba(0, 213, 255, 0)')
+  // ctx.fillStyle = glowRight
+  // ctx.fillRect(0, 0, width, height)
 
   ctx.fillStyle = 'rgba(0, 3, 12, 0.22)'
   ctx.fillRect(0, 0, width, height)
@@ -204,6 +205,26 @@ function drawDots(ctx, { x, y, columns, rows, stepX, stepY, amplitude, phase, op
   ctx.restore()
 }
 
+function wrapText(ctx, text, maxWidth) {
+  const words = String(text).split(/\s+/).filter(Boolean)
+  const lines = []
+  let currentLine = ''
+
+  for (const word of words) {
+    const testLine = currentLine ? `${currentLine} ${word}` : word
+
+    if (ctx.measureText(testLine).width <= maxWidth) {
+      currentLine = testLine
+    } else {
+      if (currentLine) lines.push(currentLine)
+      currentLine = word
+    }
+  }
+
+  if (currentLine) lines.push(currentLine)
+  return lines
+}
+
 async function render() {
   const canvas = createCanvas(width, height)
   const ctx = canvas.getContext('2d')
@@ -213,27 +234,30 @@ async function render() {
     ctx.clearRect(0, 0, width, height)
     drawBackground(ctx)
 
-    drawDots(ctx, { x: -142, y: 360, columns: 66, rows: 18, stepX: 13, stepY: 7, amplitude: 31, phase: 0.4, opacity: 0.42, rotate: -9 })
-    drawDots(ctx, { x: 645, y: 142, columns: 66, rows: 18, stepX: 12, stepY: 7, amplitude: 27, phase: 2.1, opacity: 0.44, rotate: 8 })
+    // drawDots(ctx, { x: -142, y: 390, columns: 166, rows: 18, stepX: 13, stepY: 7, amplitude: 200, phase: 0.4, opacity: 0.32, rotate: -15 })
+
+    // drawDots(ctx, { x: -142, y: 390, columns: 166, rows: 18, stepX: 13, stepY: 7, amplitude: 110, phase: 0.4, opacity: 0.12, rotate: 0 })
+
+    // drawDots(ctx, { x: 645, y: 142, columns: 66, rows: 18, stepX: 12, stepY: 7, amplitude: 127, phase: 2.1, opacity: 0.24, rotate: 8 })
 
     // Decorative circles
-    ctx.fillStyle = 'rgba(0, 108, 255, 0.07)'
-    ctx.beginPath()
-    ctx.arc(958, 315, 244, 0, Math.PI * 2)
-    ctx.fill()
-    ctx.fillStyle = 'rgba(0, 213, 255, 0.05)'
-    ctx.beginPath()
-    ctx.arc(958, 315, 196, 0, Math.PI * 2)
-    ctx.fill()
+    // ctx.fillStyle = 'rgba(0, 108, 255, 0.07)'
+    // ctx.beginPath()
+    // ctx.arc(958, 315, 244, 0, Math.PI * 2)
+    // ctx.fill()
+    // ctx.fillStyle = 'rgba(0, 213, 255, 0.05)'
+    // ctx.beginPath()
+    // ctx.arc(958, 315, 196, 0, Math.PI * 2)
+    // ctx.fill()
 
-    ctx.drawImage(logo, 762, 120, 390, 390)
+    ctx.drawImage(logo, 362, -220, 1000, 1000)
 
     // Kicker
     ctx.font = '500 18px "Inter"'
     ctx.fillStyle = '#7089ad'
     ctx.letterSpacing = '4px'
     ctx.textBaseline = 'top'
-    ctx.fillText(page.kicker.toUpperCase(), 70, 104)
+    ctx.fillText(page.kicker.toUpperCase(), xPositionText, 104)
     ctx.letterSpacing = '0px'
 
     // Title
@@ -246,7 +270,7 @@ async function render() {
     
     page.title.forEach((line, i) => {
       if (i === page.titleAccent) {
-        const titleGrad = ctx.createLinearGradient(70, 0, 760, 0)
+        const titleGrad = ctx.createLinearGradient(xPositionText, 0, 760, 0)
         titleGrad.addColorStop(0, '#0a75ff')
         titleGrad.addColorStop(0.54, '#00a8ff')
         titleGrad.addColorStop(1, '#33d6ff')
@@ -259,7 +283,7 @@ async function render() {
       ctx.shadowColor = 'rgba(0, 8, 20, 0.6)'
       ctx.shadowBlur = 5
       ctx.shadowOffsetY = 4
-      ctx.fillText(line, 70, titleStartY + i * titleLineHeight)
+      ctx.fillText(line, xPositionText, titleStartY + i * titleLineHeight)
       ctx.shadowColor = 'transparent'
     })
 
@@ -270,25 +294,31 @@ async function render() {
     ctx.strokeStyle = '#0878d8'
     ctx.lineWidth = 3
     ctx.beginPath()
-    ctx.moveTo(70, descriptionY - 34)
-    ctx.lineTo(460, descriptionY - 34)
+    ctx.moveTo(xPositionText, descriptionY - 34)
+    ctx.lineTo(660, descriptionY - 34)
     ctx.stroke()
 
     // Description
+    const descriptionMaxWidth = 600
+    const descriptionText = Array.isArray(page.description) ? page.description.join(' ') : page.description
+
     ctx.font = '400 34px "Inter"'
     ctx.fillStyle = '#e7eef8'
-    page.description.forEach((line, i) => {
+
+    const descriptionLines = wrapText(ctx, descriptionText, descriptionMaxWidth)
+
+    descriptionLines.forEach((line, i) => {
       ctx.shadowColor = 'rgba(0, 8, 20, 0.6)'
       ctx.shadowBlur = 5
       ctx.shadowOffsetY = 4
-      ctx.fillText(line, 70, descriptionY + i * 46)
+      ctx.fillText(line, xPositionText, descriptionY + i * 46)
       ctx.shadowColor = 'transparent'
     })
 
     // Domain
     ctx.font = 'bold 24px "Inter"'
     ctx.fillStyle = '#16d1ff'
-    ctx.fillText('flat18.co.uk', 70, 552)
+    ctx.fillText('flat18.co.uk', xPositionText, 552)
 
     const buffer = canvas.toBuffer('image/png')
     await fs.writeFile(path.join(outputDir, page.file), buffer)
