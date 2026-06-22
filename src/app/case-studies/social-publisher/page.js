@@ -111,11 +111,13 @@ export default function SocialPublisherCaseStudyPage() {
           <Breadcrumbs />
           <div className={styles.productHeroGrid}>
             <div className={styles.productHeroContent}>
-              <span className={styles.heroKicker}>Case study / Operational SaaS</span>
+              <span className={styles.heroKicker}>Case study / Publishing operations friction</span>
               <h1 className={styles.productHeroTitle}>Social Publisher</h1>
               <p className={styles.productHeroSubtitle}>
-                A polished publishing desk for small teams that need to draft once, tailor by channel,
-                validate every post, and keep the queue moving without turning launch week into a browser-tab crime scene.
+                When small teams publish across channels, calendars, media folders and approval checks, the
+                risk is missed limits, unclear queues and launch-week rework. Flat18 built Social Publisher
+                around channel connection, variants, validation, scheduling and logs so teams can trust what
+                is ready and what has shipped.
               </p>
               <div className={styles.productHeroActions}>
                 <a

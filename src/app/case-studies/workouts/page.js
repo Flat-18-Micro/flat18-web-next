@@ -126,11 +126,12 @@ export default function WorkoutsCaseStudyPage() {
           <Breadcrumbs />
           <div className={styles.productHeroGrid}>
             <div className={styles.productHeroContent}>
-              <span className={styles.heroKicker}>Case study / Fitness planning app</span>
+              <span className={styles.heroKicker}>Case study / Training decision friction</span>
               <h1 className={styles.productHeroTitle}>Workouts</h1>
               <p className={styles.productHeroSubtitle}>
-                A practical training planner that turns onboarding, schedule selection, session logging,
-                recovery context, and progress signals into one usable workout system.
+                When people choose training plans while tired, rushed or unsure what matters, the risk is
+                decision overload before the workout starts. Flat18 shaped Workouts around onboarding,
+                schedules, logging and recovery context so the next session is easier to choose and complete.
               </p>
 
               <div className={styles.productHeroActions}>

@@ -177,11 +177,12 @@ export default function AxisFinanceCaseStudyPage() {
           <Breadcrumbs />
           <div className={styles.productHeroGrid}>
             <div className={styles.productHeroContent}>
-              <span className={styles.heroKicker}>Case study / Privacy-first finance app</span>
+              <span className={styles.heroKicker}>Case study / Private portfolio clarity</span>
               <h1 className={styles.productHeroTitle}>Axis Finance</h1>
               <p className={styles.productHeroSubtitle}>
-                A privacy-first finance layer for live positions, prices, and alerts, shaped to feel more like an
-                instrument panel than a trading terminal.
+                When private investors watch positions, prices and alerts across noisy finance tools, the risk
+                is acting on a screen they do not trust. Flat18 shaped Axis Finance around read-only wallet
+                tracking and narrow alerts so users can inspect the signal without handing over control.
               </p>
               <div className={styles.productHeroActions}>
                 <a href="#showcase" className="btn btn-primary">

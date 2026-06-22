@@ -401,7 +401,7 @@ export const pageTypes = {
   
   caseStudies: () => generatePageMetadata({
     title: 'Case studies',
-    description: 'Recent Flat 18 launches and product stories that show how we approach discovery, design, development and delivery.',
+    description: 'Case studies showing how Flat 18 finds costly product friction, designs the fix and ships work that is easier to trust, sell or operate.',
     path: '/case-studies',
   }),
   

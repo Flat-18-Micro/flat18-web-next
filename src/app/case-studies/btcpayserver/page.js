@@ -150,11 +150,13 @@ export default function BTCPayServerCaseStudyPage() {
           <Breadcrumbs />
           <div className={styles.productHeroGrid}>
             <div className={styles.productHeroContent}>
-              <span className={styles.heroKicker}>Case study / Open-source Bitcoin payments platform</span>
+              <span className={styles.heroKicker}>Case study / Public product story</span>
               <h1 className={styles.productHeroTitle}>BTCPay Server</h1>
               <p className={styles.productHeroSubtitle}>
-                A website built alongside the product itself, then shaped over time into a multilingual,
-                video-led, case-study-backed home for self-hosted Bitcoin payments.
+                When an open-source payments project has strong capability but no clear public story, the
+                risk is that new users cannot see why to try it or how to start. Flat18 built and evolved
+                the BTCPay Server site so the project could explain itself, support global users and turn
+                adoption proof into trust.
               </p>
               <div className={styles.productHeroActions}>
                 <a

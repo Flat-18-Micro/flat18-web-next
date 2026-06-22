@@ -157,7 +157,7 @@ export default function WalletScrutinyCaseStudyPage() {
           <Breadcrumbs />
           <div className={styles.productHeroGrid}>
             <div className={styles.productHeroContent}>
-              <span className={styles.heroKicker}>Case study / Bitcoin wallet security research site</span>
+              <span className={styles.heroKicker}>Case study / Research evidence clarity</span>
               <h1
                 className={styles.productHeroTitle}
                 style={{ fontSize: 'clamp(2.7rem, 12vw, 8.5rem)', overflowWrap: 'anywhere' }}
@@ -165,8 +165,9 @@ export default function WalletScrutinyCaseStudyPage() {
                 Wallet<wbr />Scrutiny
               </h1>
               <p className={styles.productHeroSubtitle}>
-                A redesign for a Bitcoin wallet security site built around a large and growing dataset.
-                The work focused on making search, verdicts, and methodology easier to scan without flattening the evidence.
+                When wallet security evidence grows into a large catalogue, the risk is that readers cannot
+                find the verdict or trust the method behind it. Flat18 refined WalletScrutiny's search,
+                review pages and methodology presentation so people can move from summary to evidence quickly.
               </p>
               <div className={styles.productHeroActions}>
                 <a

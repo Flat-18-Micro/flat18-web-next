@@ -30,7 +30,7 @@ const caseStudySeoData: Record<CaseStudySlug, CaseStudySeoEntry> = {
   'archimedes-finance': {
     title: 'Archimedes Finance Case Study',
     description:
-      'How Flat18 shaped Archimedes Finance into a role-based investment platform for onboarding, KYC, tokenisation, vesting, reporting, and client communication.',
+      'How Flat18 helped investment teams replace split onboarding, KYC, approvals, vesting, reporting and client messages with one auditable role-based flow.',
     path: '/case-studies/archimedes-finance',
     image: '/og/case-studies.png',
     keywords: [
@@ -45,7 +45,7 @@ const caseStudySeoData: Record<CaseStudySlug, CaseStudySeoEntry> = {
   btcpayserver: {
     title: 'BTCPay Server Case Study',
     description:
-      'How Flat18 helped turn BTCPay Server from a first website into a multilingual, video-led, case-study-backed home for self-hosted Bitcoin payments.',
+      'How Flat18 helped an open-source payments project explain why to try it, how to start, and what adoption proof buyers could trust.',
     path: '/case-studies/btcpayserver',
     image: '/og/case-studies.png',
     keywords: [
@@ -60,7 +60,7 @@ const caseStudySeoData: Record<CaseStudySlug, CaseStudySeoEntry> = {
   'f18-pay': {
     title: 'F18 Pay Case Study',
     description:
-      'How Flat18 shaped F18 Pay into a merchant payment system for store setup, invoices, payment requests, wallet controls, and public checkout.',
+      'How Flat18 helped merchants see live store state, paid invoices, open payment requests and wallet controls without slow payment follow-up.',
     path: '/case-studies/f18-pay',
     image: '/og/case-studies.png',
     keywords: [
@@ -75,7 +75,7 @@ const caseStudySeoData: Record<CaseStudySlug, CaseStudySeoEntry> = {
   'felt-weather': {
     title: 'Felt Weather Case Study',
     description:
-      'How Flat18 turned official forecasts and public local chatter into a map-based view of how the weather feels on the ground.',
+      'How Flat18 helped people judge local conditions by combining official forecasts, nearby public signals and an explainable felt score.',
     path: '/case-studies/felt-weather',
     image: '/og/case-studies.png',
     keywords: [
@@ -90,7 +90,7 @@ const caseStudySeoData: Record<CaseStudySlug, CaseStudySeoEntry> = {
   'forgingblock-dashboard': {
     title: 'ForgingBlock Dashboard Case Study',
     description:
-      'How Flat18 turned scattered merchant payment signals into a calm workflow for invoices, cash flow, and payout status.',
+      'How Flat18 helped payment teams answer invoice, cash-flow and payout questions faster by turning scattered merchant data into a focused operations hub.',
     path: '/case-studies/forgingblock-dashboard',
     image: '/og/case-studies.png',
     keywords: [
@@ -105,7 +105,7 @@ const caseStudySeoData: Record<CaseStudySlug, CaseStudySeoEntry> = {
   'forgingblock-website': {
     title: 'ForgingBlock Website Redesign Case Study',
     description:
-      'How Flat18 audited a busy merchant website, found conversion blockers, and rebuilt the journey around trust and clarity.',
+      'How Flat18 found the conversion blockers in a busy merchant payments site and rebuilt the journey around proof, pricing clarity and enquiry.',
     path: '/case-studies/forgingblock-website',
     image: '/og/case-studies.png',
     keywords: [
@@ -120,7 +120,7 @@ const caseStudySeoData: Record<CaseStudySlug, CaseStudySeoEntry> = {
   hashboard: {
     title: 'Zettahash Hashboard Case Study',
     description:
-      'How Flat18 consolidated mining, treasury, market, and governance signals into a stakeholder transparency dashboard.',
+      'How Flat18 helped stakeholders assess project health by bringing scattered mining, treasury, market and governance signals into one readable hub.',
     path: '/case-studies/hashboard',
     image: '/og/case-studies.png',
     keywords: [
@@ -135,7 +135,7 @@ const caseStudySeoData: Record<CaseStudySlug, CaseStudySeoEntry> = {
   ipgeo: {
     title: 'Flat18 Geo Case Study',
     description:
-      'How Flat18 built Flat18 Geo, a Vercel IP geolocation API with lookup, refresh, and freshness endpoints backed by Neon Postgres and GitHub Actions.',
+      'How Flat18 made IP context safer to trust across lookup, browser and refresh jobs with small endpoints, auth, cache rules and freshness checks.',
     path: '/case-studies/ipgeo',
     image: '/og/case-studies.png',
     keywords: [
@@ -150,7 +150,7 @@ const caseStudySeoData: Record<CaseStudySlug, CaseStudySeoEntry> = {
   ledger: {
     title: 'Ledger Case Study',
     description:
-      'How Flat18 shaped a simple money-tracking app for informal loans, project budgets, shared costs, receipts, and read-only records people can trust.',
+      'How Flat18 helped people settle informal loans, shared costs and receipts by turning fragile messages and memory into clear records with evidence.',
     path: '/case-studies/ledger',
     image: '/og/case-studies.png',
     keywords: [
@@ -165,7 +165,7 @@ const caseStudySeoData: Record<CaseStudySlug, CaseStudySeoEntry> = {
   'natal-charts': {
     title: 'Natal Charts Case Study',
     description:
-      'How Flat18 turned ephemeris data, time-zone logic, relationship scoring, current transits, and interpretation notes into a clear browser product.',
+      'How Flat18 made dense birth data, ephemeris calculation, relationship comparison and privacy notes easier for ordinary users to understand.',
     path: '/case-studies/natal-charts',
     image: '/og/case-studies.png',
     keywords: [
@@ -180,7 +180,7 @@ const caseStudySeoData: Record<CaseStudySlug, CaseStudySeoEntry> = {
   pulseops: {
     title: 'PulseOps Case Study',
     description:
-      'How Flat18 identified a visibility gap for small network operators and turned it into a credible self-hosted product proposition.',
+      'How Flat18 helped small network operators replace shallow router views and heavy enterprise tools with a local command centre they can run.',
     path: '/case-studies/pulseops',
     image: '/og/case-studies.png',
     keywords: [
@@ -195,7 +195,7 @@ const caseStudySeoData: Record<CaseStudySlug, CaseStudySeoEntry> = {
   signalmap: {
     title: 'SignalMap Case Study',
     description:
-      'How Flat18 shaped SignalMap into a privacy-first analytics product with cookie-free tracking, edge ingest, aggregate reporting, and practical recommendations.',
+      'How Flat18 helped founders and small agencies turn privacy-limited browser signals into practical recommendations they can act on.',
     path: '/case-studies/signalmap',
     image: '/og/case-studies.png',
     keywords: [
@@ -210,7 +210,7 @@ const caseStudySeoData: Record<CaseStudySlug, CaseStudySeoEntry> = {
   'social-publisher': {
     title: 'Social Publisher Case Study',
     description:
-      'How Flat18 turned social publishing into a structured workflow for channel connection, platform-aware drafting, validation, scheduling, and dispatch logs.',
+      'How Flat18 helped small teams reduce publishing rework by clarifying channel connection, platform variants, validation, scheduling and dispatch logs.',
     path: '/case-studies/social-publisher',
     image: '/og/case-studies.png',
     keywords: [
@@ -225,7 +225,7 @@ const caseStudySeoData: Record<CaseStudySlug, CaseStudySeoEntry> = {
   'walletscrutiny': {
     title: 'WalletScrutiny Case Study',
     description:
-      'How Flat18 helped shape WalletScrutiny into a clearer Bitcoin wallet security site, with stronger search, review pages, and methodology-led presentation.',
+      'How Flat18 helped readers move through a large wallet security catalogue with clearer search, verdicts, review pages and methodology evidence.',
     path: '/case-studies/walletscrutiny',
     image: '/og/case-studies.png',
     keywords: [
@@ -240,7 +240,7 @@ const caseStudySeoData: Record<CaseStudySlug, CaseStudySeoEntry> = {
   workouts: {
     title: 'Workouts Case Study',
     description:
-      'How Flat18 turned workout planning, schedule selection, set logging, recovery context, and progress signals into one practical training system.',
+      'How Flat18 reduced training decision overload by shaping onboarding, schedule selection, logging, recovery context and progress signals into one usable flow.',
     path: '/case-studies/workouts',
     image: '/og/case-studies.png',
     keywords: [

@@ -171,11 +171,13 @@ export default function ArchimedesFinanceCaseStudyPage() {
           <Breadcrumbs />
           <div className={styles.productHeroGrid}>
             <div className={styles.productHeroContent}>
-              <span className={styles.heroKicker}>Case study / Tokenised investment platform</span>
+              <span className={styles.heroKicker}>Case study / Investment operations control</span>
               <h1 className={styles.productHeroTitle}>Archimedes Finance</h1>
               <p className={styles.productHeroSubtitle}>
-                A role-based investment platform for managers, clients, and admins that keeps onboarding,
-                KYC, tokenisation, vesting, reporting, and client communication in one auditable flow.
+                When investment teams manage onboarding, KYC, approvals, vesting, reporting and client
+                messages across separate tools, the risk is slow review and weak audit confidence. Flat18
+                shaped Archimedes Finance around role-based journeys so managers, clients and admins can
+                see the right state and evidence in one flow.
               </p>
               <div className={styles.productHeroActions}>
                 <a

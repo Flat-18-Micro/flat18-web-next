@@ -135,11 +135,13 @@ export default function PulseOpsCaseStudyPage() {
           <Breadcrumbs />
           <div className={styles.productHeroGrid}>
             <div className={styles.productHeroContent}>
-              <span className={styles.heroKicker}>Case study / Open-source network operations</span>
+              <span className={styles.heroKicker}>Case study / Network visibility gap</span>
               <h1 className={styles.productHeroTitle}>PulseOps</h1>
               <p className={styles.productHeroSubtitle}>
-                A self-hosted command centre for small operators that brings inventory, telemetry,
-                topology, and device actions into one readable place.
+                When small operators monitor networks across routers, logs and enterprise tools they do not
+                need, the risk is missing problems until support work slows down. Flat18 shaped PulseOps
+                around inventory, telemetry, topology and device action so operators get a local command
+                centre they can run.
               </p>
               <div className={styles.productHeroActions}>
                 <a

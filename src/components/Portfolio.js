@@ -113,7 +113,7 @@ export default function Portfolio() {
   const projects = [
     {
       title: 'Felt Weather',
-      description: 'Map-based weather intelligence combining official conditions with local human signals.',
+      description: 'Shows how conditions feel locally by combining forecasts with nearby public signals.',
       image: '/images/portfolio-graphics/felt-weather.webp',
       link: '/case-studies/felt-weather',
       stats: [
@@ -127,7 +127,7 @@ export default function Portfolio() {
     },
     {
       title: 'Ledger',
-      description: 'Simple ledgers for money lent, spent, repaid, shared, and backed by receipts.',
+      description: 'Turns fragile shared money records into balances, receipts and proof people can explain.',
       image: '/images/portfolio-graphics/ledger.webp',
       link: '/case-studies/ledger',
       stats: [
@@ -141,7 +141,7 @@ export default function Portfolio() {
     },
     {
       title: 'Workouts',
-      description: 'Workout planning, logging, recovery context, and progress signals in one training app.',
+      description: 'Reduces training choice overload with guided schedules, logging, recovery context and progress signals.',
       image: '/images/portfolio-graphics/workouts.webp',
       link: '/case-studies/workouts',
       stats: [
@@ -155,7 +155,7 @@ export default function Portfolio() {
     },
     {
       title: 'PulseOps',
-      description: 'Self-hosted network telemetry and operations console for SOHO operators.',
+      description: 'Gives small operators a self-hosted view of inventory, telemetry, topology and device action.',
       image: '/images/portfolio-graphics/pulseops-scr.webp',
       projectLogo: '/images/case-studies/logos/pulseops-lockup.svg',
       link: '/case-studies/pulseops',
@@ -169,7 +169,7 @@ export default function Portfolio() {
     },
     {
       title: 'Social Publisher',
-      description: 'A focused scheduling workspace for channel variants, validation, calendars, logs, and retries.',
+      description: 'Turns scattered publishing checks into channel variants, validation, calendars, logs and retries.',
       image: '/images/portfolio-graphics/social-publisher.webp',
       projectLogo: '/images/case-studies/logos/social-publisher-wordmark.svg',
       link: '/case-studies/social-publisher',
@@ -184,7 +184,7 @@ export default function Portfolio() {
     },
     {
       title: 'Natal Charts',
-      description: 'Browser-based chart generation with transits, relationship comparison, and exportable readings.',
+      description: 'Makes dense chart data, transits, relationship comparison and privacy notes easier to understand.',
       image: '/images/portfolio-graphics/natal-charts.webp',
       link: '/case-studies/natal-charts',
       stats: [
@@ -198,7 +198,7 @@ export default function Portfolio() {
     },
     {
       title: 'Archimedes Finance',
-      description: 'Secure asset tokenisation platform for institutional investors.',
+      description: 'Keeps investment onboarding, KYC, approvals, vesting, reporting and messages in one auditable flow.',
       image: '/images/portfolio-graphics/archimedesfinance-mock.webp',
       projectLogo: '/images/portfolio-graphics/logos/archimedes-finance.webp',
       link: '/case-studies/archimedes-finance',
@@ -212,7 +212,7 @@ export default function Portfolio() {
     },
     {
       title: 'Zettahash Hashboard',
-      description: 'Mining hashboard monitoring dashboard.',
+      description: 'Helps stakeholders assess mining, treasury, market and governance health without chasing separate tools.',
       image: '/images/portfolio-graphics/hashboard.webp',
       projectLogo: '/images/portfolio-graphics/logos/zettahash.webp',
       link: '/case-studies/hashboard',
@@ -226,7 +226,7 @@ export default function Portfolio() {
     },
     {
       title: 'WalletScrutiny',
-      description: 'Bitcoin wallet security analysis platform redesign.',
+      description: 'Makes a large wallet security catalogue easier to search, judge and verify against the method.',
       image: '/images/portfolio-graphics/walletscrutiny-mock.webp',
       projectLogo: '/images/portfolio-graphics/logos/wallet-scrutiny.webp',
       link: '/case-studies/walletscrutiny',
@@ -240,7 +240,7 @@ export default function Portfolio() {
     },
     {
       title: 'BTCPay Server',
-      description: 'Open-source Bitcoin payment processor platform.',
+      description: 'Helped an open-source payments project explain why to try it, how to start and what proof to trust.',
       image: '/images/portfolio-graphics/btcpayserver-mock.webp',
       projectLogo: '/images/portfolio-graphics/logos/btcpayserver.webp',
       link: '/case-studies/btcpayserver',

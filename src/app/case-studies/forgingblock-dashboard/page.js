@@ -171,11 +171,12 @@ export default function ForgingBlockDashboardCaseStudyPage() {
           <Breadcrumbs />
           <div className={styles.productHeroGrid}>
             <div className={styles.productHeroContent}>
-              <span className={styles.heroKicker}>Case study / Payments operations</span>
+              <span className={styles.heroKicker}>Case study / Invoice status clarity</span>
               <h1 className={styles.productHeroTitle}>ForgingBlock Dashboard</h1>
               <p className={styles.productHeroSubtitle}>
-                A merchant dashboard for teams that need to see what was paid, what is still open, and
-                which invoices need attention without wading through spreadsheets.
+                When payment teams answer invoice, cash-flow and payout questions across messy merchant
+                data, the risk is slow support and unclear next steps. Flat18 refined the dashboard into a
+                focused payments hub so teams can see what was paid, what is open and what needs attention.
               </p>
               <div className={styles.productHeroActions}>
                 <a href="#story" className="btn btn-secondary">

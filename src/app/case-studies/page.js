@@ -8,128 +8,128 @@ import styles from '@/styles/component-css/CaseStudies.module.css'
 const caseStudies = [
   {
     title: 'Ledger',
-    tag: 'Personal finance utility',
-    description: 'Turned informal money tracking into clear, purpose-built ledgers for loans, shared costs, project budgets, receipts, and read-only records.',
+    tag: 'Informal money trust',
+    description: 'Turned scattered messages, receipts and memory into clear records for loans, shared costs, budgets and read-only balances people can explain.',
     image: '/images/case-studies/ledger/detail.png',
     href: '/case-studies/ledger',
     meta: ['Trust workflows', 'Everyday finance']
   },
   {
     title: 'F18 Pay',
-    tag: 'Payment infrastructure',
-    description: 'Built a merchant payment system for Bitcoin and Ethereum stores, with invoices, payment requests, wallet controls, and QR checkout pages.',
+    tag: 'Payment state clarity',
+    description: 'Helped merchants manage stores, wallets, invoices and public checkout pages without losing track of what is live, paid or waiting.',
     image: '/images/case-studies/f18-pay/01-dashboard-overview.png',
     href: '/case-studies/f18-pay',
     meta: ['Store setup', 'Wallet controls']
   },
   {
     title: 'Axis Finance',
-    tag: 'Portfolio monitoring',
-    description: 'Shaped a privacy-first finance layer for live positions, prices, alerts, and read-only wallet tracking.',
+    tag: 'Private portfolio clarity',
+    description: 'Made live positions, prices and alerts easier to inspect without asking private investors to hand over custody or trust a noisy terminal.',
     image: axisFinanceDashboard,
     href: '/case-studies/axis-finance',
     meta: ['Read-only', 'Privacy first']
   },
   {
     title: 'SignalMap',
-    tag: 'Privacy-first analytics',
-    description: 'Built a privacy-first analytics platform that turns browser signals, edge ingest, and aggregate reporting into practical recommendations.',
+    tag: 'Actionable analytics',
+    description: 'Turned privacy-limited browser signals into aggregate reporting and clear recommendations founders and small agencies can act on.',
     image: '/images/case-studies/signalmap/01-landing.png',
     href: '/case-studies/signalmap',
     meta: ['Cookie-free', 'Edge-first']
   },
   {
     title: 'WalletScrutiny',
-    tag: 'Bitcoin wallet security',
-    description: 'Reshaped a large wallet review catalogue into a clearer research interface with stronger search, review pages, and methodology context.',
+    tag: 'Research evidence clarity',
+    description: 'Reshaped a large wallet review catalogue so readers can find the verdict, inspect the method and move from summary to evidence faster.',
     image: '/images/case-studies/walletscrutiny/2023-home.jpeg',
     href: '/case-studies/walletscrutiny',
     meta: ['Search UX', 'Methodology']
   },
   {
     title: 'BTCPay Server',
-    tag: 'Open-source payments',
-    description: 'Created a first website for a self-hosted Bitcoin payments project, then evolved it into a multilingual, video-led, evidence-backed homepage.',
+    tag: 'Public product story',
+    description: 'Gave a self-hosted payments project a clearer route from first visit to first try, then strengthened it with language support, video and proof.',
     image: '/images/case-studies/btcpayserver/07-2025-09-03-24891c5-case-studies-ui.png',
     href: '/case-studies/btcpayserver',
     meta: ['Multilingual', 'Case studies']
   },
   {
     title: 'Flat18 Geo',
-    tag: 'IP geolocation service',
-    description: 'Built a compact IP intelligence API for Vercel with city, region, and ASN lookups, browser-safe geo responses, refresh dispatch, and freshness monitoring.',
+    tag: 'Fresh location data',
+    description: 'Made city, region and ASN context safer to call from products by separating lookup, browser response, refresh and freshness checks.',
     image: '/images/case-studies/ipgeo/flat18-geo-overview.png',
     href: '/case-studies/ipgeo',
     meta: ['API design', 'Data freshness']
   },
   {
     title: 'Workouts',
-    tag: 'Fitness planning app',
-    description: 'Built a practical training system that guides users from onboarding and schedule selection to workout logging and progress review.',
+    tag: 'Training decision friction',
+    description: 'Reduced choice overload before training by turning onboarding, schedules, logging, recovery context and progress review into one practical flow.',
     image: '/images/case-studies/workouts/03-plan-overview.png',
     href: '/case-studies/workouts',
     meta: ['Planning workflow', 'Mobile app UI']
   },
   {
     title: 'PulseOps',
-    tag: 'Open-source infrastructure',
-    description: 'Identified a gap between consumer routers and enterprise suites, then shaped a self-hosted command centre around real operator workflows.',
+    tag: 'Network visibility gap',
+    description: 'Found the space between shallow router views and heavy enterprise suites, then shaped a self-hosted command centre for real operator work.',
     image: '/images/case-studies/pulseops/overview.png',
     href: '/case-studies/pulseops',
     meta: ['Problem discovery', 'Network telemetry']
   },
   {
     title: 'Social Publisher',
-    tag: 'Social publishing workflow',
-    description: 'Turned scattered publishing work into one workspace for channel connection, platform variants, validation, scheduling, and dispatch logs.',
+    tag: 'Publishing operations friction',
+    description: 'Turned scattered drafts, channel limits, calendars and dispatch checks into one workspace small teams can operate with less rework.',
     image: '/images/case-studies/social-publisher/01-dashboard-overview-dark.png',
     href: '/case-studies/social-publisher',
     meta: ['Workflow design', 'Social publishing']
   },
   {
     title: 'Natal Charts',
-    tag: 'Data visualisation',
-    description: 'Mapped ephemeris data, time-zone logic, current transits, and relationship comparison into a clear browser-based chart product.',
+    tag: 'Dense calculation clarity',
+    description: 'Made birth data, time-zone logic, transits and relationship comparison easier to enter, read, compare and share.',
     image: '/images/case-studies/natal-charts/01-landing.png',
     href: '/case-studies/natal-charts',
     meta: ['Complex data', 'Chart workflow']
   },
   {
     title: 'Archimedes Finance',
-    tag: 'Tokenised investment platform',
-    description: 'Built a role-based tokenisation platform that keeps onboarding, KYC, vesting, reporting, and client communication in one auditable flow.',
+    tag: 'Investment operations control',
+    description: 'Joined onboarding, KYC, approvals, vesting, reporting and client messages so investment teams can review state and evidence in one flow.',
     image: '/images/case-studies/archimedes-finance/25-home-landing.jpeg',
     href: '/case-studies/archimedes-finance',
     meta: ['Role-based access', 'Audit trail']
   },
   {
     title: 'ForgingBlock Dashboard',
-    tag: 'Payments experience',
-    description: 'Refined merchant payment operations into a clear invoice, cash-flow, and payout experience that supports fast decisions.',
+    tag: 'Invoice status clarity',
+    description: 'Refined scattered merchant payment data into a focused view of paid invoices, open items, cash-flow signals and payout status.',
     image: '/images/case-studies/forgingblock-dashboard/payments-page.svg',
     href: '/case-studies/forgingblock-dashboard',
     meta: ['Operational clarity', 'Dashboard']
   },
   {
     title: 'ForgingBlock Website',
-    tag: 'Website redesign',
-    description: 'Audited a busy legacy site, found the conversion blockers, and rebuilt the journey around trust, clarity, and merchant outcomes.',
+    tag: 'Merchant conversion blockers',
+    description: 'Found where proof, pricing and merchant outcomes were getting buried, then rebuilt the journey so buyers could trust the next step.',
     image: '/images/case-studies/forgingblock-website/mockups/home-comparison.png',
     href: '/case-studies/forgingblock-website',
     meta: ['Strategic audit', 'Marketing site']
   },
   {
     title: 'Felt Weather',
-    tag: 'Weather intelligence',
-    description: 'Combined official forecasts with nearby public weather conversation to show how conditions feel locally, not just what the forecast says.',
+    tag: 'Local context gap',
+    description: 'Combined forecasts with nearby public signals so people can judge how conditions feel locally, not just what the official reading says.',
     image: '/images/case-studies/felt-weather/01-live-felt-weather-map.png',
     href: '/case-studies/felt-weather',
     meta: ['Local signals', 'Map-based UI']
   },
   {
     title: 'Zettahash Hashboard',
-    tag: 'DAO transparency',
-    description: 'Brought mining, treasury, market, and governance signals into one readable hub so stakeholders can assess project health quickly.',
+    tag: 'Stakeholder transparency gap',
+    description: 'Brought mining, treasury, market and governance signals into one readable hub so stakeholders can assess project health quickly.',
     image: '/images/case-studies/hashboard/dashboard-overview.svg',
     href: '/case-studies/hashboard',
     meta: ['Stakeholder trust', 'DAO dashboard']

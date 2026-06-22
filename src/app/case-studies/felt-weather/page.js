@@ -128,11 +128,12 @@ export default function FeltWeatherCaseStudyPage() {
           <Breadcrumbs />
           <div className={styles.productHeroGrid}>
             <div className={styles.productHeroContent}>
-              <span className={styles.heroKicker}>Case study / Local weather intelligence</span>
+              <span className={styles.heroKicker}>Case study / Local context gap</span>
               <h1 className={styles.productHeroTitle}>Felt Weather</h1>
               <p className={styles.productHeroSubtitle}>
-                A map-first product that blends official conditions with nearby local signals so people
-                can see how the weather actually feels.
+                When people plan around weather using only official readings, the risk is missing how
+                conditions actually feel nearby. Flat18 combined forecasts with local public signals and
+                an explainable felt score so users can judge a location with more context.
               </p>
               <div className={styles.productHeroActions}>
                 <a

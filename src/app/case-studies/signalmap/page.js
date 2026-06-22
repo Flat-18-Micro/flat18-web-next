@@ -181,11 +181,13 @@ export default function SignalMapCaseStudyPage() {
           <Breadcrumbs />
           <div className={styles.productHeroGrid}>
             <div className={styles.productHeroContent}>
-              <span className={styles.heroKicker}>Case study / Privacy-first analytics platform</span>
+              <span className={styles.heroKicker}>Case study / Actionable analytics</span>
               <h1 className={styles.productHeroTitle}>SignalMap</h1>
               <p className={styles.productHeroSubtitle}>
-                A privacy-first analytics product for founders, startups, and small agencies that turns
-                minimal browser signals into practical next steps instead of another dashboard to interpret.
+                When founders and small agencies try to explain growth from scattered browser signals and
+                privacy limits, the risk is another analytics dashboard no one can act on. Flat18 shaped
+                SignalMap around cookie-free tracking, edge ingest and recommendations so teams can decide
+                what to improve next.
               </p>
               <div className={styles.productHeroActions}>
                 <a

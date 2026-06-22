@@ -132,12 +132,13 @@ export default function NatalChartsCaseStudyPage() {
           <Breadcrumbs />
           <div className={styles.productHeroGrid}>
             <div className={styles.productHeroContent}>
-              <span className={styles.heroKicker}>Case study / Data visualisation</span>
+              <span className={styles.heroKicker}>Case study / Dense calculation clarity</span>
               <h1 className={styles.productHeroTitle}>Natal Charts</h1>
               <p className={styles.productHeroSubtitle}>
-                A browser-based natal chart product that turns birth data, ephemeris calculation,
-                relationship scoring, chart interpretation, privacy guidance, and shareable outputs into
-                a clear guided experience.
+                When users enter birth details and relationship data into dense calculation tools, the risk
+                is technically correct output that few people can read. Flat18 shaped Natal Charts around
+                guided intake, progressive chart detail and privacy notes so users can understand, compare
+                and share results.
               </p>
               <div className={styles.productHeroActions}>
                 <a href="https://natal-chart.flat18.app" target="_blank" rel="noopener noreferrer" className="btn btn-primary">

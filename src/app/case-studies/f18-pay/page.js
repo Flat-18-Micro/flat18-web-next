@@ -149,11 +149,12 @@ export default function F18PayCaseStudyPage() {
           <Breadcrumbs />
           <div className={styles.productHeroGrid}>
             <div className={styles.productHeroContent}>
-              <span className={styles.heroKicker}>Case study / Payment infrastructure</span>
+              <span className={styles.heroKicker}>Case study / Payment state clarity</span>
               <h1 className={styles.productHeroTitle}>F18 Pay</h1>
               <p className={styles.productHeroSubtitle}>
-                A merchant payment layer for Bitcoin and Ethereum stores that need invoices, payment requests,
-                branded checkout surfaces, wallet controls, and clearer operational state in one place.
+                When merchants accept Bitcoin and Ethereum payments across stores, wallets, invoices and
+                public checkout pages, the risk is unclear payment state and slow follow-up. Flat18 built
+                F18 Pay so store teams can see what is live, what is paid and what needs attention.
               </p>
               <div className={styles.productHeroActions}>
                 <a

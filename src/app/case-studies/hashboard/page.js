@@ -171,11 +171,12 @@ export default function HashboardCaseStudyPage() {
           <Breadcrumbs />
           <div className={styles.productHeroGrid}>
             <div className={styles.productHeroContent}>
-              <span className={styles.heroKicker}>Case study / Mining transparency platform</span>
+              <span className={styles.heroKicker}>Case study / Stakeholder transparency gap</span>
               <h1 className={styles.productHeroTitle}>Zettahash Hashboard</h1>
               <p className={styles.productHeroSubtitle}>
-                A stakeholder dashboard that brings mining, treasury, market, and governance signals into
-                one quick read.
+                When mining, treasury, market and governance data live across separate tools, the risk is
+                stakeholders guessing at project health. Flat18 built Hashboard as a summary-first
+                transparency hub so they can assess performance and next decisions quickly.
               </p>
               <div className={styles.productHeroActions}>
                 <a

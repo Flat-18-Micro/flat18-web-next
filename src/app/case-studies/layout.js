@@ -3,7 +3,7 @@ import CaseStudyJourneyScroll from '@/components/CaseStudyJourneyScroll'
 
 export const metadata = generatePageMetadata({
   title: 'Case Studies',
-  description: 'How Flat18 identifies customer problems, designs practical solutions, and ships product changes or services with clear commercial purpose.',
+  description: 'How Flat18 finds the costly friction in products and services, then designs and ships fixes that make them easier to trust, sell or operate.',
   image: '/og/case-studies.png',
   path: '/case-studies',
   keywords: [

@@ -150,11 +150,12 @@ export default function IPGeoCaseStudyPage() {
           <Breadcrumbs />
           <div className={styles.productHeroGrid}>
             <div className={styles.productHeroContent}>
-              <span className={styles.heroKicker}>Case study / IP geolocation service</span>
+              <span className={styles.heroKicker}>Case study / Fresh location data</span>
               <h1 className={styles.productHeroTitle}>Flat18 Geo</h1>
               <p className={styles.productHeroSubtitle}>
-                A compact IP intelligence API for Vercel that combines city and ASN lookups, browser-safe geo responses,
-                scheduled refresh dispatch, and a freshness monitor built for operations.
+                When products depend on IP context across lookup, browser and refresh jobs, the risk is stale
+                data creating quiet mistakes. Flat18 built Flat18 Geo with small endpoints, auth, cache rules
+                and freshness checks so teams can trust the location context they call.
               </p>
               <div className={styles.productHeroActions}>
                 <a

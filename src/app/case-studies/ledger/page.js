@@ -119,11 +119,12 @@ export default function LedgerCaseStudyPage() {
           <Breadcrumbs />
           <div className={styles.productHeroGrid}>
             <div className={styles.productHeroContent}>
-              <span className={styles.heroKicker}>Case study / Personal finance utility</span>
+              <span className={styles.heroKicker}>Case study / Informal money trust</span>
               <h1 className={styles.productHeroTitle}>Ledger</h1>
               <p className={styles.productHeroSubtitle}>
-                A clean money-record product for informal loans, shared costs, project budgets,
-                receipts, and read-only balances people can trust without needing accounting software.
+                When people track loans, shared costs and receipts across messages, bank notes and memory,
+                the risk is a balance no one can explain. Flat18 shaped Ledger around focused records,
+                evidence and sharing controls so people can settle money with less doubt.
               </p>
               <div className={styles.productHeroActions}>
                 <a

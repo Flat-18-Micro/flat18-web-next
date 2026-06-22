@@ -192,11 +192,12 @@ export default function ForgingBlockWebsiteCaseStudyPage() {
           <Breadcrumbs />
           <div className={styles.productHeroGrid}>
             <div className={styles.productHeroContent}>
-              <span className={styles.heroKicker}>Case study / Website redesign</span>
+              <span className={styles.heroKicker}>Case study / Merchant conversion blockers</span>
               <h1 className={styles.productHeroTitle}>ForgingBlock Website</h1>
               <p className={styles.productHeroSubtitle}>
-                A clearer merchant site that turns product detail into a direct path to enquiry, pricing,
-                and trust.
+                When merchants land on a busy payments site with proof buried behind technical detail, the
+                risk is confusion before enquiry. Flat18 audited and rebuilt the ForgingBlock journey so
+                buyers can understand the offer, compare pricing and trust the next step.
               </p>
               <div className={styles.productHeroActions}>
                 <a href="#story" className="btn btn-secondary">

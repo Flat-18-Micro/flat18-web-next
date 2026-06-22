@@ -1,5 +1,6 @@
 import dynamic from 'next/dynamic'
 import Hero from '@/components/Hero'
+import WhoThisIsForSection from '@/components/WhoThisIsForSection'
 import TrustSection from '@/components/TrustSection'
 import FeaturedWork from '@/components/FeaturedWork'
 import ScrollBackground from '@/components/ScrollBackground'
@@ -24,6 +25,19 @@ export default function HomeClientShell() {
       <HashAnchorScroll />
       <ScrollBackground />
       <Hero />
+      <WhoThisIsForSection />
+      <div className={styles.auditCta} aria-label="Tiny product audit">
+        <div className={`${styles.auditCtaInner} max-w-content mx-auto px-6 sm:px-8`}>
+          <span className={styles.auditCtaLabel}>Tiny audit</span>
+          <p className={styles.auditCtaText}>
+            Send your MVP or product link. We&rsquo;ll reply with 3 practical fixes.
+          </p>
+          <a href="#contact-form" className={styles.auditCtaLink}>
+            Send link
+            <i className="bi bi-arrow-right" aria-hidden="true" />
+          </a>
+        </div>
+      </div>
       <FeaturedWork />
       <TrustSection />
       <Features />
