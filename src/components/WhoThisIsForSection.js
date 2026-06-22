@@ -1,49 +1,57 @@
+import Image from 'next/image'
 import TitleWords from '@/components/TitleWords'
+import WhoThisIsForMobileObserver from '@/components/WhoThisIsForMobileObserver'
 import styles from '@/styles/component-css/WhoThisIsForSection.module.css'
 import { getSectionBackground, getSectionTextColor } from '@/hooks/scrollBackgroundUtils'
 
 const founderScenarios = [
   {
     title: 'The AI-built prototype is cracking',
+    image: '/images/who-for/01.webp',
     description:
-      'You used tools like Cursor, Lovable, Bolt, v0 or Replit to get something moving quickly. Now the product is hard to extend, awkward to debug, visually inconsistent, or not quite safe to put in front of serious users.',
+      'AI tools got you moving. Now the build is brittle, inconsistent and hard to debug.',
     action:
-      'We turn promising but fragile first versions into structured, polished and genuinely shippable products.',
+      'We rebuild the rough version into something shippable.',
   },
   {
     title: 'The MVP works, but nobody trusts it yet',
+    image: '/images/who-for/02.webp',
     description:
-      'The core idea exists, but the experience feels rough. The dashboard is clunky, onboarding is unclear, the interface lacks polish, or the product does not yet feel credible enough for customers, investors or partners.',
+      'The idea works, but onboarding, dashboard polish or credibility still lags behind.',
     action:
-      'We refine the product, interface, flows and technical foundations so it feels like a serious business.',
+      'We sharpen the UX, flows and foundations.',
   },
   {
     title: 'You need to ship before the market moves',
+    image: '/images/who-for/03.webp',
     description:
-      'You have a real opportunity, but cannot afford months of slow discovery, vague estimates and agency theatre. You need useful progress quickly, without creating technical debt that punishes you later.',
+      'The window is open, but slow discovery and vague estimates will waste it.',
     action:
-      'We use LLMs and AI-assisted development carefully, with senior developers controlling the architecture, code quality and product direction.',
+      'Senior developers use AI carefully to accelerate the right work.',
   },
   {
     title: 'Your backlog is bigger than your team',
+    image: '/images/who-for/04.webp',
     description:
-      'You have features to build, bugs to fix, experiments to ship and no spare senior capacity to manage it all properly.',
+      'Features, bugs and experiments are piling up beyond your team\'s senior capacity.',
     action:
-      'We act as a focused product and development partner, helping you prioritise what matters and ship the work that moves the product forward.',
+      'We prioritise and ship the work that moves the product.',
   },
   {
     title: 'The first version got traction and now needs to grow up',
+    image: '/images/who-for/05.webp',
     description:
-      'The product worked well enough to prove the idea, but now it needs better structure, cleaner UX, stronger performance, proper data handling, billing, admin tools or integrations.',
+      'Traction is real. Now UX, performance, data, billing or integrations need to mature.',
     action:
-      'We help move early products from "it works" to "we can build a business on this".',
+      'We move products from working prototype to business foundation.',
   },
   {
     title: 'You need judgement, not just hands on keyboards',
+    image: '/images/who-for/06.webp',
     description:
-      'You do not just want someone to complete tickets. You want someone who can question weak ideas, spot product risks, simplify the build and help you make better technical decisions.',
+      'You need more than ticket output: better questions, risk spotting and technical judgement.',
     action:
-      'Flat 18 gives you senior development and design judgement, accelerated by expert use of LLMs and AI.',
+      'Flat 18 brings senior product, design and engineering judgement.',
   },
 ]
 
@@ -52,6 +60,7 @@ export default function WhoThisIsForSection() {
     <section
       className={styles.section}
       aria-labelledby="who-this-is-for-heading"
+      data-who-this-is-for
       data-bg-color={getSectionBackground('whoThisIsFor')}
       data-text-color={getSectionTextColor('whoThisIsFor')}
     >
@@ -62,15 +71,28 @@ export default function WhoThisIsForSection() {
             You're probably here because...
           </TitleWords>
           <p className={styles.intro}>
-            You have an idea, prototype, MVP or product that is close enough to matter, but not strong enough to trust yet. Maybe it was built quickly with AI tools. Maybe the first version proved the concept. Maybe the backlog has simply outgrown the team. Flat 18 helps turn that rough momentum into a product people can use, trust and pay for.
+            You have an idea, prototype, MVP or product that matters, but is not strong enough to trust yet. Flat 18 turns rough momentum into something people can use, trust and pay for.
           </p>
         </div>
 
         <ul className={styles.cardGrid} aria-label="Founder and product situations">
           {founderScenarios.map((scenario, index) => (
             <li key={scenario.title} className={styles.cardItem}>
-              <article className={styles.card}>
-                <span className={styles.cardIndex}>{String(index + 1).padStart(2, '0')}</span>
+              <article
+                className={styles.card}
+                style={{ '--scenario-delay': `${(index * 5) + 0.6}s` }}
+              >
+                <div className={styles.cardTop}>
+                  <span className={styles.cardIndex}>{String(index + 1).padStart(2, '0')}</span>
+                  <div className={styles.cardArt} aria-hidden="true">
+                    <Image
+                      src={scenario.image}
+                      alt=""
+                      fill
+                      sizes="72px"
+                    />
+                  </div>
+                </div>
                 <div className={styles.cardBody}>
                   <h3>{scenario.title}</h3>
                   <p>{scenario.description}</p>
@@ -86,7 +108,7 @@ export default function WhoThisIsForSection() {
 
         <div className={styles.ctaPanel}>
           <p>
-            If one of these sounds familiar, send us the product, prototype or idea. We'll tell you what we would fix first.
+            If this sounds familiar, send the product, prototype or idea. We'll tell you what to fix first.
           </p>
           <div className={styles.ctaActions}>
             <a href="#contact" className="btn btn-primary">
@@ -98,6 +120,7 @@ export default function WhoThisIsForSection() {
           </div>
         </div>
       </div>
+      <WhoThisIsForMobileObserver />
     </section>
   )
 }
