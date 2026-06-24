@@ -80,7 +80,7 @@ export default function WhoThisIsForSection() {
             <li key={scenario.title} className={styles.cardItem}>
               <article
                 className={styles.card}
-                style={{ '--scenario-delay': `${(index * 5) + 0.6}s` }}
+                style={{ '--scenario-delay': `${(index * 3) + 0.45}s` }}
               >
                 <div className={styles.cardTop}>
                   <span className={styles.cardIndex}>{String(index + 1).padStart(2, '0')}</span>

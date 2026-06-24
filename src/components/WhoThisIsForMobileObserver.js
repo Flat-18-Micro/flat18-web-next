@@ -17,6 +17,14 @@ export default function WhoThisIsForMobileObserver() {
 
     const clearActiveCards = () => {
       cards.forEach((card) => card.classList.remove(styles.cardInView))
+      section.classList.remove(styles.hasActiveCard)
+    }
+
+    const updateActiveSectionState = () => {
+      section.classList.toggle(
+        styles.hasActiveCard,
+        cards.some((card) => card.classList.contains(styles.cardInView))
+      )
     }
 
     const observeCards = () => {
@@ -30,6 +38,7 @@ export default function WhoThisIsForMobileObserver() {
 
       if (!('IntersectionObserver' in window)) {
         cards.forEach((card) => card.classList.add(styles.cardInView))
+        updateActiveSectionState()
         return
       }
 
@@ -41,6 +50,8 @@ export default function WhoThisIsForMobileObserver() {
               entry.isIntersecting && entry.intersectionRatio >= 0.4
             )
           })
+
+          updateActiveSectionState()
         },
         {
           rootMargin: '-12% 0px -18%',

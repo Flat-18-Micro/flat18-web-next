@@ -112,7 +112,7 @@
   z-index: 1;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: space-between;
   gap: .85rem
 }
 
@@ -140,15 +140,6 @@
 
 .cardArt img {
   object-fit: contain
-}
-
-.card:hover .cardArt, .card:focus-within .cardArt {
-  opacity: .72;
-  filter: brightness(0) saturate(100%) invert(19%) sepia(96%) saturate(1614%) hue-rotate(216deg) brightness(92%) contrast(96%) blur(0);
-}
-
-.card:hover .cardArt::after, .card:focus-within .cardArt::after {
-  opacity: .32
 }
 
 .cardIndex {
@@ -278,7 +269,7 @@
 }
 
 .section:global(.scrolled-in) .cardArt {
-  animation: scenarioArtPulse 30s ease-in-out infinite;
+  animation: scenarioArtPulse 18s ease-in-out infinite;
   animation-delay: var(--scenario-delay, .45s)
 }
 
@@ -294,14 +285,33 @@
   }
 }
 
-.card:hover .cardArt, .card:focus-within .cardArt, .card.cardInView .cardArt {
+.cardGrid:hover .cardArt,
+.cardGrid:focus-within .cardArt,
+.section.hasActiveCard .cardArt {
+  animation: none !important;
+  animation-play-state: paused !important;
+  opacity: .24 !important;
+  filter: brightness(0) saturate(100%) invert(19%) sepia(96%) saturate(1614%) hue-rotate(216deg) brightness(83%) contrast(95%) blur(14px) !important;
+}
+
+.cardGrid:hover .cardArt::after,
+.cardGrid:focus-within .cardArt::after,
+.section.hasActiveCard .cardArt::after {
+  opacity: .12 !important
+}
+
+.card:hover .cardArt,
+.card:focus-within .cardArt,
+.card.cardInView .cardArt {
   animation: none !important;
   animation-play-state: paused !important;
   opacity: .72 !important;
   filter: brightness(0) saturate(100%) invert(19%) sepia(96%) saturate(1614%) hue-rotate(216deg) brightness(92%) contrast(96%) blur(0) !important;
 }
 
-.card:hover .cardArt::after, .card:focus-within .cardArt::after, .card.cardInView .cardArt::after {
+.card:hover .cardArt::after,
+.card:focus-within .cardArt::after,
+.card.cardInView .cardArt::after {
   opacity: .32 !important
 }
 
