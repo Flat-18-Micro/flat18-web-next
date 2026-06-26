@@ -8,6 +8,7 @@ import Contact from '@/components/Contact'
 import Footer from '@/components/Footer'
 import styles from '@/styles/component-css/CaseStudies.module.css'
 import brandStyles from '@/styles/component-css/CaseStudyBrandAssets.module.css'
+import mediaFlowStyles from '@/styles/component-css/CaseStudyMediaFlow.module.css'
 import { ledgerBrandAssets } from '@/lib/ledger-assets'
 
 const mediaItems = [
@@ -371,15 +372,16 @@ export default function LedgerCaseStudyPage() {
         <div className={styles.container}>
           <div className={`${styles.caseStudyGrid} ${styles.caseStudyGridReverse}`}>
             <div className={styles.caseStudyMedia}>
-              <div className={styles.mediaGrid}>
+              <div className={`${styles.mediaGrid} ${mediaFlowStyles.mediaGridFlow}`}>
                 {mediaItems.map((item, index) => (
                   <figure
                     key={item.src}
-                    className={`${styles.mediaItem} ${item.isPrimary ? styles.mediaPrimary : styles.mediaSecondary}`}
+                    style={{ ['--media-tile-bg']: `url("${item.src}")` }}
+                    className={`${styles.mediaItem} ${item.isPrimary ? styles.mediaPrimary : styles.mediaSecondary} ${mediaFlowStyles.mediaFlowItem} ${item.isPrimary ? mediaFlowStyles.mediaFlowPrimary : mediaFlowStyles.mediaFlowSecondary}`}
                   >
                     <button
                       type="button"
-                      className={styles.mediaButton}
+                      className={`${styles.mediaButton} ${mediaFlowStyles.mediaFlowButton}`}
                       onClick={() => openLightbox(index)}
                       aria-label={`Open ${item.alt} in viewer`}
                     >
@@ -388,15 +390,15 @@ export default function LedgerCaseStudyPage() {
                         alt={item.alt}
                         fill
                         sizes={item.sizes}
-                        className={styles.mediaImage}
+                        className={`${styles.mediaImage} ${mediaFlowStyles.mediaFlowImage}`}
                         priority={item.priority}
                       />
-                      <span className={styles.mediaButtonHint}>
+                      <span className={`${styles.mediaButtonHint} ${mediaFlowStyles.mediaFlowHint}`}>
                         <i className="bi bi-arrows-fullscreen" aria-hidden="true"></i>
                         View
                       </span>
                     </button>
-                    <figcaption className={styles.mediaCaption}>{item.caption}</figcaption>
+                    <figcaption className={`${styles.mediaCaption} ${mediaFlowStyles.mediaFlowCaption}`}>{item.caption}</figcaption>
                   </figure>
                 ))}
               </div>
