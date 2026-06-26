@@ -6,50 +6,50 @@ import { getSectionBackground, getSectionTextColor } from '@/hooks/scrollBackgro
 
 const founderScenarios = [
   {
-    title: 'The AI-built prototype is cracking',
+    title: 'Your AI-built prototype is cracking',
     image: '/images/who-for/01.webp',
     description:
-      'AI tools got you moving. Now the build is brittle, inconsistent and hard to debug.',
+      'AI tools helped you move fast. Now the build is brittle, inconsistent and hard to trust.',
     action:
-      'We rebuild the rough version into something shippable.',
+      'We turn the rough version into something shippable.',
   },
   {
-    title: 'The MVP works, but nobody trusts it yet',
+    title: 'Your MVP works, but people do not trust it yet',
     image: '/images/who-for/02.webp',
     description:
-      'The idea works, but onboarding, dashboard polish or credibility still lags behind.',
+      'The core idea is there, but the onboarding, interface or credibility still feels unfinished.',
     action:
-      'We sharpen the UX, flows and foundations.',
+      'We sharpen the UX, flows and product foundations.',
   },
   {
-    title: 'You need to ship before the market moves',
+    title: 'The launch window is open, but the product is not ready',
     image: '/images/who-for/03.webp',
     description:
-      'The window is open, but slow discovery and vague estimates will waste it.',
+      'A deadline, demo, investor conversation or market opportunity is close, and slow delivery will waste it.',
     action:
-      'Senior developers use AI carefully to accelerate the right work.',
+      'We use senior judgement and AI carefully to accelerate the right work.',
   },
   {
     title: 'Your backlog is bigger than your team',
     image: '/images/who-for/04.webp',
     description:
-      'Features, bugs and experiments are piling up beyond your team\'s senior capacity.',
+      'Features, bugs and experiments are piling up faster than your team can sensibly handle.',
     action:
-      'We prioritise and ship the work that moves the product.',
+      'We prioritise and ship the work that actually moves the product.',
   },
   {
-    title: 'The first version got traction and now needs to grow up',
+    title: 'Your first version has traction and needs to grow up',
     image: '/images/who-for/05.webp',
     description:
-      'Traction is real. Now UX, performance, data, billing or integrations need to mature.',
+      'Users, leads or internal demand are showing up. Now UX, performance, data, billing or integrations need to mature.',
     action:
       'We move products from working prototype to business foundation.',
   },
   {
-    title: 'You need judgement, not just hands on keyboards',
+    title: 'You need senior judgement before more code',
     image: '/images/who-for/06.webp',
     description:
-      'You need more than ticket output: better questions, risk spotting and technical judgement.',
+      'More output will not help if the direction is wrong. You need sharper questions, risk spotting and technical judgement.',
     action:
       'Flat 18 brings senior product, design and engineering judgement.',
   },
@@ -66,7 +66,7 @@ export default function WhoThisIsForSection() {
     >
       <div className={`${styles.container} max-w-content mx-auto px-6 sm:px-8`}>
         <div className={styles.sectionHeader}>
-          <span className="label-uppercase">For early products that need senior direction</span>
+          <span className="label-uppercase">For products that are close, but not ready</span>
           <TitleWords as="h2" id="who-this-is-for-heading" className={styles.title}>
             You're probably here because...
           </TitleWords>
