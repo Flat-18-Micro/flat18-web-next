@@ -66,13 +66,13 @@ export default function WhoThisIsForSection() {
     >
       <div className={`${styles.container} max-w-content mx-auto px-6 sm:px-8`}>
         <div className={styles.sectionHeader}>
-          <span className="label-uppercase">For founders stuck between prototype and product</span>
+          <span className="label-uppercase">For early products that need senior direction</span>
           <TitleWords as="h2" id="who-this-is-for-heading" className={styles.title}>
             You're probably here because...
           </TitleWords>
-          <p className={styles.intro}>
-            You have an idea, prototype, MVP or product that matters, but is not strong enough to trust yet. Flat 18 turns rough momentum into something people can use, trust and pay for.
-          </p>
+          {/* <p className={styles.intro}>
+            You have the spark, the messy build, or the first signs of traction. Flat 18 helps turn that fragile early version into a product that feels clear, credible and ready to use.
+          </p> */}
         </div>
 
         <ul className={styles.cardGrid} aria-label="Founder and product situations">
