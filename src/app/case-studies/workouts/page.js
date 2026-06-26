@@ -7,6 +7,8 @@ import CaseStudyLightbox from '@/components/CaseStudyLightbox'
 import Contact from '@/components/Contact'
 import Footer from '@/components/Footer'
 import styles from '@/styles/component-css/CaseStudies.module.css'
+import brandStyles from '@/styles/component-css/CaseStudyBrandAssets.module.css'
+import { workoutsBrandAssets } from '@/lib/workouts-assets'
 
 const mediaItems = [
   {
@@ -102,6 +104,32 @@ const proofPoints = [
     label: 'Training context',
     detail: 'Recent work and effort signals inform quick sessions and next-workout guidance.'
   }
+]
+
+const brandAssets = [
+  {
+    label: 'Open Graph',
+    title: 'Share image',
+    copy: 'Use this for link previews, social posts and case-study cards where the full workout layout needs to stay readable.',
+    src: workoutsBrandAssets.ogShare,
+    alt: 'Workouts Open Graph share image',
+    width: 1200,
+    height: 630,
+    sizes: '(max-width: 768px) 100vw, 48vw',
+    previewClassName: brandStyles.brandAssetPreviewWide,
+  },
+  {
+    label: 'Icon',
+    title: 'App icon',
+    copy: 'Use this in tight spaces such as featured work tiles and app-style surfaces where the mark needs to stay bold.',
+    src: workoutsBrandAssets.appIcon,
+    alt: 'Workouts app icon',
+    width: 512,
+    height: 512,
+    sizes: '(max-width: 768px) 100vw, 320px',
+    previewClassName: brandStyles.brandAssetPreviewSquare,
+    cardClassName: brandStyles.brandAssetCardCompact,
+  },
 ]
 
 export default function WorkoutsCaseStudyPage() {
@@ -311,6 +339,45 @@ export default function WorkoutsCaseStudyPage() {
                 </p>
               </div>
             </article>
+          </div>
+        </div>
+      </section>
+
+      <section className={brandStyles.brandAssetsSection}>
+        <div className={styles.container}>
+          <div className={brandStyles.brandAssetsHeader}>
+            <div>
+              <span className={styles.caseStudyTag}>Brand assets</span>
+              <h2>Share-ready art and compact iconography.</h2>
+            </div>
+            <p>
+              Workouts now has a dedicated share image and app icon, so the product stays clear on link
+              previews, work tiles and smaller app surfaces.
+            </p>
+          </div>
+
+          <div className={brandStyles.brandAssetGrid}>
+            {brandAssets.map((asset) => (
+              <article
+                key={asset.title}
+                className={`${brandStyles.brandAssetCard} ${asset.cardClassName || ''}`}
+              >
+                <div className={`${brandStyles.brandAssetPreview} ${asset.previewClassName}`}>
+                  <Image
+                    src={asset.src}
+                    alt={asset.alt}
+                    fill
+                    sizes={asset.sizes}
+                    className={brandStyles.brandAssetImage}
+                  />
+                </div>
+                <div className={brandStyles.brandAssetCopy}>
+                  <span>{asset.label}</span>
+                  <h3>{asset.title}</h3>
+                  <p>{asset.copy}</p>
+                </div>
+              </article>
+            ))}
           </div>
         </div>
       </section>

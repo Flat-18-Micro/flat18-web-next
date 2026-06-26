@@ -1,4 +1,9 @@
 import { generateCreativeWorkJsonLd, generatePageMetadata, siteConfig } from '@/lib/seo'
+import { ledgerBrandAssets } from '@/lib/ledger-assets'
+import { natalChartsBrandAssets } from '@/lib/natal-charts-assets'
+import { signalmapBrandAssets } from '@/lib/signalmap-assets'
+import { socialPublisherBrandAssets } from '@/lib/social-publisher-assets'
+import { workoutsBrandAssets } from '@/lib/workouts-assets'
 
 export type CaseStudySlug =
   | 'archimedes-finance'
@@ -152,7 +157,7 @@ const caseStudySeoData: Record<CaseStudySlug, CaseStudySeoEntry> = {
     description:
       'How Flat18 helped people settle informal loans, shared costs and receipts by turning fragile messages and memory into clear records with evidence.',
     path: '/case-studies/ledger',
-    image: '/og/case-studies.png',
+    image: ledgerBrandAssets.ogShare,
     keywords: [
       'Ledger app case study',
       'personal finance utility',
@@ -167,7 +172,7 @@ const caseStudySeoData: Record<CaseStudySlug, CaseStudySeoEntry> = {
     description:
       'How Flat18 made dense birth data, ephemeris calculation, relationship comparison and privacy notes easier for ordinary users to understand.',
     path: '/case-studies/natal-charts',
-    image: '/og/case-studies.png',
+    image: natalChartsBrandAssets.ogImage,
     keywords: [
       'Natal Charts case study',
       'astrology app design',
@@ -197,7 +202,7 @@ const caseStudySeoData: Record<CaseStudySlug, CaseStudySeoEntry> = {
     description:
       'How Flat18 helped founders and small agencies turn privacy-limited browser signals into practical recommendations they can act on.',
     path: '/case-studies/signalmap',
-    image: '/og/case-studies.png',
+    image: signalmapBrandAssets.ogShare,
     keywords: [
       'SignalMap case study',
       'privacy-first analytics',
@@ -212,7 +217,7 @@ const caseStudySeoData: Record<CaseStudySlug, CaseStudySeoEntry> = {
     description:
       'How Flat18 helped small teams reduce publishing rework by clarifying channel connection, platform variants, validation, scheduling and dispatch logs.',
     path: '/case-studies/social-publisher',
-    image: '/og/case-studies.png',
+    image: socialPublisherBrandAssets.ogShare,
     keywords: [
       'Social Publisher case study',
       'content workflow',
@@ -242,7 +247,7 @@ const caseStudySeoData: Record<CaseStudySlug, CaseStudySeoEntry> = {
     description:
       'How Flat18 reduced training decision overload by shaping onboarding, schedule selection, logging, recovery context and progress signals into one usable flow.',
     path: '/case-studies/workouts',
-    image: '/og/case-studies.png',
+    image: workoutsBrandAssets.ogShare,
     keywords: [
       'Workouts case study',
       'fitness app design',

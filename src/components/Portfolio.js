@@ -5,6 +5,11 @@ import { useState } from 'react'
 import ResponsiveImage from './ResponsiveImage'
 import styles from '../styles/component-css/Portfolio.module.css'
 import { getSectionBackground, getSectionTextColor } from '@/hooks/scrollBackgroundUtils'
+import { ledgerBrandAssets } from '@/lib/ledger-assets'
+import { natalChartsBrandAssets } from '@/lib/natal-charts-assets'
+import { signalmapBrandAssets } from '@/lib/signalmap-assets'
+import { socialPublisherBrandAssets } from '@/lib/social-publisher-assets'
+import { workoutsBrandAssets } from '@/lib/workouts-assets'
 
 // Individual Project Card Component for proper hook usage
 function ProjectCard({ project, index }) {
@@ -58,15 +63,25 @@ function ProjectCard({ project, index }) {
       <div className={styles.projectContent}>
         {project.projectLogo && (
           <div className={styles.projectLogo}>
-            <ResponsiveImage
-              src={project.projectLogo}
-              alt={`${project.title} logo`}
-              width={400}
-              height={40}
-              className={`${styles.logoImage} ${project.title}`}
-              sizes="(max-width: 768px) 40vw, 260px"
-              widths={[120, 240, 360, 600, 1000]}
-            />
+            {project.projectLogoUseNextImage ? (
+              <Image
+                src={project.projectLogo}
+                alt={project.projectLogoAlt || `${project.title} logo`}
+                width={40}
+                height={40}
+                className={`${styles.logoImage} ${project.title}`}
+              />
+            ) : (
+              <ResponsiveImage
+                src={project.projectLogo}
+                alt={project.projectLogoAlt || `${project.title} logo`}
+                width={40}
+                height={40}
+                className={`${styles.logoImage} ${project.title}`}
+                sizes="(max-width: 768px) 40vw, 260px"
+                widths={[120, 240, 360, 600, 1000]}
+              />
+            )}
           </div>
         )}
 
@@ -129,6 +144,9 @@ export default function Portfolio() {
       title: 'Ledger',
       description: 'Turns fragile shared money records into balances, receipts and proof people can explain.',
       image: '/images/portfolio-graphics/ledger.webp',
+      projectLogo: ledgerBrandAssets.appIcon,
+      projectLogoAlt: 'Ledger app icon',
+      projectLogoUseNextImage: true,
       link: '/case-studies/ledger',
       stats: [
         { label: 'Timeline', value: '2026 launch' },
@@ -143,6 +161,9 @@ export default function Portfolio() {
       title: 'Workouts',
       description: 'Reduces training choice overload with guided schedules, logging, recovery context and progress signals.',
       image: '/images/portfolio-graphics/workouts.webp',
+      projectLogo: workoutsBrandAssets.appIcon,
+      projectLogoAlt: 'Workouts app icon',
+      projectLogoUseNextImage: true,
       link: '/case-studies/workouts',
       stats: [
         { label: 'Timeline', value: '2026 launch' },
@@ -171,7 +192,9 @@ export default function Portfolio() {
       title: 'Social Publisher',
       description: 'Turns scattered publishing checks into channel variants, validation, calendars, logs and retries.',
       image: '/images/portfolio-graphics/social-publisher.webp',
-      projectLogo: '/images/case-studies/logos/social-publisher-wordmark.svg',
+      projectLogo: socialPublisherBrandAssets.appIcon,
+      projectLogoAlt: 'Social Publisher app icon',
+      projectLogoUseNextImage: true,
       link: '/case-studies/social-publisher',
       stats: [
         { label: 'Timeline', value: '2026 beta' },
@@ -183,9 +206,29 @@ export default function Portfolio() {
       useNextImage: true
     },
     {
+      title: 'SignalMap',
+      description: 'Turns privacy-limited browser signals into aggregate reporting and practical recommendations.',
+      image: '/images/case-studies/signalmap/01-landing.png',
+      projectLogo: signalmapBrandAssets.appIcon,
+      projectLogoAlt: 'SignalMap app mark',
+      projectLogoUseNextImage: true,
+      link: '/case-studies/signalmap',
+      stats: [
+        { label: 'Timeline', value: '2026 beta' },
+        { label: 'Platform', value: 'Web app' },
+        { label: 'Industry', value: 'Analytics' }
+      ],
+      status: 'Live beta',
+      category: 'app',
+      useNextImage: true
+    },
+    {
       title: 'Natal Charts',
       description: 'Makes dense chart data, transits, relationship comparison and privacy notes easier to understand.',
       image: '/images/portfolio-graphics/natal-charts.webp',
+      projectLogo: natalChartsBrandAssets.appIcon,
+      projectLogoAlt: 'Natal Charts app icon',
+      projectLogoUseNextImage: true,
       link: '/case-studies/natal-charts',
       stats: [
         { label: 'Timeline', value: 'Demo build' },

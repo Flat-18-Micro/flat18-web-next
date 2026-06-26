@@ -7,6 +7,8 @@ import CaseStudyLightbox from '@/components/CaseStudyLightbox'
 import Contact from '@/components/Contact'
 import Footer from '@/components/Footer'
 import styles from '@/styles/component-css/CaseStudies.module.css'
+import brandStyles from '@/styles/component-css/CaseStudyBrandAssets.module.css'
+import { signalmapBrandAssets } from '@/lib/signalmap-assets'
 
 const mediaItems = [
   {
@@ -156,6 +158,32 @@ const featureCards = [
     title: 'Make the next step and the install obvious.',
     copy: 'Plain-English recommendations point to the change, and the one-line tracker keeps setup friction low.',
     ariaLabel: 'Open SignalMap tracker code screenshot in viewer',
+  },
+]
+
+const brandAssets = [
+  {
+    label: 'Open Graph',
+    title: 'Share image',
+    copy: 'Use this for link previews, social posts and case-study cards where the full brand treatment needs to stay legible.',
+    src: signalmapBrandAssets.ogShare,
+    alt: 'SignalMap Open Graph share image',
+    width: 1200,
+    height: 630,
+    sizes: '(max-width: 768px) 100vw, 48vw',
+    previewClassName: brandStyles.brandAssetPreviewWide,
+  },
+  {
+    label: 'Icon',
+    title: 'App mark',
+    copy: 'Use this in tight spaces such as featured work tiles and app-style surfaces where the mark would otherwise be too small.',
+    src: signalmapBrandAssets.appIcon,
+    alt: 'SignalMap app mark',
+    width: 1254,
+    height: 1254,
+    sizes: '(max-width: 768px) 100vw, 320px',
+    previewClassName: brandStyles.brandAssetPreviewSquare,
+    cardClassName: brandStyles.brandAssetCardCompact,
   },
 ]
 
@@ -323,6 +351,45 @@ export default function SignalMapCaseStudyPage() {
                 </article>
               )
             })}
+          </div>
+        </div>
+      </section>
+
+      <section className={brandStyles.brandAssetsSection}>
+        <div className={styles.container}>
+          <div className={brandStyles.brandAssetsHeader}>
+            <div>
+              <span className={styles.caseStudyTag}>Brand assets</span>
+              <h2>Share-ready art and compact iconography.</h2>
+            </div>
+            <p>
+              SignalMap now has a dedicated share image and app mark, so the product stays readable on
+              link previews, work tiles and smaller app surfaces.
+            </p>
+          </div>
+
+          <div className={brandStyles.brandAssetGrid}>
+            {brandAssets.map((asset) => (
+              <article
+                key={asset.title}
+                className={`${brandStyles.brandAssetCard} ${asset.cardClassName || ''}`}
+              >
+                <div className={`${brandStyles.brandAssetPreview} ${asset.previewClassName}`}>
+                  <Image
+                    src={asset.src}
+                    alt={asset.alt}
+                    fill
+                    sizes={asset.sizes}
+                    className={brandStyles.brandAssetImage}
+                  />
+                </div>
+                <div className={brandStyles.brandAssetCopy}>
+                  <span>{asset.label}</span>
+                  <h3>{asset.title}</h3>
+                  <p>{asset.copy}</p>
+                </div>
+              </article>
+            ))}
           </div>
         </div>
       </section>

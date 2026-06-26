@@ -7,6 +7,8 @@ import CaseStudyLightbox from '@/components/CaseStudyLightbox'
 import Contact from '@/components/Contact'
 import Footer from '@/components/Footer'
 import styles from '@/styles/component-css/CaseStudies.module.css'
+import brandStyles from '@/styles/component-css/CaseStudyBrandAssets.module.css'
+import { natalChartsBrandAssets } from '@/lib/natal-charts-assets'
 
 const mediaItems = [
   {
@@ -113,6 +115,32 @@ const proofPoints = [
     label: 'Privacy framing',
     detail: 'Birth details and chart results are not stored by the app; geocoding is explained plainly.'
   }
+]
+
+const brandAssets = [
+  {
+    label: 'Open Graph',
+    title: 'Share image',
+    copy: 'Use this for link previews, social posts and case-study cards where the full editorial treatment needs to stay legible.',
+    src: natalChartsBrandAssets.ogImage,
+    alt: 'Natal Charts Open Graph share image',
+    width: 1200,
+    height: 630,
+    sizes: '(max-width: 768px) 100vw, 48vw',
+    previewClassName: brandStyles.brandAssetPreviewWide,
+  },
+  {
+    label: 'Icon',
+    title: 'App icon',
+    copy: 'Use this in tight spaces such as featured work tiles, bookmarks and app-style surfaces where the full banner would be too wide.',
+    src: natalChartsBrandAssets.appIcon,
+    alt: 'Natal Charts app icon',
+    width: 512,
+    height: 512,
+    sizes: '(max-width: 768px) 100vw, 320px',
+    previewClassName: brandStyles.brandAssetPreviewSquare,
+    cardClassName: brandStyles.brandAssetCardCompact,
+  },
 ]
 
 export default function NatalChartsCaseStudyPage() {
@@ -287,6 +315,45 @@ export default function NatalChartsCaseStudyPage() {
                 </p>
               </div>
             </article>
+          </div>
+        </div>
+      </section>
+
+      <section className={brandStyles.brandAssetsSection}>
+        <div className={styles.container}>
+          <div className={brandStyles.brandAssetsHeader}>
+            <div>
+              <span className={styles.caseStudyTag}>Brand assets</span>
+              <h2>Share-ready art and compact iconography.</h2>
+            </div>
+            <p>
+              Natal Charts now has a dedicated share image and icon mark, so the product reads clearly in link
+              previews, small tiles and app-style surfaces.
+            </p>
+          </div>
+
+          <div className={brandStyles.brandAssetGrid}>
+            {brandAssets.map((asset) => (
+              <article
+                key={asset.title}
+                className={`${brandStyles.brandAssetCard} ${asset.cardClassName || ''}`}
+              >
+                <div className={`${brandStyles.brandAssetPreview} ${asset.previewClassName}`}>
+                  <Image
+                    src={asset.src}
+                    alt={asset.alt}
+                    fill
+                    sizes={asset.sizes}
+                    className={brandStyles.brandAssetImage}
+                  />
+                </div>
+                <div className={brandStyles.brandAssetCopy}>
+                  <span>{asset.label}</span>
+                  <h3>{asset.title}</h3>
+                  <p>{asset.copy}</p>
+                </div>
+              </article>
+            ))}
           </div>
         </div>
       </section>
