@@ -184,6 +184,218 @@
   z-index: 2;
 }
 
+.mediaFlowCarousel {
+  grid-column: 1 / -1;
+  width: 100%;
+}
+
+.mediaFlowViewport {
+  position: relative;
+  width: 100%;
+  min-height: clamp(380px, 44vw, 680px);
+  padding: clamp(1rem, 2vw, 1.75rem) clamp(2.5rem, 5vw, 4rem);
+  container-type: inline-size;
+  perspective: 2200px;
+  transform-style: preserve-3d;
+  isolation: isolate;
+}
+
+.mediaFlowViewport::before {
+  content: "";
+  position: absolute;
+  inset: 12% 8% 10%;
+  background:
+    radial-gradient(circle at 50% 46%, rgba(35, 64, 255, .16), transparent 56%),
+    radial-gradient(circle at 20% 40%, rgba(61, 158, 238, .08), transparent 52%),
+    radial-gradient(circle at 80% 40%, rgba(35, 64, 255, .08), transparent 54%);
+  filter: blur(28px);
+  opacity: .88;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.mediaFlowStage {
+  position: relative;
+  width: 100%;
+  min-height: clamp(340px, 38vw, 560px);
+  transform-style: preserve-3d;
+  z-index: 1;
+}
+
+.mediaFlowCard {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: var(--flow-width, clamp(180px, 24vw, 320px));
+  margin: 0;
+  transform-style: preserve-3d;
+  transform:
+    translate3d(-50%, -50%, 0)
+    translateX(var(--flow-shift, 0px))
+    translateZ(var(--flow-depth, 0px))
+    rotateY(var(--flow-rotate, 0deg))
+    scale(var(--flow-scale, 1));
+  opacity: var(--flow-opacity, 1);
+  z-index: var(--flow-z, 1);
+  filter:
+    saturate(var(--flow-saturation, 1))
+    brightness(var(--flow-brightness, 1));
+  transition:
+    transform .65s cubic-bezier(.2, .8, .15, 1),
+    opacity .3s ease,
+    filter .3s ease;
+  backface-visibility: hidden;
+}
+
+.mediaFlowCard[data-visible='false'] {
+  pointer-events: none;
+}
+
+.mediaFlowShell {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border: 1px solid var(--border-soft);
+  border-radius: 32px;
+  overflow: hidden;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, .06), rgba(255, 255, 255, 0)),
+    var(--surface-layer);
+  box-shadow:
+    0 28px 80px -42px rgba(15, 23, 42, .55),
+    0 0 0 1px rgba(255, 255, 255, .04);
+  isolation: isolate;
+}
+
+.mediaFlowShell::before {
+  content: "";
+  position: absolute;
+  inset: -12%;
+  background-image: var(--media-tile-bg);
+  background-position: center;
+  background-size: cover;
+  filter: blur(34px) saturate(1.16) brightness(.8);
+  transform: scale(1.24);
+  opacity: .95;
+  pointer-events: none;
+}
+
+.mediaFlowShell::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 50% 0, rgba(255, 255, 255, .11), transparent 46%),
+    linear-gradient(180deg, rgba(6, 10, 18, .08), rgba(6, 10, 18, .36));
+  pointer-events: none;
+}
+
+.mediaFlowButton {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.mediaFlowButton:focus-visible {
+  outline: 2px solid rgba(35, 64, 255, .72);
+  outline-offset: 3px;
+}
+
+.mediaFlowButton > .mediaFlowFrame {
+  position: relative !important;
+  display: block !important;
+  width: min(100%, var(--flow-frame-width, 88%)) !important;
+  height: auto !important;
+  aspect-ratio: 16 / 10 !important;
+  inset: auto !important;
+  margin: auto !important;
+}
+
+.mediaFlowFrame {
+  position: relative;
+  display: block;
+  width: min(100%, var(--flow-frame-width, 88%));
+  aspect-ratio: 16 / 10;
+  margin: auto;
+  z-index: 1;
+}
+
+.mediaFlowFrame > span {
+  position: absolute !important;
+  inset: 0 !important;
+  display: block !important;
+}
+
+.mediaFlowFrame > span > img {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  position: static !important;
+  inset: auto !important;
+  object-fit: contain !important;
+  object-position: center !important;
+}
+
+.mediaFlowImage {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+  object-position: center;
+  transition: transform .4s ease, filter .4s ease;
+  filter: drop-shadow(0 12px 32px rgba(0, 0, 0, .3));
+}
+
+.mediaFlowCard:hover .mediaFlowImage,
+.mediaFlowButton:focus-visible .mediaFlowImage {
+  transform: scale(1.015);
+}
+
+.mediaFlowNavButton {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, .14);
+  border-radius: 999px;
+  background: rgba(8, 12, 20, .72);
+  color: #fff;
+  box-shadow: 0 20px 40px -26px rgba(0, 0, 0, .6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  z-index: 4;
+}
+
+.mediaFlowNavPrev {
+  left: clamp(.25rem, 1vw, .75rem);
+}
+
+.mediaFlowNavNext {
+  right: clamp(.25rem, 1vw, .75rem);
+}
+
+.mediaFlowNavButton:hover {
+  background: rgba(12, 18, 28, .82);
+}
+
+.mediaFlowNavButton:focus-visible {
+  outline: 2px solid rgba(61, 158, 238, .85);
+  outline-offset: 2px;
+}
+
 @media (max-width: 1024px) {
   .mediaGridFlow {
     grid-template-columns: 1fr;
@@ -211,5 +423,54 @@
 
   .mediaFlowCaption {
     max-width: calc(100% - 5.5rem);
+  }
+
+  .mediaFlowViewport {
+    min-height: clamp(280px, 68vw, 460px);
+    padding-inline: 0;
+  }
+
+  .mediaFlowStage {
+    min-height: clamp(260px, 64vw, 420px);
+  }
+
+  .mediaFlowCard {
+    width: var(--flow-width, clamp(150px, 42vw, 270px));
+  }
+
+  .mediaFlowShell {
+    border-radius: 24px;
+  }
+
+  .mediaFlowNavButton {
+    width: 38px;
+    height: 38px;
+  }
+}
+
+@media (max-width: 560px) {
+  .mediaFlowCard {
+    --flow-shift: clamp(120px, 30vw, 180px);
+    --flow-rotate: 18deg;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mediaFlowCard,
+  .mediaFlowImage {
+    transition: none;
+  }
+
+  .mediaFlowCard {
+    transform:
+      translate3d(-50%, -50%, 0)
+      translateX(var(--flow-shift, 0px))
+      rotateY(var(--flow-rotate, 0deg))
+      scale(var(--flow-scale, 1));
+  }
+
+  .mediaFlowCard:hover .mediaFlowImage,
+  .mediaFlowButton:focus-visible .mediaFlowImage {
+    transform: none;
   }
 }
