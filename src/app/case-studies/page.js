@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import Image from 'next/image'
 import axisFinanceDashboard from './axis-finance/dashboard.png'
 import Breadcrumbs from '@/components/Breadcrumbs'
@@ -11,7 +12,7 @@ const caseStudies = [
     tag: 'Informal money trust',
     description: 'Turned scattered messages, receipts and memory into clear records for loans, shared costs, budgets and read-only balances people can explain.',
     image: '/images/case-studies/ledger/detail.png',
-    href: '/case-studies/ledger',
+    href: '/selected-work/ledger',
     meta: ['Trust workflows', 'Everyday finance']
   },
   {
@@ -19,7 +20,7 @@ const caseStudies = [
     tag: 'Payment state clarity',
     description: 'Helped merchants manage stores, wallets, invoices and public checkout pages without losing track of what is live, paid or waiting.',
     image: '/images/case-studies/f18-pay/01-dashboard-overview.png',
-    href: '/case-studies/f18-pay',
+    href: '/selected-work/f18-pay',
     meta: ['Store setup', 'Wallet controls']
   },
   {
@@ -27,7 +28,7 @@ const caseStudies = [
     tag: 'Private portfolio clarity',
     description: 'Made live positions, prices and alerts easier to inspect without asking private investors to hand over custody or trust a noisy terminal.',
     image: axisFinanceDashboard,
-    href: '/case-studies/axis-finance',
+    href: '/selected-work/axis-finance',
     meta: ['Read-only', 'Privacy first']
   },
   {
@@ -35,7 +36,7 @@ const caseStudies = [
     tag: 'Actionable analytics',
     description: 'Turned privacy-limited browser signals into aggregate reporting and clear recommendations founders and small agencies can act on.',
     image: '/images/case-studies/signalmap/01-landing.png',
-    href: '/case-studies/signalmap',
+    href: '/selected-work/signalmap',
     meta: ['Cookie-free', 'Edge-first']
   },
   {
@@ -43,7 +44,7 @@ const caseStudies = [
     tag: 'Research evidence clarity',
     description: 'Reshaped a large wallet review catalogue so readers can find the verdict, inspect the method and move from summary to evidence faster.',
     image: '/images/case-studies/walletscrutiny/2023-home.jpeg',
-    href: '/case-studies/walletscrutiny',
+    href: '/selected-work/walletscrutiny',
     meta: ['Search UX', 'Methodology']
   },
   {
@@ -51,15 +52,15 @@ const caseStudies = [
     tag: 'Public product story',
     description: 'Gave a self-hosted payments project a clearer route from first visit to first try, then strengthened it with language support, video and proof.',
     image: '/images/case-studies/btcpayserver/07-2025-09-03-24891c5-case-studies-ui.png',
-    href: '/case-studies/btcpayserver',
-    meta: ['Multilingual', 'Case studies']
+    href: '/selected-work/btcpayserver',
+    meta: ['Multilingual', 'Selected work']
   },
   {
     title: 'Flat18 Geo',
     tag: 'Fresh location data',
     description: 'Made city, region and ASN context safer to call from products by separating lookup, browser response, refresh and freshness checks.',
     image: '/images/case-studies/ipgeo/flat18-geo-overview.png',
-    href: '/case-studies/ipgeo',
+    href: '/selected-work/ipgeo',
     meta: ['API design', 'Data freshness']
   },
   {
@@ -67,7 +68,7 @@ const caseStudies = [
     tag: 'Training decision friction',
     description: 'Reduced choice overload before training by turning onboarding, schedules, logging, recovery context and progress review into one practical flow.',
     image: '/images/case-studies/workouts/03-plan-overview.png',
-    href: '/case-studies/workouts',
+    href: '/selected-work/workouts',
     meta: ['Planning workflow', 'Mobile app UI']
   },
   {
@@ -75,7 +76,7 @@ const caseStudies = [
     tag: 'Network visibility gap',
     description: 'Found the space between shallow router views and heavy enterprise suites, then shaped a self-hosted command centre for real operator work.',
     image: '/images/case-studies/pulseops/overview.png',
-    href: '/case-studies/pulseops',
+    href: '/selected-work/pulseops',
     meta: ['Problem discovery', 'Network telemetry']
   },
   {
@@ -83,7 +84,7 @@ const caseStudies = [
     tag: 'Publishing operations friction',
     description: 'Turned scattered drafts, channel limits, calendars and dispatch checks into one workspace small teams can operate with less rework.',
     image: '/images/case-studies/social-publisher/01-dashboard-overview-dark.png',
-    href: '/case-studies/social-publisher',
+    href: '/selected-work/social-publisher',
     meta: ['Workflow design', 'Social publishing']
   },
   {
@@ -91,7 +92,7 @@ const caseStudies = [
     tag: 'Dense calculation clarity',
     description: 'Made birth data, time-zone logic, transits and relationship comparison easier to enter, read, compare and share.',
     image: '/images/case-studies/natal-charts/01-landing.png',
-    href: '/case-studies/natal-charts',
+    href: '/selected-work/natal-charts',
     meta: ['Complex data', 'Chart workflow']
   },
   {
@@ -99,7 +100,7 @@ const caseStudies = [
     tag: 'Investment operations control',
     description: 'Joined onboarding, KYC, approvals, vesting, reporting and client messages so investment teams can review state and evidence in one flow.',
     image: '/images/case-studies/archimedes-finance/25-home-landing.jpeg',
-    href: '/case-studies/archimedes-finance',
+    href: '/selected-work/archimedes-finance',
     meta: ['Role-based access', 'Audit trail']
   },
   {
@@ -107,7 +108,7 @@ const caseStudies = [
     tag: 'Invoice status clarity',
     description: 'Refined scattered merchant payment data into a focused view of paid invoices, open items, cash-flow signals and payout status.',
     image: '/images/case-studies/forgingblock-dashboard/payments-page.svg',
-    href: '/case-studies/forgingblock-dashboard',
+    href: '/selected-work/forgingblock-dashboard',
     meta: ['Operational clarity', 'Dashboard']
   },
   {
@@ -115,7 +116,7 @@ const caseStudies = [
     tag: 'Merchant conversion blockers',
     description: 'Found where proof, pricing and merchant outcomes were getting buried, then rebuilt the journey so buyers could trust the next step.',
     image: '/images/case-studies/forgingblock-website/mockups/home-comparison.png',
-    href: '/case-studies/forgingblock-website',
+    href: '/selected-work/forgingblock-website',
     meta: ['Strategic audit', 'Marketing site']
   },
   {
@@ -123,7 +124,7 @@ const caseStudies = [
     tag: 'Local context gap',
     description: 'Combined forecasts with nearby public signals so people can judge how conditions feel locally, not just what the official reading says.',
     image: '/images/case-studies/felt-weather/01-live-felt-weather-map.png',
-    href: '/case-studies/felt-weather',
+    href: '/selected-work/felt-weather',
     meta: ['Local signals', 'Map-based UI']
   },
   {
@@ -131,7 +132,7 @@ const caseStudies = [
     tag: 'Stakeholder transparency gap',
     description: 'Brought mining, treasury, market and governance signals into one readable hub so stakeholders can assess project health quickly.',
     image: '/images/case-studies/hashboard/dashboard-overview.svg',
-    href: '/case-studies/hashboard',
+    href: '/selected-work/hashboard',
     meta: ['Stakeholder trust', 'DAO dashboard']
   }
 ]
@@ -143,8 +144,8 @@ export default function CaseStudiesPage() {
         <div className={styles.container}>
           <Breadcrumbs />
           <div className={styles.heroContent}>
-            <span className={styles.heroKicker}>Case studies</span>
-            <h1 className={styles.heroTitle}>Case studies with a clear commercial purpose.</h1>
+            <span className={styles.heroKicker}>Selected work</span>
+            <h1 className={styles.heroTitle}>Selected work with a clear commercial purpose.</h1>
             <p className={styles.heroSubtitle}>
               See how Flat18 investigates business problems, designs practical solutions, and
               implements product changes or new services with the care needed for confident customer sign-off.
@@ -170,7 +171,7 @@ export default function CaseStudiesPage() {
       <section className={styles.caseStudySection}>
         <div className={styles.container}>
           <div className={styles.caseStudyListHeader}>
-            <span className={styles.caseStudyTag}>All case studies</span>
+            <span className={styles.caseStudyTag}>All selected work</span>
             <h2 className={styles.caseStudyTitle}>Evidence of how we think and ship</h2>
             <p className={styles.caseStudySubtitle}>
               Each study follows the same useful pattern: what was wrong, what Flat18 found,
@@ -199,10 +200,10 @@ export default function CaseStudiesPage() {
                       <span key={item} className={styles.caseStudyMetaItem}>{item}</span>
                     ))}
                   </div>
-                  <a href={study.href} className={styles.caseStudyCardLink}>
-                    Read case study
+                  <Link href={study.href} className={styles.caseStudyCardLink}>
+                    View project
                     <i className="bi bi-arrow-right" aria-hidden="true"></i>
-                  </a>
+                  </Link>
                 </div>
               </article>
             ))}
@@ -214,7 +215,7 @@ export default function CaseStudiesPage() {
         <div className={styles.container}>
           <div className={styles.ctaCard}>
             <div className={styles.ctaText}>
-              <h2>Want a case study like this?</h2>
+              <h2>Need work like this?</h2>
               <p>
                 We can audit the friction in your current product or service, design the fix, and
                 implement it with a clear path to stakeholder approval.

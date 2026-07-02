@@ -43,7 +43,7 @@ function getRelativeIndex(index, activeIndex, total) {
 export default function CaseStudyMediaFlow({
   items = [],
   onOpen,
-  ariaLabel = 'Case study screenshot carousel',
+  ariaLabel = 'Selected work screenshot carousel',
   initialActiveIndex,
 }) {
   const [activeIndex, setActiveIndex] = useState(() =>

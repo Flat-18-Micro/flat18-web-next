@@ -166,7 +166,7 @@ const brandAssets = [
   {
     label: 'Open Graph',
     title: 'Share image',
-    copy: 'Use this for link previews, social posts and case-study cards where the full brand treatment needs to stay legible.',
+    copy: 'Use this for link previews, social posts and project cards where the full brand treatment needs to stay legible.',
     src: signalmapBrandAssets.ogShare,
     alt: 'SignalMap Open Graph share image',
     width: 1200,
@@ -210,7 +210,7 @@ export default function SignalMapCaseStudyPage() {
           <Breadcrumbs />
           <div className={styles.productHeroGrid}>
             <div className={styles.productHeroContent}>
-              <span className={styles.heroKicker}>Case study / Actionable analytics</span>
+              <span className={styles.heroKicker}>Selected work / Actionable analytics</span>
               <h1 className={styles.productHeroTitle}>SignalMap</h1>
               <p className={styles.productHeroSubtitle}>
                 When founders and small agencies try to explain growth from scattered browser signals and

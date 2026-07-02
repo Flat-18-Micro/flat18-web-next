@@ -172,7 +172,7 @@ export default function ArchimedesFinanceCaseStudyPage() {
           <Breadcrumbs />
           <div className={styles.productHeroGrid}>
             <div className={styles.productHeroContent}>
-              <span className={styles.heroKicker}>Case study / Investment operations control</span>
+              <span className={styles.heroKicker}>Selected work / Investment operations control</span>
               <h1 className={styles.productHeroTitle}>Archimedes Finance</h1>
               <p className={styles.productHeroSubtitle}>
                 When investment teams manage onboarding, KYC, approvals, vesting, reporting and client

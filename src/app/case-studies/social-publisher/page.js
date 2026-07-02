@@ -96,7 +96,7 @@ const brandAssets = [
   {
     label: 'Open Graph',
     title: 'Share image',
-    copy: 'Use this for link previews, social posts and case-study cards where the full brand treatment needs to hold up.',
+    copy: 'Use this for link previews, social posts and project cards where the full brand treatment needs to hold up.',
     src: socialPublisherBrandAssets.ogShare,
     alt: 'Social Publisher Open Graph share image',
     width: 1200,
@@ -140,7 +140,7 @@ export default function SocialPublisherCaseStudyPage() {
           <Breadcrumbs />
           <div className={styles.productHeroGrid}>
             <div className={styles.productHeroContent}>
-              <span className={styles.heroKicker}>Case study / Publishing operations friction</span>
+              <span className={styles.heroKicker}>Selected work / Publishing operations friction</span>
               <h1 className={styles.productHeroTitle}>Social Publisher</h1>
               <p className={styles.productHeroSubtitle}>
                 When small teams publish across channels, calendars, media folders and approval checks, the
@@ -329,7 +329,7 @@ export default function SocialPublisherCaseStudyPage() {
               <h2>Share-ready art and compact iconography.</h2>
             </div>
             <p>
-              The case study now includes the social share image and the compact app icon, so the product can be shown
+              The selected work now includes the social share image and the compact app icon, so the product can be shown
               clearly on link previews, tiles and other small surfaces.
             </p>
           </div>
@@ -389,7 +389,7 @@ export default function SocialPublisherCaseStudyPage() {
               </div>
 
               <p className={styles.caseStudyIntro}>
-                Social Publisher became a case study in turning repeatable creative work into a dependable product system.
+                Social Publisher became an example of turning repeatable creative work into a dependable product system.
                 Flat18 handled the product framing, interface design, workflow logic, queue model, validation rules, and
                 launch-facing marketing experience.
               </p>

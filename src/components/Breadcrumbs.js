@@ -6,6 +6,8 @@ import { usePathname } from 'next/navigation'
 import styles from '@/styles/component-css/Breadcrumbs.module.css'
 
 const breadcrumbLabelOverrides = {
+  'case-studies': 'Selected work',
+  'selected-work': 'Selected work',
   'f18-pay': 'F18 Pay',
   'axis-finance': 'Axis Finance',
   'forgingblock-dashboard': 'ForgingBlock Dashboard',

@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import Image from 'next/image'
 import ResponsiveImage from './ResponsiveImage'
 import TitleWords from '@/components/TitleWords'
@@ -19,7 +20,7 @@ export default function FeaturedWork() {
       projectLogo: socialPublisherBrandAssets.appIcon,
       projectLogoAlt: 'Social Publisher app icon',
       projectLogoUseNextImage: true,
-      link: '/case-studies/social-publisher',
+      link: '/selected-work/social-publisher',
       value: 'Turned scattered social publishing work into a structured product teams can operate with less manual checking.',
     },
     {
@@ -31,7 +32,7 @@ export default function FeaturedWork() {
       projectLogo: signalmapBrandAssets.appIcon,
       projectLogoAlt: 'SignalMap app mark',
       projectLogoUseNextImage: true,
-      link: '/case-studies/signalmap',
+      link: '/selected-work/signalmap',
       value: 'Turned browser signals into a readable product that points teams towards the next useful fix.',
     },
     {
@@ -42,7 +43,7 @@ export default function FeaturedWork() {
       projectLogo: ledgerBrandAssets.appIcon,
       projectLogoAlt: 'Ledger app icon',
       projectLogoUseNextImage: true,
-      link: '/case-studies/ledger',
+      link: '/selected-work/ledger',
       value: 'Turned informal money tracking into clear records for loans, shared costs, project budgets and read-only review.',
     },
     {
@@ -53,7 +54,7 @@ export default function FeaturedWork() {
       projectLogo: workoutsBrandAssets.appIcon,
       projectLogoAlt: 'Workouts app icon',
       projectLogoUseNextImage: true,
-      link: '/case-studies/workouts',
+      link: '/selected-work/workouts',
       value: 'Built a practical product flow from onboarding to progress signals, with enough structure to support repeated use.',
     },
     {
@@ -61,7 +62,7 @@ export default function FeaturedWork() {
       projectType: 'Local context gap',
       description: 'Shows how conditions feel locally by combining forecasts with nearby public signals.',
       image: '/images/portfolio-graphics/felt-weather.webp',
-      link: '/case-studies/felt-weather',
+      link: '/selected-work/felt-weather',
       value: 'Combined forecast data with local context so people can understand how conditions feel nearby.',
     },
     {
@@ -73,7 +74,7 @@ export default function FeaturedWork() {
       projectLogo: natalChartsBrandAssets.appIcon,
       projectLogoAlt: 'Natal Charts app icon',
       projectLogoUseNextImage: true,
-      link: '/case-studies/natal-charts',
+      link: '/selected-work/natal-charts',
       value: 'Turned specialist astrological calculation into a product journey people can read and share more easily.',
     },
   ]
@@ -168,7 +169,7 @@ export default function FeaturedWork() {
                   href={project.link}
                   className={styles.featuredCta}
                 >
-                  Read case study
+                  View project
                   <i className="bi bi-arrow-right" aria-hidden="true"></i>
                 </a>
               </div>
@@ -177,10 +178,10 @@ export default function FeaturedWork() {
         </div>
 
         <div className={styles.featuredFooter}>
-          <a href="/case-studies" className="btn btn-secondary">
-            View work
+          <Link href="/selected-work" className="btn btn-secondary">
+            View selected work
             <i className="bi bi-arrow-right" aria-hidden="true"></i>
-          </a>
+          </Link>
         </div>
       </div>
     </section>

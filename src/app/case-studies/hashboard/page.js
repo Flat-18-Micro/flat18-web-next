@@ -172,7 +172,7 @@ export default function HashboardCaseStudyPage() {
           <Breadcrumbs />
           <div className={styles.productHeroGrid}>
             <div className={styles.productHeroContent}>
-              <span className={styles.heroKicker}>Case study / Stakeholder transparency gap</span>
+              <span className={styles.heroKicker}>Selected work / Stakeholder transparency gap</span>
               <h1 className={styles.productHeroTitle}>Zettahash Hashboard</h1>
               <p className={styles.productHeroSubtitle}>
                 When mining, treasury, market and governance data live across separate tools, the risk is

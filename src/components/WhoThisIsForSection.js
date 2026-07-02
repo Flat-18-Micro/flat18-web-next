@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import Image from 'next/image'
 import TitleWords from '@/components/TitleWords'
 import WhoThisIsForMobileObserver from '@/components/WhoThisIsForMobileObserver'
@@ -114,9 +115,9 @@ export default function WhoThisIsForSection() {
             <a href="#contact" className="btn btn-primary">
               Get a product review
             </a>
-            <a href="/case-studies" className="btn btn-secondary">
-              See case studies
-            </a>
+            <Link href="/selected-work" className="btn btn-secondary">
+              See selected work
+            </Link>
           </div>
         </div>
       </div>

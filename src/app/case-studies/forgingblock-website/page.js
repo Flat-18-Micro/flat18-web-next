@@ -193,7 +193,7 @@ export default function ForgingBlockWebsiteCaseStudyPage() {
           <Breadcrumbs />
           <div className={styles.productHeroGrid}>
             <div className={styles.productHeroContent}>
-              <span className={styles.heroKicker}>Case study / Merchant conversion blockers</span>
+              <span className={styles.heroKicker}>Selected work / Merchant conversion blockers</span>
               <h1 className={styles.productHeroTitle}>ForgingBlock Website</h1>
               <p className={styles.productHeroSubtitle}>
                 When merchants land on a busy payments site with proof buried behind technical detail, the

@@ -129,7 +129,7 @@ export default function FeltWeatherCaseStudyPage() {
           <Breadcrumbs />
           <div className={styles.productHeroGrid}>
             <div className={styles.productHeroContent}>
-              <span className={styles.heroKicker}>Case study / Local context gap</span>
+              <span className={styles.heroKicker}>Selected work / Local context gap</span>
               <h1 className={styles.productHeroTitle}>Felt Weather</h1>
               <p className={styles.productHeroSubtitle}>
                 When people plan around weather using only official readings, the risk is missing how
@@ -396,7 +396,7 @@ export default function FeltWeatherCaseStudyPage() {
         <div className={styles.container}>
           <div className={styles.ctaCard}>
             <div className={styles.ctaText}>
-              <h2>Want a case study like this?</h2>
+              <h2>Need work like this?</h2>
               <p>
                 Flat18 can turn live data, public signals, and operational context into a product people
                 can inspect, understand, and act on.

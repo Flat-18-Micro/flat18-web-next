@@ -150,7 +150,7 @@ export default function F18PayCaseStudyPage() {
           <Breadcrumbs />
           <div className={styles.productHeroGrid}>
             <div className={styles.productHeroContent}>
-              <span className={styles.heroKicker}>Case study / Payment state clarity</span>
+              <span className={styles.heroKicker}>Selected work / Payment state clarity</span>
               <h1 className={styles.productHeroTitle}>F18 Pay</h1>
               <p className={styles.productHeroSubtitle}>
                 When merchants accept Bitcoin and Ethereum payments across stores, wallets, invoices and

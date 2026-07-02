@@ -406,9 +406,9 @@ export default function TermsPage() {
                   </div>
                   <div className={styles.textContent}>
                     {visibleVersions['portfolio'] ? (
-                      <>We may feature your project on our website, social media, or in case studies. This could include screenshots, summaries, or links. If you’re not comfortable with us sharing your project, tell us and we’ll keep it private unless we have to reference it for legal reasons.</>
+                      <>We may feature your project on our website, social media, or in selected work. This could include screenshots, summaries, or links. If you’re not comfortable with us sharing your project, tell us and we’ll keep it private unless we have to reference it for legal reasons.</>
                     ) : (
-                      <>We may showcase your project in our portfolio, on social media, or in case studies (including screenshots, summaries, or links). Public code or licensed work may be referenced in technical materials. You may request confidentiality except where legal obligations require disclosure.</>
+                      <>We may showcase your project in our portfolio, on social media, or in selected work (including screenshots, summaries, or links). Public code or licensed work may be referenced in technical materials. You may request confidentiality except where legal obligations require disclosure.</>
                     )}
                   </div>
                 </li>

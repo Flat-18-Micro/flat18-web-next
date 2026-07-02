@@ -82,8 +82,8 @@ export default function Footer() {
                     </Link>
                   </li>
                   <li>
-                    <Link href="/case-studies" className={styles.footerLink}>
-                      Case studies
+                    <Link href="/selected-work" className={styles.footerLink}>
+                      Selected work
                     </Link>
                   </li>
                   <li>

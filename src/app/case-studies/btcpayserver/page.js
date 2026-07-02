@@ -66,9 +66,9 @@ const journeySteps = [
   },
   {
     eyebrow: '2024-2025 / Proof',
-    title: 'Case studies and contributor visibility turned the website into evidence.',
+    title: 'Selected work and contributor visibility turned the website into evidence.',
     copy:
-      'The latest phase made the site more narrative and more modular. Case studies, community signals, and reusable sections now show adoption in the real world instead of leaving the homepage to do all the work.',
+      'The latest phase made the site more narrative and more modular. Selected work, community signals, and reusable sections now show adoption in the real world instead of leaving the homepage to do all the work.',
     mediaIndex: 0,
   },
 ]
@@ -85,7 +85,7 @@ const proofPoints = [
     detail: 'Language switching and translation support make the project feel borderless.',
   },
   {
-    value: 'Case studies',
+    value: 'Selected work',
     label: 'Proof',
     detail: 'Adoption stories and contributor visibility now support the product story.',
   },
@@ -151,7 +151,7 @@ export default function BTCPayServerCaseStudyPage() {
           <Breadcrumbs />
           <div className={styles.productHeroGrid}>
             <div className={styles.productHeroContent}>
-              <span className={styles.heroKicker}>Case study / Public product story</span>
+              <span className={styles.heroKicker}>Selected work / Public product story</span>
               <h1 className={styles.productHeroTitle}>BTCPay Server</h1>
               <p className={styles.productHeroSubtitle}>
                 When an open-source payments project has strong capability but no clear public story, the
@@ -339,7 +339,7 @@ export default function BTCPayServerCaseStudyPage() {
                 <h4>Why it works</h4>
                 <p>
                   BTCPay Server is an open-source project, not a company. The site therefore has to do three jobs at
-                  once: explain the product, guide people into the docs, and show the community and case studies behind
+                  once: explain the product, guide people into the docs, and show the community and project stories behind
                   the software.
                 </p>
               </div>
@@ -376,7 +376,7 @@ export default function BTCPayServerCaseStudyPage() {
                 <div className={styles.infoCard}>
                   <h3>Solution shipped</h3>
                   <p>
-                    The homepage, integrations, video, translations, and case-study modules were shaped into a single
+                    The homepage, integrations, video, translations, and supporting proof modules were shaped into a single
                     communication system that could keep growing.
                   </p>
                 </div>
@@ -395,7 +395,7 @@ export default function BTCPayServerCaseStudyPage() {
                   <li>Created the first website from scratch around the self-hosted payments story</li>
                   <li>Refined the hero, calls to action, and video treatment into a clearer landing page</li>
                   <li>Added support for translations, language switching, and RTL-friendly presentation</li>
-                  <li>Reworked integrations, community proof, and case studies into reusable modules</li>
+                  <li>Reworked integrations, community proof, and supporting stories into reusable modules</li>
                 </ul>
               </div>
 
@@ -406,7 +406,7 @@ export default function BTCPayServerCaseStudyPage() {
                   <span className={styles.chip}>Video</span>
                   <span className={styles.chip}>Translations</span>
                   <span className={styles.chip}>Integrations</span>
-                  <span className={styles.chip}>Case studies</span>
+                  <span className={styles.chip}>Selected work</span>
                 </div>
               </div>
             </div>

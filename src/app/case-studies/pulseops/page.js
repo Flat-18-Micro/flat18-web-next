@@ -136,7 +136,7 @@ export default function PulseOpsCaseStudyPage() {
           <Breadcrumbs />
           <div className={styles.productHeroGrid}>
             <div className={styles.productHeroContent}>
-              <span className={styles.heroKicker}>Case study / Network visibility gap</span>
+              <span className={styles.heroKicker}>Selected work / Network visibility gap</span>
               <h1 className={styles.productHeroTitle}>PulseOps</h1>
               <p className={styles.productHeroSubtitle}>
                 When small operators monitor networks across routers, logs and enterprise tools they do not

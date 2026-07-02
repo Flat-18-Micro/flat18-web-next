@@ -104,7 +104,7 @@ const brandAssets = [
   {
     label: 'Open Graph',
     title: 'Share image',
-    copy: 'Use this for link previews, social posts and case-study cards where the full layout needs to stay legible.',
+    copy: 'Use this for link previews, social posts and project cards where the full layout needs to stay legible.',
     src: ledgerBrandAssets.ogShare,
     alt: 'Ledger Open Graph share image',
     width: 1200,
@@ -148,7 +148,7 @@ export default function LedgerCaseStudyPage() {
           <Breadcrumbs />
           <div className={styles.productHeroGrid}>
             <div className={styles.productHeroContent}>
-              <span className={styles.heroKicker}>Case study / Informal money trust</span>
+              <span className={styles.heroKicker}>Selected work / Informal money trust</span>
               <h1 className={styles.productHeroTitle}>Ledger</h1>
               <p className={styles.productHeroSubtitle}>
                 When people track loans, shared costs and receipts across messages, bank notes and memory,

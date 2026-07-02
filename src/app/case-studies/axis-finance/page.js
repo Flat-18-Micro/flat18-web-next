@@ -178,7 +178,7 @@ export default function AxisFinanceCaseStudyPage() {
           <Breadcrumbs />
           <div className={styles.productHeroGrid}>
             <div className={styles.productHeroContent}>
-              <span className={styles.heroKicker}>Case study / Private portfolio clarity</span>
+              <span className={styles.heroKicker}>Selected work / Private portfolio clarity</span>
               <h1 className={styles.productHeroTitle}>Axis Finance</h1>
               <p className={styles.productHeroSubtitle}>
                 When private investors watch positions, prices and alerts across noisy finance tools, the risk

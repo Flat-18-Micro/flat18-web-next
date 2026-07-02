@@ -111,7 +111,7 @@ const brandAssets = [
   {
     label: 'Open Graph',
     title: 'Share image',
-    copy: 'Use this for link previews, social posts and case-study cards where the full workout layout needs to stay readable.',
+    copy: 'Use this for link previews, social posts and project cards where the full workout layout needs to stay readable.',
     src: workoutsBrandAssets.ogShare,
     alt: 'Workouts Open Graph share image',
     width: 1200,
@@ -155,7 +155,7 @@ export default function WorkoutsCaseStudyPage() {
           <Breadcrumbs />
           <div className={styles.productHeroGrid}>
             <div className={styles.productHeroContent}>
-              <span className={styles.heroKicker}>Case study / Training decision friction</span>
+              <span className={styles.heroKicker}>Selected work / Training decision friction</span>
               <h1 className={styles.productHeroTitle}>Workouts</h1>
               <p className={styles.productHeroSubtitle}>
                 When people choose training plans while tired, rushed or unsure what matters, the risk is
@@ -499,7 +499,7 @@ export default function WorkoutsCaseStudyPage() {
               <div className={styles.openSourcePanel}>
                 <h4>Delivered for confidence</h4>
                 <p>
-                  The case study shows the full loop: setup, recommendation, weekly plan, workout
+                  The selected work shows the full loop: setup, recommendation, weekly plan, workout
                   execution, exercise discovery, and progress feedback.
                 </p>
               </div>

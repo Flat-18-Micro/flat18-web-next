@@ -33,13 +33,13 @@ type CaseStudySeoEntry = {
 
 const caseStudySeoData: Record<CaseStudySlug, CaseStudySeoEntry> = {
   'archimedes-finance': {
-    title: 'Archimedes Finance Case Study',
+    title: 'Selected work: Archimedes Finance',
     description:
       'How Flat18 helped investment teams replace split onboarding, KYC, approvals, vesting, reporting and client messages with one auditable role-based flow.',
-    path: '/case-studies/archimedes-finance',
+    path: '/selected-work/archimedes-finance',
     image: '/og/case-studies.png',
     keywords: [
-      'Archimedes Finance case study',
+      'Archimedes Finance selected work',
       'investment platform design',
       'KYC workflow',
       'tokenisation platform',
@@ -48,28 +48,28 @@ const caseStudySeoData: Record<CaseStudySlug, CaseStudySeoEntry> = {
     about: ['Fintech product design', 'KYC workflows', 'Role-based access', 'Tokenisation'],
   },
   btcpayserver: {
-    title: 'BTCPay Server Case Study',
+    title: 'Selected work: BTCPay Server',
     description:
       'How Flat18 helped an open-source payments project explain why to try it, how to start, and what adoption proof buyers could trust.',
-    path: '/case-studies/btcpayserver',
+    path: '/selected-work/btcpayserver',
     image: '/og/case-studies.png',
     keywords: [
-      'BTCPay Server case study',
+      'BTCPay Server selected work',
       'Bitcoin payments website',
       'multilingual website',
       'open-source product marketing',
-      'case study website design',
+      'selected work website design',
     ],
     about: ['Open-source payments', 'Website redesign', 'Multilingual content', 'Product marketing'],
   },
   'f18-pay': {
-    title: 'F18 Pay Case Study',
+    title: 'Selected work: F18 Pay',
     description:
       'How Flat18 helped merchants see live store state, paid invoices, open payment requests and wallet controls without slow payment follow-up.',
-    path: '/case-studies/f18-pay',
+    path: '/selected-work/f18-pay',
     image: '/og/case-studies.png',
     keywords: [
-      'F18 Pay case study',
+      'F18 Pay selected work',
       'merchant payment system',
       'crypto checkout',
       'wallet controls',
@@ -78,13 +78,13 @@ const caseStudySeoData: Record<CaseStudySlug, CaseStudySeoEntry> = {
     about: ['Merchant payments', 'Checkout flow', 'Wallet management', 'Invoice workflow'],
   },
   'felt-weather': {
-    title: 'Felt Weather Case Study',
+    title: 'Selected work: Felt Weather',
     description:
       'How Flat18 helped people judge local conditions by combining official forecasts, nearby public signals and an explainable felt score.',
-    path: '/case-studies/felt-weather',
+    path: '/selected-work/felt-weather',
     image: '/og/case-studies.png',
     keywords: [
-      'Felt Weather case study',
+      'Felt Weather selected work',
       'weather intelligence',
       'map-based interface',
       'local weather product',
@@ -93,13 +93,13 @@ const caseStudySeoData: Record<CaseStudySlug, CaseStudySeoEntry> = {
     about: ['Weather intelligence', 'Map-based UI', 'Data visualisation', 'Local context'],
   },
   'forgingblock-dashboard': {
-    title: 'ForgingBlock Dashboard Case Study',
+    title: 'Selected work: ForgingBlock Dashboard',
     description:
       'How Flat18 helped payment teams answer invoice, cash-flow and payout questions faster by turning scattered merchant data into a focused operations hub.',
-    path: '/case-studies/forgingblock-dashboard',
+    path: '/selected-work/forgingblock-dashboard',
     image: '/og/case-studies.png',
     keywords: [
-      'ForgingBlock dashboard case study',
+      'ForgingBlock dashboard selected work',
       'merchant dashboard',
       'payments operations',
       'invoice workflow',
@@ -108,13 +108,13 @@ const caseStudySeoData: Record<CaseStudySlug, CaseStudySeoEntry> = {
     about: ['Dashboard UX', 'Payments operations', 'Merchant workflow', 'Status reporting'],
   },
   'forgingblock-website': {
-    title: 'ForgingBlock Website Redesign Case Study',
+    title: 'Selected work: ForgingBlock Website Redesign',
     description:
       'How Flat18 found the conversion blockers in a busy merchant payments site and rebuilt the journey around proof, pricing clarity and enquiry.',
-    path: '/case-studies/forgingblock-website',
+    path: '/selected-work/forgingblock-website',
     image: '/og/case-studies.png',
     keywords: [
-      'ForgingBlock website redesign case study',
+      'ForgingBlock website redesign selected work',
       'conversion optimisation',
       'merchant website design',
       'trust-led landing page',
@@ -123,13 +123,13 @@ const caseStudySeoData: Record<CaseStudySlug, CaseStudySeoEntry> = {
     about: ['Website redesign', 'Conversion optimisation', 'Trust signals', 'Information architecture'],
   },
   hashboard: {
-    title: 'Zettahash Hashboard Case Study',
+    title: 'Selected work: Zettahash Hashboard',
     description:
       'How Flat18 helped stakeholders assess project health by bringing scattered mining, treasury, market and governance signals into one readable hub.',
-    path: '/case-studies/hashboard',
+    path: '/selected-work/hashboard',
     image: '/og/case-studies.png',
     keywords: [
-      'Zettahash Hashboard case study',
+      'Zettahash Hashboard selected work',
       'transparency dashboard',
       'DAO dashboard',
       'cryptocurrency analytics',
@@ -138,13 +138,13 @@ const caseStudySeoData: Record<CaseStudySlug, CaseStudySeoEntry> = {
     about: ['Stakeholder transparency', 'Dashboard design', 'Crypto analytics', 'Governance reporting'],
   },
   ipgeo: {
-    title: 'Flat18 Geo Case Study',
+    title: 'Selected work: Flat18 Geo',
     description:
       'How Flat18 made IP context safer to trust across lookup, browser and refresh jobs with small endpoints, auth, cache rules and freshness checks.',
-    path: '/case-studies/ipgeo',
+    path: '/selected-work/ipgeo',
     image: '/og/case-studies.png',
     keywords: [
-      'Flat18 Geo case study',
+      'Flat18 Geo selected work',
       'IP geolocation API',
       'Vercel API',
       'data freshness monitoring',
@@ -153,13 +153,13 @@ const caseStudySeoData: Record<CaseStudySlug, CaseStudySeoEntry> = {
     about: ['API design', 'IP geolocation', 'Data freshness', 'Automation'],
   },
   ledger: {
-    title: 'Ledger Case Study',
+    title: 'Selected work: Ledger',
     description:
       'How Flat18 helped people settle informal loans, shared costs and receipts by turning fragile messages and memory into clear records with evidence.',
-    path: '/case-studies/ledger',
+    path: '/selected-work/ledger',
     image: ledgerBrandAssets.ogShare,
     keywords: [
-      'Ledger app case study',
+      'Ledger selected work',
       'personal finance utility',
       'money tracking app',
       'shared cost tracking',
@@ -168,13 +168,13 @@ const caseStudySeoData: Record<CaseStudySlug, CaseStudySeoEntry> = {
     about: ['Personal finance', 'Trust UX', 'Shared cost tracking', 'Record keeping'],
   },
   'natal-charts': {
-    title: 'Natal Charts Case Study',
+    title: 'Selected work: Natal Charts',
     description:
       'How Flat18 made dense birth data, ephemeris calculation, relationship comparison and privacy notes easier for ordinary users to understand.',
-    path: '/case-studies/natal-charts',
+    path: '/selected-work/natal-charts',
     image: natalChartsBrandAssets.ogImage,
     keywords: [
-      'Natal Charts case study',
+      'Natal Charts selected work',
       'astrology app design',
       'data visualisation',
       'timezone logic',
@@ -183,13 +183,13 @@ const caseStudySeoData: Record<CaseStudySlug, CaseStudySeoEntry> = {
     about: ['Data visualisation', 'Timezone logic', 'Relationship comparison', 'Consumer web app'],
   },
   pulseops: {
-    title: 'PulseOps Case Study',
+    title: 'Selected work: PulseOps',
     description:
       'How Flat18 helped small network operators replace shallow router views and heavy enterprise tools with a local command centre they can run.',
-    path: '/case-studies/pulseops',
+    path: '/selected-work/pulseops',
     image: '/og/case-studies.png',
     keywords: [
-      'PulseOps case study',
+      'PulseOps selected work',
       'network monitoring',
       'self-hosted product',
       'infrastructure dashboard',
@@ -198,13 +198,13 @@ const caseStudySeoData: Record<CaseStudySlug, CaseStudySeoEntry> = {
     about: ['Network telemetry', 'Self-hosted infrastructure', 'Operator workflows', 'Product positioning'],
   },
   signalmap: {
-    title: 'SignalMap Case Study',
+    title: 'Selected work: SignalMap',
     description:
       'How Flat18 helped founders and small agencies turn privacy-limited browser signals into practical recommendations they can act on.',
-    path: '/case-studies/signalmap',
+    path: '/selected-work/signalmap',
     image: signalmapBrandAssets.ogShare,
     keywords: [
-      'SignalMap case study',
+      'SignalMap selected work',
       'privacy-first analytics',
       'cookie-free tracking',
       'edge analytics',
@@ -213,13 +213,13 @@ const caseStudySeoData: Record<CaseStudySlug, CaseStudySeoEntry> = {
     about: ['Privacy-first analytics', 'Edge ingest', 'Aggregate reporting', 'Product analytics'],
   },
   'social-publisher': {
-    title: 'Social Publisher Case Study',
+    title: 'Selected work: Social Publisher',
     description:
       'How Flat18 helped small teams reduce publishing rework by clarifying channel connection, platform variants, validation, scheduling and dispatch logs.',
-    path: '/case-studies/social-publisher',
+    path: '/selected-work/social-publisher',
     image: socialPublisherBrandAssets.ogShare,
     keywords: [
-      'Social Publisher case study',
+      'Social Publisher selected work',
       'content workflow',
       'publishing automation',
       'scheduling UX',
@@ -228,13 +228,13 @@ const caseStudySeoData: Record<CaseStudySlug, CaseStudySeoEntry> = {
     about: ['Workflow design', 'Publishing automation', 'Content operations', 'Validation and scheduling'],
   },
   'walletscrutiny': {
-    title: 'WalletScrutiny Case Study',
+    title: 'Selected work: WalletScrutiny',
     description:
       'How Flat18 helped readers move through a large wallet security catalogue with clearer search, verdicts, review pages and methodology evidence.',
-    path: '/case-studies/walletscrutiny',
+    path: '/selected-work/walletscrutiny',
     image: '/og/case-studies.png',
     keywords: [
-      'WalletScrutiny case study',
+      'WalletScrutiny selected work',
       'Bitcoin wallet security',
       'search UX',
       'review catalogue design',
@@ -243,13 +243,13 @@ const caseStudySeoData: Record<CaseStudySlug, CaseStudySeoEntry> = {
     about: ['Security research', 'Search UX', 'Methodology presentation', 'Information design'],
   },
   workouts: {
-    title: 'Workouts Case Study',
+    title: 'Selected work: Workouts',
     description:
       'How Flat18 reduced training decision overload by shaping onboarding, schedule selection, logging, recovery context and progress signals into one usable flow.',
-    path: '/case-studies/workouts',
+    path: '/selected-work/workouts',
     image: workoutsBrandAssets.ogShare,
     keywords: [
-      'Workouts case study',
+      'Workouts selected work',
       'fitness app design',
       'training plan workflow',
       'workout logging',
@@ -276,6 +276,10 @@ export function generateCaseStudyMetadata(slug: CaseStudySlug) {
   })
 }
 
+export function generateSelectedWorkMetadata(slug: CaseStudySlug) {
+  return generateCaseStudyMetadata(slug)
+}
+
 export function generateCaseStudyJsonLd(slug: CaseStudySlug) {
   const seo = getCaseStudySeo(slug)
 
@@ -286,4 +290,8 @@ export function generateCaseStudyJsonLd(slug: CaseStudySlug) {
     image: `${siteConfig.url}${seo.image}`,
     about: seo.about,
   })
+}
+
+export function generateSelectedWorkJsonLd(slug: CaseStudySlug) {
+  return generateCaseStudyJsonLd(slug)
 }

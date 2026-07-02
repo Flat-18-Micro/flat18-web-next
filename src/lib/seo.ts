@@ -400,9 +400,15 @@ export const pageTypes = {
   }),
   
   caseStudies: () => generatePageMetadata({
-    title: 'Case studies',
-    description: 'Case studies showing how Flat 18 finds costly product friction, designs the fix and ships work that is easier to trust, sell or operate.',
-    path: '/case-studies',
+    title: 'Selected work',
+    description: 'Selected work showing how Flat 18 finds costly product friction, designs the fix and ships work that is easier to trust, sell or operate.',
+    path: '/selected-work',
+  }),
+
+  selectedWork: () => generatePageMetadata({
+    title: 'Selected work',
+    description: 'Selected work showing how Flat 18 finds costly product friction, designs the fix and ships work that is easier to trust, sell or operate.',
+    path: '/selected-work',
   }),
   
   pricing: () => generatePageMetadata({

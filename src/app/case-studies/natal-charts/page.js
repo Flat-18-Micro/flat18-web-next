@@ -122,7 +122,7 @@ const brandAssets = [
   {
     label: 'Open Graph',
     title: 'Share image',
-    copy: 'Use this for link previews, social posts and case-study cards where the full editorial treatment needs to stay legible.',
+    copy: 'Use this for link previews, social posts and project cards where the full editorial treatment needs to stay legible.',
     src: natalChartsBrandAssets.ogImage,
     alt: 'Natal Charts Open Graph share image',
     width: 1200,
@@ -161,7 +161,7 @@ export default function NatalChartsCaseStudyPage() {
           <Breadcrumbs />
           <div className={styles.productHeroGrid}>
             <div className={styles.productHeroContent}>
-              <span className={styles.heroKicker}>Case study / Dense calculation clarity</span>
+              <span className={styles.heroKicker}>Selected work / Dense calculation clarity</span>
               <h1 className={styles.productHeroTitle}>Natal Charts</h1>
               <p className={styles.productHeroSubtitle}>
                 When users enter birth details and relationship data into dense calculation tools, the risk

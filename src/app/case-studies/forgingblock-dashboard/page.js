@@ -172,7 +172,7 @@ export default function ForgingBlockDashboardCaseStudyPage() {
           <Breadcrumbs />
           <div className={styles.productHeroGrid}>
             <div className={styles.productHeroContent}>
-              <span className={styles.heroKicker}>Case study / Invoice status clarity</span>
+              <span className={styles.heroKicker}>Selected work / Invoice status clarity</span>
               <h1 className={styles.productHeroTitle}>ForgingBlock Dashboard</h1>
               <p className={styles.productHeroSubtitle}>
                 When payment teams answer invoice, cash-flow and payout questions across messy merchant

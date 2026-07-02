@@ -151,7 +151,7 @@ export default function IPGeoCaseStudyPage() {
           <Breadcrumbs />
           <div className={styles.productHeroGrid}>
             <div className={styles.productHeroContent}>
-              <span className={styles.heroKicker}>Case study / Fresh location data</span>
+              <span className={styles.heroKicker}>Selected work / Fresh location data</span>
               <h1 className={styles.productHeroTitle}>Flat18 Geo</h1>
               <p className={styles.productHeroSubtitle}>
                 When products depend on IP context across lookup, browser and refresh jobs, the risk is stale

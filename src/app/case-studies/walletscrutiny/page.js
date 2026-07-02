@@ -158,7 +158,7 @@ export default function WalletScrutinyCaseStudyPage() {
           <Breadcrumbs />
           <div className={styles.productHeroGrid}>
             <div className={styles.productHeroContent}>
-              <span className={styles.heroKicker}>Case study / Research evidence clarity</span>
+              <span className={styles.heroKicker}>Selected work / Research evidence clarity</span>
               <h1
                 className={styles.productHeroTitle}
                 style={{ fontSize: 'clamp(2.7rem, 12vw, 8.5rem)', overflowWrap: 'anywhere' }}

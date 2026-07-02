@@ -130,7 +130,7 @@ export default function Portfolio() {
       title: 'Felt Weather',
       description: 'Shows how conditions feel locally by combining forecasts with nearby public signals.',
       image: '/images/portfolio-graphics/felt-weather.webp',
-      link: '/case-studies/felt-weather',
+      link: '/selected-work/felt-weather',
       stats: [
         { label: 'Timeline', value: '2026 launch' },
         { label: 'Platform', value: 'Web app' },
@@ -147,7 +147,7 @@ export default function Portfolio() {
       projectLogo: ledgerBrandAssets.appIcon,
       projectLogoAlt: 'Ledger app icon',
       projectLogoUseNextImage: true,
-      link: '/case-studies/ledger',
+      link: '/selected-work/ledger',
       stats: [
         { label: 'Timeline', value: '2026 launch' },
         { label: 'Platform', value: 'Web app' },
@@ -164,7 +164,7 @@ export default function Portfolio() {
       projectLogo: workoutsBrandAssets.appIcon,
       projectLogoAlt: 'Workouts app icon',
       projectLogoUseNextImage: true,
-      link: '/case-studies/workouts',
+      link: '/selected-work/workouts',
       stats: [
         { label: 'Timeline', value: '2026 launch' },
         { label: 'Platform', value: 'Web app' },
@@ -179,7 +179,7 @@ export default function Portfolio() {
       description: 'Gives small operators a self-hosted view of inventory, telemetry, topology and device action.',
       image: '/images/portfolio-graphics/pulseops-scr.webp',
       projectLogo: '/images/case-studies/logos/pulseops-lockup.svg',
-      link: '/case-studies/pulseops',
+      link: '/selected-work/pulseops',
       stats: [
         { label: 'Timeline', value: '2026 launch' },
         { label: 'Platform', value: 'Web app' },
@@ -195,7 +195,7 @@ export default function Portfolio() {
       projectLogo: socialPublisherBrandAssets.appIcon,
       projectLogoAlt: 'Social Publisher app icon',
       projectLogoUseNextImage: true,
-      link: '/case-studies/social-publisher',
+      link: '/selected-work/social-publisher',
       stats: [
         { label: 'Timeline', value: '2026 beta' },
         { label: 'Platform', value: 'Web app' },
@@ -212,7 +212,7 @@ export default function Portfolio() {
       projectLogo: signalmapBrandAssets.appIcon,
       projectLogoAlt: 'SignalMap app mark',
       projectLogoUseNextImage: true,
-      link: '/case-studies/signalmap',
+      link: '/selected-work/signalmap',
       stats: [
         { label: 'Timeline', value: '2026 beta' },
         { label: 'Platform', value: 'Web app' },
@@ -229,7 +229,7 @@ export default function Portfolio() {
       projectLogo: natalChartsBrandAssets.appIcon,
       projectLogoAlt: 'Natal Charts app icon',
       projectLogoUseNextImage: true,
-      link: '/case-studies/natal-charts',
+      link: '/selected-work/natal-charts',
       stats: [
         { label: 'Timeline', value: 'Demo build' },
         { label: 'Platform', value: 'Web app' },
@@ -244,7 +244,7 @@ export default function Portfolio() {
       description: 'Keeps investment onboarding, KYC, approvals, vesting, reporting and messages in one auditable flow.',
       image: '/images/portfolio-graphics/archimedesfinance-mock.webp',
       projectLogo: '/images/portfolio-graphics/logos/archimedes-finance.webp',
-      link: '/case-studies/archimedes-finance',
+      link: '/selected-work/archimedes-finance',
       stats: [
         { label: 'Timeline', value: '8 weeks' },
         { label: 'Platform', value: 'Web app' },
@@ -258,7 +258,7 @@ export default function Portfolio() {
       description: 'Helps stakeholders assess mining, treasury, market and governance health without chasing separate tools.',
       image: '/images/portfolio-graphics/hashboard.webp',
       projectLogo: '/images/portfolio-graphics/logos/zettahash.webp',
-      link: '/case-studies/hashboard',
+      link: '/selected-work/hashboard',
       stats: [
         { label: 'Timeline', value: '6 weeks' },
         { label: 'Platform', value: 'Web app' },
@@ -272,7 +272,7 @@ export default function Portfolio() {
       description: 'Makes a large wallet security catalogue easier to search, judge and verify against the method.',
       image: '/images/portfolio-graphics/walletscrutiny-mock.webp',
       projectLogo: '/images/portfolio-graphics/logos/wallet-scrutiny.webp',
-      link: '/case-studies/walletscrutiny',
+      link: '/selected-work/walletscrutiny',
       stats: [
         { label: 'Timeline', value: '12 weeks' },
         { label: 'Platform', value: 'Website' },
@@ -286,7 +286,7 @@ export default function Portfolio() {
       description: 'Helped an open-source payments project explain why to try it, how to start and what proof to trust.',
       image: '/images/portfolio-graphics/btcpayserver-mock.webp',
       projectLogo: '/images/portfolio-graphics/logos/btcpayserver.webp',
-      link: '/case-studies/btcpayserver',
+      link: '/selected-work/btcpayserver',
       stats: [
         { label: 'Timeline', value: '10 weeks' },
         { label: 'Platform', value: 'Website' },
