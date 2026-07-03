@@ -11,61 +11,89 @@ import CaseStudyMediaFlow from '@/components/CaseStudyMediaFlow'
 
 const mediaItems = [
   {
-    src: '/images/case-studies/hashboard/dashboard-overview.svg',
-    lightSrc: '/images/case-studies/hashboard/dashboard-overview.svg',
-    alt: 'Hashboard dashboard overview',
-    caption: 'Dashboard overview',
+    src: '/images/case-studies/hashboard/mining.webp',
+    lightSrc: '/images/case-studies/hashboard/mining.webp',
+    alt: 'Hashboard live mining overview showing project output, share rate, and revenue context',
+    caption: 'Live mining overview',
     sizes: '(max-width: 768px) 100vw, (max-width: 1200px) 55vw, 620px',
     isPrimary: true,
     priority: true
   },
   {
-    src: '/images/case-studies/hashboard/mining-overview.svg',
-    lightSrc: '/images/case-studies/hashboard/mining-overview.svg',
-    alt: 'Mining performance overview',
-    caption: 'Mining performance',
+    src: '/images/case-studies/hashboard/assets.webp',
+    lightSrc: '/images/case-studies/hashboard/assets.webp',
+    alt: 'Hashboard assets overview showing source context and a readable asset list',
+    caption: 'Asset overview',
     sizes: '(max-width: 768px) 100vw, 320px'
   },
   {
-    src: '/images/case-studies/hashboard/treasury-financials.svg',
-    lightSrc: '/images/case-studies/hashboard/treasury-financials.svg',
-    alt: 'Treasury and financials summary',
-    caption: 'Treasury visibility',
+    src: '/images/case-studies/hashboard/treasury.webp',
+    lightSrc: '/images/case-studies/hashboard/treasury.webp',
+    alt: 'Hashboard treasury summary showing holdings and financial context',
+    caption: 'Treasury overview',
     sizes: '(max-width: 768px) 100vw, 320px'
   },
   {
-    src: '/images/case-studies/hashboard/governance-proposals.svg',
-    lightSrc: '/images/case-studies/hashboard/governance-proposals.svg',
-    alt: 'Governance proposals overview',
+    src: '/images/case-studies/hashboard/vote-space-details.webp',
+    lightSrc: '/images/case-studies/hashboard/vote-space-details.webp',
+    alt: 'Hashboard governance space showing proposal detail and active discussions',
     caption: 'Governance proposals',
     sizes: '(max-width: 768px) 100vw, 320px'
   },
   {
-    src: '/images/case-studies/hashboard/mobile-quickview.svg',
-    lightSrc: '/images/case-studies/hashboard/mobile-quickview.svg',
-    alt: 'Mobile quick view dashboard',
-    caption: 'Mobile quick view',
+    src: '/images/case-studies/hashboard/wallet.webp',
+    lightSrc: '/images/case-studies/hashboard/wallet.webp',
+    alt: 'Hashboard wallet view showing connected wallet context and account controls',
+    caption: 'Wallet view',
     sizes: '(max-width: 768px) 100vw, 320px'
   },
   {
-    src: '/images/case-studies/hashboard/ui-kit.svg',
-    lightSrc: '/images/case-studies/hashboard/ui-kit.svg',
-    alt: 'Hashboard UI kit and reusable components',
-    caption: 'UI kit',
+    src: '/images/case-studies/hashboard/consensus.webp',
+    lightSrc: '/images/case-studies/hashboard/consensus.webp',
+    alt: 'Hashboard consensus overview showing a list of project decisions and topics',
+    caption: 'Consensus overview',
     sizes: '(max-width: 768px) 100vw, 320px'
   },
   {
-    src: '/images/case-studies/hashboard/wireframe-dashboard.svg',
-    lightSrc: '/images/case-studies/hashboard/wireframe-dashboard.svg',
-    alt: 'Dashboard wireframe sketch',
-    caption: 'Dashboard wireframe',
+    src: '/images/case-studies/hashboard/consensus-topic-1.webp',
+    lightSrc: '/images/case-studies/hashboard/consensus-topic-1.webp',
+    alt: 'Hashboard consensus topic discussion with proposal detail and comments',
+    caption: 'Consensus discussion',
     sizes: '(max-width: 768px) 100vw, 320px'
   },
   {
-    src: '/images/case-studies/hashboard/wireframe-mining.svg',
-    lightSrc: '/images/case-studies/hashboard/wireframe-mining.svg',
-    alt: 'Mining wireframe sketch',
-    caption: 'Mining wireframe',
+    src: '/images/case-studies/hashboard/treasury-safe.webp',
+    lightSrc: '/images/case-studies/hashboard/treasury-safe.webp',
+    alt: 'Hashboard treasury SAFE view showing treasury categories and balances',
+    caption: 'Treasury SAFE',
+    sizes: '(max-width: 768px) 100vw, 320px'
+  },
+  {
+    src: '/images/case-studies/hashboard/treasury-specter.webp',
+    lightSrc: '/images/case-studies/hashboard/treasury-specter.webp',
+    alt: 'Hashboard treasury Specter view showing wallet management and treasury context',
+    caption: 'Treasury Specter',
+    sizes: '(max-width: 768px) 100vw, 320px'
+  },
+  {
+    src: '/images/case-studies/hashboard/treasury-hedgey-vesting.webp',
+    lightSrc: '/images/case-studies/hashboard/treasury-hedgey-vesting.webp',
+    alt: 'Hashboard treasury vesting plans showing Hedgey vesting details',
+    caption: 'Treasury vesting',
+    sizes: '(max-width: 768px) 100vw, 320px'
+  },
+  {
+    src: '/images/case-studies/hashboard/vote.webp',
+    lightSrc: '/images/case-studies/hashboard/vote.webp',
+    alt: 'Hashboard voting spaces list showing compact governance categories',
+    caption: 'Voting spaces',
+    sizes: '(max-width: 768px) 100vw, 320px'
+  },
+  {
+    src: '/images/case-studies/hashboard/market.webp',
+    lightSrc: '/images/case-studies/hashboard/market.webp',
+    alt: 'Hashboard market overview showing live price charts and market context',
+    caption: 'Market overview',
     sizes: '(max-width: 768px) 100vw, 320px'
   }
 ]
@@ -76,7 +104,7 @@ const journeySteps = [
     title: 'Data was scattered across mining, wallet, and governance tools.',
     copy:
       'Stakeholders could not read the health of the project quickly because the evidence lived in too many places and the story had no clear hierarchy.',
-    mediaIndex: 6
+    mediaIndex: 1
   },
   {
     eyebrow: '02 / Product shape',
@@ -86,10 +114,10 @@ const journeySteps = [
     mediaIndex: 0
   },
   {
-    eyebrow: '03 / Decision layer',
-    title: 'The responsive quick view and UI system keep the product useful on smaller screens.',
+    eyebrow: '03 / Wallet layer',
+    title: 'Connected wallet detail stays close to the rest of the dashboard.',
     copy:
-      'A compact mobile view and a reusable component kit make the experience easier to maintain while keeping the dashboard readable anywhere.',
+      'Wallet settings, account controls, and balance context stay readable so stakeholders can act without leaving the dashboard.',
     mediaIndex: 4
   }
 ]
@@ -114,7 +142,7 @@ const proofPoints = [
 
 const featureCards = [
   {
-    mediaIndex: 1,
+    mediaIndex: 0,
     kicker: 'Mining',
     title: 'Keep mining performance visible at a glance.',
     copy:
@@ -139,16 +167,16 @@ const featureCards = [
     ariaLabel: 'Open Hashboard governance proposals in viewer'
   },
   {
-    mediaIndex: 4,
-    kicker: 'Responsive quick view',
-    title: 'Give stakeholders a quick read on smaller screens.',
+    mediaIndex: 11,
+    kicker: 'Market',
+    title: 'Keep price context and market movement visible.',
     copy:
-      'The compact layout makes the dashboard useful when the full interface is not available or not needed.',
-    ariaLabel: 'Open Hashboard mobile quick view in viewer'
+      'The market view keeps live price context beside mining and treasury data so the project story stays complete.',
+    ariaLabel: 'Open Hashboard market overview in viewer'
   }
 ]
 
-const galleryItems = [4, 5, 6, 7]
+const galleryItems = [5, 6, 7, 8, 9]
 
 export default function HashboardCaseStudyPage() {
   const [lightboxIndex, setLightboxIndex] = useState(null)
@@ -209,7 +237,7 @@ export default function HashboardCaseStudyPage() {
                 className={styles.productHeroImageButton}
                 style={{ minHeight: 'clamp(320px, 42vw, 560px)' }}
                 onClick={() => openLightbox(0)}
-                aria-label="Open Hashboard dashboard overview in viewer"
+                aria-label="Open Hashboard mining overview in viewer"
               >
                 <Image
                   src={mediaItems[0].src}
@@ -400,7 +428,7 @@ export default function HashboardCaseStudyPage() {
                   <li>Mining performance overview with trend visibility</li>
                   <li>Treasury balances and vesting status</li>
                   <li>Snapshot governance proposals and status</li>
-                  <li>Responsive quick view for smaller screens</li>
+                  <li>Live market context for price movement</li>
                   <li>Reusable UI kit for consistent dashboard surfaces</li>
                 </ul>
               </div>
