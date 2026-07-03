@@ -146,12 +146,12 @@ export default function PulseOpsCaseStudyPage() {
               </p>
               <div className={styles.productHeroActions}>
                 <a
-                  href="https://pulseops.flat18.app"
+                  href="https://github.com/vswee/pulseops-network-monitoring-suite"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn btn-primary"
                 >
-                  View live product
+                  View repository
                 </a>
                 <a href="#story" className="btn btn-secondary">
                   Read the build story

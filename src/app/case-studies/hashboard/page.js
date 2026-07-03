@@ -181,7 +181,7 @@ export default function HashboardCaseStudyPage() {
               </p>
               <div className={styles.productHeroActions}>
                 <a
-                  href="https://zettahash-hashboard.pages.dev"
+                  href="https://zettahash-hashboard.pages.dev/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn btn-primary"

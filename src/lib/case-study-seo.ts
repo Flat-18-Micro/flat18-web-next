@@ -37,7 +37,7 @@ const caseStudySeoData: Record<CaseStudySlug, CaseStudySeoEntry> = {
     description:
       'How Flat18 helped investment teams replace split onboarding, KYC, approvals, vesting, reporting and client messages with one auditable role-based flow.',
     path: '/selected-work/archimedes-finance',
-    image: '/og/case-studies.png',
+    image: '/og/selected-work.png',
     keywords: [
       'Archimedes Finance selected work',
       'investment platform design',
@@ -52,7 +52,7 @@ const caseStudySeoData: Record<CaseStudySlug, CaseStudySeoEntry> = {
     description:
       'How Flat18 helped an open-source payments project explain why to try it, how to start, and what adoption proof buyers could trust.',
     path: '/selected-work/btcpayserver',
-    image: '/og/case-studies.png',
+    image: '/og/selected-work.png',
     keywords: [
       'BTCPay Server selected work',
       'Bitcoin payments website',
@@ -67,7 +67,7 @@ const caseStudySeoData: Record<CaseStudySlug, CaseStudySeoEntry> = {
     description:
       'How Flat18 helped merchants see live store state, paid invoices, open payment requests and wallet controls without slow payment follow-up.',
     path: '/selected-work/f18-pay',
-    image: '/og/case-studies.png',
+    image: '/og/selected-work.png',
     keywords: [
       'F18 Pay selected work',
       'merchant payment system',
@@ -82,7 +82,7 @@ const caseStudySeoData: Record<CaseStudySlug, CaseStudySeoEntry> = {
     description:
       'How Flat18 helped people judge local conditions by combining official forecasts, nearby public signals and an explainable felt score.',
     path: '/selected-work/felt-weather',
-    image: '/og/case-studies.png',
+    image: '/og/selected-work.png',
     keywords: [
       'Felt Weather selected work',
       'weather intelligence',
@@ -97,7 +97,7 @@ const caseStudySeoData: Record<CaseStudySlug, CaseStudySeoEntry> = {
     description:
       'How Flat18 helped payment teams answer invoice, cash-flow and payout questions faster by turning scattered merchant data into a focused operations hub.',
     path: '/selected-work/forgingblock-dashboard',
-    image: '/og/case-studies.png',
+    image: '/og/selected-work.png',
     keywords: [
       'ForgingBlock dashboard selected work',
       'merchant dashboard',
@@ -112,7 +112,7 @@ const caseStudySeoData: Record<CaseStudySlug, CaseStudySeoEntry> = {
     description:
       'How Flat18 found the conversion blockers in a busy merchant payments site and rebuilt the journey around proof, pricing clarity and enquiry.',
     path: '/selected-work/forgingblock-website',
-    image: '/og/case-studies.png',
+    image: '/og/selected-work.png',
     keywords: [
       'ForgingBlock website redesign selected work',
       'conversion optimisation',
@@ -127,7 +127,7 @@ const caseStudySeoData: Record<CaseStudySlug, CaseStudySeoEntry> = {
     description:
       'How Flat18 helped stakeholders assess project health by bringing scattered mining, treasury, market and governance signals into one readable hub.',
     path: '/selected-work/hashboard',
-    image: '/og/case-studies.png',
+    image: '/og/selected-work.png',
     keywords: [
       'Zettahash Hashboard selected work',
       'transparency dashboard',
@@ -142,7 +142,7 @@ const caseStudySeoData: Record<CaseStudySlug, CaseStudySeoEntry> = {
     description:
       'How Flat18 made IP context safer to trust across lookup, browser and refresh jobs with small endpoints, auth, cache rules and freshness checks.',
     path: '/selected-work/ipgeo',
-    image: '/og/case-studies.png',
+    image: '/og/selected-work.png',
     keywords: [
       'Flat18 Geo selected work',
       'IP geolocation API',
@@ -187,7 +187,7 @@ const caseStudySeoData: Record<CaseStudySlug, CaseStudySeoEntry> = {
     description:
       'How Flat18 helped small network operators replace shallow router views and heavy enterprise tools with a local command centre they can run.',
     path: '/selected-work/pulseops',
-    image: '/og/case-studies.png',
+    image: '/og/selected-work.png',
     keywords: [
       'PulseOps selected work',
       'network monitoring',
@@ -232,7 +232,7 @@ const caseStudySeoData: Record<CaseStudySlug, CaseStudySeoEntry> = {
     description:
       'How Flat18 helped readers move through a large wallet security catalogue with clearer search, verdicts, review pages and methodology evidence.',
     path: '/selected-work/walletscrutiny',
-    image: '/og/case-studies.png',
+    image: '/og/selected-work.png',
     keywords: [
       'WalletScrutiny selected work',
       'Bitcoin wallet security',

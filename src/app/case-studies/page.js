@@ -1,6 +1,5 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import axisFinanceDashboard from './axis-finance/dashboard.png'
 import Breadcrumbs from '@/components/Breadcrumbs'
 import Contact from '@/components/Contact'
 import Footer from '@/components/Footer'
@@ -11,7 +10,7 @@ const caseStudies = [
     title: 'Ledger',
     tag: 'Informal money trust',
     description: 'Turned scattered messages, receipts and memory into clear records for loans, shared costs, budgets and read-only balances people can explain.',
-    image: '/images/case-studies/ledger/detail.png',
+    image: '/images/selected-work/ledger.png',
     href: '/selected-work/ledger',
     meta: ['Trust workflows', 'Everyday finance']
   },
@@ -19,7 +18,7 @@ const caseStudies = [
     title: 'F18 Pay',
     tag: 'Payment state clarity',
     description: 'Helped merchants manage stores, wallets, invoices and public checkout pages without losing track of what is live, paid or waiting.',
-    image: '/images/case-studies/f18-pay/01-dashboard-overview.png',
+    image: '/images/selected-work/f18-pay.png',
     href: '/selected-work/f18-pay',
     meta: ['Store setup', 'Wallet controls']
   },
@@ -27,7 +26,7 @@ const caseStudies = [
     title: 'Axis Finance',
     tag: 'Private portfolio clarity',
     description: 'Made live positions, prices and alerts easier to inspect without asking private investors to hand over custody or trust a noisy terminal.',
-    image: axisFinanceDashboard,
+    image: '/images/selected-work/axis-finance-mockup.png',
     href: '/selected-work/axis-finance',
     meta: ['Read-only', 'Privacy first']
   },
@@ -35,7 +34,7 @@ const caseStudies = [
     title: 'SignalMap',
     tag: 'Actionable analytics',
     description: 'Turned privacy-limited browser signals into aggregate reporting and clear recommendations founders and small agencies can act on.',
-    image: '/images/case-studies/signalmap/01-landing.png',
+    image: '/images/selected-work/signalmap.png',
     href: '/selected-work/signalmap',
     meta: ['Cookie-free', 'Edge-first']
   },
@@ -43,7 +42,7 @@ const caseStudies = [
     title: 'WalletScrutiny',
     tag: 'Research evidence clarity',
     description: 'Reshaped a large wallet review catalogue so readers can find the verdict, inspect the method and move from summary to evidence faster.',
-    image: '/images/case-studies/walletscrutiny/2023-home.jpeg',
+    image: '/images/selected-work/walletscrutiny.png',
     href: '/selected-work/walletscrutiny',
     meta: ['Search UX', 'Methodology']
   },
@@ -51,7 +50,7 @@ const caseStudies = [
     title: 'BTCPay Server',
     tag: 'Public product story',
     description: 'Gave a self-hosted payments project a clearer route from first visit to first try, then strengthened it with language support, video and proof.',
-    image: '/images/case-studies/btcpayserver/07-2025-09-03-24891c5-case-studies-ui.png',
+    image: '/images/selected-work/btcpayserver.png',
     href: '/selected-work/btcpayserver',
     meta: ['Multilingual', 'Selected work']
   },
@@ -59,7 +58,7 @@ const caseStudies = [
     title: 'Flat18 Geo',
     tag: 'Fresh location data',
     description: 'Made city, region and ASN context safer to call from products by separating lookup, browser response, refresh and freshness checks.',
-    image: '/images/case-studies/ipgeo/flat18-geo-overview.png',
+    image: '/images/selected-work/ipgeo.png',
     href: '/selected-work/ipgeo',
     meta: ['API design', 'Data freshness']
   },
@@ -67,7 +66,7 @@ const caseStudies = [
     title: 'Workouts',
     tag: 'Training decision friction',
     description: 'Reduced choice overload before training by turning onboarding, schedules, logging, recovery context and progress review into one practical flow.',
-    image: '/images/case-studies/workouts/03-plan-overview.png',
+    image: '/images/selected-work/workouts.png',
     href: '/selected-work/workouts',
     meta: ['Planning workflow', 'Mobile app UI']
   },
@@ -75,7 +74,7 @@ const caseStudies = [
     title: 'PulseOps',
     tag: 'Network visibility gap',
     description: 'Found the space between shallow router views and heavy enterprise suites, then shaped a self-hosted command centre for real operator work.',
-    image: '/images/case-studies/pulseops/overview.png',
+    image: '/images/selected-work/pulseops.png',
     href: '/selected-work/pulseops',
     meta: ['Problem discovery', 'Network telemetry']
   },
@@ -83,7 +82,7 @@ const caseStudies = [
     title: 'Social Publisher',
     tag: 'Publishing operations friction',
     description: 'Turned scattered drafts, channel limits, calendars and dispatch checks into one workspace small teams can operate with less rework.',
-    image: '/images/case-studies/social-publisher/01-dashboard-overview-dark.png',
+    image: '/images/selected-work/social-publisher.png',
     href: '/selected-work/social-publisher',
     meta: ['Workflow design', 'Social publishing']
   },
@@ -91,7 +90,7 @@ const caseStudies = [
     title: 'Natal Charts',
     tag: 'Dense calculation clarity',
     description: 'Made birth data, time-zone logic, transits and relationship comparison easier to enter, read, compare and share.',
-    image: '/images/case-studies/natal-charts/01-landing.png',
+    image: '/images/selected-work/natal-charts.png',
     href: '/selected-work/natal-charts',
     meta: ['Complex data', 'Chart workflow']
   },
@@ -99,7 +98,7 @@ const caseStudies = [
     title: 'Archimedes Finance',
     tag: 'Investment operations control',
     description: 'Joined onboarding, KYC, approvals, vesting, reporting and client messages so investment teams can review state and evidence in one flow.',
-    image: '/images/case-studies/archimedes-finance/25-home-landing.jpeg',
+    image: '/images/selected-work/archimedes-finance.png',
     href: '/selected-work/archimedes-finance',
     meta: ['Role-based access', 'Audit trail']
   },
@@ -107,7 +106,7 @@ const caseStudies = [
     title: 'ForgingBlock Dashboard',
     tag: 'Invoice status clarity',
     description: 'Refined scattered merchant payment data into a focused view of paid invoices, open items, cash-flow signals and payout status.',
-    image: '/images/case-studies/forgingblock-dashboard/payments-page.svg',
+    image: '/images/selected-work/forgingblock-dashboard.png',
     href: '/selected-work/forgingblock-dashboard',
     meta: ['Operational clarity', 'Dashboard']
   },
@@ -115,7 +114,7 @@ const caseStudies = [
     title: 'ForgingBlock Website',
     tag: 'Merchant conversion blockers',
     description: 'Found where proof, pricing and merchant outcomes were getting buried, then rebuilt the journey so buyers could trust the next step.',
-    image: '/images/case-studies/forgingblock-website/mockups/home-comparison.png',
+    image: '/images/selected-work/forgingblock-website.png',
     href: '/selected-work/forgingblock-website',
     meta: ['Strategic audit', 'Marketing site']
   },
@@ -123,7 +122,7 @@ const caseStudies = [
     title: 'Felt Weather',
     tag: 'Local context gap',
     description: 'Combined forecasts with nearby public signals so people can judge how conditions feel locally, not just what the official reading says.',
-    image: '/images/case-studies/felt-weather/01-live-felt-weather-map.png',
+    image: '/images/selected-work/felt-weather.png',
     href: '/selected-work/felt-weather',
     meta: ['Local signals', 'Map-based UI']
   },
@@ -131,7 +130,7 @@ const caseStudies = [
     title: 'Zettahash Hashboard',
     tag: 'Stakeholder transparency gap',
     description: 'Brought mining, treasury, market and governance signals into one readable hub so stakeholders can assess project health quickly.',
-    image: '/images/case-studies/hashboard/dashboard-overview.svg',
+    image: '/images/selected-work/hashboard.png',
     href: '/selected-work/hashboard',
     meta: ['Stakeholder trust', 'DAO dashboard']
   }

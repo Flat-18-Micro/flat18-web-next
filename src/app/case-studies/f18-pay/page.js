@@ -159,7 +159,7 @@ export default function F18PayCaseStudyPage() {
               </p>
               <div className={styles.productHeroActions}>
                 <a
-                  href="https://pay.flat18.co.uk"
+                  href="https://f18pay.flat18.co.uk"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn btn-primary"

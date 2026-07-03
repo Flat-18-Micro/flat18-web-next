@@ -182,7 +182,7 @@ export default function ArchimedesFinanceCaseStudyPage() {
               </p>
               <div className={styles.productHeroActions}>
                 <a
-                  href="https://archimedes-finance.pages.dev"
+                  href="https://archimedes-finance.pages.dev/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn btn-primary"

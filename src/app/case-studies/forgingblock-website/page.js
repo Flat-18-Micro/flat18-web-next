@@ -201,11 +201,16 @@ export default function ForgingBlockWebsiteCaseStudyPage() {
                 buyers can understand the offer, compare pricing and trust the next step.
               </p>
               <div className={styles.productHeroActions}>
+                <a
+                  href="https://forgingblock-website.pages.dev/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn btn-primary"
+                >
+                  View live site
+                </a>
                 <a href="#story" className="btn btn-secondary">
                   Read the build story
-                </a>
-                <a href="#chat" className="btn btn-primary">
-                  Chat with us
                 </a>
               </div>
               <div className={styles.productProofGrid}>

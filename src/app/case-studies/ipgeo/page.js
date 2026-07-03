@@ -160,12 +160,12 @@ export default function IPGeoCaseStudyPage() {
               </p>
               <div className={styles.productHeroActions}>
                 <a
-                  href="https://geo.flat18.app"
+                  href="https://github.com/vswee/vercel-ip-geo"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn btn-primary"
                 >
-                  View live API
+                  View repository
                 </a>
                 <a href="#story" className="btn btn-secondary">
                   Read the build story

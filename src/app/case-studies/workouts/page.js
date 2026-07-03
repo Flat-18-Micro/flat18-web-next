@@ -165,7 +165,7 @@ export default function WorkoutsCaseStudyPage() {
 
               <div className={styles.productHeroActions}>
                 <a
-                  href="https://workouts.flat18.app"
+                  href="https://workouts.flat18.app/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn btn-primary"

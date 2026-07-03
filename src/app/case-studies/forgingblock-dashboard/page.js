@@ -180,11 +180,16 @@ export default function ForgingBlockDashboardCaseStudyPage() {
                 focused payments hub so teams can see what was paid, what is open and what needs attention.
               </p>
               <div className={styles.productHeroActions}>
+                <a
+                  href="https://forgingblock-dashboard.pages.dev/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn btn-primary"
+                >
+                  View live dashboard
+                </a>
                 <a href="#story" className="btn btn-secondary">
                   Read the build story
-                </a>
-                <a href="#chat" className="btn btn-primary">
-                  Chat with us
                 </a>
               </div>
               <div className={styles.productProofGrid}>

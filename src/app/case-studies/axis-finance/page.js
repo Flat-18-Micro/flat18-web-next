@@ -186,8 +186,13 @@ export default function AxisFinanceCaseStudyPage() {
                 tracking and narrow alerts so users can inspect the signal without handing over control.
               </p>
               <div className={styles.productHeroActions}>
-                <a href="#showcase" className="btn btn-primary">
-                  Explore the screens
+                <a
+                  href="https://axis-finance.flat18.app"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn btn-primary"
+                >
+                  View live site
                 </a>
                 <a href="#story" className="btn btn-secondary">
                   Read the build story
