@@ -208,7 +208,7 @@ export default function Portfolio() {
     {
       title: 'SignalMap',
       description: 'Turns privacy-limited browser signals into aggregate reporting and practical recommendations.',
-      image: '/images/case-studies/signalmap/01-landing.png',
+      image: '/images/case-studies/signalmap/0EF9E551-C405-4F7D-A599-9AD5AF03F31D.png',
       projectLogo: signalmapBrandAssets.appIcon,
       projectLogoAlt: 'SignalMap app mark',
       projectLogoUseNextImage: true,

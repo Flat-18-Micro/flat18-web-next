@@ -8,7 +8,7 @@ import Contact from '@/components/Contact'
 import Footer from '@/components/Footer'
 import styles from '@/styles/component-css/CaseStudies.module.css'
 import brandStyles from '@/styles/component-css/CaseStudyBrandAssets.module.css'
-import mediaFlowStyles from '@/styles/component-css/CaseStudyMediaFlow.module.css'
+import CaseStudyMediaFlow from '@/components/CaseStudyMediaFlow'
 import { natalChartsBrandAssets } from '@/lib/natal-charts-assets'
 
 const mediaItems = [
@@ -75,6 +75,8 @@ const mediaItems = [
     sizes: '(max-width: 768px) 100vw, 320px'
   }
 ]
+
+const galleryItems = mediaItems.map((_, index) => index)
 
 const journeySteps = [
   {
@@ -431,35 +433,14 @@ export default function NatalChartsCaseStudyPage() {
             </div>
 
             <div className={styles.caseStudyMedia}>
-              <div className={`${styles.mediaGrid} ${mediaFlowStyles.mediaGridFlow}`}>
-                {mediaItems.map((item, index) => (
-                  <figure
-                    key={item.src}
-                    style={{ ['--media-tile-bg']: `url("${item.src}")` }}
-                    className={`${styles.mediaItem} ${item.isPrimary ? styles.mediaPrimary : styles.mediaSecondary} ${mediaFlowStyles.mediaFlowItem} ${item.isPrimary ? mediaFlowStyles.mediaFlowPrimary : mediaFlowStyles.mediaFlowSecondary}`}
-                  >
-                    <button
-                      type="button"
-                      className={`${styles.mediaButton} ${mediaFlowStyles.mediaFlowButton}`}
-                      onClick={() => openLightbox(index)}
-                    >
-                      <Image
-                        src={item.src}
-                        alt={item.alt}
-                        fill
-                        sizes={item.sizes}
-                        className={`${styles.mediaImage} ${mediaFlowStyles.mediaFlowImage}`}
-                        priority={item.priority}
-                      />
-                      <span className={`${styles.mediaButtonHint} ${mediaFlowStyles.mediaFlowHint}`}>
-                        <i className="bi bi-arrows-fullscreen" aria-hidden="true"></i>
-                        View
-                      </span>
-                    </button>
-                    <figcaption className={`${styles.mediaCaption} ${mediaFlowStyles.mediaFlowCaption}`}>{item.caption}</figcaption>
-                  </figure>
-                ))}
-              </div>
+              <CaseStudyMediaFlow
+                items={galleryItems.map((mediaIndex) => ({
+                  ...mediaItems[mediaIndex],
+                  sourceIndex: mediaIndex,
+                }))}
+                onOpen={openLightbox}
+                initialActiveIndex={0}
+              />
               <div className={styles.openSourcePanel}>
                 <h4>Delivered for confidence</h4>
                 <p>

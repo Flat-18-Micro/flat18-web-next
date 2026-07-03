@@ -1029,7 +1029,7 @@ h3[data-scroll-title-words] {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  gap: 5px .35rem;
+  gap: 5px .35rem
 }
 
 section.scrolled [data-scroll-title-word] {
@@ -1178,6 +1178,26 @@ section.scrolled.scrolled-in :is(article, [class*=serviceCard__], [class*=proces
 
 section.scrolled.scrolled-in :is(article, [class*=serviceCard__], [class*=processCard__], [class*=pricingCard__], [class*=projectCard__], [class*=faqItem__], [class*=visualElement__], [class*=proofItem__]):nth-child(15) {
   transition-delay: 3s
+}
+
+section.scrolled.scrolled-in :is(article, [class*=serviceCard__], [class*=processCard__], [class*=pricingCard__], [class*=projectCard__], [class*=faqItem__], [class*=visualElement__], [class*=proofItem__]):nth-child(16) {
+  transition-delay: 3.2s
+}
+
+section.scrolled.scrolled-in :is(article, [class*=serviceCard__], [class*=processCard__], [class*=pricingCard__], [class*=projectCard__], [class*=faqItem__], [class*=visualElement__], [class*=proofItem__]):nth-child(17) {
+  transition-delay: 3.4s
+}
+
+section.scrolled.scrolled-in :is(article, [class*=serviceCard__], [class*=processCard__], [class*=pricingCard__], [class*=projectCard__], [class*=faqItem__], [class*=visualElement__], [class*=proofItem__]):nth-child(18) {
+  transition-delay: 3.6s
+}
+
+section.scrolled.scrolled-in :is(article, [class*=serviceCard__], [class*=processCard__], [class*=pricingCard__], [class*=projectCard__], [class*=faqItem__], [class*=visualElement__], [class*=proofItem__]):nth-child(19) {
+  transition-delay: 3.8s
+}
+
+section.scrolled.scrolled-in :is(article, [class*=serviceCard__], [class*=processCard__], [class*=pricingCard__], [class*=projectCard__], [class*=faqItem__], [class*=visualElement__], [class*=proofItem__]):nth-child(20) {
+  transition-delay: 4s
 }
 
 section.scrolled.scrolled-out :where(h1, h2), section.scrolled.scrolled-out .scroll-child, section.scrolled.scrolled-out [data-scroll-child], section.scrolled.scrolled-out :where([class*=sectionHeader]) :where(h1, h2, span, p), section.scrolled.scrolled-out :where([class*=sectionHeading])>*, section.scrolled.scrolled-out :is(article, [class*=serviceCard__], [class*=processCard__], [class*=pricingCard__], [class*=projectCard__], [class*=faqItem__], [class*=visualElement__], [class*=proofItem__]) {

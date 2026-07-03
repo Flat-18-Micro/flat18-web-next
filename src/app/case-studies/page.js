@@ -136,6 +136,8 @@ const caseStudies = [
   }
 ]
 
+const selectedWorkCount = caseStudies.length
+
 export default function CaseStudiesPage() {
   return (
     <div className={`${styles.page} ${styles.caseStudyIndexPage}`}>
@@ -151,7 +153,7 @@ export default function CaseStudiesPage() {
             </p>
             <div className={styles.heroStats}>
               <div className={styles.statCard}>
-                <span className={styles.statValue}>16</span>
+                <span className={styles.statValue}>{selectedWorkCount}</span>
                 <span className={styles.statLabel}>Deep dives</span>
               </div>
               <div className={styles.statCard}>

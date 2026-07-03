@@ -7,7 +7,7 @@ import CaseStudyLightbox from '@/components/CaseStudyLightbox'
 import Contact from '@/components/Contact'
 import Footer from '@/components/Footer'
 import styles from '@/styles/component-css/CaseStudies.module.css'
-import mediaFlowStyles from '@/styles/component-css/CaseStudyMediaFlow.module.css'
+import CaseStudyMediaFlow from '@/components/CaseStudyMediaFlow'
 
 const mediaItems = [
   {
@@ -279,40 +279,14 @@ export default function FeltWeatherCaseStudyPage() {
         <div className={styles.container}>
           <div className={`${styles.caseStudyGrid} ${styles.caseStudyGridReverse}`}>
             <div className={styles.caseStudyMedia}>
-              <div className={`${styles.mediaGrid} ${mediaFlowStyles.mediaGridFlow}`}>
-                {galleryItems.map((mediaIndex, galleryIndex) => {
-                  const item = mediaItems[mediaIndex]
-
-                  return (
-                    <figure
-                      key={item.src}
-                      style={{ ['--media-tile-bg']: `url("${item.src}")` }}
-                      className={`${styles.mediaItem} ${galleryIndex === 0 ? styles.mediaPrimary : styles.mediaSecondary} ${mediaFlowStyles.mediaFlowItem} ${galleryIndex === 0 ? mediaFlowStyles.mediaFlowPrimary : mediaFlowStyles.mediaFlowSecondary}`}
-                    >
-                      <button
-                        type="button"
-                        className={`${styles.mediaButton} ${mediaFlowStyles.mediaFlowButton}`}
-                        onClick={() => openLightbox(mediaIndex)}
-                        aria-label={`Open ${item.alt} in viewer`}
-                      >
-                        <Image
-                          src={item.src}
-                          alt={item.alt}
-                          fill
-                          sizes={item.sizes}
-                          className={`${styles.mediaImage} ${mediaFlowStyles.mediaFlowImage}`}
-                          priority={item.priority}
-                        />
-                        <span className={`${styles.mediaButtonHint} ${mediaFlowStyles.mediaFlowHint}`}>
-                          <i className="bi bi-arrows-fullscreen" aria-hidden="true"></i>
-                          View
-                        </span>
-                      </button>
-                      <figcaption className={`${styles.mediaCaption} ${mediaFlowStyles.mediaFlowCaption}`}>{item.caption}</figcaption>
-                    </figure>
-                  )
-                })}
-              </div>
+              <CaseStudyMediaFlow
+                items={galleryItems.map((mediaIndex) => ({
+                  ...mediaItems[mediaIndex],
+                  sourceIndex: mediaIndex,
+                }))}
+                onOpen={openLightbox}
+                initialActiveIndex={0}
+              />
               <div className={styles.openSourcePanel}>
                 <h4>Delivered for confidence</h4>
                 <p>

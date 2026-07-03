@@ -40,6 +40,16 @@ function getRelativeIndex(index, activeIndex, total) {
   return raw
 }
 
+function getMediaFlowSource(item) {
+  const source = item?.src
+
+  if (typeof source === 'string') {
+    return source
+  }
+
+  return source?.src || source?.default?.src || ''
+}
+
 export default function CaseStudyMediaFlow({
   items = [],
   onOpen,
@@ -63,8 +73,10 @@ export default function CaseStudyMediaFlow({
   }
 
   const handleCardClick = (index) => {
+    const item = items[index]
+
     if (index === activeIndex) {
-      onOpen?.(index)
+      onOpen?.(Number.isInteger(item?.sourceIndex) ? item.sourceIndex : index)
       return
     }
 
@@ -100,6 +112,8 @@ export default function CaseStudyMediaFlow({
             const isActive = offset === 0
             const isVisible = distance <= 2
             const direction = offset < 0 ? -1 : 1
+            const sourceIndex = Number.isInteger(item?.sourceIndex) ? item.sourceIndex : index
+            const mediaSource = getMediaFlowSource(item)
 
             const tileWidth = isActive
               ? 'clamp(290px, 64cqw, 470px)'
@@ -114,7 +128,7 @@ export default function CaseStudyMediaFlow({
                 : 'clamp(250px, 42cqw, 320px)'
 
             const style = {
-              '--media-tile-bg': `url("${item.src}")`,
+              '--media-tile-bg': `url("${mediaSource}")`,
               '--flow-width': tileWidth,
               '--flow-shift':
                 direction < 0 ? `calc(-1 * ${shift})` : shift,
@@ -133,7 +147,7 @@ export default function CaseStudyMediaFlow({
 
             return (
               <figure
-                key={item.src}
+                key={`${sourceIndex}-${item?.alt || item?.caption || index}`}
                 className={styles.mediaFlowCard}
                 style={style}
                 data-active={isActive ? 'true' : 'false'}
@@ -152,7 +166,7 @@ export default function CaseStudyMediaFlow({
                   >
                     <span className={styles.mediaFlowFrame}>
                       <Image
-                        src={item.src}
+                        src={mediaSource || item.src}
                         alt={item.alt}
                         fill
                         sizes={item.sizes}
