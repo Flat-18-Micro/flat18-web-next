@@ -6,6 +6,7 @@ import { socialPublisherBrandAssets } from '@/lib/social-publisher-assets'
 import { workoutsBrandAssets } from '@/lib/workouts-assets'
 
 export type CaseStudySlug =
+  | 'axis-finance'
   | 'archimedes-finance'
   | 'btcpayserver'
   | 'f18-pay'
@@ -32,6 +33,21 @@ type CaseStudySeoEntry = {
 }
 
 const caseStudySeoData: Record<CaseStudySlug, CaseStudySeoEntry> = {
+  'axis-finance': {
+    title: 'Selected work: Axis Finance',
+    description:
+      'How Flat18 helped private investors inspect positions, prices and alerts without handing over control, using read-only wallet tracking and narrow signals.',
+    path: '/selected-work/axis-finance',
+    image: '/og/selected-work.png',
+    keywords: [
+      'Axis Finance selected work',
+      'read-only finance dashboard',
+      'portfolio clarity',
+      'wallet tracking',
+      'fintech product design',
+    ],
+    about: ['Portfolio clarity', 'Read-only access', 'Alerts and watchlists', 'Private finance'],
+  },
   'archimedes-finance': {
     title: 'Selected work: Archimedes Finance',
     description:

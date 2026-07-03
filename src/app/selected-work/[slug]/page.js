@@ -1,4 +1,5 @@
 import { notFound } from 'next/navigation'
+import AxisFinancePage from '@/app/case-studies/axis-finance/page'
 import ArchimedesFinancePage from '@/app/case-studies/archimedes-finance/page'
 import BtcPayServerPage from '@/app/case-studies/btcpayserver/page'
 import F18PayPage from '@/app/case-studies/f18-pay/page'
@@ -16,6 +17,7 @@ import WalletScrutinyPage from '@/app/case-studies/walletscrutiny/page'
 import WorkoutsPage from '@/app/case-studies/workouts/page'
 
 const pageMap = {
+  'axis-finance': AxisFinancePage,
   'archimedes-finance': ArchimedesFinancePage,
   btcpayserver: BtcPayServerPage,
   'f18-pay': F18PayPage,
