@@ -2,6 +2,7 @@ import Link from 'next/link'
 import Footer from '@/components/Footer'
 import Contact from '@/components/Contact'
 import Breadcrumbs from '@/components/Breadcrumbs'
+import ChatCtaLink from '@/components/ChatCtaLink'
 import styles from '@/styles/component-css/PageStyles.module.css'
 import contactStyles from '@/styles/component-css/ContactPage.module.css'
 import { siteConfig } from '@/lib/seo'
@@ -20,8 +21,8 @@ const contactOptions = [
     kicker: 'Best for quick questions',
     title: 'Live chat',
     description: 'Open live chat if you want a faster back-and-forth while you are already on the site.',
-    href: '/chat?data=intro',
-    action: 'Open chat',
+    href: '/contact#contact-form',
+    action: 'Chat with us',
     icon: 'bi-chat-dots',
     external: false,
   },
@@ -84,10 +85,16 @@ export default function ContactPage() {
                 const isInternalRoute = option.href.startsWith('/')
                 const isMailLink = option.href.startsWith('mailto:')
                 const action = isInternalRoute ? (
-                  <Link href={option.href} className={linkClassName}>
-                    <span className="btn-text">{option.action}</span>
-                    <i className="bi bi-arrow-right" aria-hidden="true"></i>
-                  </Link>
+                  option.title === 'Live chat' ? (
+                    <ChatCtaLink className={linkClassName} source="contact-page">
+                      <span className="btn-text">{option.action}</span>
+                    </ChatCtaLink>
+                  ) : (
+                    <Link href={option.href} className={linkClassName}>
+                      <span className="btn-text">{option.action}</span>
+                      <i className="bi bi-arrow-right" aria-hidden="true"></i>
+                    </Link>
+                  )
                 ) : isMailLink ? (
                   <a href={option.href} className={linkClassName}>
                     <span className="btn-text">{option.action}</span>

@@ -1,4 +1,5 @@
 import TitleWords from '@/components/TitleWords'
+import ChatCtaLink from '@/components/ChatCtaLink'
 import styles from '@/styles/component-css/FinalCTA.module.css'
 import { getSectionBackground, getSectionTextColor } from '@/hooks/scrollBackgroundUtils'
 
@@ -21,10 +22,9 @@ export default function FinalCTA() {
           </p>
         </div>
         <div className={styles.actions}>
-          <a href="mailto:hello@flat18.co.uk?subject=Start%20a%20project" className="btn btn-primary">
-            Start a project
-            <i className="bi bi-arrow-right" aria-hidden="true" />
-          </a>
+          <ChatCtaLink className="btn btn-primary" source="final-cta" variant="icon">
+            Chat with us
+          </ChatCtaLink>
           <a href="mailto:hello@flat18.co.uk" className="btn btn-secondary">
             Email us
           </a>

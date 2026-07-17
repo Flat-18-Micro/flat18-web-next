@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import ChatCtaLink from '@/components/ChatCtaLink'
 import styles from '../styles/component-css/FAQ.module.css'
 import { getSectionBackground, getSectionTextColor } from '@/hooks/scrollBackgroundUtils'
 
@@ -78,9 +79,9 @@ export default function FAQ() {
             <p>
               Send us the idea, the risk and the deadline. We will tell you which route fits, or whether we are not the right team.
             </p>
-            <a href="#chat" className="btn btn-secondary">
-              Ask us directly
-            </a>
+            <ChatCtaLink className="btn btn-secondary" source="faq">
+              Chat with us
+            </ChatCtaLink>
           </aside>
 
           <div className={styles.faqList}>

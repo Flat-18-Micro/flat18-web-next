@@ -3,17 +3,22 @@
 import Link from 'next/link'
 
 import { analytics } from '@/lib/analytics'
+import { openChatwootOrFallback } from '@/utils/chatwoot'
 import styles from '@/styles/component-css/Hero.module.css'
 
 export default function HeroActions() {
   return (
     <div className={styles.heroActions}>
       <a
-        href="#contact"
+        href="/contact#contact-form"
         className="btn btn-primary btn-icon btn-lg"
-        onClick={() => analytics.hero.bookCall()}
+        onClick={(event) => {
+          event.preventDefault()
+          analytics.chat.open('hero')
+          openChatwootOrFallback()
+        }}
       >
-        <span className="btn-text">Start a project</span>
+        <span className="btn-text">Chat with us</span>
         <i className="bi bi-arrow-right" aria-hidden="true" />
       </a>
       <Link

@@ -1,4 +1,5 @@
 import TitleWords from '@/components/TitleWords'
+import ChatCtaLink from '@/components/ChatCtaLink'
 import styles from '@/styles/component-css/Features.module.css'
 import { getSectionBackground, getSectionTextColor } from '@/hooks/scrollBackgroundUtils'
 
@@ -66,10 +67,13 @@ export default function Features() {
 
               {/* Micro-CTA */}
               <div className={styles.cardFooter}>
-                <a href="#contact" className={styles.microCTA}>
-                  {service.cta}
-                  <i className="bi bi-arrow-right" aria-hidden="true"></i>
-                </a>
+                <ChatCtaLink
+                  className={styles.microCTA}
+                  source={`features:${service.title}`}
+                  variant="icon"
+                >
+                  Chat with us
+                </ChatCtaLink>
               </div>
             </div>
           ))}
@@ -80,9 +84,9 @@ export default function Features() {
             <TitleWords as="h3">Not sure which route fits?</TitleWords>
             <p>Send the goal, deadline and main risk. We'll suggest the leanest responsible route.</p>
           </div>
-          <a href="#contact" className="btn btn-primary">
-            Start a project
-          </a>
+          <ChatCtaLink className="btn btn-primary" source="features:bottom-cta">
+            Chat with us
+          </ChatCtaLink>
         </div>
       </div>
     </section>

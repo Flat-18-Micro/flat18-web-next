@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useCallback } from 'react'
 import Link from 'next/link'
+import ChatCtaLink from '@/components/ChatCtaLink'
 import TitleWords from '@/components/TitleWords'
 import styles from '../styles/component-css/Pricing.module.css'
 import { analytics } from '@/lib/analytics'
@@ -295,14 +296,13 @@ export default function Pricing({ headingLevel = 'h2' }) {
                   </li>
                 ))}
               </ul>
-              <Link
-                href="#contact"
+              <ChatCtaLink
                 className={`btn ${route.title === 'Curated MVP Sprint' ? 'btn-primary' : 'btn-secondary'}`}
-                onClick={() => analytics.pricing.bookCall()}
+                source={`pricing:${route.title}`}
+                variant="icon"
               >
                 {route.cta}
-                <i className="bi bi-arrow-right" aria-hidden="true"></i>
-              </Link>
+              </ChatCtaLink>
             </article>
           ))}
         </div>
@@ -316,13 +316,9 @@ export default function Pricing({ headingLevel = 'h2' }) {
             <TitleWords as="h3">Not sure which route fits?</TitleWords>
             <p>Share your goal and constraints. We will recommend the leanest responsible route.</p>
           </div>
-          <Link
-            href="#contact"
-            className="btn btn-secondary"
-            onClick={() => analytics.pricing.bookCall()}
-          >
+          <ChatCtaLink className="btn btn-secondary" source="pricing:bottom-cta">
             Start a project
-          </Link>
+          </ChatCtaLink>
         </div>
       </div>
     </section>

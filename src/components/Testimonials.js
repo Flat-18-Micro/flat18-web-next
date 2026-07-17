@@ -1,4 +1,5 @@
 import styles from '../styles/component-css/Testimonials.module.css'
+import ChatCtaLink from '@/components/ChatCtaLink'
 import { getSectionBackground, getSectionTextColor } from '@/hooks/scrollBackgroundUtils'
 
 const reasons = [
@@ -58,9 +59,9 @@ export default function Testimonials() {
           <p>
             LLMs are the acceleration layer. Senior developers are the quality control.
           </p>
-          <a href="#chat" className="btn btn-secondary">
-            Discuss your project
-          </a>
+          <ChatCtaLink className="btn btn-secondary" source="testimonials">
+            Chat with us
+          </ChatCtaLink>
         </div>
       </div>
     </section>

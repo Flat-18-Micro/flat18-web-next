@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import TitleWords from '@/components/TitleWords'
+import ChatCtaLink from '@/components/ChatCtaLink'
 import WhoThisIsForMobileObserver from '@/components/WhoThisIsForMobileObserver'
 import styles from '@/styles/component-css/WhoThisIsForSection.module.css'
 import { getSectionBackground, getSectionTextColor } from '@/hooks/scrollBackgroundUtils'
@@ -109,12 +110,12 @@ export default function WhoThisIsForSection() {
 
         <div className={styles.ctaPanel}>
           <p>
-            If this sounds familiar, send the product, prototype or idea. We'll tell you what to fix first.
+            If this sounds familiar, send the product, prototype or idea. We’ll tell you what to fix first.
           </p>
           <div className={styles.ctaActions}>
-            <a href="#contact" className="btn btn-primary">
-              Get a product review
-            </a>
+            <ChatCtaLink className="btn btn-primary" source="who-this-is-for">
+              Chat with us
+            </ChatCtaLink>
             <Link href="/selected-work" className="btn btn-secondary">
               See selected work
             </Link>

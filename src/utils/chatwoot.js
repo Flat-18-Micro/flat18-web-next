@@ -183,6 +183,35 @@ export const openChatwoot = () => {
 }
 
 /**
+ * Opens Chatwoot when available, otherwise falls back to the contact form.
+ * @param {Object} options
+ * @param {string} options.fallbackUrl - URL to open when Chatwoot is unavailable.
+ * @param {boolean} options.trackFallback - Whether to track the fallback as a chat open.
+ */
+export const openChatwootOrFallback = (options = {}) => {
+  if (typeof window === 'undefined') return
+
+  const {
+    fallbackUrl = '/contact#contact-form',
+    trackFallback = true,
+  } = options
+
+  if (window.$chatwoot && typeof window.$chatwoot.toggle === 'function') {
+    if (!window.$chatwoot.isOpen) {
+      window.$chatwoot.toggle()
+      trackChatwootXConversion()
+    }
+    return
+  }
+
+  if (trackFallback) {
+    trackChatwootXConversion()
+  }
+
+  window.location.href = fallbackUrl
+}
+
+/**
  * Closes the Chatwoot widget
  */
 export const closeChatwoot = () => {
