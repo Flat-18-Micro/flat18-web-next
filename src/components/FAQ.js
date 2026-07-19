@@ -79,7 +79,7 @@ export default function FAQ() {
             <p>
               Send us the idea, the risk and the deadline. We will tell you which route fits, or whether we are not the right team.
             </p>
-            <ChatCtaLink className="btn btn-secondary" source="faq">
+            <ChatCtaLink className="btn btn-secondary" source="faq" signalLabel="faq_chat">
               Chat with us
             </ChatCtaLink>
           </aside>

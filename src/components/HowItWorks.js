@@ -69,7 +69,12 @@ export default function HowItWorks() {
             <TitleWords as="h3">Fast output. Senior review.</TitleWords>
             <p>LLMs are the acceleration layer. Senior developers are the quality control.</p>
           </div>
-          <a href="#contact" className="btn btn-primary">
+          <a
+            href="#contact"
+            className="btn btn-primary"
+            data-cta-source="process"
+            data-signal-label="process_start_a_project"
+          >
             Start a project
           </a>
         </div>

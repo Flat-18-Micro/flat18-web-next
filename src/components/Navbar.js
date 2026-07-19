@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import styles from '@/styles/component-css/Navbar.module.css'
-import { analytics } from '@/lib/analytics'
+import { analytics, trackSignalEvent } from '@/lib/analytics'
 import { ThemeSwitcher } from '@/app/providers'
 
 export default function Navbar({ isScrolled }) {
@@ -53,22 +53,46 @@ export default function Navbar({ isScrolled }) {
         <nav className={`${styles.desktopNav} hidden lg:flex`} aria-label="Primary">
           <ul className={styles.menu}>
             <li>
-              <Link href="/#work" className={styles.link}>
+              <Link
+                href="/#work"
+                className={styles.link}
+                data-cta-source="nav"
+                data-signal-label="nav_work"
+                onClick={() => trackSignalEvent('nav_work')}
+              >
                 <span>Work</span>
               </Link>
             </li>
             <li>
-              <Link href="/#process" className={styles.link}>
+              <Link
+                href="/#process"
+                className={styles.link}
+                data-cta-source="nav"
+                data-signal-label="nav_process"
+                onClick={() => trackSignalEvent('nav_process')}
+              >
                 <span>Process</span>
               </Link>
             </li>
             <li>
-              <Link href="/#pricing" className={styles.link}>
+              <Link
+                href="/#pricing"
+                className={styles.link}
+                data-cta-source="nav"
+                data-signal-label="nav_pricing"
+                onClick={() => trackSignalEvent('nav_pricing')}
+              >
                 <span>Pricing</span>
               </Link>
             </li>
             <li>
-              <Link href="/contact" className={styles.link}>
+              <Link
+                href="/contact"
+                className={styles.link}
+                data-cta-source="nav"
+                data-signal-label="nav_contact"
+                onClick={() => trackSignalEvent('nav_contact')}
+              >
                 <span>Contact</span>
               </Link>
             </li>
@@ -81,7 +105,12 @@ export default function Navbar({ isScrolled }) {
             <Link
               href="/contact"
               className="btn btn-primary btn-icon"
-              onClick={() => analytics.nav.bookCall()}
+              data-cta-source="nav"
+              data-signal-label="nav_start_a_project"
+              onClick={() => {
+                trackSignalEvent('nav_start_a_project')
+                analytics.nav.bookCall()
+              }}
             >
               <span className="btn-text">Start a project</span>
               <i className="bi bi-arrow-right" aria-hidden="true"></i>
@@ -109,25 +138,61 @@ export default function Navbar({ isScrolled }) {
           <div className={styles.mobileMenuContent}>
             <ul className={styles.mobileMenuList}>
               <li>
-                <Link href="/#work" className={styles.mobileLink} onClick={() => setIsMobileMenuOpen(false)}>
+                <Link
+                  href="/#work"
+                  className={styles.mobileLink}
+                  data-cta-source="nav"
+                  data-signal-label="nav_mobile_work"
+                  onClick={() => {
+                    setIsMobileMenuOpen(false)
+                    trackSignalEvent('nav_mobile_work')
+                  }}
+                >
                   <span className={styles.mobileLinkLabel}>Work</span>
                   <span className={styles.mobileLinkDescription}>Real product builds</span>
                 </Link>
               </li>
               <li>
-                <Link href="/#process" className={styles.mobileLink} onClick={() => setIsMobileMenuOpen(false)}>
+                <Link
+                  href="/#process"
+                  className={styles.mobileLink}
+                  data-cta-source="nav"
+                  data-signal-label="nav_mobile_process"
+                  onClick={() => {
+                    setIsMobileMenuOpen(false)
+                    trackSignalEvent('nav_mobile_process')
+                  }}
+                >
                   <span className={styles.mobileLinkLabel}>Process</span>
                   <span className={styles.mobileLinkDescription}>Fast work, reviewed</span>
                 </Link>
               </li>
               <li>
-                <Link href="/#pricing" className={styles.mobileLink} onClick={() => setIsMobileMenuOpen(false)}>
+                <Link
+                  href="/#pricing"
+                  className={styles.mobileLink}
+                  data-cta-source="nav"
+                  data-signal-label="nav_mobile_pricing"
+                  onClick={() => {
+                    setIsMobileMenuOpen(false)
+                    trackSignalEvent('nav_mobile_pricing')
+                  }}
+                >
                   <span className={styles.mobileLinkLabel}>Pricing</span>
                   <span className={styles.mobileLinkDescription}>MVPs, builds and retained support</span>
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className={styles.mobileLink} onClick={() => setIsMobileMenuOpen(false)}>
+                <Link
+                  href="/contact"
+                  className={styles.mobileLink}
+                  data-cta-source="nav"
+                  data-signal-label="nav_mobile_contact"
+                  onClick={() => {
+                    setIsMobileMenuOpen(false)
+                    trackSignalEvent('nav_mobile_contact')
+                  }}
+                >
                   <span className={styles.mobileLinkLabel}>Contact</span>
                   <span className={styles.mobileLinkDescription}>Contact page</span>
                 </Link>
@@ -140,8 +205,11 @@ export default function Navbar({ isScrolled }) {
               <Link
                 href="/contact"
                 className="btn btn-primary w-full"
+                data-cta-source="nav"
+                data-signal-label="nav_mobile_start_a_project"
                 onClick={() => {
                   setIsMobileMenuOpen(false)
+                  trackSignalEvent('nav_mobile_start_a_project')
                   analytics.nav.bookCall()
                 }}
               >

@@ -86,7 +86,11 @@ export default function ContactPage() {
                 const isMailLink = option.href.startsWith('mailto:')
                 const action = isInternalRoute ? (
                   option.title === 'Live chat' ? (
-                    <ChatCtaLink className={linkClassName} source="contact-page">
+                    <ChatCtaLink
+                      className={linkClassName}
+                      source="contact-page"
+                      signalLabel="contact_page_live_chat"
+                    >
                       <span className="btn-text">{option.action}</span>
                     </ChatCtaLink>
                   ) : (

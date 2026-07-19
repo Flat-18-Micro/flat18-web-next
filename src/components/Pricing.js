@@ -299,6 +299,7 @@ export default function Pricing({ headingLevel = 'h2' }) {
               <ChatCtaLink
                 className={`btn ${route.title === 'Curated MVP Sprint' ? 'btn-primary' : 'btn-secondary'}`}
                 source={`pricing:${route.title}`}
+                signalLabel={`pricing_${route.title.toLowerCase().replace(/[^a-z0-9]+/g, '_').replace(/^_|_$/g, '')}`}
                 variant="icon"
               >
                 {route.cta}
@@ -316,7 +317,11 @@ export default function Pricing({ headingLevel = 'h2' }) {
             <TitleWords as="h3">Not sure which route fits?</TitleWords>
             <p>Share your goal and constraints. We will recommend the leanest responsible route.</p>
           </div>
-          <ChatCtaLink className="btn btn-secondary" source="pricing:bottom-cta">
+          <ChatCtaLink
+            className="btn btn-secondary"
+            source="pricing:bottom-cta"
+            signalLabel="pricing_bottom_cta"
+          >
             Start a project
           </ChatCtaLink>
         </div>

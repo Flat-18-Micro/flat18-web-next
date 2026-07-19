@@ -70,6 +70,7 @@ export default function Features() {
                 <ChatCtaLink
                   className={styles.microCTA}
                   source={`features:${service.title}`}
+                  signalLabel={`features_${service.title.toLowerCase().replace(/[^a-z0-9]+/g, '_').replace(/^_|_$/g, '')}`}
                   variant="icon"
                 >
                   Chat with us
@@ -84,7 +85,7 @@ export default function Features() {
             <TitleWords as="h3">Not sure which route fits?</TitleWords>
             <p>Send the goal, deadline and main risk. We'll suggest the leanest responsible route.</p>
           </div>
-          <ChatCtaLink className="btn btn-primary" source="features:bottom-cta">
+          <ChatCtaLink className="btn btn-primary" source="features:bottom-cta" signalLabel="features_bottom_cta">
             Chat with us
           </ChatCtaLink>
         </div>

@@ -113,7 +113,11 @@ export default function WhoThisIsForSection() {
             If this sounds familiar, send the product, prototype or idea. We’ll tell you what to fix first.
           </p>
           <div className={styles.ctaActions}>
-            <ChatCtaLink className="btn btn-primary" source="who-this-is-for">
+            <ChatCtaLink
+              className="btn btn-primary"
+              source="who-this-is-for"
+              signalLabel="who_this_is_for_cta"
+            >
               Chat with us
             </ChatCtaLink>
             <Link href="/selected-work" className="btn btn-secondary">

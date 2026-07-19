@@ -6,6 +6,7 @@ declare global {
     };
     fbq?: (action: string, event: string, data?: Record<string, any>) => void;
     twq?: (action: string, event: string, data?: Record<string, any>) => void;
+    signal?: (category: string, event: string, data?: Record<string, any>) => void;
   }
 }
 
@@ -57,6 +58,22 @@ export const trackEvent = (event: string, data?: Record<string, any>) => {
   trackMetaPixelEvent(event, data);
   trackTwitterEvent(event, data);
 };
+
+export const trackSignalEvent = (label: string) => {
+  try {
+    if (typeof window !== 'undefined' && typeof window.signal === 'function') {
+      window.signal('event', 'cta_click', { label });
+    }
+  } catch (error) {
+    console.error('Error tracking signal event:', error);
+  }
+};
+
+export const normaliseSignalLabel = (value: string) =>
+  value
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '_')
+    .replace(/^_|_$/g, '')
 
 // Specific event tracking functions as per directives
 export const trackBookCallClick = (source: 'hero' | 'header' | 'pricing' | 'footer' = 'hero') => {

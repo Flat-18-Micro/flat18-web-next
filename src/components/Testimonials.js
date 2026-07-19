@@ -59,7 +59,7 @@ export default function Testimonials() {
           <p>
             LLMs are the acceleration layer. Senior developers are the quality control.
           </p>
-          <ChatCtaLink className="btn btn-secondary" source="testimonials">
+          <ChatCtaLink className="btn btn-secondary" source="testimonials" signalLabel="testimonials_chat">
             Chat with us
           </ChatCtaLink>
         </div>

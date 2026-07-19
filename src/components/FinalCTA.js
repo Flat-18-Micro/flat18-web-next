@@ -22,7 +22,12 @@ export default function FinalCTA() {
           </p>
         </div>
         <div className={styles.actions}>
-          <ChatCtaLink className="btn btn-primary" source="final-cta" variant="icon">
+          <ChatCtaLink
+            className="btn btn-primary"
+            source="final-cta"
+            signalLabel="final_cta_chat"
+            variant="icon"
+          >
             Chat with us
           </ChatCtaLink>
           <a href="mailto:hello@flat18.co.uk" className="btn btn-secondary">

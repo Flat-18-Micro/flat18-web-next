@@ -168,6 +168,8 @@ export default function FeaturedWork() {
                 <a
                   href={project.link}
                   className={styles.featuredCta}
+                  data-cta-source="featured-work"
+                  data-signal-label={`featured_work_${project.title.toLowerCase().replace(/[^a-z0-9]+/g, '_').replace(/^_|_$/g, '')}`}
                 >
                   View project
                   <i className="bi bi-arrow-right" aria-hidden="true"></i>
@@ -178,7 +180,12 @@ export default function FeaturedWork() {
         </div>
 
         <div className={styles.featuredFooter}>
-          <Link href="/selected-work" className="btn btn-secondary">
+          <Link
+            href="/selected-work"
+            className="btn btn-secondary"
+            data-cta-source="featured-work"
+            data-signal-label="featured_work_view_selected_work"
+          >
             View selected work
             <i className="bi bi-arrow-right" aria-hidden="true"></i>
           </Link>
