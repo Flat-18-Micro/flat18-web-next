@@ -90,8 +90,7 @@ self.addEventListener('fetch', event => {
   // Skip analytics and external resources
   if (
     url.hostname.includes('umami.is') ||
-    url.hostname.includes('chatwoot') ||
-    url.pathname.startsWith('/api/chatwoot')
+    url.hostname.includes('chatwoot')
   ) {
     return;
   }

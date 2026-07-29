@@ -8,6 +8,8 @@ import Breadcrumbs from '@/components/Breadcrumbs'
 import styles from '@/styles/component-css/PricingPage.module.css'
 
 export default function PricingPage() {
+  const METRICS_URL = 'https://mailgun-contact.cloudflare-7fd.workers.dev/metrics/webm/index.php?geo=1'
+
   useEffect(() => {
     // Initialize any necessary scripts or analytics
     if (window.location.protocol !== 'https:' && window.location.hostname !== 'localhost') {
@@ -18,7 +20,7 @@ export default function PricingPage() {
 
     // Fetch metrics data if needed
     const q = localStorage && localStorage.getItem("webM") ? `&webM=${localStorage.getItem("webM")}` : ""
-    fetch('https://api.flat18.co.uk/metrics/webm/index.php?geo=1' + q)
+    fetch(METRICS_URL + q)
       .then(response => response.json())
       .then(data => {
         window.webM = data.webM

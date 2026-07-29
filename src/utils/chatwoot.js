@@ -1,3 +1,5 @@
+export const DEFAULT_CHATWOOT_BASE_URL = 'https://mailgun-contact.cloudflare-7fd.workers.dev/chatwoot'
+
 /**
  * Initializes the Chatwoot widget
  * @param {Object} options - Configuration options
@@ -10,7 +12,7 @@ export const initChatwoot = (options = {}) => {
   if (typeof window === 'undefined') return
 
   const {
-    baseUrl = '/api/chatwoot',
+    baseUrl = DEFAULT_CHATWOOT_BASE_URL,
     websiteToken = 'krt1otbtLdpkie19rPwPThai',
     settings = {
       position: "right",
@@ -31,7 +33,7 @@ export const initChatwoot = (options = {}) => {
   if (!window.chatwootSDK) {
     // Create and load the script
     const script = document.createElement('script')
-    // Load the SDK from a same-origin proxy so browsers do not touch the private upstream directly.
+    // Load the SDK from the public worker proxy so browsers do not touch the private upstream directly.
     script.src = `${resolvedBaseUrl}/packs/js/sdk.js`
     script.defer = true
     script.async = true

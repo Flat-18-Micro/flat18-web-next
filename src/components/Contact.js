@@ -6,6 +6,8 @@ import { getSectionBackground, getSectionTextColor } from '@/hooks/scrollBackgro
 import { openChatwoot } from '@/utils/chatwoot'
 
 export default function Contact() {
+  const GEO_LOOKUP_URL = 'https://mailgun-contact.cloudflare-7fd.workers.dev/geo-ip'
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -19,7 +21,7 @@ export default function Contact() {
 
   const fetchGeoInsight = async () => {
     try {
-      const response = await fetch('/api/geo-ip', { cache: 'no-store' })
+      const response = await fetch(GEO_LOOKUP_URL, { cache: 'no-store' })
       if (!response.ok) {
         console.warn('Geo lookup failed', response.status)
         return null

@@ -2,10 +2,11 @@
 
 import { useEffect, useRef } from 'react'
 import { usePathname, useSearchParams } from 'next/navigation'
-import { initChatwoot, trackChatwootXConversion } from '@/utils/chatwoot'
+import { DEFAULT_CHATWOOT_BASE_URL, initChatwoot, trackChatwootXConversion } from '@/utils/chatwoot'
 
 const LOAD_TIMEOUT_MS = 5000
-const CHATWOOT_BASE_URL = '/api/chatwoot'
+const CHATWOOT_BASE_URL = DEFAULT_CHATWOOT_BASE_URL
+const CHATWOOT_METRICS_URL = 'https://mailgun-contact.cloudflare-7fd.workers.dev/metrics/webm/index.php'
 const CHATWOOT_TOKEN = 'krt1otbtLdpkie19rPwPThai'
 const CHAT_PREFILL_PRESETS = {
   intro: 'Hi Flat 18 - I would like to talk about a project.',
@@ -96,7 +97,7 @@ export default function ChatwootWidget() {
         }
 
         const query = storedIdentifier ? `&webM=${storedIdentifier}` : ''
-        const url = `https://api.flat18.co.uk/metrics/webm/index.php?geo=1${query}&t=${Date.now()}`
+        const url = `${CHATWOOT_METRICS_URL}?geo=1${query}&t=${Date.now()}`
 
         const fetchTimeout = setTimeout(() => controller.abort(), LOAD_TIMEOUT_MS)
 
