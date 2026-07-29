@@ -10,7 +10,7 @@ export const initChatwoot = (options = {}) => {
   if (typeof window === 'undefined') return
 
   const {
-    baseUrl = 'https://chatwoot.flat18.co.uk',
+    baseUrl = '/api/chatwoot',
     websiteToken = 'krt1otbtLdpkie19rPwPThai',
     settings = {
       position: "right",
@@ -18,6 +18,8 @@ export const initChatwoot = (options = {}) => {
       launcherTitle: "Chat with us"
     }
   } = options
+
+  const resolvedBaseUrl = new URL(baseUrl, window.location.origin).toString().replace(/\/$/, '')
 
   // Set up Chatwoot settings
   window.chatwootSettings = settings
@@ -29,8 +31,8 @@ export const initChatwoot = (options = {}) => {
   if (!window.chatwootSDK) {
     // Create and load the script
     const script = document.createElement('script')
-    // Use the full URL to ensure it works on GitHub Pages
-    script.src = `${baseUrl}/packs/js/sdk.js`
+    // Load the SDK from a same-origin proxy so browsers do not touch the private upstream directly.
+    script.src = `${resolvedBaseUrl}/packs/js/sdk.js`
     script.defer = true
     script.async = true
 
@@ -40,7 +42,7 @@ export const initChatwoot = (options = {}) => {
         if (window.chatwootSDK && typeof window.chatwootSDK.run === 'function') {
           window.chatwootSDK.run({
             websiteToken: websiteToken,
-            baseUrl: baseUrl
+            baseUrl: resolvedBaseUrl
           })
 
           // Add click listeners to chat links after Chatwoot is loaded

@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 
-import { analytics, normaliseSignalLabel, trackSignalEvent } from '@/lib/analytics'
+import { analytics, trackSignalEvent } from '@/lib/analytics'
 import { openChatwootOrFallback } from '@/utils/chatwoot'
 import styles from '@/styles/component-css/Hero.module.css'
 

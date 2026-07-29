@@ -5,7 +5,7 @@ import { usePathname, useSearchParams } from 'next/navigation'
 import { initChatwoot, trackChatwootXConversion } from '@/utils/chatwoot'
 
 const LOAD_TIMEOUT_MS = 5000
-const CHATWOOT_BASE_URL = 'https://chatwoot.flat18.co.uk'
+const CHATWOOT_BASE_URL = '/api/chatwoot'
 const CHATWOOT_TOKEN = 'krt1otbtLdpkie19rPwPThai'
 const CHAT_PREFILL_PRESETS = {
   intro: 'Hi Flat 18 - I would like to talk about a project.',
@@ -44,22 +44,8 @@ export default function ChatwootWidget() {
 
     let hasStarted = false
     let hasLoaded = false
-    let idleCallbackId = null
-    let timeoutId = null
     const abortControllers = new Set()
     let latestInstantToken = 0
-
-    const clearDeferredHandles = () => {
-      if (idleCallbackId !== null && 'cancelIdleCallback' in window) {
-        window.cancelIdleCallback(idleCallbackId)
-        idleCallbackId = null
-      }
-
-      if (timeoutId !== null) {
-        clearTimeout(timeoutId)
-        timeoutId = null
-      }
-    }
 
     const waitForChatwoot = (retries = 0) => {
       if (window.$chatwoot) {
@@ -161,7 +147,6 @@ export default function ChatwootWidget() {
       }
 
       hasLoaded = true
-      clearDeferredHandles()
 
       initChatwoot({
         baseUrl: CHATWOOT_BASE_URL,
@@ -184,24 +169,6 @@ export default function ChatwootWidget() {
 
       hasStarted = true
       loadChatwoot()
-    }
-
-    const scheduleDeferredLoad = () => {
-      if (hasStarted) {
-        return
-      }
-
-      clearDeferredHandles()
-
-      if ('requestIdleCallback' in window) {
-        idleCallbackId = window.requestIdleCallback(() => {
-          startLoading()
-        }, { timeout: LOAD_TIMEOUT_MS })
-      } else {
-        timeoutId = window.setTimeout(() => {
-          startLoading()
-        }, LOAD_TIMEOUT_MS)
-      }
     }
 
     const pointerListener = () => startLoading()
@@ -250,16 +217,9 @@ export default function ChatwootWidget() {
     window.addEventListener('pointerdown', pointerListener, { once: true, passive: true })
     window.addEventListener('keydown', keyListener, { once: true })
     window.addEventListener('focus', focusListener, { once: true })
-
-    const initialPath = window.location?.pathname || ''
-    if (isChatPath(initialPath)) {
-      startLoading()
-    }
-
-    scheduleDeferredLoad()
+    startLoading()
 
     return () => {
-      clearDeferredHandles()
       abortControllers.forEach((controller) => controller.abort())
       abortControllers.clear()
 
