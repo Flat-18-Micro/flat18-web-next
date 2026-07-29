@@ -48,6 +48,7 @@ const SHIP_SIGNALS = [
 
 export default function Hero() {
   const [animationData, setAnimationData] = useState(null)
+  const [isReady, setIsReady] = useState(false)
 
   useEffect(() => {
     // Fetch the lottie animation data
@@ -57,9 +58,13 @@ export default function Hero() {
       .catch(err => console.error('Failed to load animation:', err))
   }, [])
 
+  useEffect(() => {
+    setIsReady(true)
+  }, [])
+
   return (
     <section
-      className={`${styles.heroSection} ${motionStyles.motionOverrides}`}
+      className={`${styles.heroSection} ${motionStyles.motionOverrides} ${isReady ? motionStyles.heroReady : ''}`}
       data-bg-color={getSectionBackground('hero')}
       data-text-color={getSectionTextColor('hero')}
     >
