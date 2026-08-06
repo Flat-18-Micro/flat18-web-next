@@ -351,7 +351,8 @@
   .card {
     min-height: auto;
     padding: 1.35rem 0;
-    background: var(--bg)
+    background: var(--bg);
+    padding: 20px;
   }
 
   .card:hover {
