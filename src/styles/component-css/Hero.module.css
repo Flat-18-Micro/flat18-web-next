@@ -902,8 +902,8 @@
 }
 
 .orb::after {
-  --dot: 1.5px;
-
+  --dot: 5px;
+transform: rotate(45deg);
   background-image: radial-gradient(
     circle at center,
     var(--orb-bg) var(--dot),
