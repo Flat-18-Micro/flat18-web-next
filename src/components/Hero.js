@@ -2,19 +2,8 @@
 
 import HeroActions from '@/components/HeroActions'
 import TitleWords from '@/components/TitleWords'
-import LottiePlayer from '@/components/LottiePlayer'
 import styles from '@/styles/component-css/Hero.module.css'
 import { getSectionBackground, getSectionTextColor } from '@/hooks/scrollBackgroundUtils'
-
-const loadHeroAiPipelineAnimation = async () => {
-  const response = await fetch('/lottiefiles/ea6225fb-859a-4eb1-9706-1f52f789d436.json')
-
-  if (!response.ok) {
-    throw new Error(`Unable to load hero animation (${response.status})`)
-  }
-
-  return response.json()
-}
 
 const PROOF_POINTS = [
   {
@@ -67,24 +56,8 @@ export default function Hero() {
           </div>
         </div>
 
-        <div
-          className={styles.heroVisual}
-          aria-label="AI-assisted product delivery animation"
-        >
-          <LottiePlayer
-            animationDataSrc={loadHeroAiPipelineAnimation}
-            autoplay
-            loop
-            className={styles.heroAnimation}
-            playerClassName={styles.heroAnimationPlayer}
-            playerStyle={{ width: '100%', height: '100%' }}
-            loadOnVisible
-            intersectionOptions={{ root: null, rootMargin: '0px', threshold: 0 }}
-            prefersReducedMotionFallback={null}
-          />
-        </div>
       </div>
-
+      <div className={styles.orb} aria-hidden="true" />
     </section>
   )
 }

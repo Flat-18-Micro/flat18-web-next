@@ -1,4 +1,7 @@
 const isStaticExport = process.env.STATIC_EXPORT === 'true'
+const assetCacheControl = process.env.NODE_ENV === 'development'
+  ? 'no-store'
+  : 'public, max-age=31536000, immutable'
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -24,7 +27,7 @@ const nextConfig = {
         headers: [
           {
             key: 'Cache-Control',
-            value: 'public, max-age=31536000, immutable',
+            value: assetCacheControl,
           },
         ],
       },
@@ -33,7 +36,7 @@ const nextConfig = {
         headers: [
           {
             key: 'Cache-Control',
-            value: 'public, max-age=31536000, immutable',
+            value: assetCacheControl,
           },
         ],
       },
@@ -42,7 +45,7 @@ const nextConfig = {
         headers: [
           {
             key: 'Cache-Control',
-            value: 'public, max-age=31536000, immutable',
+            value: assetCacheControl,
           },
         ],
       },
@@ -51,7 +54,7 @@ const nextConfig = {
         headers: [
           {
             key: 'Cache-Control',
-            value: 'public, max-age=31536000, immutable',
+            value: assetCacheControl,
           },
         ],
       },

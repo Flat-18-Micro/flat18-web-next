@@ -1,12 +1,7 @@
 'use client'
 
-import dynamic from 'next/dynamic'
+import Lottie from 'lottie-react'
 import { useEffect, useRef, useState } from 'react'
-
-const LazyLottie = dynamic(() => import('lottie-react'), {
-  ssr: false,
-  loading: () => null,
-})
 
 const DEFAULT_INTERSECTION_OPTIONS = {
   root: null,
@@ -136,7 +131,7 @@ export default function LottiePlayer({
         ? prefersReducedMotionFallback
         : shouldRenderAnimation
           ? (
-            <LazyLottie
+            <Lottie
               {...rest}
               lottieRef={lottieRef}
               animationData={resolvedAnimation}
