@@ -184,6 +184,21 @@ export default function Navbar({ isScrolled }) {
               </li>
               <li>
                 <Link
+                  href="/memory-lane"
+                  className={styles.mobileLink}
+                  data-cta-source="nav"
+                  data-signal-label="nav_mobile_memory_lane"
+                  onClick={() => {
+                    setIsMobileMenuOpen(false)
+                    trackSignalEvent('nav_mobile_memory_lane')
+                  }}
+                >
+                  <span className={styles.mobileLinkLabel}>Memory lane</span>
+                  <span className={styles.mobileLinkDescription}>Previous site deployments</span>
+                </Link>
+              </li>
+              <li>
+                <Link
                   href="/contact"
                   className={styles.mobileLink}
                   data-cta-source="nav"

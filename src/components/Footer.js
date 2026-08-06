@@ -162,6 +162,17 @@ export default function Footer() {
                       Communication standard
                     </Link>
                   </li>
+                  <li>
+                    <Link
+                      href="/memory-lane"
+                      className={styles.footerLink}
+                      data-cta-source="footer"
+                      data-signal-label="footer_memory_lane"
+                      onClick={() => trackSignalEvent('footer_memory_lane')}
+                    >
+                      Memory lane
+                    </Link>
+                  </li>
                 </ul>
               </div>
 

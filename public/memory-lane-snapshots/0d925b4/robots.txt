@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /*?
+
+Sitemap: https://flat18.co.uk/memory-lane/0d925b4/sitemap.xml
