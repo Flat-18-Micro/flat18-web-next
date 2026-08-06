@@ -12,9 +12,9 @@
   --hero-brass: #248e77;
   --hero-green: #06657f;
   --orb-bg: #11100f;
-  --orb-c1: color-mix(in srgb, var(--hero-blue) 78%, var(--orb-bg));
-  --orb-c2: color-mix(in srgb, var(--hero-brass) 38%, var(--hero-blue));
-  --orb-c3: color-mix(in srgb, var(--hero-green) 42%, var(--orb-bg));
+  --orb-c1: color-mix(in srgb, var(--hero-blue) 84%, var(--orb-bg));
+  --orb-c2: color-mix(in srgb, var(--hero-brass) 56%, var(--hero-blue));
+  --orb-c3: color-mix(in srgb, var(--hero-green) 58%, var(--orb-bg));
   --hero-shadow: 0 28px 70px rgba(17, 16, 15, .12);
   position: relative;
   isolation: isolate;
@@ -39,9 +39,9 @@
   --hero-brass: #d6aa6d;
   --hero-green: #88d8bd;
   --orb-bg: #07080d;
-  --orb-c1: color-mix(in srgb, var(--hero-blue) 42%, var(--orb-bg));
-  --orb-c2: color-mix(in srgb, var(--hero-brass) 18%, var(--orb-bg));
-  --orb-c3: color-mix(in srgb, var(--hero-green) 26%, var(--orb-bg));
+  --orb-c1: color-mix(in srgb, var(--hero-blue) 56%, var(--orb-bg));
+  --orb-c2: color-mix(in srgb, var(--hero-brass) 32%, var(--orb-bg));
+  --orb-c3: color-mix(in srgb, var(--hero-green) 42%, var(--orb-bg));
   --hero-shadow: 0 30px 80px rgba(0, 0, 0, .34);
   background: linear-gradient(to right, var(--hero-grid) 1px, transparent 1px), linear-gradient(to bottom, var(--hero-grid) 1px, transparent 1px), linear-gradient(120deg, rgba(255, 255, 255, .055), rgba(255, 255, 255, 0) 52%), var(--hero-paper);
   background-size: 220px 220px, 220px 220px, auto, auto
