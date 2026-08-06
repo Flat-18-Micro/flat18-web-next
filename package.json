@@ -6,6 +6,7 @@
     "dev": "node scripts/copy-bootstrap-icons.js && next dev",
     "build": "node scripts/copy-bootstrap-icons.js && npm run optimize-images && NODE_ENV=production npm run optimize-css && next build && node scripts/fix-asset-paths.js",
     "build:gh-pages": "node scripts/copy-bootstrap-icons.js && npm run optimize-images && NODE_ENV=production npm run optimize-css && NEXT_DISABLE_ESLINT=1 next build && node scripts/fix-asset-paths.js",
+    "build:vercel": "node scripts/copy-bootstrap-icons.js && NEXT_DISABLE_ESLINT=1 NODE_ENV=production next build",
     "start": "next start",
     "lint": "next lint",
     "export": "node scripts/copy-bootstrap-icons.js && npm run optimize-images && NODE_ENV=production npm run optimize-css && next build && node scripts/fix-asset-paths.js",
