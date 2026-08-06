@@ -11,7 +11,7 @@
   --hero-blue: #092877;
   --hero-brass: #248e77;
   --hero-green: #06657f;
-  --orb-bg: #11100f;
+  --orb-bg: #f8f8f4;
   --orb-c1: color-mix(in srgb, var(--hero-blue) 84%, var(--orb-bg));
   --orb-c2: color-mix(in srgb, var(--hero-brass) 56%, var(--hero-blue));
   --orb-c3: color-mix(in srgb, var(--hero-green) 58%, var(--orb-bg));
@@ -903,13 +903,12 @@
 
 .orb::after {
   --dot: 5px;
-transform: rotate(45deg);
   background-image: radial-gradient(
     circle at center,
     var(--orb-bg) var(--dot),
     transparent var(--dot)
   );
-  background-size: calc(var(--dot) * 2) calc(var(--dot) * 2);
+  background-size: calc(var(--dot) * 1.85) calc(var(--dot) * 1.85);
   mask-image: radial-gradient(black 25%, transparent 75%);
   backdrop-filter: blur(5vmin);
   mix-blend-mode: overlay;
