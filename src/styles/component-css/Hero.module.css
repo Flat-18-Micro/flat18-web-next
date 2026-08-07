@@ -831,8 +831,9 @@
   grid-template-areas: "stack";
   position: absolute;
   top: 50%;
-  right: -12vw;
-  inline-size: clamp(46rem, 68vw, 70rem);
+  right: calc(-12vw + 4%);
+  padding: 2%;
+  inline-size: clamp(calc(46rem + 2%), calc(68vw + 2%), calc(70rem + 2%));
   aspect-ratio: 1;
   overflow: hidden;
   border-radius: 50%;
