@@ -58,7 +58,7 @@ export default function Hero() {
         </div>
 
       </div>
-      <div className={styles.orb} aria-hidden="true" />
+      <div className={`${styles.orb} ${orbPaletteStyles.orb}`} aria-hidden="true" />
     </section>
   )
 }
