@@ -16,8 +16,10 @@ const validSlugs = new Set([
   'pulseops',
   'signalmap',
   'social-publisher',
+  'client-desk',
   'walletscrutiny',
   'workouts',
+  'world-earnings',
 ])
 
 export async function generateMetadata({ params }) {

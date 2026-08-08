@@ -20,8 +20,10 @@ export type CaseStudySlug =
   | 'pulseops'
   | 'signalmap'
   | 'social-publisher'
+  | 'client-desk'
   | 'walletscrutiny'
   | 'workouts'
+  | 'world-earnings'
 
 type CaseStudySeoEntry = {
   title: string
@@ -243,6 +245,21 @@ const caseStudySeoData: Record<CaseStudySlug, CaseStudySeoEntry> = {
     ],
     about: ['Workflow design', 'Publishing automation', 'Content operations', 'Validation and scheduling'],
   },
+  'client-desk': {
+    title: 'Selected work: Client Desk',
+    description:
+      'How Flat18 turned scattered contacts, conversations, campaign activity and follow-up reminders into a calmer client relationship workspace.',
+    path: '/selected-work/client-desk',
+    image: '/images/case-studies/client-desk/01-overview-devices.webp',
+    keywords: [
+      'Client Desk selected work',
+      'relationship CRM',
+      'lead review workflow',
+      'campaign outreach product',
+      'desktop CRM design',
+    ],
+    about: ['Relationship operations', 'Lead acquisition', 'Campaign outreach', 'Follow-up workflows'],
+  },
   'walletscrutiny': {
     title: 'Selected work: WalletScrutiny',
     description:
@@ -272,6 +289,21 @@ const caseStudySeoData: Record<CaseStudySlug, CaseStudySeoEntry> = {
       'mobile product design',
     ],
     about: ['Fitness planning', 'Workout logging', 'Progress tracking', 'Mobile UX'],
+  },
+  'world-earnings': {
+    title: 'Selected work: World Earnings',
+    description:
+      'How Flat18 turned country rules, tax residency and salary research into an explainable workspace for understanding what work actually pays.',
+    path: '/selected-work/world-earnings',
+    image: '/images/case-studies/world-earnings/03-rules-sources-devices.png',
+    keywords: [
+      'World Earnings selected work',
+      'take-home pay calculator',
+      'international salary comparison',
+      'salary benchmark research',
+      'fintech product design',
+    ],
+    about: ['Take-home pay', 'Salary research', 'Rule provenance', 'Global work'],
   },
 }
 

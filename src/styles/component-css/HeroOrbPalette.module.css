@@ -1,0 +1,1 @@
+:global(html.dark) .heroPalette.heroPalette,:global(body.dark) .heroPalette.heroPalette{--orb-c1:color-mix(in srgb, var(--hero-blue) 70%, var(--orb-bg));--orb-c2:color-mix(in srgb, var(--hero-brass) 46%, var(--orb-bg));--orb-c3:color-mix(in srgb, var(--hero-green) 62%, var(--orb-bg))}

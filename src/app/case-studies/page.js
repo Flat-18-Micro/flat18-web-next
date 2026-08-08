@@ -7,6 +7,22 @@ import styles from '@/styles/component-css/CaseStudies.module.css'
 
 const caseStudies = [
   {
+    title: 'Client Desk',
+    tag: 'Relationship operations',
+    description: 'Turned scattered contacts, conversations, campaign activity and reminders into a quieter client relationship workspace.',
+    image: '/images/case-studies/client-desk/01-overview-devices.webp',
+    href: '/selected-work/client-desk',
+    meta: ['CRM product', 'Lead review']
+  },
+  {
+    title: 'World Earnings',
+    tag: 'Global pay clarity',
+    description: 'Turned gross-pay uncertainty, country rules and variable market data into an explainable take-home estimate and salary research workspace.',
+    image: '/images/selected-work/world-earnings.png',
+    href: '/selected-work/world-earnings',
+    meta: ['Earnings research', 'Rule provenance']
+  },
+  {
     title: 'Ledger',
     tag: 'Informal money trust',
     description: 'Turned scattered messages, receipts and memory into clear records for loans, shared costs, budgets and read-only balances people can explain.',

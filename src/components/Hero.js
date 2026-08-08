@@ -3,6 +3,7 @@
 import HeroActions from '@/components/HeroActions'
 import TitleWords from '@/components/TitleWords'
 import styles from '@/styles/component-css/Hero.module.css'
+import orbPaletteStyles from '@/styles/component-css/HeroOrbPalette.module.css'
 import { getSectionBackground, getSectionTextColor } from '@/hooks/scrollBackgroundUtils'
 
 const PROOF_POINTS = [
@@ -26,7 +27,7 @@ const PROOF_POINTS = [
 export default function Hero() {
   return (
     <section
-      className={styles.heroSection}
+      className={`${styles.heroSection} ${orbPaletteStyles.heroPalette}`}
       data-bg-color={getSectionBackground('hero')}
       data-text-color={getSectionTextColor('hero')}
     >

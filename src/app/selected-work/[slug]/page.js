@@ -13,8 +13,10 @@ import NatalChartsPage from '@/app/case-studies/natal-charts/page'
 import PulseOpsPage from '@/app/case-studies/pulseops/page'
 import SignalMapPage from '@/app/case-studies/signalmap/page'
 import SocialPublisherPage from '@/app/case-studies/social-publisher/page'
+import ClientDeskPage from '@/app/case-studies/client-desk/page'
 import WalletScrutinyPage from '@/app/case-studies/walletscrutiny/page'
 import WorkoutsPage from '@/app/case-studies/workouts/page'
+import WorldEarningsPage from '@/app/case-studies/world-earnings/page'
 
 const pageMap = {
   'axis-finance': AxisFinancePage,
@@ -31,8 +33,10 @@ const pageMap = {
   pulseops: PulseOpsPage,
   signalmap: SignalMapPage,
   'social-publisher': SocialPublisherPage,
+  'client-desk': ClientDeskPage,
   walletscrutiny: WalletScrutinyPage,
   workouts: WorkoutsPage,
+  'world-earnings': WorldEarningsPage,
 }
 
 export function generateStaticParams() {
