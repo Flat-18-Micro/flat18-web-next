@@ -7,6 +7,14 @@ import styles from '@/styles/component-css/CaseStudies.module.css'
 
 const caseStudies = [
   {
+    title: 'SMP',
+    tag: 'People operations made simple',
+    description: 'Turned attendance, leave, employee records, documents and messages into one clear workspace for small organisations and their teams.',
+    image: '/images/case-studies/smp/01-overview-devices.png',
+    href: '/selected-work/smp',
+    meta: ['Staff portal', 'Employee self-service']
+  },
+  {
     title: 'Client Desk',
     tag: 'Relationship operations',
     description: 'Turned scattered contacts, conversations, campaign activity and reminders into a quieter client relationship workspace.',

@@ -13,6 +13,7 @@ import NatalChartsPage from '@/app/case-studies/natal-charts/page'
 import PulseOpsPage from '@/app/case-studies/pulseops/page'
 import SignalMapPage from '@/app/case-studies/signalmap/page'
 import SocialPublisherPage from '@/app/case-studies/social-publisher/page'
+import SMPPage from '@/app/case-studies/smp/page'
 import ClientDeskPage from '@/app/case-studies/client-desk/page'
 import WalletScrutinyPage from '@/app/case-studies/walletscrutiny/page'
 import WorkoutsPage from '@/app/case-studies/workouts/page'
@@ -33,6 +34,7 @@ const pageMap = {
   pulseops: PulseOpsPage,
   signalmap: SignalMapPage,
   'social-publisher': SocialPublisherPage,
+  smp: SMPPage,
   'client-desk': ClientDeskPage,
   walletscrutiny: WalletScrutinyPage,
   workouts: WorkoutsPage,

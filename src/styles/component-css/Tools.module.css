@@ -285,7 +285,16 @@
   }
 
   .ring {
-    top: 150%
+    top: 110%
+  }
+
+  .innerRing {
+    width: 112%
+  }
+
+  .outerRing .chickletPosition:nth-child(even),
+  .innerRing .chickletPosition:nth-child(even) {
+    display: none
   }
 
   .stageCore {

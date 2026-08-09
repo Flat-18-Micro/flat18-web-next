@@ -54,7 +54,7 @@ export default function Navbar({ isScrolled }) {
           <ul className={styles.menu}>
             <li>
               <Link
-                href="/#work"
+                href="/selected-work"
                 className={styles.link}
                 data-cta-source="nav"
                 data-signal-label="nav_work"
@@ -139,7 +139,7 @@ export default function Navbar({ isScrolled }) {
             <ul className={styles.mobileMenuList}>
               <li>
                 <Link
-                  href="/#work"
+                  href="/selected-work"
                   className={styles.mobileLink}
                   data-cta-source="nav"
                   data-signal-label="nav_mobile_work"
@@ -148,7 +148,7 @@ export default function Navbar({ isScrolled }) {
                     trackSignalEvent('nav_mobile_work')
                   }}
                 >
-                  <span className={styles.mobileLinkLabel}>Work</span>
+                  <span className={styles.mobileLinkLabel}>Selected Work</span>
                   <span className={styles.mobileLinkDescription}>Real product builds</span>
                 </Link>
               </li>

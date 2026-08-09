@@ -16,6 +16,7 @@ const validSlugs = new Set([
   'pulseops',
   'signalmap',
   'social-publisher',
+  'smp',
   'client-desk',
   'walletscrutiny',
   'workouts',

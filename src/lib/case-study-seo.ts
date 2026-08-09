@@ -20,6 +20,7 @@ export type CaseStudySlug =
   | 'pulseops'
   | 'signalmap'
   | 'social-publisher'
+  | 'smp'
   | 'client-desk'
   | 'walletscrutiny'
   | 'workouts'
@@ -244,6 +245,21 @@ const caseStudySeoData: Record<CaseStudySlug, CaseStudySeoEntry> = {
       'social media product',
     ],
     about: ['Workflow design', 'Publishing automation', 'Content operations', 'Validation and scheduling'],
+  },
+  smp: {
+    title: 'Selected work: SMP',
+    description:
+      'How Flat18 made attendance, leave, employee records, documents and people operations easier for small organisations to run and inspect.',
+    path: '/selected-work/smp',
+    image: '/images/case-studies/smp/01-overview-devices.png',
+    keywords: [
+      'SMP selected work',
+      'staff management portal',
+      'attendance and leave management',
+      'employee self-service',
+      'people operations product design',
+    ],
+    about: ['People operations', 'Attendance management', 'Leave requests', 'Employee self-service'],
   },
   'client-desk': {
     title: 'Selected work: Client Desk',

@@ -109,7 +109,7 @@ export default function Footer() {
                   </li>
                   <li>
                     <Link
-                      href="/#work"
+                      href="/selected-work"
                       className={styles.footerLink}
                       data-cta-source="footer"
                       data-signal-label="footer_our_work"
@@ -120,13 +120,13 @@ export default function Footer() {
                   </li>
                   <li>
                     <Link
-                      href="/selected-work"
+                      href="/#work"
                       className={styles.footerLink}
                       data-cta-source="footer"
                       data-signal-label="footer_selected_work"
                       onClick={() => trackSignalEvent('footer_selected_work')}
                     >
-                      Selected work
+                      Highlighted work
                     </Link>
                   </li>
                   <li>

@@ -17,6 +17,7 @@ const breadcrumbLabelOverrides = {
   ipgeo: 'Flat18 Geo',
   pulseops: 'PulseOps',
   signalmap: 'SignalMap',
+  smp: 'SMP',
   walletscrutiny: 'WalletScrutiny',
 }
 
