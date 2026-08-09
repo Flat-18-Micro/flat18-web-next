@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /*?
+
+Sitemap: https://flat18.co.uk/memory-lane-snapshots/b3a6046/sitemap.xml
