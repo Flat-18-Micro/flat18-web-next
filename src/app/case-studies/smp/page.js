@@ -30,32 +30,38 @@ const mediaItems = [
     caption: 'Leave without the paper chase',
     sizes: '(max-width: 768px) 100vw, 420px',
   },
+  {
+    src: '/images/case-studies/smp/04-mobile-employee-screens.png',
+    alt: 'SMP employee mobile app showing home, attendance, benefits and records on three smartphones',
+    caption: 'Employee self-service, on the phone',
+    sizes: '(max-width: 768px) 100vw, 720px',
+  },
 ]
 
-const journeySteps = [
+const productStories = [
   {
-    eyebrow: '01 / The problem',
-    title: 'Everyday people work was split between paper, messages and memory.',
-    copy: 'A manager might need to check who arrived, approve leave, find an expiring document and answer a pay question—all while employees need a simple way to see their own information. The work was ordinary; the trail was not.',
+    eyebrow: '01 / Admin console',
+    title: 'Give the office one calm place to run the work that cannot be missed.',
+    copy: 'The admin console is the operational centre of SMP. It brings together the day’s attendance, leave requests, employee profiles, expiring documents, benefits, messages and reports, so an administrator can see what needs attention before it turns into a chase. Each employee also has a connected record for their attendance, leave, documents, benefits, messages, salary history and audit trail. That gives a manager the context to make a decision, without assembling it from a spreadsheet, inbox and filing cabinet.',
     image: mediaItems[0].src,
     alt: mediaItems[0].alt,
     mediaIndex: 0,
   },
   {
-    eyebrow: '02 / The product shape',
-    title: 'We gave the office and the employee a clear view of the same work.',
-    copy: 'SMP separates the admin workspace from employee self-service without creating two disconnected systems. Attendance, leave, records, documents, messages and policy settings all refer back to the same company context.',
-    image: mediaItems[1].src,
-    alt: mediaItems[1].alt,
-    mediaIndex: 1,
+    eyebrow: '02 / Mobile employee app',
+    title: 'Make the employee experience useful at the moment work actually happens.',
+    copy: 'The companion mobile app gives employees a secure, direct route into their own day: sign in, check in or out, request leave, read messages, review documents, see benefits and keep their profile current. Location is used only when a person explicitly signs in or signs out; it is not background tracking. That means a shift can start with a clear action and an understandable result, while the employee retains a simple view of their own work information wherever they are.',
+    image: mediaItems[3].src,
+    alt: mediaItems[3].alt,
+    mediaIndex: 3,
   },
   {
-    eyebrow: '03 / The outcome',
-    title: 'A routine request now leaves a useful record behind.',
-    copy: 'A person can submit a request on a tablet. An administrator can review it with the right balance and dates. The decision, change and follow-up stay visible, so the team spends less time asking what happened.',
-    image: mediaItems[2].src,
-    alt: mediaItems[2].alt,
-    mediaIndex: 2,
+    eyebrow: '03 / Benefits and compensation',
+    title: 'Let people see the value of their employment discreetly and in good time.',
+    copy: 'Benefits should not be buried in a welcome pack, and salary changes should not arrive as corridor news. SMP lets an administrator assign company benefits to the right employee and lets that employee see their active benefits in their own signed-in area. Salary and compensation updates are posted against the employee record with an effective date and a note, then made available through the employee’s private records and notifications. The result is timely, role-aware communication that makes sensitive information clearer without putting it on a shared noticeboard.',
+    image: mediaItems[3].src,
+    alt: mediaItems[3].alt,
+    mediaIndex: 3,
   },
 ]
 
@@ -95,7 +101,8 @@ export default function SMPCaseStudyPage() {
               <p className={styles.productHeroSubtitle}>
                 Small organisations should not need a maze of forms, spreadsheets and private messages to run
                 everyday people operations. Flat18 built Staff Management Portal around the practical work:
-                attendance, leave, employee records, documents, messages and a clear history of what changed.
+                attendance, leave, employee records, documents, benefits, compensation updates, messages and a
+                clear history of what changed.
               </p>
               <div className={styles.productHeroActions}>
                 <a href="https://smp.flat18.app" target="_blank" rel="noopener noreferrer" className="btn btn-primary">
@@ -127,16 +134,17 @@ export default function SMPCaseStudyPage() {
       <section id="story" className={styles.productStorySection}>
         <div className={styles.container}>
           <div className={styles.productSectionIntro}>
-            <span className={styles.caseStudyTag}>Development journey</span>
+            <span className={styles.caseStudyTag}>Three connected product stories</span>
             <h2>From fragmented admin to a calm, accountable operating rhythm.</h2>
             <p>
-              SMP starts with a simple idea: a people process is only useful when the person doing it can see
-              what to do next, and the organisation can see what happened afterwards.
+              SMP gives administrators and employees different views of the same organisation. The admin console
+              helps the office manage work. The mobile app helps employees act on it. Private records and timely
+              notifications help both sides stay informed without unnecessary back-and-forth.
             </p>
           </div>
 
           <div className={styles.productJourneyGrid}>
-            {journeySteps.map((step) => (
+            {productStories.map((step) => (
               <article key={step.title} className={styles.productJourneyCard}>
                 <div className={styles.productJourneyCopy}>
                   <span>{step.eyebrow}</span>
@@ -160,8 +168,8 @@ export default function SMPCaseStudyPage() {
               <h2>Designed around the routine moments that usually create follow-up work.</h2>
             </div>
             <p>
-              Each view removes a different uncertainty: who is expected, whether an attendance record needs
-              attention, what leave has been requested, and which employee documents need a check.
+              Each view removes a different uncertainty: what needs an administrator’s attention, how an employee
+              can act for themselves, and where private employment information can be reviewed safely.
             </p>
           </div>
 
@@ -171,31 +179,31 @@ export default function SMPCaseStudyPage() {
                 <Image src={mediaItems[1].src} alt={mediaItems[1].alt} fill sizes="(max-width: 768px) 100vw, 720px" className={styles.productFeatureImage} />
               </button>
               <div className={styles.productFeatureCopy}>
-                <span>Attendance</span>
-                <h3>Make the workday visible without making people chase the system.</h3>
-                <p>Employees can check in with the right location context. Administrators can review sessions, spot exceptions and make corrections with a reason rather than silently editing a row.</p>
+                <span>Admin console</span>
+                <h3>See the day’s operations, then move from signal to action.</h3>
+                <p>The dashboard turns a dispersed set of people tasks into a practical review queue: who is signed in, what attendance needs attention, which leave requests are waiting, which documents are expiring and where messages need a reply. Detailed employee views keep the decision, its evidence and the record together.</p>
               </div>
             </article>
 
             <article className={styles.productFeatureCard}>
-              <button type="button" className={styles.productFeatureImageButton} onClick={() => setLightboxIndex(2)} aria-label="Open leave mockup in viewer">
-                <Image src={mediaItems[2].src} alt={mediaItems[2].alt} fill sizes="(max-width: 768px) 100vw, 420px" className={styles.productFeatureImage} />
+              <button type="button" className={styles.productFeatureImageButton} onClick={() => setLightboxIndex(3)} aria-label="Open mobile employee app mockup in viewer">
+                <Image src={mediaItems[3].src} alt={mediaItems[3].alt} fill sizes="(max-width: 768px) 100vw, 420px" className={styles.productFeatureImage} />
               </button>
               <div className={styles.productFeatureCopy}>
-                <span>Leave</span>
-                <h3>Let employees ask clearly and managers decide with context.</h3>
-                <p>Balances, dates, request status and approval actions sit in the same flow, replacing the usual exchange of forms, reminders and ‘have you seen this?’ messages.</p>
+                <span>Mobile self-service</span>
+                <h3>Let employees complete the next task without finding the office first.</h3>
+                <p>From a secure signed-in home, an employee can check in or out, request leave, open messages and see their own documents, records and benefits. The app is built around explicit actions, especially for location-aware attendance, rather than persistent monitoring.</p>
               </div>
             </article>
 
             <article className={styles.productFeatureCard}>
-              <button type="button" className={styles.productFeatureImageButton} onClick={() => setLightboxIndex(0)} aria-label="Open SMP overview mockup in viewer">
-                <Image src={mediaItems[0].src} alt={mediaItems[0].alt} fill sizes="(max-width: 768px) 100vw, 420px" className={styles.productFeatureImage} />
+              <button type="button" className={styles.productFeatureImageButton} onClick={() => setLightboxIndex(3)} aria-label="Open benefits and records mobile mockup in viewer">
+                <Image src={mediaItems[3].src} alt={mediaItems[3].alt} fill sizes="(max-width: 768px) 100vw, 420px" className={styles.productFeatureImage} />
               </button>
               <div className={styles.productFeatureCopy}>
-                <span>Records and documents</span>
-                <h3>Keep the operational record where the people work happens.</h3>
-                <p>Employee information, documents, salary updates, messages and policy settings are organised around the person and the organisation, not scattered across specialist tools.</p>
+                <span>Private pay and benefits</span>
+                <h3>Make important employment updates clear, personal and timely.</h3>
+                <p>Benefits are assigned by the organisation and shown in the employee’s own account. Salary and compensation changes carry an effective date and explanatory note, while notifications and messages draw the employee back to the information without exposing it to colleagues. Sensitive updates are therefore clear to the person affected and auditable for the organisation.</p>
               </div>
             </article>
           </div>
@@ -211,7 +219,7 @@ export default function SMPCaseStudyPage() {
               </div>
               <div className={styles.openSourcePanel}>
                 <h4>Designed for everyday confidence</h4>
-                <p>SMP gives an organisation a clear record of who did what, while giving employees a simpler way to see and manage their own work information.</p>
+                <p>SMP gives an organisation a clear record of who did what, while giving employees a simpler, private way to see and manage their own work information, benefits and compensation updates.</p>
               </div>
             </div>
 
@@ -219,28 +227,28 @@ export default function SMPCaseStudyPage() {
               <div className={styles.metaRow}>
                 <span className={styles.statusPill}>Live product</span>
                 <span className={styles.metaItem}>Diagnosis: fragmented people operations</span>
-                <span className={styles.metaItem}>Solution: one role-aware portal</span>
-                <span className={styles.metaItem}>Outcome: clearer records and fewer chasers</span>
+                <span className={styles.metaItem}>Solution: role-aware admin and employee views</span>
+                <span className={styles.metaItem}>Outcome: clearer records, private updates and fewer chasers</span>
               </div>
 
               <p className={styles.caseStudyIntro}>
-                Flat18 designed and built SMP as a practical staff-management product, not a bloated HR suite. It helps a small organisation complete ordinary tasks consistently and leave an understandable trail behind.
+                Flat18 designed and built SMP as a practical staff-management product, not a bloated HR suite. It helps a small organisation run ordinary tasks consistently, gives employees a useful mobile experience, and makes sensitive employment updates easier to receive privately and understand.
               </p>
 
               <div className={styles.infoGrid}>
-                <div className={styles.infoCard}><h3>Problem found</h3><p>Attendance, leave, employee records, documents and messages often live in separate places, making routine questions hard to answer and easy to miss.</p></div>
-                <div className={styles.infoCard}><h3>Flat18 diagnosis</h3><p>The issue was not a lack of forms. The product needed to show the right context to the right person, then preserve the decision without adding administration.</p></div>
-                <div className={styles.infoCard}><h3>Solution shipped</h3><p>We built a role-aware portal for attendance, leave, employee profiles, documents, salary records, benefits, messages, notifications and policy settings.</p></div>
-                <div className={styles.infoCard}><h3>Customer value</h3><p>Teams can see what needs attention, employees can self-serve simple requests, and managers can understand the history without reconstructing it from email.</p></div>
+                <div className={styles.infoCard}><h3>Problem found</h3><p>Attendance, leave, employee records, benefits and salary communication often live in different places. That makes routine questions hard to answer and sensitive changes easy to deliver poorly.</p></div>
+                <div className={styles.infoCard}><h3>Flat18 diagnosis</h3><p>The issue was not a lack of forms. The product needed to show the right context to the right role, give people a useful self-service route, then preserve the decision without adding administration.</p></div>
+                <div className={styles.infoCard}><h3>Solution shipped</h3><p>We built an admin console and mobile employee app for attendance, leave, profiles, documents, salary records, benefits, messages, notifications and policy settings.</p></div>
+                <div className={styles.infoCard}><h3>Customer value</h3><p>Teams can see what needs attention, employees can act and check their own information, and private employment updates can arrive with the context and timing they deserve.</p></div>
               </div>
 
               <div className={styles.listBlock}>
                 <h4>What Flat18 handled</h4>
                 <ul className={styles.checkList}>
-                  <li>Mapped the employee and administrator journeys from sign-in through attendance, leave, records, documents and communication</li>
-                  <li>Designed distinct desktop and tablet experiences that make each person’s next action clear</li>
+                  <li>Mapped the employee and administrator journeys from secure sign-in through attendance, leave, records, benefits, compensation updates and communication</li>
+                  <li>Designed distinct admin-console and mobile experiences that make each person’s next action clear</li>
                   <li>Built location-aware attendance and correction flows that retain the reason for a change</li>
-                  <li>Joined documents, salary updates, benefits, notifications and audit history into a coherent product language</li>
+                  <li>Joined documents, salary updates, benefits, notifications and audit history into a coherent, role-aware product language</li>
                 </ul>
               </div>
 

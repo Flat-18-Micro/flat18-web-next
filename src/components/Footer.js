@@ -48,6 +48,17 @@ export default function Footer() {
                 <ul className={styles.linksList}>
                   <li>
                     <Link
+                      href="/startup-mvp-development"
+                      className={styles.footerLink}
+                      data-cta-source="footer"
+                      data-signal-label="footer_startup_mvp_development"
+                      onClick={() => trackSignalEvent('footer_startup_mvp_development')}
+                    >
+                      Startup MVP development
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
                       href="/services/app-development"
                       className={styles.footerLink}
                       data-cta-source="footer"
