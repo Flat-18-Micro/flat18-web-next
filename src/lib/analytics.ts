@@ -6,7 +6,9 @@ declare global {
     };
     fbq?: (action: string, event: string, data?: Record<string, any>) => void;
     twq?: (action: string, event: string, data?: Record<string, any>) => void;
-    signal?: (category: string, event: string, data?: Record<string, any>) => void;
+    signal?: ((category: string, event: string, data?: Record<string, any>) => void) & {
+      q?: Array<[string, string, Record<string, any> | undefined]>;
+    };
   }
 }
 
@@ -66,6 +68,26 @@ export const trackSignalEvent = (label: string) => {
     }
   } catch (error) {
     console.error('Error tracking signal event:', error);
+  }
+};
+
+// SignalMap treats these as completed contact outcomes, distinct from an
+// ordinary CTA click. Do not pass names, email addresses or message content.
+export const trackSignalConversion = (name: string, data?: Record<string, any>) => {
+  try {
+    if (typeof window === 'undefined') return
+
+    if (typeof window.signal !== 'function') {
+      const queuedSignal = ((category: string, event: string, metadata?: Record<string, any>) => {
+        queuedSignal.q?.push([category, event, metadata])
+      }) as NonNullable<Window['signal']>
+      queuedSignal.q = []
+      window.signal = queuedSignal
+    }
+
+    window.signal('conversion', name, data)
+  } catch (error) {
+    console.error('Error tracking signal conversion:', error);
   }
 };
 

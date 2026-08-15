@@ -1,3 +1,5 @@
+import { trackSignalConversion } from '@/lib/analytics'
+
 export const DEFAULT_CHATWOOT_BASE_URL = 'https://mailgun-contact.cloudflare-7fd.workers.dev/chatwoot'
 
 /**
@@ -89,6 +91,12 @@ const trackChatwootXConversion = () => {
 
 const trackChatwootConversationInitiated = () => {
   if (typeof window === 'undefined') return
+
+  trackSignalConversion('chat_conversation_started', {
+    path: window.location.pathname,
+    method: 'live_chat',
+  })
+
   if (typeof window.twq !== 'function') return
 
   try {

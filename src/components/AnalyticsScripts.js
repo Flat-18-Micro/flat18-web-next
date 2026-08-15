@@ -2,6 +2,7 @@
 
 import { useEffect } from 'react'
 import Script from 'next/script'
+import { trackSignalConversion, trackUmamiEvent } from '@/lib/analytics'
 
 const UMAMI_SRC = process.env.NEXT_PUBLIC_UMAMI_SRC || 'https://eu.umami.is/script.js'
 const UMAMI_WEBSITE_ID = process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID || '54c1aa36-ac18-426d-ba14-3d5827cfa465'
@@ -63,6 +64,36 @@ export default function AnalyticsScripts() {
         retryId = null
       }
     }
+  }, [])
+
+  useEffect(() => {
+    const trackContactMethod = (event) => {
+      const link = event.target.closest?.('a')
+      if (!link) return
+
+      const href = link.getAttribute('href') || ''
+      const path = window.location.pathname
+
+      if (href.startsWith('mailto:')) {
+        trackSignalConversion('email_click', { path, method: 'email' })
+        trackUmamiEvent('email_click', { path })
+        return
+      }
+
+      if (href.startsWith('https://t.me/')) {
+        trackSignalConversion('telegram_click', { path, method: 'telegram' })
+        trackUmamiEvent('telegram_click', { path })
+        return
+      }
+
+      if (/calendly\.com|cal\.com|tidycal\.com/i.test(href)) {
+        trackSignalConversion('booking_click', { path, method: 'booking' })
+        trackUmamiEvent('booking_click', { path })
+      }
+    }
+
+    document.addEventListener('click', trackContactMethod)
+    return () => document.removeEventListener('click', trackContactMethod)
   }, [])
 
   return (

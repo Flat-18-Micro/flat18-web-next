@@ -4,6 +4,7 @@ import { useState } from 'react'
 import styles from '../styles/component-css/Contact.module.css'
 import { getSectionBackground, getSectionTextColor } from '@/hooks/scrollBackgroundUtils'
 import { openChatwoot } from '@/utils/chatwoot'
+import { trackLeadFormSubmit, trackSignalConversion } from '@/lib/analytics'
 
 export default function Contact() {
   const GEO_LOOKUP_URL = 'https://mailgun-contact.cloudflare-7fd.workers.dev/geo-ip'
@@ -95,6 +96,11 @@ export default function Contact() {
         throw new Error('Failed to send message')
       }
 
+      trackLeadFormSubmit('contact')
+      trackSignalConversion('contact_form_submit', {
+        path: window.location.pathname,
+        method: 'contact_form',
+      })
       setIsSubmitted(true)
       setTimeout(() => {
         setIsSubmitted(false)
