@@ -19,5 +19,5 @@ Disallow: /
 User-Agent: Claude-Web
 Disallow: /
 
-Host: https://flat18.co.uk
-Sitemap: https://flat18.co.uk/sitemap.xml
+Host: https://www.flat18.co.uk
+Sitemap: https://www.flat18.co.uk/sitemap.xml

@@ -56,6 +56,11 @@
 *.html
   Cache-Control: public, max-age=3600
 
+# Keep historic static deployments available from Memory Lane without allowing
+# search engines to index them as current Flat 18 pages.
+/memory-lane-snapshots/*
+  X-Robots-Tag: noindex, nofollow, noarchive
+
 # Default for all other files
 /*
   Cache-Control: public, max-age=0, must-revalidate
