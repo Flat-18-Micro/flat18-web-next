@@ -1,6 +1,7 @@
 import Footer from '@/components/Footer'
 import Contact from '@/components/Contact'
 import Breadcrumbs from '@/components/Breadcrumbs'
+import Link from 'next/link'
 import styles from '@/styles/component-css/PageStyles.module.css'
 
 // Metadata is now handled in layout.js
@@ -14,55 +15,51 @@ export default function WebDevelopmentPage() {
 
         <div className={styles.container}>
           <div className={styles.pageContent}>
-            <h1 className={styles.pageHeading}>Complete product builds</h1>
-            <div className={styles.badge}>Design, engineering and launch</div>
+            <h1 className={styles.pageHeading}>Web development for SaaS, Web3 and product teams</h1>
+            <div className={styles.badge}>Senior product design, engineering and launch support</div>
             <div className={styles.textContent}>
               <p>
-                Flat 18 builds complete digital products for teams that need design and engineering handled together. LLMs speed up drafting, implementation and documentation. Senior developers control the architecture and quality.
+                Flat 18 is a senior web development studio for teams building or improving digital products. We combine product design, full-stack engineering, integrations and launch support, with LLMs used carefully to speed up the right work.
               </p>
 
-              <h2>Why choose this route?</h2>
+              <h2>When a product team needs a delivery partner</h2>
               <ul>
-                <li>One team for UX, UI and full-stack engineering</li>
-                <li>LLM-assisted speed under senior review</li>
-                <li>Clear milestones, practical scope and direct communication</li>
-                <li>Production standards for performance, accessibility and maintainability</li>
+                <li>You need one accountable team for UX, UI and full-stack delivery</li>
+                <li>An MVP or internal product needs a reliable route to launch</li>
+                <li>A half-built product needs clearer scope, stronger engineering and fewer hand-offs</li>
+                <li>Performance, accessibility, integrations or maintenance are holding the product back</li>
               </ul>
 
-              <h2>What we build</h2>
+              <h2>What we can take on</h2>
               <p>
-                We can take a product from concept to launch or take over a partially built product and give it a clearer path forward.
+                We can take a product from concept to launch, or take over a partly built service and give it a clearer, safer path forward.
               </p>
 
               <ul>
-                <li>Product strategy, UX and interface design</li>
-                <li>Frontend, backend, APIs, auth and data layers</li>
-                <li>Integrations, deployment and release planning</li>
-                <li>Performance, accessibility and maintainability checks</li>
-                <li>Documentation, handover and support options</li>
+                <li>Product discovery, UX and interface design</li>
+                <li>Frontend, backend, APIs, authentication and data layers</li>
+                <li>Third-party integrations, deployment and release planning</li>
+                <li>Performance, accessibility, security and maintainability reviews</li>
+                <li>Documentation, handover and ongoing development support</li>
               </ul>
 
-              <h2>Our approach</h2>
+              <h2>How delivery stays on track</h2>
               <ol>
-                <li><strong>Frame:</strong> goals, users, constraints and risks.</li>
-                <li><strong>Draft:</strong> LLM-assisted options, prototypes and implementation starts.</li>
-                <li><strong>Build:</strong> senior full-stack engineering and review.</li>
-                <li><strong>Harden:</strong> testing, security, performance and documentation.</li>
-                <li><strong>Launch:</strong> deployment, analytics, handover and support options.</li>
+                <li><strong>Frame:</strong> agree the product goal, users, constraints and delivery risks.</li>
+                <li><strong>Plan:</strong> turn the work into clear milestones, prototypes and technical decisions.</li>
+                <li><strong>Build:</strong> deliver in small reviewable increments with senior engineering oversight.</li>
+                <li><strong>Harden:</strong> test the product, tighten performance and document the important decisions.</li>
+                <li><strong>Launch:</strong> deploy, monitor and hand over with a clear support plan.</li>
               </ol>
 
-              <h2>Typical stack</h2>
-              <ul>
-                <li>Next.js, React and modern frontend frameworks</li>
-                <li>Node.js, APIs and serverless functions</li>
-                <li>Postgres, Supabase, Neon and practical data layers</li>
-                <li>Vercel, Cloudflare, AWS and GitHub Actions</li>
-                <li>REST, GraphQL and third-party integrations</li>
-              </ul>
-
-              <h2>Ready to build the product?</h2>
+              <h2>Relevant product builds</h2>
               <p>
-                Tell us what you need to launch, prove or fix. We will suggest the right route and likely timeline.
+                See how we shaped operational products for <Link href="/selected-work/smp">SMP</Link>, <Link href="/selected-work/client-desk">Client Desk</Link> and the <Link href="/selected-work/forgingblock-dashboard">ForgingBlock Dashboard</Link>.
+              </p>
+
+              <h2>Ready to move a product forward?</h2>
+              <p>
+                <Link href="/contact">Tell us what you need to launch, prove or fix</Link>. We will suggest a practical route and likely timeline.
               </p>
             </div>
           </div>

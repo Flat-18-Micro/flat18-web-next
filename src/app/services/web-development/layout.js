@@ -1,7 +1,7 @@
 import { generatePageMetadata, generateServiceJsonLd, siteConfig } from '@/lib/seo'
 
-const title = 'Complete product builds'
-const description = 'End-to-end product design and full-stack engineering accelerated by LLMs and reviewed by senior developers.'
+const title = 'Web development for SaaS, Web3 and product teams'
+const description = 'Senior web development for SaaS, Web3 and product teams: product design, full-stack engineering, integrations and dependable launch support.'
 const path = '/services/web-development'
 
 export const metadata = generatePageMetadata({
@@ -9,8 +9,9 @@ export const metadata = generatePageMetadata({
   description,
   path,
   keywords: [
-    'complete product build',
-    'web development',
+    'web development studio',
+    'SaaS web development',
+    'Web3 web development',
     'Next.js development',
     'React development',
     'full-stack development',

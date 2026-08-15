@@ -1,7 +1,7 @@
 import { generatePageMetadata, generateServiceJsonLd, siteConfig } from '@/lib/seo'
 
-const title = "Web3 and blockchain delivery"
-const description = "Specialist product and integration work for wallets, payments, dApps and blockchain interfaces."
+const title = "Web3 UI/UX and blockchain development"
+const description = "Senior Web3 UI/UX and blockchain development for wallets, payments, dApps and complex product flows that users can understand."
 const path = "/services/web3-blockchain"
 
 export const metadata = generatePageMetadata({
@@ -15,7 +15,7 @@ const serviceJsonLd = generateServiceJsonLd({
   name: title,
   description,
   url: `${siteConfig.url}${path}`,
-  serviceType: "Web3 and blockchain development",
+  serviceType: "Web3 UI/UX and blockchain development",
 })
 
 export default function Layout({ children }) {

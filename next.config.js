@@ -20,8 +20,40 @@ const nextConfig = {
   experimental: {
     optimizeCss: true,
   },
+  async redirects() {
+    if (isStaticExport) {
+      return []
+    }
+
+    return [
+      {
+        source: '/index',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/case-studies',
+        destination: '/selected-work',
+        permanent: true,
+      },
+      {
+        source: '/case-studies/:slug',
+        destination: '/selected-work/:slug',
+        permanent: true,
+      },
+    ]
+  },
   async headers() {
     return [
+      {
+        source: '/memory-lane-snapshots/:path*',
+        headers: [
+          {
+            key: 'X-Robots-Tag',
+            value: 'noindex, nofollow, noarchive',
+          },
+        ],
+      },
       {
         source: '/fonts/(.*)',
         headers: [

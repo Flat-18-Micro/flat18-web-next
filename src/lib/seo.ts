@@ -7,7 +7,9 @@ export const siteConfig = {
   legalName: 'Flat 18 Microsystems Development LLC',
   title: 'Flat 18 - Ship better products faster with expert use of LLMs and AI',
   description: 'Flat 18 is a senior development and design studio using LLMs to deliver curated MVPs, dashboards and full-stack product builds faster.',
-  url: 'https://flat18.co.uk',
+  // Production redirects the apex domain to www, so every canonical URL must
+  // use the same host.
+  url: 'https://www.flat18.co.uk',
   ogImage: '/og/home.png',
   twitter: '@f18_dev',
   locale: 'en_GB',

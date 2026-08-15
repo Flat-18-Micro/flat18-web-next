@@ -1,6 +1,7 @@
 import Footer from '@/components/Footer'
 import Contact from '@/components/Contact'
 import Breadcrumbs from '@/components/Breadcrumbs'
+import Link from 'next/link'
 import styles from '@/styles/component-css/PageStyles.module.css'
 
 export default function Web3BlockchainPage() {
@@ -12,54 +13,50 @@ export default function Web3BlockchainPage() {
 
         <div className={styles.container}>
           <div className={styles.pageContent}>
-            <h1 className={styles.pageHeading}>Web3 and blockchain delivery</h1>
-            <div className={styles.badge}>Specialist technical experience</div>
+            <h1 className={styles.pageHeading}>Web3 UI/UX and blockchain development</h1>
+            <div className={styles.badge}>Product clarity for wallets, payments and dApps</div>
             <div className={styles.textContent}>
               <p>
-                Flat 18 still brings deep experience in Bitcoin, Web3 products, wallets, payments and blockchain interfaces. We now treat that as specialist technical depth inside a broader product studio offer.
+                Flat 18 designs and builds Web3 products that people can use with confidence. We combine specialist blockchain experience with senior product design and engineering for wallets, payments, dApps and technical platforms.
               </p>
 
-              <h2>Where we can help</h2>
+              <h2>Where a Web3 product needs care</h2>
               <ul>
-                <li>Over a decade of hands-on blockchain expertise</li>
-                <li>Secure wallet and payment flows</li>
-                <li>Clear user interfaces for complex technical products</li>
-                <li>Senior review of architecture, risk and handover</li>
+                <li>Wallet connection, transaction and payment flows that need to feel safe and clear</li>
+                <li>Complex on-chain states, fees and approvals that must be explained without noise</li>
+                <li>Web3 UI/UX that makes a dApp useful for people beyond the core technical audience</li>
+                <li>Senior review of product scope, architecture, risk and handover</li>
               </ul>
 
-              <h2>What we build</h2>
+              <h2>What we design and build</h2>
               <p>
-                We focus on product work where the technical layer needs to be handled carefully and explained clearly to users.
+                We focus on the product layer where technical choices have a direct effect on trust, conversion and support burden.
               </p>
 
               <ul>
                 <li>Wallet, payment and transaction interfaces</li>
-                <li>dApp frontends and product flows</li>
-                <li>API and indexer integrations</li>
-                <li>Security-minded product review</li>
-                <li>Documentation and technical handover</li>
+                <li>dApp frontends, dashboards and product flows</li>
+                <li>API, indexer and wallet-provider integrations</li>
+                <li>Security-minded UI reviews, including risky states and recovery paths</li>
+                <li>Documentation, release support and technical handover</li>
               </ul>
 
-              <h2>Process</h2>
+              <h2>How we reduce delivery risk</h2>
               <ol>
-                <li><strong>Scope:</strong> define the product goal and technical risk.</li>
-                <li><strong>Design:</strong> make complex flows understandable.</li>
-                <li><strong>Build:</strong> implement the interface, integrations and data flows.</li>
-                <li><strong>Review:</strong> check security, reliability and handover needs.</li>
+                <li><strong>Scope:</strong> define the user outcome, technical dependencies and risks.</li>
+                <li><strong>Model:</strong> map the states users will see before implementation starts.</li>
+                <li><strong>Build:</strong> implement the interface, integrations and reliable data flows.</li>
+                <li><strong>Review:</strong> check risky actions, edge cases, release readiness and handover.</li>
               </ol>
 
-              <h2>Technologies</h2>
-              <ul>
-                <li>Ethereum, ERC-20</li>
-                <li>Bitcoin, Lightning Network</li>
-                <li>Web3.js, ethers.js, wagmi</li>
-                <li>IPFS and decentralised storage</li>
-                <li>MetaMask, WalletConnect</li>
-              </ul>
-
-              <h2>Need specialist technical depth?</h2>
+              <h2>Relevant Web3 work</h2>
               <p>
-                Tell us what you are building and where the technical risk sits.
+                Explore our work for <Link href="/selected-work/btcpayserver">BTCPay Server</Link>, <Link href="/selected-work/f18-pay">F18 Pay</Link> and <Link href="/selected-work/axis-finance">Axis Finance</Link>.
+              </p>
+
+              <h2>Need a Web3 product team?</h2>
+              <p>
+                <Link href="/contact">Tell us what you are building</Link>, the decisions users need to make and where the technical risk sits.
               </p>
             </div>
           </div>
