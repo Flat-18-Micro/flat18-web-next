@@ -1,8 +1,8 @@
 import { generatePageMetadata } from '@/lib/seo'
 
 export const metadata = generatePageMetadata({
-  title: "Services",
-  description: "Curated MVP sprints, complete product builds and monthly product team capacity from senior developers using LLMs with discipline.",
+  title: "Product design and web development services",
+  description: "Product design, web development and ongoing product support for founders and teams building complex products.",
   image: '/og/services.png',
   path: "/services",
 })

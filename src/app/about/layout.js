@@ -2,7 +2,7 @@ import { generatePageMetadata } from '@/lib/seo'
 
 export const metadata = generatePageMetadata({
   title: "About",
-  description: "Learn about Flat 18, a senior design and full-stack development studio using LLMs to ship serious products faster.",
+  description: "Learn about Flat 18, a product design and web development studio for founders and teams building complex products.",
   image: '/og/about.png',
   path: "/about",
 })

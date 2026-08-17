@@ -34,12 +34,13 @@ export default function Hero() {
       {/* <div className={styles.heroRule} aria-hidden="true" /> */}
       <div className={`${styles.heroContainer} max-w-7xl mx-auto px-6 sm:px-8`}>
         <div className={styles.heroContent}>
+          <span className="label-uppercase">Flat 18 / Product design and web development</span>
           <TitleWords as="h1" className={styles.heroHeading}>
-            Ship <span className={styles.heroSerifAccent}>better</span> products <span className={styles.heroSerifAccent}>faster</span> with expert use of LLMs and <span className={styles.heroSerifAccent}>AI</span>
+            Product design and web development for <span className={styles.heroSerifAccent}>complex products</span>
           </TitleWords>
 
           <p className={styles.heroSubheading}>
-            Flat 18 turns rough product ideas into polished MVPs, dashboards and full-stack systems.
+            We help founders and product teams turn messy workflows, dense data and technical constraints into clear, reliable products people can use.
           </p>
 
           <HeroActions />

@@ -5,8 +5,8 @@ import { Metadata } from 'next'
 export const siteConfig = {
   name: 'Flat 18',
   legalName: 'Flat 18 Microsystems Development LLC',
-  title: 'Flat 18 - Ship better products faster with expert use of LLMs and AI',
-  description: 'Flat 18 is a senior development and design studio using LLMs to deliver curated MVPs, dashboards and full-stack product builds faster.',
+  title: 'Flat 18 | Product design and web development',
+  description: 'Product design and web development for complex products. Flat 18 helps founders and product teams shape, build and improve MVPs, dashboards and full-stack systems.',
   // Production redirects the apex domain to www, so every canonical URL must
   // use the same host.
   url: 'https://www.flat18.co.uk',
@@ -16,6 +16,12 @@ export const siteConfig = {
   email: 'hello@flat18.co.uk',
   keywords: [
     'MVP development',
+    'product design studio',
+    'web development studio',
+    'product design for complex products',
+    'SaaS product design',
+    'SaaS web development',
+    'Web3 product design',
     'AI-assisted development',
     'LLM product development',
     'full-stack development studio',
@@ -78,7 +84,7 @@ export const defaultMetadata: Metadata = {
       'max-video-preview': -1,
     },
   },
-  category: 'Design and engineering',
+  category: 'Product design and web development',
   icons: {
     icon: '/favicon.ico',
     shortcut: '/favicon.ico',
@@ -178,7 +184,7 @@ export function generateOrganizationJsonLd() {
     },
     foundingDate: '2017',
     numberOfEmployees: '2-10',
-    industry: 'Design and engineering',
+    industry: 'Product design and web development',
     serviceArea: {
       '@type': 'Place',
       name: 'Worldwide',
@@ -186,8 +192,11 @@ export function generateOrganizationJsonLd() {
     areaServed: 'Worldwide',
     knowsAbout: [
       'Product design',
+      'Product design for complex products',
       'UX design',
       'Web development',
+      'SaaS web development',
+      'Web3 product design',
       'MVP development',
       'LLM-assisted development',
       'AI workflow design',
@@ -204,7 +213,8 @@ export function generateWebsiteJsonLd() {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
     url: siteConfig.url,
-    name: siteConfig.title,
+    name: siteConfig.name,
+    alternateName: siteConfig.title,
     description: siteConfig.description,
     publisher: {
       '@type': 'Organization',

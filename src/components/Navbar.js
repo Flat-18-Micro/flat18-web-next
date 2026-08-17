@@ -42,6 +42,9 @@ export default function Navbar({ isScrolled }) {
             />
           </div>
           <div className={styles.brandName}>flat 18</div>
+          <span className="hidden xl:block max-w-[180px] text-xs font-bold uppercase tracking-wider leading-tight text-secondary">
+            Product design and web development
+          </span>
         </Link>
 
         {/* AI-led badge - visible on desktop when not scrolled */}
@@ -52,6 +55,17 @@ export default function Navbar({ isScrolled }) {
         {/* Desktop Navigation */}
         <nav className={`${styles.desktopNav} hidden lg:flex`} aria-label="Primary">
           <ul className={styles.menu}>
+            <li>
+              <Link
+                href="/services"
+                className={styles.link}
+                data-cta-source="nav"
+                data-signal-label="nav_services"
+                onClick={() => trackSignalEvent('nav_services')}
+              >
+                <span>Services</span>
+              </Link>
+            </li>
             <li>
               <Link
                 href="/selected-work"
@@ -137,6 +151,21 @@ export default function Navbar({ isScrolled }) {
         >
           <div className={styles.mobileMenuContent}>
             <ul className={styles.mobileMenuList}>
+              <li>
+                <Link
+                  href="/services"
+                  className={styles.mobileLink}
+                  data-cta-source="nav"
+                  data-signal-label="nav_mobile_services"
+                  onClick={() => {
+                    setIsMobileMenuOpen(false)
+                    trackSignalEvent('nav_mobile_services')
+                  }}
+                >
+                  <span className={styles.mobileLinkLabel}>Services</span>
+                  <span className={styles.mobileLinkDescription}>Product design and web development</span>
+                </Link>
+              </li>
               <li>
                 <Link
                   href="/selected-work"

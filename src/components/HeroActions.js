@@ -21,20 +21,20 @@ export default function HeroActions() {
           openChatwootOrFallback()
         }}
       >
-        <span className="btn-text">Chat with us</span>
+        <span className="btn-text">Discuss your product</span>
         <i className="bi bi-arrow-right" aria-hidden="true" />
       </a>
       <Link
-        href="/#pricing"
+        href="/selected-work"
         className="btn btn-secondary btn-lg"
         data-cta-source="hero"
-        data-signal-label="hero_pricing_link"
+        data-signal-label="hero_selected_work_link"
         onClick={() => {
-          trackSignalEvent('hero_pricing_link')
-          analytics.hero.ctaClick('See pricing')
+          trackSignalEvent('hero_selected_work_link')
+          analytics.hero.ctaClick('See selected work')
         }}
       >
-        <span className="btn-text">See pricing</span>
+        <span className="btn-text">See selected work</span>
       </Link>
     </div>
   )

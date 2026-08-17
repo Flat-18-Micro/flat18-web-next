@@ -27,8 +27,9 @@ const homePageSchema = {
     "@type": "ProfessionalService",
     "name": siteConfig.name,
     "image": `${siteConfig.url}${siteConfig.ogImage}`,
-    "description": "Flat 18 is a senior development and design studio using LLMs to deliver curated MVPs, dashboards and full-stack product builds faster.",
+    "description": siteConfig.description,
     "url": siteConfig.url,
+    "serviceType": ["Product design", "Web development"],
     "email": siteConfig.email,
     "address": {
       "@type": "PostalAddress",
@@ -48,7 +49,7 @@ const homePageSchema = {
     "areaServed": "Worldwide",
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
-      "name": "Productised design and development routes",
+      "name": "Product design and web development services",
       "itemListElement": [
         {
           "@type": "Offer",

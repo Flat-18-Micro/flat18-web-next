@@ -1,5 +1,6 @@
 import TitleWords from '@/components/TitleWords'
 import ChatCtaLink from '@/components/ChatCtaLink'
+import Link from 'next/link'
 import styles from '@/styles/component-css/Features.module.css'
 import { getSectionBackground, getSectionTextColor } from '@/hooks/scrollBackgroundUtils'
 
@@ -37,9 +38,9 @@ export default function Features() {
     >
       <div className={`${styles.container} max-w-content mx-auto px-6 sm:px-8`}>
         <div className={styles.sectionHeading}>
-          <TitleWords as="h2" className={styles.sectionTitle}>Three ways to build</TitleWords>
+          <TitleWords as="h2" className={styles.sectionTitle}>Product design and web development</TitleWords>
           <p className={styles.sectionDescription}>
-            Choose the level of product help you need.
+            Choose the level of product help you need, from a focused MVP to an ongoing delivery partner.
           </p>
         </div>
 
@@ -88,6 +89,9 @@ export default function Features() {
           <ChatCtaLink className="btn btn-primary" source="features:bottom-cta" signalLabel="features_bottom_cta">
             Chat with us
           </ChatCtaLink>
+          <Link href="/services" className="btn btn-secondary">
+            See all services
+          </Link>
         </div>
       </div>
     </section>
