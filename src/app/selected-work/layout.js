@@ -3,7 +3,7 @@ import CaseStudyJourneyScroll from '@/components/CaseStudyJourneyScroll'
 
 export const metadata = generatePageMetadata({
   title: 'Selected work',
-  description: 'Selected product design and web development work showing how Flat 18 makes complex products easier to trust, sell and operate.',
+  description: 'Selected product design and web development work showing how Flat 18 makes technical software easier to trust, sell and operate.',
   image: '/og/selected-work.png',
   path: '/selected-work',
   keywords: [

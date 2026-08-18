@@ -43,7 +43,7 @@ export default function Navbar({ isScrolled }) {
           </div>
           <div className={styles.brandName}>flat 18</div>
           <span className="hidden xl:block max-w-[180px] text-xs font-bold uppercase tracking-wider leading-tight text-secondary">
-            Product design and web development
+            Digital product agency
           </span>
         </Link>
 
@@ -163,7 +163,7 @@ export default function Navbar({ isScrolled }) {
                   }}
                 >
                   <span className={styles.mobileLinkLabel}>Services</span>
-                  <span className={styles.mobileLinkDescription}>Product design and web development</span>
+                  <span className={styles.mobileLinkDescription}>Design and build dependable software</span>
                 </Link>
               </li>
               <li>

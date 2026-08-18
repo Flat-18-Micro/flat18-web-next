@@ -12,11 +12,11 @@ export default function AboutPage() {
 
         <div className={styles.container}>
           <div className={styles.pageContent}>
-            <h1 className={styles.pageHeading}>A product design and web development studio for difficult problems</h1>
+            <h1 className={styles.pageHeading}>A digital product agency for software that has to work</h1>
 
 
             <div className={styles.textContent}>
-              <p>Flat 18 is a product design and web development studio for founders, operators and technical teams building complex products. We turn messy workflows, dense data and technical constraints into clear, reliable products people can use.</p>
+              <p>Flat 18 is a digital product agency. We design and build software for teams dealing with dense workflows, technical systems and products that have to work.</p>
 
               <h2>What we build</h2>
               <p>We build curated MVPs, complete products, internal tools, dashboards, integrations and long-term product improvements. The goal is not a quick demo. It is a useful first release with foundations you can keep.</p>

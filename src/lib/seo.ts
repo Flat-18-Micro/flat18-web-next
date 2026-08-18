@@ -6,7 +6,7 @@ export const siteConfig = {
   name: 'Flat 18',
   legalName: 'Flat 18 Microsystems Development LLC',
   title: 'Flat 18 | Product design and web development',
-  description: 'Product design and web development for complex products. Flat 18 helps founders and product teams shape, build and improve MVPs, dashboards and full-stack systems.',
+  description: 'Flat 18 is a digital product agency offering product design and web development for teams dealing with dense workflows and technical systems.',
   // Production redirects the apex domain to www, so every canonical URL must
   // use the same host.
   url: 'https://www.flat18.co.uk',
@@ -18,7 +18,7 @@ export const siteConfig = {
     'MVP development',
     'product design studio',
     'web development studio',
-    'product design for complex products',
+    'software product design',
     'SaaS product design',
     'SaaS web development',
     'Web3 product design',
@@ -192,7 +192,7 @@ export function generateOrganizationJsonLd() {
     areaServed: 'Worldwide',
     knowsAbout: [
       'Product design',
-      'Product design for complex products',
+      'Software product design',
       'UX design',
       'Web development',
       'SaaS web development',

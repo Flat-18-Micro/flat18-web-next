@@ -438,6 +438,11 @@ a:hover {
   color: var(--text-tertiary);
 }
 
+.label-uppercase{
+  display: block;
+  margin-bottom: .75rem;
+}
+
 .shadow-F18 {
   box-shadow: 0 20px 60px -40px rgba(47, 129, 247, .9)
 }
