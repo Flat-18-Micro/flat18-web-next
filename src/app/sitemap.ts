@@ -16,6 +16,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/services/ai-prompt-engineering',
   ]
 
+  const audienceRoutes = [
+    '/saas',
+    '/fintech',
+    '/web3',
+    '/ai-development',
+    '/rescue',
+    '/mvp',
+  ]
+
   // Static routes
   const staticRoutes = [
     {
@@ -53,6 +62,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
       changeFrequency: 'monthly' as const,
       priority: 0.7,
+    })),
+    ...audienceRoutes.map((route) => ({
+      url: `${baseUrl}${route}`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: 0.8,
     })),
     {
       url: `${baseUrl}/selected-work`,

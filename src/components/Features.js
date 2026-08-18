@@ -29,6 +29,15 @@ export default function Features() {
     }
   ]
 
+  const audiencePages = [
+    { href: '/saas', label: 'SaaS founders' },
+    { href: '/fintech', label: 'Fintech teams' },
+    { href: '/web3', label: 'Bitcoin, DeFi and Web3' },
+    { href: '/ai-development', label: 'AI-assisted software' },
+    { href: '/rescue', label: 'Software rescue' },
+    { href: '/mvp', label: 'Founder MVPs' },
+  ]
+
   return (
     <section
       className={styles.servicesSection}
@@ -92,6 +101,22 @@ export default function Features() {
           <Link href="/services" className="btn btn-secondary">
             See all services
           </Link>
+        </div>
+
+        <div className="mt-10 border-t border-[var(--border-soft)] pt-6">
+          <p className="mb-4 text-sm font-bold uppercase tracking-wider text-tertiary">Built for</p>
+          <div className="grid gap-px border border-[var(--border-soft)] bg-[var(--border-soft)] sm:grid-cols-2 lg:grid-cols-3">
+            {audiencePages.map((page) => (
+              <Link
+                key={page.href}
+                href={page.href}
+                className="flex items-center justify-between gap-4 bg-[var(--bg)] px-4 py-3 text-sm font-bold text-primary transition-colors hover:bg-[var(--surface-dim)] hover:text-[var(--secondary)]"
+              >
+                {page.label}
+                <i className="bi bi-arrow-up-right" aria-hidden="true" />
+              </Link>
+            ))}
+          </div>
         </div>
       </div>
     </section>

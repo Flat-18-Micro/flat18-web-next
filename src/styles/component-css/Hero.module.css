@@ -81,6 +81,11 @@
   max-width: 760px
 }
 
+.label-uppercase{
+  display: block;
+  margin-bottom: .75rem;
+}
+
 .heroHeading {
   margin: 0;
   color: var(--hero-ink);

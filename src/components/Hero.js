@@ -36,7 +36,7 @@ export default function Hero() {
         <div className={styles.heroContent}>
           <span className="label-uppercase">Flat 18 / Product design and web development</span>
           <TitleWords as="h1" className={styles.heroHeading}>
-            Product design and web development for <span className={styles.heroSerifAccent}>complex products</span>
+            Build <span className={styles.heroSerifAccent}>better</span> products <span className={styles.heroSerifAccent}>faster</span> with expert use of LLMs and <span className={styles.heroSerifAccent}>AI</span>.
           </TitleWords>
 
           <p className={styles.heroSubheading}>
