@@ -45,7 +45,7 @@ export default function AudienceLandingPage({ audience }) {
 
   return (
     <div
-      className={styles.page}
+      className={`${styles.page} swiss-ui`}
       data-audience={page.slug}
       style={{
         '--landing-accent': page.accent,
@@ -57,9 +57,9 @@ export default function AudienceLandingPage({ audience }) {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
 
-      <section className={styles.hero} aria-labelledby={`${page.slug}-heading`}>
+      <section className={`${styles.hero} swiss-audience-hero`} aria-labelledby={`${page.slug}-heading`}>
         <div className={styles.heroGrid} aria-hidden="true" />
-        <div className={styles.heroGlow} aria-hidden="true" />
+        <div className={`${styles.heroGlow} swiss-audience-glow`} aria-hidden="true" />
         <div className={styles.container}>
           <nav className={styles.breadcrumbs} aria-label="Breadcrumb">
             <Link href="/">Flat 18</Link>
@@ -73,10 +73,10 @@ export default function AudienceLandingPage({ audience }) {
               <h1 id={`${page.slug}-heading`}>{page.headline}</h1>
               <p className={styles.lead}>{page.lead}</p>
               <div className={styles.heroActions}>
-                <ChatCtaLink className={styles.primaryCta} source={`${page.slug}-hero`} signalLabel={`${page.slug}_hero_chat`} variant="icon">
+                <ChatCtaLink className={`${styles.primaryCta} swiss-primary-cta`} source={`${page.slug}-hero`} signalLabel={`${page.slug}_hero_chat`} variant="icon">
                   {page.cta}
                 </ChatCtaLink>
-                <Link href="/selected-work" className={styles.secondaryCta}>
+                <Link href="/selected-work" className={`${styles.secondaryCta} swiss-secondary-cta`}>
                   See selected work
                 </Link>
               </div>
@@ -85,15 +85,15 @@ export default function AudienceLandingPage({ audience }) {
               </p>
             </div>
 
-            <div className={styles.productFrame} aria-label={`${page.visualLabel} example`}>
-              <div className={styles.productHalo} aria-hidden="true" />
+            <div className={`${styles.productFrame} swiss-product-frame`} aria-label={`${page.visualLabel} example`}>
+              <div className={`${styles.productHalo} swiss-product-halo`} aria-hidden="true" />
               <div className={styles.frameTopbar}>
                 <span className={styles.frameMark}>F18</span>
                 <span className={styles.frameTitle}>{page.visualLabel}</span>
                 <span className={styles.frameStatus}>Live review</span>
               </div>
               <div className={styles.frameBody}>
-                <div className={styles.signalRail} aria-hidden="true">
+                <div className={`${styles.signalRail} swiss-signal-rail`} aria-hidden="true">
                   <span />
                   <span />
                   <span />
@@ -105,7 +105,7 @@ export default function AudienceLandingPage({ audience }) {
                       <strong>Clear and reviewable</strong>
                       <i className="bi bi-arrow-up-right" aria-hidden="true" />
                     </div>
-                    <div className={styles.metricPulse} aria-hidden="true">
+                    <div className={`${styles.metricPulse} swiss-metric-pulse`} aria-hidden="true">
                       <span />
                       <span />
                       <span />
@@ -163,7 +163,7 @@ export default function AudienceLandingPage({ audience }) {
           </div>
           <div className={styles.serviceGrid}>
             {page.services.map((service, index) => (
-              <article className={styles.serviceCard} key={service.title}>
+              <article className={`${styles.serviceCard} swiss-audience-card`} key={service.title}>
                 <div className={styles.serviceTopline}>
                   <span>0{index + 1}</span>
                   <i className={`bi ${service.icon}`} aria-hidden="true" />
@@ -190,7 +190,7 @@ export default function AudienceLandingPage({ audience }) {
           </div>
           <div className={styles.workGrid}>
             {page.work.map((work) => (
-              <Link className={styles.workCard} href={work.href} key={work.title}>
+              <Link className={`${styles.workCard} swiss-audience-card`} href={work.href} key={work.title}>
                 <div className={styles.workMark} aria-hidden="true">{work.title.slice(0, 2).toUpperCase()}</div>
                 <div>
                   <span>{work.tag}</span>
@@ -226,17 +226,17 @@ export default function AudienceLandingPage({ audience }) {
 
       <section className={styles.closingSection} aria-labelledby={`${page.slug}-closing`}>
         <div className={styles.container}>
-          <div className={styles.closingPanel}>
+          <div className={`${styles.closingPanel} swiss-closing-panel`}>
             <div>
               <p className={styles.eyebrow}>A practical next step</p>
               <h2 id={`${page.slug}-closing`}>Tell us what needs to move.</h2>
               <p>Share the goal, the deadline and the part of the product that is hardest to untangle. We’ll reply with the best next route.</p>
             </div>
             <div className={styles.closingActions}>
-              <ChatCtaLink className={styles.primaryCta} source={`${page.slug}-closing`} signalLabel={`${page.slug}_closing_chat`} variant="icon">
+              <ChatCtaLink className={`${styles.primaryCta} swiss-primary-cta`} source={`${page.slug}-closing`} signalLabel={`${page.slug}_closing_chat`} variant="icon">
                 {page.cta}
               </ChatCtaLink>
-              <Link href="/contact" className={styles.secondaryCta}>Use the contact form</Link>
+              <Link href="/contact" className={`${styles.secondaryCta} swiss-secondary-cta`}>Use the contact form</Link>
             </div>
           </div>
         </div>

@@ -1,0 +1,110 @@
+/* Flat 18's shared Swiss-informed marketing layer. See /SWISS-UI.md. */
+.swiss-ui { --swiss-gutter: clamp(1rem, 2vw, 1.5rem); }
+
+.swiss-ui :where(h2, h3) {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  letter-spacing: -.04em;
+}
+
+.swiss-ui :where(.label-uppercase) {
+  font-family: var(--font-mono);
+  font-size: .69rem;
+  font-weight: 700;
+  letter-spacing: .11em;
+}
+
+.swiss-ui #services > div > div:first-child,
+.swiss-ui #senior-control > div > div:first-child,
+.swiss-ui #process > div > div:first-child,
+.swiss-ui #stack > div > div:first-child {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: var(--swiss-gutter);
+}
+
+.swiss-ui #services > div > div:first-child > :first-child,
+.swiss-ui #senior-control > div > div:first-child > :first-child,
+.swiss-ui #process > div > div:first-child > :first-child,
+.swiss-ui #stack > div > div:first-child > :first-child {
+  grid-column: 1 / span 6;
+}
+
+.swiss-ui #services > div > div:first-child > :last-child,
+.swiss-ui #senior-control > div > div:first-child > :last-child,
+.swiss-ui #process > div > div:first-child > :last-child,
+.swiss-ui #stack > div > div:first-child > :last-child {
+  grid-column: 8 / span 5;
+  align-self: end;
+}
+
+.swiss-ui #work h2 { font-family: var(--font-sans); font-weight: 700; letter-spacing: -.04em; }
+.swiss-ui #work a:hover,
+.swiss-ui #services a:hover,
+.swiss-ui #process a:hover { text-shadow: none; }
+
+.swiss-ui #work article:hover,
+.swiss-ui #services article:hover,
+.swiss-ui #process article:hover,
+.swiss-ui [data-who-this-is-for] article:hover {
+  box-shadow: none;
+  transform: none;
+}
+
+.swiss-ui [data-who-this-is-for] article::before,
+.swiss-ui [data-who-this-is-for] article > div:first-child > div::after { display: none; }
+.swiss-ui [data-who-this-is-for] article > div:first-child > div { filter: none; opacity: .45; }
+
+@media (max-width: 1024px) {
+  .swiss-ui #services > div > div:first-child,
+  .swiss-ui #senior-control > div > div:first-child,
+  .swiss-ui #process > div > div:first-child,
+  .swiss-ui #stack > div > div:first-child { grid-template-columns: repeat(8, minmax(0, 1fr)); }
+  .swiss-ui #services > div > div:first-child > :first-child,
+  .swiss-ui #senior-control > div > div:first-child > :first-child,
+  .swiss-ui #process > div > div:first-child > :first-child,
+  .swiss-ui #stack > div > div:first-child > :first-child { grid-column: 1 / span 5; }
+  .swiss-ui #services > div > div:first-child > :last-child,
+  .swiss-ui #senior-control > div > div:first-child > :last-child,
+  .swiss-ui #process > div > div:first-child > :last-child,
+  .swiss-ui #stack > div > div:first-child > :last-child { grid-column: 6 / span 3; }
+}
+
+@media (max-width: 640px) {
+  .swiss-ui #services > div > div:first-child,
+  .swiss-ui #senior-control > div > div:first-child,
+  .swiss-ui #process > div > div:first-child,
+  .swiss-ui #stack > div > div:first-child { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .swiss-ui #services > div > div:first-child > :first-child,
+  .swiss-ui #services > div > div:first-child > :last-child,
+  .swiss-ui #senior-control > div > div:first-child > :first-child,
+  .swiss-ui #senior-control > div > div:first-child > :last-child,
+  .swiss-ui #process > div > div:first-child > :first-child,
+  .swiss-ui #process > div > div:first-child > :last-child,
+  .swiss-ui #stack > div > div:first-child > :first-child,
+  .swiss-ui #stack > div > div:first-child > :last-child { grid-column: 1 / -1; }
+}
+
+/* Audience routes retain their tailored accent, but use the same restrained surface language. */
+.swiss-ui[data-audience] .swiss-audience-hero,
+.swiss-ui[data-audience] .swiss-closing-panel { background: var(--landing-bg) !important; }
+.swiss-ui[data-audience] .swiss-audience-glow,
+.swiss-ui[data-audience] .swiss-product-halo { display: none; }
+.swiss-ui[data-audience] .swiss-product-frame,
+.swiss-ui[data-audience] .swiss-closing-panel { box-shadow: none !important; backdrop-filter: none !important; transform: none !important; }
+.swiss-ui[data-audience] .swiss-primary-cta { box-shadow: none !important; }
+.swiss-ui[data-audience] .swiss-secondary-cta { backdrop-filter: none !important; }
+.swiss-ui[data-audience] .swiss-primary-cta:hover,
+.swiss-ui[data-audience] .swiss-secondary-cta:hover,
+.swiss-ui[data-audience] .swiss-audience-card:hover { transform: none !important; }
+.swiss-ui[data-audience] .swiss-metric-pulse span,
+.swiss-ui[data-audience] .swiss-signal-rail span { box-shadow: none !important; }
+
+/* Keep the primary action visibly blue in dark mode, matching the light-mode brand blue. */
+:root.dark .btn.btn-primary,
+body.dark .btn.btn-primary { border-color: #2340ff; background: #2340ff; color: #fff; }
+
+:root.dark .btn.btn-primary:hover,
+:root.dark .btn.btn-primary:focus,
+body.dark .btn.btn-primary:hover,
+body.dark .btn.btn-primary:focus { border-color: #4d62ff; background: #4d62ff; color: #fff; }

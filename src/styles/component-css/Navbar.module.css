@@ -100,8 +100,7 @@
   width: 34px;
   height: 34px;
   overflow: hidden;
-  border: 1px solid var(--nav-rule);
-  border-radius: 50%;
+  border-radius: 2px;
   background: var(--nav-bg-raised);
   grid-column: 1/2;
   grid-row: 1/3;

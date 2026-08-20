@@ -1,5 +1,6 @@
 @import "./variables.css";
 @import "./fonts.css";
+@import "./swiss-ui.css";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -13,10 +14,15 @@
 :root {
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   --font-display: 'Dela Gothic One', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-heading: 'Dela Gothic One', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-heading-bold: 'Dela Gothic One', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-heading: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-heading-bold: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-editorial: 'Colitez Serif', 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
   --font-mono: var(--font-jetbrains-mono), 'JetBrains Mono', 'SF Mono', 'Roboto Mono', Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace
+}
+
+:root.dark, body.dark {
+  --font-heading: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-heading-bold: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
 @keyframes fadeIn {
@@ -432,10 +438,25 @@ a:hover {
 
 .label-uppercase {
   text-transform: uppercase;
-  letter-spacing: .08em;
-  font-size: var(--text-sm);
-  font-weight: var(--font-medium);
+  letter-spacing: .11em;
+  font-family: var(--font-mono);
+  font-size: .69rem;
+  font-weight: var(--font-semibold);
   color: var(--text-tertiary);
+}
+
+.swiss-grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: var(--swiss-gutter);
+}
+
+@media (max-width: 1024px) {
+  .swiss-grid { grid-template-columns: repeat(8, minmax(0, 1fr)); }
+}
+
+@media (max-width: 640px) {
+  .swiss-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 }
 
 .label-uppercase{

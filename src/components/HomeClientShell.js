@@ -22,7 +22,7 @@ const Footer      = dynamic(() => import('@/components/Footer'))
 
 export default function HomeClientShell() {
   return (
-    <div className={styles.homeLanding}>
+    <div className={`${styles.homeLanding} swiss-ui`}>
       <HashAnchorScroll />
       <ScrollBackground />
       <Hero />
