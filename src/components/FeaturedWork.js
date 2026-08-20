@@ -1,83 +1,43 @@
-import Link from 'next/link'
+'use client'
+
+import { useEffect, useState } from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 import ResponsiveImage from './ResponsiveImage'
 import TitleWords from '@/components/TitleWords'
-import styles from '../styles/component-css/FeaturedWork.module.css'
 import { getSectionBackground, getSectionTextColor } from '@/hooks/scrollBackgroundUtils'
-import { ledgerBrandAssets } from '@/lib/ledger-assets'
-import { natalChartsBrandAssets } from '@/lib/natal-charts-assets'
-import { signalmapBrandAssets } from '@/lib/signalmap-assets'
-import { socialPublisherBrandAssets } from '@/lib/social-publisher-assets'
-import { workoutsBrandAssets } from '@/lib/workouts-assets'
+import {
+  selectedWorkProjectBySlug,
+  selectedWorkProjects,
+} from '@/lib/selected-work-projects'
+import styles from '../styles/component-css/FeaturedWork.module.css'
+
+const DEFAULT_FEATURED_PROJECTS = [
+  selectedWorkProjectBySlug['social-publisher'],
+  selectedWorkProjectBySlug.signalmap,
+  selectedWorkProjectBySlug.ledger,
+]
+
+function shuffleProjects(projects) {
+  const shuffled = [...projects]
+
+  for (let index = shuffled.length - 1; index > 0; index -= 1) {
+    const randomIndex = Math.floor(Math.random() * (index + 1))
+    const currentProject = shuffled[index]
+
+    shuffled[index] = shuffled[randomIndex]
+    shuffled[randomIndex] = currentProject
+  }
+
+  return shuffled
+}
 
 export default function FeaturedWork() {
-  const featuredProjects = [
-    {
-      title: 'Social Publisher',
-      projectType: 'Publishing operations friction',
-      description: 'Turns scattered publishing checks into channel variants, validation, calendars, logs and retries.',
-      image: '/images/portfolio-graphics/social-publisher.webp',
-      projectLogo: socialPublisherBrandAssets.appIcon,
-      projectLogoAlt: 'Social Publisher app icon',
-      projectLogoUseNextImage: true,
-      link: '/selected-work/social-publisher',
-      value: 'Turned scattered social publishing work into a structured product teams can operate with less manual checking.',
-    },
-    {
-      title: 'SignalMap',
-      projectType: 'Actionable analytics',
-      description: 'Turns privacy-limited browser signals into aggregate reporting and practical recommendations.',
-      image: '/images/selected-work/signalmap.webp',
-      useNextImage: true,
-      projectLogo: signalmapBrandAssets.appIcon,
-      projectLogoAlt: 'SignalMap app mark',
-      projectLogoUseNextImage: true,
-      link: '/selected-work/signalmap',
-      value: 'Turned browser signals into a readable product that points teams towards the next useful fix.',
-    },
-    {
-      title: 'Ledger',
-      projectType: 'Informal money trust',
-      description: 'Turns fragile shared money records into balances, receipts and proof people can explain.',
-      image: '/images/portfolio-graphics/ledger.webp',
-      projectLogo: ledgerBrandAssets.appIcon,
-      projectLogoAlt: 'Ledger app icon',
-      projectLogoUseNextImage: true,
-      link: '/selected-work/ledger',
-      value: 'Turned informal money tracking into clear records for loans, shared costs, project budgets and read-only review.',
-    },
-    {
-      title: 'Workouts',
-      projectType: 'Training decision friction',
-      description: 'Reduces training choice overload with guided schedules, logging, recovery context and progress review.',
-      image: '/images/portfolio-graphics/workouts.webp',
-      projectLogo: workoutsBrandAssets.appIcon,
-      projectLogoAlt: 'Workouts app icon',
-      projectLogoUseNextImage: true,
-      link: '/selected-work/workouts',
-      value: 'Built a practical product flow from onboarding to progress signals, with enough structure to support repeated use.',
-    },
-    {
-      title: 'Felt Weather',
-      projectType: 'Local context gap',
-      description: 'Shows how conditions feel locally by combining forecasts with nearby public signals.',
-      image: '/images/portfolio-graphics/felt-weather.webp',
-      link: '/selected-work/felt-weather',
-      value: 'Combined forecast data with local context so people can understand how conditions feel nearby.',
-    },
-    {
-      title: 'Natal Charts',
-      projectType: 'Dense calculation clarity',
-      description: 'Makes birth data, time-zone logic, transits and relationship comparison easier to read.',
-      image: '/images/portfolio-graphics/natal-charts.webp',
-      useNextImage: true,
-      projectLogo: natalChartsBrandAssets.appIcon,
-      projectLogoAlt: 'Natal Charts app icon',
-      projectLogoUseNextImage: true,
-      link: '/selected-work/natal-charts',
-      value: 'Turned specialist astrological calculation into a product journey people can read and share more easily.',
-    },
-  ]
+  const [featuredProjects, setFeaturedProjects] = useState(DEFAULT_FEATURED_PROJECTS)
+
+  useEffect(() => {
+    setFeaturedProjects(shuffleProjects(selectedWorkProjects).slice(0, 3))
+  }, [])
 
   return (
     <section
@@ -88,22 +48,25 @@ export default function FeaturedWork() {
     >
       <div className="container">
         <div className={styles.featuredHeading}>
-          <TitleWords as="h2" className={styles.featuredTitle}>Work that proves it</TitleWords>
-          <p className={styles.featuredSubtitle}>
-            Real product builds, not pitch-deck theatre.
-          </p>
+          <TitleWords as="h2" className={styles.featuredTitle}>Projects we've worked on</TitleWords>
         </div>
 
         <div className={styles.featuredGrid}>
-          {featuredProjects.map((project, index) => (
-            <div
-              key={index}
-              className={styles.featuredCard}
-            >
-              <div className={styles.featuredImageWrapper}>
-                {project.useNextImage ? (
+          {featuredProjects.map((project, index) => {
+            const image = project.featuredImage || project.image
+
+            return (
+              <Link
+                key={project.slug}
+                href={project.href}
+                className={styles.featuredCard}
+                aria-label={`View ${project.title} project`}
+                data-cta-source="featured-work"
+                data-signal-label={`featured_work_${project.slug.replace(/-/g, '_')}`}
+              >
+                <div className={styles.featuredImageWrapper}>
                   <Image
-                    src={project.image}
+                    src={image}
                     alt={project.title}
                     width={600}
                     height={400}
@@ -111,72 +74,55 @@ export default function FeaturedWork() {
                     className={styles.featuredImage}
                     priority={index === 0}
                   />
-                ) : (
-                  <ResponsiveImage
-                    src={project.image}
-                    alt={project.title}
-                    width={600}
-                    height={400}
-                    sizes="(max-width: 360px) 100vw, (max-width: 900px) 50vw, 33vw"
-                    className={styles.featuredImage}
-                    loading={index === 0 ? "eager" : "lazy"}
-                    fetchPriority={index === 0 ? "high" : "auto"}
-                    widths={[400, 800, 1000]}
-                  />
-                )}
-                
-                {project.projectLogo && (
-                  <div className={styles.featuredLogo}>
-                    {project.projectLogoUseNextImage ? (
-                      <Image
-                        src={project.projectLogo}
-                        alt={project.projectLogoAlt || `${project.title} logo`}
-                        width={40}
-                        height={40}
-                        className={styles.logoImage}
-                        priority={index === 0}
-                      />
-                    ) : (
-                      <ResponsiveImage
-                        src={project.projectLogo}
-                        alt={project.projectLogoAlt || `${project.title} logo`}
-                        width={40}
-                        height={40}
-                        className={styles.logoImage}
-                        sizes="50px"
-                        widths={[120, 240, 360, 600, 1000]}
-                      />
-                    )}
-                  </div>
-                )}
-              </div>
 
-              <div className={styles.featuredContent}>
-                <div className={styles.featuredHeader}>
-                  <TitleWords as="h3" className={styles.featuredProjectTitle}>{project.title}</TitleWords>
-                  <span className={styles.featuredStatus}>{project.projectType}</span>
+                  {project.projectLogo && (
+                    <div className={styles.featuredLogo}>
+                      {project.projectLogoUseNextImage ? (
+                        <Image
+                          src={project.projectLogo}
+                          alt={project.projectLogoAlt || `${project.title} logo`}
+                          width={40}
+                          height={40}
+                          className={styles.logoImage}
+                          priority={index === 0}
+                        />
+                      ) : (
+                        <ResponsiveImage
+                          src={project.projectLogo}
+                          alt={project.projectLogoAlt || `${project.title} logo`}
+                          width={40}
+                          height={40}
+                          className={styles.logoImage}
+                          sizes="50px"
+                          widths={[120, 240, 360, 600, 1000]}
+                        />
+                      )}
+                    </div>
+                  )}
                 </div>
 
-                <p className={styles.featuredDescription}>
-                  {project.description}
-                </p>
+                <div className={styles.featuredContent}>
+                  <div className={styles.featuredHeader}>
+                    <TitleWords as="h3" className={styles.featuredProjectTitle}>{project.title}</TitleWords>
+                    <span className={styles.featuredStatus}>{project.tag}</span>
+                  </div>
 
-                <p className={styles.featuredOutcome}>
-                  {project.value}
-                </p>
+                  <p className={styles.featuredDescription}>
+                    {project.featuredDescription}
+                  </p>
 
-                <a
-                  href={project.link}
-                  className={styles.featuredCta}
-                  data-cta-source="featured-work"
-                  data-signal-label={`featured_work_${project.title.toLowerCase().replace(/[^a-z0-9]+/g, '_').replace(/^_|_$/g, '')}`}
-                >
-                  View project
-                  <i className="bi bi-arrow-right" aria-hidden="true"></i>
-                </a>
-              </div>
-            </div>
-          ))}
+                  <p className={styles.featuredOutcome}>
+                    {project.featuredOutcome}
+                  </p>
+
+                  <span className={styles.featuredCta}>
+                    View project
+                    <i className="bi bi-arrow-right" aria-hidden="true"></i>
+                  </span>
+                </div>
+              </Link>
+            )
+          })}
         </div>
 
         <div className={styles.featuredFooter}>

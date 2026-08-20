@@ -18,6 +18,7 @@ import ClientDeskPage from '@/app/case-studies/client-desk/page'
 import WalletScrutinyPage from '@/app/case-studies/walletscrutiny/page'
 import WorkoutsPage from '@/app/case-studies/workouts/page'
 import WorldEarningsPage from '@/app/case-studies/world-earnings/page'
+import { selectedWorkProjects } from '@/lib/selected-work-projects'
 
 const pageMap = {
   'axis-finance': AxisFinancePage,
@@ -42,7 +43,7 @@ const pageMap = {
 }
 
 export function generateStaticParams() {
-  return Object.keys(pageMap).map((slug) => ({ slug }))
+  return selectedWorkProjects.map(({ slug }) => ({ slug }))
 }
 
 export default function SelectedWorkSlugPage({ params }) {

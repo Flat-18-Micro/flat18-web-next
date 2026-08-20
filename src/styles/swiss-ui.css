@@ -1,5 +1,7 @@
 /* Flat 18's shared Swiss-informed marketing layer. See /SWISS-UI.md. */
-.swiss-ui { --swiss-gutter: clamp(1rem, 2vw, 1.5rem); }
+.swiss-ui {
+  --swiss-gutter: clamp(1rem, 2vw, 1.5rem);
+}
 
 .swiss-ui :where(h2, h3) {
   font-family: var(--font-sans);
@@ -14,97 +16,158 @@
   letter-spacing: .11em;
 }
 
+/* Shared section introductions use an editorial 12-column split. */
 .swiss-ui #services > div > div:first-child,
 .swiss-ui #senior-control > div > div:first-child,
-.swiss-ui #process > div > div:first-child,
-.swiss-ui #stack > div > div:first-child {
+.swiss-ui #work > div > div:first-child,
+.swiss-ui #pricing > div > div:first-child {
   display: grid;
+  max-width: none;
   grid-template-columns: repeat(12, minmax(0, 1fr));
   column-gap: var(--swiss-gutter);
+  row-gap: .75rem;
+  text-align: left;
 }
 
 .swiss-ui #services > div > div:first-child > :first-child,
 .swiss-ui #senior-control > div > div:first-child > :first-child,
-.swiss-ui #process > div > div:first-child > :first-child,
-.swiss-ui #stack > div > div:first-child > :first-child {
+.swiss-ui #work > div > div:first-child > :first-child,
+.swiss-ui #pricing > div > div:first-child > :where(h1, h2) {
   grid-column: 1 / span 6;
 }
 
 .swiss-ui #services > div > div:first-child > :last-child,
 .swiss-ui #senior-control > div > div:first-child > :last-child,
-.swiss-ui #process > div > div:first-child > :last-child,
-.swiss-ui #stack > div > div:first-child > :last-child {
+.swiss-ui #work > div > div:first-child > :last-child,
+.swiss-ui #pricing > div > div:first-child > p {
   grid-column: 8 / span 5;
   align-self: end;
+  margin-right: 0;
+  margin-left: 0;
 }
 
-.swiss-ui #work h2 { font-family: var(--font-sans); font-weight: 700; letter-spacing: -.04em; }
-.swiss-ui #work a:hover,
-.swiss-ui #services a:hover,
-.swiss-ui #process a:hover { text-shadow: none; }
+.swiss-ui #pricing > div > div:first-child > span {
+  grid-column: 1 / -1;
+}
 
-.swiss-ui #work article:hover,
+/* Interaction stays flat: rules, colour and arrows communicate state. */
+.swiss-ui #work h2 {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  letter-spacing: -.04em;
+}
+
+.swiss-ui #work a:hover,
+.swiss-ui #services a:hover {
+  text-shadow: none;
+}
+
+.swiss-ui #work [class*="featuredCard"]:hover,
 .swiss-ui #services article:hover,
-.swiss-ui #process article:hover,
 .swiss-ui [data-who-this-is-for] article:hover {
   box-shadow: none;
   transform: none;
 }
 
-.swiss-ui [data-who-this-is-for] article::before,
-.swiss-ui [data-who-this-is-for] article > div:first-child > div::after { display: none; }
-.swiss-ui [data-who-this-is-for] article > div:first-child > div { filter: none; opacity: .45; }
+.swiss-ui #work [class*="featuredCard"]:hover img,
+.swiss-ui button[type="submit"]:hover {
+  box-shadow: none;
+  transform: none;
+}
 
 @media (max-width: 1024px) {
   .swiss-ui #services > div > div:first-child,
   .swiss-ui #senior-control > div > div:first-child,
-  .swiss-ui #process > div > div:first-child,
-  .swiss-ui #stack > div > div:first-child { grid-template-columns: repeat(8, minmax(0, 1fr)); }
+  .swiss-ui #work > div > div:first-child,
+  .swiss-ui #pricing > div > div:first-child {
+    grid-template-columns: repeat(8, minmax(0, 1fr));
+  }
+
   .swiss-ui #services > div > div:first-child > :first-child,
   .swiss-ui #senior-control > div > div:first-child > :first-child,
-  .swiss-ui #process > div > div:first-child > :first-child,
-  .swiss-ui #stack > div > div:first-child > :first-child { grid-column: 1 / span 5; }
+  .swiss-ui #work > div > div:first-child > :first-child,
+  .swiss-ui #pricing > div > div:first-child > :where(h1, h2) {
+    grid-column: 1 / span 5;
+  }
+
   .swiss-ui #services > div > div:first-child > :last-child,
   .swiss-ui #senior-control > div > div:first-child > :last-child,
-  .swiss-ui #process > div > div:first-child > :last-child,
-  .swiss-ui #stack > div > div:first-child > :last-child { grid-column: 6 / span 3; }
+  .swiss-ui #work > div > div:first-child > :last-child,
+  .swiss-ui #pricing > div > div:first-child > p {
+    grid-column: 6 / span 3;
+  }
 }
 
 @media (max-width: 640px) {
   .swiss-ui #services > div > div:first-child,
   .swiss-ui #senior-control > div > div:first-child,
-  .swiss-ui #process > div > div:first-child,
-  .swiss-ui #stack > div > div:first-child { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .swiss-ui #work > div > div:first-child,
+  .swiss-ui #pricing > div > div:first-child {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
   .swiss-ui #services > div > div:first-child > :first-child,
   .swiss-ui #services > div > div:first-child > :last-child,
   .swiss-ui #senior-control > div > div:first-child > :first-child,
   .swiss-ui #senior-control > div > div:first-child > :last-child,
-  .swiss-ui #process > div > div:first-child > :first-child,
-  .swiss-ui #process > div > div:first-child > :last-child,
-  .swiss-ui #stack > div > div:first-child > :first-child,
-  .swiss-ui #stack > div > div:first-child > :last-child { grid-column: 1 / -1; }
+  .swiss-ui #work > div > div:first-child > :first-child,
+  .swiss-ui #work > div > div:first-child > :last-child,
+  .swiss-ui #pricing > div > div:first-child > :where(h1, h2),
+  .swiss-ui #pricing > div > div:first-child > p {
+    grid-column: 1 / -1;
+  }
 }
 
-/* Audience routes retain their tailored accent, but use the same restrained surface language. */
+/* Audience routes keep their accent while sharing the restrained surface language. */
 .swiss-ui[data-audience] .swiss-audience-hero,
-.swiss-ui[data-audience] .swiss-closing-panel { background: var(--landing-bg) !important; }
+.swiss-ui[data-audience] .swiss-closing-panel {
+  background: var(--landing-bg) !important;
+}
+
 .swiss-ui[data-audience] .swiss-audience-glow,
-.swiss-ui[data-audience] .swiss-product-halo { display: none; }
+.swiss-ui[data-audience] .swiss-product-halo {
+  display: none;
+}
+
 .swiss-ui[data-audience] .swiss-product-frame,
-.swiss-ui[data-audience] .swiss-closing-panel { box-shadow: none !important; backdrop-filter: none !important; transform: none !important; }
-.swiss-ui[data-audience] .swiss-primary-cta { box-shadow: none !important; }
-.swiss-ui[data-audience] .swiss-secondary-cta { backdrop-filter: none !important; }
+.swiss-ui[data-audience] .swiss-closing-panel {
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  transform: none !important;
+}
+
+.swiss-ui[data-audience] .swiss-primary-cta {
+  box-shadow: none !important;
+}
+
+.swiss-ui[data-audience] .swiss-secondary-cta {
+  backdrop-filter: none !important;
+}
+
 .swiss-ui[data-audience] .swiss-primary-cta:hover,
 .swiss-ui[data-audience] .swiss-secondary-cta:hover,
-.swiss-ui[data-audience] .swiss-audience-card:hover { transform: none !important; }
-.swiss-ui[data-audience] .swiss-metric-pulse span,
-.swiss-ui[data-audience] .swiss-signal-rail span { box-shadow: none !important; }
+.swiss-ui[data-audience] .swiss-audience-card:hover {
+  transform: none !important;
+}
 
-/* Keep the primary action visibly blue in dark mode, matching the light-mode brand blue. */
+.swiss-ui[data-audience] .swiss-metric-pulse span,
+.swiss-ui[data-audience] .swiss-signal-rail span {
+  box-shadow: none !important;
+}
+
+/* Dark-mode primary actions retain the light-mode brand blue. */
 :root.dark .btn.btn-primary,
-body.dark .btn.btn-primary { border-color: #2340ff; background: #2340ff; color: #fff; }
+body.dark .btn.btn-primary {
+  border-color: #2340ff;
+  background: #2340ff;
+  color: #fff;
+}
 
 :root.dark .btn.btn-primary:hover,
 :root.dark .btn.btn-primary:focus,
 body.dark .btn.btn-primary:hover,
-body.dark .btn.btn-primary:focus { border-color: #4d62ff; background: #4d62ff; color: #fff; }
+body.dark .btn.btn-primary:focus {
+  border-color: #4d62ff;
+  background: #4d62ff;
+  color: #fff;
+}

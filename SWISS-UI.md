@@ -25,6 +25,7 @@ Flat 18 uses a Swiss-informed digital product agency style: structured, direct a
 - Use only three surface states: base, lightly tinted and inverted.
 - Prefer 1px rules over shadows, blur or gradients.
 - Do not use glass effects, glows or decorative colour fields unless they explain product state.
+- One campaign-level geometric accent may use colour when it stays contained, remains secondary to the proposition and has a quiet reduced-motion state.
 
 ## Motion and interaction
 
@@ -37,12 +38,14 @@ Flat 18 uses a Swiss-informed digital product agency style: structured, direct a
 The homepage should follow a simple editorial sequence:
 
 1. Proposition
-2. Proof through work
-3. Product situations
-4. Delivery routes
-5. Process and contact
+2. Product situations
+3. Proof through work
+4. Technology and delivery routes
+5. Pricing and contact
 
-The AI-assisted delivery message is stated once clearly, then supported by capability, process and case-study evidence rather than repeated decorative claims.
+The AI-assisted delivery message is stated once clearly, then supported by capability and case-study evidence rather than repeated decorative claims.
+
+The technology panel is the main kinetic element. Its four logo rows move in alternating directions inside a clipped, bordered frame. Other motion should remain quiet so this gesture feels intentional.
 
 ## Implementation rules
 
