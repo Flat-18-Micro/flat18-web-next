@@ -1,0 +1,51 @@
+.layer {
+  position: fixed;
+  inset: 0;
+  z-index: 2147483000;
+  overflow: hidden;
+  contain: strict;
+  pointer-events: none;
+}
+
+.particle {
+  position: absolute;
+  display: block;
+  border: 1px solid rgba(255, 255, 255, .18);
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, -50%) scale(.55);
+  will-change: transform, opacity;
+  animation-name: pointer-confetti-burst;
+  animation-timing-function: cubic-bezier(.18, .72, .28, 1);
+  animation-fill-mode: forwards;
+}
+
+.particle[data-shape='round'] {
+  border-radius: 50%;
+}
+
+@keyframes pointer-confetti-burst {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(.45) rotate(0deg);
+  }
+
+  14% {
+    opacity: .95;
+  }
+
+  100% {
+    opacity: 0;
+    transform:
+      translate(-50%, -50%)
+      translate3d(var(--burst-x), var(--burst-y), 0)
+      scale(.18)
+      rotate(var(--burst-rotation));
+  }
+}
+
+@media (pointer: coarse), (prefers-reduced-motion: reduce) {
+  .layer {
+    display: none;
+  }
+}
