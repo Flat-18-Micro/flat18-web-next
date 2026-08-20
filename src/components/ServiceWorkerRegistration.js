@@ -9,14 +9,13 @@ export default function ServiceWorkerRegistration() {
       // Wait until the page is fully loaded
       const registerSW = () => {
         try {
-          // Get the base URL from the window location to handle GitHub Pages subdirectory hosting
-          const baseUrl = window.location.pathname.endsWith('/')
-            ? window.location.pathname
-            : window.location.pathname + '/';
-
-          navigator.serviceWorker.register(baseUrl + 'sw.js')
+          navigator.serviceWorker.register('/sw.js', {
+            scope: '/',
+            updateViaCache: 'none',
+          })
             .then(registration => {
               console.log('ServiceWorker registration successful with scope: ', registration.scope);
+              return registration.update();
             })
             .catch(error => {
               console.log('ServiceWorker registration failed: ', error);
