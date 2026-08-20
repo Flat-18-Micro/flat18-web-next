@@ -142,17 +142,6 @@ export default function Footer() {
                   </li>
                   <li>
                     <Link
-                      href="/#process"
-                      className={styles.footerLink}
-                      data-cta-source="footer"
-                      data-signal-label="footer_process"
-                      onClick={() => trackSignalEvent('footer_process')}
-                    >
-                      Process
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
                       href="/about"
                       className={styles.footerLink}
                       data-cta-source="footer"
