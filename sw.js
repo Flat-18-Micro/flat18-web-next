@@ -1,13 +1,10 @@
 // Enhanced Service Worker for Flat 18 Website with Performance Optimizations
-const CACHE_NAME = 'flat18-cache-v2'; // Increment cache version
-const STATIC_CACHE_NAME = 'flat18-static-v2';
-const IMAGES_CACHE_NAME = 'flat18-images-v2';
-const FONTS_CACHE_NAME = 'flat18-fonts-v2';
+const STATIC_CACHE_NAME = 'flat18-static-v3';
+const IMAGES_CACHE_NAME = 'flat18-images-v3';
+const FONTS_CACHE_NAME = 'flat18-fonts-v3';
 
 // Resources to cache immediately on install
 const CRITICAL_RESOURCES = [
-  '/',
-  '/index.html',
   '/bootstrap-icons/font/bootstrap-icons.css',
   '/bootstrap-icons/font/bootstrap-icons.woff2',
   '/images/favicon.png',
@@ -95,8 +92,13 @@ self.addEventListener('fetch', event => {
     return;
   }
 
+  // Always revalidate page navigations so a previous deployment cannot mask
+  // the current site. The cache is retained only as an offline fallback.
+  if (event.request.mode === 'navigate') {
+    event.respondWith(networkFirstWithCache(event.request, STATIC_CACHE_NAME, true));
+  }
   // Different caching strategies based on resource type
-  if (url.pathname.match(/\.(jpe?g|png|gif|svg|webp|avif)$/)) {
+  else if (url.pathname.match(/\.(jpe?g|png|gif|svg|webp|avif)$/)) {
     // Images: Cache first, network fallback with background update
     event.respondWith(cacheFirstWithRefresh(event.request, IMAGES_CACHE_NAME));
   }
@@ -177,10 +179,13 @@ async function cacheFirst(request, cacheName) {
 }
 
 // Network-first strategy with cache fallback
-async function networkFirstWithCache(request, cacheName) {
+async function networkFirstWithCache(request, cacheName, bypassBrowserCache = false) {
   try {
     // Try network first
-    const networkResponse = await fetch(request);
+    const networkResponse = await fetch(
+      request,
+      bypassBrowserCache ? { cache: 'no-store' } : undefined
+    );
     if (networkResponse && networkResponse.status === 200) {
       // Cache successful responses
       const responseToCache = networkResponse.clone();
