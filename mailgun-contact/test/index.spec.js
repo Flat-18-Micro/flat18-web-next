@@ -103,6 +103,34 @@ describe('mailgun-contact worker', () => {
     expect(response.headers.get('access-control-allow-origin')).toBe('https://flat18.co.uk')
   })
 
+  it('proxies the Chatwoot live update endpoint from the origin root', async () => {
+    fetchSpy.mockResolvedValueOnce(
+      new Response('cable handshake', {
+        status: 200,
+        headers: {
+          'content-type': 'text/plain',
+        },
+      })
+    )
+
+    const request = new Request('https://example.com/cable', {
+      headers: {
+        Origin: 'https://flat18.co.uk',
+        Upgrade: 'websocket',
+      },
+    })
+
+    const ctx = createExecutionContext()
+    const response = await worker.fetch(request, {}, ctx)
+    await waitOnExecutionContext(ctx)
+
+    expect(response.status).toBe(200)
+    expect(await response.text()).toBe('cable handshake')
+    expect(fetchSpy).toHaveBeenCalledTimes(1)
+    expect(String(fetchSpy.mock.calls[0][0])).toBe('https://chatwoot.flat18.co.uk/cable/')
+    expect(response.headers.get('access-control-allow-origin')).toBe('https://flat18.co.uk')
+  })
+
   it('proxies geo lookup through /geo-ip', async () => {
     fetchSpy.mockResolvedValueOnce(
       new Response(JSON.stringify({
