@@ -5,7 +5,6 @@ const CONTACT_ALLOWED_ORIGINS = new Set([
 ])
 
 const CHATWOOT_UPSTREAM_ORIGIN = 'https://chatwoot.flat18.co.uk'
-const METRICS_UPSTREAM_ORIGIN = 'https://api.flat18.co.uk'
 const GEO_UPSTREAM_ORIGIN = 'https://geo.flat18.app/api/ipinfo'
 const PROXY_METHODS = 'GET,HEAD,POST,PUT,PATCH,DELETE,OPTIONS'
 const DEFAULT_ALLOWED_HEADERS = 'Content-Type, Authorization, X-Requested-With, Accept'
@@ -393,15 +392,17 @@ export default {
         return await proxyUpstream(request, '/chatwoot', CHATWOOT_UPSTREAM_ORIGIN)
       }
 
-      if (matchesProxyPrefix(url.pathname, '/metrics')) {
+      // Chatwoot's widget page serves Vite assets from the origin root rather
+      // than beneath /chatwoot, so proxy those asset requests as well.
+      if (matchesProxyPrefix(url.pathname, '/vite')) {
         if (request.method === 'OPTIONS') {
           return new Response(null, {
             status: 204,
-            headers: buildCorsHeaders(request, false),
+            headers: buildCorsHeaders(request, true),
           })
         }
 
-        return await proxyUpstream(request, '/metrics', METRICS_UPSTREAM_ORIGIN, '/metrics')
+        return await proxyUpstream(request, '/vite', CHATWOOT_UPSTREAM_ORIGIN, '/vite')
       }
 
       if (matchesProxyPrefix(url.pathname, '/geo-ip')) {

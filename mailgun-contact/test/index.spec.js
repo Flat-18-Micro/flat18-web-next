@@ -43,17 +43,17 @@ describe('mailgun-contact worker', () => {
     expect(response.headers.get('set-cookie')).not.toContain('Domain=')
   })
 
-  it('proxies metrics through /metrics', async () => {
+  it('proxies Chatwoot Vite assets from the origin root', async () => {
     fetchSpy.mockResolvedValueOnce(
-      new Response(JSON.stringify({ webM: 'abc123', geo: 'London, GB' }), {
+      new Response('widget payload', {
         status: 200,
         headers: {
-          'content-type': 'application/json',
+          'content-type': 'text/javascript',
         },
       })
     )
 
-    const request = new Request('https://example.com/metrics/webm/index.php?geo=1&t=123', {
+    const request = new Request('https://example.com/vite/assets/widget.js?foo=1', {
       headers: {
         Origin: 'https://flat18.co.uk',
       },
@@ -64,8 +64,9 @@ describe('mailgun-contact worker', () => {
     await waitOnExecutionContext(ctx)
 
     expect(response.status).toBe(200)
-    expect(await response.json()).toEqual({ webM: 'abc123', geo: 'London, GB' })
-    expect(String(fetchSpy.mock.calls[0][0])).toBe('https://api.flat18.co.uk/metrics/webm/index.php?geo=1&t=123')
+    expect(await response.text()).toBe('widget payload')
+    expect(fetchSpy).toHaveBeenCalledTimes(1)
+    expect(String(fetchSpy.mock.calls[0][0])).toBe('https://chatwoot.flat18.co.uk/vite/assets/widget.js?foo=1')
     expect(response.headers.get('access-control-allow-origin')).toBe('https://flat18.co.uk')
   })
 
