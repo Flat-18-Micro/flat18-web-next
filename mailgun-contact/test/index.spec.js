@@ -70,6 +70,39 @@ describe('mailgun-contact worker', () => {
     expect(response.headers.get('access-control-allow-origin')).toBe('https://flat18.co.uk')
   })
 
+  it('proxies Chatwoot widget API requests from the origin root', async () => {
+    fetchSpy.mockResolvedValueOnce(
+      new Response(JSON.stringify({ success: true }), {
+        status: 200,
+        headers: {
+          'content-type': 'application/json',
+        },
+      })
+    )
+
+    const request = new Request('https://example.com/api/v1/widget/events?website_token=token', {
+      method: 'POST',
+      headers: {
+        Origin: 'https://flat18.co.uk',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        name: 'webwidget.triggered',
+        event_info: {},
+      }),
+    })
+
+    const ctx = createExecutionContext()
+    const response = await worker.fetch(request, {}, ctx)
+    await waitOnExecutionContext(ctx)
+
+    expect(response.status).toBe(200)
+    expect(await response.json()).toEqual({ success: true })
+    expect(fetchSpy).toHaveBeenCalledTimes(1)
+    expect(String(fetchSpy.mock.calls[0][0])).toBe('https://chatwoot.flat18.co.uk/api/v1/widget/events?website_token=token')
+    expect(response.headers.get('access-control-allow-origin')).toBe('https://flat18.co.uk')
+  })
+
   it('proxies geo lookup through /geo-ip', async () => {
     fetchSpy.mockResolvedValueOnce(
       new Response(JSON.stringify({

@@ -405,6 +405,19 @@ export default {
         return await proxyUpstream(request, '/vite', CHATWOOT_UPSTREAM_ORIGIN, '/vite')
       }
 
+      // Chatwoot's widget API uses root-relative /api/v1/widget paths from
+      // inside the iframe, so proxy those requests to the Chatwoot instance.
+      if (matchesProxyPrefix(url.pathname, '/api')) {
+        if (request.method === 'OPTIONS') {
+          return new Response(null, {
+            status: 204,
+            headers: buildCorsHeaders(request, true),
+          })
+        }
+
+        return await proxyUpstream(request, '/api', CHATWOOT_UPSTREAM_ORIGIN, '/api')
+      }
+
       if (matchesProxyPrefix(url.pathname, '/geo-ip')) {
         return await handleGeoIp(request, env)
       }
