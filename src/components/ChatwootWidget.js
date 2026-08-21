@@ -4,9 +4,7 @@ import { useEffect, useRef } from 'react'
 import { usePathname, useSearchParams } from 'next/navigation'
 import { DEFAULT_CHATWOOT_BASE_URL, initChatwoot, trackChatwootXConversion } from '@/utils/chatwoot'
 
-const LOAD_TIMEOUT_MS = 5000
 const CHATWOOT_BASE_URL = DEFAULT_CHATWOOT_BASE_URL
-const CHATWOOT_METRICS_URL = 'https://mailgun-contact.cloudflare-7fd.workers.dev/metrics/webm/index.php'
 const CHATWOOT_TOKEN = 'krt1otbtLdpkie19rPwPThai'
 const CHAT_PREFILL_PRESETS = {
   intro: 'Hi Flat 18 - I would like to talk about a project.',
@@ -45,7 +43,6 @@ export default function ChatwootWidget() {
 
     let hasStarted = false
     let hasLoaded = false
-    const abortControllers = new Set()
     let latestInstantToken = 0
 
     const waitForChatwoot = (retries = 0) => {
@@ -62,84 +59,6 @@ export default function ChatwootWidget() {
           waitForChatwoot(retries + 1).then(resolve)
         }, 200)
       })
-    }
-
-    const applyChatIdentity = (identifier, geo) => {
-      if (!identifier) {
-        return
-      }
-
-      waitForChatwoot().then(() => {
-        try {
-          if (window.$chatwoot) {
-            window.$chatwoot.setUser(identifier, {
-              name: geo ? `${geo} - ${identifier}` : identifier,
-            })
-          }
-        } catch (error) {
-          console.warn('Chatwoot identity error', error)
-        }
-      })
-    }
-
-    const fetchMetricsData = async () => {
-      let controller
-
-      try {
-        controller = new AbortController()
-        abortControllers.add(controller)
-
-        let storedIdentifier = ''
-        try {
-          storedIdentifier = localStorage?.getItem('webM') || ''
-        } catch (storageError) {
-          console.warn('LocalStorage access error:', storageError)
-        }
-
-        const query = storedIdentifier ? `&webM=${storedIdentifier}` : ''
-        const url = `${CHATWOOT_METRICS_URL}?geo=1${query}&t=${Date.now()}`
-
-        const fetchTimeout = setTimeout(() => controller.abort(), LOAD_TIMEOUT_MS)
-
-        const response = await fetch(url, {
-          mode: 'cors',
-          headers: {
-            Accept: 'application/json',
-          },
-          signal: controller.signal,
-        })
-
-        clearTimeout(fetchTimeout)
-
-        if (!response.ok) {
-          throw new Error(`HTTP error! Status: ${response.status}`)
-        }
-
-        const data = await response.json()
-
-        if (data?.webM) {
-          window.webM = data.webM
-          window.geoCityCountry = data.geo || 'Unknown'
-
-          try {
-            const persisted = storedIdentifier || data.webM
-            localStorage?.setItem('webM', persisted)
-            applyChatIdentity(persisted, window.geoCityCountry)
-          } catch (storageError) {
-            console.warn('LocalStorage write error:', storageError)
-          }
-        }
-      } catch (error) {
-        if (error.name === 'AbortError') {
-          console.warn('Metrics fetch request timed out')
-        } else {
-          console.warn('Metrics fetch error:', error)
-        }
-      } finally {
-        if (controller) {
-          abortControllers.delete(controller)
-        }
-      }
     }
 
     const loadChatwoot = () => {
@@ -160,7 +79,6 @@ export default function ChatwootWidget() {
         },
       })
 
-      fetchMetricsData()
     }
 
     const startLoading = () => {
@@ -221,9 +139,6 @@ export default function ChatwootWidget() {
     startLoading()
 
     return () => {
-      abortControllers.forEach((controller) => controller.abort())
-      abortControllers.clear()
-
       window.removeEventListener('pointerdown', pointerListener)
       window.removeEventListener('keydown', keyListener)
       window.removeEventListener('focus', focusListener)

@@ -1,6 +1,20 @@
 import { trackSignalConversion } from '@/lib/analytics'
 
 export const DEFAULT_CHATWOOT_BASE_URL = 'https://mailgun-contact.cloudflare-7fd.workers.dev/chatwoot'
+export const CONTACT_FORM_URL = '/contact#contact-form'
+
+const markChatwootAsFailed = () => {
+  if (typeof window !== 'undefined') {
+    window.__chatwootFailed = true
+  }
+}
+
+const isChatwootAvailable = () => (
+  typeof window !== 'undefined' &&
+  !window.__chatwootFailed &&
+  window.$chatwoot &&
+  typeof window.$chatwoot.toggle === 'function'
+)
 
 /**
  * Initializes the Chatwoot widget
@@ -30,6 +44,7 @@ export const initChatwoot = (options = {}) => {
 
   // Register the X conversion listener for conversation initiation
   registerChatwootConversationListener()
+  addChatLinkListeners()
 
   // Check if Chatwoot script is already loaded
   if (!window.chatwootSDK) {
@@ -44,25 +59,37 @@ export const initChatwoot = (options = {}) => {
     script.onload = function() {
       try {
         if (window.chatwootSDK && typeof window.chatwootSDK.run === 'function') {
-          window.chatwootSDK.run({
-            websiteToken: websiteToken,
-            baseUrl: resolvedBaseUrl
-          })
+          try {
+            window.chatwootSDK.run({
+              websiteToken: websiteToken,
+              baseUrl: resolvedBaseUrl
+            })
+          } catch (error) {
+            markChatwootAsFailed()
+            console.log('Error initializing Chatwoot:', error)
+          }
 
-          // Add click listeners to chat links after Chatwoot is loaded
+          /*
+           * Add click listeners after Chatwoot has had time to initialise.
+           * The delegated listener is also registered before this point so
+           * links remain usable if the SDK never loads.
+           */
           setTimeout(() => {
             addChatLinkListeners()
           }, 1000)
         } else {
+          markChatwootAsFailed()
           console.log('Chatwoot SDK not available or run method not found')
         }
       } catch (error) {
+        markChatwootAsFailed()
         console.log('Error initializing Chatwoot:', error)
       }
     }
 
     // Handle script load errors
     script.onerror = function() {
+      markChatwootAsFailed()
       console.log('Failed to load Chatwoot script')
     }
 
@@ -125,42 +152,25 @@ const registerChatwootConversationListener = () => {
 export { trackChatwootXConversion, trackChatwootConversationInitiated, registerChatwootConversationListener }
 
 /**
- * Adds click event listeners to all links with href ending in #chat
+ * Adds a delegated click listener to all links ending in #chat.
+ * Delegation keeps these links usable while Chatwoot is loading or if its
+ * script fails before it can attach its own widget API.
  */
 export const addChatLinkListeners = () => {
-  // Only run on client side
-  if (typeof window === 'undefined') return
+  if (typeof window === 'undefined' || window.__chatwootChatLinksListenerRegistered) return
 
-  // Wait a bit to ensure Chatwoot is fully initialized
-  setTimeout(() => {
-    // Find all links with href ending in #chat
-    const chatLinks = document.querySelectorAll('a[href$="#chat"]')
+  const handleChatLinkClick = (event) => {
+    if (event.defaultPrevented) return
 
-    // Add click event listeners to each link
-    chatLinks.forEach(link => {
-      link.addEventListener('click', (e) => {
-        e.preventDefault()
+    const link = event.target.closest?.('a[href$="#chat"]')
+    if (!link) return
 
-        // Toggle Chatwoot widget
-        const wasOpen = Boolean(window.$chatwoot?.isOpen)
-        if (window.$chatwoot && typeof window.$chatwoot.toggle === 'function') {
-          window.$chatwoot.toggle()
-          if (!wasOpen) {
-            trackChatwootXConversion()
-          }
-        }
+    event.preventDefault()
+    openChatwootOrFallback()
+  }
 
-        // Optionally scroll to the link's location
-        const href = link.getAttribute('href')
-        const targetId = href.replace(/.*#/, '')
-        const targetElement = document.getElementById(targetId)
-
-        if (targetElement) {
-          targetElement.scrollIntoView({ behavior: 'smooth' })
-        }
-      })
-    })
-  }, 1000) // Wait 1 second to ensure Chatwoot is initialized
+  document.addEventListener('click', handleChatLinkClick)
+  window.__chatwootChatLinksListenerRegistered = true
 }
 
 /**
@@ -170,7 +180,7 @@ export const toggleChatwoot = () => {
   // Only run on client side
   if (typeof window === 'undefined') return
 
-  if (window.$chatwoot && typeof window.$chatwoot.toggle === 'function') {
+  if (isChatwootAvailable()) {
     const wasOpen = Boolean(window.$chatwoot.isOpen)
     window.$chatwoot.toggle()
     if (!wasOpen) {
@@ -183,37 +193,34 @@ export const toggleChatwoot = () => {
  * Opens the Chatwoot widget
  */
 export const openChatwoot = () => {
-  // Only run on client side
-  if (typeof window === 'undefined') return
-
-  if (window.$chatwoot && typeof window.$chatwoot.toggle === 'function') {
-    if (!window.$chatwoot.isOpen) {
-      window.$chatwoot.toggle()
-      trackChatwootXConversion()
-    }
-  }
+  openChatwootOrFallback()
 }
 
 /**
- * Opens Chatwoot when available, otherwise falls back to the contact form.
+ * Opens the Chatwoot widget when available, otherwise falls back to the contact form.
  * @param {Object} options
  * @param {string} options.fallbackUrl - URL to open when Chatwoot is unavailable.
  * @param {boolean} options.trackFallback - Whether to track the fallback as a chat open.
  */
 export const openChatwootOrFallback = (options = {}) => {
-  if (typeof window === 'undefined') return
+  if (typeof window === 'undefined') return false
 
   const {
-    fallbackUrl = '/contact#contact-form',
+    fallbackUrl = CONTACT_FORM_URL,
     trackFallback = true,
   } = options
 
-  if (window.$chatwoot && typeof window.$chatwoot.toggle === 'function') {
-    if (!window.$chatwoot.isOpen) {
-      window.$chatwoot.toggle()
-      trackChatwootXConversion()
+  if (isChatwootAvailable()) {
+    try {
+      if (!window.$chatwoot.isOpen) {
+        window.$chatwoot.toggle()
+        trackChatwootXConversion()
+      }
+      return true
+    } catch (error) {
+      markChatwootAsFailed()
+      console.warn('Chatwoot open error:', error)
     }
-    return
   }
 
   if (trackFallback) {
@@ -221,6 +228,7 @@ export const openChatwootOrFallback = (options = {}) => {
   }
 
   window.location.href = fallbackUrl
+  return false
 }
 
 /**
@@ -230,9 +238,7 @@ export const closeChatwoot = () => {
   // Only run on client side
   if (typeof window === 'undefined') return
 
-  if (window.$chatwoot && typeof window.$chatwoot.toggle === 'function') {
-    if (window.$chatwoot.isOpen) {
-      window.$chatwoot.toggle()
-    }
+  if (isChatwootAvailable() && window.$chatwoot.isOpen) {
+    window.$chatwoot.toggle()
   }
 }

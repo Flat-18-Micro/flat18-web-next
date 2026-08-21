@@ -8,27 +8,12 @@ import Breadcrumbs from '@/components/Breadcrumbs'
 import styles from '@/styles/component-css/PricingPage.module.css'
 
 export default function PricingPage() {
-  const METRICS_URL = 'https://mailgun-contact.cloudflare-7fd.workers.dev/metrics/webm/index.php?geo=1'
-
   useEffect(() => {
-    // Initialize any necessary scripts or analytics
     if (window.location.protocol !== 'https:' && window.location.hostname !== 'localhost') {
       if (location.href.indexOf("300") < 0) {
         location.href = location.href.replace("http://", "https://")
       }
     }
-
-    // Fetch metrics data if needed
-    const q = localStorage && localStorage.getItem("webM") ? `&webM=${localStorage.getItem("webM")}` : ""
-    fetch(METRICS_URL + q)
-      .then(response => response.json())
-      .then(data => {
-        window.webM = data.webM
-        window.geoCityCountry = data.geo
-        let persist = localStorage && localStorage.getItem("webM") ? localStorage.getItem("webM") : data.webM
-        localStorage.setItem("webM", persist)
-      })
-      .catch(error => console.warn('Metrics fetch error:', error))
   }, [])
 
   return (
