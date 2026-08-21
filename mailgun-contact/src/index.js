@@ -151,6 +151,11 @@ const proxyUpstream = async (request, prefix, upstreamOrigin, upstreamPathPrefix
   }
 
   const upstreamResponse = await fetch(upstreamUrl, init)
+
+  if (upstreamResponse.webSocket) {
+    return upstreamResponse
+  }
+
   const responseHeaders = buildProxyResponseHeaders(
     upstreamResponse.headers,
     request.url,
@@ -416,6 +421,18 @@ export default {
         }
 
         return await proxyUpstream(request, '/api', CHATWOOT_UPSTREAM_ORIGIN, '/api')
+      }
+
+      // Chatwoot uses a root-relative Action Cable endpoint for live updates.
+      if (matchesProxyPrefix(url.pathname, '/cable')) {
+        if (request.method === 'OPTIONS') {
+          return new Response(null, {
+            status: 204,
+            headers: buildCorsHeaders(request, true),
+          })
+        }
+
+        return await proxyUpstream(request, '/cable', CHATWOOT_UPSTREAM_ORIGIN, '/cable')
       }
 
       if (matchesProxyPrefix(url.pathname, '/geo-ip')) {
