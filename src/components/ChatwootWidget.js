@@ -7,6 +7,10 @@ import { DEFAULT_CHATWOOT_BASE_URL, initChatwoot, trackChatwootXConversion } fro
 const CHATWOOT_BASE_URL = DEFAULT_CHATWOOT_BASE_URL
 const CHATWOOT_TOKEN = 'krt1otbtLdpkie19rPwPThai'
 const GEO_LOOKUP_URL = 'https://geo.flat18.app/api/geo'
+const CHATWOOT_PRIMARY_COLOUR_FALLBACKS = {
+  light: '#3d9eee',
+  dark: '#2340ff',
+}
 const CHAT_PREFILL_PRESETS = {
   intro: 'Hi Flat 18 - I would like to talk about a project.',
   pricing: 'Hi Flat 18 - can you share pricing and timelines?',
@@ -47,6 +51,57 @@ const isChatPath = (pathname = '') => {
   return false
 }
 
+const resolveChatwootColourScheme = () => {
+  if (typeof document === 'undefined') {
+    return 'light'
+  }
+
+  const isDark = document.documentElement.classList.contains('dark') ||
+    document.body?.classList.contains('dark')
+
+  return isDark ? 'dark' : 'light'
+}
+
+const resolvePrimaryButtonColour = (scheme) => {
+  if (typeof document === 'undefined' || !document.body) {
+    return CHATWOOT_PRIMARY_COLOUR_FALLBACKS[scheme]
+  }
+
+  const probe = document.createElement('button')
+  probe.className = 'btn btn-primary'
+  probe.setAttribute('aria-hidden', 'true')
+  probe.tabIndex = -1
+  probe.style.cssText = 'position:absolute;visibility:hidden;pointer-events:none;'
+  document.body.appendChild(probe)
+
+  const colour = window.getComputedStyle(probe).backgroundColor
+  probe.remove()
+
+  return colour && colour !== 'rgba(0, 0, 0, 0)'
+    ? colour
+    : CHATWOOT_PRIMARY_COLOUR_FALLBACKS[scheme]
+}
+
+const applyChatwootTheme = () => {
+  if (typeof window === 'undefined') {
+    return
+  }
+
+  const scheme = resolveChatwootColourScheme()
+  const colour = resolvePrimaryButtonColour(scheme)
+
+  if (window.$chatwoot && typeof window.$chatwoot.setColorScheme === 'function') {
+    window.$chatwoot.setColorScheme(scheme)
+  }
+
+  // The launcher is rendered in the parent page, so keep it aligned with the
+  // site's primary button colour as the theme changes.
+  document.querySelectorAll('.woot-widget-bubble, .woot--bubble-holder').forEach((element) => {
+    element.style.setProperty('background', colour, 'important')
+    element.style.setProperty('background-color', colour, 'important')
+  })
+}
+
 export default function ChatwootWidget() {
   const pathname = usePathname()
   const searchParams = useSearchParams()
@@ -62,6 +117,7 @@ export default function ChatwootWidget() {
     let hasLoaded = false
     let latestInstantToken = 0
     let locationApplied = false
+    const themeObserver = new MutationObserver(applyChatwootTheme)
 
     const locationPromise = fetch(GEO_LOOKUP_URL, {
       cache: 'no-store',
@@ -128,7 +184,7 @@ export default function ChatwootWidget() {
           position: 'right',
           type: 'standard',
           launcherTitle: 'Chat with us',
-          darkMode: 'dark',
+          darkMode: resolveChatwootColourScheme(),
         },
       })
 
@@ -148,6 +204,7 @@ export default function ChatwootWidget() {
     const focusListener = () => startLoading()
     const chatwootReadyListener = () => {
       applyChatwootLocation()
+      applyChatwootTheme()
     }
     const triggerInstantChat = ({ prefillMessage, prefillKey } = {}) => {
       const token = ++latestInstantToken
@@ -193,14 +250,26 @@ export default function ChatwootWidget() {
     window.addEventListener('pointerdown', pointerListener, { once: true, passive: true })
     window.addEventListener('keydown', keyListener, { once: true })
     window.addEventListener('focus', focusListener, { once: true })
+    themeObserver.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['class'],
+    })
+    if (document.body) {
+      themeObserver.observe(document.body, {
+        attributes: true,
+        attributeFilter: ['class'],
+      })
+    }
     startLoading()
     applyChatwootLocation()
+    applyChatwootTheme()
 
     return () => {
       window.removeEventListener('chatwoot:ready', chatwootReadyListener)
       window.removeEventListener('pointerdown', pointerListener)
       window.removeEventListener('keydown', keyListener)
       window.removeEventListener('focus', focusListener)
+      themeObserver.disconnect()
 
       startLoadingRef.current = null
       triggerInstantRef.current = null
