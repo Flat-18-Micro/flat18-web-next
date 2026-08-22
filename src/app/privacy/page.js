@@ -19,6 +19,7 @@ export default function PrivacyPage() {
               <h3>Cookies and Trackers</h3>
               <p>We use privacy-focused analytics on our main site to understand aggregate traffic, page use, referral sources and contact actions. SignalMap, operated by Flat 18, records page views, anonymous session-level behaviour and named actions such as a form submission or an email click. We also use Umami for website analytics. These tools do not need a marketing cookie to record the basic event.</p>
               <p>Live chat uses Chatwoot and may set an operational cookie so that a conversation works. We may also enable advertising-platform measurement tags for a campaign. On Flat18 projects, hosted, staged or otherwise executed codebases, we may set cookies for account and session management. Where a project needs them, we will explain the requirement.</p>
+              <p>When you start a live chat, we may attach an approximate IP-based location, such as your city, region and country, to the Chatwoot contact record. This is an estimate rather than a precise address and helps us understand where enquiries come from.</p>
 
               <h3>Data Collection and Usage</h3>
               <p>When you contact us, we collect the information you choose to provide so that we can respond to your enquiry. This may include:</p>

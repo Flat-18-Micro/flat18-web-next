@@ -145,16 +145,16 @@ describe('mailgun-contact worker', () => {
       })
     )
 
-    const request = new Request('https://example.com/geo-ip?ip=203.0.113.10', {
+    const request = new Request('https://example.com/geo-ip', {
       headers: {
         Origin: 'https://flat18.co.uk',
+        'cf-connecting-ip': '203.0.113.10',
       },
     })
 
     const ctx = createExecutionContext()
     const response = await worker.fetch(request, {
-      FLAT18_GEO_API_TOKEN: 'secret-token',
-      FLAT18_GEO_API_URL: 'https://geo.flat18.app/api/ipinfo',
+      FLAT18_GEO_API_URL: 'https://geo.flat18.app/api/geo',
     }, ctx)
     await waitOnExecutionContext(ctx)
 
@@ -166,9 +166,13 @@ describe('mailgun-contact worker', () => {
         city: 'Dublin',
         country: 'Ireland',
       },
-      clientIp: null,
+      clientIp: '203.0.113.10',
     })
-    expect(String(fetchSpy.mock.calls[0][0])).toBe('https://geo.flat18.app/api/ipinfo?ip=203.0.113.10')
+    expect(String(fetchSpy.mock.calls[0][0])).toBe('https://geo.flat18.app/api/geo')
+    expect(fetchSpy.mock.calls[0][1].headers).toMatchObject({
+      'x-real-ip': '203.0.113.10',
+      'x-forwarded-for': '203.0.113.10',
+    })
     expect(response.headers.get('access-control-allow-origin')).toBe('https://flat18.co.uk')
   })
 

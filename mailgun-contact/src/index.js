@@ -5,7 +5,7 @@ const CONTACT_ALLOWED_ORIGINS = new Set([
 ])
 
 const CHATWOOT_UPSTREAM_ORIGIN = 'https://chatwoot.flat18.co.uk'
-const GEO_UPSTREAM_ORIGIN = 'https://geo.flat18.app/api/ipinfo'
+const GEO_UPSTREAM_ORIGIN = 'https://geo.flat18.app/api/geo'
 const PROXY_METHODS = 'GET,HEAD,POST,PUT,PATCH,DELETE,OPTIONS'
 const DEFAULT_ALLOWED_HEADERS = 'Content-Type, Authorization, X-Requested-With, Accept'
 const DEFAULT_GEO_TIMEOUT_MS = 1500
@@ -188,7 +188,7 @@ const getGeoHeaders = (env) => {
     }
   }
 
-  throw new Error('Geo API credentials are not configured')
+  return {}
 }
 
 const buildGeoLookupUrl = (request, env) => {
@@ -197,11 +197,12 @@ const buildGeoLookupUrl = (request, env) => {
   const lookupUrl = new URL(endpoint)
   const overrideIp = requestUrl.searchParams.get('ip')
   const forwardedFor = request.headers.get('x-forwarded-for') || ''
-  const clientIp = forwardedFor.split(',').map(part => part.trim()).find(Boolean) || null
-  const ip = overrideIp || clientIp
-
-  if (ip) {
-    lookupUrl.searchParams.set('ip', ip)
+  const clientIp = request.headers.get('cf-connecting-ip')
+    || forwardedFor.split(',').map(part => part.trim()).find(Boolean)
+    || request.headers.get('x-real-ip')
+    || null
+  if (overrideIp) {
+    lookupUrl.searchParams.set('ip', overrideIp)
   }
 
   return {
@@ -228,8 +229,15 @@ const handleGeoIp = async (request, env) => {
   }
 
   try {
-    const geoHeaders = getGeoHeaders(env)
     const { lookupUrl, clientIp } = buildGeoLookupUrl(request, env)
+    const geoHeaders = getGeoHeaders(env)
+    if (clientIp) {
+      // /api/geo resolves the caller from forwarded headers without requiring
+      // an API token. Forward the address Cloudflare assigned to this request
+      // so the upstream sees the visitor rather than the Worker.
+      geoHeaders['x-real-ip'] = clientIp
+      geoHeaders['x-forwarded-for'] = clientIp
+    }
     const timeoutMs = Number(env.FLAT18_GEO_TIMEOUT_MS || DEFAULT_GEO_TIMEOUT_MS)
     const controller = new AbortController()
     const timeoutId = setTimeout(() => controller.abort(), timeoutMs)
