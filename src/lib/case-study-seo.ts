@@ -6,6 +6,7 @@ import { socialPublisherBrandAssets } from '@/lib/social-publisher-assets'
 import { workoutsBrandAssets } from '@/lib/workouts-assets'
 
 export type CaseStudySlug =
+  | 'zettahash-dao'
   | 'axis-finance'
   | 'archimedes-finance'
   | 'btcpayserver'
@@ -36,6 +37,21 @@ type CaseStudySeoEntry = {
 }
 
 const caseStudySeoData: Record<CaseStudySlug, CaseStudySeoEntry> = {
+  'zettahash-dao': {
+    title: 'Selected work: Zettahash DAO',
+    description:
+      'How Flat18 shaped a clear Webflow website for Zettahash DAO, presenting its community-owned mining mission and preparing the experience for a Node and GitHub Pages workflow.',
+    path: '/selected-work/zettahash-dao',
+    image: '/images/portfolio-graphics/zettahash-dao-mockup.png',
+    keywords: [
+      'Zettahash DAO selected work',
+      'Webflow website design',
+      'decentralised mining website',
+      'Web3 website design',
+      'GitHub Pages website',
+    ],
+    about: ['Webflow website', 'Web3 design', 'Decentralised mining', 'Community storytelling'],
+  },
   'axis-finance': {
     title: 'Selected work: Axis Finance',
     description:

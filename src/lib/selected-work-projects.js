@@ -237,6 +237,20 @@ export const selectedWorkProjects = [
     projectLogo: '/images/portfolio-graphics/logos/zettahash.webp',
     projectLogoAlt: 'Zettahash logo',
   }),
+  project({
+    slug: 'zettahash-dao',
+    title: 'Zettahash DAO',
+    tag: 'Decentralised mining story',
+    description: 'A Webflow-built website that gives Zettahash DAO a clear front door for its community-owned mining mission.',
+    image: '/images/portfolio-graphics/zettahash-dao-mockup.png',
+    meta: ['Webflow', 'Web3 website'],
+    projectLogo: '/images/all/webflow-icon-4095338614.png',
+    projectLogoAlt: 'Webflow logo',
+    projectLogoUseNextImage: true,
+    featuredImage: '/images/portfolio-graphics/zettahash-dao-mockup.png',
+    featuredDescription: 'A Webflow-built website for Zettahash DAO and its community-owned mining mission.',
+    featuredOutcome: 'Gave the DAO a clearer public story and a practical route from project introduction to exploration.',
+  }),
 ]
 
 export const selectedWorkProjectBySlug = Object.fromEntries(

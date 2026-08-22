@@ -18,9 +18,11 @@ import ClientDeskPage from '@/app/case-studies/client-desk/page'
 import WalletScrutinyPage from '@/app/case-studies/walletscrutiny/page'
 import WorkoutsPage from '@/app/case-studies/workouts/page'
 import WorldEarningsPage from '@/app/case-studies/world-earnings/page'
+import ZettahashDaoPage from '@/app/case-studies/zettahash-dao/page'
 import { selectedWorkProjects } from '@/lib/selected-work-projects'
 
 const pageMap = {
+  'zettahash-dao': ZettahashDaoPage,
   'axis-finance': AxisFinancePage,
   'archimedes-finance': ArchimedesFinancePage,
   btcpayserver: BtcPayServerPage,

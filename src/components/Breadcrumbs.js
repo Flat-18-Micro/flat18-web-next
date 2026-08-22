@@ -8,6 +8,7 @@ import styles from '@/styles/component-css/Breadcrumbs.module.css'
 const breadcrumbLabelOverrides = {
   'case-studies': 'Selected work',
   'selected-work': 'Selected work',
+  'zettahash-dao': 'Zettahash DAO',
   'f18-pay': 'F18 Pay',
   'axis-finance': 'Axis Finance',
   'forgingblock-dashboard': 'ForgingBlock Dashboard',

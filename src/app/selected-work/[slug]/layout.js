@@ -2,6 +2,7 @@ import CaseStudySeo from '@/components/CaseStudySeo'
 import { generateCaseStudyMetadata } from '@/lib/case-study-seo'
 
 const validSlugs = new Set([
+  'zettahash-dao',
   'axis-finance',
   'archimedes-finance',
   'btcpayserver',
