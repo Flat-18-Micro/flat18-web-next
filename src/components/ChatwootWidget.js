@@ -61,6 +61,7 @@ export default function ChatwootWidget() {
     let hasStarted = false
     let hasLoaded = false
     let latestInstantToken = 0
+    let locationApplied = false
 
     const locationPromise = fetch(GEO_LOOKUP_URL, {
       cache: 'no-store',
@@ -83,13 +84,14 @@ export default function ChatwootWidget() {
 
     const applyChatwootLocation = async () => {
       const location = await locationPromise
-      if (!location || !window.$chatwoot) {
+      if (!location || locationApplied || !window.$chatwoot) {
         return
       }
 
       try {
         if (typeof window.$chatwoot.setCustomAttributes === 'function') {
           window.$chatwoot.setCustomAttributes({ location })
+          locationApplied = true
         }
       } catch (error) {
         console.warn('Chatwoot location attribute skipped', error)
