@@ -7,7 +7,7 @@ import { openChatwoot } from '@/utils/chatwoot'
 import { trackLeadFormSubmit, trackSignalConversion } from '@/lib/analytics'
 
 export default function Contact() {
-  const GEO_LOOKUP_URL = 'https://mailgun-contact.cloudflare-7fd.workers.dev/geo-ip'
+  const GEO_LOOKUP_URL = 'https://geo.flat18.app/api/geo'
 
   const [formData, setFormData] = useState({
     name: '',
@@ -29,7 +29,7 @@ export default function Contact() {
       }
 
       const payload = await response.json()
-      return payload?.data || null
+      return payload?.data || payload || null
     } catch (error) {
       console.warn('Geo lookup error', error)
       return null

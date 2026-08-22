@@ -6,6 +6,7 @@ import { DEFAULT_CHATWOOT_BASE_URL, initChatwoot, trackChatwootXConversion } fro
 
 const CHATWOOT_BASE_URL = DEFAULT_CHATWOOT_BASE_URL
 const CHATWOOT_TOKEN = 'krt1otbtLdpkie19rPwPThai'
+const GEO_LOOKUP_URL = 'https://geo.flat18.app/api/geo'
 const CHAT_PREFILL_PRESETS = {
   intro: 'Hi Flat 18 - I would like to talk about a project.',
   pricing: 'Hi Flat 18 - can you share pricing and timelines?',
@@ -20,6 +21,22 @@ const resolvePrefillMessage = (value) => {
   if (!trimmed) return ''
   const key = trimmed.toLowerCase()
   return CHAT_PREFILL_PRESETS[key] || trimmed
+}
+
+const resolveChatwootLocation = (geoData) => {
+  if (!geoData || typeof geoData !== 'object') {
+    return ''
+  }
+
+  const parts = [
+    geoData.city,
+    geoData.region,
+    geoData.country_name || geoData.country,
+  ]
+    .map((part) => String(part || '').trim())
+    .filter(Boolean)
+
+  return [...new Set(parts)].join(', ')
 }
 
 const isChatPath = (pathname = '') => {
@@ -44,6 +61,40 @@ export default function ChatwootWidget() {
     let hasStarted = false
     let hasLoaded = false
     let latestInstantToken = 0
+
+    const locationPromise = fetch(GEO_LOOKUP_URL, {
+      cache: 'no-store',
+      headers: {
+        Accept: 'application/json',
+      },
+    })
+      .then(async (response) => {
+        if (!response.ok) {
+          throw new Error(`Geo lookup returned ${response.status}`)
+        }
+
+        const payload = await response.json()
+        return resolveChatwootLocation(payload?.data || payload)
+      })
+      .catch((error) => {
+        console.warn('Chatwoot location lookup skipped', error)
+        return ''
+      })
+
+    const applyChatwootLocation = async () => {
+      const location = await locationPromise
+      if (!location || !window.$chatwoot) {
+        return
+      }
+
+      try {
+        if (typeof window.$chatwoot.setCustomAttributes === 'function') {
+          window.$chatwoot.setCustomAttributes({ location })
+        }
+      } catch (error) {
+        console.warn('Chatwoot location attribute skipped', error)
+      }
+    }
 
     const waitForChatwoot = (retries = 0) => {
       if (window.$chatwoot) {
@@ -93,6 +144,9 @@ export default function ChatwootWidget() {
     const pointerListener = () => startLoading()
     const keyListener = () => startLoading()
     const focusListener = () => startLoading()
+    const chatwootReadyListener = () => {
+      applyChatwootLocation()
+    }
     const triggerInstantChat = ({ prefillMessage, prefillKey } = {}) => {
       const token = ++latestInstantToken
 
@@ -133,12 +187,15 @@ export default function ChatwootWidget() {
     startLoadingRef.current = startLoading
     triggerInstantRef.current = triggerInstantChat
 
+    window.addEventListener('chatwoot:ready', chatwootReadyListener, { once: true })
     window.addEventListener('pointerdown', pointerListener, { once: true, passive: true })
     window.addEventListener('keydown', keyListener, { once: true })
     window.addEventListener('focus', focusListener, { once: true })
     startLoading()
+    applyChatwootLocation()
 
     return () => {
+      window.removeEventListener('chatwoot:ready', chatwootReadyListener)
       window.removeEventListener('pointerdown', pointerListener)
       window.removeEventListener('keydown', keyListener)
       window.removeEventListener('focus', focusListener)
