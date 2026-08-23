@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import Navbar from '@/components/Navbar'
+import PageTransition from '@/components/PageTransition'
 import bannerStyles from '@/styles/component-css/SaleBanner.module.css'
 import { SUBSCRIPTION_PROMO, getSubscriptionPromoLabel } from '@/lib/pricing'
 
@@ -172,7 +173,7 @@ export default function SiteLayout({ children }) {
       </a>
       <Navbar isScrolled={isScrolled} />
       <main id="main-content">
-        {children}
+        <PageTransition>{children}</PageTransition>
       </main>
     </>
   )
