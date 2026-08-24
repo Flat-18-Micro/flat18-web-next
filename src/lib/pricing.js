@@ -66,3 +66,5 @@ export const formatPsychologicalCurrency = (amount, currencyCode, options = {}) 
 }
 
 export const formatBTC = (amount) => `₿${amount.toFixed(6)}`
+
+export const formatETH = (amount) => `ETH ${amount.toFixed(4)}`
