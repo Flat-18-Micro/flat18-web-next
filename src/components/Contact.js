@@ -7,8 +7,6 @@ import { openChatwoot } from '@/utils/chatwoot'
 import { trackLeadFormSubmit, trackSignalConversion } from '@/lib/analytics'
 
 export default function Contact() {
-  const GEO_LOOKUP_URL = 'https://geo.flat18.app/api/geo'
-
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -20,76 +18,17 @@ export default function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
 
-  const fetchGeoInsight = async () => {
-    try {
-      const response = await fetch(GEO_LOOKUP_URL, { cache: 'no-store' })
-      if (!response.ok) {
-        console.warn('Geo lookup failed', response.status)
-        return null
-      }
-
-      const payload = await response.json()
-      return payload?.data || payload || null
-    } catch (error) {
-      console.warn('Geo lookup error', error)
-      return null
-    }
-  }
-
-  const appendGeoMetadata = async (message) => {
-    try {
-      const geoData = await fetchGeoInsight()
-      const geoMetadata = buildGeoMetadata(geoData)
-      return `${message}\n\n---\nGeo Insight (auto-added)\n${geoMetadata}`
-    } catch (error) {
-      console.warn('Geo enrichment skipped', error)
-      return message
-    }
-  }
-
-  const buildGeoMetadata = (geoData) => {
-    if (!geoData) {
-      return 'Geo IP insight unavailable'
-    }
-
-    const locationParts = [geoData.city, geoData.country].filter(Boolean)
-    const location = locationParts.length ? locationParts.join(', ') : 'Unknown location'
-    const coordinates = (geoData.lat || geoData.lon)
-      ? `${geoData.lat ?? '?'} , ${geoData.lon ?? '?'}`
-      : 'Unknown coordinates'
-    const accuracy = geoData.radius_km ? `±${geoData.radius_km} km` : 'n/a'
-    const timezone = geoData.timezone || 'Unknown timezone'
-    const network = geoData.network ? `Network: ${geoData.network}` : null
-    const asn = geoData.asn || geoData.org
-      ? `ASN: ${geoData.asn ?? 'n/a'}${geoData.org ? ` (${geoData.org})` : ''}`
-      : null
-
-    return [
-      `IP: ${geoData.ip || 'Unknown IP'}`,
-      location,
-      `Timezone: ${timezone}`,
-      `Coordinates: ${coordinates} (${accuracy})`,
-      network,
-      asn
-    ].filter(Boolean).join('\n')
-  }
-
   const handleSubmit = async (e) => {
     e.preventDefault()
     setIsSubmitting(true)
 
     try {
-      const messageWithGeo = await appendGeoMetadata(formData.message)
-
       const response = await fetch('https://mailgun-contact.cloudflare-7fd.workers.dev', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({
-          ...formData,
-          message: messageWithGeo
-        })
+        body: JSON.stringify(formData)
       })
 
       if (!response.ok) {
@@ -270,7 +209,7 @@ export default function Contact() {
                 </div>
 
                 <div className={styles.formGroup}>
-                  <label htmlFor="budget" className={styles.label}>Budget</label>
+                  <label htmlFor="budget" className={styles.label}>Budget or route</label>
                   <select
                     id="budget"
                     name="budget"
@@ -278,12 +217,12 @@ export default function Contact() {
                     onChange={handleChange}
                     className={styles.select}
                   >
-                    <option value="">Select budget (optional)</option>
-                    <option value="discovery">Discovery budget only</option>
-                    <option value="3500-plus">Starting at £3,500</option>
-                    <option value="12000-plus">Starting at £12,000</option>
-                    <option value="30000-plus">£30,000+</option>
-                    <option value="monthly">Monthly studio support</option>
+                    <option value="">Select a route or budget (optional)</option>
+                    <option value="discovery">I’m still exploring</option>
+                    <option value="project">Project work</option>
+                    <option value="monthly">Monthly delivery</option>
+                    <option value="larger-build">Larger product build</option>
+                    <option value="not-sure">Not sure yet</option>
                   </select>
                 </div>
 

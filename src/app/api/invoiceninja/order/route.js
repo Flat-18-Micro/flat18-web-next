@@ -1,13 +1,14 @@
 import { NextResponse } from 'next/server'
 import { createInvoiceInvitation, findOrCreateClient, getInvoiceCurrency } from '@/lib/invoiceninja'
+import { BASE_PRICES, PROJECT_PRICE } from '@/lib/pricing'
 
 const ORDERS = {
   project: {
-    amount: 500,
+    amount: PROJECT_PRICE,
     itemName: 'Flat 18 scoped project work',
   },
   monthly: {
-    amount: 2995,
+    amount: BASE_PRICES.monthly,
     itemName: 'Flat 18 monthly product delivery',
   },
 }

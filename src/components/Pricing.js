@@ -4,10 +4,11 @@ import { useState, useEffect, useCallback } from 'react'
 import ChatCtaLink from '@/components/ChatCtaLink'
 import TitleWords from '@/components/TitleWords'
 import styles from '../styles/component-css/Pricing.module.css'
-import { analytics } from '@/lib/analytics'
+import { analytics, trackMetaPixelEvent, trackSignalConversion, trackSignalEvent } from '@/lib/analytics'
 import { getSectionBackground, getSectionTextColor } from '@/hooks/scrollBackgroundUtils'
 import {
   BASE_PRICES,
+  PROJECT_PRICE,
   SUBSCRIPTION_PROMO,
   applySubscriptionPromo,
   formatBTC,
@@ -37,7 +38,6 @@ const PROJECT_ROUTES = [
   },
 ]
 
-const PROJECT_PRICE = 500
 const CURRENCY_OPTIONS = ['GBP', 'USD', 'EUR', 'BTC', 'ETH']
 const INVOICE_CURRENCIES = new Set(['GBP', 'USD', 'EUR'])
 const CRYPTO_CURRENCIES = new Set(['BTC', 'ETH'])
@@ -127,10 +127,12 @@ const ORDER_OPTIONS = {
   project: {
     label: 'Project work',
     amount: PROJECT_PRICE,
+    description: 'For one clearly scoped website, feature, API expansion or integration.',
   },
   monthly: {
     label: 'Monthly delivery',
     amount: BASE_PRICES.monthly,
+    description: 'For ongoing product delivery, support and iteration across websites, features, APIs and integrations.',
   },
 }
 
@@ -236,12 +238,23 @@ export default function Pricing({ headingLevel = 'h2' }) {
   const openOrderForm = (type) => {
     setOrderType(type)
     setOrderError('')
+    trackSignalEvent(`pricing_order_${type}`)
+    trackSignalConversion('order_started', {
+      order_type: type,
+      currency: selectedCurrency,
+    })
   }
 
   const submitOrder = async (event) => {
     event.preventDefault()
     setOrderError('')
     setOrderLoading(true)
+    const invoiceCurrency = CRYPTO_CURRENCIES.has(selectedCurrency) ? fiatCurrency : selectedCurrency
+
+    trackSignalConversion('invoice_requested', {
+      order_type: orderType,
+      currency: invoiceCurrency,
+    })
 
     try {
       const response = await fetch('/api/invoiceninja/order', {
@@ -251,18 +264,42 @@ export default function Pricing({ headingLevel = 'h2' }) {
           name: orderName,
           email: orderEmail,
           orderType,
-          currency: CRYPTO_CURRENCIES.has(selectedCurrency) ? fiatCurrency : selectedCurrency,
+          currency: invoiceCurrency,
         }),
       })
       const data = await response.json().catch(() => ({}))
 
       if (!response.ok || !data.redirectUrl) {
+        trackSignalConversion('invoice_creation_failed', {
+          order_type: orderType,
+          currency: invoiceCurrency,
+          status: response.status,
+        })
         setOrderError(data.error || 'We could not prepare the invoice. Please try again.')
         return
       }
 
+      trackSignalConversion('invoice_created', {
+        order_type: orderType,
+        currency: invoiceCurrency,
+      })
+      if (orderType === 'monthly') {
+        trackMetaPixelEvent('Subscribe', {
+          content_name: 'monthly_product_delivery',
+          content_category: 'service_subscription',
+        })
+      }
+      trackSignalConversion('payment_redirected', {
+        order_type: orderType,
+        currency: invoiceCurrency,
+      })
       window.location.assign(data.redirectUrl)
     } catch {
+      trackSignalConversion('invoice_creation_failed', {
+        order_type: orderType,
+        currency: invoiceCurrency,
+        status: 'network_error',
+      })
       setOrderError('We could not connect to the payment service. Please try again or discuss the work with us.')
     } finally {
       setOrderLoading(false)
@@ -479,7 +516,10 @@ export default function Pricing({ headingLevel = 'h2' }) {
           ) : (
             <form className={styles.orderForm} onSubmit={submitOrder}>
               <div className={styles.orderSelection}>
-                <strong>{ORDER_OPTIONS[orderType].label}</strong>
+                <div className={styles.orderSelectionCopy}>
+                  <strong>{ORDER_OPTIONS[orderType].label}</strong>
+                  <p>{ORDER_OPTIONS[orderType].description}</p>
+                </div>
                 <span><PriceDisplay amount={ORDER_OPTIONS[orderType].amount} suffix="invoice" /></span>
               </div>
               <div className={styles.orderFields}>
@@ -491,6 +531,7 @@ export default function Pricing({ headingLevel = 'h2' }) {
                     onChange={(event) => setOrderName(event.target.value)}
                     autoComplete="name"
                     placeholder="Your name"
+                    required
                   />
                 </label>
                 <label className={styles.orderField}>
@@ -513,6 +554,9 @@ export default function Pricing({ headingLevel = 'h2' }) {
                   Choose another route
                 </button>
               </div>
+              <p className={styles.orderLegal}>
+                The invoice confirms the selected route and price. Please review our <a href="/terms">terms of service</a>, including cancellation and refunds, before paying.
+              </p>
               {orderError ? <p className={styles.orderError} role="alert">{orderError}</p> : null}
               <p className={styles.orderNote}>You’ll review the invoice and payment methods in the Invoice Ninja portal.{cryptoSelected ? ` The ${selectedCurrency} amount is recalculated at checkout.` : ''}</p>
             </form>

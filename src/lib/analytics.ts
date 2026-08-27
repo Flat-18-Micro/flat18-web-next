@@ -1,4 +1,11 @@
-// Analytics helper for Umami and Meta Pixel events
+// Analytics helper for Umami, Meta Pixel, Twitter Pixel and Signal events.
+type AnalyticsProvider = 'umami' | 'meta' | 'twitter'
+type QueuedAnalyticsEvent = {
+  provider: AnalyticsProvider
+  event: string
+  data?: Record<string, any>
+}
+
 declare global {
   interface Window {
     umami?: {
@@ -9,17 +16,90 @@ declare global {
     signal?: ((category: string, event: string, data?: Record<string, any>) => void) & {
       q?: Array<[string, string, Record<string, any> | undefined]>;
     };
+    __flat18AnalyticsQueue?: QueuedAnalyticsEvent[];
   }
+}
+
+let analyticsRetryId: number | null = null
+
+const flushAnalyticsQueue = () => {
+  if (typeof window === 'undefined' || !window.__flat18AnalyticsQueue?.length) return
+
+  const pending: QueuedAnalyticsEvent[] = []
+
+  window.__flat18AnalyticsQueue.forEach(({ provider, event, data }) => {
+    try {
+      if (provider === 'umami' && typeof window.umami?.track === 'function') {
+        window.umami.track(event, data)
+        return
+      }
+
+      if (provider === 'meta' && typeof window.fbq === 'function') {
+        window.fbq('track', event, data)
+        return
+      }
+
+      if (provider === 'twitter' && typeof window.twq === 'function') {
+        window.twq('event', event, data)
+        return
+      }
+    } catch (error) {
+      console.error(`Error tracking ${provider} event:`, error)
+      return
+    }
+
+    pending.push({ provider, event, data })
+  })
+
+  window.__flat18AnalyticsQueue = pending
+}
+
+const scheduleAnalyticsFlush = () => {
+  if (typeof window === 'undefined' || analyticsRetryId !== null) return
+
+  let attempts = 0
+  analyticsRetryId = window.setInterval(() => {
+    attempts += 1
+    flushAnalyticsQueue()
+
+    if (!window.__flat18AnalyticsQueue?.length || attempts >= 40) {
+      window.clearInterval(analyticsRetryId as number)
+      analyticsRetryId = null
+    }
+  }, 250)
+}
+
+const queueAnalyticsEvent = (provider: AnalyticsProvider, event: string, data?: Record<string, any>) => {
+  if (typeof window === 'undefined') return
+
+  window.__flat18AnalyticsQueue ||= []
+  window.__flat18AnalyticsQueue.push({ provider, event, data })
+  flushAnalyticsQueue()
+  if (window.__flat18AnalyticsQueue.length) scheduleAnalyticsFlush()
+}
+
+const queueSignalEvent = (category: string, event: string, data?: Record<string, any>) => {
+  if (typeof window === 'undefined') return
+
+  if (typeof window.signal !== 'function') {
+    const existingSignal = window.signal as NonNullable<Window['signal']> | undefined
+    const queuedSignal = ((queuedCategory: string, queuedEvent: string, metadata?: Record<string, any>) => {
+      queuedSignal.q?.push([queuedCategory, queuedEvent, metadata])
+    }) as NonNullable<Window['signal']>
+    queuedSignal.q = existingSignal?.q || []
+    window.signal = queuedSignal
+  }
+
+  window.signal(category, event, data)
 }
 
 // Umami event tracking
 export const trackUmamiEvent = (event: string, data?: Record<string, any>) => {
   try {
-    if (typeof window !== 'undefined' && window.umami) {
+    if (typeof window !== 'undefined' && typeof window.umami?.track === 'function') {
       window.umami.track(event, data);
-      console.log(`Umami event tracked: ${event}`, data);
     } else {
-      console.warn('Umami not available');
+      queueAnalyticsEvent('umami', event, data)
     }
   } catch (error) {
     console.error('Error tracking Umami event:', error);
@@ -29,11 +109,10 @@ export const trackUmamiEvent = (event: string, data?: Record<string, any>) => {
 // Meta Pixel event tracking
 export const trackMetaPixelEvent = (event: string, data?: Record<string, any>) => {
   try {
-    if (typeof window !== 'undefined' && window.fbq) {
+    if (typeof window !== 'undefined' && typeof window.fbq === 'function') {
       window.fbq('track', event, data);
-      console.log(`Meta Pixel event tracked: ${event}`, data);
     } else {
-      console.warn('Meta Pixel not available');
+      queueAnalyticsEvent('meta', event, data)
     }
   } catch (error) {
     console.error('Error tracking Meta Pixel event:', error);
@@ -43,11 +122,10 @@ export const trackMetaPixelEvent = (event: string, data?: Record<string, any>) =
 // Twitter Pixel event tracking
 export const trackTwitterEvent = (event: string, data?: Record<string, any>) => {
   try {
-    if (typeof window !== 'undefined' && window.twq) {
+    if (typeof window !== 'undefined' && typeof window.twq === 'function') {
       window.twq('event', event, data);
-      console.log(`Twitter event tracked: ${event}`, data);
     } else {
-      console.warn('Twitter Pixel not available');
+      queueAnalyticsEvent('twitter', event, data)
     }
   } catch (error) {
     console.error('Error tracking Twitter event:', error);
@@ -63,9 +141,7 @@ export const trackEvent = (event: string, data?: Record<string, any>) => {
 
 export const trackSignalEvent = (label: string) => {
   try {
-    if (typeof window !== 'undefined' && typeof window.signal === 'function') {
-      window.signal('event', 'cta_click', { label });
-    }
+    queueSignalEvent('event', 'cta_click', { label })
   } catch (error) {
     console.error('Error tracking signal event:', error);
   }
@@ -75,17 +151,7 @@ export const trackSignalEvent = (label: string) => {
 // ordinary CTA click. Do not pass names, email addresses or message content.
 export const trackSignalConversion = (name: string, data?: Record<string, any>) => {
   try {
-    if (typeof window === 'undefined') return
-
-    if (typeof window.signal !== 'function') {
-      const queuedSignal = ((category: string, event: string, metadata?: Record<string, any>) => {
-        queuedSignal.q?.push([category, event, metadata])
-      }) as NonNullable<Window['signal']>
-      queuedSignal.q = []
-      window.signal = queuedSignal
-    }
-
-    window.signal('conversion', name, data)
+    queueSignalEvent('conversion', name, data)
   } catch (error) {
     console.error('Error tracking signal conversion:', error);
   }
@@ -108,6 +174,7 @@ export const trackCTAHeroClick = (cta: string) => {
 
 export const trackLeadFormSubmit = (form: string) => {
   trackEvent('lead_form_submit', { form });
+  trackMetaPixelEvent('Lead', { content_name: form });
 };
 
 export const trackPricingView = () => {

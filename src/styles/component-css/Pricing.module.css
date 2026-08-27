@@ -371,6 +371,30 @@
   color: var(--fg);
 }
 
+.orderSelectionCopy {
+  display: grid;
+  min-width: 0;
+  gap: .3rem;
+}
+
+.orderSelectionCopy p,
+.orderLegal {
+  margin: 0;
+  color: var(--text-tertiary);
+  font-size: .78rem;
+  line-height: 1.45;
+}
+
+.orderSelectionCopy p {
+  max-width: 42ch;
+}
+
+.orderLegal a {
+  color: var(--fg);
+  text-decoration: underline;
+  text-underline-offset: .12em;
+}
+
 .orderSelection > span {
   color: var(--text-tertiary);
   font-size: .8rem;

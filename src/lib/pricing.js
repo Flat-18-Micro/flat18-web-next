@@ -1,3 +1,5 @@
+export const PROJECT_PRICE = 500
+
 export const BASE_PRICES = {
   monthly: 2995,
 }
