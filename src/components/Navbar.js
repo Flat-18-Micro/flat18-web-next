@@ -79,6 +79,17 @@ export default function Navbar({ isScrolled }) {
             </li>
             <li>
               <Link
+                href="/#process"
+                className={styles.link}
+                data-cta-source="nav"
+                data-signal-label="nav_process"
+                onClick={() => trackSignalEvent('nav_process')}
+              >
+                <span>Process</span>
+              </Link>
+            </li>
+            <li>
+              <Link
                 href="/#pricing"
                 className={styles.link}
                 data-cta-source="nav"
@@ -140,6 +151,21 @@ export default function Navbar({ isScrolled }) {
         >
           <div className={styles.mobileMenuContent}>
             <ul className={styles.mobileMenuList}>
+              <li>
+                <Link
+                  href="/#process"
+                  className={styles.mobileLink}
+                  data-cta-source="nav"
+                  data-signal-label="nav_mobile_process"
+                  onClick={() => {
+                    setIsMobileMenuOpen(false)
+                    trackSignalEvent('nav_mobile_process')
+                  }}
+                >
+                  <span className={styles.mobileLinkLabel}>Process</span>
+                  <span className={styles.mobileLinkDescription}>Fast work, reviewed before it ships</span>
+                </Link>
+              </li>
               <li>
                 <Link
                   href="/services"

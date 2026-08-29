@@ -34,6 +34,7 @@ export default function Features() {
     { href: '/fintech', label: 'Fintech teams' },
     { href: '/web3', label: 'Bitcoin, DeFi and Web3' },
     { href: '/ai-development', label: 'AI-assisted software' },
+    { href: '/prototype-rescue', label: 'AI-built prototype rescue' },
     { href: '/rescue', label: 'Software rescue' },
     { href: '/mvp', label: 'Founder MVPs' },
   ]
@@ -47,9 +48,9 @@ export default function Features() {
     >
       <div className={`${styles.container} max-w-content mx-auto px-6 sm:px-8`}>
         <div className={styles.sectionHeading}>
-          <TitleWords as="h2" className={styles.sectionTitle}>Product design and web development</TitleWords>
+          <TitleWords as="h2" className={styles.sectionTitle}>From first version to ongoing support</TitleWords>
           <p className={styles.sectionDescription}>
-            Choose the level of product help you need, from a focused MVP to an ongoing delivery partner.
+            Start with a focused MVP, a full product build, or ongoing senior support.
           </p>
         </div>
 
@@ -83,7 +84,7 @@ export default function Features() {
                   signalLabel={`features_${service.title.toLowerCase().replace(/[^a-z0-9]+/g, '_').replace(/^_|_$/g, '')}`}
                   variant="icon"
                 >
-                  Chat with us
+                  {service.cta}
                 </ChatCtaLink>
               </div>
             </div>

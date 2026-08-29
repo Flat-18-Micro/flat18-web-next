@@ -10,8 +10,6 @@ export default function Contact() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    projectType: '',
-    budget: '',
     message: '',
   })
 
@@ -46,8 +44,6 @@ export default function Contact() {
         setFormData({
           name: '',
           email: '',
-          projectType: '',
-          budget: '',
           message: '',
         })
       }, 5000)
@@ -144,7 +140,7 @@ export default function Contact() {
         <div className={styles.heading}>
           <h2 className={styles.title}>Tell us what you want to build</h2>
           <p className={styles.subtitle}>
-            Share the goal, deadline and current state. We will reply with the best route and next step.
+            Share the goal, deadline and current state. We&rsquo;ll reply with the best route and next step.
           </p>
         </div>
 
@@ -187,43 +183,6 @@ export default function Contact() {
                     placeholder="john@example.com"
                     className={styles.input}
                   />
-                </div>
-
-                <div className={styles.formGroup}>
-                  <label htmlFor="projectType" className={styles.label}>Project type</label>
-                  <select
-                    id="projectType"
-                    name="projectType"
-                    value={formData.projectType}
-                    onChange={handleChange}
-                    className={styles.select}
-                  >
-                    <option value="">Select project type (optional)</option>
-                    <option value="mvp-sprint">MVP Sprint</option>
-                    <option value="complete-product">Product Build</option>
-                    <option value="ongoing-studio">Ongoing Studio</option>
-                    <option value="llm-workflow">LLM workflow or internal tool</option>
-                    <option value="takeover">Take over an existing product</option>
-                    <option value="not-sure">Not sure yet</option>
-                  </select>
-                </div>
-
-                <div className={styles.formGroup}>
-                  <label htmlFor="budget" className={styles.label}>Budget or route</label>
-                  <select
-                    id="budget"
-                    name="budget"
-                    value={formData.budget}
-                    onChange={handleChange}
-                    className={styles.select}
-                  >
-                    <option value="">Select a route or budget (optional)</option>
-                    <option value="discovery">I’m still exploring</option>
-                    <option value="project">Project work</option>
-                    <option value="monthly">Monthly delivery</option>
-                    <option value="larger-build">Larger product build</option>
-                    <option value="not-sure">Not sure yet</option>
-                  </select>
                 </div>
 
                 <div className={`${styles.formGroup} ${styles.fullWidth}`}>

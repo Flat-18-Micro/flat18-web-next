@@ -8,6 +8,9 @@
 .featuredHeading {
   margin-bottom: var(--space-10);
   display: flex !important;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 2rem;
 }
 
 .featuredTitle {
@@ -20,8 +23,8 @@
 }
 
 .featuredSubtitle {
-  max-width: 760px;
-  margin: 0 auto;
+  max-width: 34ch;
+  margin: 0;
   color: var(--text-secondary);
   font-size: clamp(1.06rem, 1.45vw, 1.22rem);
   line-height: var(--leading-relaxed)
@@ -287,6 +290,8 @@
   }
 
   .featuredHeading {
+    align-items: flex-start;
+    flex-direction: column;
     margin-bottom: var(--space-10)
   }
 

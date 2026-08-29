@@ -29,7 +29,7 @@ const homePageSchema = {
     "image": `${siteConfig.url}${siteConfig.ogImage}`,
     "description": siteConfig.description,
     "url": siteConfig.url,
-    "serviceType": ["Product design", "Web development"],
+    "serviceType": ["MVP development", "Product design", "Full-stack development", "Dashboard development"],
     "email": siteConfig.email,
     "address": {
       "@type": "PostalAddress",
@@ -49,7 +49,7 @@ const homePageSchema = {
     "areaServed": "Worldwide",
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
-      "name": "Product design and web development services",
+      "name": "MVP, product design and full-stack development services",
       "itemListElement": [
         {
           "@type": "Offer",

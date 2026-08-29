@@ -1,44 +1,20 @@
 'use client'
 
-import { useEffect, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import ResponsiveImage from './ResponsiveImage'
 import TitleWords from '@/components/TitleWords'
 import { getSectionBackground, getSectionTextColor } from '@/hooks/scrollBackgroundUtils'
-import {
-  selectedWorkProjectBySlug,
-  selectedWorkProjects,
-} from '@/lib/selected-work-projects'
+import { selectedWorkProjectBySlug } from '@/lib/selected-work-projects'
 import styles from '../styles/component-css/FeaturedWork.module.css'
 
-const DEFAULT_FEATURED_PROJECTS = [
+const FEATURED_PROJECTS = [
   selectedWorkProjectBySlug['social-publisher'],
   selectedWorkProjectBySlug.signalmap,
   selectedWorkProjectBySlug.ledger,
 ]
 
-function shuffleProjects(projects) {
-  const shuffled = [...projects]
-
-  for (let index = shuffled.length - 1; index > 0; index -= 1) {
-    const randomIndex = Math.floor(Math.random() * (index + 1))
-    const currentProject = shuffled[index]
-
-    shuffled[index] = shuffled[randomIndex]
-    shuffled[randomIndex] = currentProject
-  }
-
-  return shuffled
-}
-
 export default function FeaturedWork() {
-  const [featuredProjects, setFeaturedProjects] = useState(DEFAULT_FEATURED_PROJECTS)
-
-  useEffect(() => {
-    setFeaturedProjects(shuffleProjects(selectedWorkProjects).slice(0, 3))
-  }, [])
-
   return (
     <section
       className={styles.featuredSection}
@@ -48,11 +24,15 @@ export default function FeaturedWork() {
     >
       <div className="container">
         <div className={styles.featuredHeading}>
-          <TitleWords as="h2" className={styles.featuredTitle}>Projects we've worked on</TitleWords>
+          <div>
+            <span className="label-uppercase">Work proof</span>
+            <TitleWords as="h2" className={styles.featuredTitle}>Work that proves it</TitleWords>
+          </div>
+          <p className={styles.featuredSubtitle}>Real product builds, not pitch-deck theatre.</p>
         </div>
 
         <div className={styles.featuredGrid}>
-          {featuredProjects.map((project, index) => {
+          {FEATURED_PROJECTS.map((project, index) => {
             const image = project.featuredImage || project.image
 
             return (

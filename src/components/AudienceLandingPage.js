@@ -16,6 +16,7 @@ const serviceLinks = {
   fintech: '/services/ui-ux-design',
   web3: '/services/web3-blockchain',
   'ai-development': '/services/ai-augmented-development',
+  'prototype-rescue': '/services/ai-augmented-development',
   rescue: '/services/maintenance-support',
   mvp: '/services/app-development',
 }

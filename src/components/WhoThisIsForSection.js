@@ -32,7 +32,7 @@ export default function WhoThisIsForSection() {
         <div className={styles.sectionHeader}>
           <span className="label-uppercase">When Flat 18 fits</span>
           <TitleWords as="h2" id="who-this-is-for-heading" className={styles.title}>
-            Top reasons teams call us.
+            When a prototype needs a product.
           </TitleWords>
         </div>
 

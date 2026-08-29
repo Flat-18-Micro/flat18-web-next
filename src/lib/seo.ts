@@ -5,8 +5,8 @@ import { Metadata } from 'next'
 export const siteConfig = {
   name: 'Flat 18',
   legalName: 'Flat 18 Microsystems Development LLC',
-  title: 'Flat 18 | Product design and web development',
-  description: 'Flat 18 is a digital product agency offering product design and web development for teams dealing with dense workflows and technical systems.',
+  title: 'Flat 18 - Ship better products faster with expert use of LLMs and AI',
+  description: 'Flat 18 is a senior development and design studio using LLMs to deliver curated MVPs, dashboards and full-stack product builds faster.',
   // Production redirects the apex domain to www, so every canonical URL must
   // use the same host.
   url: 'https://www.flat18.co.uk',
@@ -84,7 +84,7 @@ export const defaultMetadata: Metadata = {
       'max-video-preview': -1,
     },
   },
-  category: 'Product design and web development',
+  category: 'MVP development and full-stack product engineering',
   icons: {
     icon: '/favicon.ico',
     shortcut: '/favicon.ico',
@@ -184,7 +184,7 @@ export function generateOrganizationJsonLd() {
     },
     foundingDate: '2017',
     numberOfEmployees: '2-10',
-    industry: 'Product design and web development',
+    industry: 'MVP development and full-stack product engineering',
     serviceArea: {
       '@type': 'Place',
       name: 'Worldwide',

@@ -195,7 +195,6 @@ describe('mailgun-contact worker', () => {
       body: JSON.stringify({
         name: 'Alex',
         email: 'alex@example.com',
-        projectType: 'MVP Sprint',
         message: 'Build me a product.',
       }),
     })

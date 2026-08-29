@@ -359,10 +359,16 @@ export default function Pricing({ headingLevel = 'h2' }) {
       <div className={`${styles.container} max-w-content mx-auto px-6 sm:px-8`}>
         <div className={styles.sectionHeading}>
           <span className="label-uppercase">Pricing</span>
-          <TitleWords as={HeadingTag} className={styles.sectionTitle}>Flexible for every kind of project</TitleWords>
+          <TitleWords as={HeadingTag} className={styles.sectionTitle}>Pricing for serious product work</TitleWords>
           <p className={styles.sectionDescription}>
-            Choose monthly delivery for ongoing work, or a fixed project package for a smaller, clearly scoped task.
+            Clear routes for MVPs, builds and retained product support.
           </p>
+          {headingLevel !== 'h1' ? (
+            <a href="/pricing#routes" className={styles.moreInfoLink}>
+              See what each route includes
+              <i className="bi bi-arrow-up-right" aria-hidden="true" />
+            </a>
+          ) : null}
         </div>
 
         <div  id="pricing" className={styles.currencyToolbar}>
@@ -423,8 +429,8 @@ export default function Pricing({ headingLevel = 'h2' }) {
                 </div>
                 <span className={styles.projectKicker}>Per project</span>
               </div>
-              <TitleWords as="h3" className={styles.projectRouteTitle}>Short, scoped work</TitleWords>
-              <p className={styles.planSubtitle}>Useful for adding a feature, extending an existing product or getting a website shipped.</p>
+              <TitleWords as="h3" className={styles.projectRouteTitle}>Curated MVP Sprint</TitleWords>
+              <p className={styles.planSubtitle}>For focused first versions with a clear route from scope to handover.</p>
               <div className={styles.projectPriceBlock}>
                 <span className={styles.startingAt}>Starting at</span>
                 <strong><PriceDisplay amount={PROJECT_PRICE} /></strong>

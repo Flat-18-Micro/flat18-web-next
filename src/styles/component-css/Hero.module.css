@@ -82,6 +82,31 @@
   max-width: 760px
 }
 
+.heroEyebrow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .65rem;
+  margin-bottom: 1.35rem;
+  color: var(--hero-muted);
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .09em;
+  line-height: 1.35;
+  text-transform: uppercase
+}
+
+.heroBadge {
+  display: inline-flex;
+  align-items: center;
+  padding: .42rem .62rem;
+  border: 1px solid var(--hero-rule-strong);
+  background: var(--hero-soft);
+  color: var(--hero-ink);
+  font-size: .68rem;
+  letter-spacing: .1em;
+}
+
 .heroHeading {
   margin: 0;
   color: var(--hero-ink);

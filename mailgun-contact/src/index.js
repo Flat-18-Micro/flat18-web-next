@@ -331,7 +331,7 @@ const handleContactForm = async (request, env) => {
   }
 
   try {
-    const { name, email, projectType, message } = await request.json()
+    const { name, email, message } = await request.json()
 
     const formData = new URLSearchParams()
     formData.append('from', 'Flat18 Contact Form <web-contact-form@mg.flat18.co.uk>')
@@ -342,7 +342,6 @@ const handleContactForm = async (request, env) => {
       `
 Name: ${name}
 Email: ${email}
-Project Type: ${projectType}
 
 Message:
 ${message}

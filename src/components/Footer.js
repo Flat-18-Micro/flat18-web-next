@@ -26,7 +26,7 @@ export default function Footer() {
                   <span className={styles.brandName}>Flat 18</span>
                 </Link>
                 <p className={styles.footerTagline}>
-                  Flat 18 is a digital product agency. We design and build software for teams dealing with dense workflows and technical systems.
+                  Flat 18 turns rough product ideas into polished MVPs, dashboards and full-stack systems.
                 </p>
 
                 {/* Social icons */}
