@@ -6,6 +6,7 @@ import Breadcrumbs from '@/components/Breadcrumbs'
 import CaseStudyLightbox from '@/components/CaseStudyLightbox'
 import Contact from '@/components/Contact'
 import Footer from '@/components/Footer'
+import TinyAuditCta from '@/components/TinyAuditCta'
 import styles from '@/styles/component-css/CaseStudies.module.css'
 import brandStyles from '@/styles/component-css/CaseStudyBrandAssets.module.css'
 import CaseStudyMediaFlow from '@/components/CaseStudyMediaFlow'
@@ -522,6 +523,8 @@ export default function SignalMapCaseStudyPage() {
           </div>
         </div>
       </section>
+
+      <TinyAuditCta source="signalmap" />
 
       <Contact />
       <Footer />

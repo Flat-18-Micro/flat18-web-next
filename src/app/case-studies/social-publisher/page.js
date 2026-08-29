@@ -6,6 +6,7 @@ import CaseStudyLightbox from '@/components/CaseStudyLightbox'
 import CaseStudyMediaFlow from '@/components/CaseStudyMediaFlow'
 import Contact from '@/components/Contact'
 import Footer from '@/components/Footer'
+import TinyAuditCta from '@/components/TinyAuditCta'
 import styles from '@/styles/component-css/CaseStudies.module.css'
 import brandStyles from '@/styles/component-css/CaseStudyBrandAssets.module.css'
 import { socialPublisherBrandAssets } from '@/lib/social-publisher-assets'
@@ -472,6 +473,8 @@ export default function SocialPublisherCaseStudyPage() {
           </div>
         </div>
       </section>
+
+      <TinyAuditCta source="social-publisher" />
 
       <Contact />
       <Footer />

@@ -1,20 +1,44 @@
 'use client'
 
+import { useEffect, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import ResponsiveImage from './ResponsiveImage'
 import TitleWords from '@/components/TitleWords'
 import { getSectionBackground, getSectionTextColor } from '@/hooks/scrollBackgroundUtils'
-import { selectedWorkProjectBySlug } from '@/lib/selected-work-projects'
+import {
+  selectedWorkProjectBySlug,
+  selectedWorkProjects,
+} from '@/lib/selected-work-projects'
 import styles from '../styles/component-css/FeaturedWork.module.css'
 
-const FEATURED_PROJECTS = [
+const DEFAULT_FEATURED_PROJECTS = [
   selectedWorkProjectBySlug['social-publisher'],
   selectedWorkProjectBySlug.signalmap,
   selectedWorkProjectBySlug.ledger,
 ]
 
+function shuffleProjects(projects) {
+  const shuffled = [...projects]
+
+  for (let index = shuffled.length - 1; index > 0; index -= 1) {
+    const randomIndex = Math.floor(Math.random() * (index + 1))
+    const currentProject = shuffled[index]
+
+    shuffled[index] = shuffled[randomIndex]
+    shuffled[randomIndex] = currentProject
+  }
+
+  return shuffled
+}
+
 export default function FeaturedWork() {
+  const [featuredProjects, setFeaturedProjects] = useState(DEFAULT_FEATURED_PROJECTS)
+
+  useEffect(() => {
+    setFeaturedProjects(shuffleProjects(selectedWorkProjects).slice(0, 3))
+  }, [])
+
   return (
     <section
       className={styles.featuredSection}
@@ -28,11 +52,11 @@ export default function FeaturedWork() {
             <span className="label-uppercase">Work proof</span>
             <TitleWords as="h2" className={styles.featuredTitle}>Work that proves it</TitleWords>
           </div>
-          <p className={styles.featuredSubtitle}>Real product builds, not pitch-deck theatre.</p>
+          <p className={styles.featuredSubtitle}>Real products, thoughtfully built.</p>
         </div>
 
         <div className={styles.featuredGrid}>
-          {FEATURED_PROJECTS.map((project, index) => {
+          {featuredProjects.map((project, index) => {
             const image = project.featuredImage || project.image
 
             return (
@@ -90,6 +114,17 @@ export default function FeaturedWork() {
                   <p className={styles.featuredDescription}>
                     {project.featuredDescription}
                   </p>
+
+                  {project.proofPoints && (
+                    <div className={styles.capabilityBlock}>
+                      <span>Proof in the build</span>
+                      <ul>
+                        {project.proofPoints.map((point) => (
+                          <li key={point}>{point}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
 
                   <p className={styles.featuredOutcome}>
                     {project.featuredOutcome}

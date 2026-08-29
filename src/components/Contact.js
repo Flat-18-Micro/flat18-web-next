@@ -6,7 +6,14 @@ import { getSectionBackground, getSectionTextColor } from '@/hooks/scrollBackgro
 import { openChatwoot } from '@/utils/chatwoot'
 import { trackLeadFormSubmit, trackSignalConversion } from '@/lib/analytics'
 
-export default function Contact() {
+export default function Contact({
+  id = 'contact-form',
+  title = 'Tell us what you want to build',
+  subtitle = 'Share the goal, deadline and current state. We’ll reply with the best route and next step.',
+  messageLabel = 'Project details',
+  messagePlaceholder = 'What are you building, who is it for, and what would make the first release useful?',
+  source = 'contact',
+}) {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -33,10 +40,10 @@ export default function Contact() {
         throw new Error('Failed to send message')
       }
 
-      trackLeadFormSubmit('contact')
-      trackSignalConversion('contact_form_submit', {
+      trackLeadFormSubmit(source)
+      trackSignalConversion(`${source}_form_submit`, {
         path: window.location.pathname,
-        method: 'contact_form',
+        method: `${source}_form`,
       })
       setIsSubmitted(true)
       setTimeout(() => {
@@ -132,16 +139,14 @@ export default function Contact() {
   return (
     <section
       className={styles.contactSection}
-      id="contact-form"
+      id={id}
       data-bg-color={getSectionBackground('contact')}
       data-text-color={getSectionTextColor('contact')}
     >
       <div className={styles.container}>
         <div className={styles.heading}>
-          <h2 className={styles.title}>Tell us what you want to build</h2>
-          <p className={styles.subtitle}>
-            Share the goal, deadline and current state. We&rsquo;ll reply with the best route and next step.
-          </p>
+          <h2 className={styles.title}>{title}</h2>
+          <p className={styles.subtitle}>{subtitle}</p>
         </div>
 
         <div className={styles.contentGrid}>
@@ -186,14 +191,14 @@ export default function Contact() {
                 </div>
 
                 <div className={`${styles.formGroup} ${styles.fullWidth}`}>
-                  <label htmlFor="message" className={styles.label}>Project details</label>
+                  <label htmlFor="message" className={styles.label}>{messageLabel}</label>
                   <textarea
                     id="message"
                     name="message"
                     value={formData.message}
                     onChange={handleChange}
                     required
-                    placeholder="What are you building, who is it for, and what would make the first release useful?"
+                    placeholder={messagePlaceholder}
                     className={styles.textarea}
                     rows="5"
                   ></textarea>

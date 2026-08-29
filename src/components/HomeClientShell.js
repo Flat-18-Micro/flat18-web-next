@@ -31,7 +31,7 @@ export default function HomeClientShell() {
           <p className={styles.auditCtaText}>
             Tell us where your MVP or product is stuck. We&rsquo;ll return three practical fixes and what to do next.
           </p>
-          <a href="#contact-form" className={styles.auditCtaLink}>
+          <a href="/tiny-audit" className={styles.auditCtaLink}>
             Get a tiny audit
             <i className="bi bi-arrow-right" aria-hidden="true" />
           </a>

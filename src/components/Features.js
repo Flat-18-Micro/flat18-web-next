@@ -1,5 +1,6 @@
 import TitleWords from '@/components/TitleWords'
 import ChatCtaLink from '@/components/ChatCtaLink'
+import TinyAuditCta from '@/components/TinyAuditCta'
 import Link from 'next/link'
 import styles from '@/styles/component-css/Features.module.css'
 import { getSectionBackground, getSectionTextColor } from '@/hooks/scrollBackgroundUtils'
@@ -103,6 +104,8 @@ export default function Features({ containerClassName }) {
             See all services
           </Link>
         </div>
+
+        <TinyAuditCta source="services" />
 
         <div className="mt-10 border-t border-[var(--border-soft)] pt-6">
           <p className="mb-4 text-sm font-bold uppercase tracking-wider text-tertiary">Built for</p>

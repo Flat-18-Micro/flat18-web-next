@@ -25,23 +25,24 @@ const breadcrumbLabelOverrides = {
 export default function Breadcrumbs() {
   const pathname = usePathname()
 
-  // Create breadcrumb items from pathname
-  const pathSegments = pathname.split('/').filter(segment => segment)
-
   // Generate breadcrumb items using useMemo to prevent recreation on every render
-  const breadcrumbItems = useMemo(() => [
-    { label: 'Home', path: '/' },
-    ...pathSegments.map((segment, index) => {
-      const path = `/${pathSegments.slice(0, index + 1).join('/')}`
-      // Format the label (capitalize and replace hyphens with spaces)
-      const label = breadcrumbLabelOverrides[segment] ?? segment
-        .split('-')
-        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-        .join(' ')
+  const breadcrumbItems = useMemo(() => {
+    const pathSegments = pathname.split('/').filter(segment => segment)
 
-      return { label, path }
-    })
-  ], [pathSegments])
+    return [
+      { label: 'Home', path: '/' },
+      ...pathSegments.map((segment, index) => {
+        const path = `/${pathSegments.slice(0, index + 1).join('/')}`
+        // Format the label (capitalize and replace hyphens with spaces)
+        const label = breadcrumbLabelOverrides[segment] ?? segment
+          .split('-')
+          .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+          .join(' ')
+
+        return { label, path }
+      }),
+    ]
+  }, [pathname])
 
   useEffect(() => {
     // Add breadcrumb structured data
@@ -62,14 +63,10 @@ export default function Breadcrumbs() {
     script.text = JSON.stringify(breadcrumbSchema)
     document.head.appendChild(script)
 
-    // Clean up on unmount
+    // Remove only the script created by this instance. Querying all matching
+    // scripts can make two breadcrumb instances try to remove the same node.
     return () => {
-      const scripts = document.querySelectorAll('script[type="application/ld+json"]')
-      scripts.forEach(s => {
-        if (s.text.includes('"@type":"BreadcrumbList"')) {
-          document.head.removeChild(s)
-        }
-      })
+      if (script.parentNode) script.parentNode.removeChild(script)
     }
   }, [breadcrumbItems])
 

@@ -3,6 +3,7 @@ import Link from 'next/link'
 import Breadcrumbs from '@/components/Breadcrumbs'
 import Contact from '@/components/Contact'
 import Footer from '@/components/Footer'
+import TinyAuditCta from '@/components/TinyAuditCta'
 import { selectedWorkProjects } from '@/lib/selected-work-projects'
 import styles from '@/styles/component-css/CaseStudies.module.css'
 
@@ -81,6 +82,10 @@ export default function CaseStudiesPage() {
           </div>
         </div>
       </section>
+
+      <div className={styles.container}>
+        <TinyAuditCta source="case-studies" />
+      </div>
 
       <section className={styles.ctaSection}>
         <div className={styles.container}>

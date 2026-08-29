@@ -2,6 +2,7 @@ import Link from 'next/link'
 import Footer from '@/components/Footer'
 import Contact from '@/components/Contact'
 import ChatCtaLink from '@/components/ChatCtaLink'
+import TinyAuditCta from '@/components/TinyAuditCta'
 import {
   generateBreadcrumbJsonLd,
   generateFAQJsonLd,
@@ -204,6 +205,10 @@ export default function AudienceLandingPage({ audience }) {
           </div>
         </div>
       </section>
+
+      <div className={styles.container}>
+        <TinyAuditCta source={page.slug} />
+      </div>
 
       <section className={styles.faqSection} aria-labelledby={`${page.slug}-faq`}>
         <div className={styles.container}>
