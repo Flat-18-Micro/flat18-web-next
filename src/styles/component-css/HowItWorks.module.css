@@ -374,6 +374,7 @@
   .stageFrame {
     width: 100%;
     grid-template-columns: 1fr;
+    min-height: unset;
   }
 
   .stageCopy {
@@ -381,6 +382,7 @@
   }
 
   .stageArtwork {
+    display:none;
     min-height: 420px;
     border-top: 1px solid color-mix(in srgb, var(--stage-accent) 28%, var(--border-soft));
   }
