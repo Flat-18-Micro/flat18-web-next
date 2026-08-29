@@ -44,8 +44,19 @@ export default function Footer() {
               </div>
 
               <div className={styles.footerColumn}>
-                <h3 className={styles.columnTitle}>Build routes</h3>
+                <h3 className={styles.columnTitle}>Services</h3>
                 <ul className={styles.linksList}>
+                  <li>
+                    <Link
+                      href="/services"
+                      className={styles.footerLink}
+                      data-cta-source="footer"
+                      data-signal-label="footer_all_services"
+                      onClick={() => trackSignalEvent('footer_all_services')}
+                    >
+                      All services
+                    </Link>
+                  </li>
                   <li>
                     <Link
                       href="/startup-mvp-development"
@@ -99,6 +110,72 @@ export default function Footer() {
                       onClick={() => trackSignalEvent('footer_monthly_product_team')}
                     >
                       Monthly Product Team
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/saas"
+                      className={styles.footerLink}
+                      data-cta-source="footer"
+                      data-signal-label="footer_saas"
+                      onClick={() => trackSignalEvent('footer_saas')}
+                    >
+                      SaaS products
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/fintech"
+                      className={styles.footerLink}
+                      data-cta-source="footer"
+                      data-signal-label="footer_fintech"
+                      onClick={() => trackSignalEvent('footer_fintech')}
+                    >
+                      Fintech products
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/web3"
+                      className={styles.footerLink}
+                      data-cta-source="footer"
+                      data-signal-label="footer_web3"
+                      onClick={() => trackSignalEvent('footer_web3')}
+                    >
+                      Web3 products
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/ai-development"
+                      className={styles.footerLink}
+                      data-cta-source="footer"
+                      data-signal-label="footer_ai_development"
+                      onClick={() => trackSignalEvent('footer_ai_development')}
+                    >
+                      AI development
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/mvp"
+                      className={styles.footerLink}
+                      data-cta-source="footer"
+                      data-signal-label="footer_mvp"
+                      onClick={() => trackSignalEvent('footer_mvp')}
+                    >
+                      MVP development
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/rescue"
+                      className={styles.footerLink}
+                      data-cta-source="footer"
+                      data-signal-label="footer_rescue"
+                      onClick={() => trackSignalEvent('footer_rescue')}
+                    >
+                      Prototype rescue
                     </Link>
                   </li>
                 </ul>
