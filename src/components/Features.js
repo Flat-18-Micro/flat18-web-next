@@ -4,7 +4,7 @@ import Link from 'next/link'
 import styles from '@/styles/component-css/Features.module.css'
 import { getSectionBackground, getSectionTextColor } from '@/hooks/scrollBackgroundUtils'
 
-export default function Features() {
+export default function Features({ containerClassName }) {
   const services = [
     {
       icon: 'bi-lightning-charge',
@@ -46,7 +46,7 @@ export default function Features() {
       data-bg-color={getSectionBackground('features')}
       data-text-color={getSectionTextColor('features')}
     >
-      <div className={`${styles.container} max-w-content mx-auto px-6 sm:px-8`}>
+      <div className={containerClassName || `${styles.container} max-w-content mx-auto px-6 sm:px-8`}>
         <div className={styles.sectionHeading}>
           <TitleWords as="h2" className={styles.sectionTitle}>From first version to ongoing support</TitleWords>
           <p className={styles.sectionDescription}>
