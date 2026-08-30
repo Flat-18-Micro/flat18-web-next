@@ -7,3 +7,9 @@
 .productJourneyCopy h3 { font-size: clamp(1.8rem, 3.2vw, 3.4rem); line-height: 1; }
 .productHeroImageButton, .productJourneyCard, .productFeatureCard, .productProofCard { border-radius: 0; }
 .productProofCard { backdrop-filter: none; }
+
+/* Keep case-study content on the site's shared container grid. */
+.container { max-width: var(--container-xl); padding: 0 var(--space-4); }
+@media (min-width: 768px) { .container { padding: 0 var(--space-6); } }
+@media (min-width: 1024px) { .container { padding: 0 var(--space-8); } }
+@media (max-width: 768px) { .container { max-width: 100%; } }

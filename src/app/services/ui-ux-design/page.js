@@ -65,7 +65,9 @@ export default function UiUxDesignPage() {
         </div>
       </section>
 
-      <TinyAuditCta source="ui-ux-design" />
+      <div className={styles.container}>
+        <TinyAuditCta source="ui-ux-design" />
+      </div>
       <Contact />
       <Footer />
     </main>

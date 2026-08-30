@@ -39,7 +39,9 @@ export default function AiAugmentedDevelopmentPage() {
           </div>
         </div>
       </section>
-      <TinyAuditCta source="ai-augmented-development" />
+      <div className={styles.container}>
+        <TinyAuditCta source="ai-augmented-development" />
+      </div>
       <Contact />
       <Footer />
     </main>

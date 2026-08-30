@@ -65,7 +65,9 @@ export default function AppDevelopmentPage() {
         </div>
       </section>
 
-      <TinyAuditCta source="app-development" />
+      <div className={styles.container}>
+        <TinyAuditCta source="app-development" />
+      </div>
       <Contact />
       <Footer />
     </main>

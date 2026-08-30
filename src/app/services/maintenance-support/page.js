@@ -60,7 +60,9 @@ export default function MaintenanceSupportPage() {
         </div>
       </section>
       
-      <TinyAuditCta source="maintenance-support" />
+      <div className={styles.container}>
+        <TinyAuditCta source="maintenance-support" />
+      </div>
       <Contact />
       <Footer />
     </main>

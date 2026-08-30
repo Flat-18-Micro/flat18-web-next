@@ -474,7 +474,9 @@ export default function SocialPublisherCaseStudyPage() {
         </div>
       </section>
 
-      <TinyAuditCta source="social-publisher" />
+      <div className={styles.container}>
+        <TinyAuditCta source="social-publisher" />
+      </div>
 
       <Contact />
       <Footer />

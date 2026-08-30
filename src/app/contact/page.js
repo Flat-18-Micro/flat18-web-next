@@ -24,7 +24,7 @@ export default function ContactPage() {
         <Breadcrumbs />
         <div className={contactStyles.pageGlow} aria-hidden="true" />
 
-        <div className={styles.container}>
+        <div className={contactStyles.contactPageContainer}>
           <div className={styles.pageContent}>
             <h1 className={styles.pageHeading}>Contact Flat 18</h1>
             <div className={styles.badge}>We usually reply Monday to Friday, 12:00-20:00 UTC.</div>
@@ -32,8 +32,9 @@ export default function ContactPage() {
           </div>
         </div>
 
-        <div className={styles.container}>
-          <Contact />
+        <Contact />
+
+        <div className={contactStyles.contactPageContainer}>
 
           <aside className={contactStyles.clientPortal} aria-labelledby="client-portal-heading">
             <div>
