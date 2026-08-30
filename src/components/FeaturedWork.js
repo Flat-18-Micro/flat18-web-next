@@ -108,27 +108,26 @@ export default function FeaturedWork() {
                 <div className={styles.featuredContent}>
                   <div className={styles.featuredHeader}>
                     <TitleWords as="h3" className={styles.featuredProjectTitle}>{project.title}</TitleWords>
-                    <span className={styles.featuredStatus}>{project.tag}</span>
                   </div>
 
-                  <p className={styles.featuredDescription}>
-                    {project.featuredDescription}
-                  </p>
-
-                  {project.proofPoints && (
-                    <div className={styles.capabilityBlock}>
-                      <span>Proof in the build</span>
-                      <ul>
-                        {project.proofPoints.map((point) => (
-                          <li key={point}>{point}</li>
-                        ))}
-                      </ul>
+                  <dl className={styles.featuredDetails}>
+                    <div className={styles.featuredDetailRow}>
+                      <dt className={styles.featuredDetailLabel}>Focus</dt>
+                      <dd className={styles.featuredDetailValue}>{project.featuredDescription}</dd>
                     </div>
-                  )}
 
-                  <p className={styles.featuredOutcome}>
-                    {project.featuredOutcome}
-                  </p>
+                    {project.proofPoints && (
+                      <div className={styles.featuredDetailRow}>
+                        <dt className={styles.featuredDetailLabel}>Evidence</dt>
+                        <dd className={styles.featuredDetailValue}>{project.proofPoints.join(' · ')}</dd>
+                      </div>
+                    )}
+
+                    <div className={styles.featuredDetailRow}>
+                      <dt className={styles.featuredDetailLabel}>Outcome</dt>
+                      <dd className={styles.featuredDetailValue}>{project.featuredOutcome}</dd>
+                    </div>
+                  </dl>
 
                   <span className={styles.featuredCta}>
                     View project

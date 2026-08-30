@@ -88,6 +88,12 @@ const STAGES = [
 ]
 
 const AUTO_ADVANCE_MS = 3800
+const CARD_POSITIONS = [
+  { x: 0, y: 0, rotate: 0, scale: 1 },
+  { x: -12, y: 14, rotate: -4, scale: 0.97 },
+  { x: 14, y: 27, rotate: 4.5, scale: 0.94 },
+  { x: -8, y: 39, rotate: -6, scale: 0.91 }
+]
 
 const circleToPath = (circle) => {
   const cx = Number(circle.cx)
@@ -116,15 +122,7 @@ function StageArtwork({ stage }) {
   const paths = useMemo(() => stage.lines.map(lineToPath), [stage])
 
   return (
-    <motion.g
-      key={stage.number}
-      className={styles.artworkSecondary}
-      initial={{ opacity: 0, scale: 0.96, y: 8 }}
-      animate={{ opacity: 0.84, scale: 1, y: 0 }}
-      exit={{ opacity: 0, scale: 1.02, y: -8 }}
-      transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-      style={{ transformOrigin: '50% 50%' }}
-    >
+    <g className={styles.artworkSecondary}>
       {stage.lines.map((line, index) => (
         <path
           key={index}
@@ -133,7 +131,7 @@ function StageArtwork({ stage }) {
           strokeDasharray={line.strokeDasharray}
         />
       ))}
-    </motion.g>
+    </g>
   )
 }
 
@@ -260,18 +258,41 @@ export default function HowItWorks() {
 
           <div className={styles.stageArtwork} aria-hidden="true">
             <div className={styles.artworkLabel}>
-              <span>Controlled release</span>
+              <span></span>
               <span>{activeStage.number} / 04</span>
             </div>
             <div className={styles.artworkHalo} />
-            <svg className={styles.artworkSvg} viewBox="0 0 100 100" fill="none">
-              <AnimatePresence mode="wait" initial={false}>
-                <StageArtwork stage={activeStage} />
-              </AnimatePresence>
-            </svg>
-            <p className={styles.artworkCaption}>
+            <div className={styles.artworkDeck}>
+              {STAGES.map((stage, index) => {
+                const stackPosition = (index - activeIndex + STAGES.length) % STAGES.length
+                const position = CARD_POSITIONS[stackPosition]
+
+                return (
+                  <motion.div
+                    key={stage.number}
+                    className={styles.artworkCard}
+                    style={{ '--card-accent': stage.accent }}
+                    animate={{ ...position, zIndex: STAGES.length - stackPosition }}
+                    transition={{ duration: 0.72, ease: [0.22, 1, 0.36, 1] }}
+                  >
+                    <div className={styles.artworkCardMeta}>
+                      <span>Flat 18 / {stage.number}</span>
+                      <span>{stage.title}</span>
+                    </div>
+                    <svg className={styles.artworkCardSvg} viewBox="0 0 100 100" fill="none">
+                      <StageArtwork stage={stage} />
+                    </svg>
+                    <div className={styles.artworkCardFooter}>
+                      <span>Delivery stage</span>
+                      <span>{stage.number} / 04</span>
+                    </div>
+                  </motion.div>
+                )
+              })}
+            </div>
+            {/* <p className={styles.artworkCaption}>
               LLMs accelerate the work. Senior developers make the calls.
-            </p>
+            </p> */}
           </div>
         </div>
 

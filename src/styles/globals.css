@@ -231,7 +231,7 @@ h2 {
 
 h3 {
   font-size: var(--text-3xl);
-  font-weight: var(--font-bold);
+  font-weight: var(--font-semibold);
   font-family: var(--font-sans);
   letter-spacing: 0;
   line-height: var(--leading-snug)
@@ -239,7 +239,7 @@ h3 {
 
 h4 {
   font-size: var(--text-2xl);
-  font-weight: var(--font-bold);
+  font-weight: var(--font-semibold);
   font-family: var(--font-sans);
   letter-spacing: 0;
   line-height: var(--leading-snug)
@@ -247,7 +247,7 @@ h4 {
 
 h5 {
   font-size: var(--text-xl);
-  font-weight: var(--font-bold);
+  font-weight: var(--font-semibold);
   font-family: var(--font-sans);
   letter-spacing: 0;
   line-height: var(--leading-snug)
@@ -255,7 +255,7 @@ h5 {
 
 h6 {
   font-size: var(--text-lg);
-  font-weight: var(--font-bold);
+  font-weight: var(--font-semibold);
   font-family: var(--font-sans);
   letter-spacing: 0;
   line-height: var(--leading-snug)

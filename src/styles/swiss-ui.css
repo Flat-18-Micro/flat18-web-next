@@ -5,7 +5,7 @@
 
 .swiss-ui :where(h2, h3) {
   font-family: var(--font-sans);
-  font-weight: 700;
+  font-weight: var(--font-semibold);
   letter-spacing: -.04em;
 }
 
@@ -53,7 +53,7 @@
 /* Interaction stays flat: rules, colour and arrows communicate state. */
 .swiss-ui #work h2 {
   font-family: var(--font-sans);
-  font-weight: 700;
+  font-weight: var(--font-semibold);
   letter-spacing: -.04em;
 }
 

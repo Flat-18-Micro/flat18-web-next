@@ -51,7 +51,12 @@ export default function CaseStudiesPage() {
 
           <div className={styles.caseStudyList}>
             {selectedWorkProjects.map((study) => (
-              <article key={study.slug} className={styles.caseStudyCard}>
+              <Link
+                key={study.slug}
+                href={study.href}
+                className={styles.caseStudyCard}
+                aria-label={`Read ${study.title} case study`}
+              >
                 <div className={styles.caseStudyCardMedia}>
                   <Image
                     src={study.image}
@@ -70,12 +75,12 @@ export default function CaseStudiesPage() {
                       <span key={item} className={styles.caseStudyMetaItem}>{item}</span>
                     ))}
                   </div>
-                  <Link href={study.href} className={styles.caseStudyCardLink}>
+                  <span className={styles.caseStudyCardLink}>
                     Read case study
                     <i className="bi bi-arrow-right" aria-hidden="true"></i>
-                  </Link>
+                  </span>
                 </div>
-              </article>
+              </Link>
             ))}
           </div>
         </div>

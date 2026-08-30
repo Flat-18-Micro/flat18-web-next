@@ -257,7 +257,7 @@
   color: var(--fg);
   font-family: var(--font-sans);
   font-size: clamp(1.15rem, 1.65vw, 1.45rem);
-  font-weight: 700;
+  font-weight: 600;
   line-height: 1.2;
 }
 
@@ -377,7 +377,7 @@
   color: var(--fg);
   font-family: var(--font-sans);
   font-size: clamp(1.35rem, 2.2vw, 1.85rem);
-  font-weight: 700;
+  font-weight: 600;
   line-height: 1.1;
 }
 

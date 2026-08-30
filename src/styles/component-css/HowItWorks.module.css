@@ -53,12 +53,12 @@
   position: relative;
   display: grid;
   width: 100%;
-  min-height: 570px;
+  min-height: 500px;
   grid-template-columns: minmax(320px, 0.78fr) minmax(0, 1.22fr);
   margin-left: 0;
   overflow: hidden;
-  border: 1px solid color-mix(in srgb, var(--stage-accent) 28%, var(--border-soft));
-  background: color-mix(in srgb, var(--bg) 94%, var(--stage-accent));
+  border: 1px solid color-mix(in srgb, var(--stage-accent) 18%, var(--border-soft));
+  background: color-mix(in srgb, var(--bg) 97%, var(--stage-accent));
   transform: none;
   transition: background-color 900ms ease, border-color 900ms ease;
   isolation: isolate;
@@ -69,12 +69,12 @@
   z-index: -1;
   inset: 0;
   background-image:
-    linear-gradient(color-mix(in srgb, var(--stage-accent) 9%, transparent) 1px, transparent 1px),
-    linear-gradient(90deg, color-mix(in srgb, var(--stage-accent) 9%, transparent) 1px, transparent 1px);
+    linear-gradient(color-mix(in srgb, var(--stage-accent) 6%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in srgb, var(--stage-accent) 6%, transparent) 1px, transparent 1px);
   background-size: 72px 72px;
   content: '';
   mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), transparent 90%);
-  opacity: 0.24;
+  opacity: 0.14;
   transition: background-image 900ms ease;
 }
 
@@ -88,8 +88,8 @@
   border-radius: 50%;
   background: var(--stage-accent);
   content: '';
-  filter: blur(100px);
-  opacity: 0.07;
+  filter: blur(80px);
+  opacity: 0.04;
   transition: background-color 900ms ease;
 }
 
@@ -98,7 +98,7 @@
   min-width: 0;
   flex-direction: column;
   justify-content: space-between;
-  padding: clamp(2rem, 5vw, 5.25rem);
+  padding: clamp(1.75rem, 4vw, 4rem);
 }
 
 .stageMeta,
@@ -262,11 +262,11 @@
 .stageArtwork {
   position: relative;
   display: flex;
-  min-height: 570px;
+  min-height: 500px;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  padding: clamp(2rem, 5vw, 5.25rem);
+  padding: clamp(1.75rem, 4vw, 4rem);
 }
 
 .artworkLabel {
@@ -283,37 +283,82 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  width: min(34vw, 430px);
+  width: min(25vw, 310px);
   aspect-ratio: 1;
-  border: 1px solid color-mix(in srgb, var(--stage-accent) 25%, transparent);
+  border: 1px solid color-mix(in srgb, var(--stage-accent) 16%, transparent);
   border-radius: 50%;
-  background: radial-gradient(circle, color-mix(in srgb, var(--stage-accent) 12%, transparent), transparent 68%);
-  box-shadow: 0 0 110px color-mix(in srgb, var(--stage-accent) 9%, transparent);
+  background: radial-gradient(circle, color-mix(in srgb, var(--stage-accent) 8%, transparent), transparent 68%);
+  box-shadow: 0 0 80px color-mix(in srgb, var(--stage-accent) 6%, transparent);
   transform: translate(-50%, -50%);
   transition: background 900ms ease, border-color 900ms ease, box-shadow 900ms ease;
 }
 
-.artworkSvg {
+.artworkSecondary {
+  fill: none;
+  stroke: color-mix(in srgb, var(--stage-accent) 64%, var(--fg));
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.05;
+  transition: stroke 900ms ease;
+}
+
+.artworkSecondary {
+  stroke-width: 0.9;
+  opacity: 0.68;
+  color: color-mix(in srgb, var(--stage-accent) 64%, var(--fg));
+}
+
+.artworkDeck {
+  position: relative;
   z-index: 1;
-  width: min(36vw, 450px);
+  width: min(28vw, 320px);
+  aspect-ratio: 0.82;
+  margin: auto;
+  perspective: 900px;
+}
+
+.artworkCard {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  border: 1px solid color-mix(in srgb, var(--card-accent) 26%, var(--border-soft));
+  background: color-mix(in srgb, var(--bg) 96%, var(--card-accent));
+  box-shadow: 0 14px 32px color-mix(in srgb, var(--bg) 62%, transparent);
+  transform-origin: 50% 50%;
+  will-change: transform;
+}
+
+.artworkCardMeta,
+.artworkCardFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  color: var(--text-tertiary);
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  line-height: 1.3;
+  text-transform: uppercase;
+}
+
+.artworkCardMeta span:last-child,
+.artworkCardFooter span:last-child {
+  color: color-mix(in srgb, var(--card-accent) 64%, var(--fg));
+}
+
+.artworkCardSvg {
+  width: 78%;
   max-width: 100%;
   margin: auto;
   overflow: visible;
 }
 
-.artworkSecondary {
-  fill: none;
-  stroke: color-mix(in srgb, var(--stage-accent) 78%, var(--fg));
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke-width: 1.25;
-  transition: stroke 900ms ease;
-}
-
-.artworkSecondary {
-  stroke-width: 1.05;
-  opacity: 0.84;
-  color: color-mix(in srgb, var(--stage-accent) 78%, var(--fg));
+.artworkCardFooter {
+  padding-top: 0.85rem;
+  border-top: 1px solid color-mix(in srgb, var(--card-accent) 18%, var(--border-soft));
 }
 
 .artworkCaption {
@@ -340,7 +385,7 @@
   color: var(--fg);
   font-family: var(--font-sans);
   font-size: 1.2rem;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .ctaContent p {
@@ -389,11 +434,11 @@
   }
 
   .artworkHalo {
-    width: min(70vw, 330px);
+    width: min(54vw, 260px);
   }
 
-  .artworkSvg {
-    width: min(68vw, 340px);
+  .artworkDeck {
+    width: min(52vw, 250px);
   }
 
   .processBottom {

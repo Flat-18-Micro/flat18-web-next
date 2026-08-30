@@ -15,3 +15,5 @@
 .ctaActions{display:flex;flex-wrap:wrap;gap:.75rem}.ctaActions :global(.btn){white-space:nowrap}
 @media (max-width:1024px){.sectionHeader{grid-template-columns:repeat(8,minmax(0,1fr))}.sectionHeader :global(.label-uppercase),.title{grid-column:1/span 5}.sectionHeader>p{grid-column:6/span 3}.cardGrid{grid-template-columns:1fr}.card{min-height:auto;border-right:0;border-bottom:1px solid var(--border-soft)}.card:last-child{border-bottom:0}}
 @media (max-width:640px){.section{padding:clamp(3rem,12vw,4.5rem) 0}.sectionHeader{grid-template-columns:repeat(4,minmax(0,1fr))}.sectionHeader :global(.label-uppercase),.title,.sectionHeader>p{grid-column:1/-1}.card{padding:1.5rem 0}.card h3{margin-top:1.5rem}.ctaPanel{align-items:flex-start;flex-direction:column}.ctaActions{display:grid;width:100%}.ctaActions :global(.btn){width:100%}}
+/* Keep audience headings aligned with the lighter shared hierarchy. */
+.title,.card h3{font-weight:600}

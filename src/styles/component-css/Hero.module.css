@@ -110,7 +110,7 @@
 .heroHeading {
   margin: 0;
   color: var(--hero-ink);
-  font-family: var(--font-display);
+  font-family: var(--font-sans);
   font-size: clamp(3.4rem, 4.6vw, 4.55rem);
   font-weight: 600;
   line-height: .98;
