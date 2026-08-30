@@ -1,4 +1,6 @@
 export const PROJECT_PRICE = 500
+export const TINY_AUDIT_PRICE = 500
+export const TINY_AUDIT_TIMELINE = '3 working days'
 
 export const BASE_PRICES = {
   monthly: 2995,

@@ -208,11 +208,11 @@ export default function F18PayCaseStudyPage() {
         <div className={styles.container}>
           <div className={styles.productSectionIntro}>
             <span className={styles.caseStudyTag}>Development journey</span>
-            <h2>From a payment surface to a system merchants could actually operate.</h2>
+            <h2>From a payment surface to a system merchants can operate.</h2>
             <p>
               Flat18 treated F18 Pay as a controls and trust problem. The product had to help merchants create
               stores, manage brand and wallet state, issue invoices, create payment requests, and support
-              payments without hiding the parts that usually go wrong.
+              payments without hiding the parts that need attention.
             </p>
           </div>
 
@@ -253,7 +253,7 @@ export default function F18PayCaseStudyPage() {
           <div className={styles.productShowcaseHeader}>
             <div>
               <span className={styles.caseStudyTag}>Product surfaces</span>
-              <h2>Designed around the moments where payment products usually break.</h2>
+              <h2>Designed around the moments where payment products break.</h2>
             </div>
             <p>
               F18 Pay is not just a QR checkout. It is an operating layer for stores, invoices, requests,

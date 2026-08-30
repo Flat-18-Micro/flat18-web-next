@@ -17,23 +17,22 @@ export default function CaseStudiesPage() {
           <Breadcrumbs />
           <div className={styles.heroContent}>
             <span className={styles.heroKicker}>Selected work</span>
-            <h1 className={styles.heroTitle}>Selected work with a clear commercial purpose.</h1>
+            <h1 className={styles.heroTitle}>Work that makes difficult products clearer.</h1>
             <p className={styles.heroSubtitle}>
-              See how Flat18 investigates business problems, designs practical solutions, and
-              implements product changes or new services with the care needed for confident customer sign-off.
+              Product, interface and engineering work for teams dealing with dense workflows, sensitive data and important next steps.
             </p>
             <div className={styles.heroStats}>
               <div className={styles.statCard}>
                 <span className={styles.statValue}>{selectedWorkCount}</span>
-                <span className={styles.statLabel}>Deep dives</span>
+                <span className={styles.statLabel}>Projects</span>
               </div>
               <div className={styles.statCard}>
-                <span className={styles.statValue}>Discovery to delivery</span>
-                <span className={styles.statLabel}>Method</span>
+                <span className={styles.statValue}>Problem to product</span>
+                <span className={styles.statLabel}>Approach</span>
               </div>
               <div className={styles.statCard}>
-                <span className={styles.statValue}>Customer-focused</span>
-                <span className={styles.statLabel}>Outcome</span>
+                <span className={styles.statValue}>Built to hold up</span>
+                <span className={styles.statLabel}>Standard</span>
               </div>
             </div>
           </div>
@@ -44,10 +43,9 @@ export default function CaseStudiesPage() {
         <div className={styles.container}>
           <div className={styles.caseStudyListHeader}>
             <span className={styles.caseStudyTag}>All selected work</span>
-            <h2 className={styles.caseStudyTitle}>Evidence of how we think and ship</h2>
+            <h2 className={styles.caseStudyTitle}>A closer look at the work.</h2>
             <p className={styles.caseStudySubtitle}>
-              Each study follows the same useful pattern: what was wrong, what Flat18 found,
-              what changed, and why the final product was easier for customers or teams to trust.
+              Each study covers the problem, the decisions behind the work, what shipped and the evidence we can show.
             </p>
           </div>
 
@@ -73,7 +71,7 @@ export default function CaseStudiesPage() {
                     ))}
                   </div>
                   <Link href={study.href} className={styles.caseStudyCardLink}>
-                    View project
+                    Read case study
                     <i className="bi bi-arrow-right" aria-hidden="true"></i>
                   </Link>
                 </div>

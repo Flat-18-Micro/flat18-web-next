@@ -241,7 +241,7 @@ export default function SocialPublisherCaseStudyPage() {
           <div className={styles.productShowcaseHeader}>
             <div>
               <span className={styles.caseStudyTag}>Product surfaces</span>
-              <h2>Designed around the moments where publishing usually breaks.</h2>
+              <h2>Designed around where publishing breaks.</h2>
             </div>
             <p>
               The interface is not just a prettier scheduler. Each surface exposes a different failure point:
@@ -327,7 +327,7 @@ export default function SocialPublisherCaseStudyPage() {
           <div className={brandStyles.brandAssetsHeader}>
             <div>
               <span className={styles.caseStudyTag}>Brand assets</span>
-              <h2>Share-ready art and compact iconography.</h2>
+              <h2>A clearer identity across the product.</h2>
             </div>
             <p>
               The selected work now includes the social share image and the compact app icon, so the product can be shown

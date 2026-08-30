@@ -9,6 +9,12 @@ import styles from '@/styles/component-css/PricingPage.module.css'
 
 const ROUTES = [
   {
+    number: '00',
+    title: 'Tiny Audit',
+    description: 'For an early product or AI-built prototype that needs three clear fixes before a bigger commitment.',
+    includes: ['Product friction review', 'Production risk review', 'Prioritised next steps'],
+  },
+  {
     number: '01',
     title: 'MVP Sprint',
     description: 'For a focused first version with a clear route from scope to handover.',

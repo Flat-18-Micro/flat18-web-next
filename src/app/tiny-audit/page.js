@@ -9,6 +9,7 @@ import {
   siteConfig,
 } from '@/lib/seo'
 import styles from '@/styles/component-css/TinyAuditPage.module.css'
+import { TINY_AUDIT_PRICE, TINY_AUDIT_TIMELINE } from '@/lib/pricing'
 
 const pageTitle = 'Tiny Audit'
 const pageDescription = 'A focused review for an early product, MVP or AI-built prototype. Get three practical fixes and a clear next step from Flat 18.'
@@ -31,6 +32,8 @@ export default function TinyAuditPage() {
     description: pageDescription,
     url: pageUrl,
     serviceType: 'Product and prototype review',
+    price: TINY_AUDIT_PRICE,
+    currency: 'GBP',
   })
 
   return (
@@ -49,6 +52,7 @@ export default function TinyAuditPage() {
               <p className={styles.lead}>
                 A focused review for an early product, rough MVP or AI-built prototype. We look for the issues most likely to slow the next release, then show you what to do first.
               </p>
+              <p className={styles.offerMeta}>£{TINY_AUDIT_PRICE} fixed fee · {TINY_AUDIT_TIMELINE}</p>
               <div className={styles.actions}>
                 <a href="#audit-contact" className="btn btn-primary">
                   Ask for a Tiny Audit
@@ -57,7 +61,7 @@ export default function TinyAuditPage() {
                 <Link href="/prototype-rescue" className="btn btn-secondary">Prototype rescue</Link>
               </div>
               <p className={styles.reassurance}>
-                No long brief required. Send what you have and we&rsquo;ll confirm the timing and fixed fee before any work starts.
+                No long brief required. Send what you have and we&rsquo;ll confirm the scope before any work starts.
               </p>
             </div>
 

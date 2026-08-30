@@ -1,4 +1,5 @@
 import { siteConfig } from '@/lib/seo'
+import { TINY_AUDIT_PRICE } from '@/lib/pricing'
 
 const homePageSchema = {
   "@context": "https://schema.org",
@@ -51,6 +52,16 @@ const homePageSchema = {
       "@type": "OfferCatalog",
       "name": "MVP, product design and full-stack development services",
       "itemListElement": [
+        {
+          "@type": "Offer",
+          "price": TINY_AUDIT_PRICE,
+          "priceCurrency": "GBP",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Tiny Audit",
+            "description": "A focused review of an early product or AI-built prototype, with three prioritised fixes and a clear next step."
+          }
+        },
         {
           "@type": "Offer",
           "itemOffered": {

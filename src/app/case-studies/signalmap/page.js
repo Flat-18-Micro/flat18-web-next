@@ -150,7 +150,7 @@ const featureCards = [
   {
     mediaIndex: 7,
     kicker: 'Campaigns and journeys',
-    title: 'See what a campaign actually changed.',
+    title: 'See what a campaign changed.',
     copy: 'UTMs, campaign groups, and first-step paths make it easier to spot which visits are worth keeping.',
     ariaLabel: 'Open SignalMap journeys screenshot in viewer',
   },
@@ -315,7 +315,7 @@ export default function SignalMapCaseStudyPage() {
           <div className={styles.productShowcaseHeader}>
             <div>
               <span className={styles.caseStudyTag}>Product surfaces</span>
-              <h2>Designed around the moments where analytics usually get noisy.</h2>
+              <h2>Designed around the moments where analytics get noisy.</h2>
             </div>
             <p>
               Each surface has one job: reduce noise, keep context, and make the next decision obvious.
@@ -362,7 +362,7 @@ export default function SignalMapCaseStudyPage() {
           <div className={brandStyles.brandAssetsHeader}>
             <div>
               <span className={styles.caseStudyTag}>Brand assets</span>
-              <h2>Share-ready art and compact iconography.</h2>
+              <h2>A clearer identity across the product.</h2>
             </div>
             <p>
               SignalMap now has a dedicated share image and app mark, so the product stays readable on
@@ -444,7 +444,7 @@ export default function SignalMapCaseStudyPage() {
                   <h3>Flat18 diagnosis</h3>
                   <p>
                     The product had to stay privacy-first, fast, and opinionated about the signal that
-                    actually matters.
+                    matters.
                   </p>
                 </div>
                 <div className={styles.infoCard}>

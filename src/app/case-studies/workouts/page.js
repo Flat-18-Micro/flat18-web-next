@@ -258,12 +258,12 @@ export default function WorkoutsCaseStudyPage() {
           <div className={styles.productShowcaseHeader}>
             <div>
               <span className={styles.caseStudyTag}>Product surfaces</span>
-              <h2>Designed around the moments where training plans usually fall apart.</h2>
+              <h2>Designed around the moments where training plans fall apart.</h2>
             </div>
             <p>
               Workouts is not just a logging screen with motivational wallpaper. Each surface answers a
               practical question: what plan fits me, what do I do today, how do I log it quickly, and
-              am I actually making progress?
+                am I making progress?
             </p>
           </div>
 
@@ -335,7 +335,7 @@ export default function WorkoutsCaseStudyPage() {
               </button>
               <div className={styles.productFeatureCopy}>
                 <span>Mobile use</span>
-                <h3>Keep the plan usable where training actually happens.</h3>
+                <h3>Keep the plan usable where training happens.</h3>
                 <p>
                   The mobile view keeps the weekly plan, next actions, and session context readable in
                   the gym rather than trapped in desktop theatre.
@@ -351,7 +351,7 @@ export default function WorkoutsCaseStudyPage() {
           <div className={brandStyles.brandAssetsHeader}>
             <div>
               <span className={styles.caseStudyTag}>Brand assets</span>
-              <h2>Share-ready art and compact iconography.</h2>
+              <h2>A clearer identity across the product.</h2>
             </div>
             <p>
               Workouts now has a dedicated share image and app icon, so the product stays clear on link

@@ -1,5 +1,6 @@
 import Footer from '@/components/Footer'
 import Contact from '@/components/Contact'
+import TinyAuditCta from '@/components/TinyAuditCta'
 import styles from '@/styles/component-css/PageStyles.module.css'
 
 export default function MaintenanceSupportPage() {
@@ -59,6 +60,7 @@ export default function MaintenanceSupportPage() {
         </div>
       </section>
       
+      <TinyAuditCta source="maintenance-support" />
       <Contact />
       <Footer />
     </main>

@@ -54,7 +54,7 @@ const journeySteps = [
     eyebrow: '2020-07 to 2020-09 / Fill-out',
     title: 'The first redesign became usable across the site.',
     copy:
-      'Search behaviour, category views, sidebar treatment, dark theme fixes, and mobile clean-up turned the concept into a site people could actually work through. The visual frame was set, then the interaction details made it hold together.',
+      'Search behaviour, category views, sidebar treatment, dark theme fixes, and mobile clean-up turned the concept into a site people could use. The visual frame was set, then the interaction details made it hold together.',
     mediaIndex: 2,
   },
   {

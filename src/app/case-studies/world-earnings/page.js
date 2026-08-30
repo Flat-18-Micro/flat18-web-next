@@ -55,7 +55,7 @@ const journeySteps = [
 const proofPoints = [
   { value: '2', label: 'Decision views', detail: 'Take-home estimates and salary benchmarks meet distinct but connected questions.' },
   { value: '3', label: 'Trust signals', detail: 'Rule date, source trail and research status remain close to the result.' },
-  { value: '1', label: 'Clearer number', detail: 'The product leads with what work actually pays, not only the headline salary.' },
+  { value: '1', label: 'Clearer number', detail: 'The product leads with what work pays, not only the headline salary.' },
 ]
 
 export default function WorldEarningsCaseStudyPage() {
@@ -139,7 +139,7 @@ export default function WorldEarningsCaseStudyPage() {
           <div className={styles.productShowcaseHeader}>
             <div>
               <span className={styles.caseStudyTag}>Product surfaces</span>
-              <h2>Designed around questions people actually bring to a salary.</h2>
+              <h2>Designed around the questions people bring to a salary.</h2>
             </div>
             <p>
               Each view answers a different part of the same decision: what reaches the bank account, what the market may pay, and whether the data can be inspected.

@@ -36,7 +36,7 @@ const journeySteps = [
   {
     eyebrow: '01 / The problem',
     title: 'Relationship work gets lost between spreadsheets, inboxes, and good intentions.',
-    copy: 'Small teams can usually see their contacts and usually see their messages. The hard part is knowing who needs a response, what has already happened, and which promising lead deserves a careful next step.',
+    copy: 'Small teams can see their contacts and messages. The hard part is knowing who needs a response, what has already happened, and which promising lead deserves a careful next step.',
     image: '/images/case-studies/client-desk/01-overview-devices.webp',
     alt: 'Client Desk shown on laptop and tablet devices',
     mediaIndex: 0,

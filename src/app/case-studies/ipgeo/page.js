@@ -253,7 +253,7 @@ export default function IPGeoCaseStudyPage() {
           <div className={styles.productShowcaseHeader}>
             <div>
               <span className={styles.caseStudyTag}>Product surfaces</span>
-              <h2>Designed around the moments where geolocation usually gets messy.</h2>
+              <h2>Designed around the moments where geolocation gets messy.</h2>
             </div>
             <p>
               Each surface has one job: keep the lookup predictable, keep the browser path safe, and make the next

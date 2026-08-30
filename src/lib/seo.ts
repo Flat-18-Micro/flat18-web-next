@@ -5,8 +5,8 @@ import { Metadata } from 'next'
 export const siteConfig = {
   name: 'Flat 18',
   legalName: 'Flat 18 Microsystems Development LLC',
-  title: 'Flat 18 - Ship better products faster with expert use of LLMs and AI',
-  description: 'Flat 18 is a senior development and design studio using LLMs to deliver curated MVPs, dashboards and full-stack product builds faster.',
+  title: 'Flat 18 — Turn fast-built prototypes into dependable products',
+  description: 'Flat 18 helps founders turn rough or AI-built prototypes into clear, maintainable production software, from first audit to launch and ongoing support.',
   // Production redirects the apex domain to www, so every canonical URL must
   // use the same host.
   url: 'https://www.flat18.co.uk',
@@ -425,7 +425,7 @@ export const pageTypes = {
   
   pricing: () => generatePageMetadata({
     title: 'Pricing',
-    description: 'Pricing routes for curated MVP sprints, complete product builds and monthly product team capacity.',
+    description: 'A fixed-scope Tiny Audit, curated MVP sprints, complete product builds and monthly product team capacity.',
     path: '/pricing',
   }),
   privacy: () => generatePageMetadata({

@@ -98,7 +98,7 @@ const proofPoints = [
   {
     value: 'Merchant-first',
     label: 'Focus',
-    detail: 'The dashboard starts with the questions customers actually ask.',
+    detail: 'The dashboard starts with the questions customers ask.',
   },
   {
     value: 'Status consistent',
@@ -275,7 +275,7 @@ export default function ForgingBlockDashboardCaseStudyPage() {
           <div className={styles.productShowcaseHeader}>
             <div>
               <span className={styles.caseStudyTag}>Product surfaces</span>
-              <h2>Designed around the moments where payment work usually slows down.</h2>
+              <h2>Designed around the moments where payment work slows down.</h2>
             </div>
             <p>
               ForgingBlock does not hide the system behind a generic support shell. Each surface keeps

@@ -296,7 +296,7 @@ export default function ForgingBlockWebsiteCaseStudyPage() {
           <div className={styles.productShowcaseHeader}>
             <div>
               <span className={styles.caseStudyTag}>Product surfaces</span>
-              <h2>Designed around the moments where website copy usually loses people.</h2>
+              <h2>Designed around the moments where website copy loses people.</h2>
             </div>
             <p>
               The redesign is not about visual flair for its own sake. It gives ForgingBlock a better

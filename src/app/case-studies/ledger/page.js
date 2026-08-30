@@ -250,7 +250,7 @@ export default function LedgerCaseStudyPage() {
           <div className={styles.productShowcaseHeader}>
             <div>
               <span className={styles.caseStudyTag}>Product surfaces</span>
-              <h2>Designed around the moments where informal records usually fail.</h2>
+              <h2>Designed around the moments where informal records fail.</h2>
             </div>
             <p>
               Ledger is not a mini accounting suite wearing a fake moustache. Each surface supports a
@@ -337,7 +337,7 @@ export default function LedgerCaseStudyPage() {
           <div className={brandStyles.brandAssetsHeader}>
             <div>
               <span className={styles.caseStudyTag}>Brand assets</span>
-              <h2>Share-ready art and compact iconography.</h2>
+              <h2>A clearer identity across the product.</h2>
             </div>
             <p>
               Ledger now has a dedicated share image and app icon, so the product stays readable on link

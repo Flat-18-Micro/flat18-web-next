@@ -49,7 +49,7 @@ const productStories = [
   },
   {
     eyebrow: '02 / Mobile employee app',
-    title: 'Make the employee experience useful at the moment work actually happens.',
+    title: 'Make the employee experience useful when work happens.',
     copy: 'The companion mobile app gives employees a secure, direct route into their own day: sign in, check in or out, request leave, read messages, review documents, see benefits and keep their profile current. Location is used only when a person explicitly signs in or signs out; it is not background tracking. That means a shift can start with a clear action and an understandable result, while the employee retains a simple view of their own work information wherever they are.',
     image: mediaItems[3].src,
     alt: mediaItems[3].alt,
@@ -165,7 +165,7 @@ export default function SMPCaseStudyPage() {
           <div className={styles.productShowcaseHeader}>
             <div>
               <span className={styles.caseStudyTag}>Product surfaces</span>
-              <h2>Designed around the routine moments that usually create follow-up work.</h2>
+              <h2>Designed around the routine moments that create follow-up work.</h2>
             </div>
             <p>
               Each view removes a different uncertainty: what needs an administrator’s attention, how an employee

@@ -29,7 +29,7 @@ export default function HomeClientShell() {
         <div className={`${styles.auditCtaInner} max-w-content mx-auto px-6 sm:px-8`}>
           <span className={styles.auditCtaLabel}>Tiny audit</span>
           <p className={styles.auditCtaText}>
-            Tell us where your MVP or product is stuck. We&rsquo;ll return three practical fixes and what to do next.
+            A focused review for founders with a rough or AI-built product. Get three practical fixes and a clear next step.
           </p>
           <a href="/tiny-audit" className={styles.auditCtaLink}>
             Get a tiny audit

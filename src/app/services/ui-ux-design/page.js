@@ -2,6 +2,7 @@ import Footer from '@/components/Footer'
 import Contact from '@/components/Contact'
 import Breadcrumbs from '@/components/Breadcrumbs'
 import Link from 'next/link'
+import TinyAuditCta from '@/components/TinyAuditCta'
 import styles from '@/styles/component-css/PageStyles.module.css'
 
 export default function UiUxDesignPage() {
@@ -64,6 +65,7 @@ export default function UiUxDesignPage() {
         </div>
       </section>
 
+      <TinyAuditCta source="ui-ux-design" />
       <Contact />
       <Footer />
     </main>

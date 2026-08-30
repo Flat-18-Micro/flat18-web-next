@@ -35,11 +35,11 @@ export default function Hero() {
       <div className={`${styles.heroContainer} max-w-7xl mx-auto px-6 sm:px-8`}>
         <div className={styles.heroContent}>
           <TitleWords as="h1" className={styles.heroHeading}>
-            Ship <span className={styles.heroSerifAccent}>better</span> products <span className={styles.heroSerifAccent}>faster</span> with expert use of LLMs and <span className={styles.heroSerifAccent}>AI</span>
+            Turn fast-built <span className={styles.heroSerifAccent}>prototypes</span> into products you can <span className={styles.heroSerifAccent}>trust</span>.
           </TitleWords>
 
           <p className={styles.heroSubheading}>
-            Flat 18 turns rough product ideas into polished MVPs, dashboards and full-stack systems.
+            Flat 18 helps founders turn rough or AI-built prototypes into clear, maintainable production software — from first audit to launch and ongoing support.
           </p>
 
           <HeroActions />

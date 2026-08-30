@@ -81,7 +81,7 @@ const galleryItems = mediaItems.map((_, index) => index)
 const journeySteps = [
   {
     eyebrow: '01 / Dense inputs',
-    title: 'Astrology tools usually make users wrestle the machinery before seeing the result.',
+    title: 'Astrology tools can make users wrestle the machinery before seeing the result.',
     copy: 'Birth date, exact time, birthplace, coordinates, house systems, time-zone conversion, privacy questions and chart methods all arrive before the user understands whether the product is worth trusting.',
     image: '/images/case-studies/natal-charts/01-landing.png',
     alt: 'Natal Charts landing screen showing the birth data form and chart preview'
@@ -210,7 +210,7 @@ export default function NatalChartsCaseStudyPage() {
         <div className={styles.container}>
           <div className={styles.productSectionIntro}>
             <span className={styles.caseStudyTag}>Development journey</span>
-            <h2>From specialist calculation to a product ordinary users can actually read.</h2>
+            <h2>From specialist calculation to a product ordinary users can read.</h2>
             <p>
               Flat18 treated Natal Charts as a translation problem. The calculation layer needed to stay
               technically sound, while the interface needed to reveal the output progressively, explain
@@ -250,7 +250,7 @@ export default function NatalChartsCaseStudyPage() {
           <div className={styles.productShowcaseHeader}>
             <div>
               <span className={styles.caseStudyTag}>Product surfaces</span>
-              <h2>Designed around the moments where complex chart tools usually lose people.</h2>
+              <h2>Designed around the moments where complex chart tools lose people.</h2>
             </div>
             <p>
               The product separates input, summary, technical chart detail, relationship comparison,
@@ -327,7 +327,7 @@ export default function NatalChartsCaseStudyPage() {
           <div className={brandStyles.brandAssetsHeader}>
             <div>
               <span className={styles.caseStudyTag}>Brand assets</span>
-              <h2>Share-ready art and compact iconography.</h2>
+              <h2>A clearer identity across the product.</h2>
             </div>
             <p>
               Natal Charts now has a dedicated share image and icon mark, so the product reads clearly in link

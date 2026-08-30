@@ -133,7 +133,7 @@ export default function FeltWeatherCaseStudyPage() {
               <h1 className={styles.productHeroTitle}>Felt Weather</h1>
               <p className={styles.productHeroSubtitle}>
                 When people plan around weather using only official readings, the risk is missing how
-                conditions actually feel nearby. Flat18 combined forecasts with local public signals and
+                conditions feel locally. Flat18 combined forecasts with local public signals and
                 an explainable felt score so users can judge a location with more context.
               </p>
               <div className={styles.productHeroActions}>

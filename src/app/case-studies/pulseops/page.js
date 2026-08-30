@@ -54,7 +54,7 @@ const journeySteps = [
     eyebrow: '02 / Product shape',
     title: 'We shaped PulseOps around inventory, telemetry, topology, and device action.',
     copy:
-      'Instead of treating monitoring as one big dashboard, we broke the work into the moments operators actually need: find the device, check the state, inspect the map, and act with confidence.',
+      'Instead of treating monitoring as one big dashboard, we broke the work into four useful actions: find the device, check the state, inspect the map, and act with confidence.',
     mediaIndex: 0
   },
   {
@@ -195,7 +195,7 @@ export default function PulseOpsCaseStudyPage() {
         <div className={styles.container}>
           <div className={styles.productSectionIntro}>
             <span className={styles.caseStudyTag}>Development journey</span>
-            <h2>From a visibility gap to a command centre operators can actually run.</h2>
+            <h2>From a visibility gap to a command centre operators can run.</h2>
             <p>
               Flat18 treated PulseOps as a product story problem. Small operators needed one place to
               check inventory, health, topology, history, and next actions without carrying enterprise

@@ -127,6 +127,56 @@
   align-items: stretch;
 }
 
+.auditOffer {
+  display: grid;
+  grid-column: 1 / -1;
+  grid-template-columns: minmax(0, 1.2fr) minmax(12rem, .55fr) auto;
+  gap: 1.5rem 2rem;
+  align-items: center;
+  padding: clamp(1.35rem, 2.4vw, 2rem);
+  border: 1px solid var(--border-soft);
+  background: var(--surface-dim);
+}
+
+.auditOfferCopy {
+  display: grid;
+  gap: .55rem;
+}
+
+.auditOfferTitle {
+  margin: 0;
+  color: var(--fg);
+  font-family: var(--font-heading);
+  font-size: clamp(1.5rem, 2.4vw, 2.1rem);
+  font-weight: 650;
+  line-height: 1.05;
+}
+
+.auditOfferCopy p,
+.auditOfferDetails span {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: .9rem;
+  line-height: 1.5;
+}
+
+.auditOfferDetails {
+  display: grid;
+  gap: .35rem;
+}
+
+.auditOfferDetails strong {
+  color: var(--fg);
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  line-height: 1;
+}
+
+.auditOffer :global(.btn) {
+  justify-self: end;
+  white-space: nowrap;
+}
+
 .projectRouteCard {
   display: flex;
   flex-direction: column;
@@ -710,6 +760,15 @@ p.monthlyTerms{
     grid-template-columns: 1fr;
   }
 
+  .auditOffer {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  .auditOffer :global(.btn) {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
   .orderPanel {
     grid-template-columns: 1fr;
   }
@@ -734,6 +793,16 @@ p.monthlyTerms{
 
   .sectionDescription {
     margin-left: 0;
+  }
+
+  .auditOffer {
+    grid-template-columns: 1fr;
+  }
+
+  .auditOffer :global(.btn) {
+    grid-column: auto;
+    grid-row: auto;
+    justify-self: start;
   }
 
   .currencyToolbar {

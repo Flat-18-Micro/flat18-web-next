@@ -1,6 +1,7 @@
 import Footer from '@/components/Footer'
 import Contact from '@/components/Contact'
 import Breadcrumbs from '@/components/Breadcrumbs'
+import TinyAuditCta from '@/components/TinyAuditCta'
 import styles from '@/styles/component-css/PageStyles.module.css'
 
 export default function AiAugmentedDevelopmentPage() {
@@ -38,6 +39,7 @@ export default function AiAugmentedDevelopmentPage() {
           </div>
         </div>
       </section>
+      <TinyAuditCta source="ai-augmented-development" />
       <Contact />
       <Footer />
     </main>

@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect, useCallback } from 'react'
+import Link from 'next/link'
 import ChatCtaLink from '@/components/ChatCtaLink'
 import TitleWords from '@/components/TitleWords'
 import styles from '../styles/component-css/Pricing.module.css'
@@ -9,6 +10,8 @@ import { getSectionBackground, getSectionTextColor } from '@/hooks/scrollBackgro
 import {
   BASE_PRICES,
   PROJECT_PRICE,
+  TINY_AUDIT_PRICE,
+  TINY_AUDIT_TIMELINE,
   SUBSCRIPTION_PROMO,
   applySubscriptionPromo,
   formatBTC,
@@ -495,6 +498,19 @@ export default function Pricing({ headingLevel = 'h2' }) {
               {MONTHLY_ROUTE.cta}
             </ChatCtaLink>
                           <p className={styles.monthlyTerms}>Pause or resume any month.<br></br>Discount is available for retainer commitments.</p>
+          </article>
+
+          <article className={styles.auditOffer}>
+            <div className={styles.auditOfferCopy}>
+              <span className={styles.projectKicker}>Fixed-scope review</span>
+              <TitleWords as="h3" className={styles.auditOfferTitle}>Tiny Audit</TitleWords>
+              <p>For a rough MVP, early product or AI-built prototype that needs a clearer next move.</p>
+            </div>
+            <div className={styles.auditOfferDetails}>
+              <strong><PriceDisplay amount={TINY_AUDIT_PRICE} showCrypto={false} /></strong>
+              <span>Fixed fee · {TINY_AUDIT_TIMELINE}</span>
+            </div>
+            <Link href="/tiny-audit" className="btn btn-secondary">See what&rsquo;s included</Link>
           </article>
         </div>
 

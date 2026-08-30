@@ -82,7 +82,7 @@ const journeySteps = [
     eyebrow: '02 / The product shape',
     title: 'We shaped the platform around distinct manager, client, and admin journeys.',
     copy:
-      'The core job was not to build another generic portal. It was to give each role the screens and state they actually need, while keeping approvals, identity checks, and portfolio data tied to the same operating model.',
+      'The core job was not to build another generic portal. It was to give each role the screens and state they need, while keeping approvals, identity checks, and portfolio data tied to the same operating model.',
     mediaIndex: 0,
   },
   {
@@ -276,7 +276,7 @@ export default function ArchimedesFinanceCaseStudyPage() {
           <div className={styles.productShowcaseHeader}>
             <div>
               <span className={styles.caseStudyTag}>Product surfaces</span>
-              <h2>Designed around the moments where investment products usually get stuck.</h2>
+              <h2>Designed around the moments where investment products get stuck.</h2>
             </div>
             <p>
               Archimedes is not a generic portal with a finance label. Each surface helps the team make a
