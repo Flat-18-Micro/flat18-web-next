@@ -39,7 +39,7 @@ export default function Hero() {
           </TitleWords>
 
           <p className={styles.heroSubheading}>
-            Flat 18 helps founders turn rough or AI-built prototypes into clear, maintainable production software — from first audit to launch and ongoing support.
+            We bring product thinking, design and senior engineering to rough or AI-built prototypes — making them ready to launch, learn from and improve.
           </p>
 
           <HeroActions />
