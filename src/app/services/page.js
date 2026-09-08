@@ -4,6 +4,7 @@ import Breadcrumbs from '@/components/Breadcrumbs'
 import styles from '@/styles/component-css/PageStyles.module.css'
 import contactStyles from '@/styles/component-css/Contact.module.css'
 import Features from '@/components/Features'
+import ApprovedClientProof from '@/components/ApprovedClientProof'
 
 export default function AiSeededDesignPage() {
   return (
@@ -12,6 +13,9 @@ export default function AiSeededDesignPage() {
         <Breadcrumbs />
         <div className={styles.backgroundGradient}></div>
         <Features containerClassName={contactStyles.container} />
+        <div className={styles.container}>
+          <ApprovedClientProof compact />
+        </div>
       </section>
       <Contact />
       <Footer />

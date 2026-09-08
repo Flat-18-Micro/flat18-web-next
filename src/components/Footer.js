@@ -37,6 +37,9 @@ export default function Footer() {
                   <a href="https://github.com/vswee" className={styles.socialLink} target="_blank" rel="noopener noreferrer" aria-label="GitHub">
                     <i className="bi bi-github" aria-hidden="true"></i>
                   </a>
+                  <a href="https://uk.linkedin.com/in/edward-sinaswee-4446b533" className={styles.socialLink} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn — Ed Sinaswee">
+                    <i className="bi bi-linkedin" aria-hidden="true"></i>
+                  </a>
                   <a href="https://t.me/flat18_bot" className={styles.socialLink} target="_blank" rel="noopener noreferrer" aria-label="Telegram">
                     <i className="bi bi-telegram" aria-hidden="true"></i>
                   </a>

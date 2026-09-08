@@ -3,6 +3,7 @@ import Contact from '@/components/Contact'
 import Breadcrumbs from '@/components/Breadcrumbs'
 import TinyAuditCta from '@/components/TinyAuditCta'
 import styles from '@/styles/component-css/PageStyles.module.css'
+import ApprovedClientProof from '@/components/ApprovedClientProof'
 
 export default function AppDevelopmentPage() {
   return (
@@ -39,6 +40,9 @@ export default function AppDevelopmentPage() {
                 <li>Deployment, documentation and handover</li>
                 <li>A practical next-step roadmap</li>
               </ul>
+
+              <h2>Approved client evidence</h2>
+              <ApprovedClientProof compact />
 
               <h2>How the sprint works</h2>
               <ol>

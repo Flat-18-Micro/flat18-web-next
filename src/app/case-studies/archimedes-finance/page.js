@@ -8,6 +8,7 @@ import Contact from '@/components/Contact'
 import Footer from '@/components/Footer'
 import styles from '@/styles/component-css/CaseStudies.module.css'
 import CaseStudyMediaFlow from '@/components/CaseStudyMediaFlow'
+import ApprovedClientProof from '@/components/ApprovedClientProof'
 
 const mediaItems = [
   {
@@ -226,6 +227,8 @@ export default function ArchimedesFinanceCaseStudyPage() {
           </div>
         </div>
       </section>
+
+      <ApprovedClientProof clientId="archimedes-finance" />
 
       <section id="story" className={styles.productStorySection}>
         <div className={styles.container}>

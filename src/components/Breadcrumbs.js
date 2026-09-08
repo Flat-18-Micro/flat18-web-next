@@ -73,9 +73,11 @@ export default function Breadcrumbs() {
   // Skip rendering breadcrumbs on homepage
   if (pathname === '/') return null
 
+  const alignsToParentContainer = pathname.startsWith('/selected-work/')
+
   return (
     <nav aria-label="Breadcrumb" className={styles.breadcrumbs}>
-      <div className={`container ${styles.breadBin}`}>
+      <div className={`${styles.breadBin} ${alignsToParentContainer ? styles.breadBinInParent : 'container'}`}>
         <ol className={styles.breadcrumbsList}>
           {breadcrumbItems.map((item, index) => {
             const isLast = index === breadcrumbItems.length - 1

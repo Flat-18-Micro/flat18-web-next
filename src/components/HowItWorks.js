@@ -10,7 +10,7 @@ const STAGES = [
   {
     number: '01',
     title: 'Scope',
-    description: 'We turn the idea into a buildable plan.',
+    description: 'We agree the goal, scope and technical decisions before building.',
     details: 'Goal · users · workflows · risks',
     accent: '#6f8fff',
     lines: [
@@ -26,7 +26,7 @@ const STAGES = [
   {
     number: '02',
     title: 'Draft',
-    description: 'LLMs help produce fast UI, code and documentation options.',
+    description: 'We use AI to explore options quickly, then choose and refine what fits.',
     details: 'Interface · code · content · docs',
     accent: '#b28aff',
     lines: [
@@ -48,7 +48,7 @@ const STAGES = [
   {
     number: '03',
     title: 'Build',
-    description: 'Senior developers shape, test and connect the product.',
+    description: 'Senior developers build and test the interfaces, data and integrations.',
     details: 'Frontend · backend · data · integrations',
     accent: '#63c6aa',
     lines: [
@@ -70,7 +70,7 @@ const STAGES = [
   {
     number: '04',
     title: 'Review',
-    description: 'We check quality, security and release readiness.',
+    description: 'We check permissions, security and release readiness, then hand over the code.',
     details: 'Quality · security · release · handover',
     accent: '#d6aa6d',
     lines: [
@@ -296,20 +296,6 @@ export default function HowItWorks() {
           </div>
         </div>
 
-        <div className={styles.processBottom}>
-          <div className={styles.ctaContent}>
-            <TitleWords as="h3">Fast output. Senior review.</TitleWords>
-            <p>Nothing reaches release as raw AI output.</p>
-          </div>
-          <a
-            href="#contact"
-            className="btn btn-primary"
-            data-cta-source="process"
-            data-signal-label="process_start_a_project"
-          >
-            Start a project
-          </a>
-        </div>
       </div>
     </section>
   )

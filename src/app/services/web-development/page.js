@@ -4,6 +4,7 @@ import Breadcrumbs from '@/components/Breadcrumbs'
 import Link from 'next/link'
 import TinyAuditCta from '@/components/TinyAuditCta'
 import styles from '@/styles/component-css/PageStyles.module.css'
+import ApprovedClientProof from '@/components/ApprovedClientProof'
 
 // Metadata is now handled in layout.js
 
@@ -52,6 +53,9 @@ export default function WebDevelopmentPage() {
                 <li><strong>Harden:</strong> test the product, tighten performance and document the important decisions.</li>
                 <li><strong>Launch:</strong> deploy, monitor and hand over with a clear support plan.</li>
               </ol>
+
+              <h2>Approved client evidence</h2>
+              <ApprovedClientProof compact />
 
               <h2>Relevant product builds</h2>
               <p>

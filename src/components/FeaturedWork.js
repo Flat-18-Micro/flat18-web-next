@@ -6,10 +6,7 @@ import Link from 'next/link'
 import ResponsiveImage from './ResponsiveImage'
 import TitleWords from '@/components/TitleWords'
 import { getSectionBackground, getSectionTextColor } from '@/hooks/scrollBackgroundUtils'
-import {
-  selectedWorkProjectBySlug,
-  selectedWorkProjects,
-} from '@/lib/selected-work-projects'
+import { selectedWorkProjectBySlug, selectedWorkProjects } from '@/lib/selected-work-projects'
 import styles from '../styles/component-css/FeaturedWork.module.css'
 
 const DEFAULT_FEATURED_PROJECTS = [

@@ -11,6 +11,7 @@ export type CaseStudySlug =
   | 'archimedes-finance'
   | 'btcpayserver'
   | 'f18-pay'
+  | 'platinum-points'
   | 'felt-weather'
   | 'forgingblock-dashboard'
   | 'forgingblock-website'
@@ -111,6 +112,14 @@ const caseStudySeoData: Record<CaseStudySlug, CaseStudySeoEntry> = {
       'payment request UX',
     ],
     about: ['Merchant payments', 'Checkout flow', 'Wallet management', 'Invoice workflow'],
+  },
+  'platinum-points': {
+    title: 'Selected work: Platinum Points',
+    description: 'A mobile-first shared rewards ledger that turns membership receipts into clear cardholder tallies and reconciled balances.',
+    path: '/selected-work/platinum-points',
+    image: '/images/case-studies/platinum-points/brand/og-platinum-points.png',
+    keywords: ['Platinum Points selected work', 'receipt OCR product', 'shared rewards ledger', 'responsive web app', 'product design'],
+    about: ['Receipt evidence', 'Shared ledger', 'On-device OCR', 'Spending insights'],
   },
   'felt-weather': {
     title: 'Selected work: Felt Weather',

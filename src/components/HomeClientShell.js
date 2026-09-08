@@ -1,8 +1,7 @@
 import dynamic from 'next/dynamic'
 import Hero from '@/components/Hero'
-import WhoThisIsForSection from '@/components/WhoThisIsForSection'
-import TrustSection from '@/components/TrustSection'
 import FeaturedWork from '@/components/FeaturedWork'
+import ApprovedClientProof from '@/components/ApprovedClientProof'
 import HowItWorks from '@/components/HowItWorks'
 import ScrollBackground from '@/components/ScrollBackground'
 import HashAnchorScroll from '@/components/HashAnchorScroll'
@@ -15,7 +14,6 @@ import styles from '@/styles/component-css/HomeClientShell.module.css'
 
 const Pricing     = dynamic(() => import('@/components/Pricing'))
 const Contact     = dynamic(() => import('@/components/Contact'))
-const FinalCTA    = dynamic(() => import('@/components/FinalCTA'))
 const Footer      = dynamic(() => import('@/components/Footer'))
 
 export default function HomeClientShell() {
@@ -24,7 +22,6 @@ export default function HomeClientShell() {
       <HashAnchorScroll />
       <ScrollBackground />
       <Hero />
-      <WhoThisIsForSection />
       <div className={styles.auditCta} aria-label="Tiny product audit">
         <div className={`${styles.auditCtaInner} max-w-content mx-auto px-6 sm:px-8`}>
           <span className={styles.auditCtaLabel}>Tiny audit</span>
@@ -38,11 +35,12 @@ export default function HomeClientShell() {
         </div>
       </div>
       <FeaturedWork />
-      <TrustSection />
-      <HowItWorks />
+      <ApprovedClientProof />
       <Pricing />
-      <Contact />
-      <FinalCTA />
+      <HowItWorks />
+      <div id="contact">
+        <Contact source="homepage" />
+      </div>
       <Footer />
     </div>
   )

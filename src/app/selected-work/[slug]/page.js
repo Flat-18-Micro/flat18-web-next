@@ -11,6 +11,7 @@ import IpGeoPage from '@/app/case-studies/ipgeo/page'
 import LedgerPage from '@/app/case-studies/ledger/page'
 import NatalChartsPage from '@/app/case-studies/natal-charts/page'
 import PulseOpsPage from '@/app/case-studies/pulseops/page'
+import PlatinumPointsPage from '@/app/case-studies/platinum-points/page'
 import SignalMapPage from '@/app/case-studies/signalmap/page'
 import SocialPublisherPage from '@/app/case-studies/social-publisher/page'
 import SMPPage from '@/app/case-studies/smp/page'
@@ -35,6 +36,7 @@ const pageMap = {
   ledger: LedgerPage,
   'natal-charts': NatalChartsPage,
   pulseops: PulseOpsPage,
+  'platinum-points': PlatinumPointsPage,
   signalmap: SignalMapPage,
   'social-publisher': SocialPublisherPage,
   smp: SMPPage,

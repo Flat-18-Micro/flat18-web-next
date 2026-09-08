@@ -1,12 +1,15 @@
 'use client'
 
 import Image from 'next/image'
-import { useState } from 'react'
+import Link from 'next/link'
+import { useEffect, useState } from 'react'
 import Breadcrumbs from '@/components/Breadcrumbs'
 import CaseStudyLightbox from '@/components/CaseStudyLightbox'
+import ChatCtaLink from '@/components/ChatCtaLink'
 import Contact from '@/components/Contact'
 import Footer from '@/components/Footer'
 import TinyAuditCta from '@/components/TinyAuditCta'
+import { analytics } from '@/lib/analytics'
 import styles from '@/styles/component-css/CaseStudies.module.css'
 import brandStyles from '@/styles/component-css/CaseStudyBrandAssets.module.css'
 import CaseStudyMediaFlow from '@/components/CaseStudyMediaFlow'
@@ -191,6 +194,10 @@ const brandAssets = [
 
 export default function SignalMapCaseStudyPage() {
   const [lightboxIndex, setLightboxIndex] = useState(null)
+
+  useEffect(() => {
+    analytics.work.caseStudyView('signalmap')
+  }, [])
 
   const openLightbox = (index) => setLightboxIndex(index)
   const closeLightbox = () => setLightboxIndex(null)
@@ -513,12 +520,17 @@ export default function SignalMapCaseStudyPage() {
               </p>
             </div>
             <div className={styles.ctaActions}>
-              <a href="#chat" className="btn btn-primary">
-                Chat with us
-              </a>
-              <a href="mailto:hello@flat18.co.uk" className="btn btn-secondary">
-                Email hello@flat18.co.uk
-              </a>
+              <ChatCtaLink
+                className="btn btn-primary"
+                source="case-study:signalmap"
+                signalLabel="case_study_signalmap_product_build"
+                variant="icon"
+              >
+                Plan a product build
+              </ChatCtaLink>
+              <Link href="/services/app-development" className="btn btn-secondary">
+                Explore MVP development
+              </Link>
             </div>
           </div>
         </div>

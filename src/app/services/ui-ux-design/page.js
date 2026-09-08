@@ -4,6 +4,7 @@ import Breadcrumbs from '@/components/Breadcrumbs'
 import Link from 'next/link'
 import TinyAuditCta from '@/components/TinyAuditCta'
 import styles from '@/styles/component-css/PageStyles.module.css'
+import ApprovedClientProof from '@/components/ApprovedClientProof'
 
 export default function UiUxDesignPage() {
   return (
@@ -41,6 +42,9 @@ export default function UiUxDesignPage() {
                 <li>Responsive, accessible screen designs and edge states</li>
                 <li>Developer-ready files, notes and ongoing design support</li>
               </ul>
+
+              <h2>Approved client evidence</h2>
+              <ApprovedClientProof compact />
 
               <h2>How we work</h2>
               <ol>

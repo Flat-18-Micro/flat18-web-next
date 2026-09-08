@@ -1,12 +1,15 @@
 'use client'
 import Image from 'next/image'
-import { useState } from 'react'
+import Link from 'next/link'
+import { useEffect, useState } from 'react'
 import Breadcrumbs from '@/components/Breadcrumbs'
 import CaseStudyLightbox from '@/components/CaseStudyLightbox'
 import CaseStudyMediaFlow from '@/components/CaseStudyMediaFlow'
+import ChatCtaLink from '@/components/ChatCtaLink'
 import Contact from '@/components/Contact'
 import Footer from '@/components/Footer'
 import TinyAuditCta from '@/components/TinyAuditCta'
+import { analytics } from '@/lib/analytics'
 import styles from '@/styles/component-css/CaseStudies.module.css'
 import brandStyles from '@/styles/component-css/CaseStudyBrandAssets.module.css'
 import { socialPublisherBrandAssets } from '@/lib/social-publisher-assets'
@@ -77,14 +80,14 @@ const journeySteps = [
 
 const proofPoints = [
   {
-    value: '4+',
-    label: 'Channel types planned',
+    value: 'Channel-aware',
+    label: 'Publishing',
     detail: 'Bluesky, X, LinkedIn, Google Business Profile and room for more.'
   },
   {
-    value: '98%',
-    label: 'Queue confidence modelled',
-    detail: 'Validation, auth checks, quota signals and retry states surfaced before dispatch.'
+    value: 'Pre-flight',
+    label: 'Queue checks',
+    detail: 'Validation, connection, quota signals and retry states are surfaced before dispatch.'
   },
   {
     value: 'BYO AI',
@@ -121,6 +124,10 @@ const brandAssets = [
 
 export default function SocialPublisherCaseStudyPage() {
   const [lightboxIndex, setLightboxIndex] = useState(null)
+
+  useEffect(() => {
+    analytics.work.caseStudyView('social_publisher')
+  }, [])
 
   const openLightbox = (index) => setLightboxIndex(index)
   const closeLightbox = () => setLightboxIndex(null)
@@ -463,12 +470,17 @@ export default function SocialPublisherCaseStudyPage() {
               </p>
             </div>
             <div className={styles.ctaActions}>
-              <a href="#chat" className="btn btn-primary">
-                Chat with us
-              </a>
-              <a href="mailto:hello@flat18.co.uk" className="btn btn-secondary">
-                Email hello@flat18.co.uk
-              </a>
+              <ChatCtaLink
+                className="btn btn-primary"
+                source="case-study:social-publisher"
+                signalLabel="case_study_social_publisher_product_build"
+                variant="icon"
+              >
+                Plan a product build
+              </ChatCtaLink>
+              <Link href="/services/app-development" className="btn btn-secondary">
+                Explore MVP development
+              </Link>
             </div>
           </div>
         </div>

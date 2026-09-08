@@ -8,6 +8,7 @@ import Contact from '@/components/Contact'
 import Footer from '@/components/Footer'
 import styles from '@/styles/component-css/CaseStudies.module.css'
 import CaseStudyMediaFlow from '@/components/CaseStudyMediaFlow'
+import ApprovedClientProof from '@/components/ApprovedClientProof'
 
 const mediaItems = [
   {
@@ -205,6 +206,8 @@ export default function BTCPayServerCaseStudyPage() {
           </div>
         </div>
       </section>
+
+      <ApprovedClientProof clientId="btcpayserver" />
 
       <section id="story" className={styles.productStorySection}>
         <div className={styles.container}>

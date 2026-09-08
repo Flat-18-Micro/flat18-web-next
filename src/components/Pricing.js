@@ -433,7 +433,7 @@ export default function Pricing({ headingLevel = 'h2' }) {
                 <span className={styles.projectKicker}>Per project</span>
               </div>
               <TitleWords as="h3" className={styles.projectRouteTitle}>Curated MVP Sprint</TitleWords>
-              <p className={styles.planSubtitle}>For focused first versions with a clear route from scope to handover.</p>
+              <p className={styles.planSubtitle}>For a first release or a focused improvement to an existing product. We agree what to build, then take it through to handover.</p>
               <div className={styles.projectPriceBlock}>
                 <span className={styles.startingAt}>Starting at</span>
                 <strong><PriceDisplay amount={PROJECT_PRICE} /></strong>
@@ -467,7 +467,7 @@ export default function Pricing({ headingLevel = 'h2' }) {
                 <TitleWords as="h3" className={styles.planTitle}>{MONTHLY_ROUTE.title}</TitleWords>
                 {promoActive ? <span className={styles.salePill}>{promoLabel}</span> : null}
               </div>
-              <p className={styles.monthlyDescription}>{MONTHLY_ROUTE.description}</p>
+              <p className={styles.monthlyDescription}>{headingLevel === 'h1' ? MONTHLY_ROUTE.description : 'For a growing backlog or a team that needs senior product and engineering support. We prioritise, build and improve with you.'}</p>
             </div>
 
             <ul className={styles.monthlyHighlights}>
@@ -498,6 +498,29 @@ export default function Pricing({ headingLevel = 'h2' }) {
               {MONTHLY_ROUTE.cta}
             </ChatCtaLink>
                           <p className={styles.monthlyTerms}>Pause or resume any month.<br></br>Discount is available for retainer commitments.</p>
+          </article>
+
+          <article className={styles.productBuildOffer}>
+            <div className={styles.productBuildOfferCopy}>
+              <span className={styles.projectKicker}>For a larger launch</span>
+              <TitleWords as="h3" className={styles.productBuildOfferTitle}>Complete Product Build</TitleWords>
+              <p>
+                For a prototype that needs to become a dependable product, or a larger launch that needs design and senior engineering.
+                We&rsquo;ll agree the scope, delivery plan and price before work begins.
+              </p>
+            </div>
+            <div className={styles.productBuildOfferDetails}>
+              <strong>Scope first</strong>
+              <span>A written plan before a larger commitment.</span>
+            </div>
+            <ChatCtaLink
+              className="btn btn-secondary"
+              source="pricing:product-build"
+              signalLabel="pricing_product_build"
+              variant="icon"
+            >
+              Plan a product build
+            </ChatCtaLink>
           </article>
 
           <article className={styles.auditOffer}>
