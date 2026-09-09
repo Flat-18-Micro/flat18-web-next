@@ -117,7 +117,7 @@ export default function ApprovedClientProof({ compact = false, clientId = null, 
             {clientId
               ? activeTestimonial.context
               : showDraftTestimonials
-              ? 'A preview of six priority testimonials. Draft wording stays local until each client approves it.'
+              ? 'Selected feedback from clients, collaborators and product users.'
               : 'Selected feedback from clients, collaborators, and product users.'}
           </p>
         </div>
