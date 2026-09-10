@@ -277,3 +277,27 @@ Target: at least five genuine human replies or comments on Flat18’s posts per 
 | Google Business Profile | No publishing surface available | Not applicable | — | — |
 
 This is an early-day snapshot rather than a final daily result. The immediate priority is to create conversation-worthy prompts, reply quickly to any genuine responses, and invite thoughtful answers without using engagement bait or unsolicited direct messages.
+
+## Conversation post run — 9 September 2026
+
+### Campaign creative
+
+- Headline: **WHAT BREAKS AFTER THE DEMO?**
+- Supporting text: `flat18.co.uk`
+- Creative direction: one sunglasses-wearing cat at a desk, dressed as a relaxed millennial developer, with generous negative space and no logo or decorative clutter.
+- New source asset: `public/social/flat18-what-breaks-after-demo-landscape.png` at 1672 × 940 px. Intended for landscape feeds; preserve the headline and cat placement when exporting platform-specific crops.
+
+### Published
+
+- X (`@f18_dev`): published with the landscape graphic. X confirmed: “Your post was sent.”
+- Bluesky (`@f18-dev.bsky.social`): published with the landscape graphic, accessible alt text and the question-led copy. Bluesky confirmed: “Your post was sent.”
+- Meta Business Suite (`@flat18.co.uk` Instagram and linked Flat 18 destination): published with the landscape graphic and Instagram caption. Meta showed the completed publishing confirmation. The composer destination visibly included both linked Meta accounts.
+- LinkedIn (Flat18 company page): published the question-led copy successfully, but the browser upload control would not expose the local graphic picker. The company post therefore went live text-only; the post editor was otherwise successful.
+
+### Conversation copy
+
+The post asks which edge case taught the audience the most, with examples covering permissions, timeouts, duplicate webhooks and unexpected first-user behaviour. This is designed to invite genuine experience-sharing rather than prompt low-quality engagement or make a guaranteed-response claim.
+
+### Current target position
+
+The new posts are structured to support the target of five genuine human responses per platform each day, but that target cannot be guaranteed. Monitor replies and comments throughout the day, respond specifically to each person, and avoid repeating the same comment across unrelated posts.

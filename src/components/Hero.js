@@ -35,11 +35,11 @@ export default function Hero() {
       <div className={`${styles.heroContainer} max-w-7xl mx-auto px-6 sm:px-8`}>
         <div className={styles.heroContent}>
           <TitleWords as="h1" className={styles.heroHeading}>
-            Turn fast-built <span className={styles.heroSerifAccent}>prototypes</span> into products you can <span className={styles.heroSerifAccent}>trust</span>.
+            We turn <span className={styles.heroSerifAccent}>ideas</span> into <span className={styles.heroSerifAccent}>robust products</span> your users will love<span className={styles.heroHeart} aria-hidden="true"><svg viewBox="0 0 48 44" role="presentation"><path d="M24 40S4 28.2 4 14.8C4 8.8 8.3 4 14.1 4c4.3 0 7.8 2.7 9.9 6.2C26.1 6.7 29.6 4 33.9 4 39.7 4 44 8.8 44 14.8 44 28.2 24 40 24 40Z" /></svg></span>.
           </TitleWords>
 
           <p className={styles.heroSubheading}>
-            We bring product thinking, design and senior engineering to rough or AI-built prototypes — making them ready to launch, learn from and improve.
+            Designing and developing apps, websites and services — with 10+ years’ senior engineering experience and trusted, long-term client partnerships.
           </p>
 
           <HeroActions />
