@@ -76,11 +76,11 @@ export default function FeaturedWork() {
                     priority={index === 0}
                   />
 
-                  {project.projectLogo && (
+                  {project.featuredLogo && (
                     <div className={styles.featuredLogo}>
-                      {project.projectLogoUseNextImage ? (
+                      {project.featuredLogoUseNextImage ? (
                         <Image
-                          src={project.projectLogo}
+                          src={project.featuredLogo}
                           alt={project.projectLogoAlt || `${project.title} logo`}
                           width={40}
                           height={40}
@@ -89,7 +89,7 @@ export default function FeaturedWork() {
                         />
                       ) : (
                         <ResponsiveImage
-                          src={project.projectLogo}
+                          src={project.featuredLogo}
                           alt={project.projectLogoAlt || `${project.title} logo`}
                           width={40}
                           height={40}

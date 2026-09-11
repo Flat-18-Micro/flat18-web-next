@@ -7,6 +7,10 @@ import { workoutsBrandAssets } from '@/lib/workouts-assets'
 function project(record) {
   return {
     ...record,
+    // Keep preview cards consistent, even when a project has no bespoke card artwork.
+    featuredImage: record.featuredImage || record.image,
+    featuredLogo: record.featuredLogo || record.projectLogo,
+    featuredLogoUseNextImage: record.featuredLogoUseNextImage ?? record.projectLogoUseNextImage,
     href: `/selected-work/${record.slug}`,
   }
 }
@@ -76,7 +80,9 @@ export const selectedWorkProjects = [
     meta: ['Receipt evidence', 'Shared ledger'],
     featuredDescription: 'Turns shared rewards receipts into personal tallies, reconciliation and spending insight.',
     featuredOutcome: 'Made a shared Platinum membership easier to review, explain and divide fairly.',
-    featuredImage: '/images/case-studies/platinum-points/brand/og-platinum-points.png',
+    featuredImage: '/images/selected-work/platinum-points-device-scene-v2.png',
+    featuredLogo: '/images/case-studies/platinum-points/brand/brand-mark.png',
+    featuredLogoUseNextImage: true,
     projectLogo: '/images/case-studies/platinum-points/brand/brand-mark.png',
     projectLogoAlt: 'Platinum Points logo',
   }),

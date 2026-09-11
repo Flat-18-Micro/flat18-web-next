@@ -9,18 +9,18 @@ import { getSectionBackground, getSectionTextColor } from '@/hooks/scrollBackgro
 const PROOF_POINTS = [
   {
     icon: 'bi-code-slash',
-    title: 'Senior control',
-    text: 'Architecture, security and release stay in expert hands.',
+    title: 'Built with care',
+    text: 'Experienced developers guide the architecture, security and launch.',
   },
   {
     icon: 'bi-lightning-charge',
-    title: 'Weeks, not months',
-    text: 'LLMs speed up drafts, tests, docs and build decisions.',
+    title: 'From idea to launch',
+    text: 'Smart tools help us turn a clear brief into working software sooner.',
   },
   {
     icon: 'bi-box-arrow-up-right',
-    title: 'Code you own',
-    text: 'Repository, roadmap and technical decisions included.',
+    title: 'Ready for what’s next',
+    text: 'You keep the code, knowledge and control to grow your product.',
   },
 ]
 
