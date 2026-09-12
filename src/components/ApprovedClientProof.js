@@ -58,15 +58,6 @@ const testimonials = [
     context: 'Product and web work across several projects',
     status: 'Client feedback',
   },
-  {
-    id: 'zettahash',
-    approved: true,
-    name: 'Zettahash',
-    quote: 'Flat18 communicates clearly, understands technical product work and makes steady progress where it matters.',
-    attribution: 'Ed · EM of Development · Zettahash',
-    context: 'Web, product and supporting front-end work',
-    status: 'Stakeholder feedback',
-  },
 ]
 
 const showDraftTestimonials = process.env.NODE_ENV !== 'production'
