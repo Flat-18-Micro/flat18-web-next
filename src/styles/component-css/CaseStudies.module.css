@@ -904,3 +904,53 @@
   line-height: 1.4;
   text-transform: uppercase;
 }
+
+/* Keep case-page actions on the same Swiss button system as the selected-work index. */
+.productCasePage :global(.btn) {
+  border-radius: 0;
+  box-shadow: none;
+  letter-spacing: 0;
+  text-shadow: none;
+}
+
+.productCasePage :global(.btn:hover) {
+  text-shadow: none;
+}
+
+.productCasePage :global(.btn-primary) {
+  border: 1px solid var(--primary);
+  background: var(--primary);
+  color: var(--button-on-primary);
+}
+
+.productCasePage :global(.btn-primary:hover),
+.productCasePage :global(.btn-primary:focus) {
+  border-color: var(--secondary);
+  background: var(--secondary);
+  box-shadow: 0 16px 32px rgba(17, 16, 15, .16);
+}
+
+:global(html.dark) .productCasePage :global(.btn-primary:hover),
+:global(body.dark) .productCasePage :global(.btn-primary:hover),
+:global(html.dark) .productCasePage :global(.btn-primary:focus),
+:global(body.dark) .productCasePage :global(.btn-primary:focus) {
+  color: #10100f;
+  box-shadow: 0 18px 38px rgba(0, 0, 0, .35);
+}
+
+.productCasePage :global(.btn-secondary) {
+  border: 1px solid var(--button-border, var(--border-medium));
+  background: transparent;
+  color: var(--fg);
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+}
+
+.productCasePage :global(.btn-secondary:hover),
+.productCasePage :global(.btn-secondary:focus) {
+  background: var(--button-soft-hover, color-mix(in srgb, var(--fg) 5%, transparent));
+}
+
+.productCasePage :global(a:hover) {
+  text-shadow: none;
+}

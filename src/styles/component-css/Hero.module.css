@@ -1140,6 +1140,8 @@
   font-size: .78rem;
   font-weight: 600;
   line-height: 1.25;
+  white-space: nowrap;
+  border-radius: 4px;;
   animation: availabilityPulse 3.6s ease-in-out infinite;
   will-change: border-color, box-shadow;
 }

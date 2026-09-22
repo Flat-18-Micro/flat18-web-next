@@ -6,6 +6,13 @@ import styles from '@/styles/component-css/Hero.module.css'
 import orbPaletteStyles from '@/styles/component-css/HeroOrbPalette.module.css'
 import { getSectionBackground, getSectionTextColor } from '@/hooks/scrollBackgroundUtils'
 
+// Keep this deterministic across the server and browser while rolling into the next month.
+const now = new Date()
+const nextClientMonth = new Intl.DateTimeFormat('en-GB', {
+  month: 'long',
+  timeZone: 'UTC',
+}).format(new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth() + 1, 1)))
+
 export default function Hero() {
   return (
     <section
@@ -18,7 +25,7 @@ export default function Hero() {
       <div className={`${styles.heroContainer} max-w-7xl mx-auto px-6 sm:px-8`}>
         <div className={styles.heroContent}>
           <div className={styles.availabilityStatus} role="status">
-            <span>2 client spaces left</span>
+            <span>Bookings open for {nextClientMonth}</span>
           </div>
 
           <TitleWords as="h1" className={styles.heroHeading}>

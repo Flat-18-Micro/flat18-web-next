@@ -81,9 +81,15 @@
   text-decoration: none;
 }
 
-.featuredCard:focus-visible {
-  outline: 2px solid var(--secondary);
-  outline-offset: 6px;
+.featuredCard:focus,
+.featuredCard:focus-visible,
+.featuredCard:active {
+  outline: none;
+  box-shadow: none;
+}
+
+.featuredCard:focus-visible .featuredProjectTitle {
+  color: var(--secondary);
 }
 
 .featuredCard:hover .featuredCta,
