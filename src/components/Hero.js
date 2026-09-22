@@ -8,10 +8,11 @@ import { getSectionBackground, getSectionTextColor } from '@/hooks/scrollBackgro
 
 // Keep this deterministic across the server and browser while rolling into the next month.
 const now = new Date()
+const bookingCycleMonth = now.getUTCDate() >= 14 ? now.getUTCMonth() : now.getUTCMonth() - 1
 const nextClientMonth = new Intl.DateTimeFormat('en-GB', {
   month: 'long',
   timeZone: 'UTC',
-}).format(new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth() + 1, 1)))
+}).format(new Date(Date.UTC(now.getUTCFullYear(), bookingCycleMonth + 2, 1)))
 
 export default function Hero() {
   return (

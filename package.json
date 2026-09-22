@@ -2,6 +2,9 @@
   "name": "flat18",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "24.x"
+  },
   "scripts": {
     "dev": "node scripts/copy-bootstrap-icons.js && next dev",
     "build": "node scripts/copy-bootstrap-icons.js && npm run optimize-images && NODE_ENV=production npm run optimize-css && next build && node scripts/fix-asset-paths.js",
