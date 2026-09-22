@@ -24,6 +24,7 @@ const ChatwootWidget = dynamic(() => import('@/components/ChatwootWidget'), { ss
 const ServiceWorkerRegistration = dynamic(() => import('@/components/ServiceWorkerRegistration'), { ssr: false })
 const AnalyticsScripts = dynamic(() => import('@/components/AnalyticsScripts'), { ssr: false })
 const PointerConfetti = dynamic(() => import('@/components/PointerConfetti'), { ssr: false })
+const AgentCursor = dynamic(() => import('@/components/AgentCursor'), { ssr: false })
 
 export const metadata = defaultMetadata
 
@@ -88,6 +89,7 @@ export default function RootLayout({ children }) {
             {children}
           </ClientLayout>
           <PointerConfetti />
+          <AgentCursor />
           <Suspense fallback={null}>
             <ChatwootWidget />
           </Suspense>

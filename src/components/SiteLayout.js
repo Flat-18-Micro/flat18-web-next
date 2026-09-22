@@ -105,10 +105,13 @@ export default function SiteLayout({ children }) {
 
     wrapSectionTitles()
 
-    const setSectionState = (section, isInView) => {
+    const prepareSection = (section) => {
       section.classList.add('scrolled')
-      section.classList.toggle('scrolled-in', isInView)
-      section.classList.toggle('scrolled-out', !isInView)
+    }
+
+    const revealSection = (section) => {
+      prepareSection(section)
+      section.classList.add('scrolled-in')
     }
 
     const isInitiallyInView = (section) => {
@@ -116,20 +119,20 @@ export default function SiteLayout({ children }) {
       return rect.top < window.innerHeight * 0.85 && rect.bottom > 0
     }
 
-    sections.forEach((section) => {
-      setSectionState(section, isInitiallyInView(section))
-    })
+    sections.forEach(prepareSection)
 
     if (!('IntersectionObserver' in window)) {
-      sections.forEach((section) => setSectionState(section, true))
+      sections.forEach(revealSection)
       return
     }
 
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          const isInView = entry.intersectionRatio >= 0.15
-          setSectionState(entry.target, isInView)
+          if (!entry.isIntersecting || entry.intersectionRatio < 0.15) return
+
+          revealSection(entry.target)
+          observer.unobserve(entry.target)
         })
       },
       {
@@ -137,7 +140,14 @@ export default function SiteLayout({ children }) {
       }
     )
 
-    sections.forEach((section) => observer.observe(section))
+    sections.forEach((section) => {
+      if (isInitiallyInView(section)) {
+        revealSection(section)
+        return
+      }
+
+      observer.observe(section)
+    })
 
     const wrapTimeouts = [0, 120, 360].map((delay) => window.setTimeout(wrapSectionTitles, delay))
     const titleObserver = new MutationObserver(wrapSectionTitles)

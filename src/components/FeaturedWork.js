@@ -45,14 +45,19 @@ export default function FeaturedWork() {
     >
       <div className="container">
         <div className={styles.featuredHeading}>
-          <div>
-            <span className="label-uppercase">Work proof</span>
-            <TitleWords as="h2" className={styles.featuredTitle}>Work that proves it</TitleWords>
+          <div className={styles.featuredHeadingLead}>
+            <TitleWords as="h2" className={styles.featuredTitle}>From friction to something people can use</TitleWords>
           </div>
-          <p className={styles.featuredSubtitle}>Real products, thoughtfully built.</p>
+          <div className={styles.featuredHeadingAside}>
+            <p className={styles.featuredSubtitle}>A few products where the hard part was making the next decision clearer.</p>
+            <Link href="/selected-work" className={styles.featuredHeadingLink}>
+              Browse all work
+              <i className="bi bi-arrow-right" aria-hidden="true"></i>
+            </Link>
+          </div>
         </div>
 
-        <div className={styles.featuredGrid}>
+        <div className={styles.featuredList}>
           {featuredProjects.map((project, index) => {
             const image = project.featuredImage || project.image
 
@@ -65,61 +70,17 @@ export default function FeaturedWork() {
                 data-cta-source="featured-work"
                 data-signal-label={`featured_work_${project.slug.replace(/-/g, '_')}`}
               >
-                <div className={styles.featuredImageWrapper}>
-                  <Image
-                    src={image}
-                    alt={project.title}
-                    width={600}
-                    height={400}
-                    sizes="(max-width: 360px) 100vw, (max-width: 900px) 50vw, 33vw"
-                    className={styles.featuredImage}
-                    priority={index === 0}
-                  />
-
-                  {project.featuredLogo && (
-                    <div className={styles.featuredLogo}>
-                      {project.featuredLogoUseNextImage ? (
-                        <Image
-                          src={project.featuredLogo}
-                          alt={project.projectLogoAlt || `${project.title} logo`}
-                          width={40}
-                          height={40}
-                          className={styles.logoImage}
-                          priority={index === 0}
-                        />
-                      ) : (
-                        <ResponsiveImage
-                          src={project.featuredLogo}
-                          alt={project.projectLogoAlt || `${project.title} logo`}
-                          width={40}
-                          height={40}
-                          className={styles.logoImage}
-                          sizes="50px"
-                          widths={[120, 240, 360, 600, 1000]}
-                        />
-                      )}
-                    </div>
-                  )}
-                </div>
-
                 <div className={styles.featuredContent}>
-                  <div className={styles.featuredHeader}>
-                    <TitleWords as="h3" className={styles.featuredProjectTitle}>{project.title}</TitleWords>
-                  </div>
+                  <TitleWords as="h3" className={styles.featuredProjectTitle}>{project.title}</TitleWords>
+                  <p className={styles.featuredDescription}>{project.featuredDescription}</p>
 
                   <dl className={styles.featuredDetails}>
-                    <div className={styles.featuredDetailRow}>
-                      <dt className={styles.featuredDetailLabel}>Focus</dt>
-                      <dd className={styles.featuredDetailValue}>{project.featuredDescription}</dd>
-                    </div>
-
                     {project.proofPoints && (
                       <div className={styles.featuredDetailRow}>
                         <dt className={styles.featuredDetailLabel}>Evidence</dt>
                         <dd className={styles.featuredDetailValue}>{project.proofPoints.join(' · ')}</dd>
                       </div>
                     )}
-
                     <div className={styles.featuredDetailRow}>
                       <dt className={styles.featuredDetailLabel}>Outcome</dt>
                       <dd className={styles.featuredDetailValue}>{project.featuredOutcome}</dd>
@@ -127,9 +88,49 @@ export default function FeaturedWork() {
                   </dl>
 
                   <span className={styles.featuredCta}>
-                    View project
+                    Read the case study
                     <i className="bi bi-arrow-right" aria-hidden="true"></i>
                   </span>
+                </div>
+
+                <div className={styles.featuredVisual}>
+                  <div className={styles.featuredImageWrapper}>
+                    <Image
+                      src={image}
+                      alt={project.title}
+                      width={1000}
+                      height={680}
+                      sizes="(max-width: 768px) 100vw, 58vw"
+                      className={styles.featuredImage}
+                      priority={index === 0}
+                    />
+
+                    {project.featuredLogo && (
+                      <div className={styles.featuredLogo}>
+                        {project.featuredLogoUseNextImage ? (
+                          <Image
+                            src={project.featuredLogo}
+                            alt={project.projectLogoAlt || `${project.title} logo`}
+                            width={40}
+                            height={40}
+                            className={styles.logoImage}
+                            priority={index === 0}
+                          />
+                        ) : (
+                          <ResponsiveImage
+                            src={project.featuredLogo}
+                            alt={project.projectLogoAlt || `${project.title} logo`}
+                            width={40}
+                            height={40}
+                            className={styles.logoImage}
+                            sizes="50px"
+                            widths={[120, 240, 360, 600, 1000]}
+                          />
+                        )}
+                      </div>
+                    )}
+                  </div>
+                  <span className={styles.featuredCaption}>{String(index + 1).padStart(2, '0')} / Selected work / {project.tag}</span>
                 </div>
               </Link>
             )

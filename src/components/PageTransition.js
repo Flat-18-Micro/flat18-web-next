@@ -38,6 +38,7 @@ function isInternalRouteChange(event) {
 export default function PageTransition({ children }) {
   const pathname = usePathname()
   const [isNavigating, setIsNavigating] = useState(false)
+  const isHomeRoute = pathname === '/'
 
   useEffect(() => {
     const startTransition = (event) => {
@@ -60,7 +61,7 @@ export default function PageTransition({ children }) {
   }, [pathname])
 
   return (
-    <div className={`page-transition ${isNavigating ? 'is-navigating' : ''}`}>
+    <div className={`page-transition ${isNavigating ? 'is-navigating' : ''} ${isHomeRoute ? 'page-transition-home' : ''}`}>
       <div className="page-transition-view" key={pathname}>
         {children}
       </div>

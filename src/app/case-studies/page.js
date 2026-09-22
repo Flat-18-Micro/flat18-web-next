@@ -50,7 +50,7 @@ export default function CaseStudiesPage() {
           </div>
 
           <div className={styles.caseStudyList}>
-            {selectedWorkProjects.map((study) => (
+            {selectedWorkProjects.map((study, index) => (
               <Link
                 key={study.slug}
                 href={study.href}
@@ -65,16 +65,24 @@ export default function CaseStudiesPage() {
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     className={styles.caseStudyCardImage}
                   />
+                  <span className={styles.caseStudyCardIndex}>
+                    {String(index + 1).padStart(2, '0')} / Selected work
+                  </span>
                 </div>
                 <div className={styles.caseStudyCardContent}>
                   <span className={styles.caseStudyCardTag}>{study.tag}</span>
                   <h3 className={styles.caseStudyCardTitle}>{study.title}</h3>
-                  <p className={styles.caseStudyCardDescription}>{study.description}</p>
-                  <div className={styles.caseStudyCardMeta}>
-                    {study.meta.map((item) => (
-                      <span key={item} className={styles.caseStudyMetaItem}>{item}</span>
-                    ))}
-                  </div>
+                  <p className={styles.caseStudyCardDescription}>{study.featuredDescription || study.description}</p>
+                  <dl className={styles.caseStudyCardDetails}>
+                    <div className={styles.caseStudyCardDetail}>
+                      <dt>Evidence</dt>
+                      <dd>{study.proofPoints?.join(' · ') || study.meta.join(' · ')}</dd>
+                    </div>
+                    <div className={styles.caseStudyCardDetail}>
+                      <dt>Outcome</dt>
+                      <dd>{study.featuredOutcome || study.description}</dd>
+                    </div>
+                  </dl>
                   <span className={styles.caseStudyCardLink}>
                     Read case study
                     <i className="bi bi-arrow-right" aria-hidden="true"></i>

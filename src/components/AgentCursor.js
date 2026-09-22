@@ -6,23 +6,36 @@ import styles from '@/styles/component-css/AgentCursor.module.css'
 export default function AgentCursor() {
   const cursorRef = useRef(null)
   const restTimerRef = useRef(null)
+  const frameRef = useRef(null)
+  const pointRef = useRef({ x: 0, y: 0 })
 
   useEffect(() => {
     const cursor = cursorRef.current
     const finePointer = window.matchMedia('(pointer: fine)')
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)')
     if (!cursor || !finePointer.matches || reducedMotion.matches) return undefined
-    document.documentElement.classList.add('agent-cursor-active')
+    document.documentElement.classList.add(styles.cursorActive)
+
+    const renderCursor = () => {
+      frameRef.current = null
+      const { x, y } = pointRef.current
+      cursor.style.transform = `translate3d(${x}px, ${y}px, 0) rotate(-10deg)`
+    }
 
     const handleMove = (event) => {
+      pointRef.current = { x: event.clientX, y: event.clientY }
       cursor.dataset.resting = 'false'
-      cursor.style.transform = `translate3d(${event.clientX}px, ${event.clientY}px, 0) rotate(-10deg)`
       cursor.dataset.visible = 'true'
+
+      if (!frameRef.current) {
+        frameRef.current = window.requestAnimationFrame(renderCursor)
+      }
 
       window.clearTimeout(restTimerRef.current)
       restTimerRef.current = window.setTimeout(() => {
         cursor.dataset.resting = 'true'
-        cursor.style.transform = `translate3d(${event.clientX}px, ${event.clientY}px, 0) rotate(0deg)`
+        const { x, y } = pointRef.current
+        cursor.style.transform = `translate3d(${x}px, ${y}px, 0) rotate(0deg)`
       }, 120)
     }
 
@@ -35,7 +48,8 @@ export default function AgentCursor() {
 
     return () => {
       window.clearTimeout(restTimerRef.current)
-      document.documentElement.classList.remove('agent-cursor-active')
+      if (frameRef.current) window.cancelAnimationFrame(frameRef.current)
+      document.documentElement.classList.remove(styles.cursorActive)
       window.removeEventListener('pointermove', handleMove)
       window.removeEventListener('pointerdown', handleDown)
       window.removeEventListener('pointerup', handleUp)
