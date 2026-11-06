@@ -48,9 +48,10 @@ export default function RootLayout({ children }) {
         {/* ── Critical resource hints ── */}
         {/* Preload hero background image – discovered early, directly improves LCP */}
         <link rel="preload" as="image" href="/images/backdrops/bg01-dark.webp" type="image/webp" fetchPriority="high" />
-        {/* Preload the two most-used Inter weights so text renders without FOUT */}
+        {/* Preload the Inter weights used above the fold so text renders without FOUT */}
         <link rel="preload" as="font" type="font/woff2" crossOrigin="anonymous" href="/fonts/inter-v20-latin/inter-v20-latin-regular.woff2" />
         <link rel="preload" as="font" type="font/woff2" crossOrigin="anonymous" href="/fonts/inter-v20-latin/inter-v20-latin-500.woff2" />
+        <link rel="preload" as="font" type="font/woff2" crossOrigin="anonymous" href="/fonts/inter-v20-latin/inter-v20-latin-600.woff2" />
 
         {/* Bootstrap Icons: defer with media="print" trick to avoid render blocking */}
         <link rel="stylesheet" href="/bootstrap-icons/font/bootstrap-icons.css" media="print" />
